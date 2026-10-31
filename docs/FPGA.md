@@ -31,13 +31,14 @@ Programs exceeding these finite resources cannot be assumed to run successfully.
 The current committed RTL, including the 8,192-value profile and shared
 floating-point arithmetic, passed the full official corpus with three memory
 wait states; the report below identifies its exact source and simulator hashes.
-The [prototype routing record](verification/fpga-routing.json) now contains a
+The [standard-build routing record](verification/fpga-routing.json) contains a
 completed, timing-verified bitstream for the same RTL: 58,892 of 83,640 logic
 cells (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks. The core meets its
 1 MHz constraint with a reported maximum of 3.24 MHz, and the bridge meets
 12.5 MHz. The bitstream survives unpacking and repacking with identical bytes.
-ABC9 mapping and static placement are now the default recipe; a fresh build of
-the integrated tooling is in progress. The mapped functional suite and a
+ABC9 mapping and static placement are the default recipe. A fresh
+`make fpga-bitstream` run reproduced the prototype bitstream byte for byte.
+The rebuilt native simulator is also identical to the full-suite-tested binary. The mapped functional suite and a
 comparison of the two mappings are also still running.
 Heap allocation is bounded and currently has no reclamation. Mapped-cell results
 apply to their recorded netlist and capacity profile; a changed mapping requires
