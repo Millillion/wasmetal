@@ -88,6 +88,14 @@ It uses Yosys' LUT, carry, RAM and flip-flop models. The unregistered 18-by-18 D
 multiplier model accepts only the configurations emitted by this flow; unexpected
 primitive types, DSP modes or connections fail the build.
 
+The control labels and call frames map to nine block RAMs. The `DP16KD` functional
+model accepts only the generated 512-by-36 pseudo-dual-port configuration, with
+rising-edge writes, falling-edge reads and nine-bit write enables. Its packing
+follows pinned Yosys' mapping and its behavior follows the
+[Lattice memory guide](https://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/EH/FPGA-TN-02204-1-6-ECP5-and-ECP5-5G-Memory-Usage-Guide.ashx?document_id=50466).
+`make test-ecp5-ram` compares mapped and inferred initialized storage in a four-state
+simulator. The timing report must also cover the CPU's half-cycle RAM paths.
+
 At execution-source revision `1abe5bc`, this mapped CPU passed fifteen official
 suites with three memory wait states: 6,438 execution assertions in the
 [scalar, GC and exception report](verification/ecp5-mapped.json), and 4,333 in
@@ -155,8 +163,8 @@ CPU reset during initialization.
 ## Next hardware stages
 
 Physical-board testing is still required. A practical standalone machine also
-needs buffered program loading, local memory and fetch controllers, stack storage
-in block RAM or external RAM, autonomous clocking, and a boot interface. Those
+needs buffered program loading, local memory and fetch controllers, larger operand
+storage in block RAM or external RAM, autonomous clocking, and a boot interface. Those
 changes need their own conformance runs and timing closure. An ASIC additionally
 requires a process/PDK, memories, I/O and clock/reset integration, physical design,
 signoff and fabrication; the FPGA bitstream is not an ASIC deliverable.

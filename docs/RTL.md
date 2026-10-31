@@ -35,6 +35,12 @@ reuse a lane datapath over sixteen output-byte cycles; SIMD floating-point
 operations reuse the scalar floating-point units. Descriptor RAM uses validity
 bits so reset does not require a flip-flop for every stored data bit.
 
+Control labels and saved call frames use packed synchronous block RAM. Their
+addresses depend on rising-edge state registers; the falling edge reads storage
+for the next rising edge. Both half-cycle paths must meet timing. Assertions
+compare every consumed read with the underlying storage. This preserves the
+instruction cycle count while reducing distributed memory and its routing load.
+
 The RTL now contains scalar integer and floating-point instructions, vector and
 relaxed-vector operations, structured control, direct/indirect/reference calls,
 tail calls, bulk memory/table operations, typed references, GC object operations,
@@ -85,6 +91,7 @@ make test
 make test-all
 make test-divider
 make test-simd test-popcount test-values test-descriptors
+make test-ecp5-ram
 make prove-masks
 python3 tools/prove_descriptors.py
 python3 tools/check_engine.py
@@ -113,6 +120,11 @@ induction checks descriptor reset elision and forwarding against fully reset
 reference storage at capacities 1, 13, 16 and 256; the 13-entry case also checks
 multi-bit words. These proofs are local properties, not a formal proof of the
 entire CPU.
+
+A four-state ECP5 block-RAM mapping test compares inferred storage with the
+restricted primitive model over 10,512 reads, including initialization, separate
+nine-bit write enables and read-after-write cases. Seven deliberately unsupported
+configurations verify the model's rejection checks.
 
 The old parallel integer-SIMD implementation remains an independent structural
 oracle and is not instantiated in the CPU. Expected Wasm results remain outside

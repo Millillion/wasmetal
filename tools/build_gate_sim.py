@@ -9,6 +9,7 @@ import re
 import subprocess
 
 import build_identity
+import ecp5_ram
 
 ROOT=Path(__file__).resolve().parent.parent
 
@@ -73,7 +74,7 @@ def main():
     if args.relink_only:
         relink(directory,netlist,parameters)
         return
-    supported={'LUT4','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF','MULT18X18D'}
+    supported={'LUT4','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF','MULT18X18D','DP16KD'}
     def parameter_text(value):
         # JSON appends a space to distinguish digit-only strings from bit vectors.
         if value.endswith(' '): return value[:-1]
@@ -82,6 +83,7 @@ def main():
         return value
     for name,cell in core['cells'].items():
         if cell['type'] not in supported: raise ValueError(f'unmodeled primitive {cell["type"]}')
+        if cell['type']=='DP16KD': ecp5_ram.check(cell)
         if cell['type']=='TRELLIS_FF':
             cell_parameters=cell['parameters']
             if 'M' not in cell['connections']:
@@ -125,6 +127,8 @@ def main():
     models += [f'wire signed [18:0] a={{SIGNEDA && A17,{concat("A",18)}}};',
                f'wire signed [18:0] b={{SIGNEDB && B17,{concat("B",18)}}};',
                'wire signed [37:0] product=a*b;',f'assign {concat("P",36)}=product[35:0];','endmodule']
+    if any(cell['type']=='DP16KD' for cell in core['cells'].values()):
+        models.append(ecp5_ram.model())
     (directory/'cells.v').write_text('\n'.join(models)+'\n')
     write_adapter(directory,parameters)
     # Scope generated-name and vendor-model warnings; structural warnings remain fatal.
@@ -136,7 +140,7 @@ def main():
     build_identity.begin(binary,'native')
     snapshot_path=Path(str(binary)+'.inputs.json')
     snapshot=json.loads(snapshot_path.read_text())
-    extras=[netlist,manifest_path,library,yosys,Path(__file__).resolve()]+list(directory.glob('*.v'))+list(directory.glob('*.vlt'))+[directory/'main.cpp',directory/'gate_config.hpp']
+    extras=[netlist,manifest_path,library,yosys,Path(__file__).resolve(),ROOT/'tools/ecp5_ram.py']+list(directory.glob('*.v'))+list(directory.glob('*.vlt'))+[directory/'main.cpp',directory/'gate_config.hpp']
     snapshot.update(backend='mapped-ecp5-functional',parameters=parameters,
                     extra_inputs={str(p.relative_to(ROOT)):digest(p) for p in extras})
     snapshot_path.write_text(json.dumps(snapshot,indent=2)+'\n')

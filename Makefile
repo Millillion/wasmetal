@@ -9,7 +9,7 @@ RTL := rtl/vendor.vlt $(wildcard rtl/*.sv) $(HARDFLOAT)
 # Unused port bits and arithmetic carry bits are intentional; all width,
 # latch, multiple-driver, and combinational-loop warnings remain fatal.
 VFLAGS := -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTIONS --top-module wasmetal_core -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV
-.PHONY: sim lint test test-all test-divider test-simd test-popcount test-values test-descriptors prove-masks synth fpga-sim fpga-smoke fpga-host fpga-core fpga-bitstream
+.PHONY: sim lint test test-all test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram prove-masks synth fpga-sim fpga-smoke fpga-host fpga-core fpga-bitstream
 sim: build/obj/Vwasmetal_core
 sim/core_config.hpp: $(RTL) $(wildcard third_party/hardfloat/source/*.vi) $(wildcard third_party/hardfloat/source/RISCV/*.vi) $(wildcard fpga/*.sv) fpga/ports.json fpga/profile.json tools/generate_fpga_ports.py
 	python3 tools/generate_fpga_ports.py
@@ -35,6 +35,8 @@ test-simd:
 	timeout 60s $(LOCAL_TOOLS)/usr/bin/vvp build/unit/simd.vvp
 test-popcount:
 	python3 tools/check_popcount.py
+test-ecp5-ram:
+	python3 tools/check_ecp5_ram.py
 test-values:
 	mkdir -p build/unit
 	$(LOCAL_TOOLS)/usr/bin/iverilog -B$(LOCAL_TOOLS)/usr/lib/x86_64-linux-gnu/ivl -g2012 -s values_tb -o build/unit/values.vvp rtl/wasmetal_values.sv tests/rtl/values_tb.sv

@@ -57,15 +57,15 @@ module wasmetal_core #(
     logic value_auxiliary,fifth_ready;
     wire [511:0] value_banks;
     wire [127:0] value_aux=value_banks[value_aux_index[1:0]*128+:128];
-    logic [31:0] labels_height [0:CONTROL_DEPTH-1];
-    logic [31:0] labels_pc [0:CONTROL_DEPTH-1];
-    logic [31:0] labels_arity [0:CONTROL_DEPTH-1];
-    logic labels_loop [0:CONTROL_DEPTH-1];
-    logic [31:0] labels_handlers [0:CONTROL_DEPTH-1], labels_handler_pc [0:CONTROL_DEPTH-1];
-    logic [31:0] frames_pc [0:CALL_DEPTH-1];
-    logic [31:0] frames_fp [0:CALL_DEPTH-1];
-    logic [31:0] frames_control [0:CALL_DEPTH-1];
-    logic [31:0] frames_results [0:CALL_DEPTH-1];
+    (* ram_style="block" *) logic [160:0] labels_memory [0:CONTROL_DEPTH-1];
+    (* ram_style="block" *) logic [127:0] frames_memory [0:CALL_DEPTH-1];
+    logic [160:0] label_read;
+    logic [127:0] frame_read;
+    wire [31:0] label_height,label_pc,label_arity,label_handlers,label_handler_pc;
+    wire label_loop;
+    wire [31:0] frame_pc,frame_fp,frame_control,frame_results;
+    assign {label_handler_pc,label_handlers,label_loop,label_arity,label_pc,label_height}=label_read;
+    assign {frame_results,frame_control,frame_fp,frame_pc}=frame_read;
     logic [5:0] descriptor_write;
     logic [31:0] descriptor_index,descriptor_read_a,descriptor_read_b;
     logic [128:0] descriptor_data;
@@ -375,6 +375,16 @@ module wasmetal_core #(
         begin value_write<=1; value_write_index<=index; value_write_data<=value; end
     endtask
 
+    // Control-stack addresses depend only on rising-edge state registers.
+    // Read on the falling edge so synchronous block RAM supplies the next
+    // rising edge without an extra instruction cycle. Both half-cycle paths
+    // must meet timing; the board clock leaves ample time on each edge.
+    wire [31:0] label_read_index=state==BRANCH ? label_index : control_sp-1;
+    always_ff @(negedge clk) begin
+        label_read <= labels_memory[label_read_index];
+        frame_read <= frames_memory[call_depth-1];
+    end
+
     always_ff @(posedge clk) begin
         if (reset) begin
             descriptor_write<=0; descriptor_index<=0; descriptor_data<=0;
@@ -430,10 +440,7 @@ module wasmetal_core #(
                         (call_kind == 2 ? fp : sp-function_params) > VALUE_DEPTH - (function_params + function_locals)) fail(T_EXHAUSTION);
                     else begin
                         if (call_kind == 1) begin
-                            frames_pc[call_depth] <= pc+1;
-                            frames_fp[call_depth] <= fp;
-                            frames_control[call_depth] <= control_base;
-                            frames_results[call_depth] <= result_arity;
+                            frames_memory[call_depth] <= {result_arity,control_base,fp,pc+32'd1};
                             call_depth <= call_depth+1;
                             callee_base <= sp-function_params;
                             state <= ENTER;
@@ -490,12 +497,11 @@ module wasmetal_core #(
                         'h02, 'h03, 'h04, 'h1f: begin
                             if (control_sp >= CONTROL_DEPTH) fail(T_EXHAUSTION);
                             else begin
-                                labels_height[control_sp] <= sp-insn_x-(insn_op == 'h04 ? 1 : 0);
-                                labels_pc[control_sp] <= insn_op == 'h03 ? pc+1 : insn_z+1;
-                                labels_arity[control_sp] <= insn_op == 'h03 ? insn_x : insn_y;
-                                labels_loop[control_sp] <= insn_op == 'h03;
-                                labels_handlers[control_sp] <= insn_op == 'h1f ? insn_w : 32'b0;
-                                labels_handler_pc[control_sp] <= insn_imm[31:0];
+                                labels_memory[control_sp] <= {insn_imm[31:0],
+                                    (insn_op == 'h1f ? insn_w : 32'b0), (insn_op == 'h03),
+                                    (insn_op == 'h03 ? insn_x : insn_y),
+                                    (insn_op == 'h03 ? pc+32'd1 : insn_z+32'd1),
+                                    (sp-insn_x-(insn_op == 'h04 ? 32'd1 : 32'd0))};
                                 control_sp <= control_sp+1;
                                 if (insn_op == 'h04) begin
                                     sp <= sp-1;
@@ -806,10 +812,10 @@ module wasmetal_core #(
                     if (pending_branch > control_sp-control_base) fail(T_IMAGE);
                     else if (pending_branch == control_sp-control_base) state <= RETURN_SETUP;
                     else begin
-                        copy_src <= sp-labels_arity[label_index]; copy_dst <= labels_height[label_index];
-                        copy_len <= labels_arity[label_index]; copy_pos <= 0;
-                        control_sp <= label_index+(labels_loop[label_index] ? 1 : 0);
-                        pc <= labels_pc[label_index]; copy_next <= EXECUTE; state <= COPY_VALUES;
+                        copy_src <= sp-label_arity; copy_dst <= label_height;
+                        copy_len <= label_arity; copy_pos <= 0;
+                        control_sp <= label_index+(label_loop ? 1 : 0);
+                        pc <= label_pc; copy_next <= EXECUTE; state <= COPY_VALUES;
                     end
                 end
                 COPY_VALUES: begin
@@ -825,8 +831,8 @@ module wasmetal_core #(
                 RETURN_RESTORE: begin
                     if (call_depth == 0) begin result_count <= result_arity; done <= 1; state <= IDLE; end
                     else begin
-                        pc <= frames_pc[call_depth-1]; fp <= frames_fp[call_depth-1];
-                        control_base <= frames_control[call_depth-1]; result_arity <= frames_results[call_depth-1];
+                        pc <= frame_pc; fp <= frame_fp;
+                        control_base <= frame_control; result_arity <= frame_results;
                         call_depth <= call_depth-1; state <= EXECUTE;
                     end
                 end
@@ -895,13 +901,13 @@ module wasmetal_core #(
                 EXN_SEARCH: begin
                     if(control_sp > control_base) begin
                         control_sp <= control_sp-1;
-                        if(labels_handlers[control_sp-1]!=0) begin
-                            sp <= labels_height[control_sp-1];
-                            pc <= labels_handler_pc[control_sp-1]; catch_left <= labels_handlers[control_sp-1]; state <= EXN_CHECK;
+                        if(label_handlers!=0) begin
+                            sp <= label_height;
+                            pc <= label_handler_pc; catch_left <= label_handlers; state <= EXN_CHECK;
                         end
                     end else if(call_depth!=0) begin
-                        sp <= fp; fp <= frames_fp[call_depth-1];
-                        control_base <= frames_control[call_depth-1]; result_arity <= frames_results[call_depth-1];
+                        sp <= fp; fp <= frame_fp;
+                        control_base <= frame_control; result_arity <= frame_results;
                         call_depth <= call_depth-1;
                     end else fail(13);
                 end
@@ -984,6 +990,15 @@ module wasmetal_core #(
         assert (control_base <= control_sp);
         if(value_write) assert(value_write_index<VALUE_DEPTH);
         if (mem_valid) assert (mem_bytes > 0 && mem_bytes <= 16);
+        // Compare each consumed registered read with the underlying storage.
+        // This catches a wrong edge or stale address independently of results.
+        if (state == BRANCH && pending_branch < control_sp-control_base)
+            assert (label_read == labels_memory[label_index]);
+        if (state == EXN_SEARCH && control_sp > control_base)
+            assert (label_read == labels_memory[control_sp-1]);
+        if (call_depth != 0 && (state == RETURN_RESTORE ||
+            (state == EXN_SEARCH && control_sp == control_base)))
+            assert (frame_read == frames_memory[call_depth-1]);
     end
 `endif
 endmodule
