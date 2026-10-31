@@ -138,6 +138,8 @@ public:
         auto word=[&](unsigned index) { unsigned p=4+index*4; return uint32_t(response[p])|(uint32_t(response[p+1])<<8)|(uint32_t(response[p+2])<<16)|(uint32_t(response[p+3])<<24); };
         if(response[2] || word(0)!=0x574d0001 || word(6)!=INPUT_BYTES || word(7)!=OUTPUT_BYTES || word(8)!=SCHEMA_ID)
             throw std::runtime_error("FPGA image protocol/schema mismatch");
+        for(unsigned n=0;n<4;n++) if(word(9+n)!=BUILD_WORDS[n])
+            throw std::runtime_error("FPGA image source fingerprint mismatch; load the matching bitstream");
         value_capacity=word(1); control_capacity=word(2); call_capacity=word(3); descriptor_capacity=word(4); heap_capacity=word(5);
     }
     void eval() {

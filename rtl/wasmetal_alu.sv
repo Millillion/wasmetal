@@ -9,6 +9,10 @@ module wasmetal_alu (
 );
     logic [31:0] a32, b32, r32;
     logic [63:0] r64;
+    wire [5:0] population32;
+    wire [6:0] population64;
+    wasmetal_popcount #(32) pop32(a[31:0],population32);
+    wasmetal_popcount #(64) pop64(a,population64);
     integer i;
     always_comb begin
         i = 0;
@@ -49,8 +53,7 @@ module wasmetal_alu (
                 result = {32'b0, r32}; unary_op = 1;
             end
             'h69: begin
-                for (i=0; i<32; i=i+1) r32 = r32 + {31'b0, a32[i]};
-                result = {32'b0, r32}; unary_op = 1;
+                result = {58'b0,population32}; unary_op = 1;
             end
             'h6a: begin r32 = a32+b32; result = {32'b0,r32}; end
             'h6b: begin r32 = a32-b32; result = {32'b0,r32}; end
@@ -74,8 +77,7 @@ module wasmetal_alu (
                 result = r64; unary_op = 1;
             end
             'h7b: begin
-                for (i=0; i<64; i=i+1) r64 = r64 + {63'b0,a[i]};
-                result = r64; unary_op = 1;
+                result = {57'b0,population64}; unary_op = 1;
             end
             'h7c: result = a+b;
             'h7d: result = a-b;

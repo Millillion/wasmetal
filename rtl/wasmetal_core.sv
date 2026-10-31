@@ -48,7 +48,7 @@ module wasmetal_core #(
         BR_TABLE, COPY_VALUES, RETURN_SETUP, RETURN_RESTORE,
         DIV_WAIT, MEMORY_WAIT, INDIRECT_WAIT, FP_WAIT, SIMD_FP_START, SIMD_FP_WAIT,
         BULK_STEP, BULK_READ_WAIT, BULK_WRITE_WAIT, GC_NEW_STEP, GC_NEW_WAIT,
-        EXN_SEARCH, EXN_CHECK, EXN_PAYLOAD, EXN_LOAD_WAIT
+        EXN_SEARCH, EXN_CHECK, EXN_PAYLOAD, EXN_LOAD_WAIT, SIMD_INT_WAIT
     } state_t;
     state_t state, copy_next;
     logic [127:0] values [0:VALUE_DEPTH-1];
@@ -86,6 +86,7 @@ module wasmetal_core #(
     logic [31:0] new_count, new_pop, new_tag;
     logic [32:0] new_heap_end;
     logic [65:0] gc_segment_end;
+    logic [2:0] gc_byte_shift;
     logic [127:0] fourth, fifth;
     logic [31:0] cast_heap_type;
     logic cast_nullable, cast_matches;
@@ -108,7 +109,7 @@ module wasmetal_core #(
     logic fp_supported, fp_unary, fp_done, fp_start;
     logic [63:0] fp_result;
     logic [7:0] fp_trap;
-    logic simd_int_supported;
+    logic simd_int_supported,simd_int_done;
     logic [2:0] simd_int_arity;
     logic [127:0] simd_int_result;
     logic simd_fp_supported, simd_source_wide, simd_result_wide, simd_phase, simd_active;
@@ -164,7 +165,18 @@ module wasmetal_core #(
         end else if (insn_op == 'hfb0007) new_pop=1;
         else if (insn_op == 'hfb0008) begin new_count=insn_y; new_pop=insn_y; end
         new_heap_end={1'b0,heap_next}+{1'b0,(new_count == 0 ? 32'd1 : new_count)};
-        gc_segment_end={34'b0,below[31:0]}+{34'b0,new_count}*(insn_op == 'hfb0009 ? {34'b0,insn_z}/8 : 66'd1);
+        // Valid packed/numeric array element widths are 8,16,32,64,128 bits.
+        // Keep the widened bound calculation without synthesizing a general
+        // 32-by-32 multiply for this power-of-two scale factor.
+        gc_byte_shift=0;
+        if(insn_op=='hfb0009 || insn_op=='hfb0012) case(insn_z[7:0])
+            16: gc_byte_shift=1;
+            32: gc_byte_shift=2;
+            64: gc_byte_shift=3;
+            128: gc_byte_shift=4;
+            default: gc_byte_shift=0;
+        endcase
+        gc_segment_end={34'b0,below[31:0]}+({34'b0,top[31:0]} << gc_byte_shift);
     end
     assign unary_input = insn_op == 'h45 || insn_op == 'h50 ||
         (insn_op >= 'h67 && insn_op <= 'h69) ||
@@ -189,7 +201,9 @@ module wasmetal_core #(
     wasmetal_fpu fpu(.clk(clk),.reset(reset),.start(fp_start),.op(fp_operation),
         .a(fp_a),.b(fp_b),.supported(fp_supported),
         .unary_op(fp_unary),.done(fp_done),.result(fp_result),.trap(fp_trap));
-    wasmetal_simd_int simd_integer(.op(insn_op),.lane(insn_x),.immediate(insn_imm),
+    wasmetal_simd_serial simd_integer(.clk(clk),.reset(reset),
+        .start(state==EXECUTE && insn_valid && simd_int_supported),.done(simd_int_done),
+        .op(insn_op),.lane(insn_x),.immediate(insn_imm),
         .a(insn_op[31:16]=='hfd ? (simd_int_arity == 1 ? top : simd_int_arity == 2 ? below : third) : 128'b0),
         .b(insn_op[31:16]=='hfd ? (simd_int_arity == 3 ? below : top) : 128'b0),.c(insn_op[31:16]=='hfd ? top : 128'b0),
         .supported(simd_int_supported),.arity(simd_int_arity),.result(simd_int_result));
@@ -402,10 +416,7 @@ module wasmetal_core #(
                         pc <= pc+1;
                     end else if (div_start) state <= DIV_WAIT;
                     else if (fp_supported) state <= FP_WAIT;
-                    else if (simd_int_supported) begin
-                        values[sp-{29'b0,simd_int_arity}] <= simd_int_result;
-                        sp <= sp-{29'b0,simd_int_arity}+1; pc <= pc+1;
-                    end
+                    else if (simd_int_supported) state<=SIMD_INT_WAIT;
                     else if (simd_fp_supported) begin
                         simd_accum <= 0; simd_lane <= 0; simd_phase <= 0; state <= SIMD_FP_START;
                     end
@@ -718,7 +729,7 @@ module wasmetal_core #(
                             if(fourth==0) fail(6);
                             else if(insn_y >= MEMORY_COUNT) fail(T_IMAGE);
                             else if({32'b0,third[31:0]}+{32'b0,top[31:0]} > {32'b0,fourth[63:32]}) fail(11);
-                            else if({34'b0,below[31:0]}+{34'b0,top[31:0]}*(insn_op=='hfb0012 ? {34'b0,insn_z}/8 : 66'd1) >
+                            else if(gc_segment_end >
                                 (insn_op=='hfb0012 ? {2'b0,data_size[insn_y]} : {2'b0,element_size[insn_y]}))
                                 fail(insn_op=='hfb0012 ? T_BOUNDS : 8'd5);
                             else begin
@@ -777,6 +788,10 @@ module wasmetal_core #(
                         if (!fp_unary) sp <= sp-1;
                         pc <= pc+1; state <= EXECUTE;
                     end
+                end
+                SIMD_INT_WAIT: if(simd_int_done) begin
+                    values[sp-{29'b0,simd_int_arity}] <= simd_int_result;
+                    sp <= sp-{29'b0,simd_int_arity}+1; pc <= pc+1; state<=EXECUTE;
                 end
                 SIMD_FP_START: state <= SIMD_FP_WAIT;
                 SIMD_FP_WAIT: if (fp_done) begin

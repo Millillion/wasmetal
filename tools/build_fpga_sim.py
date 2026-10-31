@@ -3,6 +3,7 @@
 from pathlib import Path
 import os
 import subprocess
+import build_identity
 
 ROOT=Path(__file__).resolve().parent.parent
 
@@ -17,7 +18,10 @@ def main():
           "-I"+str(vendor),"-I"+str(vendor/"RISCV"),"--cc","--exe","--build","-j","4",
           "--Mdir",str(ROOT/"build/uart-model"),"-CFLAGS","-std=c++17 -O3 -Wall -Wextra -Werror -DWASMETAL_FPGA -DWASMETAL_UART_MODEL"]
     args+=list(map(str,sources))+[str(ROOT/"sim/main.cpp")]
+    binary=ROOT/"build/uart-model/Vwasmetal_ulx3s"
+    build_identity.begin(binary,"uart")
     subprocess.run(args,cwd=ROOT,env=dict(os.environ,VERILATOR_ROOT=str(ROOT/".cache/tools/usr/share/verilator")),check=True)
+    build_identity.finish(binary)
 
 
 if __name__=="__main__":

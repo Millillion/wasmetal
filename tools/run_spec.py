@@ -149,10 +149,12 @@ class RTL:
         self.send(f"W {wait_states}")
         self.send("V")
         capabilities=self.receive()
-        if len(capabilities)!=6 or capabilities[0]!="CAPS":
+        if len(capabilities)!=7 or capabilities[0]!="CAPS":
             self.proc.terminate()
+            self.proc.wait()
             raise ExecutionError("simulator capability negotiation failed")
-        self.value_capacity,self.control_capacity,self.call_capacity,self.descriptor_capacity,self.heap_capacity=map(int,capabilities[1:])
+        self.value_capacity,self.control_capacity,self.call_capacity,self.descriptor_capacity,self.heap_capacity=map(int,capabilities[1:6])
+        self.build_id=capabilities[6]
 
     def install_spectest(self):
         path = ROOT / "build/spectest.wasm"
@@ -653,6 +655,10 @@ def main():
     args = parser.parse_args()
     if args.jobs < 1 or args.max_cycles < 1 or args.wait_states < 0:
         parser.error("jobs and cycle budget must be positive; wait states must be nonnegative")
+    import build_identity
+    build_manifest=build_identity.verify(args.simulator)
+    runner_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+                   for p in (ROOT/"tools/run_spec.py",ROOT/"tools/wasm_image.py")}
     official_source_hash = verify_official_sources()
     sources = sorted((SPEC / "test/core").rglob("*.wast"))
     if args.suite:
@@ -674,6 +680,8 @@ def main():
         converted = list(pool.map(convert, sources))
     # Create the shared, immutable standard test fixture before parallel workers.
     fixture = RTL(simulator=args.simulator)
+    capacities={name:getattr(fixture,name+"_capacity") for name in ("value","control","call","descriptor","heap")}
+    rtl_build_id=fixture.build_id
     fixture.install_spectest()
     fixture.close()
     def run_converted(item):
@@ -699,11 +707,21 @@ def main():
     for report in reports:
         totals.update(report["counts"])
     errors = any(totals[k] for k in ("failed", "unsupported", "conversion_errors", "blocked", "runner_errors"))
+    identity_error=None
+    try:
+        build_identity.verify(args.simulator)
+        for name,digest in runner_inputs.items():
+            if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
+                raise RuntimeError("test runner changed during execution")
+    except RuntimeError as error:
+        identity_error=str(error); errors=True
     complete = not args.suite and len(reports) == len(sources) and not errors
     result = {"spec": LOCK["spec"], "wasm_tools": LOCK["wasm_tools"]["version"],
               "suite_files": len(reports), "official_sources_sha256": official_source_hash,
               "full_core_suite_selected": not bool(args.suite), "full_core_suite_passed": complete,
               "source_sha256": source_hash.hexdigest(), "simulator_sha256": binary_hash,
+              "build_manifest":build_manifest,"runner_inputs":runner_inputs,
+              "rtl_build_id":rtl_build_id,"capacities":capacities,"identity_error":identity_error,
               "max_cycles_per_invocation": args.max_cycles, "memory_wait_states": args.wait_states,
               "elapsed_seconds": time.time()-started, "totals": dict(totals), "suites": reports}
     args.report.parent.mkdir(parents=True, exist_ok=True)

@@ -15,16 +15,16 @@ module wasmetal_simd_lanes #(parameter integer W=8) (
         logic signed [W:0] sx, sy, sum_s, diff_s;
         logic [W:0] sum_u;
         logic signed [2*W-1:0] product;
-        integer k;
+        wire [$clog2(W):0] population;
+        wasmetal_popcount #(W) pop(x,population);
         always_comb begin
-            k=0;
             sx=$signed({x[W-1],x}); sy=$signed({y[W-1],y});
             sum_s=sx+sy; diff_s=sx-sy; sum_u={1'b0,x}+{1'b0,y};
             product=$signed(x)*$signed(y); r=0;
             case(operation)
                 0: r=x[W-1] ? -x : x;
                 1: r=-x;
-                2: for(k=0;k<W;k=k+1) r=r+{{(W-1){1'b0}},x[k]};
+                2: r=W'(population);
                 3: r=x+y;
                 4: r=x-y;
                 5: r=x*y;

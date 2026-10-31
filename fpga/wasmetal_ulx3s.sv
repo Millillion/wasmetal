@@ -99,6 +99,7 @@ module wasmetal_ulx3s #(parameter integer VALUE_DEPTH=256) (
                         response_payload[192+:32]<=32'(INPUT_BYTES);
                         response_payload[224+:32]<=32'(OUTPUT_BYTES);
                         response_payload[256+:32]<=SCHEMA_ID;
+                        response_payload[288+:128]<=BUILD_ID;
                         tx_index<=0; tx_crc<=16'hffff; status<=0; state<=SEND;
                     end else begin
                         active_inputs<=rx_payload; settle_count<=99; led_error<=0; state<=SETTLE;

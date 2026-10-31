@@ -184,9 +184,9 @@ int main(int argc,char** argv) {
             if(op=='X') sim->reset();
             else if(op=='V') {
 #ifdef WASMETAL_FPGA
-                std::cout<<"CAPS "<<sim->dut.value_capacity<<' '<<sim->dut.control_capacity<<' '<<sim->dut.call_capacity<<' '<<sim->dut.descriptor_capacity<<' '<<sim->dut.heap_capacity<<'\n';
+                std::cout<<"CAPS "<<sim->dut.value_capacity<<' '<<sim->dut.control_capacity<<' '<<sim->dut.call_capacity<<' '<<sim->dut.descriptor_capacity<<' '<<sim->dut.heap_capacity<<' '<<sim->dut.BUILD_ID<<'\n';
 #else
-                std::cout<<"CAPS "<<core_config::VALUE_DEPTH<<' '<<core_config::CONTROL_DEPTH<<' '<<core_config::CALL_DEPTH<<' '<<core_config::MEMORY_COUNT<<' '<<core_config::HEAP_SLOTS<<'\n';
+                std::cout<<"CAPS "<<core_config::VALUE_DEPTH<<' '<<core_config::CONTROL_DEPTH<<' '<<core_config::CALL_DEPTH<<' '<<core_config::MEMORY_COUNT<<' '<<core_config::HEAP_SLOTS<<' '<<core_config::BUILD_ID<<'\n';
 #endif
                 std::cout.flush();
             }
