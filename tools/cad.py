@@ -6,7 +6,7 @@ SUITE = Path(__file__).resolve().parent.parent / ".cache/tools/oss-cad-suite"
 
 
 def command(name):
-    if name not in ("nextpnr-ecp5", "ecppack", "yosys", "yosys-abc"):
+    if name not in ("nextpnr-ecp5", "ecppack", "ecpunpack", "yosys", "yosys-abc"):
         raise ValueError(name)
     return [str(SUITE / "lib/ld-linux-x86-64.so.2"), "--inhibit-cache", "--inhibit-rpath", "",
             "--library-path", str(SUITE / "lib"), str(SUITE / "libexec" / name)]

@@ -19,6 +19,7 @@ jobs:
         run: |
           make lint test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks
           python3 tools/prove_descriptors.py
+          python3 tests/check_timing_test.py
       - name: Compile RTL and verify boundary and oracle behavior
         run: |
           make sim

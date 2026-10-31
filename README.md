@@ -10,7 +10,7 @@ WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
 - **Mapped circuit:** the four-input-LUT FPGA mapping passes [40 selected official suites](docs/verification/ecp5-mapped.json), including 17,379 execution assertions over 1,912,810 cycles with memory stalls. This checks the synthesized circuit in addition to the full suite on RTL.
-- **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [current interface report](docs/verification/fpga-uart.json). An [experimental FPGA mapping](docs/verification/fpga-mapping.json) uses 58,892 of 83,640 logic cells (70.4%) after packing on the ULX3S 85F. The mapped simulator now supports its dedicated LUT multiplexers. Its official-suite run and a register/memory-boundary equivalence check are in progress. Placement/routing is the current blocker: the first layout stalled with wiring conflicts, and an alternative placement is being routed. **No routed, timing-verified bitstream is available yet, and no physical board has been tested.**
+- **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [experimental build](docs/verification/fpga-routing.json) now has a routed, timing-verified ULX3S 85F bitstream: 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. The standard build flow is being updated to reproduce that result. **No physical board has been tested.**
 
 See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host supplies the instruction image, metadata and backing memory; autonomous boot, a local memory controller and reclaiming garbage collection remain future work.
 
@@ -52,16 +52,17 @@ tests define the compatibility target.
 
 A host-backed ULX3S 85F reference system includes a UART loader/step interface,
 board constraints, synthesis, placement/routing and bitstream build tools. The
-whole serial interface and CPU are tested together in simulation. Placement,
-routing and timing closure remain unfinished. See the [FPGA guide](docs/FPGA.md)
-for the build flow and the remaining physical-board checks.
+whole serial interface and CPU are tested together in simulation. A prototype
+build has completed routing and timing closure; the standard flow is being
+updated to reproduce it. See the [FPGA guide](docs/FPGA.md) for the build flow
+and the remaining physical-board checks.
 
 ## Hardware roadmap
 
 - [x] Implement Core 3.0 instruction execution in clocked SystemVerilog.
 - [x] Pass the complete official core suite in RTL simulation.
 - [x] Verify a host-backed FPGA board interface in simulation.
-- [ ] Complete FPGA placement, routing and timing closure.
+- [x] Complete FPGA placement, routing and timing closure for the host-backed reference system.
 - [ ] Load and verify the design on a physical ULX3S 85F.
 - [ ] Add local instruction/data memory, buffered loading and autonomous execution.
 - [ ] Select an ASIC process and integrate suitable memories, I/O, clocks, reset and manufacturing test support.

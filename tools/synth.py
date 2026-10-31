@@ -15,7 +15,9 @@ def main():
     parser.add_argument("--fpga", action="store_true", help="also map the configured FPGA core to ECP5 primitives")
     parser.add_argument("--fast-share", action="store_true", help="use bounded-control resource-sharing analysis")
     parser.add_argument("--no-share", action="store_true", help="retain parallel arithmetic resources")
-    parser.add_argument("--lut4",action="store_true",help="map directly to four-input LUTs")
+    mapping=parser.add_mutually_exclusive_group()
+    mapping.add_argument("--lut4",action="store_true",help="map directly to four-input LUTs")
+    mapping.add_argument("--abc9",action="store_true",help="use ECP5 LUT timing models with a 500 ns combinational target")
     parser.add_argument("--value-depth", type=int)
     parser.add_argument("--output-name")
     parser.add_argument("--top",default="wasmetal_core")
@@ -33,7 +35,7 @@ def main():
     if args.fpga:
         if args.top=="wasmetal_core":
             script += "chparam "+" ".join(f"-set {key} {value}" for key,value in profile.items())+" wasmetal_core\n"
-        if args.fast_share or args.no_share or args.lut4:
+        if args.fast_share or args.no_share or args.lut4 or args.abc9:
             # Pinned Yosys 0.33 ECP5 flow with its documented fast sharing heuristic.
             script += """synth_ecp5 -top wasmetal_core -run begin:begin
 proc
@@ -62,8 +64,9 @@ opt_clean
 """
             # Yosys -run uses an exclusive end label. Keep check/autoname out
             # of the timed mapping path, but include primitive-cell mapping.
-            if args.lut4:
-                script += "synth_ecp5 -top wasmetal_core -run map_ram:map_luts\ntechmap -map +/ecp5/latches_map.v\nabc -dress -lut 4\nclean\nsynth_ecp5 -top wasmetal_core -run map_cells:check\n"
+            if args.lut4 or args.abc9:
+                mapper="abc9 -D 500000 -W 300" if args.abc9 else "abc -dress -lut 4"
+                script += "synth_ecp5 -top wasmetal_core -run map_ram:map_luts\ntechmap -map +/ecp5/latches_map.v\n"+mapper+"\nclean\nsynth_ecp5 -top wasmetal_core -run map_cells:check\n"
             else:
                 script += "synth_ecp5 -top wasmetal_core -run map_ram:check\n"
             script += f"hierarchy -check\nblackbox =A:whitebox\ncheck -assert\nstat\nwrite_json build/{name}.json\n"

@@ -31,13 +31,14 @@ Programs exceeding these finite resources cannot be assumed to run successfully.
 The current committed RTL, including the 8,192-value profile and shared
 floating-point arithmetic, passed the full official corpus with three memory
 wait states; the report below identifies its exact source and simulator hashes.
-Routing and timing closure are still unfinished, so no deployable bitstream is
-claimed at this checkpoint.
-An experimental ABC9 mapping of the same RTL uses 58,892 of 83,640 logic cells
-after packing (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks.
-The [mapping record](verification/fpga-mapping.json) includes its source hashes
-and synthesis recipe. Its mapped functional simulation, routing and timing
-checks are still in progress; it has not replaced the default build recipe.
+The [prototype routing record](verification/fpga-routing.json) now contains a
+completed, timing-verified bitstream for the same RTL: 58,892 of 83,640 logic
+cells (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks. The core meets its
+1 MHz constraint with a reported maximum of 3.24 MHz, and the bridge meets
+12.5 MHz. The bitstream survives unpacking and repacking with identical bytes.
+ABC9 mapping and static placement are now the default recipe; a fresh build of
+the integrated tooling is in progress. The mapped functional suite and a
+comparison of the two mappings are also still running.
 Heap allocation is bounded and currently has no reclamation. Mapped-cell results
 apply to their recorded netlist and capacity profile; a changed mapping requires
 its own checks.
@@ -63,14 +64,22 @@ checksum-pinned in `tools/upstream.lock.json`; installation stays under `.cache`
 The build uses Yosys 0.33, nextpnr-ecp5 and Project Trellis. `tools/cad.py` launches
 the pinned CAD-suite binaries without their configuration-writing wrapper scripts.
 
-`make fpga-core` creates `build/core-ecp5.json` and its source manifest.
+`make fpga-core` uses ABC9 with ECP5 LUT timing models and a 500 ns combinational
+target, creating `build/core-ecp5.json` and its source manifest.
 `tools/build_board.py` checks that manifest, integrates the UART wrapper, then
-places and routes the board. Timing failures fail the command; there is no
+uses the static placer, saves `placed.json`, and routes that checkpoint with
+router2. Each stage starts with seed 1 by default. Timing failures fail the command; there is no
 `--timing-allow-fail` option. A successful build produces:
 
 - `build/ulx3s/wasmetal.bit`: FPGA configuration.
-- `build/ulx3s/timing.json` and `nextpnr.log`: timing and resource evidence.
+- `build/ulx3s/timing.json`, `timing-audit.json` and `nextpnr.log`: timing and resource evidence.
+- `build/ulx3s/placed.json` and `commands.json`: placement checkpoint and exact commands.
 - `build/ulx3s/manifest.json`: source, configuration and bitstream identities.
+
+The timing audit checks all three constrained clocks, both held-bus crossings,
+and the reported core critical path against its full-cycle or half-cycle budget.
+The build unpacks and repacks the bitstream and requires identical bytes before
+publishing `wasmetal.bit`; a failed rebuild removes stale final output.
 
 Rebuild the host adapter after changing RTL or the FPGA profile. The protocol
 checks a port-schema identifier and a 128-bit RTL build fingerprint, and rejects
@@ -96,7 +105,8 @@ python3 tools/run_spec.py --simulator build/gate-model/obj/Vwasmetal_core \
 ```
 
 This is functional simulation of the mapped FPGA cells, not a timing simulation.
-It uses Yosys' LUT, carry, RAM and flip-flop models. The unregistered 18-by-18 DSP
+It uses Yosys' LUT, dedicated `PFUMX`/`L6MUX21` multiplexer, carry and flip-flop models,
+plus the checked block-RAM model described below. The unregistered 18-by-18 DSP
 multiplier model accepts only the configurations emitted by this flow; unexpected
 primitive types, DSP modes or connections fail the build.
 
@@ -183,9 +193,3 @@ needs buffered program loading, local memory and fetch controllers, autonomous c
 changes need their own conformance runs and timing closure. An ASIC additionally
 requires a process/PDK, memories, I/O and clock/reset integration, physical design,
 signoff and fabrication; the FPGA bitstream is not an ASIC deliverable.
-
-The mapped simulator accepts the ECP5 `PFUMX` and `L6MUX21` primitives used by
-ABC9, using their models from the pinned Yosys library. Unsupported parameters
-are rejected. The initial ABC9 placement stalled with routing congestion; a
-separate static placement is being evaluated. Neither trial is a usable FPGA
-bitstream until routing and the timing audit both pass.

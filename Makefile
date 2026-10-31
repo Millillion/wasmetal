@@ -58,7 +58,7 @@ fpga-host: sim/core_config.hpp
 	g++ -std=c++17 -O2 -Wall -Wextra -Werror -DWASMETAL_FPGA sim/main.cpp -o build/wasmetal-fpga
 	python3 tools/build_identity.py finish build/wasmetal-fpga
 fpga-core:
-	python3 tools/synth.py --fpga --fast-share --lut4 --output-name core-ecp5
+	python3 tools/synth.py --fpga --fast-share --abc9 --output-name core-ecp5
 fpga-bitstream: fpga-core
 	python3 tools/build_board.py --core-netlist build/core-ecp5.json
 synth:

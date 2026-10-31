@@ -31,8 +31,18 @@ def audit(path):
         clocks[kind]={'net':name,'required_mhz':constraint,'achieved_mhz':achieved}
     if set(clocks)!={'oscillator','bridge','core'}: raise ValueError('missing constrained clock')
     crossings={}
+    core_paths={}
     for entry in report['critical_paths']:
         source=clock_kind(entry['from']);destination=clock_kind(entry['to'])
+        if source==destination=='core':
+            edges=[entry[key].split(' ',1)[0] for key in ('from','to')]
+            if any(edge not in ('posedge','negedge') for edge in edges):
+                raise ValueError('core timing path lacks clock-edge information')
+            budget=(1000.0 if edges[0]==edges[1] else 500.0)/clocks['core']['required_mhz']
+            delay=sum(float(segment['delay']) for segment in entry['path'])
+            if not math.isfinite(delay) or delay<0 or delay>budget:
+                raise ValueError(f'core path exceeds its {budget} ns clock-edge budget')
+            core_paths['->'.join(edges)]={'delay_ns':delay,'budget_ns':budget}
         if source is None or destination is None or source==destination: continue
         delay=sum(float(segment['delay']) for segment in entry['path'])
         if not math.isfinite(delay) or delay<0 or delay>1000.0:
@@ -41,8 +51,10 @@ def audit(path):
         crossings[key]=max(crossings.get(key,0),delay)
     if set(crossings)!={'bridge->core','core->bridge'}:
         raise ValueError('report does not contain both held-bus clock crossings')
+    if not core_paths: raise ValueError('report does not contain a core critical path')
     return {'report_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
             'clocks':clocks,'crossing_budget_ns':1000.0,'maximum_crossing_delay_ns':crossings,
+            'reported_core_paths':core_paths,
             'utilization':report['utilization'],
             'physical_hardware_tested':False}
 
