@@ -23,10 +23,20 @@ def begin(binary,profile):
     Path(str(binary)+".inputs.json").write_text(json.dumps({"profile":profile,"inputs":inputs(profile)},indent=2)+"\n")
 
 
+def verify_extra_inputs(snapshot):
+    for name,digest in snapshot.get("extra_inputs",{}).items():
+        path=Path(name)
+        if path.is_absolute() or ".." in path.parts:
+            raise RuntimeError("build input must be relative to the repository")
+        if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:
+            raise RuntimeError(f"additional simulator input changed: {name}")
+
+
 def finish(binary):
     snapshot=json.loads(Path(str(binary)+".inputs.json").read_text())
     if snapshot["inputs"]!=inputs(snapshot["profile"]):
         raise RuntimeError("build inputs changed during compilation; rebuild")
+    verify_extra_inputs(snapshot)
     snapshot["binary_sha256"]=hashlib.sha256(binary.read_bytes()).hexdigest()
     Path(str(binary)+".build.json").write_text(json.dumps(snapshot,indent=2)+"\n")
 
@@ -38,6 +48,7 @@ def verify(binary):
     snapshot=json.loads(path.read_text())
     if snapshot["inputs"]!=inputs(snapshot["profile"]):
         raise RuntimeError("simulator build is stale; rebuild before running the suite")
+    verify_extra_inputs(snapshot)
     if snapshot["binary_sha256"]!=hashlib.sha256(binary.read_bytes()).hexdigest():
         raise RuntimeError("simulator binary does not match its build identity")
     return snapshot
