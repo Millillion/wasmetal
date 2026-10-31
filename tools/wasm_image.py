@@ -68,6 +68,41 @@ def limits(r):
 
 
 @dataclass
+class TypeDefinition:
+    kind: int
+    final: bool
+    parents: list
+    params: list = field(default_factory=list)
+    results: list = field(default_factory=list)
+    fields: list = field(default_factory=list)
+
+
+def subtype(r):
+    kind = r.byte()
+    final, parents = True, []
+    if kind in (0x4f, 0x50):
+        final = kind == 0x4f
+        parents = r.vector(lambda b: b.leb())
+        kind = r.byte()
+    t = TypeDefinition(kind, final, parents)
+    if kind == 0x60:
+        t.params, t.results = r.vector(value_type), r.vector(value_type)
+    elif kind == 0x5f:
+        t.fields = r.vector(lambda b: (value_type(b), b.byte()))
+    elif kind == 0x5e:
+        t.fields = [(value_type(r), r.byte())]
+    else:
+        raise Unsupported(f"type form {kind:#x}")
+    return t
+
+
+def storage_width(storage):
+    if isinstance(storage, int):
+        return {0x78: 8, 0x77: 16, 0x7f: 32, 0x7e: 64, 0x7d: 32, 0x7c: 64, 0x7b: 128}.get(storage, 128)
+    return 128
+
+
+@dataclass
 class Instruction:
     op: int
     x: int = 0
@@ -76,6 +111,7 @@ class Instruction:
     w: int = 0
     imm: int = 0
     targets: list = field(default_factory=list)
+    handlers: list = field(default_factory=list)
 
 
 def expression(r, types, stop_at_end=False):
@@ -97,7 +133,10 @@ def expression(r, types, stop_at_end=False):
                 params, results = types[block_type]
             i.x, i.y = len(params), len(results)
             if op == 0x1f:
-                raise Unsupported("try_table metadata")
+                for _ in range(r.leb()):
+                    kind = r.byte()
+                    tag = r.leb() if kind < 2 else 0
+                    i.handlers.append((kind, tag, r.leb()))
             controls.append(len(code))
         elif op == 5:
             code[controls[-1]].w = len(code) + 1
@@ -143,8 +182,17 @@ def expression(r, types, stop_at_end=False):
             i.x, i.y = r.leb(), r.leb()
         elif op in (0xfc0009, 0xfc000b, 0xfc000d, 0xfc000f, 0xfc0010, 0xfc0011):
             i.x = r.leb()
-        elif 0xfb0000 <= op <= 0xfbffff:
-            raise Unsupported(f"GC instruction immediate decoding {op:#x}")
+        elif 0xfb0000 <= op <= 0xfb001e:
+            sub = op & 0xffff
+            if sub in (0, 1, 6, 7, 11, 12, 13, 14, 16):
+                i.x = r.leb()
+            elif sub in (2, 3, 4, 5, 8, 9, 10, 17, 18, 19):
+                i.x, i.y = r.leb(), r.leb()
+            elif sub in (20, 21, 22, 23):
+                i.x = r.leb(True, 33)
+            elif sub in (24, 25):
+                i.w = r.byte()
+                i.x, i.y, i.z = r.leb(), r.leb(True, 33), r.leb(True, 33)
         elif op >= 0xfe0000:
             raise Unsupported(f"instruction extension {op:#x}")
         elif op not in (0, 1, 0x0a, 0x0f, 0x1a, 0x1b, 0xd1, 0xd3, 0xd4) and not (
@@ -163,6 +211,8 @@ class Module:
         if r.take(8) != b"\0asm\x01\0\0\0":
             raise ImageError("bad Wasm header")
         self.types = []
+        self.type_defs = []
+        self.rec_groups = []
         self.function_types = []
         self.bodies = []
         self.imports = []
@@ -173,6 +223,7 @@ class Module:
         self.data = []
         self.elements = []
         self.start = None
+        self.tags = []
         while r.remaining():
             section = r.byte()
             s = Reader(r.take(r.leb()))
@@ -180,10 +231,15 @@ class Module:
                 continue
             if section == 1:
                 for _ in range(s.leb()):
-                    kind = s.byte()
-                    if kind != 0x60:
-                        raise Unsupported(f"recursive/GC type form {kind:#x}")
-                    self.types.append((s.vector(value_type), s.vector(value_type)))
+                    base = len(self.type_defs)
+                    if s.data[s.pos] == 0x4e:
+                        s.byte()
+                        group = s.vector(subtype)
+                    else:
+                        group = [subtype(s)]
+                    self.type_defs.extend(group)
+                    self.types.extend((t.params, t.results) for t in group)
+                    self.rec_groups.append((base, len(group)))
             elif section == 2:
                 for _ in range(s.leb()):
                     module, name, kind = s.name(), s.name(), s.byte()
@@ -195,6 +251,9 @@ class Module:
                         desc = limits(s)
                     elif kind == 3:
                         desc = value_type(s), s.byte()
+                    elif kind == 4:
+                        s.byte()
+                        desc = s.leb()
                     else:
                         raise Unsupported(f"import kind {kind}")
                     self.imports.append((module, name, kind, desc))
@@ -251,21 +310,30 @@ class Module:
                     self.data.append((flags, memory, offset, s.take(s.leb())))
             elif section == 12:
                 s.leb()
+            elif section == 13:
+                for _ in range(s.leb()):
+                    s.byte()
+                    self.tags.append(s.leb())
             else:
                 raise Unsupported(f"section {section}")
             if s.remaining():
                 raise ImageError(f"unconsumed bytes in section {section}")
 
 
-def relocated(code, base, functions, globals_, memories, tables, types, data, elements):
+def relocated(code, base, functions, globals_, memories, tables, types, data, elements, type_defs, tags, tag_types):
     """Relocate indices and control targets, retaining every original opcode."""
     result = []
     for original in code:
         i = Instruction(**vars(original))
-        if i.op in (2, 3, 4):
+        if i.op in (2, 3, 4, 0x1f):
             i.z += base
             if i.op == 4:
                 i.w += base
+            if i.op == 0x1f:
+                i.handlers = [(kind, tags[tag] if kind < 2 else 0, label) for kind, tag, label in i.handlers]
+        elif i.op == 8:
+            i.x = tags[i.x]
+            i.y = tag_types[i.x][1]
         elif i.op in (0x10, 0x12, 0xd2):
             i.x = functions[i.x]
         elif i.op in (0x23, 0x24):
@@ -292,5 +360,25 @@ def relocated(code, base, functions, globals_, memories, tables, types, data, el
             i.x = elements[i.x]
         elif i.op == 0xfc000e:
             i.x, i.y = tables[i.x], tables[i.y]
+        elif 0xfb0000 <= i.op <= 0xfb0013 and i.op != 0xfb000f:
+            t = type_defs[i.x]
+            if i.op in (0xfb0000, 0xfb0001):
+                i.y = len(t.fields)
+            elif 0xfb0002 <= i.op <= 0xfb0005:
+                i.z = storage_width(t.fields[i.y][0])
+            else:
+                i.z = storage_width(t.fields[0][0])
+            i.x = types[i.x]
+            if i.op in (0xfb0009, 0xfb0012):
+                i.y = data[i.y]
+            elif i.op in (0xfb000a, 0xfb0013):
+                i.y = elements[i.y]
+            elif i.op == 0xfb0011:
+                i.y = types[i.y]
+        elif 0xfb0014 <= i.op <= 0xfb0017:
+            i.x = types[i.x] if i.x >= 0 else i.x & 0xffffffff
+        elif i.op in (0xfb0018, 0xfb0019):
+            i.y = types[i.y] if i.y >= 0 else i.y & 0xffffffff
+            i.z = types[i.z] if i.z >= 0 else i.z & 0xffffffff
         result.append(i)
     return result

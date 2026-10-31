@@ -226,7 +226,7 @@ module wasmetal_simd_int (
             'h112: for(j=0;j<8;j=j+1) result[j*16+:16]=
                 $signed(a[j*16+:8])*$signed(b[j*16+:8])+
                 $signed(a[j*16+8+:8])*$signed(b[j*16+8+:8]);
-            'h113: for(j=0;j<4;j=j+1) result[j*32+:32]=c[j*32+:32]+
+            'h113: for(j=0;j<4;j=j+1) result[j*32+:32]=$signed(c[j*32+:32])+
                 $signed(a[j*32+:8])*$signed(b[j*32+:8])+
                 $signed(a[j*32+8+:8])*$signed(b[j*32+8+:8])+
                 $signed(a[j*32+16+:8])*$signed(b[j*32+16+:8])+

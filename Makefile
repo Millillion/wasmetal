@@ -11,8 +11,8 @@ RTL := rtl/vendor.vlt $(wildcard rtl/*.sv) $(HARDFLOAT)
 VFLAGS := -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTIONS --top-module wasmetal_core -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV
 .PHONY: sim lint test test-all synth
 sim: build/obj/Vwasmetal_core
-build/obj/Vwasmetal_core: $(RTL) sim/main.cpp Makefile
-	$(VERILATOR) $(VFLAGS) --cc --exe --build -j 4 --Mdir build/obj -CFLAGS '-std=c++17 -O2 -Wall -Wextra -Werror' $(RTL) $(CURDIR)/sim/main.cpp
+build/obj/Vwasmetal_core: $(RTL) $(wildcard third_party/hardfloat/source/*.vi) $(wildcard third_party/hardfloat/source/RISCV/*.vi) sim/main.cpp Makefile
+	$(VERILATOR) $(VFLAGS) --cc --exe --build -j 4 --Mdir build/obj -MAKEFLAGS 'OPT_FAST=-O3' -CFLAGS '-std=c++17 -O3 -Wall -Wextra -Werror' $(RTL) $(CURDIR)/sim/main.cpp
 lint:
 	$(VERILATOR) $(VFLAGS) --lint-only $(RTL)
 test: sim

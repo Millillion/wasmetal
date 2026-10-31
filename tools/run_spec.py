@@ -6,13 +6,14 @@ are reported separately from RTL assertions. No expected value is sent to RTL.
 """
 import argparse
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 import hashlib
 import json
 import os
 from pathlib import Path
 import subprocess
+import select
 import sys
 import time
 
@@ -25,7 +26,18 @@ WASM_TOOLS = Path(os.environ.get("WASM_TOOLS", str(ROOT / ".cache/tools/wasm-too
 TRAPS = {1: "unreachable", 2: "integer divide by zero", 3: "integer overflow",
          4: "out of bounds memory access", 5: "out of bounds table access",
          6: "null reference", 7: "indirect call type mismatch", 8: "invalid conversion to integer",
-         9: "call stack exhausted", 254: "invalid load image", 255: "unsupported instruction"}
+         9: "call stack exhausted", 10: "cast failure", 11: "out of bounds array access", 12: "heap exhausted", 13: "uncaught exception",
+         254: "invalid load image", 255: "unsupported instruction"}
+
+
+def trap_matches(code, expected):
+    if TRAPS.get(code) == expected:
+        return True
+    if code == 5 and expected.startswith("undefined element"):
+        return True
+    if code == 6:
+        return expected.startswith("uninitialized element") or (expected.startswith("null ") and expected.endswith("reference"))
+    return False
 
 
 class ExecutionError(Exception):
@@ -54,17 +66,24 @@ def raw_value(value):
     if v == "null":
         return 0
     if ty in ("externref", "ref.extern"):
-        return (2 << 64) | (int(v)+1)
+        return (5 << 96) | (int(v)+1)
+    if ty == "anyref":
+        return (7 << 96) | (int(v)+1)
+    if ty in ("i31ref", "ref.i31"):
+        return (4 << 96) | (int(v) & 0x7fffffff)
     raise Unsupported(f"test argument {value}")
 
 
 def matches(actual, expected):
     if expected["type"] == "either":
         return any(matches(actual, option) for option in expected["values"])
-    if expected["type"] == "refnull":
+    if expected["type"] in ("refnull", "nullref", "nullfuncref", "nullexternref", "nullexnref"):
         return actual == 0
-    if "value" not in expected and expected["type"] in ("funcref", "externref", "anyref", "eqref", "structref", "arrayref", "i31ref"):
-        return actual != 0
+    if "value" not in expected and expected["type"] in ("funcref", "externref", "anyref", "eqref", "structref", "arrayref", "i31ref", "exnref"):
+        tag = actual >> 96
+        allowed = {"funcref": (1,), "externref": (5,), "anyref": (2,3,4,7),
+                   "eqref": (2,3,4), "structref": (2,), "arrayref": (3,), "i31ref": (4,), "exnref": (6,)}
+        return actual != 0 and (tag in allowed[expected["type"]] or (expected["type"] == "externref" and bool(tag & 256)))
     ty, value = expected["type"], expected["value"]
     if ty == "v128":
         lane_type = expected["lane_type"]
@@ -97,11 +116,12 @@ class Instance:
     types: list
     data: list
     elements: list
+    tags: list
     exports: dict
 
 
 class RTL:
-    def __init__(self, wait_states=0, max_cycles=2000000):
+    def __init__(self, wait_states=0, max_cycles=100000000):
         self.proc = subprocess.Popen([str(ROOT / "build/obj/Vwasmetal_core")],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
         self.instructions = 0
@@ -111,11 +131,15 @@ class RTL:
         self.tables = 0
         self.data = 0
         self.elements = 0
+        self.tags = 0
+        self.tag_types = {}
         self.function_types = {}
         self.global_types = {}
         self.memory_types = {}
         self.table_types = {}
         self.types = {}
+        self.type_info = {}
+        self.type_parents = {}
         self.registered = {}
         self.max_cycles = max_cycles
         self.send(f"W {wait_states}")
@@ -154,6 +178,10 @@ class RTL:
 
     def receive(self):
         self.proc.stdin.flush()
+        if not select.select([self.proc.stdout], [], [], 3600)[0]:
+            self.proc.terminate()
+            self.proc.wait(timeout=10)
+            raise ExecutionError("TIMEOUT waiting for simulator response (3600 seconds)")
         line = self.proc.stdout.readline().strip()
         if not line:
             raise ExecutionError(f"simulator terminated: {self.proc.poll()}")
@@ -187,11 +215,84 @@ class RTL:
             raise ExecutionError("malformed size response")
         return int(response[1], 16)
 
-    def type_id(self, ty):
-        key = repr(ty)
-        if key not in self.types:
-            self.types[key] = len(self.types)
-        return self.types[key]
+    @staticmethod
+    def normalized_value(ty, resolve):
+        if isinstance(ty, tuple):
+            return ty[0], resolve(ty[1]) if ty[1] >= 0 else ty[1]
+        if 0x69 <= ty <= 0x74:
+            return 0x63, ty-128
+        return ty
+
+    def register_types(self, module):
+        ids = []
+        for base, size in module.rec_groups:
+            def resolve(index):
+                return ("local", index-base) if base <= index < base+size else ids[index]
+            shapes = []
+            for t in module.type_defs[base:base+size]:
+                norm = lambda v: self.normalized_value(v, resolve)
+                shapes.append((t.kind, t.final, tuple(resolve(p) for p in t.parents),
+                    tuple(map(norm, t.params)), tuple(map(norm, t.results)), tuple((norm(v), m) for v, m in t.fields)))
+            key = repr(shapes)
+            if key not in self.types:
+                group_ids = list(range(len(self.type_info), len(self.type_info)+size))
+                self.types[key] = group_ids
+                all_ids = ids+group_ids
+                for index, cid in enumerate(group_ids):
+                    t = module.type_defs[base+index]
+                    self.type_info[cid] = t
+                    self.type_parents[cid] = [all_ids[p] for p in t.parents]
+                for cid in group_ids:
+                    pending, seen = [cid], set()
+                    while pending:
+                        parent = pending.pop()
+                        if parent not in seen:
+                            seen.add(parent)
+                            self.send(f"Y {cid} {parent}")
+                            pending.extend(self.type_parents[parent])
+            ids.extend(self.types[key])
+        return ids
+
+    def is_subtype(self, actual, expected):
+        pending, seen = [actual], set()
+        while pending:
+            item = pending.pop()
+            if item == expected:
+                return True
+            if item not in seen:
+                seen.add(item)
+                pending.extend(self.type_parents[item])
+        return False
+
+    def value_subtype(self, actual, expected):
+        if actual == expected:
+            return True
+        if not isinstance(actual, tuple) or not isinstance(expected, tuple):
+            return False
+        anull, a = actual
+        enull, e = expected
+        if anull == 0x63 and enull == 0x64:
+            return False
+        if a == e:
+            return True
+        if a >= 0 and e >= 0:
+            return self.is_subtype(a, e)
+        def family(t):
+            if t >= 0:
+                return {0x60: -16, 0x5f: -21, 0x5e: -22}[self.type_info[t].kind]
+            return t
+        af, ef = family(a), family(e)
+        if a == -15:
+            return ef in (-18, -19, -20, -21, -22)
+        if a == -13:
+            return ef == -16
+        if a == -14:
+            return ef == -17
+        if a == -12:
+            return ef == -23
+        if e >= 0:
+            return False
+        return af == ef or (e == -18 and af in (-19,-20,-21,-22)) or (e == -19 and af in (-20,-21,-22))
 
     def emit(self, code, params, locals_, results, type_id, instance):
         fid = self.functions
@@ -201,12 +302,19 @@ class RTL:
 
     def emit_at(self, fid, code, params, locals_, results, type_id, instance):
         base = self.instructions
-        code = relocated(code, base, instance.functions, instance.globals, instance.memories, instance.tables, instance.types, instance.data, instance.elements)
+        code = relocated(code, base, instance.functions, instance.globals, instance.memories, instance.tables, instance.types, instance.data, instance.elements, instance.module.type_defs, instance.tags, self.tag_types)
+        for instruction in code:
+            if instruction.op == 0xd2:
+                instruction.y = self.function_types[instruction.x]
         # br_table label depths live in read-only metadata after the function.
         for i in list(code):
             if i.targets:
                 i.x = base + len(code)
                 code.extend(Instruction(0xffff, x=t) for t in i.targets)
+            if i.handlers:
+                i.imm = base+len(code)
+                i.w = len(i.handlers)
+                code.extend(Instruction(0xfffd, x=kind, y=tag, z=label) for kind, tag, label in i.handlers)
         self.send(f"F {fid} {base} {params} {locals_} {results} {type_id}")
         for n, i in enumerate(code):
             self.send(f"I {base+n} {i.op} {i.x} {i.y} {i.z} {i.w} {i.imm:x}")
@@ -220,7 +328,8 @@ class RTL:
         return values[0]
 
     def instantiate(self, module):
-        functions, globals_, memories, tables = [], [], [], []
+        type_ids = self.register_types(module)
+        functions, globals_, memories, tables, tags = [], [], [], [], []
         for mod, name, kind, desc in module.imports:
             if mod not in self.registered or name not in self.registered[mod].exports:
                 raise LinkError(f"unknown import {mod}.{name}")
@@ -228,32 +337,42 @@ class RTL:
             if actual_kind != kind:
                 raise LinkError("incompatible import kind")
             if kind == 0:
-                if self.type_id(module.types[desc]) != self.function_types[index]:
+                if not self.is_subtype(self.function_types[index], type_ids[desc]):
                     raise LinkError("incompatible function import")
                 functions.append(index)
             elif kind == 2:
                 self.check_limits(desc, self.memory_types[index], self.size(0, index))
                 memories.append(index)
             elif kind == 3:
-                if desc != self.global_types[index]:
+                actual, mutable = self.global_types[index]
+                expected = self.normalized_value(desc[0], lambda i: type_ids[i])
+                if mutable != desc[1] or (actual != expected if mutable else not self.value_subtype(actual, expected)):
                     raise LinkError("incompatible global import")
                 globals_.append(index)
             elif kind == 1:
                 actual = self.table_types[index]
-                if desc[0] != actual[0]:
+                if self.normalized_value(desc[0], lambda i: type_ids[i]) != actual[0]:
                     raise LinkError("incompatible table element type")
                 self.check_limits(desc[1], actual[1], self.size(1, index))
                 tables.append(index)
+            elif kind == 4:
+                if self.tag_types[index][0] != type_ids[desc]:
+                    raise LinkError("incompatible exception tag import")
+                tags.append(index)
             else:
                 raise Unsupported(f"import kind {kind}")
         imported_functions = len(functions)
+        for index in module.tags:
+            tags.append(self.tags)
+            self.tag_types[self.tags] = (type_ids[index], len(module.types[index][0]))
+            self.tags += 1
         for n, _ in enumerate(module.bodies):
             functions.append(self.functions)
-            self.function_types[self.functions] = self.type_id(module.types[module.function_types[n]])
+            self.function_types[self.functions] = type_ids[module.function_types[n]]
             self.functions += 1
         for ty, mutable, _ in module.globals:
             globals_.append(self.globals)
-            self.global_types[self.globals] = (ty, mutable)
+            self.global_types[self.globals] = (self.normalized_value(ty, lambda i: type_ids[i]), mutable)
             self.globals += 1
         for minimum, maximum, wide in module.memories:
             if self.memories >= 256:
@@ -270,7 +389,7 @@ class RTL:
             tables.append(self.tables)
             if minimum > 65536:
                 raise Unsupported("physical table capacity exceeded")
-            self.table_types[self.tables] = (ty, (minimum, maximum, wide))
+            self.table_types[self.tables] = (self.normalized_value(ty, lambda i: type_ids[i]), (minimum, maximum, wide))
             self.send(f"T {self.tables} {minimum} {min(maximum if maximum is not None else 65536, 65536)} {int(wide)}")
             self.tables += 1
         data_ids = list(range(self.data, self.data+len(module.data)))
@@ -279,10 +398,10 @@ class RTL:
         self.elements += len(module.elements)
         if self.data > 256 or self.elements > 256:
             raise Unsupported("segment descriptor capacity")
-        instance = Instance(module, functions, globals_, memories, tables, [self.type_id(t) for t in module.types], data_ids, element_ids, {})
+        instance = Instance(module, functions, globals_, memories, tables, type_ids, data_ids, element_ids, tags, {})
         for n, (locals_, code) in enumerate(module.bodies):
             ty = module.types[module.function_types[n]]
-            self.emit_at(functions[imported_functions+n], code, len(ty[0]), locals_, len(ty[1]), self.type_id(ty), instance)
+            self.emit_at(functions[imported_functions+n], code, len(ty[0]), locals_, len(ty[1]), type_ids[module.function_types[n]], instance)
         imported_globals = len(globals_) - len(module.globals)
         for n, (_, _, code) in enumerate(module.globals):
             value = self.init_expr(code, instance)
@@ -294,16 +413,6 @@ class RTL:
                 if value:
                     for address in range(minimum):
                         self.send(f"E {tables[imported_tables+n]} {address} {value:x}")
-        for n, (flags, memory, offset, data) in enumerate(module.data):
-            self.send(f"D {data_ids[n]} {len(data) if flags == 1 else 0} {data.hex() or '-'}")
-            if flags == 1:
-                continue
-            address = self.init_expr(offset, instance)
-            # Admission/instantiation is host work, with runtime accesses checked in RTL.
-            if memory >= len(memories) or address + len(data) > self.size(0, memories[memory])*65536:
-                raise Trap(4, "data segment instantiation")
-            if data:
-                self.send(f"B {memories[memory]} {address} {data.hex()}")
         for n, (flags, table, offset, elements) in enumerate(module.elements):
             values = [self.init_expr(code, instance) for code in elements]
             self.send(f"L {element_ids[n]} {len(values) if flags in (1,5) else 0} {len(values)}" + ''.join(f" {v:x}" for v in values))
@@ -314,7 +423,18 @@ class RTL:
                 raise Trap(5, "element segment instantiation")
             for position, value in enumerate(values):
                 self.send(f"E {tables[table]} {address+position} {value:x}")
-        spaces = {0: functions, 1: tables, 2: memories, 3: globals_}
+        # The specified order is element initialization, then data initialization.
+        # Earlier writes to imported objects remain observable if a later segment traps.
+        for n, (flags, memory, offset, data) in enumerate(module.data):
+            self.send(f"D {data_ids[n]} {len(data) if flags == 1 else 0} {data.hex() or '-'}")
+            if flags == 1:
+                continue
+            address = self.init_expr(offset, instance)
+            if memory >= len(memories) or address + len(data) > self.size(0, memories[memory])*65536:
+                raise Trap(4, "data segment instantiation")
+            if data:
+                self.send(f"B {memories[memory]} {address} {data.hex()}")
+        spaces = {0: functions, 1: tables, 2: memories, 3: globals_, 4: tags}
         for name, (kind, index) in module.exports.items():
             if kind not in spaces:
                 raise Unsupported(f"export kind {kind}")
@@ -364,6 +484,8 @@ def run_file(source, target, args):
         for command_number, command in enumerate(commands):
             kind = command["type"]
             location = f"{source.relative_to(SPEC / 'test/core')}:{command['line']}"
+            if args.verbose:
+                print(location, kind, command.get("action", {}).get("field", ""), flush=True)
             try:
                 if kind in ("assert_invalid", "assert_malformed"):
                     path = target.parent / command["filename"]
@@ -414,8 +536,7 @@ def run_file(source, target, args):
                             raise
                         counts["embedding_assertions_passed"] += 1
                     except Trap as e:
-                        aliases = {5: ("undefined element",), 6: ("uninitialized element",)}
-                        if kind != "assert_uninstantiable" or not (TRAPS.get(e.code) == command["text"] or command["text"] in aliases.get(e.code, ())):
+                        if kind != "assert_uninstantiable" or not trap_matches(e.code, command["text"]):
                             raise
                         counts["embedding_assertions_passed"] += 1
                     else:
@@ -426,7 +547,7 @@ def run_file(source, target, args):
                         raise Unsupported("registration depends on failed module")
                     rtl.registered[command["as"]] = instance
                     counts["registrations"] += 1
-                elif kind in ("assert_return", "assert_trap", "assert_exhaustion", "action"):
+                elif kind in ("assert_return", "assert_trap", "assert_exhaustion", "assert_exception", "action"):
                     action = command["action"]
                     instance = named.get(action.get("module"), current)
                     if instance is None:
@@ -440,16 +561,18 @@ def run_file(source, target, args):
                         else:
                             raise Unsupported(f"action {action['type']}")
                     except Trap as e:
-                        if kind == "assert_exhaustion" and e.code == 9:
+                        if kind == "assert_exception" and e.code == 13:
+                            counts["rtl_assertions_passed"] += 1
+                            continue
+                        if kind == "assert_exhaustion" and e.code in (9, 12):
                             counts["rtl_assertions_passed"] += 1
                             continue
                         expected = command.get("text", "")
-                        aliases = {5: ("undefined element",), 6: ("uninitialized element", "null function reference")}
-                        if kind == "assert_trap" and (TRAPS.get(e.code) == expected or expected in aliases.get(e.code, ())):
+                        if kind == "assert_trap" and trap_matches(e.code, expected):
                             counts["rtl_assertions_passed"] += 1
                             continue
                         raise
-                    if kind in ("assert_trap", "assert_exhaustion"):
+                    if kind in ("assert_trap", "assert_exhaustion", "assert_exception"):
                         raise ExecutionError("expected trap, execution returned")
                     if kind == "assert_return":
                         expected = command["expected"]
@@ -471,7 +594,14 @@ def run_file(source, target, args):
                     failures.append({"location": location, "kind": "blocked", "reason": "Remaining script commands cannot run after simulator timeout/failure"})
                     break
     finally:
-        rtl.close()
+        try:
+            rtl.close()
+        except (ExecutionError, subprocess.TimeoutExpired, BrokenPipeError) as error:
+            counts["runner_errors"] += 1
+            failures.append({"kind": "simulator_shutdown", "reason": str(error)})
+            if rtl.proc.poll() is None:
+                rtl.proc.kill()
+                rtl.proc.wait()
     return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": dict(counts), "failures": failures}
 
 
@@ -479,7 +609,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", action="append", help="exact relative suite path without .wast; repeatable")
     parser.add_argument("--wait-states", type=int, default=0)
-    parser.add_argument("--max-cycles", type=int, default=2000000)
+    parser.add_argument("--max-cycles", type=int, default=100000000)
+    parser.add_argument("--jobs", type=int, default=4)
+    parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--report", type=Path, default=ROOT / "reports/spec.json")
     args = parser.parse_args()
     sources = sorted((SPEC / "test/core").rglob("*.wast"))
@@ -491,30 +623,52 @@ def main():
     if not sources:
         parser.error("official test sources are missing")
     started = time.time()
+    source_files = sorted(p for d in ("rtl", "sim", "tools", "third_party/hardfloat") for p in (ROOT/d).rglob("*")
+                          if p.is_file() and p.suffix in (".sv", ".v", ".vi", ".vlt", ".cpp", ".py", ".json"))
+    source_hash = hashlib.sha256()
+    for p in source_files:
+        source_hash.update(str(p.relative_to(ROOT)).encode()+b"\0"+p.read_bytes())
+    binary_hash = hashlib.sha256((ROOT / "build/obj/Vwasmetal_core").read_bytes()).hexdigest()
     reports = []
     with ThreadPoolExecutor(max_workers=4) as pool:
         converted = list(pool.map(convert, sources))
-    for source, target, error in converted:
+    # Create the shared, immutable standard test fixture before parallel workers.
+    fixture = RTL()
+    fixture.install_spectest()
+    fixture.close()
+    def run_converted(item):
+        source, target, error = item
         if error:
-            report = {"suite": str(source.relative_to(SPEC / "test/core")), "counts": {"conversion_errors": 1},
-                      "failures": [{"kind": "conversion", "reason": error}]}
-        else:
-            report = run_file(source, target, args)
-        reports.append(report)
-        print(report["suite"], json.dumps(report["counts"], sort_keys=True), flush=True)
-        for failure in report["failures"][:3]:
-            print(" ", failure.get("location", ""), failure["reason"], flush=True)
+            return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": {"conversion_errors": 1},
+                    "failures": [{"kind": "conversion", "reason": error}]}
+        try:
+            return run_file(source, target, args)
+        except Exception as error:
+            return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": {"runner_errors": 1},
+                    "failures": [{"kind": "runner", "reason": f"{type(error).__name__}: {error}"}]}
+    with ThreadPoolExecutor(max_workers=args.jobs) as pool:
+        futures = [pool.submit(run_converted, item) for item in converted]
+        for future in as_completed(futures):
+            report = future.result()
+            reports.append(report)
+            print(report["suite"], json.dumps(report["counts"], sort_keys=True), flush=True)
+            for failure in report["failures"][:3]:
+                print(" ", failure.get("location", ""), failure["reason"], flush=True)
+    reports.sort(key=lambda report: report["suite"])
     totals = Counter()
     for report in reports:
         totals.update(report["counts"])
-    complete = not args.suite and not any(totals[k] for k in ("failed", "unsupported", "conversion_errors", "blocked"))
+    errors = any(totals[k] for k in ("failed", "unsupported", "conversion_errors", "blocked", "runner_errors"))
+    complete = not args.suite and len(reports) == len(sources) and not errors
     result = {"spec": LOCK["spec"], "wasm_tools": LOCK["wasm_tools"]["version"],
               "full_core_suite_selected": not bool(args.suite), "full_core_suite_passed": complete,
+              "source_sha256": source_hash.hexdigest(), "simulator_sha256": binary_hash,
+              "max_cycles_per_invocation": args.max_cycles, "memory_wait_states": args.wait_states,
               "elapsed_seconds": time.time()-started, "totals": dict(totals), "suites": reports}
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(result, indent=2)+"\n")
     print("TOTAL", json.dumps(dict(totals), sort_keys=True))
-    return 1 if any(totals[k] for k in ("failed", "unsupported", "conversion_errors", "blocked")) else 0
+    return 1 if errors else 0
 
 
 if __name__ == "__main__":

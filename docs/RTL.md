@@ -21,6 +21,19 @@ operations use separately licensed Berkeley HardFloat arithmetic and Wasm-specif
 SystemVerilog wrappers. No `real`, `shortreal`, DPI interpreter, or host floating-
 point execution implements Wasm instructions.
 
+The RTL now contains scalar integer and floating-point instructions, vector and
+relaxed-vector operations, structured control, direct/indirect/reference calls,
+tail calls, bulk memory/table operations, typed references, GC object operations,
+and exception allocation, matching, and unwinding. This inventory is not a
+conformance claim: the full regression remains the acceptance gate.
+
+GC objects and exceptions currently use a bounded, external heap with a bump
+allocator. References carry object kind, canonical type, extent, and heap address.
+There is no reclaiming garbage collector yet. Heap exhaustion is reported rather
+than silently reusing live objects. The loading front end canonicalizes recursive
+types and supplies a read-only subtype relation; runtime tests and dispatch use
+that relation in the RTL.
+
 `tools/wasm_image.py` reads validated standard Wasm binaries. It decodes immediates
 and computes structured-control targets, preserving the Wasm opcode of each
 instruction. Code fetch uses this expanded representation, not raw binary bytes.
@@ -65,6 +78,11 @@ python3 tools/run_spec.py --suite i32 --suite i64 --wait-states 3
 failures, or cases blocked by a simulator failure. Its JSON report records the
 selected baseline, counts, and failures. Reports and downloaded tests are ignored
 build artifacts; upstream test files are never edited to make them pass.
+Reports also identify the source and simulator binary by SHA-256. Suite files run
+in independent simulator processes, with four workers by default. The cycle
+budget includes the official million-tail-call tests; timeouts never count as
+expected Wasm exhaustion. Loader validation and embedding assertions have
+separate counters from execution assertions.
 
 The present RTL uses finite parameterized value/control/call storage. Exhaustion
 has a distinct result. Capacity limits, simulator timeouts, tool limitations and
