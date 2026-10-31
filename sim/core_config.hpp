@@ -6,5 +6,5 @@ inline constexpr unsigned CONTROL_DEPTH=2048;
 inline constexpr unsigned HEAP_SLOTS=1048576;
 inline constexpr unsigned MEMORY_COUNT=256;
 inline constexpr unsigned VALUE_DEPTH=16384;
-inline constexpr const char* BUILD_ID="6733de885b9de4d40f9dbeb60abf5902";
+inline constexpr const char* BUILD_ID="6977b52b2650f8536a17e8dbefa488a0";
 }

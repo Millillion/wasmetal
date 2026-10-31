@@ -66,13 +66,15 @@ module wasmetal_core #(
     logic [31:0] frames_fp [0:CALL_DEPTH-1];
     logic [31:0] frames_control [0:CALL_DEPTH-1];
     logic [31:0] frames_results [0:CALL_DEPTH-1];
-    logic [63:0] memory_pages [0:MEMORY_COUNT-1];
-    logic [63:0] memory_max [0:MEMORY_COUNT-1];
-    logic memory_wide [0:MEMORY_COUNT-1];
-    logic [63:0] table_size [0:MEMORY_COUNT-1];
-    logic [63:0] table_max [0:MEMORY_COUNT-1];
-    logic table_wide [0:MEMORY_COUNT-1];
-    logic [63:0] data_size [0:MEMORY_COUNT-1], element_size [0:MEMORY_COUNT-1];
+    logic [5:0] descriptor_write;
+    logic [31:0] descriptor_index,descriptor_read_a,descriptor_read_b;
+    logic [128:0] descriptor_data;
+    wire [63:0] memory_pages_a,memory_pages_b,table_size_a,table_size_b,data_size_b,element_size_b;
+    wire [64:0] memory_limits,table_limits;
+    wire [64:0] unused_memory_limits,unused_table_limits;
+    wire [63:0] unused_data_size,unused_element_size;
+    wire memory_wide_a=memory_limits[64],table_wide_a=table_limits[64];
+    wire [63:0] memory_max_a=memory_limits[63:0],table_max_a=table_limits[63:0];
     logic [63:0] bulk_left, bulk_source, bulk_destination;
     logic [31:0] bulk_source_index, bulk_destination_index;
     logic [2:0] bulk_source_kind, bulk_destination_kind;
@@ -132,7 +134,35 @@ module wasmetal_core #(
     logic [65:0] access_end, memory_limit;
     logic [64:0] effective_address, grown_pages;
     logic [31:0] label_index;
-    integer k;
+
+    // Share descriptor read ports across mutually exclusive instructions.
+    always_comb begin
+        descriptor_read_a=insn_x;
+        if(state==IDLE) descriptor_read_a=cmd_index;
+        else if(insn_op=='h11 || insn_op=='h13) descriptor_read_a=insn_y;
+        else if(insn_op=='hfc0008 || insn_op=='hfc000a || insn_op=='hfc000b ||
+                insn_op=='hfc000c || insn_op=='hfc000e || insn_op=='hfc0011)
+            descriptor_read_a=decoded_destination;
+        descriptor_read_b=insn_op[31:16]=='hfb ? insn_y:decoded_source;
+    end
+    wasmetal_descriptors #(MEMORY_COUNT,64) memory_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[0]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_b),.read_data_a(memory_pages_a),.read_data_b(memory_pages_b));
+    wasmetal_descriptors #(MEMORY_COUNT,65) memory_bounds(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[1]),.write_index(descriptor_index),.write_data(descriptor_data[128:64]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_a),.read_data_a(memory_limits),.read_data_b(unused_memory_limits));
+    wasmetal_descriptors #(MEMORY_COUNT,64) table_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[2]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_b),.read_data_a(table_size_a),.read_data_b(table_size_b));
+    wasmetal_descriptors #(MEMORY_COUNT,65) table_bounds(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[3]),.write_index(descriptor_index),.write_data(descriptor_data[128:64]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_a),.read_data_a(table_limits),.read_data_b(unused_table_limits));
+    wasmetal_descriptors #(MEMORY_COUNT,64) data_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[4]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_b),.read_index_b(descriptor_read_b),.read_data_a(data_size_b),.read_data_b(unused_data_size));
+    wasmetal_descriptors #(MEMORY_COUNT,64) element_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[5]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_b),.read_index_b(descriptor_read_b),.read_data_a(element_size_b),.read_data_b(unused_element_size));
 
     assign busy = state != IDLE;
     always_comb begin
@@ -250,12 +280,14 @@ module wasmetal_core #(
         decoded_fill = insn_op == 'hfc000b || insn_op == 'hfc0011;
         decoded_destination = decoded_init ? insn_y : insn_x;
         decoded_source = decoded_init ? insn_x : insn_y;
+    end
+    always_comb begin
         bulk_destination_limit = 0; bulk_source_limit = 0;
         if (decoded_destination < MEMORY_COUNT) bulk_destination_limit = decoded_table ?
-            {2'b0,table_size[decoded_destination]} : {2'b0,memory_pages[decoded_destination]} << 16;
+            {2'b0,table_size_a} : {2'b0,memory_pages_a} << 16;
         if (decoded_source < MEMORY_COUNT) begin
-            if (decoded_init) bulk_source_limit = decoded_table ? {2'b0,element_size[decoded_source]} : {2'b0,data_size[decoded_source]};
-            else bulk_source_limit = decoded_table ? {2'b0,table_size[decoded_source]} : {2'b0,memory_pages[decoded_source]} << 16;
+            if (decoded_init) bulk_source_limit = decoded_table ? {2'b0,element_size_b} : {2'b0,data_size_b};
+            else bulk_source_limit = decoded_table ? {2'b0,table_size_b} : {2'b0,memory_pages_b} << 16;
         end
         bulk_destination_end = {2'b0,third[63:0]}+{2'b0,top[63:0]};
         bulk_source_end = {2'b0,below[63:0]}+{2'b0,top[63:0]};
@@ -263,7 +295,7 @@ module wasmetal_core #(
         bulk_source_step = bulk_table ? bulk_source_unit : bulk_step_size;
         bulk_destination_step = bulk_table ? bulk_destination_unit : bulk_step_size;
         grown_table = 0;
-        if (insn_x < MEMORY_COUNT) grown_table = {1'b0,table_size[insn_x]}+{1'b0,top[63:0]};
+        if (insn_x < MEMORY_COUNT) grown_table = {1'b0,table_size_a}+{1'b0,top[63:0]};
     end
 
     always_comb begin
@@ -290,10 +322,10 @@ module wasmetal_core #(
         access_base = access_store || access_lane ? below[63:0] : top[63:0];
         memory_limit = 0; grown_pages = 0;
         if (insn_x < MEMORY_COUNT) begin
-            if (!memory_wide[insn_x]) access_base[63:32] = 0;
-            memory_limit = {2'b0,memory_pages[insn_x]} << 16;
-            grown_pages = {1'b0,memory_pages[insn_x]} +
-                (memory_wide[insn_x] ? {1'b0,top[63:0]} : {33'b0,top[31:0]});
+            if (!memory_wide_a) access_base[63:32] = 0;
+            memory_limit = {2'b0,memory_pages_a} << 16;
+            grown_pages = {1'b0,memory_pages_a} +
+                (memory_wide_a ? {1'b0,top[63:0]} : {33'b0,top[31:0]});
         end
         effective_address = {1'b0,access_base} + {1'b0,insn_imm[63:0]};
         access_end = {1'b0,effective_address} + {61'b0,access_size};
@@ -335,12 +367,17 @@ module wasmetal_core #(
         begin trap <= code; done <= 1; state <= IDLE; mem_valid <= 0; result_count <= 0; end
     endtask
 
+    task automatic write_descriptor(input logic [5:0] mask,input logic [31:0] index,input logic [128:0] value);
+        begin descriptor_write<=mask; descriptor_index<=index; descriptor_data<=value; end
+    endtask
+
     task automatic write_value(input logic [31:0] index,input logic [127:0] value);
         begin value_write<=1; value_write_index<=index; value_write_data<=value; end
     endtask
 
     always_ff @(posedge clk) begin
         if (reset) begin
+            descriptor_write<=0; descriptor_index<=0; descriptor_data<=0;
             value_write<=0; value_write_index<=0; value_write_data<=0; fifth<=0; fifth_ready<=0;
             state <= IDLE; copy_next <= IDLE; done <= 0; trap <= 0; result_count <= 0;
             pc <= 0; function_index <= 0;
@@ -361,12 +398,8 @@ module wasmetal_core #(
             catch_left <= 0; catch_values <= 0; catch_position <= 0;
             mem_valid <= 0; mem_write <= 0; mem_kind <= 0; mem_index <= 0;
             mem_address <= 0; mem_bytes <= 0; mem_wdata <= 0;
-            for (k=0; k<MEMORY_COUNT; k=k+1) begin
-                memory_pages[k] <= 0; memory_max[k] <= 0; memory_wide[k] <= 0;
-                table_size[k] <= 0; table_max[k] <= 0; table_wide[k] <= 0;
-                data_size[k] <= 0; element_size[k] <= 0;
-            end
         end else begin
+            descriptor_write<=0;
             value_write<=0; fifth_ready<=0;
             case (state)
                 IDLE: if (cmd_valid) begin
@@ -380,18 +413,12 @@ module wasmetal_core #(
                             end
                         end
                         1: if (cmd_index < VALUE_DEPTH) write_value(cmd_index,cmd_data);
-                        2: if (cmd_index < MEMORY_COUNT) begin
-                            memory_pages[cmd_index] <= cmd_data[63:0];
-                            memory_max[cmd_index] <= cmd_data[127:64]; memory_wide[cmd_index] <= cmd_aux[0];
-                        end
-                        3: if (cmd_index < MEMORY_COUNT) begin
-                            table_size[cmd_index] <= cmd_data[63:0];
-                            table_max[cmd_index] <= cmd_data[127:64]; table_wide[cmd_index] <= cmd_aux[0];
-                        end
-                        4: if (cmd_index < MEMORY_COUNT) data_size[cmd_index] <= cmd_data[63:0];
-                        5: if (cmd_index < MEMORY_COUNT) element_size[cmd_index] <= cmd_data[63:0];
-                        6: if (cmd_index < MEMORY_COUNT) begin write_value(0,{64'b0,memory_pages[cmd_index]}); end
-                        7: if (cmd_index < MEMORY_COUNT) begin write_value(0,{64'b0,table_size[cmd_index]}); end
+                        2: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b000011,cmd_index,{cmd_aux[0],cmd_data});
+                        3: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b001100,cmd_index,{cmd_aux[0],cmd_data});
+                        4: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b010000,cmd_index,{65'b0,cmd_data[63:0]});
+                        5: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b100000,cmd_index,{65'b0,cmd_data[63:0]});
+                        6: if (cmd_index < MEMORY_COUNT) begin write_value(0,{64'b0,memory_pages_a}); end
+                        7: if (cmd_index < MEMORY_COUNT) begin write_value(0,{64'b0,table_size_a}); end
                         default: fail(T_IMAGE);
                     endcase
                 end
@@ -508,7 +535,7 @@ module wasmetal_core #(
                             function_index <= insn_x; call_kind <= insn_op == 'h12 ? 2 : 1; check_type <= 0; state <= CALL_SETUP;
                         end
                         'h11, 'h13: begin
-                            if (insn_y >= MEMORY_COUNT || top[63:0] >= table_size[insn_y]) fail(5);
+                            if (insn_y >= MEMORY_COUNT || top[63:0] >= table_size_a) fail(5);
                             else begin
                                 mem_valid <= 1; mem_write <= 0; mem_kind <= 2; mem_index <= insn_y;
                                 mem_address <= top[63:0]; mem_bytes <= 16;
@@ -542,7 +569,7 @@ module wasmetal_core #(
                         end
                         'h25, 'h26: begin
                             if (insn_x >= MEMORY_COUNT ||
-                                (insn_op == 'h26 ? below[63:0] : top[63:0]) >= table_size[insn_x]) fail(5);
+                                (insn_op == 'h26 ? below[63:0] : top[63:0]) >= table_size_a) fail(5);
                             else begin
                                 mem_valid <= 1; mem_write <= insn_op == 'h26; mem_kind <= 2;
                                 mem_index <= insn_x; mem_address <= insn_op == 'h26 ? below[63:0] : top[63:0];
@@ -553,27 +580,26 @@ module wasmetal_core #(
                         end
                         'hfc0010: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
-                            else begin write_value(sp,{64'b0,table_size[insn_x]}); sp <= sp+1; pc <= pc+1; end
+                            else begin write_value(sp,{64'b0,table_size_a}); sp <= sp+1; pc <= pc+1; end
                         end
                         'hfc0009, 'hfc000d: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
                             else begin
-                                if (insn_op == 'hfc0009) data_size[insn_x] <= 0;
-                                else element_size[insn_x] <= 0;
+                                write_descriptor(insn_op=='hfc0009 ? 6'b010000:6'b100000,insn_x,0);
                                 pc <= pc+1;
                             end
                         end
                         'hfc000f: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
-                            else if (grown_table[64] || grown_table > {1'b0,table_max[insn_x]}) begin
-                                write_value(sp-2,table_wide[insn_x] ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
+                            else if (grown_table[64] || grown_table > {1'b0,table_max_a}) begin
+                                write_value(sp-2,table_wide_a ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
                                 sp <= sp-1; pc <= pc+1;
                             end else begin
-                                write_value(sp-2,{64'b0,table_size[insn_x]}); sp <= sp-1;
-                                table_size[insn_x] <= grown_table[63:0];
+                                write_value(sp-2,{64'b0,table_size_a}); sp <= sp-1;
+                                write_descriptor(6'b000100,insn_x,{65'b0,grown_table[63:0]});
                                 bulk_table <= 1; bulk_fill <= 1; bulk_fill_value <= below;
                                 bulk_source_unit <= 1; bulk_destination_unit <= 1;
-                                bulk_left <= top[63:0]; bulk_destination <= table_size[insn_x];
+                                bulk_left <= top[63:0]; bulk_destination <= table_size_a;
                                 bulk_destination_index <= insn_x; bulk_destination_kind <= 2;
                                 bulk_backwards <= 0; state <= BULK_STEP;
                             end
@@ -601,16 +627,16 @@ module wasmetal_core #(
                         end
                         'h3f: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
-                            else begin write_value(sp,{64'b0,memory_pages[insn_x]}); sp <= sp+1; pc <= pc+1; end
+                            else begin write_value(sp,{64'b0,memory_pages_a}); sp <= sp+1; pc <= pc+1; end
                         end
                         'h40: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
-                            else if (grown_pages[64] || grown_pages > {1'b0,memory_max[insn_x]}) begin
-                                write_value(sp-1,memory_wide[insn_x] ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
+                            else if (grown_pages[64] || grown_pages > {1'b0,memory_max_a}) begin
+                                write_value(sp-1,memory_wide_a ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
                                 pc <= pc+1;
                             end else begin
-                                write_value(sp-1,{64'b0,memory_pages[insn_x]});
-                                memory_pages[insn_x] <= grown_pages[63:0];
+                                write_value(sp-1,{64'b0,memory_pages_a});
+                                write_descriptor(6'b000001,insn_x,{65'b0,grown_pages[63:0]});
                                 // The configured backing capacity is zeroed at
                                 // instantiation. Bounds checks prevent accessing
                                 // the reserved tail before growth exposes it.
@@ -704,7 +730,7 @@ module wasmetal_core #(
                         end
                         'hfb0009,'hfb000a: begin
                             if(insn_y >= MEMORY_COUNT) fail(T_IMAGE);
-                            else if(gc_segment_end > (insn_op=='hfb0009 ? {2'b0,data_size[insn_y]} : {2'b0,element_size[insn_y]}))
+                            else if(gc_segment_end > (insn_op=='hfb0009 ? {2'b0,data_size_b} : {2'b0,element_size_b}))
                                 fail(insn_op=='hfb0009 ? T_BOUNDS : 8'd5);
                             else if(new_heap_end > 33'(HEAP_SLOTS)) fail(12);
                             else begin
@@ -756,7 +782,7 @@ module wasmetal_core #(
                             else if(insn_y >= MEMORY_COUNT) fail(T_IMAGE);
                             else if({32'b0,third[31:0]}+{32'b0,top[31:0]} > {32'b0,fourth[63:32]}) fail(11);
                             else if(gc_segment_end >
-                                (insn_op=='hfb0012 ? {2'b0,data_size[insn_y]} : {2'b0,element_size[insn_y]}))
+                                (insn_op=='hfb0012 ? {2'b0,data_size_b} : {2'b0,element_size_b}))
                                 fail(insn_op=='hfb0012 ? T_BOUNDS : 8'd5);
                             else begin
                                 sp <= sp-4; bulk_table <= 1; bulk_fill <= 0; bulk_backwards <= 0;

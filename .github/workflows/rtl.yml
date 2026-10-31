@@ -1,0 +1,31 @@
+name: RTL verification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned local tools and upstream tests
+        run: python3 tools/bootstrap.py
+      - name: Lint and independent arithmetic verification
+        run: |
+          make lint test-divider test-simd test-popcount test-values test-descriptors prove-masks
+          python3 tools/prove_descriptors.py
+      - name: Compile RTL and verify boundary and oracle behavior
+        run: |
+          make sim
+          python3 tools/check_engine.py
+      - name: Complete official suite
+        run: python3 tools/run_spec.py --report reports/core.json
+      - name: Complete official suite with memory stalls
+        run: python3 tools/run_spec.py --wait-states 3 --report reports/core-stalled.json
+      - name: Verify complete serial FPGA interface in simulation
+        run: make fpga-smoke
