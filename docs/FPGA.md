@@ -38,9 +38,9 @@ after packing (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks.
 The [mapping record](verification/fpga-mapping.json) includes its source hashes
 and synthesis recipe. Its mapped functional simulation, routing and timing
 checks are still in progress; it has not replaced the default build recipe.
-Heap allocation is bounded and currently has no reclamation. Earlier mapped-cell
-reports identify their smaller capacity profile explicitly; they do not establish
-conformance of a later build.
+Heap allocation is bounded and currently has no reclamation. Mapped-cell results
+apply to their recorded netlist and capacity profile; a changed mapping requires
+its own checks.
 
 The host reserves zero-initialized backing storage up to each memory's configured
 maximum. The core checks bounds and exposes additional pages on `memory.grow`.
@@ -109,10 +109,12 @@ Its packing follows pinned Yosys' mapping and its behavior follows the
 simulator, including both read edges, banking and partial writes. The timing
 report must also cover the CPU's half-cycle RAM paths.
 
-At execution-source revision `f4e578b`, this mapped CPU passed twenty-eight official
-suites with three memory wait states: 11,559 execution assertions covering scalar
-arithmetic, SIMD, GC, exceptions and structured control in the
+At execution-source revision `bf3ce24`, the four-input-LUT mapped CPU passed forty
+official suites with three memory wait states: 17,379 execution assertions over
+1,912,810 cycles covering scalar arithmetic, SIMD, GC, exceptions, control,
+calls, locals and memory/table sizes in the
 [mapped-cell report](verification/ecp5-mapped.json). The
+smaller experimental ABC9 mapping is being verified separately. The
 [whole-board UART report](verification/fpga-uart.json) records fourteen passing
 execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the
