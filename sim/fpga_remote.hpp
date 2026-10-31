@@ -38,16 +38,16 @@ class FpgaTransport {
     void tick() {
         board.clk_25mhz=0; board.eval(); board.clk_25mhz=1; board.eval();
         if(sample_bit<0) {
-            if(!board.ftdi_rxd) { sample_bit=0; sample_count=37; sample_value=0; }
+            if(!board.ftdi_rxd) { sample_bit=0; sample_count=74; sample_value=0; }
         } else if(sample_count) sample_count--;
         else if(sample_bit<8) {
-            sample_value|=uint8_t(board.ftdi_rxd<<sample_bit); sample_bit++; sample_count=24;
+            sample_value|=uint8_t(board.ftdi_rxd<<sample_bit); sample_bit++; sample_count=49;
         } else {
             if(!board.ftdi_rxd) throw std::runtime_error("FPGA model UART framing error");
             received.push_back(sample_value); sample_bit=-1;
         }
     }
-    void bit(unsigned value) { board.ftdi_txd=value; for(unsigned n=0;n<25;n++) tick(); }
+    void bit(unsigned value) { board.ftdi_txd=value; for(unsigned n=0;n<50;n++) tick(); }
 public:
     FpgaTransport() {
         board.ftdi_txd=1; board.btn_n=0;
@@ -58,14 +58,14 @@ public:
         for(auto byte:prefix) {
             bit(0); for(unsigned n=0;n<8;n++) bit((byte>>n)&1U); bit(1);
         }
-        for(unsigned n=0;n<2500000;n++) tick();
+        for(unsigned n=0;n<5000000;n++) tick();
         if(!received.empty()) throw std::runtime_error("FPGA responded to an incomplete frame");
     }
     std::vector<uint8_t> exchange(const std::vector<uint8_t>& request,size_t response_size) {
         for(auto byte:request) {
             bit(0); for(unsigned n=0;n<8;n++) bit((byte>>n)&1U); bit(1);
         }
-        unsigned budget=unsigned(response_size*300+10000);
+        unsigned budget=unsigned(response_size*600+20000);
         while(received.size()<response_size && budget) { tick(); budget--; }
         if(received.size()!=response_size) throw std::runtime_error("FPGA model UART response timeout/length error");
         std::vector<uint8_t> response(received.begin(),received.end()); received.clear(); return response;
@@ -92,10 +92,10 @@ public:
             if(::tcgetattr(fd,&settings)<0) throw std::runtime_error("cannot read serial settings");
             ::cfmakeraw(&settings); settings.c_cflag&=~(CRTSCTS|CSTOPB|PARENB|CSIZE);
             settings.c_cflag|=CLOCAL|CREAD|CS8; settings.c_iflag&=~(IXON|IXOFF|IXANY);
-            if(::cfsetispeed(&settings,B1000000)<0 || ::cfsetospeed(&settings,B1000000)<0 || ::tcsetattr(fd,TCSANOW,&settings)<0)
-                throw std::runtime_error("cannot configure 1 Mbaud serial link");
-            // Let the bridge's 50 ms receive watchdog discard an abandoned frame.
-            ::usleep(60000); ::tcflush(fd,TCIOFLUSH);
+            if(::cfsetispeed(&settings,B500000)<0 || ::cfsetospeed(&settings,B500000)<0 || ::tcsetattr(fd,TCSANOW,&settings)<0)
+                throw std::runtime_error("cannot configure 500 kbaud serial link");
+            // Let the bridge's 100 ms receive watchdog discard an abandoned frame.
+            ::usleep(120000); ::tcflush(fd,TCIOFLUSH);
         } catch(...) { ::close(fd); fd=-1; throw; }
     }
     ~FpgaTransport() { if(fd>=0) ::close(fd); }
@@ -109,7 +109,7 @@ public:
             if(n<=0) throw std::runtime_error("FPGA serial write failed");
             offset+=size_t(n);
         }
-        ::usleep(100000);
+        ::usleep(200000);
     }
     std::vector<uint8_t> exchange(const std::vector<uint8_t>& request,size_t response_size) {
         size_t offset=0;

@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 
 import cad
+import check_timing
 
 ROOT=Path(__file__).resolve().parent.parent
 YOSYS=ROOT/".cache/tools/usr/bin/yosys"
@@ -23,6 +24,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--core-netlist",type=Path,default=ROOT/"build/core-ecp5.json")
     parser.add_argument("--seed",type=int,default=1)
+    parser.add_argument("--router",choices=["router1","router2"],default="router2")
     args=parser.parse_args()
     directory=ROOT/"build/ulx3s";directory.mkdir(parents=True,exist_ok=True)
     source=json.loads(args.core_netlist.read_text())
@@ -40,6 +42,12 @@ def main():
     if any(cell["type"].startswith("$") for cell in core["cells"].values()):
         raise ValueError("core is not fully mapped to FPGA cells")
     subprocess.run(["python3",str(ROOT/"tools/generate_fpga_ports.py")],check=True)
+    input_paths=[args.core_netlist.resolve(),args.core_netlist.with_suffix('.manifest.json').resolve(),
+                 ROOT/'tools/build_board.py',ROOT/'tools/check_timing.py',ROOT/'tools/cad.py',
+                 ROOT/'tools/generate_fpga_ports.py',ROOT/'tools/upstream.lock.json']+sorted((ROOT/'fpga').glob('*'))
+    input_hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in input_paths if p.is_file()}
+    fingerprint='sha256:'+hashlib.sha256(json.dumps(input_hashes,sort_keys=True).encode()).hexdigest()
+    (directory/'build-inputs.json').write_text(json.dumps({'inputs':input_hashes,'fingerprint':fingerprint},indent=2)+'\n')
     # Reuse the mapped arithmetic core. Synthesize only the transport around an
     # opaque copy, then restore and flatten the exact original mapped module.
     script=f'''read_json {args.core_netlist.resolve()}
@@ -50,6 +58,7 @@ check -assert
 '''
     yosys(script,"wrapper",directory)
     wrapper=json.loads((directory/"wrapper.json").read_text())
+    wrapper['modules']['wasmetal_ulx3s']['attributes']['wasmetal_input_sha256']=fingerprint
     restored=copy.deepcopy(core);restored["attributes"].pop("top",None)
     wrapper["modules"]["wasmetal_core"]=restored
     for name,module in source["modules"].items():
@@ -65,17 +74,29 @@ check -assert
 write_json build/ulx3s/design.json
 ''',"flatten",directory)
     args_pnr=["--85k","--package","CABGA381","--speed","6","--seed",str(args.seed),
+              "--router",args.router,
               "--json",str(directory/"design.json"),"--lpf",str(ROOT/"fpga/ulx3s.lpf"),
-              "--textcfg",str(directory/"design.config"),"--report",str(directory/"timing.json"),"--freq","25"]
+              "--textcfg",str(directory/"design.config"),"--report",str(directory/"timing.json"),
+              "--write",str(directory/'routed.json'),"--freq","25"]
     with (directory/"nextpnr.log").open("w") as output:
         subprocess.run(cad.command("nextpnr-ecp5")+args_pnr,cwd=ROOT,env=cad.environment(),
                        stdout=output,stderr=subprocess.STDOUT,check=True)
+    timing=check_timing.audit(directory/'timing.json')
+    (directory/'timing-audit.json').write_text(json.dumps(timing,indent=2)+'\n')
+    routed=json.loads((directory/'routed.json').read_text())
+    if not any(m.get('attributes',{}).get('wasmetal_input_sha256')==fingerprint for m in routed['modules'].values()):
+        raise ValueError('routed design lost its source fingerprint')
+    for name,digest in input_hashes.items():
+        if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest: raise ValueError('board input changed during build: '+name)
     with (directory/"ecppack.log").open("w") as output:
         subprocess.run(cad.command("ecppack")+[str(directory/"design.config"),str(directory/"wasmetal.bit"),"--compress"],
                        cwd=ROOT,env=cad.environment(),stdout=output,stderr=subprocess.STDOUT,check=True)
-    inputs=[args.core_netlist.resolve(),ROOT/"fpga/wasmetal_uart.sv",ROOT/"fpga/wasmetal_ulx3s.sv",ROOT/"fpga/core_ports.svh",ROOT/"fpga/profile.json",ROOT/"fpga/ulx3s.lpf"]
-    manifest={"board":"ULX3S 85F CABGA381 speed 6","parameters":parameters,"seed":args.seed,
-              "inputs":{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},
+    versions={name:subprocess.run(command+['--version'],env=cad.environment(),capture_output=True,text=True,check=True)
+              for name,command in [('yosys',[str(YOSYS)]),('nextpnr-ecp5',cad.command('nextpnr-ecp5')),('ecppack',cad.command('ecppack'))]}
+    manifest={"board":"ULX3S 85F CABGA381 speed 6","parameters":parameters,"seed":args.seed,"router":args.router,
+              "inputs":input_hashes,"fingerprint":fingerprint,'timing':timing,
+              'tool_versions':{name:(result.stdout+result.stderr).strip() for name,result in versions.items()},
+              'artifacts':{name:hashlib.sha256((directory/name).read_bytes()).hexdigest() for name in ['design.json','routed.json','design.config','timing.json']},
               "bitstream_sha256":hashlib.sha256((directory/"wasmetal.bit").read_bytes()).hexdigest(),
               "physical_hardware_tested":False}
     (directory/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")

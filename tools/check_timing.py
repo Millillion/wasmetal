@@ -9,8 +9,10 @@ from pathlib import Path
 
 def clock_kind(name):
     name=name.removeprefix('posedge ').removeprefix('negedge ')
+    name=name.removeprefix('$glbnet$')
     if name=='core_clock': return 'core'
-    if name.startswith('clk_25mhz'): return 'bridge'
+    if name=='bridge_clock': return 'bridge'
+    if name.startswith('clk_25mhz'): return 'oscillator'
     if name=='<async>': return None
     raise ValueError(f'unrecognized clock: {name}')
 
@@ -21,13 +23,13 @@ def audit(path):
     for name,values in report['fmax'].items():
         kind=clock_kind(name)
         if kind is None: raise ValueError('unexpected asynchronous fmax entry')
-        required=25.0 if kind=='bridge' else 1.0
+        required={'oscillator':25.0,'bridge':12.5,'core':1.0}[kind]
         achieved=float(values['achieved']);constraint=float(values['constraint'])
         if not math.isfinite(achieved) or not math.isfinite(constraint) or constraint<required or achieved<constraint:
             raise ValueError(f'clock failed timing: {name}: {values}')
         if kind in clocks: raise ValueError(f'duplicate {kind} clock')
         clocks[kind]={'net':name,'required_mhz':constraint,'achieved_mhz':achieved}
-    if set(clocks)!={'bridge','core'}: raise ValueError('missing constrained clock')
+    if set(clocks)!={'oscillator','bridge','core'}: raise ValueError('missing constrained clock')
     crossings={}
     for entry in report['critical_paths']:
         source=clock_kind(entry['from']);destination=clock_kind(entry['to'])

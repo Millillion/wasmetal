@@ -16,9 +16,49 @@ ROOT=Path(__file__).resolve().parent.parent
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def write_adapter(directory,parameters):
+    main_cpp=(ROOT/'sim/main.cpp').read_text()
+    assert main_cpp.count('#include "core_config.hpp"')==1
+    config=(ROOT/'sim/core_config.hpp').read_text()
+    for name,value in parameters.items():
+        config,n=re.subn(r'(unsigned '+name+r'=)\d+;',lambda m:m[1]+str(value)+';',config)
+        assert n==1,name
+    for name,text in [('main.cpp',main_cpp.replace('#include "core_config.hpp"','#include "gate_config.hpp"')),('gate_config.hpp',config)]:
+        path=directory/name
+        if not path.exists() or path.read_text()!=text: path.write_text(text)
+
+
+def relink(directory,netlist,parameters):
+    binary=directory/'obj/Vwasmetal_core'
+    previous=json.loads(Path(str(binary)+'.build.json').read_text())
+    if digest(binary)!=previous['binary_sha256']: raise ValueError('existing mapped executable changed')
+    for name,sha in previous['inputs'].items():
+        if name.startswith(('rtl/','third_party/hardfloat/')) and digest(ROOT/name)!=sha:
+            raise ValueError('cannot reuse a model after an RTL change: '+name)
+    extra=previous['extra_inputs'].copy()
+    tool_name=str(Path(__file__).resolve().relative_to(ROOT))
+    generation_sha=previous.get('model_generation_script_sha256',extra[tool_name])
+    for name,sha in extra.items():
+        if name!=tool_name and digest(ROOT/name)!=sha: raise ValueError('mapped model input changed: '+name)
+    if extra.get(str(netlist.relative_to(ROOT)))!=digest(netlist): raise ValueError('cannot relink a different netlist')
+    write_adapter(directory,parameters)
+    build_identity.begin(binary,'native')
+    path=Path(str(binary)+'.inputs.json');snapshot=json.loads(path.read_text())
+    for p in [Path(__file__).resolve(),directory/'main.cpp',directory/'gate_config.hpp']+list(binary.parent.glob('V*.h')):
+        extra[str(p.relative_to(ROOT))]=digest(p)
+    snapshot.update(backend='mapped-ecp5-functional',parameters=parameters,extra_inputs=extra,
+                    model_generation_script_sha256=generation_sha)
+    path.write_text(json.dumps(snapshot,indent=2)+'\n')
+    subprocess.run(['make','-C',str(binary.parent),'-f','Vwasmetal_core.mk','-j','2'],check=True,cwd=ROOT,
+                   env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')))
+    build_identity.finish(binary)
+    print('Relinked unchanged mapped CPU model',binary)
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--core-netlist',type=Path,default=ROOT/'build/core-ecp5.json')
+    parser.add_argument('--relink-only',action='store_true',help='reuse a verified unchanged mapped model after host/configuration changes')
     args=parser.parse_args()
     netlist=args.core_netlist.resolve()
     manifest_path=netlist.with_suffix('.manifest.json')
@@ -29,6 +69,10 @@ def main():
     source=json.loads(netlist.read_text())
     core=source['modules']['wasmetal_core']
     parameters={name:int(value,2) for name,value in core['parameter_default_values'].items()}
+    directory=ROOT/'build/gate-model';directory.mkdir(parents=True,exist_ok=True)
+    if args.relink_only:
+        relink(directory,netlist,parameters)
+        return
     supported={'LUT4','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF','MULT18X18D'}
     def parameter_text(value):
         # JSON appends a space to distinguish digit-only strings from bit vectors.
@@ -57,7 +101,6 @@ def main():
             if set(connections)!=allowed: raise ValueError('unsupported DSP ports')
             for port in ['SOURCEA','SOURCEB']+[f'C{i}' for i in range(18)]:
                 if connections[port]!=['0']: raise ValueError(f'unsupported DSP source: {port}')
-    directory=ROOT/'build/gate-model';directory.mkdir(parents=True,exist_ok=True)
     # Tie only parameter-disabled pins. No live undriven signal is replaced.
     (directory/'normalized.json').write_text(json.dumps(source))
     yosys=ROOT/'.cache/tools/usr/bin/yosys'
@@ -83,14 +126,7 @@ def main():
                f'wire signed [18:0] b={{SIGNEDB && B17,{concat("B",18)}}};',
                'wire signed [37:0] product=a*b;',f'assign {concat("P",36)}=product[35:0];','endmodule']
     (directory/'cells.v').write_text('\n'.join(models)+'\n')
-    main_cpp=(ROOT/'sim/main.cpp').read_text()
-    assert main_cpp.count('#include "core_config.hpp"')==1
-    (directory/'main.cpp').write_text(main_cpp.replace('#include "core_config.hpp"','#include "gate_config.hpp"'))
-    config=(ROOT/'sim/core_config.hpp').read_text()
-    for name,value in parameters.items():
-        config,n=re.subn(r'(unsigned '+name+r'=)\d+;',lambda m:m[1]+str(value)+';',config)
-        assert n==1,name
-    (directory/'gate_config.hpp').write_text(config)
+    write_adapter(directory,parameters)
     # Scope generated-name and vendor-model warnings; structural warnings remain fatal.
     (directory/'vendor.vlt').write_text('`verilator_config\n'+''.join(
         f'lint_off -rule {rule} -file "{directory}/{name}"\n'
@@ -115,7 +151,7 @@ def main():
     generated=list(binary.parent.glob('Vwasmetal_core*.cpp'))
     for path in generated:
         path.write_text('#pragma GCC diagnostic ignored "-Wint-in-bool-context"\n'+path.read_text())
-    snapshot['extra_inputs'].update({str(p.relative_to(ROOT)):digest(p) for p in generated})
+    snapshot['extra_inputs'].update({str(p.relative_to(ROOT)):digest(p) for p in generated+list(binary.parent.glob('V*.h'))})
     snapshot_path.write_text(json.dumps(snapshot,indent=2)+'\n')
     subprocess.run(['make','-C',str(binary.parent),'-f','Vwasmetal_core.mk','-j','2'],check=True,cwd=ROOT,
                    env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')))

@@ -4,8 +4,18 @@ module wasmetal_ulx3s (
     input logic clk_25mhz, btn_n, ftdi_txd,
     output logic ftdi_rxd, led_busy, led_error
 );
+    // Keep the packet and UART datapaths on a conservative 12.5 MHz clock.
+    // The divider free-runs through reset so every synchronous reset is clocked.
+    logic bridge_divider=0;
+    always_ff @(posedge clk_25mhz) bridge_divider<=~bridge_divider;
+    (* keep *) wire bridge_clock;
+`ifdef SYNTHESIS
+    DCCA bridge_clock_buffer(.CLKI(bridge_divider),.CE(1'b1),.CLKO(bridge_clock));
+`else
+    assign bridge_clock=bridge_divider;
+`endif
     (* async_reg="true" *) logic [1:0] reset_sync=0;
-    always_ff @(posedge clk_25mhz) reset_sync<={reset_sync[0],btn_n};
+    always_ff @(posedge bridge_clock) reset_sync<={reset_sync[0],btn_n};
     wire reset_bridge=!reset_sync[1];
     logic cpu_pulse;
     (* keep *) wire core_clock;
@@ -29,7 +39,7 @@ module wasmetal_ulx3s (
     wire [7:0] rx_data;
     logic [7:0] tx_data;
     wire tx_valid=state==SEND;
-    wasmetal_uart uart(.clk(clk_25mhz),.reset(reset_bridge),.rx(ftdi_txd),.tx(ftdi_rxd),
+    wasmetal_uart uart(.clk(bridge_clock),.reset(reset_bridge),.rx(ftdi_txd),.tx(ftdi_rxd),
         .tx_valid(tx_valid),.tx_data(tx_data),.tx_ready(tx_ready),
         .rx_valid(rx_valid),.rx_error(rx_error),.rx_data(rx_data));
     assign led_busy=core_busy;
@@ -57,7 +67,7 @@ module wasmetal_ulx3s (
         endcase
     end
 
-    always_ff @(posedge clk_25mhz) begin
+    always_ff @(posedge bridge_clock) begin
         if(reset_bridge) begin
             state<=SYNC0; cpu_pulse<=0; active_inputs<=0; rx_payload<=0; response_payload<=0;
             flags<=0; sequence_number<=0; status<=0; crc_low<=0;

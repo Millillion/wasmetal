@@ -72,7 +72,7 @@ bits, framing, CRCs, clock pulses and the real CPU. It exercises arithmetic,
 unaligned memory, SIMD, floating-point division, GC objects and array copying,
 exceptions, bounds traps and zero-filled memory growth. It verifies that corrupt
 packets, invalid flags, capability queries and abandoned packets do not execute
-instructions. An incomplete packet is discarded after a 50 ms receive timeout.
+instructions. An incomplete packet is discarded after a 100 ms receive timeout.
 
 For an additional check of synthesis mapping:
 
@@ -110,7 +110,7 @@ WASMETAL_SERIAL=/dev/serial/by-id/your-board \
   python3 tools/check_fpga.py --simulator build/wasmetal-fpga
 ```
 
-The adapter uses exclusive access, raw 8N1 at 1,000,000 baud, no flow control and
+The adapter uses exclusive access, raw 8N1 at 500,000 baud, no flow control and
 bounded I/O waits. It does not discover or open a device without `WASMETAL_SERIAL`.
 It does not retry a potentially executed instruction after a lost response.
 
@@ -120,11 +120,17 @@ millions of clock cycles and is not a quick physical bring-up test.
 
 ## Clocking and transport
 
-The board oscillator runs the UART and bridge at 25 MHz. A DCCA routes the manual
+The 25 MHz board oscillator feeds a free-running divide-by-two flip-flop. A DCCA
+routes its 12.5 MHz output to the UART and bridge. A second DCCA routes the manual
 CPU clock onto a global clock network. Each accepted step holds new inputs stable
-for 4 microseconds before the CPU edge, holds its pulse high for 1 microsecond,
-then waits at least 2 microseconds before sampling outputs. An evaluation request
+for 8 microseconds before the CPU edge, holds its pulse high for 2 microseconds,
+then waits at least 4 microseconds before sampling outputs. An evaluation request
 changes inputs and samples combinational outputs without a CPU edge.
+
+The build checks all three clock constraints and separately audits both directions
+of the held-bus crossing. It requires each cross-domain path to settle within a
+conservative 1 microsecond budget, below the protocol's actual hold times. This
+does not replace the same-clock timing checks or introduce timing waivers.
 
 Requests contain `57 4d`, flags, sequence, 106 input bytes and a little-endian
 CRC16-CCITT-FALSE. Responses contain `57 52`, status, sequence, 67 output bytes and
