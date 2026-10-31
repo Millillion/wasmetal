@@ -183,3 +183,9 @@ needs buffered program loading, local memory and fetch controllers, autonomous c
 changes need their own conformance runs and timing closure. An ASIC additionally
 requires a process/PDK, memories, I/O and clock/reset integration, physical design,
 signoff and fabrication; the FPGA bitstream is not an ASIC deliverable.
+
+The mapped simulator accepts the ECP5 `PFUMX` and `L6MUX21` primitives used by
+ABC9, using their models from the pinned Yosys library. Unsupported parameters
+are rejected. The initial ABC9 placement stalled with routing congestion; a
+separate static placement is being evaluated. Neither trial is a usable FPGA
+bitstream until routing and the timing audit both pass.

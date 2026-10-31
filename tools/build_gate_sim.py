@@ -74,7 +74,7 @@ def main():
     if args.relink_only:
         relink(directory,netlist,parameters)
         return
-    supported={'LUT4','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF','MULT18X18D','DP16KD'}
+    supported={'LUT4','PFUMX','L6MUX21','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF','MULT18X18D','DP16KD'}
     def parameter_text(value):
         # JSON appends a space to distinguish digit-only strings from bit vectors.
         if value.endswith(' '): return value[:-1]
@@ -83,6 +83,8 @@ def main():
         return value
     for name,cell in core['cells'].items():
         if cell['type'] not in supported: raise ValueError(f'unmodeled primitive {cell["type"]}')
+        if cell['type'] in ('PFUMX','L6MUX21') and cell['parameters']:
+            raise ValueError('unsupported wide-LUT multiplexer parameters')
         if cell['type']=='DP16KD': ecp5_ram.check(cell)
         if cell['type']=='TRELLIS_FF':
             cell_parameters=cell['parameters']
@@ -115,7 +117,7 @@ def main():
         subprocess.run([str(yosys),'-Q','-T','-s',str(script)],stdout=stream,stderr=subprocess.STDOUT,check=True)
     library=ROOT/'.cache/tools/usr/share/yosys/ecp5/cells_sim.v'
     models=[]
-    for name in ['LUT2','LUT4','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF']:
+    for name in ['LUT2','LUT4','PFUMX','L6MUX21','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF']:
         match=re.search(r'\bmodule\s+'+name+r'\b.*?\bendmodule',library.read_text(),re.S)
         if not match: raise ValueError(f'missing official model {name}')
         # This is functional netlist simulation; routed timing is checked by STA.
