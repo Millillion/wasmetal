@@ -16,23 +16,24 @@
     "capabilities_no_execution",
     "incomplete_frame_recovery"
   ],
-  "elapsed_seconds": 100.6810760309454,
+  "elapsed_seconds": 91.05972555303015,
   "build_manifest": {
     "profile": "uart",
     "inputs": {
-      "Makefile": "5063227e83f7a22ea234ea26232e90fff5cf347c5e2b2045038101db759d99cf",
-      "fpga/core_ports.svh": "6e9fd6e19f09df05c27290f10be9677c02a4b9b4a524ea49e5e200085fa22eab",
+      "Makefile": "3b18ef3a30606cfd9061c0bb95c8f1df1c82a999d8c19ea7d8c2d479db2a14ee",
+      "fpga/core_ports.svh": "82e7a0090febdcc91a863cf4ded1f9e57ef61a7525ef3e0698392ef517f74e4d",
       "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
-      "fpga/profile.json": "03ec5192e8588bc39172924e8244624e9b57c383bc0f46b503fb8451e34209eb",
+      "fpga/profile.json": "da6be977999c21ea6ae2f63f59496c3a1b6ef6a23e024ae74fd7a7a7de04ba7d",
       "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
       "fpga/wasmetal_ulx3s.sv": "4ab1570936a165fee6834f19e587f926f85f26c7ea29ea0a9e2c8a2d5ed50897",
       "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
       "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
-      "rtl/wasmetal_core.sv": "b5ef8558bdaecd5e3217578e6cb682d41d012e1d8e166427860677a930f094ae",
-      "rtl/wasmetal_descriptors.sv": "c88ca6e113e7af14587773375f77b3a1c5cac33238edfffce7aeef62a2c2e8ad",
+      "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+      "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
       "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
-      "rtl/wasmetal_fp_format.sv": "bb6b0fb4e0557d281f9fe4f715187f74acd98f2a1cb21379262fbf5e6e217c6e",
-      "rtl/wasmetal_fpu.sv": "d11ea9f77ccf8ea5f766aacca6d48c90d0273b1e8b926793593802fb047f3821",
+      "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+      "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+      "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
       "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
       "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
       "rtl/wasmetal_simd_fp_decode.sv": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
@@ -40,8 +41,8 @@
       "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
       "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
       "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
-      "sim/core_config.hpp": "7ff2832d3c06c185c3307504174f0433f986d54657995f0386329019fb2cb30e",
-      "sim/fpga_ports.hpp": "a0d42bd3e70d666b3a89027a947d21ae5c0ecea01172e2df98ea6a2f8f93c88e",
+      "sim/core_config.hpp": "af969816adad3b6431bce0808ec12b7e15b3963df236d2f54bd98f4ccb96a9ec",
+      "sim/fpga_ports.hpp": "380e537bf734ed603c0cdb4d37da2e061aaa922c0bf5bff253b8da20250edaee",
       "sim/fpga_remote.hpp": "1eb10beb2bee2f8d2293030c6d2852aec37fa5b8e2db9719529e783747ea0cb5",
       "sim/main.cpp": "9a3941624dad3c44de53f204b547e9ba69416ad2a5b540142e1033d5625f8650",
       "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
@@ -70,12 +71,12 @@
       "tools/generate_fpga_ports.py": "89b3ae960061ffaefe9d8376dfb5d7dd3c3229d6c2bd9677dd6f985db85290c9",
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
     },
-    "binary_sha256": "cc74fe31ca86a43b88897f2b00eb4e174d4580c976587633f4305369d375db5b"
+    "binary_sha256": "127884a9d5809c78e81cb3ad058a01a78ef617a3cc83569cda08f872dfee8a0f"
   },
   "runner_inputs": {
     "tools/check_fpga.py": "76a03d33f6c4ead96f60179ca2efe2fd5df80861f12c0937922e89a3957ab77a",
     "tools/run_spec.py": "1eb4fedfe34369dde44d1d5a47358b65f342587c437965c979d262162b31d039",
     "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f"
   },
-  "runtime_source_revision": "f926690a0af4409a4071e607d17f7b9af5eddb3e"
+  "runtime_source_revision": "bf3ce2405f2ac14e4712bd4126929e69320ef93b"
 }

@@ -7,9 +7,9 @@ WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2
 ## Current status
 
 - **Conformance baseline:** all 259 pinned official suites pass, including 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions. The [recorded baseline](docs/verification/core-3.0-current.json) identifies its exact sources and simulator; CI also passed with and without memory stalls.
-- **Current RTL:** floating-point arithmetic now shares one raw datapath and rounds directly to either precision. It passed a complete official regression in an isolated build and [1,734,368 additional comparisons](docs/verification/floating-point.json), including conversions, traps, reset interruption and negative controls. The new configuration's source-bound full regression is running.
+- **Current RTL:** floating-point arithmetic shares one raw datapath and rounds directly to either precision. The combined arithmetic and storage configuration passed all 259 suites in an isolated build. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls. The committed build's fresh full regression is running.
 - **Storage:** the native and FPGA defaults now both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. The smaller value store separately passed the complete official suite. These remain finite resource limits.
-- **FPGA:** fourteen whole-board UART checks pass in simulation. Logic mapping and routing are still being optimized for the ULX3S 85F. **No routed, timing-verified bitstream is available yet, and no physical board has been tested.**
+- **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [current interface report](docs/verification/fpga-uart.json). Logic mapping and routing are still being optimized for the ULX3S 85F. **No routed, timing-verified bitstream is available yet, and no physical board has been tested.**
 
 See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host supplies the instruction image, metadata and backing memory; autonomous boot, a local memory controller and reclaiming garbage collection remain future work.
 
@@ -39,8 +39,8 @@ make test-fpu
 make test-all
 ```
 
-See [docs/RTL.md](docs/RTL.md). The original roadmap below is historical; the
-WebAssembly specification and its official tests define the implementation target.
+See [docs/RTL.md](docs/RTL.md). The WebAssembly specification and its official
+tests define the compatibility target.
 
 ## Loading Microarchitecture Implementation to FPGA
 
@@ -50,18 +50,16 @@ whole serial interface and CPU are tested together in simulation. Placement,
 routing and timing closure remain unfinished. See the [FPGA guide](docs/FPGA.md)
 for the build flow and the remaining physical-board checks.
 
-## Roadmap
+## Hardware roadmap
 
-- [ ] Understand the WebAssembly [ISA](https://en.wikipedia.org/wiki/Instruction_set_architecture)
-- [ ] Implement the [mircoarchitecture](https://en.wikipedia.org/wiki/Microarchitecture) in HTML/CSS/JavaScript
-  * This will be a GUI simulator of the microarchitecture
-  * This simulator will become the specification for the microarchitecture
-  * It will allow us to quickly experiment with hardware configurations
-  * It will allow us to iterate and learn how the microarchitecture should work
-- [ ] Implement the microarchitecture as an [RTL design](https://en.wikipedia.org/wiki/Register-transfer_level#RTL_description) in an [HDL](https://en.wikipedia.org/wiki/Hardware_description_language)
-- [ ] Simulate the RTL design
-- [ ] Test the implementation on an [FPGA](https://en.wikipedia.org/wiki/Field-programmable_gate_array)
-- [ ] Design the [ASIC](https://en.wikipedia.org/wiki/Application-specific_integrated_circuit)
+- [x] Implement Core 3.0 instruction execution in clocked SystemVerilog.
+- [x] Pass the complete official core suite in RTL simulation.
+- [x] Verify a host-backed FPGA board interface in simulation.
+- [ ] Complete FPGA placement, routing and timing closure.
+- [ ] Load and verify the design on a physical ULX3S 85F.
+- [ ] Add local instruction/data memory, buffered loading and autonomous execution.
+- [ ] Select an ASIC process and integrate suitable memories, I/O, clocks, reset and manufacturing test support.
+- [ ] Complete physical design and signoff, fabricate a prototype, then package and test the silicon.
 
 ## Why is this a good idea?
 

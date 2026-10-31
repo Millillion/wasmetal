@@ -16,9 +16,9 @@ separate [board build and verification process](FPGA.md). Unsupported behavior
 fails verification.
 
 The current checkpoint shares floating-point arithmetic and reduces the default
-value store to 8,192 entries. Both changes passed full official regressions in
-isolated configurations; a fresh complete regression of the combined configuration
-is in progress. The baseline report above predates those changes.
+value store to 8,192 entries. Both changes and their combination passed full
+official regressions in isolated builds; a fresh complete regression of the
+committed build is in progress. The baseline report above predates those changes.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged
