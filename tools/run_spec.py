@@ -32,6 +32,10 @@ class ExecutionError(Exception):
     pass
 
 
+class LinkError(ImageError):
+    pass
+
+
 class Trap(Exception):
     def __init__(self, code, detail):
         self.code, self.detail = code, detail
@@ -55,9 +59,24 @@ def raw_value(value):
 
 
 def matches(actual, expected):
+    if expected["type"] == "either":
+        return any(matches(actual, option) for option in expected["values"])
+    if expected["type"] == "refnull":
+        return actual == 0
     if "value" not in expected and expected["type"] in ("funcref", "externref", "anyref", "eqref", "structref", "arrayref", "i31ref"):
         return actual != 0
     ty, value = expected["type"], expected["value"]
+    if ty == "v128":
+        lane_type = expected["lane_type"]
+        width = {"i8": 8, "i16": 16, "i32": 32, "i64": 64, "f32": 32, "f64": 64}[lane_type]
+        for n, lane in enumerate(value):
+            bits = (actual >> (n*width)) & ((1 << width)-1)
+            if lane_type in ("f32", "f64"):
+                if not matches(bits, {"type": lane_type, "value": lane}):
+                    return False
+            elif bits != int(lane) & ((1 << width)-1):
+                return False
+        return actual >> 128 == 0
     if ty in ("f32", "f64") and isinstance(value, str) and value.startswith("nan:"):
         bits, frac = (32, 23) if ty == "f32" else (64, 52)
         magnitude = actual & ((1 << (bits-1))-1)
@@ -76,6 +95,8 @@ class Instance:
     memories: list
     tables: list
     types: list
+    data: list
+    elements: list
     exports: dict
 
 
@@ -88,10 +109,37 @@ class RTL:
         self.globals = 0
         self.memories = 0
         self.tables = 0
+        self.data = 0
+        self.elements = 0
+        self.function_types = {}
+        self.global_types = {}
+        self.memory_types = {}
+        self.table_types = {}
         self.types = {}
         self.registered = {}
         self.max_cycles = max_cycles
         self.send(f"W {wait_states}")
+
+    def install_spectest(self):
+        path = ROOT / "build/spectest.wasm"
+        if not path.exists():
+            wat = '''(module
+              (func (export "print"))
+              (func (export "print_i32") (param i32))
+              (func (export "print_i64") (param i64))
+              (func (export "print_f32") (param f32))
+              (func (export "print_f64") (param f64))
+              (func (export "print_i32_f32") (param i32 f32))
+              (func (export "print_f64_f64") (param f64 f64))
+              (global (export "global_i32") i32 (i32.const 666))
+              (global (export "global_i64") i64 (i64.const 666))
+              (global (export "global_f32") f32 (f32.const 666.6))
+              (global (export "global_f64") f64 (f64.const 666.6))
+              (table (export "table") 10 20 funcref)
+              (table (export "table64") i64 10 20 funcref)
+              (memory (export "memory") 1 2))'''
+            subprocess.run([str(WASM_TOOLS), "parse", "-o", str(path)], input=wat, text=True, check=True)
+        self.registered["spectest"] = self.instantiate(Module(path.read_bytes()))
 
     def close(self):
         if self.proc.poll() is None:
@@ -132,6 +180,13 @@ class RTL:
             raise ExecutionError("malformed global response")
         return int(result[1], 16)
 
+    def size(self, kind, index):
+        self.send(f"S {kind} {index}")
+        response = self.receive()
+        if response[0] != "SIZE":
+            raise ExecutionError("malformed size response")
+        return int(response[1], 16)
+
     def type_id(self, ty):
         key = repr(ty)
         if key not in self.types:
@@ -146,7 +201,7 @@ class RTL:
 
     def emit_at(self, fid, code, params, locals_, results, type_id, instance):
         base = self.instructions
-        code = relocated(code, base, instance.functions, instance.globals, instance.memories, instance.tables, instance.types)
+        code = relocated(code, base, instance.functions, instance.globals, instance.memories, instance.tables, instance.types, instance.data, instance.elements)
         # br_table label depths live in read-only metadata after the function.
         for i in list(code):
             if i.targets:
@@ -168,40 +223,63 @@ class RTL:
         functions, globals_, memories, tables = [], [], [], []
         for mod, name, kind, desc in module.imports:
             if mod not in self.registered or name not in self.registered[mod].exports:
-                raise Unsupported(f"host/import {mod}.{name}")
+                raise LinkError(f"unknown import {mod}.{name}")
             actual_kind, index = self.registered[mod].exports[name]
             if actual_kind != kind:
-                raise ImageError("incompatible import kind")
+                raise LinkError("incompatible import kind")
             if kind == 0:
+                if self.type_id(module.types[desc]) != self.function_types[index]:
+                    raise LinkError("incompatible function import")
                 functions.append(index)
             elif kind == 2:
+                self.check_limits(desc, self.memory_types[index], self.size(0, index))
                 memories.append(index)
             elif kind == 3:
+                if desc != self.global_types[index]:
+                    raise LinkError("incompatible global import")
                 globals_.append(index)
             elif kind == 1:
+                actual = self.table_types[index]
+                if desc[0] != actual[0]:
+                    raise LinkError("incompatible table element type")
+                self.check_limits(desc[1], actual[1], self.size(1, index))
                 tables.append(index)
             else:
                 raise Unsupported(f"import kind {kind}")
         imported_functions = len(functions)
-        for _ in module.bodies:
+        for n, _ in enumerate(module.bodies):
             functions.append(self.functions)
+            self.function_types[self.functions] = self.type_id(module.types[module.function_types[n]])
             self.functions += 1
-        for _ in module.globals:
+        for ty, mutable, _ in module.globals:
             globals_.append(self.globals)
+            self.global_types[self.globals] = (ty, mutable)
             self.globals += 1
         for minimum, maximum, wide in module.memories:
             if self.memories >= 256:
                 raise Unsupported("physical memory descriptor capacity")
             memories.append(self.memories)
+            if minimum > 65536:
+                raise Unsupported("physical backing capacity exceeded")
+            self.memory_types[self.memories] = (minimum, maximum, wide)
             self.send(f"M {self.memories} {minimum} {min(maximum if maximum is not None else 65536, 65536)} {int(wide)}")
             self.memories += 1
-        for _, (minimum, maximum, wide) in module.tables:
+        for ty, (minimum, maximum, wide), _ in module.tables:
             if self.tables >= 256:
                 raise Unsupported("physical table descriptor capacity")
             tables.append(self.tables)
+            if minimum > 65536:
+                raise Unsupported("physical table capacity exceeded")
+            self.table_types[self.tables] = (ty, (minimum, maximum, wide))
             self.send(f"T {self.tables} {minimum} {min(maximum if maximum is not None else 65536, 65536)} {int(wide)}")
             self.tables += 1
-        instance = Instance(module, functions, globals_, memories, tables, [self.type_id(t) for t in module.types], {})
+        data_ids = list(range(self.data, self.data+len(module.data)))
+        element_ids = list(range(self.elements, self.elements+len(module.elements)))
+        self.data += len(module.data)
+        self.elements += len(module.elements)
+        if self.data > 256 or self.elements > 256:
+            raise Unsupported("segment descriptor capacity")
+        instance = Instance(module, functions, globals_, memories, tables, [self.type_id(t) for t in module.types], data_ids, element_ids, {})
         for n, (locals_, code) in enumerate(module.bodies):
             ty = module.types[module.function_types[n]]
             self.emit_at(functions[imported_functions+n], code, len(ty[0]), locals_, len(ty[1]), self.type_id(ty), instance)
@@ -209,24 +287,33 @@ class RTL:
         for n, (_, _, code) in enumerate(module.globals):
             value = self.init_expr(code, instance)
             self.send(f"G {globals_[imported_globals+n]} {value:x}")
-        for flags, memory, offset, data in module.data:
+        imported_tables = len(tables)-len(module.tables)
+        for n, (_, (minimum, _, _), init) in enumerate(module.tables):
+            if init is not None:
+                value = self.init_expr(init, instance)
+                if value:
+                    for address in range(minimum):
+                        self.send(f"E {tables[imported_tables+n]} {address} {value:x}")
+        for n, (flags, memory, offset, data) in enumerate(module.data):
+            self.send(f"D {data_ids[n]} {len(data) if flags == 1 else 0} {data.hex() or '-'}")
             if flags == 1:
-                raise Unsupported("passive data segment instantiation")
+                continue
             address = self.init_expr(offset, instance)
             # Admission/instantiation is host work, with runtime accesses checked in RTL.
-            if memory >= len(module.memories) or address + len(data) > module.memories[memory][0]*65536:
+            if memory >= len(memories) or address + len(data) > self.size(0, memories[memory])*65536:
                 raise Trap(4, "data segment instantiation")
             if data:
                 self.send(f"B {memories[memory]} {address} {data.hex()}")
-        for flags, table, offset, elements in module.elements:
+        for n, (flags, table, offset, elements) in enumerate(module.elements):
+            values = [self.init_expr(code, instance) for code in elements]
+            self.send(f"L {element_ids[n]} {len(values) if flags in (1,5) else 0} {len(values)}" + ''.join(f" {v:x}" for v in values))
             if flags in (1, 3, 5, 7):
                 continue
             address = self.init_expr(offset, instance)
-            if table >= len(module.tables) or address+len(elements) > module.tables[table][1][0]:
+            if table >= len(tables) or address+len(elements) > self.size(1, tables[table]):
                 raise Trap(5, "element segment instantiation")
-            for n, code in enumerate(elements):
-                value = self.init_expr(code, instance)
-                self.send(f"E {tables[table]} {address+n} {value:x}")
+            for position, value in enumerate(values):
+                self.send(f"E {tables[table]} {address+position} {value:x}")
         spaces = {0: functions, 1: tables, 2: memories, 3: globals_}
         for name, (kind, index) in module.exports.items():
             if kind not in spaces:
@@ -235,6 +322,13 @@ class RTL:
         if module.start is not None:
             self.invoke(functions[module.start], [])
         return instance
+
+    @staticmethod
+    def check_limits(expected, actual, current_size):
+        minimum, maximum, wide = expected
+        _, actual_maximum, actual_wide = actual
+        if wide != actual_wide or current_size < minimum or (maximum is not None and (actual_maximum is None or actual_maximum > maximum)):
+            raise LinkError("incompatible import limits")
 
 
 def validate(path):
@@ -261,7 +355,10 @@ def run_file(source, target, args):
     counts = Counter()
     failures = []
     rtl = RTL(args.wait_states, args.max_cycles)
+    rtl.install_spectest()
     current, named = None, {}
+    definitions = {}
+    last_definition = None
     commands = json.loads(target.read_text())["commands"]
     try:
         for command_number, command in enumerate(commands):
@@ -284,17 +381,45 @@ def run_file(source, target, args):
                     current = None
                     if "name" in command:
                         named[command["name"]] = None
-                    path = target.parent / command["filename"]
+                    path = target.parent / command.get("binary_filename", command["filename"])
                     checked = validate(path)
                     if checked.returncode:
                         raise ExecutionError("valid module rejected: " + checked.stderr[:250])
                     module = Module(path.read_bytes())
                     if kind == "module_definition":
-                        raise Unsupported("module definition/instance commands")
+                        last_definition = module
+                        if "name" in command:
+                            definitions[command["name"]] = module
+                        counts["module_definitions"] += 1
+                        continue
                     current = rtl.instantiate(module)
                     if "name" in command:
                         named[command["name"]] = current
                     counts["modules_instantiated"] += 1
+                elif kind == "module_instance":
+                    definition = definitions[command["module"]] if "module" in command else last_definition
+                    current = rtl.instantiate(definition)
+                    if "instance" in command:
+                        named[command["instance"]] = current
+                    counts["modules_instantiated"] += 1
+                elif kind in ("assert_unlinkable", "assert_uninstantiable"):
+                    path = target.parent / command.get("binary_filename", command["filename"])
+                    checked = validate(path)
+                    if checked.returncode:
+                        raise ExecutionError("instantiation test rejected during validation")
+                    try:
+                        rtl.instantiate(Module(path.read_bytes()))
+                    except LinkError:
+                        if kind != "assert_unlinkable":
+                            raise
+                        counts["embedding_assertions_passed"] += 1
+                    except Trap as e:
+                        aliases = {5: ("undefined element",), 6: ("uninitialized element",)}
+                        if kind != "assert_uninstantiable" or not (TRAPS.get(e.code) == command["text"] or command["text"] in aliases.get(e.code, ())):
+                            raise
+                        counts["embedding_assertions_passed"] += 1
+                    else:
+                        raise ExecutionError("expected linking/instantiation failure")
                 elif kind == "register":
                     instance = named.get(command.get("name"), current)
                     if instance is None:

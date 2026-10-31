@@ -5,7 +5,7 @@ ifneq ($(wildcard $(LOCAL_TOOLS)/usr/share/verilator),)
 export VERILATOR_ROOT := $(LOCAL_TOOLS)/usr/share/verilator
 endif
 HARDFLOAT := $(wildcard third_party/hardfloat/source/*.v) third_party/hardfloat/source/RISCV/HardFloat_specialize.v
-RTL := rtl/vendor.vlt rtl/wasmetal_alu.sv rtl/wasmetal_divider.sv rtl/wasmetal_fp_format.sv rtl/wasmetal_fpu.sv rtl/wasmetal_core.sv $(HARDFLOAT)
+RTL := rtl/vendor.vlt $(wildcard rtl/*.sv) $(HARDFLOAT)
 # Unused port bits and arithmetic carry bits are intentional; all width,
 # latch, multiple-driver, and combinational-loop warnings remain fatal.
 VFLAGS := -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTIONS --top-module wasmetal_core -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV

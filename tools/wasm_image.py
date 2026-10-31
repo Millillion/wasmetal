@@ -90,6 +90,8 @@ def expression(r, types, stop_at_end=False):
             if block_type == -64:
                 params, results = [], []
             elif block_type < 0:
+                if block_type in (-28, -29):
+                    r.leb(True, 33)  # heap type in an explicit reference block result
                 params, results = [], [block_type]
             else:
                 params, results = types[block_type]
@@ -200,7 +202,12 @@ class Module:
                 self.function_types = s.vector(lambda b: b.leb())
             elif section == 4:
                 for _ in range(s.leb()):
-                    self.tables.append((value_type(s), limits(s)))
+                    explicit = s.data[s.pos] == 0x40
+                    if explicit:
+                        s.take(2)  # validated 0x40 0x00 initializer prefix
+                    ty, size = value_type(s), limits(s)
+                    init = expression(s, self.types, True) if explicit else None
+                    self.tables.append((ty, size, init))
             elif section == 5:
                 self.memories = s.vector(limits)
             elif section == 6:
@@ -250,7 +257,7 @@ class Module:
                 raise ImageError(f"unconsumed bytes in section {section}")
 
 
-def relocated(code, base, functions, globals_, memories, tables, types):
+def relocated(code, base, functions, globals_, memories, tables, types, data, elements):
     """Relocate indices and control targets, retaining every original opcode."""
     result = []
     for original in code:
@@ -263,7 +270,7 @@ def relocated(code, base, functions, globals_, memories, tables, types):
             i.x = functions[i.x]
         elif i.op in (0x23, 0x24):
             i.x = globals_[i.x]
-        elif 0x28 <= i.op <= 0x40:
+        elif 0x28 <= i.op <= 0x40 or 0xfd0000 <= i.op <= 0xfd000b or 0xfd0054 <= i.op <= 0xfd005d:
             i.x = memories[i.x]
         elif i.op in (0x11, 0x13):
             i.x, i.y = types[i.x], tables[i.y]
@@ -271,5 +278,19 @@ def relocated(code, base, functions, globals_, memories, tables, types):
             i.x = types[i.x]
         elif i.op in (0x25, 0x26, 0xfc000f, 0xfc0010, 0xfc0011):
             i.x = tables[i.x]
+        elif i.op == 0xfc0008:
+            i.x, i.y = data[i.x], memories[i.y]
+        elif i.op == 0xfc0009:
+            i.x = data[i.x]
+        elif i.op == 0xfc000a:
+            i.x, i.y = memories[i.x], memories[i.y]
+        elif i.op == 0xfc000b:
+            i.x = memories[i.x]
+        elif i.op == 0xfc000c:
+            i.x, i.y = elements[i.x], tables[i.y]
+        elif i.op == 0xfc000d:
+            i.x = elements[i.x]
+        elif i.op == 0xfc000e:
+            i.x, i.y = tables[i.x], tables[i.y]
         result.append(i)
     return result

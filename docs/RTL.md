@@ -33,6 +33,14 @@ segment placement and module linking are embedding/instantiation work. The
 external `wasm-tools validate` command performs module validation. Validation
 assertions are reported separately and are never described as RTL execution tests.
 
+Memory configuration reserves and zero-initializes the **entire configured backing
+capacity** at instantiation, before installing active data segments. `memory.grow`
+then exposes a larger prefix of that storage after the RTL checks the maximum;
+there is no operating-system allocation during the instruction. The reserved tail
+must remain inaccessible to every other master. An FPGA memory adapter must honor
+this initialization/isolation contract; arbitrary uninitialized DRAM is not valid
+backing storage. The simulator uses sparse zero-initialized storage for this contract.
+
 `sim/main.cpp` supplies clocks, read-only instruction/function descriptors, and
 backing memory. It has no Wasm instruction interpreter. Expected results stay in
 the Python test runner and are not sent to the simulator. Memory wait states can

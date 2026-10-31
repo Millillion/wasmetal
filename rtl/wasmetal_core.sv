@@ -43,7 +43,8 @@ module wasmetal_core #(
     typedef enum logic [4:0] {
         IDLE, EXECUTE, CALL_SETUP, ENTER, INIT_LOCALS, BRANCH,
         BR_TABLE, COPY_VALUES, RETURN_SETUP, RETURN_RESTORE,
-        DIV_WAIT, MEMORY_WAIT, GROW_ZERO, GROW_WAIT, INDIRECT_WAIT, FP_WAIT
+        DIV_WAIT, MEMORY_WAIT, INDIRECT_WAIT, FP_WAIT, SIMD_FP_START, SIMD_FP_WAIT,
+        BULK_STEP, BULK_READ_WAIT, BULK_WRITE_WAIT
     } state_t;
     state_t state, copy_next;
     logic [127:0] values [0:VALUE_DEPTH-1];
@@ -61,6 +62,17 @@ module wasmetal_core #(
     logic [63:0] table_size [0:MEMORY_COUNT-1];
     logic [63:0] table_max [0:MEMORY_COUNT-1];
     logic table_wide [0:MEMORY_COUNT-1];
+    logic [63:0] data_size [0:MEMORY_COUNT-1], element_size [0:MEMORY_COUNT-1];
+    logic [63:0] bulk_left, bulk_source, bulk_destination;
+    logic [31:0] bulk_source_index, bulk_destination_index;
+    logic [2:0] bulk_source_kind, bulk_destination_kind;
+    logic bulk_backwards, bulk_fill, bulk_table;
+    logic [127:0] bulk_fill_value;
+    logic [4:0] bulk_step_size;
+    logic decoded_table, decoded_init, decoded_fill;
+    logic [31:0] decoded_destination, decoded_source;
+    logic [65:0] bulk_destination_limit, bulk_source_limit, bulk_destination_end, bulk_source_end;
+    logic [64:0] grown_table;
     logic check_type;
     logic [31:0] expected_type;
     logic [31:0] sp, fp, control_sp, control_base, call_depth, result_arity;
@@ -68,7 +80,6 @@ module wasmetal_core #(
     logic [1:0] call_kind;
     logic [31:0] copy_src, copy_dst, copy_len, copy_pos;
     logic [31:0] load_op, load_dst;
-    logic [63:0] grow_end;
     logic [127:0] top, below, third;
     logic [63:0] alu_a, alu_result;
     logic alu_unary, alu_supported, unary_input;
@@ -78,8 +89,20 @@ module wasmetal_core #(
     logic fp_supported, fp_unary, fp_done, fp_start;
     logic [63:0] fp_result;
     logic [7:0] fp_trap;
+    logic simd_int_supported;
+    logic [2:0] simd_int_arity;
+    logic [127:0] simd_int_result;
+    logic simd_fp_supported, simd_source_wide, simd_result_wide, simd_phase, simd_active;
+    logic [31:0] simd_scalar_op, fp_operation;
+    logic [2:0] simd_lanes, simd_arity, simd_mode, simd_lane;
+    logic [127:0] simd_accum, simd_assembled, simd_a, simd_b;
+    logic [63:0] simd_product, simd_a_lane, simd_b_lane, simd_c_lane, simd_result_lane;
+    logic [63:0] fp_a, fp_b;
     logic [4:0] access_size;
     logic access_store;
+    logic access_simd, access_lane;
+    logic [127:0] load_vector, loaded_value;
+    logic [31:0] load_lane;
     logic [63:0] access_base;
     logic [65:0] access_end, memory_limit;
     logic [64:0] effective_address, grown_pages;
@@ -106,13 +129,60 @@ module wasmetal_core #(
     wasmetal_divider divider(.clk(clk),.reset(reset),.start(div_start),
         .wide(div_wide),.signed_op(div_signed),.remainder_op(div_rem),
         .a(below[63:0]),.b(top[63:0]),.done(div_done),.result(div_result),.trap(div_trap));
-    assign fp_start = state == EXECUTE && insn_valid && fp_supported;
-    wasmetal_fpu fpu(.clk(clk),.reset(reset),.start(fp_start),.op(insn_op),
-        .a(fp_unary ? top[63:0] : below[63:0]),.b(top[63:0]),.supported(fp_supported),
+    assign simd_active = state == SIMD_FP_START || state == SIMD_FP_WAIT;
+    assign fp_start = (state == EXECUTE && insn_valid && fp_supported) || state == SIMD_FP_START;
+    assign fp_operation = simd_active ? (simd_phase ? (simd_result_wide ? 32'ha0 : 32'h92) : simd_scalar_op) : insn_op;
+    assign fp_a = simd_active ? (simd_phase ? (simd_mode == 5 ? simd_product ^ (simd_result_wide ? 64'h8000000000000000 : 64'h80000000) : simd_product) : simd_a_lane) : (fp_unary ? top[63:0] : below[63:0]);
+    assign fp_b = simd_active ? (simd_phase ? simd_c_lane : simd_b_lane) : top[63:0];
+    wasmetal_fpu fpu(.clk(clk),.reset(reset),.start(fp_start),.op(fp_operation),
+        .a(fp_a),.b(fp_b),.supported(fp_supported),
         .unary_op(fp_unary),.done(fp_done),.result(fp_result),.trap(fp_trap));
+    wasmetal_simd_int simd_integer(.op(insn_op),.lane(insn_x),.immediate(insn_imm),
+        .a(simd_int_arity == 1 ? top : simd_int_arity == 2 ? below : third),
+        .b(simd_int_arity == 3 ? below : top),.c(top),
+        .supported(simd_int_supported),.arity(simd_int_arity),.result(simd_int_result));
+    wasmetal_simd_fp_decode simd_float_decode(.op(insn_op),.supported(simd_fp_supported),
+        .source_wide(simd_source_wide),.result_wide(simd_result_wide),.scalar_op(simd_scalar_op),
+        .lanes(simd_lanes),.arity(simd_arity),.mode(simd_mode));
+    always_comb begin
+        simd_a = simd_arity == 1 ? top : simd_arity == 2 ? below : third;
+        simd_b = simd_arity == 3 ? below : top;
+        simd_a_lane = 64'(simd_a >> (simd_lane*(simd_source_wide ? 64 : 32)));
+        simd_b_lane = 64'(simd_b >> (simd_lane*(simd_source_wide ? 64 : 32)));
+        simd_c_lane = 64'(top >> (simd_lane*(simd_source_wide ? 64 : 32)));
+        if (!simd_source_wide) begin simd_a_lane[63:32]=0; simd_b_lane[63:32]=0; simd_c_lane[63:32]=0; end
+        simd_result_lane = fp_result;
+        if (simd_mode == 1) simd_result_lane = {64{fp_result[0]}};
+        else if (simd_mode == 2 || simd_mode == 3) simd_result_lane = fp_result[0] ? simd_b_lane : simd_a_lane;
+        simd_assembled = simd_accum;
+        if (simd_result_wide) simd_assembled[simd_lane*64+:64] = simd_result_lane;
+        else simd_assembled[simd_lane*32+:32] = simd_result_lane[31:0];
+    end
+
+    always_comb begin
+        decoded_table = insn_op >= 'hfc000c;
+        decoded_init = insn_op == 'hfc0008 || insn_op == 'hfc000c;
+        decoded_fill = insn_op == 'hfc000b || insn_op == 'hfc0011;
+        decoded_destination = decoded_init ? insn_y : insn_x;
+        decoded_source = decoded_init ? insn_x : insn_y;
+        bulk_destination_limit = 0; bulk_source_limit = 0;
+        if (decoded_destination < MEMORY_COUNT) bulk_destination_limit = decoded_table ?
+            {2'b0,table_size[decoded_destination]} : {2'b0,memory_pages[decoded_destination]} << 16;
+        if (decoded_source < MEMORY_COUNT) begin
+            if (decoded_init) bulk_source_limit = decoded_table ? {2'b0,element_size[decoded_source]} : {2'b0,data_size[decoded_source]};
+            else bulk_source_limit = decoded_table ? {2'b0,table_size[decoded_source]} : {2'b0,memory_pages[decoded_source]} << 16;
+        end
+        bulk_destination_end = {2'b0,third[63:0]}+{2'b0,top[63:0]};
+        bulk_source_end = {2'b0,below[63:0]}+{2'b0,top[63:0]};
+        bulk_step_size = bulk_table ? 5'd1 : (bulk_left >= 16 ? 5'd16 : bulk_left[4:0]);
+        grown_table = 0;
+        if (insn_x < MEMORY_COUNT) grown_table = {1'b0,table_size[insn_x]}+{1'b0,top[63:0]};
+    end
 
     always_comb begin
         access_store = insn_op >= 'h36 && insn_op <= 'h3e;
+        access_simd = (insn_op >= 'hfd0000 && insn_op <= 'hfd000b) || (insn_op >= 'hfd0054 && insn_op <= 'hfd005d);
+        access_lane = insn_op >= 'hfd0054 && insn_op <= 'hfd005b;
         access_size = 4;
         case (insn_op)
             'h29, 'h2b, 'h37, 'h39: access_size = 8;
@@ -120,7 +190,17 @@ module wasmetal_core #(
             'h2e, 'h2f, 'h32, 'h33, 'h3b, 'h3d: access_size = 2;
             default: access_size = 4;
         endcase
-        access_base = access_store ? below[63:0] : top[63:0];
+        if (access_simd) begin
+            access_store = insn_op == 'hfd000b || (insn_op >= 'hfd0058 && insn_op <= 'hfd005b);
+            case (insn_op)
+                'hfd0000,'hfd000b: access_size=16;
+                'hfd0007,'hfd0054,'hfd0058: access_size=1;
+                'hfd0008,'hfd0055,'hfd0059: access_size=2;
+                'hfd0009,'hfd0056,'hfd005a,'hfd005c: access_size=4;
+                default: access_size=8;
+            endcase
+        end
+        access_base = access_store || access_lane ? below[63:0] : top[63:0];
         memory_limit = 0; grown_pages = 0;
         if (insn_x < MEMORY_COUNT) begin
             if (!memory_wide[insn_x]) access_base[63:32] = 0;
@@ -131,6 +211,30 @@ module wasmetal_core #(
         effective_address = {1'b0,access_base} + {1'b0,insn_imm[63:0]};
         access_end = {1'b0,effective_address} + {61'b0,access_size};
         label_index = control_sp-1-pending_branch;
+    end
+
+    integer v;
+    always_comb begin
+        loaded_value=mem_rdata; v=0;
+        case (load_op)
+            'h2c: loaded_value={96'b0,{24{mem_rdata[7]}},mem_rdata[7:0]};
+            'h2e: loaded_value={96'b0,{16{mem_rdata[15]}},mem_rdata[15:0]};
+            'h30: loaded_value={64'b0,{56{mem_rdata[7]}},mem_rdata[7:0]};
+            'h32: loaded_value={64'b0,{48{mem_rdata[15]}},mem_rdata[15:0]};
+            'h34: loaded_value={64'b0,{32{mem_rdata[31]}},mem_rdata[31:0]};
+            'hfd0001,'hfd0002: for(v=0;v<8;v=v+1) loaded_value[v*16+:16]={{8{load_op=='hfd0001 && mem_rdata[v*8+7]}},mem_rdata[v*8+:8]};
+            'hfd0003,'hfd0004: for(v=0;v<4;v=v+1) loaded_value[v*32+:32]={{16{load_op=='hfd0003 && mem_rdata[v*16+15]}},mem_rdata[v*16+:16]};
+            'hfd0005,'hfd0006: for(v=0;v<2;v=v+1) loaded_value[v*64+:64]={{32{load_op=='hfd0005 && mem_rdata[v*32+31]}},mem_rdata[v*32+:32]};
+            'hfd0007: loaded_value={16{mem_rdata[7:0]}};
+            'hfd0008: loaded_value={8{mem_rdata[15:0]}};
+            'hfd0009: loaded_value={4{mem_rdata[31:0]}};
+            'hfd000a: loaded_value={2{mem_rdata[63:0]}};
+            'hfd0054: begin loaded_value=load_vector; loaded_value[load_lane*8+:8]=mem_rdata[7:0]; end
+            'hfd0055: begin loaded_value=load_vector; loaded_value[load_lane*16+:16]=mem_rdata[15:0]; end
+            'hfd0056: begin loaded_value=load_vector; loaded_value[load_lane*32+:32]=mem_rdata[31:0]; end
+            'hfd0057: begin loaded_value=load_vector; loaded_value[load_lane*64+:64]=mem_rdata[63:0]; end
+            default: loaded_value=mem_rdata;
+        endcase
     end
 
     task automatic fail(input logic [7:0] code);
@@ -144,12 +248,19 @@ module wasmetal_core #(
             sp <= 0; fp <= 0; control_sp <= 0; control_base <= 0; call_depth <= 0; result_arity <= 0;
             init_left <= 0; callee_base <= 0; pending_branch <= 0; call_kind <= 0;
             copy_src <= 0; copy_dst <= 0; copy_len <= 0; copy_pos <= 0;
-            load_op <= 0; load_dst <= 0; grow_end <= 0; check_type <= 0; expected_type <= 0;
+            load_op <= 0; load_dst <= 0; check_type <= 0; expected_type <= 0;
+            load_vector <= 0; load_lane <= 0;
+            simd_accum <= 0; simd_product <= 0; simd_lane <= 0; simd_phase <= 0;
+            bulk_left <= 0; bulk_source <= 0; bulk_destination <= 0;
+            bulk_source_index <= 0; bulk_destination_index <= 0;
+            bulk_source_kind <= 0; bulk_destination_kind <= 0;
+            bulk_backwards <= 0; bulk_fill <= 0; bulk_table <= 0; bulk_fill_value <= 0;
             mem_valid <= 0; mem_write <= 0; mem_kind <= 0; mem_index <= 0;
             mem_address <= 0; mem_bytes <= 0; mem_wdata <= 0;
             for (k=0; k<MEMORY_COUNT; k=k+1) begin
                 memory_pages[k] <= 0; memory_max[k] <= 0; memory_wide[k] <= 0;
                 table_size[k] <= 0; table_max[k] <= 0; table_wide[k] <= 0;
+                data_size[k] <= 0; element_size[k] <= 0;
             end
         end else begin
             case (state)
@@ -169,6 +280,10 @@ module wasmetal_core #(
                             table_size[cmd_index] <= cmd_data[63:0];
                             table_max[cmd_index] <= cmd_data[127:64]; table_wide[cmd_index] <= cmd_aux[0];
                         end
+                        4: if (cmd_index < MEMORY_COUNT) data_size[cmd_index] <= cmd_data[63:0];
+                        5: if (cmd_index < MEMORY_COUNT) element_size[cmd_index] <= cmd_data[63:0];
+                        6: if (cmd_index < MEMORY_COUNT) begin values[0] <= {64'b0,memory_pages[cmd_index]}; end
+                        7: if (cmd_index < MEMORY_COUNT) begin values[0] <= {64'b0,table_size[cmd_index]}; end
                         default: fail(T_IMAGE);
                     endcase
                 end
@@ -214,13 +329,23 @@ module wasmetal_core #(
                         pc <= pc+1;
                     end else if (div_start) state <= DIV_WAIT;
                     else if (fp_supported) state <= FP_WAIT;
-                    else if (insn_op >= 'h28 && insn_op <= 'h3e) begin
+                    else if (simd_int_supported) begin
+                        values[sp-{29'b0,simd_int_arity}] <= simd_int_result;
+                        sp <= sp-{29'b0,simd_int_arity}+1; pc <= pc+1;
+                    end
+                    else if (simd_fp_supported) begin
+                        simd_accum <= 0; simd_lane <= 0; simd_phase <= 0; state <= SIMD_FP_START;
+                    end
+                    else if ((insn_op >= 'h28 && insn_op <= 'h3e) || access_simd) begin
                         if (insn_x >= MEMORY_COUNT || effective_address[64] || access_end > memory_limit) fail(T_BOUNDS);
                         else begin
                             mem_valid <= 1; mem_write <= access_store; mem_kind <= 0;
                             mem_index <= insn_x; mem_address <= effective_address[63:0]; mem_bytes <= access_size;
-                            mem_wdata <= top; load_op <= insn_op; load_dst <= sp-1;
+                            mem_wdata <= access_lane ? top >> (insn_y*{27'b0,access_size}*8) : top;
+                            load_vector <= top; load_lane <= insn_y;
+                            load_op <= insn_op; load_dst <= access_lane ? sp-2 : sp-1;
                             if (access_store) sp <= sp-2;
+                            else if (access_lane) sp <= sp-1;
                             state <= MEMORY_WAIT;
                         end
                     end else case (insn_op)
@@ -307,6 +432,48 @@ module wasmetal_core #(
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
                             else begin values[sp] <= {64'b0,table_size[insn_x]}; sp <= sp+1; pc <= pc+1; end
                         end
+                        'hfc0009, 'hfc000d: begin
+                            if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
+                            else begin
+                                if (insn_op == 'hfc0009) data_size[insn_x] <= 0;
+                                else element_size[insn_x] <= 0;
+                                pc <= pc+1;
+                            end
+                        end
+                        'hfc000f: begin
+                            if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
+                            else if (grown_table[64] || grown_table > {1'b0,table_max[insn_x]}) begin
+                                values[sp-2] <= table_wide[insn_x] ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff};
+                                sp <= sp-1; pc <= pc+1;
+                            end else begin
+                                values[sp-2] <= {64'b0,table_size[insn_x]}; sp <= sp-1;
+                                table_size[insn_x] <= grown_table[63:0];
+                                bulk_table <= 1; bulk_fill <= 1; bulk_fill_value <= below;
+                                bulk_left <= top[63:0]; bulk_destination <= table_size[insn_x];
+                                bulk_destination_index <= insn_x; bulk_destination_kind <= 2;
+                                bulk_backwards <= 0; state <= BULK_STEP;
+                            end
+                        end
+                        'hfc0008,'hfc000a,'hfc000b,'hfc000c,'hfc000e,'hfc0011: begin
+                            if (decoded_destination >= MEMORY_COUNT || (!decoded_fill && decoded_source >= MEMORY_COUNT)) fail(T_IMAGE);
+                            else if (bulk_destination_end > bulk_destination_limit ||
+                                (!decoded_fill && bulk_source_end > bulk_source_limit)) fail(decoded_table ? 8'd5 : T_BOUNDS);
+                            else begin
+                                sp <= sp-3; bulk_left <= top[63:0]; bulk_fill <= decoded_fill;
+                                bulk_table <= decoded_table; bulk_fill_value <= decoded_table ? below : {16{below[7:0]}};
+                                bulk_source_index <= decoded_source; bulk_destination_index <= decoded_destination;
+                                bulk_source_kind <= decoded_init ? (decoded_table ? 3'd4 : 3'd3) : (decoded_table ? 3'd2 : 3'd0);
+                                bulk_destination_kind <= decoded_table ? 3'd2 : 3'd0;
+                                if (!decoded_init && !decoded_fill && decoded_source == decoded_destination &&
+                                    third[63:0] > below[63:0] && {2'b0,third[63:0]} < bulk_source_end) begin
+                                    bulk_backwards <= 1;
+                                    bulk_source <= bulk_source_end[63:0]; bulk_destination <= bulk_destination_end[63:0];
+                                end else begin
+                                    bulk_backwards <= 0; bulk_source <= below[63:0]; bulk_destination <= third[63:0];
+                                end
+                                state <= BULK_STEP;
+                            end
+                        end
                         'h3f: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
                             else begin values[sp] <= {64'b0,memory_pages[insn_x]}; sp <= sp+1; pc <= pc+1; end
@@ -319,13 +486,10 @@ module wasmetal_core #(
                             end else begin
                                 values[sp-1] <= {64'b0,memory_pages[insn_x]};
                                 memory_pages[insn_x] <= grown_pages[63:0];
-                                if (grown_pages[63:0] == memory_pages[insn_x]) pc <= pc+1;
-                                else begin
-                                    mem_index <= insn_x; mem_kind <= 0; mem_bytes <= 16;
-                                    mem_address <= memory_pages[insn_x] << 16;
-                                    grow_end <= grown_pages[63:0] << 16;
-                                    mem_wdata <= 0; state <= GROW_ZERO;
-                                end
+                                // The configured backing capacity is zeroed at
+                                // instantiation. Bounds checks prevent accessing
+                                // the reserved tail before growth exposes it.
+                                pc <= pc+1;
                             end
                         end
                         'h41, 'h42, 'h43, 'h44, 'h00fd000c: begin values[sp] <= insn_imm; sp <= sp+1; pc <= pc+1; end
@@ -389,35 +553,65 @@ module wasmetal_core #(
                         pc <= pc+1; state <= EXECUTE;
                     end
                 end
+                SIMD_FP_START: state <= SIMD_FP_WAIT;
+                SIMD_FP_WAIT: if (fp_done) begin
+                    if (fp_trap != 0) fail(fp_trap);
+                    else if ((simd_mode == 4 || simd_mode == 5) && !simd_phase) begin
+                        simd_product <= fp_result; simd_phase <= 1; state <= SIMD_FP_START;
+                    end else if (simd_lane+1 == simd_lanes) begin
+                        values[sp-{29'b0,simd_arity}] <= simd_assembled;
+                        sp <= sp-{29'b0,simd_arity}+1; pc <= pc+1; state <= EXECUTE;
+                    end else begin
+                        simd_accum <= simd_assembled; simd_lane <= simd_lane+1; simd_phase <= 0; state <= SIMD_FP_START;
+                    end
+                end
                 INDIRECT_WAIT: if (mem_ready) begin
                     mem_valid <= 0;
                     if (mem_fault) fail(5);
                     else if (mem_rdata == 0) fail(6);
                     else begin function_index <= mem_rdata[31:0]-1; state <= CALL_SETUP; end
                 end
+                BULK_STEP: begin
+                    if (bulk_left == 0) begin pc <= pc+1; state <= EXECUTE; end
+                    else begin
+                        mem_valid <= 1; mem_write <= bulk_fill;
+                        mem_kind <= bulk_fill ? bulk_destination_kind : bulk_source_kind;
+                        mem_index <= bulk_fill ? bulk_destination_index : bulk_source_index;
+                        mem_address <= (bulk_fill ? bulk_destination : bulk_source) -
+                            (bulk_backwards ? {59'b0,bulk_step_size} : 64'b0);
+                        mem_bytes <= bulk_table ? 5'd16 : bulk_step_size;
+                        mem_wdata <= bulk_fill_value;
+                        state <= bulk_fill ? BULK_WRITE_WAIT : BULK_READ_WAIT;
+                    end
+                end
+                BULK_READ_WAIT: if (mem_ready) begin
+                    if (mem_fault) fail(bulk_table ? 8'd5 : T_BOUNDS);
+                    else begin
+                        mem_wdata <= mem_rdata; mem_write <= 1;
+                        mem_kind <= bulk_destination_kind; mem_index <= bulk_destination_index;
+                        mem_address <= bulk_destination-(bulk_backwards ? {59'b0,bulk_step_size} : 64'b0);
+                        state <= BULK_WRITE_WAIT;
+                    end
+                end
+                BULK_WRITE_WAIT: if (mem_ready) begin
+                    mem_valid <= 0;
+                    if (mem_fault) fail(bulk_table ? 8'd5 : T_BOUNDS);
+                    else begin
+                        bulk_left <= bulk_left-{59'b0,bulk_step_size};
+                        bulk_source <= bulk_backwards ? bulk_source-{59'b0,bulk_step_size} : bulk_source+{59'b0,bulk_step_size};
+                        bulk_destination <= bulk_backwards ? bulk_destination-{59'b0,bulk_step_size} : bulk_destination+{59'b0,bulk_step_size};
+                        state <= BULK_STEP;
+                    end
+                end
                 MEMORY_WAIT: if (mem_ready) begin
                     mem_valid <= 0;
                     if (mem_fault) fail(T_BOUNDS);
                     else begin
                         if (!mem_write) begin
-                            case (load_op)
-                                'h2c: values[load_dst] <= {96'b0,{24{mem_rdata[7]}},mem_rdata[7:0]};
-                                'h2e: values[load_dst] <= {96'b0,{16{mem_rdata[15]}},mem_rdata[15:0]};
-                                'h30: values[load_dst] <= {64'b0,{56{mem_rdata[7]}},mem_rdata[7:0]};
-                                'h32: values[load_dst] <= {64'b0,{48{mem_rdata[15]}},mem_rdata[15:0]};
-                                'h34: values[load_dst] <= {64'b0,{32{mem_rdata[31]}},mem_rdata[31:0]};
-                                default: values[load_dst] <= mem_rdata;
-                            endcase
+                            values[load_dst] <= loaded_value;
                         end
                         pc <= pc+1; state <= EXECUTE;
                     end
-                end
-                GROW_ZERO: begin mem_valid <= 1; mem_write <= 1; state <= GROW_WAIT; end
-                GROW_WAIT: if (mem_ready) begin
-                    mem_valid <= 0;
-                    if (mem_fault) fail(T_BOUNDS);
-                    else if (mem_address+16 == grow_end) begin pc <= pc+1; state <= EXECUTE; end
-                    else begin mem_address <= mem_address+16; state <= GROW_ZERO; end
                 end
                 default: fail(T_IMAGE);
             endcase

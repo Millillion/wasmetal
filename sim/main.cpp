@@ -40,6 +40,8 @@ public:
     std::map<std::pair<uint32_t,uint64_t>,uint8_t> bytes;
     std::map<uint32_t,Value> globals;
     std::map<std::pair<uint32_t,uint64_t>,Value> tables;
+    std::map<uint32_t,std::vector<uint8_t>> data_segments;
+    std::map<uint32_t,std::vector<Value>> element_segments;
     uint64_t cycles=0;
     unsigned wait_states=0;
     unsigned memory_wait=0;
@@ -60,6 +62,15 @@ public:
         Value data{};
         if (dut.mem_kind==1) data=globals[dut.mem_index];
         else if(dut.mem_kind==2) data=tables[{dut.mem_index,dut.mem_address}];
+        else if(dut.mem_kind==3) {
+            auto& segment=data_segments[dut.mem_index];
+            if(dut.mem_address>segment.size() || dut.mem_bytes>segment.size()-dut.mem_address || dut.mem_write) { dut.mem_fault=1; return; }
+            for(unsigned n=0;n<dut.mem_bytes;n++) data[n/4]|=uint32_t(segment[static_cast<size_t>(dut.mem_address+n)])<<((n%4)*8);
+        } else if(dut.mem_kind==4) {
+            auto& segment=element_segments[dut.mem_index];
+            if(dut.mem_address>=segment.size() || dut.mem_write) { dut.mem_fault=1; return; }
+            data=segment[static_cast<size_t>(dut.mem_address)];
+        }
         else if (dut.mem_kind==0) {
             if (dut.mem_bytes==0 || dut.mem_bytes>16) { dut.mem_fault=1; return; }
             for(unsigned n=0;n<dut.mem_bytes;n++) {
@@ -83,10 +94,12 @@ public:
             }
         }
         dut.clk=1; dut.eval(); cycles++;
+        if(transfer) transaction_seen=false;
         if(memory_wait) memory_wait--;
     }
     void reset() {
         code.clear(); functions.clear(); bytes.clear(); globals.clear(); tables.clear(); cycles=0;
+        data_segments.clear(); element_segments.clear();
         transaction_seen=false; memory_wait=0;
         dut.cmd_valid=0; dut.result_index=0; dut.reset=1; tick(); tick(); dut.reset=0; tick();
     }
@@ -136,11 +149,33 @@ int main(int argc,char** argv) {
             } else if(op=='M' || op=='T') {
                 uint32_t index; uint64_t initial,maximum; unsigned wide;
                 in>>index>>initial>>maximum>>wide;
+                if (initial>maximum) throw std::runtime_error("initial size exceeds backing capacity");
+                if(op=='M') {
+                    auto first=sim->bytes.lower_bound({index,0});
+                    while(first!=sim->bytes.end() && first->first.first==index) first=sim->bytes.erase(first);
+                } else {
+                    auto first=sim->tables.lower_bound({index,0});
+                    while(first!=sim->tables.end() && first->first.first==index) first=sim->tables.erase(first);
+                }
                 Value v{uint32_t(initial),uint32_t(initial>>32),uint32_t(maximum),uint32_t(maximum>>32)};
                 sim->command(op=='M'?2:3,index,v,wide);
             } else if(op=='E') {
                 uint32_t index; uint64_t address; std::string v; in>>index>>address>>v;
                 sim->tables[{index,address}]=parse_value(v);
+            } else if(op=='D') {
+                uint32_t index; uint64_t length; std::string hex; in>>index>>length>>hex;
+                auto& segment=sim->data_segments[index]; segment.clear();
+                if(hex!="-") for(size_t n=0;n<hex.size()/2;n++) segment.push_back(static_cast<uint8_t>(std::stoul(hex.substr(2*n,2),nullptr,16)));
+                sim->command(4,index,{uint32_t(length),uint32_t(length>>32),0,0});
+            } else if(op=='L') {
+                uint32_t index; uint64_t length; unsigned count; in>>index>>length>>count;
+                auto& segment=sim->element_segments[index]; segment.clear();
+                for(unsigned n=0;n<count;n++) { std::string value; in>>value; segment.push_back(parse_value(value)); }
+                sim->command(5,index,{uint32_t(length),uint32_t(length>>32),0,0});
+            } else if(op=='S') {
+                unsigned kind; uint32_t index; in>>kind>>index;
+                sim->command(kind==0?6:7,index); sim->dut.result_index=0; sim->dut.eval();
+                std::cout<<"SIZE "<<hex_value(get(sim->dut.result_data))<<'\n'; std::cout.flush();
             } else if(op=='B') {
                 uint32_t index; uint64_t address; std::string hex; in>>index>>address>>hex;
                 if(hex.size()%2) throw std::runtime_error("odd byte string");

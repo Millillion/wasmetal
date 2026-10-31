@@ -11,6 +11,7 @@ module wasmetal_alu (
     logic [63:0] r64;
     integer i;
     always_comb begin
+        i = 0;
         a32 = a[31:0]; b32 = b[31:0];
         r32 = 0; r64 = 0; result = 0;
         unary_op = 0; supported = 1;
