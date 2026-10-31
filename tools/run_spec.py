@@ -124,8 +124,8 @@ class Instance:
 
 
 class RTL:
-    def __init__(self, wait_states=0, max_cycles=100000000):
-        self.proc = subprocess.Popen([str(ROOT / "build/obj/Vwasmetal_core")],
+    def __init__(self, wait_states=0, max_cycles=100000000, simulator=None):
+        self.proc = subprocess.Popen([str(simulator or ROOT / "build/obj/Vwasmetal_core")],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
         self.instructions = 0
         self.functions = 0
@@ -147,6 +147,12 @@ class RTL:
         self.max_cycles = max_cycles
         self.rtl_cycles = 0
         self.send(f"W {wait_states}")
+        self.send("V")
+        capabilities=self.receive()
+        if len(capabilities)!=6 or capabilities[0]!="CAPS":
+            self.proc.terminate()
+            raise ExecutionError("simulator capability negotiation failed")
+        self.value_capacity,self.control_capacity,self.call_capacity,self.descriptor_capacity,self.heap_capacity=map(int,capabilities[1:])
 
     def install_spectest(self):
         path = ROOT / "build/spectest.wasm"
@@ -381,7 +387,7 @@ class RTL:
             self.global_types[self.globals] = (self.normalized_value(ty, lambda i: type_ids[i]), mutable)
             self.globals += 1
         for minimum, maximum, wide in module.memories:
-            if self.memories >= 256:
+            if self.memories >= self.descriptor_capacity:
                 raise Unsupported("physical memory descriptor capacity")
             memories.append(self.memories)
             if minimum > 65536:
@@ -390,7 +396,7 @@ class RTL:
             self.send(f"M {self.memories} {minimum} {min(maximum if maximum is not None else 65536, 65536)} {int(wide)}")
             self.memories += 1
         for ty, (minimum, maximum, wide), _ in module.tables:
-            if self.tables >= 256:
+            if self.tables >= self.descriptor_capacity:
                 raise Unsupported("physical table descriptor capacity")
             tables.append(self.tables)
             if minimum > 65536:
@@ -402,7 +408,7 @@ class RTL:
         element_ids = list(range(self.elements, self.elements+len(module.elements)))
         self.data += len(module.data)
         self.elements += len(module.elements)
-        if self.data > 256 or self.elements > 256:
+        if self.data > self.descriptor_capacity or self.elements > self.descriptor_capacity:
             raise Unsupported("segment descriptor capacity")
         instance = Instance(module, functions, globals_, memories, tables, type_ids, data_ids, element_ids, tags, {})
         for n, (locals_, code) in enumerate(module.bodies):
@@ -502,7 +508,7 @@ def convert(source):
 def run_file(source, target, args):
     counts = Counter()
     failures = []
-    rtl = RTL(args.wait_states, args.max_cycles)
+    rtl = RTL(args.wait_states, args.max_cycles, args.simulator)
     rtl.install_spectest()
     current, named = None, {}
     definitions = {}
@@ -642,6 +648,7 @@ def main():
     parser.add_argument("--max-cycles", type=int, default=100000000)
     parser.add_argument("--jobs", type=int, default=4)
     parser.add_argument("--verbose", action="store_true")
+    parser.add_argument("--simulator", type=Path, default=ROOT / "build/obj/Vwasmetal_core")
     parser.add_argument("--report", type=Path, default=ROOT / "reports/spec.json")
     args = parser.parse_args()
     if args.jobs < 1 or args.max_cycles < 1 or args.wait_states < 0:
@@ -656,17 +663,17 @@ def main():
     if not sources:
         parser.error("official test sources are missing")
     started = time.time()
-    source_files = sorted(p for d in ("rtl", "sim", "tools", "third_party/hardfloat") for p in (ROOT/d).rglob("*")
-                          if p.is_file() and p.suffix in (".sv", ".v", ".vi", ".vlt", ".cpp", ".py", ".json"))
+    source_files = sorted(p for d in ("rtl", "sim", "tools", "fpga", "third_party/hardfloat") for p in (ROOT/d).rglob("*")
+                          if p.is_file() and p.suffix in (".sv", ".svh", ".v", ".vi", ".vlt", ".cpp", ".hpp", ".py", ".json"))
     source_hash = hashlib.sha256()
     for p in source_files:
         source_hash.update(str(p.relative_to(ROOT)).encode()+b"\0"+p.read_bytes())
-    binary_hash = hashlib.sha256((ROOT / "build/obj/Vwasmetal_core").read_bytes()).hexdigest()
+    binary_hash = hashlib.sha256(args.simulator.read_bytes()).hexdigest()
     reports = []
     with ThreadPoolExecutor(max_workers=4) as pool:
         converted = list(pool.map(convert, sources))
     # Create the shared, immutable standard test fixture before parallel workers.
-    fixture = RTL()
+    fixture = RTL(simulator=args.simulator)
     fixture.install_spectest()
     fixture.close()
     def run_converted(item):

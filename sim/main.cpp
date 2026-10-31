@@ -1,7 +1,13 @@
 // SPDX-License-Identifier: MIT
 // Memory/clock adapter only. No Wasm instruction is executed in C++.
+#ifdef WASMETAL_FPGA
+#include "fpga_remote.hpp"
+using CoreModel=FpgaRemote;
+#else
 #include "Vwasmetal_core.h"
 #include "verilated.h"
+using CoreModel=Vwasmetal_core;
+#endif
 #include <array>
 #include <cstdint>
 #include <iostream>
@@ -13,6 +19,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include "core_config.hpp"
 
 using Value = std::array<uint32_t,4>;
 struct PageKey {
@@ -68,7 +75,7 @@ template<class T> static Value get(const T& src) { return {src[0],src[1],src[2],
 
 class Simulator {
 public:
-    Vwasmetal_core dut;
+    CoreModel dut;
     std::vector<Instruction> code;
     std::vector<Function> functions;
     SparseMemory bytes;
@@ -162,7 +169,11 @@ public:
 };
 
 int main(int argc,char** argv) {
+#if !defined(WASMETAL_FPGA) || defined(WASMETAL_UART_MODEL)
     Verilated::commandArgs(argc,argv);
+#else
+    (void)argc; (void)argv;
+#endif
     try {
         auto sim=std::make_unique<Simulator>(); sim->reset();
         std::string line;
@@ -171,6 +182,17 @@ int main(int argc,char** argv) {
             std::istringstream in(line); char op; in>>op;
             if(op=='Q') break;
             if(op=='X') sim->reset();
+            else if(op=='V') {
+#ifdef WASMETAL_FPGA
+                std::cout<<"CAPS "<<sim->dut.value_capacity<<' '<<sim->dut.control_capacity<<' '<<sim->dut.call_capacity<<' '<<sim->dut.descriptor_capacity<<' '<<sim->dut.heap_capacity<<'\n';
+#else
+                std::cout<<"CAPS "<<core_config::VALUE_DEPTH<<' '<<core_config::CONTROL_DEPTH<<' '<<core_config::CALL_DEPTH<<' '<<core_config::MEMORY_COUNT<<' '<<core_config::HEAP_SLOTS<<'\n';
+#endif
+                std::cout.flush();
+            }
+#ifdef WASMETAL_FPGA
+            else if(op=='K') { sim->dut.check_corrupt_frame(); std::cout<<"CHECKSUM_OK\n"; std::cout.flush(); }
+#endif
             else if(op=='I') {
                 uint32_t index; Instruction i; std::string hex;
                 in>>index>>i.op>>i.x>>i.y>>i.z>>i.w>>hex; i.imm=parse_value(hex);

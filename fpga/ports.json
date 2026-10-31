@@ -1,0 +1,166 @@
+{
+  "input": [
+    {
+      "name": "cmd_aux",
+      "width": 64
+    },
+    {
+      "name": "cmd_data",
+      "width": 128
+    },
+    {
+      "name": "cmd_index",
+      "width": 32
+    },
+    {
+      "name": "cmd_kind",
+      "width": 4
+    },
+    {
+      "name": "cmd_valid",
+      "width": 1
+    },
+    {
+      "name": "function_entry",
+      "width": 32
+    },
+    {
+      "name": "function_locals",
+      "width": 32
+    },
+    {
+      "name": "function_params",
+      "width": 32
+    },
+    {
+      "name": "function_results",
+      "width": 32
+    },
+    {
+      "name": "function_type",
+      "width": 32
+    },
+    {
+      "name": "function_valid",
+      "width": 1
+    },
+    {
+      "name": "insn_imm",
+      "width": 128
+    },
+    {
+      "name": "insn_op",
+      "width": 32
+    },
+    {
+      "name": "insn_valid",
+      "width": 1
+    },
+    {
+      "name": "insn_w",
+      "width": 32
+    },
+    {
+      "name": "insn_x",
+      "width": 32
+    },
+    {
+      "name": "insn_y",
+      "width": 32
+    },
+    {
+      "name": "insn_z",
+      "width": 32
+    },
+    {
+      "name": "mem_fault",
+      "width": 1
+    },
+    {
+      "name": "mem_rdata",
+      "width": 128
+    },
+    {
+      "name": "mem_ready",
+      "width": 1
+    },
+    {
+      "name": "reset",
+      "width": 1
+    },
+    {
+      "name": "result_index",
+      "width": 32
+    },
+    {
+      "name": "type_matches",
+      "width": 1
+    }
+  ],
+  "output": [
+    {
+      "name": "busy",
+      "width": 1
+    },
+    {
+      "name": "done",
+      "width": 1
+    },
+    {
+      "name": "function_index",
+      "width": 32
+    },
+    {
+      "name": "mem_address",
+      "width": 64
+    },
+    {
+      "name": "mem_bytes",
+      "width": 5
+    },
+    {
+      "name": "mem_index",
+      "width": 32
+    },
+    {
+      "name": "mem_kind",
+      "width": 3
+    },
+    {
+      "name": "mem_valid",
+      "width": 1
+    },
+    {
+      "name": "mem_wdata",
+      "width": 128
+    },
+    {
+      "name": "mem_write",
+      "width": 1
+    },
+    {
+      "name": "pc",
+      "width": 32
+    },
+    {
+      "name": "result_count",
+      "width": 32
+    },
+    {
+      "name": "result_data",
+      "width": 128
+    },
+    {
+      "name": "trap",
+      "width": 8
+    },
+    {
+      "name": "type_actual",
+      "width": 32
+    },
+    {
+      "name": "type_expected",
+      "width": 32
+    }
+  ]
+}

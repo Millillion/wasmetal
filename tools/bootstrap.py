@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Fetch checksum-pinned tools and tests into .cache without a system install."""
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import platform
@@ -36,12 +37,17 @@ def archive(entry, path, destination):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fpga-tools", action="store_true", help="also install pinned OSS CAD Suite for ECP5 place and route")
+    args = parser.parse_args()
     if platform.system() != "Linux" or platform.machine() != "x86_64":
         raise SystemExit("Pinned binary bootstrap currently supports Ubuntu 24.04 x86-64; see docs/RTL.md")
     for directory in ("packages", "tools", "upstream"):
         (CACHE / directory).mkdir(parents=True, exist_ok=True)
     archive(LOCK["spec"], CACHE / "upstream/spec.tar.gz", CACHE / "upstream")
     archive(LOCK["wasm_tools"], CACHE / "packages/wasm-tools.tar.gz", CACHE / "tools")
+    if args.fpga_tools:
+        archive(LOCK["oss_cad_suite"], CACHE / "packages/oss-cad-suite-linux-x64-20261031.tgz", CACHE / "tools")
     for filename, (package, digest) in PACKAGES.items():
         path = CACHE / "packages" / filename
         if not path.exists():
