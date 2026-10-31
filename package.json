@@ -1,14 +1,22 @@
 {
-  "name": "wasm-metal",
+  "name": "wasmetal",
   "version": "0.0.0",
-  "description": "A bare metal physical implementation of WebAssembly. That's right, a WebAssembly CPU.",
+  "description": "WasMetal is a project to build a bare metal WebAssembly CPU.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Millillion/wasmetal.git"
+  },
+  "homepage": "https://github.com/Millillion/wasmetal#readme",
+  "bugs": {
+    "url": "https://github.com/Millillion/wasmetal/issues"
+  },
   "scripts": {
     "start": "zwitterion",
     "build-static": "zwitterion --build-static --exclude node_modules --include node_modules/redux/es/redux.js"
   },
   "author": "Jordan Last <jordan.michael.last@gmail.com>",
   "license": "MIT",
-  "typings": "wasm-metal.d.ts",
+  "typings": "wasmetal.d.ts",
   "dependencies": {
     "lit-html": "0.9.0",
     "redux": "4.0.1",

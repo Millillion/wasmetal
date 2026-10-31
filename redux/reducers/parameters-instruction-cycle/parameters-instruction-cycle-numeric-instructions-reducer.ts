@@ -1,6 +1,6 @@
 import {
     State, Action
-} from '../../../wasm-metal.d';
+} from '../../../wasmetal.d';
 
 export const ParametersInstructionCycleNumericInstructionsReducer = (state: State, action: Action) => {
     //TODO Find out which hardware execution unit will need to do this

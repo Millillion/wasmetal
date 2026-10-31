@@ -5,7 +5,7 @@ import {
 import {
     State,
     Action
-} from '../wasm-metal.d';
+} from '../wasmetal.d';
 
 const InitialState: State = {
     numberOfRegisters: parseInt(window.localStorage.getItem('numberOfRegisters') || '10'),

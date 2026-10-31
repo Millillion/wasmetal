@@ -1,6 +1,6 @@
 import {
     State, Action
-} from '../../../wasm-metal.d';
+} from '../../../wasmetal.d';
 import {
     ParametersInstructionCycleControlInstructionsReducer
 } from './parameters-instruction-cycle-control-instructions-reducer';

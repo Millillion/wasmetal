@@ -1,7 +1,7 @@
 import {html, render} from 'lit-html/lib/lit-extended.js';
 import {
     State
-} from '../wasm-metal.d';
+} from '../wasmetal.d';
 import {Store} from '../redux/redux-store'
 
 class MetalMicroSimulator extends HTMLElement {
