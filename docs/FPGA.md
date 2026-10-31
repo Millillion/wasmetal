@@ -38,8 +38,8 @@ cells (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks. The core meets its
 12.5 MHz. The bitstream survives unpacking and repacking with identical bytes.
 ABC9 mapping and static placement are the default recipe. A fresh
 `make fpga-bitstream` run reproduced the prototype bitstream byte for byte.
-The rebuilt native simulator is also identical to the full-suite-tested binary. The mapped functional suite and a
-comparison of the two mappings are also still running.
+The rebuilt native simulator is also identical to the full-suite-tested binary. The mapped functional suite has also completed successfully. An additional
+comparison of the two mappings is still running.
 Heap allocation is bounded and currently has no reclamation. Mapped-cell results
 apply to their recorded netlist and capacity profile; a changed mapping requires
 its own checks.
@@ -125,7 +125,9 @@ official suites with three memory wait states: 17,379 execution assertions over
 1,912,810 cycles covering scalar arithmetic, SIMD, GC, exceptions, control,
 calls, locals and memory/table sizes in the
 [mapped-cell report](verification/ecp5-mapped.json). The
-smaller experimental ABC9 mapping is being verified separately. The
+default ABC9 mapping now passes the same forty suites with identical assertion
+counts and cycle counts; see its [current mapped-cell report](verification/ecp5-abc9.json).
+The tested netlist is byte-identical to the standard bitstream build’s core. The
 [whole-board UART report](verification/fpga-uart.json) records fourteen passing
 execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the
