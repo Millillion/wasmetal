@@ -5,7 +5,7 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-The recorded baseline passes all 259 official core test files at execution-source revision `f4e578b`: 57,711
+All 259 official core test files pass at execution-source revision `f926690`: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
 [recorded report](verification/core-3.0-current.json) identifies source and

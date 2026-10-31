@@ -87,9 +87,9 @@ opt_clean
         result = subprocess.run([str(yosys), "-Q", "-T", "-s", str(path)], cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT)
     print(log.read_text()[-6000:])
     if result.returncode==0:
-        for name,digest in manifest["inputs"].items():
-            if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
-                raise RuntimeError("synthesis input changed during build: "+name)
+        for source_name,digest in manifest["inputs"].items():
+            if hashlib.sha256((ROOT/source_name).read_bytes()).hexdigest()!=digest:
+                raise RuntimeError("synthesis input changed during build: "+source_name)
         output=ROOT/f"build/{name}.json"
         manifest["netlist_sha256"]=hashlib.sha256(output.read_bytes()).hexdigest()
         (ROOT/f"build/{name}.manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
