@@ -96,10 +96,10 @@ follows pinned Yosys' mapping and its behavior follows the
 `make test-ecp5-ram` compares mapped and inferred initialized storage in a four-state
 simulator. The timing report must also cover the CPU's half-cycle RAM paths.
 
-At execution-source revision `1abe5bc`, this mapped CPU passed fifteen official
-suites with three memory wait states: 6,438 execution assertions in the
-[scalar, GC and exception report](verification/ecp5-mapped.json), and 4,333 in
-the [SIMD arithmetic report](verification/ecp5-simd.json). The
+At execution-source revision `f4e578b`, this mapped CPU passed twenty-eight official
+suites with three memory wait states: 11,559 execution assertions covering scalar
+arithmetic, SIMD, GC, exceptions and structured control in the
+[mapped-cell report](verification/ecp5-mapped.json). The
 [whole-board UART report](verification/fpga-uart.json) records fourteen passing
 execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the

@@ -10,15 +10,15 @@
   "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
   "full_core_suite_selected": true,
   "full_core_suite_passed": true,
-  "source_sha256": "d969020cbcc8141c56fbb47f59f89983fba2f843494cb6cb78d216a349b8d32c",
-  "simulator_sha256": "8b7305cfc6b777e29c4d7e1267ae8c85bda53191e88fee302fff9593b49f79c1",
+  "source_sha256": "b0fed47f7a17607d25d97247787cc6f637b3237220e5267144d47407e42e27ae",
+  "simulator_sha256": "b2ac9dfc1687558755e0fa301843ef9a67304c4f9a27c7e0b6525188fdb6a874",
   "build_manifest": {
     "profile": "native",
     "inputs": {
-      "Makefile": "c58fb1f574bd793cba2b2c63043dc156b705167d6cc6ab31655bd5ae3f642ee8",
+      "Makefile": "e8dd993eec91970e0a133b0f56c6264435cc9041359388205c5f562c4918a6b1",
       "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
       "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
-      "rtl/wasmetal_core.sv": "87d8b7e16ab483742f2bbb590448de9a1deccb7500f37b6576ec3a59fa547275",
+      "rtl/wasmetal_core.sv": "5b98893210582fe54b7b24c7a7cc4969b664e3ffc4c8b4df4830f83da2558587",
       "rtl/wasmetal_descriptors.sv": "4720c0f90241c956b96b5b57580efe932a8cc6f9a6ed69bd86b167a60f355e6e",
       "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
       "rtl/wasmetal_fp_format.sv": "bb6b0fb4e0557d281f9fe4f715187f74acd98f2a1cb21379262fbf5e6e217c6e",
@@ -30,8 +30,8 @@
       "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
       "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
       "rtl/wasmetal_values.sv": "dbbfcad963b696bfe383bf4f5a74c0bbf92d2b377622042a8354d186b9218e43",
-      "sim/core_config.hpp": "d9881707514ea7e40a37dafbaacea45d1838500ae2b9ab59b78de9fa0f09a77b",
-      "sim/fpga_ports.hpp": "29bff7e6000a3b76f0d44cc00b8f7e9e8572122a67145795173ea0d758294bcd",
+      "sim/core_config.hpp": "290de9ce3dd76563a27b9dd23a7f13144bb6b4f7ac6c282c1adc4166731a1635",
+      "sim/fpga_ports.hpp": "44d6b5a656d26e0a1cf2ae3ed59e556270cecd16d7711c9b2c6f44efade5b9b4",
       "sim/fpga_remote.hpp": "1eb10beb2bee2f8d2293030c6d2852aec37fa5b8e2db9719529e783747ea0cb5",
       "sim/main.cpp": "21c7a27b8f1655ec6c2d1d855196ff833569e7ce1654b2f9ad4f4aa0e3b33d5b",
       "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
@@ -59,13 +59,13 @@
       "tools/generate_fpga_ports.py": "89b3ae960061ffaefe9d8376dfb5d7dd3c3229d6c2bd9677dd6f985db85290c9",
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
     },
-    "binary_sha256": "8b7305cfc6b777e29c4d7e1267ae8c85bda53191e88fee302fff9593b49f79c1"
+    "binary_sha256": "b2ac9dfc1687558755e0fa301843ef9a67304c4f9a27c7e0b6525188fdb6a874"
   },
   "runner_inputs": {
     "tools/run_spec.py": "cdb9c64d3c179673aaff35d571a8feb46c830425975a9eb8e64d6515a94235c1",
     "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f"
   },
-  "rtl_build_id": "e2834559dced3a6ccdc695957166be0a",
+  "rtl_build_id": "4ab096180776d5d45fc0271ad9c93790",
   "capacities": {
     "value": 16384,
     "control": 2048,
@@ -76,7 +76,7 @@
   "identity_error": null,
   "max_cycles_per_invocation": 100000000,
   "memory_wait_states": 3,
-  "elapsed_seconds": 483.4198582172394,
+  "elapsed_seconds": 464.2354073524475,
   "totals": {
     "modules_instantiated": 2266,
     "rtl_assertions_passed": 57711,
@@ -2901,5 +2901,5 @@
       "failures": []
     }
   ],
-  "runtime_source_revision": "1abe5bc85290c32b1ae3bd4951df9ad7a6823170"
+  "runtime_source_revision": "f4e578b44adaff510e7af2847e561315d5e6e02d"
 }
