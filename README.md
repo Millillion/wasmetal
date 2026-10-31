@@ -1,16 +1,16 @@
-ANNOUNCEMENT June 17, 2021: As you may have noticed, this project has not been worked on for a while. That would be a correct assessment. There has been no progress for a number of reasons, mostly due to the authors having other priorities. That doesn't mean the idea has died or was tried and failed. The project may be revived at some point in the future.
+# WasMetal
 
-# WASM Metal
+A project to build a bare metal physical implementation of WebAssembly. That's right, a WebAssembly CPU. Inspired in part by [this amazing talk](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript).
 
-A bare metal physical implementation of WebAssembly. That's right, a WebAssembly CPU. Inspired in part by [this amazing talk](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript).
+WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. The repository contains an early GUI microarchitecture simulator; the RTL, FPGA, and ASIC work is still ahead. The roadmap below records the original direction and is being revisited as part of the revival.
 
 ## GUI Microarchitecture Simulator
 
-View the [live demo](https://wasm-metal-demo.netlify.com).
+The [historical demo](https://wasm-metal-demo.netlify.com) uses the original hosting address; its availability has not been verified for the revival.
 
 ```bash
-git clone https://github.com/lastmjs/wasm-metal.git
-cd wasm-metal
+git clone https://github.com/Millillion/wasmetal.git
+cd wasmetal
 npm install
 npm start
 ```
