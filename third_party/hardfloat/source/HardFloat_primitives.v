@@ -69,12 +69,23 @@ module
     localparam numInVals = 1<<inWidth;
     /*------------------------------------------------------------------------
     *------------------------------------------------------------------------*/
+    // Equivalent threshold form avoids exponential-width temporary shifts.
+    // Proven against the unmodified Release 1 implementation by tools/prove_masks.py.
+    genvar bit_index;
+    generate if (bottomBound >= 0 && topBound <= numInVals) begin : Threshold
+        for (bit_index=0; bit_index<topBound-bottomBound; bit_index=bit_index+1) begin : Bit
+            localparam [inWidth:0] bound = bottomBound+bit_index;
+            assign out[bit_index] = {1'b0,in} > bound;
+        end
+    end else begin : GeneralBounds
     wire signed [numInVals:0] c;
     assign c[numInVals] = 1;
     assign c[(numInVals - 1):0] = 0;
     wire [(topBound - bottomBound - 1):0] reverseOut =
         (c>>>in)>>(numInVals - topBound);
     reverse#(topBound - bottomBound) reverse(reverseOut, out);
+
+    end endgenerate
 
 endmodule
 
@@ -96,12 +107,23 @@ module
     localparam numInVals = 1<<inWidth;
     /*------------------------------------------------------------------------
     *------------------------------------------------------------------------*/
+    // Equivalent threshold form avoids exponential-width temporary shifts.
+    // Proven against the unmodified Release 1 implementation by tools/prove_masks.py.
+    genvar bit_index;
+    generate if (topBound >= 0 && bottomBound <= numInVals) begin : Threshold
+        for (bit_index=0; bit_index<bottomBound-topBound; bit_index=bit_index+1) begin : Bit
+            localparam [inWidth:0] bound = bottomBound-bit_index;
+            assign out[bit_index] = {1'b0,in} < bound;
+        end
+    end else begin : GeneralBounds
     wire signed [numInVals:0] c;
     assign c[numInVals] = 1;
     assign c[(numInVals - 1):0] = 0;
     wire [(bottomBound - topBound - 1):0] reverseOut =
         (c>>>~in)>>(topBound + 1);
     reverse#(bottomBound - topBound) reverse(reverseOut, out);
+
+    end endgenerate
 
 endmodule
 
