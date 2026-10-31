@@ -10,8 +10,8 @@
   "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
   "full_core_suite_selected": true,
   "full_core_suite_passed": true,
-  "source_sha256": "ec5f857d2d9a7a1c54c2bcca98af4907dc1248b091f4c21e5a0f8bc7be9f83a9",
-  "simulator_sha256": "706727cc11313be0bdafa84acdcb8bf1f898961b270fbd6002360cabd2117fb3",
+  "source_sha256": "d969020cbcc8141c56fbb47f59f89983fba2f843494cb6cb78d216a349b8d32c",
+  "simulator_sha256": "8b7305cfc6b777e29c4d7e1267ae8c85bda53191e88fee302fff9593b49f79c1",
   "build_manifest": {
     "profile": "native",
     "inputs": {
@@ -30,9 +30,9 @@
       "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
       "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
       "rtl/wasmetal_values.sv": "dbbfcad963b696bfe383bf4f5a74c0bbf92d2b377622042a8354d186b9218e43",
-      "sim/core_config.hpp": "5ca7bf9ad0d69bde03f807ab7529f50c710bd9b85cb6f1243ed15e23feb7899e",
-      "sim/fpga_ports.hpp": "2fb212202a004fb4b929c8fcd2a93cc8a63d49ce24c91698a5aa11c1de39ea6c",
-      "sim/fpga_remote.hpp": "56a2e0fb71cef09cf24502e13c9b2eb0f5c268851550c65ee36acf926aef31be",
+      "sim/core_config.hpp": "d9881707514ea7e40a37dafbaacea45d1838500ae2b9ab59b78de9fa0f09a77b",
+      "sim/fpga_ports.hpp": "29bff7e6000a3b76f0d44cc00b8f7e9e8572122a67145795173ea0d758294bcd",
+      "sim/fpga_remote.hpp": "1eb10beb2bee2f8d2293030c6d2852aec37fa5b8e2db9719529e783747ea0cb5",
       "sim/main.cpp": "21c7a27b8f1655ec6c2d1d855196ff833569e7ce1654b2f9ad4f4aa0e3b33d5b",
       "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
       "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
@@ -59,13 +59,13 @@
       "tools/generate_fpga_ports.py": "89b3ae960061ffaefe9d8376dfb5d7dd3c3229d6c2bd9677dd6f985db85290c9",
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
     },
-    "binary_sha256": "706727cc11313be0bdafa84acdcb8bf1f898961b270fbd6002360cabd2117fb3"
+    "binary_sha256": "8b7305cfc6b777e29c4d7e1267ae8c85bda53191e88fee302fff9593b49f79c1"
   },
   "runner_inputs": {
     "tools/run_spec.py": "cdb9c64d3c179673aaff35d571a8feb46c830425975a9eb8e64d6515a94235c1",
     "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f"
   },
-  "rtl_build_id": "6977b52b2650f8536a17e8dbefa488a0",
+  "rtl_build_id": "e2834559dced3a6ccdc695957166be0a",
   "capacities": {
     "value": 16384,
     "control": 2048,
@@ -76,7 +76,7 @@
   "identity_error": null,
   "max_cycles_per_invocation": 100000000,
   "memory_wait_states": 3,
-  "elapsed_seconds": 481.32607340812683,
+  "elapsed_seconds": 483.4198582172394,
   "totals": {
     "modules_instantiated": 2266,
     "rtl_assertions_passed": 57711,
@@ -2901,5 +2901,5 @@
       "failures": []
     }
   ],
-  "runtime_source_revision": "2f3a6a4070208ece6297d592d6c87b0a2c3d49a5"
+  "runtime_source_revision": "1abe5bc85290c32b1ae3bd4951df9ad7a6823170"
 }

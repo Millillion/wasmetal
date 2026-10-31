@@ -5,7 +5,7 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-All 259 official core test files pass at execution-source revision `2f3a6a4`: 57,711
+All 259 official core test files pass at execution-source revision `1abe5bc`: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
 [recorded report](verification/core-3.0-current.json) identifies source and
@@ -135,7 +135,13 @@ interface, and hardware bring-up tests. These are not established by compiling
 SystemVerilog with Verilator. The current external memory/descriptor interfaces
 make that integration explicit.
 
-The full UART wrapper has passed simulation. Its host adapter also supports an
+The full UART wrapper has passed simulation, including fourteen execution and
+transport checks. Functional simulation of the mapped ECP5 CPU also passes fifteen
+official suites containing 10,771 execution assertions: scalar arithmetic,
+conversions, array copying, exception handling and SIMD arithmetic. These mapped
+tests use the smaller FPGA profile and are a subset of the full regression.
+
+The host adapter also supports an
 explicit physical serial device. The FPGA profile has smaller storage capacities
 than the complete-suite simulator; see [FPGA.md](FPGA.md) for that boundary and
 physical bring-up instructions. There is no claim of physical-board testing.

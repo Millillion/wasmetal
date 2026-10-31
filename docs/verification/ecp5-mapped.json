@@ -10,8 +10,8 @@
   "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
   "full_core_suite_selected": false,
   "full_core_suite_passed": false,
-  "source_sha256": "9713821182467cc16b7fa5b6cdf261a5c886c834243b564d7b75c1f5e3dc5d80",
-  "simulator_sha256": "2c535ee369c11ac4da8dba3e43226ec3cd640db48c1413eea8325d1dc2b401da",
+  "source_sha256": "d969020cbcc8141c56fbb47f59f89983fba2f843494cb6cb78d216a349b8d32c",
+  "simulator_sha256": "5eb7236548b72105fef4fadd3bfe77ff646b20a7c36a84a558be73af8f0c067c",
   "build_manifest": {
     "profile": "native",
     "inputs": {
@@ -30,9 +30,9 @@
       "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
       "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
       "rtl/wasmetal_values.sv": "dbbfcad963b696bfe383bf4f5a74c0bbf92d2b377622042a8354d186b9218e43",
-      "sim/core_config.hpp": "5ca7bf9ad0d69bde03f807ab7529f50c710bd9b85cb6f1243ed15e23feb7899e",
-      "sim/fpga_ports.hpp": "2fb212202a004fb4b929c8fcd2a93cc8a63d49ce24c91698a5aa11c1de39ea6c",
-      "sim/fpga_remote.hpp": "56a2e0fb71cef09cf24502e13c9b2eb0f5c268851550c65ee36acf926aef31be",
+      "sim/core_config.hpp": "d9881707514ea7e40a37dafbaacea45d1838500ae2b9ab59b78de9fa0f09a77b",
+      "sim/fpga_ports.hpp": "29bff7e6000a3b76f0d44cc00b8f7e9e8572122a67145795173ea0d758294bcd",
+      "sim/fpga_remote.hpp": "1eb10beb2bee2f8d2293030c6d2852aec37fa5b8e2db9719529e783747ea0cb5",
       "sim/main.cpp": "21c7a27b8f1655ec6c2d1d855196ff833569e7ce1654b2f9ad4f4aa0e3b33d5b",
       "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
       "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
@@ -72,12 +72,12 @@
       "build/core-ecp5-descriptors.manifest.json": "496b9b93f18a1b515ceb06f094342adc3da9960ef5f62e89a5360ef8f927f8d2",
       ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
       ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
-      "tools/build_gate_sim.py": "f4797c0d54a85140581e63fc9c8493b53eea316068e54d9ab0ae08b2a58d3897",
+      "tools/build_gate_sim.py": "23c3269f4d1f4a74f1fdfa406dd8cf387075ed28b4e52a884ab4b458019a8037",
       "build/gate-model/cells.v": "f9eb46cd821c648981da5f46997a8062857428aeb72a8d65ae3808208245bbec",
       "build/gate-model/core.v": "473978c155de2ed5b364390f909428e5517888f9d6fa013b1491d9ce10d618e7",
       "build/gate-model/vendor.vlt": "c83c2fe5be012d9f13d6eefbdbc3d767f5cad870398d27bece2d049185f82c58",
       "build/gate-model/main.cpp": "70438487b34498668a1f993ffff3e727d2938298e4539c8e2e5acd63a23f145d",
-      "build/gate-model/gate_config.hpp": "3d12d211f04d441a64163160fa09867982c302290da5c958933709dd6947b190",
+      "build/gate-model/gate_config.hpp": "7eb67b72765a9311ae43dc6eb900c1a2c99bc6666b89fb204b7621a2a61d7442",
       "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__115__Slow.cpp": "59d12aa891e31e5fd3d3ad43d903edee30bd9c190785db9e605c79d0044df649",
       "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__226.cpp": "78716271835ab14047178a9bdd356c1d341577562148bacae2255dc1f402b0d8",
       "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__6.cpp": "9aa1d6e9ee92767df58af72eb07cf5043f15d9021baf3a356f4aaf776f745157",
@@ -586,15 +586,20 @@
       "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__307.cpp": "cdb3dead50c7ead516862f966d06d399104d58e1d5f7b9eb2464d9fe2f5a3eda",
       "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__17__Slow.cpp": "2ad07764a4fdd8ad78f57c8e10649e7e395e010ec184d18c2d5f5d2d21c3fa06",
       "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__293.cpp": "d95a3914ef986729b5c186122434b5aa2c7523e4b59b245ae15effc5f0738b64",
-      "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__86.cpp": "07b2a6b363ba29503232dbf1b80aea53005a88a3344fd95a3724670db1460b33"
+      "build/gate-model/obj/Vwasmetal_core___024root__DepSet_hb849931a__86.cpp": "07b2a6b363ba29503232dbf1b80aea53005a88a3344fd95a3724670db1460b33",
+      "build/gate-model/obj/Vwasmetal_core.h": "ef65041efe738c12c43ecc711bacdba2fde458efe9327a1ef4449085992c1d17",
+      "build/gate-model/obj/Vwasmetal_core___024root.h": "c5915381005e72ef1ac671cff07daaccc5f17dfe314060599af0f3d53ee1492d",
+      "build/gate-model/obj/Vwasmetal_core__Syms.h": "2f144d22c8f102a6e940a709402eaad9125e84e3337e318013a1845a71f99f60",
+      "build/gate-model/obj/Vwasmetal_core__pch.h": "ea39bcb12cb09e1007b30ea019b10226d8bb75e2bd62fc89f264405fbbee2730"
     },
-    "binary_sha256": "2c535ee369c11ac4da8dba3e43226ec3cd640db48c1413eea8325d1dc2b401da"
+    "model_generation_script_sha256": "f4797c0d54a85140581e63fc9c8493b53eea316068e54d9ab0ae08b2a58d3897",
+    "binary_sha256": "5eb7236548b72105fef4fadd3bfe77ff646b20a7c36a84a558be73af8f0c067c"
   },
   "runner_inputs": {
     "tools/run_spec.py": "cdb9c64d3c179673aaff35d571a8feb46c830425975a9eb8e64d6515a94235c1",
     "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f"
   },
-  "rtl_build_id": "6977b52b2650f8536a17e8dbefa488a0",
+  "rtl_build_id": "e2834559dced3a6ccdc695957166be0a",
   "capacities": {
     "value": 128,
     "control": 128,
@@ -605,7 +610,7 @@
   "identity_error": null,
   "max_cycles_per_invocation": 100000000,
   "memory_wait_states": 3,
-  "elapsed_seconds": 86.49987864494324,
+  "elapsed_seconds": 112.68593978881836,
   "totals": {
     "modules_instantiated": 13,
     "rtl_assertions_passed": 6438,
@@ -694,5 +699,5 @@
       "failures": []
     }
   ],
-  "runtime_source_revision": "835461aaf5fb2e6d11adb7c4e288fdba211cfa9d"
+  "runtime_source_revision": "1abe5bc85290c32b1ae3bd4951df9ad7a6823170"
 }

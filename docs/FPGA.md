@@ -88,6 +88,16 @@ It uses Yosys' LUT, carry, RAM and flip-flop models. The unregistered 18-by-18 D
 multiplier model accepts only the configurations emitted by this flow; unexpected
 primitive types, DSP modes or connections fail the build.
 
+At execution-source revision `1abe5bc`, this mapped CPU passed fifteen official
+suites with three memory wait states: 6,438 execution assertions in the
+[scalar, GC and exception report](verification/ecp5-mapped.json), and 4,333 in
+the [SIMD arithmetic report](verification/ecp5-simd.json). The
+[whole-board UART report](verification/fpga-uart.json) records fourteen passing
+execution and transport checks. Each report identifies its executable, sources
+and capacity profile. The mapped results are a subset; the
+[complete 259-suite report](verification/core-3.0-current.json) uses the larger
+RTL simulation profile.
+
 ## Loading a physical board
 
 First build successfully and inspect its manifest and timing report. With the
