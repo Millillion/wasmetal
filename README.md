@@ -32,6 +32,11 @@ The clocked SystemVerilog core runs in Verilator. The test harness converts the
 pinned official Wasm core test suite and compares its expectations with RTL
 execution results and traps. Unsupported cases fail the run.
 
+CI runs the complete suite with zero and three memory wait states, then checks
+the serial FPGA interface. Generated JSON reports are retained for 30 days as
+the `verification-reports` artifact on each run, including reports available
+when a later step fails.
+
 ```sh
 python3 tools/bootstrap.py
 make lint
