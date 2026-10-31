@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
 """Exercise the board's UART framing and real core through the host adapter."""
 import argparse
+import hashlib
+import json
 from pathlib import Path
 import struct
 import subprocess
 import time
 
+import build_identity
 from run_spec import ROOT, RTL, WASM_TOOLS, Module, Trap
 
 
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--simulator",type=Path,default=ROOT/"build/uart-model/Vwasmetal_ulx3s")
+    parser.add_argument("--report",type=Path,default=ROOT/"reports/fpga-smoke.json")
     args=parser.parse_args()
+    manifest=build_identity.verify(args.simulator)
+    runner_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+                   for p in [Path(__file__).resolve(),ROOT/'tools/run_spec.py',ROOT/'tools/wasm_image.py']}
+    checks=[]
     wat='''(module
       (type $box (struct (field i32)))
       (type $array (array (mut i32)))
@@ -41,6 +49,7 @@ def main():
         def run(name,arguments,expected):
             actual=rtl.invoke(instance.exports[name][1],arguments)
             assert actual==[expected],(name,actual,expected)
+            checks.append(name)
             print('PASS',name,flush=True)
         run('add',[6,7],13)
         run('memory',[3,0x12345678],0x12345678)
@@ -56,12 +65,20 @@ def main():
             raise AssertionError('out-of-bounds store returned')
         except Trap as error:
             assert error.code==4
+            checks.append('bounds_trap')
         run('grow',[],1)
         run('load',[65536],0)
         rtl.send('K'); assert rtl.receive()==['CHECKSUM_OK']
+        checks.extend(['corrupt_frame_no_execution','invalid_flags_no_execution','capabilities_no_execution','incomplete_frame_recovery'])
         print('PASS bounds trap, invalid/corrupt/incomplete frames, and capability queries without execution',flush=True)
     finally:
         rtl.close()
+    if build_identity.verify(args.simulator)!=manifest: raise RuntimeError('simulator identity changed during test')
+    for name,digest in runner_inputs.items():
+        if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest: raise RuntimeError('test runner changed: '+name)
+    args.report.parent.mkdir(parents=True,exist_ok=True)
+    args.report.write_text(json.dumps({'passed':True,'checks':checks,'elapsed_seconds':time.monotonic()-started,
+                                      'build_manifest':manifest,'runner_inputs':runner_inputs},indent=2)+'\n')
     print('Board interface smoke tests passed in',round(time.monotonic()-started,2),'seconds')
 
 
