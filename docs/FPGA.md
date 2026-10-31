@@ -38,8 +38,9 @@ cells (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks. The core meets its
 12.5 MHz. The bitstream survives unpacking and repacking with identical bytes.
 ABC9 mapping and static placement are the default recipe. A fresh
 `make fpga-bitstream` run reproduced the prototype bitstream byte for byte.
-The rebuilt native simulator is also identical to the full-suite-tested binary. The mapped functional suite has also completed successfully. An additional
-comparison of the two mappings is still running.
+The rebuilt native simulator is also identical to the full-suite-tested binary.
+The mapped functional suite has also completed successfully. An additional
+formal comparison was inconclusive; see the verification details below.
 Heap allocation is bounded and currently has no reclamation. Mapped-cell results
 apply to their recorded netlist and capacity profile; a changed mapping requires
 its own checks.
@@ -132,6 +133,15 @@ The tested netlist is byte-identical to the standard bitstream build’s core. T
 execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the
 [complete 259-suite report](verification/core-3.0-current.json) records the current native RTL simulation with the same capacities as the FPGA profile.
+
+An additional [whole-mapping equivalence attempt](verification/mapping-equivalence.json)
+was inconclusive. The bounded solver timed out. A second model used 929 internal
+cut points with an acyclic dependency graph, but allowed independent internal
+values that violated their signal definitions. Its counterexample produced no
+differing outputs when replayed on the original circuits. This is not a formal
+proof of either the complete CPU or equivalence of the two mappings. The two
+reference netlists are reproducible with the current synthesis tools, and both
+pass the forty-suite mapped regression described above.
 
 ## Loading a physical board
 
