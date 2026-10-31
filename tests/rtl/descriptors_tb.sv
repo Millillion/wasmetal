@@ -28,6 +28,7 @@ module descriptors_tb;
             read_index_a=(step%3)==0 ? write_index:$unsigned($random(seed))%(COUNT+2);
             read_index_b=(step%5)==0 ? write_index:$unsigned($random(seed))%(COUNT+2);
             #1;
+            @(negedge clk); #1;
             for(index=0;index<2;index=index+1) begin : check_read
                 reg [31:0] selected;
                 reg [WIDTH-1:0] expected;

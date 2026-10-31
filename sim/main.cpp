@@ -138,6 +138,7 @@ public:
             }
         }
         dut.clk=1; dut.eval(); cycles++;
+        dut.clk=0; dut.eval();
         if(transfer) transaction_seen=false;
         if(memory_wait) memory_wait--;
     }
@@ -152,6 +153,8 @@ public:
         if(dut.busy) throw std::runtime_error("command during execution");
         dut.cmd_kind=kind; dut.cmd_index=index; put(dut.cmd_data,data); dut.cmd_aux=aux;
         dut.cmd_valid=1; tick(); dut.cmd_valid=0;
+        if(kind!=0) { unsigned remaining=4; while(dut.busy && remaining--) tick();
+            if(dut.busy) throw std::runtime_error("configuration command timed out"); }
     }
     void run(uint32_t index,unsigned argc,uint64_t limit) {
         uint64_t begin=cycles;
@@ -161,7 +164,7 @@ public:
         else if(dut.trap) { std::cout << "TRAP " << unsigned(dut.trap) << ' ' << dut.pc << ' ' << cycles-begin << '\n'; }
         else {
             std::cout << "OK " << dut.result_count;
-            for(uint32_t n=0;n<dut.result_count;n++) { dut.result_index=n; dut.eval(); std::cout << ' ' << hex_value(get(dut.result_data)); }
+            for(uint32_t n=0;n<dut.result_count;n++) { dut.result_index=n; tick(); std::cout << ' ' << hex_value(get(dut.result_data)); }
             std::cout << ' ' << cycles-begin << '\n';
         }
         std::cout.flush();
@@ -235,7 +238,7 @@ int main(int argc,char** argv) {
                 sim->command(5,index,{uint32_t(length),uint32_t(length>>32),0,0});
             } else if(op=='S') {
                 unsigned kind; uint32_t index; in>>kind>>index;
-                sim->command(kind==0?6:7,index); sim->dut.result_index=0; sim->dut.eval();
+                sim->command(kind==0?6:7,index); sim->dut.result_index=0; sim->tick();
                 std::cout<<"SIZE "<<hex_value(get(sim->dut.result_data))<<'\n'; std::cout.flush();
             } else if(op=='B') {
                 uint32_t index; uint64_t address; std::string hex; in>>index>>address>>hex;

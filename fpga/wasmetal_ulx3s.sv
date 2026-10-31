@@ -27,7 +27,23 @@ module wasmetal_ulx3s (
 `include "core_ports.svh"
     logic [INPUT_BYTES*8-1:0] active_inputs, rx_payload;
     wire [OUTPUT_BYTES*8-1:0] outgoing_outputs;
-    logic [OUTPUT_BYTES*8-1:0] response_payload;
+    wire [OUTPUT_BYTES*8-1:0] capabilities;
+    assign capabilities[0+:32]=32'h574d0001;
+    assign capabilities[32+:32]=VALUE_DEPTH;
+    assign capabilities[64+:32]=CONTROL_DEPTH;
+    assign capabilities[96+:32]=CALL_DEPTH;
+    assign capabilities[128+:32]=MEMORY_COUNT;
+    assign capabilities[160+:32]=HEAP_CAPACITY;
+    assign capabilities[192+:32]=INPUT_BYTES;
+    assign capabilities[224+:32]=OUTPUT_BYTES;
+    assign capabilities[256+:32]=SCHEMA_ID;
+    assign capabilities[288+:128]=BUILD_ID;
+    assign capabilities[OUTPUT_BYTES*8-1:416]='0;
+    // The core clock and its inputs remain held throughout transmission.
+    // Select a byte directly instead of copying the entire output bus.
+    logic [1:0] response_kind;
+    wire [7:0] response_byte=response_kind==0 ? outgoing_outputs[(tx_index-4)*8+:8] :
+                             response_kind==1 ? capabilities[(tx_index-4)*8+:8] : 8'b0;
     typedef enum logic [3:0] {SYNC0,SYNC1,FLAGS,SEQUENCE,PAYLOAD,CRC_LOW,CRC_HIGH,
                              SETTLE,HIGH_PULSE,LOW_PULSE,SNAPSHOT,SEND} state_t;
     state_t state;
@@ -63,13 +79,13 @@ module wasmetal_ulx3s (
             3: tx_data=sequence_number;
             8'(4+OUTPUT_BYTES): tx_data=tx_crc[7:0];
             8'(5+OUTPUT_BYTES): tx_data=tx_crc[15:8];
-            default: tx_data=response_payload[(tx_index-4)*8+:8];
+            default: tx_data=response_byte;
         endcase
     end
 
     always_ff @(posedge bridge_clock) begin
         if(reset_bridge) begin
-            state<=SYNC0; cpu_pulse<=0; active_inputs<=0; rx_payload<=0; response_payload<=0;
+            state<=SYNC0; cpu_pulse<=0; active_inputs<=0; rx_payload<=0; response_kind<=2;
             flags<=0; sequence_number<=0; status<=0; crc_low<=0;
             rx_crc<=16'hffff; tx_crc<=16'hffff; payload_index<=0; tx_index<=0; settle_count<=0;
             led_error<=0;
@@ -97,19 +113,9 @@ module wasmetal_ulx3s (
                 CRC_HIGH: if(rx_valid) begin
                     if({rx_data,crc_low}!=rx_crc || flags[7:2]!=0 || flags[1:0]==3) begin
                         status<=({rx_data,crc_low}!=rx_crc) ? 8'd1 : 8'd2;
-                        response_payload<=0; tx_index<=0; tx_crc<=16'hffff; led_error<=1; state<=SEND;
+                        response_kind<=2; tx_index<=0; tx_crc<=16'hffff; led_error<=1; state<=SEND;
                     end else if(flags[1]) begin
-                        response_payload<=0;
-                        response_payload[0+:32]<=32'h574d0001;
-                        response_payload[32+:32]<=32'(VALUE_DEPTH);
-                        response_payload[64+:32]<=32'(CONTROL_DEPTH);
-                        response_payload[96+:32]<=32'(CALL_DEPTH);
-                        response_payload[128+:32]<=32'(MEMORY_COUNT);
-                        response_payload[160+:32]<=32'(HEAP_CAPACITY);
-                        response_payload[192+:32]<=32'(INPUT_BYTES);
-                        response_payload[224+:32]<=32'(OUTPUT_BYTES);
-                        response_payload[256+:32]<=SCHEMA_ID;
-                        response_payload[288+:128]<=BUILD_ID;
+                        response_kind<=1;
                         tx_index<=0; tx_crc<=16'hffff; status<=0; state<=SEND;
                     end else begin
                         active_inputs<=rx_payload; settle_count<=99; led_error<=0; state<=SETTLE;
@@ -129,7 +135,7 @@ module wasmetal_ulx3s (
                     else state<=SNAPSHOT;
                 end
                 SNAPSHOT: begin
-                    response_payload<=outgoing_outputs; status<=0; tx_index<=0; tx_crc<=16'hffff; state<=SEND;
+                    response_kind<=0; status<=0; tx_index<=0; tx_crc<=16'hffff; state<=SEND;
                 end
                 SEND: if(tx_ready) begin
                     if(tx_index>=2 && tx_index<8'(4+OUTPUT_BYTES)) tx_crc<=crc_byte(tx_crc,tx_data);
@@ -140,4 +146,20 @@ module wasmetal_ulx3s (
             endcase
         end
     end
+
+`ifdef WASMETAL_ASSERTIONS
+    logic checked_sending;
+    logic [OUTPUT_BYTES*8-1:0] checked_outputs;
+    always_ff @(posedge bridge_clock) begin
+        if(reset_bridge) checked_sending<=0;
+        else begin
+            if(state==SEND && response_kind==0) begin
+                assert(!cpu_pulse);
+                if(checked_sending) assert(outgoing_outputs==checked_outputs);
+            end
+            checked_sending<=state==SEND && response_kind==0;
+            checked_outputs<=outgoing_outputs;
+        end
+    end
+`endif
 endmodule

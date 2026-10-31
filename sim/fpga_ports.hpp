@@ -7,8 +7,8 @@ struct FpgaPorts {
     using Bits = std::array<uint32_t,4>;
     uint8_t clk=0;
     static constexpr uint32_t SCHEMA_ID=0x8383be2e;
-    static constexpr const char* BUILD_ID="4ab096180776d5d45fc0271ad9c93790";
-    static constexpr std::array<uint32_t,4> BUILD_WORDS={0x1896b04a,0xd4d57607,0x1a27c05f,0x9037c9d9};
+    static constexpr const char* BUILD_ID="93a74efd60f1c4617cf61c185edbe758";
+    static constexpr std::array<uint32_t,4> BUILD_WORDS={0xfd4ea793,0x61c4f160,0x181cf67c,0x58e7db5e};
     static constexpr unsigned INPUT_BYTES=106;
     uint64_t cmd_aux{};
     Bits cmd_data{};

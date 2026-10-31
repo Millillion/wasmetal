@@ -17,18 +17,20 @@ in this workspace.
 [`fpga/profile.json`](../fpga/profile.json) defines the FPGA's finite capacities.
 They are advertised by the bitstream and checked by the host:
 
-| Resource | FPGA | Full conformance simulator |
-|---|---:|---:|
-| 128-bit value slots, including locals | 128 | 16,384 |
-| Control labels | 128 | 2,048 |
-| Saved call frames | 64 | 512 |
-| Descriptors per memory/table/segment class | 16 | 256 |
-| External 128-bit heap slots | 1,048,576 | 1,048,576 |
+The FPGA and native conformance simulator now use the same capacities:
 
-The instruction set is the same in both profiles. Programs exceeding a profile's
-resources cannot be assumed to run successfully. Full official-suite results use
-the larger simulator profile; they are not a claim that every test fits the smaller
-FPGA profile. Heap allocation is bounded and currently has no reclamation.
+| Resource | Capacity |
+|---|---:|
+| 128-bit value slots, including locals | 16,384 |
+| Control labels | 2,048 |
+| Saved call frames | 512 |
+| Descriptors per memory/table/segment class | 256 |
+| External 128-bit heap slots | 1,048,576 |
+
+Programs exceeding these finite resources cannot be assumed to run successfully.
+Heap allocation is bounded and currently has no reclamation. Earlier mapped-cell
+reports identify their smaller capacity profile explicitly; they do not establish
+conformance of a later build.
 
 The host reserves zero-initialized backing storage up to each memory's configured
 maximum. The core checks bounds and exposes additional pages on `memory.grow`.
@@ -88,13 +90,14 @@ It uses Yosys' LUT, carry, RAM and flip-flop models. The unregistered 18-by-18 D
 multiplier model accepts only the configurations emitted by this flow; unexpected
 primitive types, DSP modes or connections fail the build.
 
-The control labels and call frames map to nine block RAMs. The `DP16KD` functional
-model accepts only the generated 512-by-36 pseudo-dual-port configuration, with
-rising-edge writes, falling-edge reads and nine-bit write enables. Its packing
-follows pinned Yosys' mapping and its behavior follows the
+Values, control labels, call frames and descriptor data use synchronous block
+RAM, with rising-edge writes and falling-edge reads. The checked `DP16KD` model
+accepts the generated 512-by-36 pseudo-dual-port and 2048-by-9 dual-port modes.
+Its packing follows pinned Yosys' mapping and its behavior follows the
 [Lattice memory guide](https://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/EH/FPGA-TN-02204-1-6-ECP5-and-ECP5-5G-Memory-Usage-Guide.ashx?document_id=50466).
 `make test-ecp5-ram` compares mapped and inferred initialized storage in a four-state
-simulator. The timing report must also cover the CPU's half-cycle RAM paths.
+simulator, including both read edges, banking and partial writes. The timing
+report must also cover the CPU's half-cycle RAM paths.
 
 At execution-source revision `f4e578b`, this mapped CPU passed twenty-eight official
 suites with three memory wait states: 11,559 execution assertions covering scalar
@@ -103,8 +106,7 @@ arithmetic, SIMD, GC, exceptions and structured control in the
 [whole-board UART report](verification/fpga-uart.json) records fourteen passing
 execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the
-[complete 259-suite report](verification/core-3.0-current.json) uses the larger
-RTL simulation profile.
+[complete 259-suite report](verification/core-3.0-current.json) records the baseline native RTL simulation profile.
 
 ## Loading a physical board
 
@@ -142,7 +144,9 @@ The 25 MHz board oscillator feeds a free-running divide-by-two flip-flop. A DCCA
 routes its 12.5 MHz output to the UART and bridge. A second DCCA routes the manual
 CPU clock onto a global clock network. Each accepted step holds new inputs stable
 for 8 microseconds before the CPU edge, holds its pulse high for 2 microseconds,
-then waits at least 4 microseconds before sampling outputs. An evaluation request
+then waits at least 4 microseconds before returning outputs. The core clock and
+inputs remain held during transmission, so the bridge reads the stable output bus
+directly; simulation assertions check this condition. An evaluation request
 changes inputs and samples combinational outputs without a CPU edge.
 
 The build checks all three clock constraints and separately audits both directions
@@ -163,8 +167,7 @@ CPU reset during initialization.
 ## Next hardware stages
 
 Physical-board testing is still required. A practical standalone machine also
-needs buffered program loading, local memory and fetch controllers, larger operand
-storage in block RAM or external RAM, autonomous clocking, and a boot interface. Those
+needs buffered program loading, local memory and fetch controllers, autonomous clocking, and a boot interface. Those
 changes need their own conformance runs and timing closure. An ASIC additionally
 requires a process/PDK, memories, I/O and clock/reset integration, physical design,
 signoff and fabrication; the FPGA bitstream is not an ASIC deliverable.

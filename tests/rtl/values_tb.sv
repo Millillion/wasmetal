@@ -22,6 +22,7 @@ module values_tb;
             window_top<=$unsigned($random(seed))%DEPTH;
             #1;
             if(pending_write) reference_words[write_index]=write_data;
+            @(negedge clk); #1;
             if(step>=DEPTH) begin
                 if(auxiliary) begin
                     if(bank_words[auxiliary_index[1:0]*128+:128]!==reference_words[auxiliary_index])

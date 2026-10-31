@@ -5,7 +5,7 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-All 259 official core test files pass at execution-source revision `f4e578b`: 57,711
+The recorded baseline passes all 259 official core test files at execution-source revision `f4e578b`: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
 [recorded report](verification/core-3.0-current.json) identifies source and
@@ -35,11 +35,14 @@ reuse a lane datapath over sixteen output-byte cycles; SIMD floating-point
 operations reuse the scalar floating-point units. Descriptor RAM uses validity
 bits so reset does not require a flip-flop for every stored data bit.
 
-Control labels and saved call frames use packed synchronous block RAM. Their
-addresses depend on rising-edge state registers; the falling edge reads storage
-for the next rising edge. Both half-cycle paths must meet timing. Assertions
-compare every consumed read with the underlying storage. This preserves the
-instruction cycle count while reducing distributed memory and its routing load.
+Values, descriptors, control labels and saved call frames use synchronous block
+RAM. Rising edges commit state and writes; falling edges capture reads for the
+next rising edge. A preparation state provides instruction operands and metadata
+time to settle. Fetching the fifth `array.copy` operand also restores the normal
+operand window before resuming that same instruction. Assertions independently
+check consumed addresses and data against storage. Both half-cycle paths must meet
+timing. Descriptor-size queries take a separate command cycle, and result reads
+must be clocked; the host adapter completes both clock phases.
 
 The RTL now contains scalar integer and floating-point instructions, vector and
 relaxed-vector operations, structured control, direct/indirect/reference calls,
@@ -91,7 +94,7 @@ make test
 make test-all
 make test-divider
 make test-simd test-popcount test-values test-descriptors
-make test-ecp5-ram
+make test-ecp5-ram test-core-four-state
 make prove-masks
 python3 tools/prove_descriptors.py
 python3 tools/check_engine.py
@@ -118,19 +121,23 @@ including reset, forwarding and invalid indices. Yosys proves 372 optimized
 HardFloat mask specializations equivalent for every binary input. Unbounded
 induction checks descriptor reset elision and forwarding against fully reset
 reference storage at capacities 1, 13, 16 and 256; the 13-entry case also checks
-multi-bit words. These proofs are local properties, not a formal proof of the
+multi-bit words. The clock model explicitly includes both edges. These proofs are local properties, not a formal proof of the
 entire CPU.
 
-A four-state ECP5 block-RAM mapping test compares inferred storage with the
-restricted primitive model over 10,512 reads, including initialization, separate
-nine-bit write enables and read-after-write cases. Seven deliberately unsupported
-configurations verify the model's rejection checks.
+Four-state ECP5 block-RAM tests compare inferred storage with the restricted
+primitive model over 10,512 wide-memory transactions and 14,096 deep-memory
+transactions. They cover initialization, separate nine-bit write enables, bank
+selection, both read edges and read-before-write. Eleven deliberately unsupported
+configurations verify the model's rejection checks. A separate four-state CPU
+bench checks eight execution, initialization and reset cases with non-power-of-two
+storage capacities. Immediate-assertion diagnostics fail its runner even when
+Icarus itself exits successfully.
 
 The old parallel integer-SIMD implementation remains an independent structural
 oracle and is not instantiated in the CPU. Expected Wasm results remain outside
 both implementations. `tools/check_engine.py` deliberately supplies wrong expected
 values/traps, checks signed zero and NaN/reference matching, fills the value stack
-exactly, checks tail-frame reuse, and confirms that a timeout cannot pass an
+exactly, checks tail-frame reuse and bounded five-operand array copying, and confirms that a timeout cannot pass an
 exhaustion assertion.
 
 The present RTL uses finite parameterized value/control/call storage. Exhaustion
@@ -148,10 +155,10 @@ SystemVerilog with Verilator. The current external memory/descriptor interfaces
 make that integration explicit.
 
 The full UART wrapper has passed simulation, including fourteen execution and
-transport checks. Functional simulation of the mapped ECP5 CPU also passes fifteen
-official suites containing 10,771 execution assertions: scalar arithmetic,
-conversions, array copying, exception handling and SIMD arithmetic. These mapped
-tests use the smaller FPGA profile and are a subset of the full regression.
+transport checks. Functional simulation of the mapped ECP5 CPU has a recorded baseline passing twenty-eight
+official suites containing 11,559 execution assertions: scalar arithmetic,
+conversions, array copying, exception handling and SIMD arithmetic. Those recorded mapped
+tests use the earlier smaller FPGA profile and are a subset of the full regression.
 
 The host adapter also supports an
 explicit physical serial device. The FPGA profile has smaller storage capacities

@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--fpga", action="store_true", help="also map a reduced-capacity core to ECP5 primitives")
+    parser.add_argument("--fpga", action="store_true", help="also map the configured FPGA core to ECP5 primitives")
     parser.add_argument("--fast-share", action="store_true", help="use bounded-control resource-sharing analysis")
     parser.add_argument("--no-share", action="store_true", help="retain parallel arithmetic resources")
     parser.add_argument("--lut4",action="store_true",help="map directly to four-input LUTs")
@@ -77,7 +77,7 @@ opt_clean
     path = ROOT / f"build/{name}.ys"
     script=script.replace("-top wasmetal_core","-top "+args.top)
     path.write_text(script)
-    inputs=sources+sorted(vendor.rglob("*.vi"))
+    inputs=sources+sorted(vendor.rglob("*.vi"))+[ROOT/"tools/synth.py",ROOT/"tools/upstream.lock.json"]
     if args.fpga: inputs.append(ROOT/"fpga/profile.json")
     manifest={"top":args.top,"arguments":vars(args),"inputs":{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},
               "script_sha256":hashlib.sha256(path.read_bytes()).hexdigest()}
@@ -87,6 +87,9 @@ opt_clean
         result = subprocess.run([str(yosys), "-Q", "-T", "-s", str(path)], cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT)
     print(log.read_text()[-6000:])
     if result.returncode==0:
+        for name,digest in manifest["inputs"].items():
+            if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
+                raise RuntimeError("synthesis input changed during build: "+name)
         output=ROOT/f"build/{name}.json"
         manifest["netlist_sha256"]=hashlib.sha256(output.read_bytes()).hexdigest()
         (ROOT/f"build/{name}.manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")

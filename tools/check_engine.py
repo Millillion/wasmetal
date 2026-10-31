@@ -58,6 +58,21 @@ def main():
     finally:
         rtl.close()
 
+    rtl = RTL(wait_states=5, max_cycles=5000)
+    try:
+        module = load(rtl, '''(module
+          (type $array (array (mut i32)))
+          (func (export "copy") (result i32)
+            (local $source (ref null $array)) (local $dest (ref null $array))
+            i32.const 42 i32.const 3 array.new $array local.set $source
+            i32.const 0 i32.const 3 array.new $array local.set $dest
+            local.get $dest i32.const 1 local.get $source i32.const 0 i32.const 1
+            array.copy $array $array
+            local.get $dest i32.const 1 array.get $array))''')
+        assert rtl.invoke(module.exports["copy"][1], []) == [42]
+    finally:
+        rtl.close()
+
     rtl = RTL(max_cycles=40)
     try:
         module = load(rtl, '(module (func (export "spin") (loop $l br $l)))')
@@ -68,7 +83,7 @@ def main():
             assert str(error).startswith("TIMEOUT"), "timeout became a Wasm trap"
     finally:
         rtl.close()
-    print("PASS oracle negative controls, exact stack capacity, tail-frame reuse, and timeout classification")
+    print("PASS oracle negative controls, exact stack capacity, tail-frame reuse, five-operand array copying, and timeout classification")
 
 
 if __name__ == "__main__":

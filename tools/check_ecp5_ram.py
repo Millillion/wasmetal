@@ -4,6 +4,7 @@ import copy
 import json
 from pathlib import Path
 import subprocess
+import sys
 
 import ecp5_ram
 
@@ -94,6 +95,7 @@ endmodule
                     '-g2012', '-s', 'ram_test', '-o', str(directory/'test.vvp')]+
                    [str(directory/name) for name in ('cells.v', 'mapped.v', 'reference.sv', 'test.sv')], check=True)
     subprocess.run([str(tools/'bin/vvp'), str(directory/'test.vvp')], check=True)
+    subprocess.run([sys.executable,str(ROOT/'tools/check_ecp5_ram_deep.py')],check=True,cwd=ROOT)
 
 
 if __name__ == '__main__':

@@ -124,7 +124,7 @@ class Instance:
 
 
 class RTL:
-    def __init__(self, wait_states=0, max_cycles=100000000, simulator=None):
+    def __init__(self, wait_states=0, max_cycles=300000000, simulator=None):
         self.proc = subprocess.Popen([str(simulator or ROOT / "build/obj/Vwasmetal_core")],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
         self.instructions = 0
@@ -647,7 +647,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", action="append", help="exact relative suite path without .wast; repeatable")
     parser.add_argument("--wait-states", type=int, default=0)
-    parser.add_argument("--max-cycles", type=int, default=100000000)
+    parser.add_argument("--max-cycles", type=int, default=300000000)
     parser.add_argument("--jobs", type=int, default=4)
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--simulator", type=Path, default=ROOT / "build/obj/Vwasmetal_core")
