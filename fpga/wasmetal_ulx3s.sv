@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Host-backed, single-step FPGA bring-up interface. Arithmetic executes in core.
-module wasmetal_ulx3s #(parameter integer VALUE_DEPTH=256) (
+module wasmetal_ulx3s (
     input logic clk_25mhz, btn_n, ftdi_txd,
     output logic ftdi_rxd, led_busy, led_error
 );
@@ -92,9 +92,9 @@ module wasmetal_ulx3s #(parameter integer VALUE_DEPTH=256) (
                         response_payload<=0;
                         response_payload[0+:32]<=32'h574d0001;
                         response_payload[32+:32]<=32'(VALUE_DEPTH);
-                        response_payload[64+:32]<=32'd128;
-                        response_payload[96+:32]<=32'd64;
-                        response_payload[128+:32]<=32'd16;
+                        response_payload[64+:32]<=32'(CONTROL_DEPTH);
+                        response_payload[96+:32]<=32'(CALL_DEPTH);
+                        response_payload[128+:32]<=32'(MEMORY_COUNT);
                         response_payload[160+:32]<=32'(HEAP_CAPACITY);
                         response_payload[192+:32]<=32'(INPUT_BYTES);
                         response_payload[224+:32]<=32'(OUTPUT_BYTES);

@@ -48,10 +48,15 @@ module wasmetal_core #(
         BR_TABLE, COPY_VALUES, RETURN_SETUP, RETURN_RESTORE,
         DIV_WAIT, MEMORY_WAIT, INDIRECT_WAIT, FP_WAIT, SIMD_FP_START, SIMD_FP_WAIT,
         BULK_STEP, BULK_READ_WAIT, BULK_WRITE_WAIT, GC_NEW_STEP, GC_NEW_WAIT,
-        EXN_SEARCH, EXN_CHECK, EXN_PAYLOAD, EXN_LOAD_WAIT, SIMD_INT_WAIT
+        EXN_SEARCH, EXN_CHECK, EXN_PAYLOAD, EXN_LOAD_WAIT, SIMD_INT_WAIT, FETCH_FIFTH
     } state_t;
     state_t state, copy_next;
-    logic [127:0] values [0:VALUE_DEPTH-1];
+    logic value_write;
+    logic [31:0] value_write_index,value_aux_index;
+    logic [127:0] value_write_data;
+    logic value_auxiliary,fifth_ready;
+    wire [511:0] value_banks;
+    wire [127:0] value_aux=value_banks[value_aux_index[1:0]*128+:128];
     logic [31:0] labels_height [0:CONTROL_DEPTH-1];
     logic [31:0] labels_pc [0:CONTROL_DEPTH-1];
     logic [31:0] labels_arity [0:CONTROL_DEPTH-1];
@@ -130,12 +135,26 @@ module wasmetal_core #(
     integer k;
 
     assign busy = state != IDLE;
-    assign result_data = result_index < VALUE_DEPTH ? values[result_index] : 128'b0;
-    assign top = (sp > 0 && sp <= VALUE_DEPTH) ? values[sp-1] : 128'b0;
-    assign below = (sp > 1 && sp <= VALUE_DEPTH) ? values[sp-2] : 128'b0;
-    assign third = (sp > 2 && sp <= VALUE_DEPTH) ? values[sp-3] : 128'b0;
-    assign fourth = (sp > 3 && sp <= VALUE_DEPTH) ? values[sp-4] : 128'b0;
-    assign fifth = (sp > 4 && sp <= VALUE_DEPTH) ? values[sp-5] : 128'b0;
+    always_comb begin
+        value_auxiliary=1; value_aux_index=result_index;
+        case(state)
+            IDLE: value_aux_index=result_index;
+            COPY_VALUES: value_aux_index=copy_src+copy_pos;
+            GC_NEW_STEP: value_aux_index=gc_source+gc_position;
+            FETCH_FIFTH: value_aux_index=sp-5;
+            EXECUTE: begin value_auxiliary=insn_op=='h20; value_aux_index=fp+insn_x; end
+            default: value_auxiliary=0;
+        endcase
+    end
+    wasmetal_values #(VALUE_DEPTH) value_file(.clk(clk),.pending_write(value_write),
+        .write_index(value_write_index),.write_data(value_write_data),
+        .auxiliary(value_auxiliary),.auxiliary_index(value_aux_index),.window_top(sp-32'd1),.bank_words(value_banks));
+    // Results are valid while idle; the read port serves execution while busy.
+    assign result_data = state==IDLE && result_index<VALUE_DEPTH ? value_aux:128'b0;
+    assign top = (sp>0 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-1))*128+:128]:128'b0;
+    assign below = (sp>1 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-2))*128+:128]:128'b0;
+    assign third = (sp>2 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-3))*128+:128]:128'b0;
+    assign fourth = (sp>3 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-4))*128+:128]:128'b0;
     assign cast_heap_type = insn_op == 'hfb0018 || insn_op == 'hfb0019 ? insn_z : insn_x;
     assign cast_nullable = insn_op == 'hfb0015 || insn_op == 'hfb0017 ||
         ((insn_op == 'hfb0018 || insn_op == 'hfb0019) && insn_w[1]);
@@ -316,8 +335,13 @@ module wasmetal_core #(
         begin trap <= code; done <= 1; state <= IDLE; mem_valid <= 0; result_count <= 0; end
     endtask
 
+    task automatic write_value(input logic [31:0] index,input logic [127:0] value);
+        begin value_write<=1; value_write_index<=index; value_write_data<=value; end
+    endtask
+
     always_ff @(posedge clk) begin
         if (reset) begin
+            value_write<=0; value_write_index<=0; value_write_data<=0; fifth<=0; fifth_ready<=0;
             state <= IDLE; copy_next <= IDLE; done <= 0; trap <= 0; result_count <= 0;
             pc <= 0; function_index <= 0;
             sp <= 0; fp <= 0; control_sp <= 0; control_base <= 0; call_depth <= 0; result_arity <= 0;
@@ -343,6 +367,7 @@ module wasmetal_core #(
                 data_size[k] <= 0; element_size[k] <= 0;
             end
         end else begin
+            value_write<=0; fifth_ready<=0;
             case (state)
                 IDLE: if (cmd_valid) begin
                     case (cmd_kind)
@@ -354,7 +379,7 @@ module wasmetal_core #(
                                 function_index <= cmd_index; call_kind <= 0; check_type <= 0; state <= CALL_SETUP;
                             end
                         end
-                        1: if (cmd_index < VALUE_DEPTH) values[cmd_index] <= cmd_data;
+                        1: if (cmd_index < VALUE_DEPTH) write_value(cmd_index,cmd_data);
                         2: if (cmd_index < MEMORY_COUNT) begin
                             memory_pages[cmd_index] <= cmd_data[63:0];
                             memory_max[cmd_index] <= cmd_data[127:64]; memory_wide[cmd_index] <= cmd_aux[0];
@@ -365,8 +390,8 @@ module wasmetal_core #(
                         end
                         4: if (cmd_index < MEMORY_COUNT) data_size[cmd_index] <= cmd_data[63:0];
                         5: if (cmd_index < MEMORY_COUNT) element_size[cmd_index] <= cmd_data[63:0];
-                        6: if (cmd_index < MEMORY_COUNT) begin values[0] <= {64'b0,memory_pages[cmd_index]}; end
-                        7: if (cmd_index < MEMORY_COUNT) begin values[0] <= {64'b0,table_size[cmd_index]}; end
+                        6: if (cmd_index < MEMORY_COUNT) begin write_value(0,{64'b0,memory_pages[cmd_index]}); end
+                        7: if (cmd_index < MEMORY_COUNT) begin write_value(0,{64'b0,table_size[cmd_index]}); end
                         default: fail(T_IMAGE);
                     endcase
                 end
@@ -400,7 +425,7 @@ module wasmetal_core #(
                     state <= function_locals == 0 ? EXECUTE : INIT_LOCALS;
                 end
                 INIT_LOCALS: begin
-                    values[sp] <= 0; sp <= sp+1; init_left <= init_left-1;
+                    write_value(sp,0); sp <= sp+1; init_left <= init_left-1;
                     if (init_left == 1) state <= EXECUTE;
                 end
                 EXECUTE: begin
@@ -411,7 +436,7 @@ module wasmetal_core #(
                          insn_op=='hfc0010 || insn_op=='hfd000c || insn_op=='hfb0001 ||
                          (insn_op=='hfb0000 && insn_y==0) || (insn_op=='hfb0008 && insn_y==0)))) fail(T_EXHAUSTION);
                     else if (alu_supported) begin
-                        values[sp-(alu_unary ? 1 : 2)] <= {64'b0,alu_result};
+                        write_value(sp-(alu_unary ? 1 : 2),{64'b0,alu_result});
                         if (!alu_unary) sp <= sp-1;
                         pc <= pc+1;
                     end else if (div_start) state <= DIV_WAIT;
@@ -500,14 +525,14 @@ module wasmetal_core #(
                             end
                         end
                         'h1a: begin sp <= sp-1; pc <= pc+1; end
-                        'h1b, 'h1c: begin values[sp-3] <= top[31:0] != 0 ? third : below; sp <= sp-2; pc <= pc+1; end
+                        'h1b, 'h1c: begin write_value(sp-3,top[31:0] != 0 ? third : below); sp <= sp-2; pc <= pc+1; end
                         'h20: begin
                             if (fp+insn_x >= VALUE_DEPTH) fail(T_IMAGE);
-                            else begin values[sp] <= values[fp+insn_x]; sp <= sp+1; pc <= pc+1; end
+                            else begin write_value(sp,value_aux); sp <= sp+1; pc <= pc+1; end
                         end
                         'h21, 'h22: begin
                             if (fp+insn_x >= VALUE_DEPTH) fail(T_IMAGE);
-                            else begin values[fp+insn_x] <= top; if (insn_op == 'h21) sp <= sp-1; pc <= pc+1; end
+                            else begin write_value(fp+insn_x,top); if (insn_op == 'h21) sp <= sp-1; pc <= pc+1; end
                         end
                         'h23, 'h24: begin
                             mem_valid <= 1; mem_write <= insn_op == 'h24; mem_kind <= 1;
@@ -528,7 +553,7 @@ module wasmetal_core #(
                         end
                         'hfc0010: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
-                            else begin values[sp] <= {64'b0,table_size[insn_x]}; sp <= sp+1; pc <= pc+1; end
+                            else begin write_value(sp,{64'b0,table_size[insn_x]}); sp <= sp+1; pc <= pc+1; end
                         end
                         'hfc0009, 'hfc000d: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
@@ -541,10 +566,10 @@ module wasmetal_core #(
                         'hfc000f: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
                             else if (grown_table[64] || grown_table > {1'b0,table_max[insn_x]}) begin
-                                values[sp-2] <= table_wide[insn_x] ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff};
+                                write_value(sp-2,table_wide[insn_x] ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
                                 sp <= sp-1; pc <= pc+1;
                             end else begin
-                                values[sp-2] <= {64'b0,table_size[insn_x]}; sp <= sp-1;
+                                write_value(sp-2,{64'b0,table_size[insn_x]}); sp <= sp-1;
                                 table_size[insn_x] <= grown_table[63:0];
                                 bulk_table <= 1; bulk_fill <= 1; bulk_fill_value <= below;
                                 bulk_source_unit <= 1; bulk_destination_unit <= 1;
@@ -576,15 +601,15 @@ module wasmetal_core #(
                         end
                         'h3f: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
-                            else begin values[sp] <= {64'b0,memory_pages[insn_x]}; sp <= sp+1; pc <= pc+1; end
+                            else begin write_value(sp,{64'b0,memory_pages[insn_x]}); sp <= sp+1; pc <= pc+1; end
                         end
                         'h40: begin
                             if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
                             else if (grown_pages[64] || grown_pages > {1'b0,memory_max[insn_x]}) begin
-                                values[sp-1] <= memory_wide[insn_x] ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff};
+                                write_value(sp-1,memory_wide[insn_x] ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
                                 pc <= pc+1;
                             end else begin
-                                values[sp-1] <= {64'b0,memory_pages[insn_x]};
+                                write_value(sp-1,{64'b0,memory_pages[insn_x]});
                                 memory_pages[insn_x] <= grown_pages[63:0];
                                 // The configured backing capacity is zeroed at
                                 // instantiation. Bounds checks prevent accessing
@@ -592,11 +617,11 @@ module wasmetal_core #(
                                 pc <= pc+1;
                             end
                         end
-                        'h41, 'h42, 'h43, 'h44, 'h00fd000c: begin values[sp] <= insn_imm; sp <= sp+1; pc <= pc+1; end
-                        'hd0: begin values[sp] <= 0; sp <= sp+1; pc <= pc+1; end
-                        'hd1: begin values[sp-1] <= {127'b0,top == 0}; pc <= pc+1; end
-                        'hd2: begin values[sp] <= {32'd1,insn_y,32'b0,insn_x+32'd1}; sp <= sp+1; pc <= pc+1; end
-                        'hd3: begin values[sp-2] <= {127'b0,top == below}; sp <= sp-1; pc <= pc+1; end
+                        'h41, 'h42, 'h43, 'h44, 'h00fd000c: begin write_value(sp,insn_imm); sp <= sp+1; pc <= pc+1; end
+                        'hd0: begin write_value(sp,0); sp <= sp+1; pc <= pc+1; end
+                        'hd1: begin write_value(sp-1,{127'b0,top == 0}); pc <= pc+1; end
+                        'hd2: begin write_value(sp,{32'd1,insn_y,32'b0,insn_x+32'd1}); sp <= sp+1; pc <= pc+1; end
+                        'hd3: begin write_value(sp-2,{127'b0,top == below}); sp <= sp-1; pc <= pc+1; end
                         'hd4: begin if (top == 0) fail(6); else pc <= pc+1; end
                         'hd5: begin
                             if (top == 0) begin sp <= sp-1; pending_branch <= insn_x; state <= BRANCH; end
@@ -606,22 +631,22 @@ module wasmetal_core #(
                             if (top != 0) begin pending_branch <= insn_x; state <= BRANCH; end
                             else begin sp <= sp-1; pc <= pc+1; end
                         end
-                        'hfb001c: begin values[sp-1] <= {32'd4,64'b0,1'b0,top[30:0]}; pc <= pc+1; end
+                        'hfb001c: begin write_value(sp-1,{32'd4,64'b0,1'b0,top[30:0]}); pc <= pc+1; end
                         'hfb001d,'hfb001e: begin
                             if(top==0) fail(6);
-                            else begin values[sp-1] <= {96'b0,(insn_op=='hfb001d && top[30]),top[30:0]}; pc <= pc+1; end
+                            else begin write_value(sp-1,{96'b0,(insn_op=='hfb001d && top[30]),top[30:0]}); pc <= pc+1; end
                         end
                         'hfb001a: begin
-                            if (top[127:96]==5) values[sp-1] <= {32'd7,top[95:0]};
-                            else if (top!=0) values[sp-1] <= {top[127:105],1'b0,top[103:0]};
+                            if (top[127:96]==5) write_value(sp-1,{32'd7,top[95:0]});
+                            else if (top!=0) write_value(sp-1,{top[127:105],1'b0,top[103:0]});
                             pc <= pc+1;
                         end
                         'hfb001b: begin
-                            if (top[127:96]==7) values[sp-1] <= {32'd5,top[95:0]};
-                            else if (top!=0) values[sp-1] <= {top[127:105],1'b1,top[103:0]};
+                            if (top[127:96]==7) write_value(sp-1,{32'd5,top[95:0]});
+                            else if (top!=0) write_value(sp-1,{top[127:105],1'b1,top[103:0]});
                             pc <= pc+1;
                         end
-                        'hfb0014,'hfb0015: begin values[sp-1] <= {127'b0,cast_matches}; pc <= pc+1; end
+                        'hfb0014,'hfb0015: begin write_value(sp-1,{127'b0,cast_matches}); pc <= pc+1; end
                         'hfb0016,'hfb0017: begin if(!cast_matches) fail(10); else pc <= pc+1; end
                         'hfb0018,'hfb0019: begin
                             if(cast_matches != (insn_op=='hfb0019)) begin pending_branch <= insn_x; state <= BRANCH; end
@@ -675,7 +700,7 @@ module wasmetal_core #(
                         end
                         'hfb000f: begin
                             if(top==0) fail(6);
-                            else begin values[sp-1] <= {96'b0,top[63:32]}; pc <= pc+1; end
+                            else begin write_value(sp-1,{96'b0,top[63:32]}); pc <= pc+1; end
                         end
                         'hfb0009,'hfb000a: begin
                             if(insn_y >= MEMORY_COUNT) fail(T_IMAGE);
@@ -683,7 +708,7 @@ module wasmetal_core #(
                                 fail(insn_op=='hfb0009 ? T_BOUNDS : 8'd5);
                             else if(new_heap_end > 33'(HEAP_SLOTS)) fail(12);
                             else begin
-                                values[sp-2] <= {32'd3,insn_x,new_count,heap_next}; sp <= sp-1;
+                                write_value(sp-2,{32'd3,insn_x,new_count,heap_next}); sp <= sp-1;
                                 heap_next <= new_heap_end[31:0];
                                 bulk_table <= 1; bulk_fill <= 0; bulk_backwards <= 0; bulk_left <= {32'b0,new_count};
                                 bulk_source <= {32'b0,below[31:0]}; bulk_destination <= {32'b0,heap_next};
@@ -705,7 +730,8 @@ module wasmetal_core #(
                             end
                         end
                         'hfb0011: begin
-                            if(fifth==0 || third==0) fail(6);
+                            if(!fifth_ready) state<=FETCH_FIFTH;
+                            else if(fifth==0 || third==0) fail(6);
                             else if({32'b0,fourth[31:0]}+{32'b0,top[31:0]} > {32'b0,fifth[63:32]} ||
                                 {32'b0,below[31:0]}+{32'b0,top[31:0]} > {32'b0,third[63:32]}) fail(11);
                             else begin
@@ -745,6 +771,7 @@ module wasmetal_core #(
                         default: fail(T_UNSUPPORTED);
                     endcase
                 end
+                FETCH_FIFTH: begin fifth<=value_aux; fifth_ready<=1; state<=EXECUTE; end
                 BR_TABLE: begin
                     if (!insn_valid) fail(T_IMAGE);
                     else begin pending_branch <= insn_x; state <= BRANCH; end
@@ -762,7 +789,7 @@ module wasmetal_core #(
                 COPY_VALUES: begin
                     if (copy_pos < copy_len) begin
                         if (copy_dst+copy_pos >= VALUE_DEPTH || copy_src+copy_pos >= VALUE_DEPTH) fail(T_EXHAUSTION);
-                        else begin values[copy_dst+copy_pos] <= values[copy_src+copy_pos]; copy_pos <= copy_pos+1; end
+                        else begin write_value(copy_dst+copy_pos,value_aux); copy_pos <= copy_pos+1; end
                     end else begin sp <= copy_dst+copy_len; state <= copy_next; end
                 end
                 RETURN_SETUP: begin
@@ -779,18 +806,18 @@ module wasmetal_core #(
                 end
                 DIV_WAIT: if (div_done) begin
                     if (div_trap != 0) fail(div_trap);
-                    else begin values[sp-2] <= {64'b0,div_result}; sp <= sp-1; pc <= pc+1; state <= EXECUTE; end
+                    else begin write_value(sp-2,{64'b0,div_result}); sp <= sp-1; pc <= pc+1; state <= EXECUTE; end
                 end
                 FP_WAIT: if (fp_done) begin
                     if (fp_trap != 0) fail(fp_trap);
                     else begin
-                        values[sp-(fp_unary ? 1 : 2)] <= {64'b0,fp_result};
+                        write_value(sp-(fp_unary ? 1 : 2),{64'b0,fp_result});
                         if (!fp_unary) sp <= sp-1;
                         pc <= pc+1; state <= EXECUTE;
                     end
                 end
                 SIMD_INT_WAIT: if(simd_int_done) begin
-                    values[sp-{29'b0,simd_int_arity}] <= simd_int_result;
+                    write_value(sp-{29'b0,simd_int_arity},simd_int_result);
                     sp <= sp-{29'b0,simd_int_arity}+1; pc <= pc+1; state<=EXECUTE;
                 end
                 SIMD_FP_START: state <= SIMD_FP_WAIT;
@@ -799,7 +826,7 @@ module wasmetal_core #(
                     else if ((simd_mode == 4 || simd_mode == 5) && !simd_phase) begin
                         simd_product <= fp_result; simd_phase <= 1; state <= SIMD_FP_START;
                     end else if (simd_lane+1 == simd_lanes) begin
-                        values[sp-{29'b0,simd_arity}] <= simd_assembled;
+                        write_value(sp-{29'b0,simd_arity},simd_assembled);
                         sp <= sp-{29'b0,simd_arity}+1; pc <= pc+1; state <= EXECUTE;
                     end else begin
                         simd_accum <= simd_assembled; simd_lane <= simd_lane+1; simd_phase <= 0; state <= SIMD_FP_START;
@@ -827,11 +854,11 @@ module wasmetal_core #(
                 GC_NEW_STEP: begin
                     if(gc_position==gc_count) begin
                         if(gc_throw) begin exception_reference <= gc_reference; sp <= gc_source; state <= EXN_SEARCH; end
-                        else begin values[gc_result_slot] <= gc_reference; sp <= gc_result_slot+1; pc <= pc+1; state <= EXECUTE; end
+                        else begin write_value(gc_result_slot,gc_reference); sp <= gc_result_slot+1; pc <= pc+1; state <= EXECUTE; end
                     end else begin
                         mem_valid <= 1; mem_write <= 1; mem_kind <= 5; mem_index <= 0;
                         mem_address <= {32'b0,gc_reference[31:0]}+{32'b0,gc_position}; mem_bytes <= 16;
-                        mem_wdata <= gc_fill ? gc_fill_value : values[gc_source+gc_position]; state <= GC_NEW_WAIT;
+                        mem_wdata <= gc_fill ? gc_fill_value : value_aux; state <= GC_NEW_WAIT;
                     end
                 end
                 GC_NEW_WAIT: if(mem_ready) begin
@@ -863,7 +890,7 @@ module wasmetal_core #(
                 EXN_PAYLOAD: begin
                     if(sp==VALUE_DEPTH && (catch_position!=catch_values || catch_reference)) fail(T_EXHAUSTION);
                     else if(catch_position==catch_values) begin
-                        if(catch_reference) begin values[sp] <= exception_reference; sp <= sp+1; end
+                        if(catch_reference) begin write_value(sp,exception_reference); sp <= sp+1; end
                         state <= BRANCH;
                     end else begin
                         mem_valid <= 1; mem_write <= 0; mem_kind <= 5; mem_index <= 0; mem_bytes <= 16;
@@ -873,7 +900,7 @@ module wasmetal_core #(
                 EXN_LOAD_WAIT: if(mem_ready) begin
                     mem_valid <= 0;
                     if(mem_fault) fail(T_IMAGE);
-                    else begin values[sp] <= mem_rdata; sp <= sp+1; catch_position <= catch_position+1; state <= EXN_PAYLOAD; end
+                    else begin write_value(sp,mem_rdata); sp <= sp+1; catch_position <= catch_position+1; state <= EXN_PAYLOAD; end
                 end
                 BULK_READ_WAIT: if (mem_ready) begin
                     if (mem_fault) fail(bulk_table ? 8'd5 : T_BOUNDS);
@@ -900,7 +927,7 @@ module wasmetal_core #(
                     if (mem_fault) fail(T_BOUNDS);
                     else begin
                         if (!mem_write) begin
-                            values[load_dst] <= loaded_value;
+                            write_value(load_dst,loaded_value);
                         end
                         pc <= pc+1; state <= EXECUTE;
                     end
@@ -929,6 +956,7 @@ module wasmetal_core #(
         assert (control_sp <= CONTROL_DEPTH);
         assert (call_depth <= CALL_DEPTH);
         assert (control_base <= control_sp);
+        if(value_write) assert(value_write_index<VALUE_DEPTH);
         if (mem_valid) assert (mem_bytes > 0 && mem_bytes <= 16);
     end
 `endif

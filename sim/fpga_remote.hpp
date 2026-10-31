@@ -7,6 +7,7 @@
 #include <deque>
 #include <stdexcept>
 #include <string>
+#include <tuple>
 #ifdef WASMETAL_UART_MODEL
 #include "Vwasmetal_ulx3s.h"
 #include "verilated.h"
@@ -53,6 +54,13 @@ public:
         for(unsigned n=0;n<20;n++) tick();
         board.btn_n=1; for(unsigned n=0;n<20;n++) tick();
     }
+    void abandon_prefix(const std::vector<uint8_t>& prefix) {
+        for(auto byte:prefix) {
+            bit(0); for(unsigned n=0;n<8;n++) bit((byte>>n)&1U); bit(1);
+        }
+        for(unsigned n=0;n<2500000;n++) tick();
+        if(!received.empty()) throw std::runtime_error("FPGA responded to an incomplete frame");
+    }
     std::vector<uint8_t> exchange(const std::vector<uint8_t>& request,size_t response_size) {
         for(auto byte:request) {
             bit(0); for(unsigned n=0;n<8;n++) bit((byte>>n)&1U); bit(1);
@@ -93,6 +101,16 @@ public:
     ~FpgaTransport() { if(fd>=0) ::close(fd); }
     FpgaTransport(const FpgaTransport&)=delete;
     FpgaTransport& operator=(const FpgaTransport&)=delete;
+    void abandon_prefix(const std::vector<uint8_t>& prefix) {
+        size_t offset=0;
+        while(offset<prefix.size()) {
+            wait(POLLOUT); auto n=::write(fd,prefix.data()+offset,prefix.size()-offset);
+            if(n<0 && (errno==EINTR || errno==EAGAIN)) continue;
+            if(n<=0) throw std::runtime_error("FPGA serial write failed");
+            offset+=size_t(n);
+        }
+        ::usleep(100000);
+    }
     std::vector<uint8_t> exchange(const std::vector<uint8_t>& request,size_t response_size) {
         size_t offset=0;
         while(offset<request.size()) {
@@ -151,11 +169,21 @@ public:
     void final() {}
     void check_corrupt_frame() {
         if(busy) throw std::runtime_error("CRC probe requires an idle core");
+        auto snapshot=[&] { return std::make_tuple(busy,done,trap,pc,result_count,function_index,mem_valid); };
+        auto before=snapshot();
         auto saved_valid=cmd_valid; auto saved_kind=cmd_kind;
         cmd_valid=1; cmd_kind=0; eval();
         auto response=transact(true,true);
         if(response[2]!=1) throw std::runtime_error("FPGA accepted a corrupt request");
+        eval(); if(snapshot()!=before) throw std::runtime_error("Corrupt FPGA frame changed execution state");
+        response=transact(3);
+        if(response[2]!=2) throw std::runtime_error("FPGA accepted invalid request flags");
+        eval(); if(snapshot()!=before) throw std::runtime_error("Invalid flags changed execution state");
+        response=transact(2);
+        if(response[2]) throw std::runtime_error("FPGA capability query failed");
+        eval(); if(snapshot()!=before) throw std::runtime_error("Capability query changed execution state");
+        transport.abandon_prefix({0x57,0x4d,1,sequence_number,0});
         cmd_valid=saved_valid; cmd_kind=saved_kind; eval();
-        if(busy) throw std::runtime_error("Corrupt FPGA frame generated an execution clock");
+        if(snapshot()!=before) throw std::runtime_error("Incomplete FPGA frame changed execution state");
     }
 };

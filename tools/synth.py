@@ -15,22 +15,25 @@ def main():
     parser.add_argument("--fpga", action="store_true", help="also map a reduced-capacity core to ECP5 primitives")
     parser.add_argument("--fast-share", action="store_true", help="use bounded-control resource-sharing analysis")
     parser.add_argument("--no-share", action="store_true", help="retain parallel arithmetic resources")
-    parser.add_argument("--value-depth", type=int, default=256)
+    parser.add_argument("--lut4",action="store_true",help="map directly to four-input LUTs")
+    parser.add_argument("--value-depth", type=int)
     parser.add_argument("--output-name")
     parser.add_argument("--top",default="wasmetal_core")
     args = parser.parse_args()
     name = args.output_name or ("core-ecp5" if args.fpga else "core-generic")
-    if not name.replace("-", "").replace("_", "").isalnum() or not args.top.replace("_", "").isalnum() or args.value_depth < 1:
+    if not name.replace("-", "").replace("_", "").isalnum() or not args.top.replace("_", "").isalnum() or (args.value_depth is not None and args.value_depth < 1):
         parser.error("invalid output name or value capacity")
     (ROOT / "build").mkdir(exist_ok=True)
     vendor = ROOT / "third_party/hardfloat/source"
     sources = sorted(vendor.glob("*.v")) + [vendor / "RISCV/HardFloat_specialize.v"] + sorted((ROOT / "rtl").glob("*.sv"))
+    profile=json.loads((ROOT/"fpga/profile.json").read_text())
+    if args.value_depth is not None: profile["VALUE_DEPTH"]=args.value_depth
     script = "read_verilog -sv -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV "
     script += " ".join(str(p.relative_to(ROOT)) for p in sources) + "\n"
     if args.fpga:
         if args.top=="wasmetal_core":
-            script += f"chparam -set VALUE_DEPTH {args.value_depth} -set CONTROL_DEPTH 128 -set CALL_DEPTH 64 -set MEMORY_COUNT 16 wasmetal_core\n"
-        if args.fast_share or args.no_share:
+            script += "chparam "+" ".join(f"-set {key} {value}" for key,value in profile.items())+" wasmetal_core\n"
+        if args.fast_share or args.no_share or args.lut4:
             # Pinned Yosys 0.33 ECP5 flow with its documented fast sharing heuristic.
             script += """synth_ecp5 -top wasmetal_core -run begin:begin
 proc
@@ -59,7 +62,11 @@ opt_clean
 """
             # Yosys -run uses an exclusive end label. Keep check/autoname out
             # of the timed mapping path, but include primitive-cell mapping.
-            script += f"synth_ecp5 -top wasmetal_core -run map_ram:check\nhierarchy -check\nblackbox =A:whitebox\ncheck -assert\nstat\nwrite_json build/{name}.json\n"
+            if args.lut4:
+                script += "synth_ecp5 -top wasmetal_core -run map_ram:map_luts\ntechmap -map +/ecp5/latches_map.v\nabc -dress -lut 4\nclean\nsynth_ecp5 -top wasmetal_core -run map_cells:check\n"
+            else:
+                script += "synth_ecp5 -top wasmetal_core -run map_ram:check\n"
+            script += f"hierarchy -check\nblackbox =A:whitebox\ncheck -assert\nstat\nwrite_json build/{name}.json\n"
             if args.no_share:
                 script = script.replace("share -fast\n", "")
         else:
@@ -71,6 +78,7 @@ opt_clean
     script=script.replace("-top wasmetal_core","-top "+args.top)
     path.write_text(script)
     inputs=sources+sorted(vendor.rglob("*.vi"))
+    if args.fpga: inputs.append(ROOT/"fpga/profile.json")
     manifest={"top":args.top,"arguments":vars(args),"inputs":{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},
               "script_sha256":hashlib.sha256(path.read_bytes()).hexdigest()}
     yosys = ROOT / ".cache/tools/usr/bin/yosys"
