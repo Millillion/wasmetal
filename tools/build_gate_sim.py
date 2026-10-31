@@ -30,8 +30,24 @@ def main():
     core=source['modules']['wasmetal_core']
     parameters={name:int(value,2) for name,value in core['parameter_default_values'].items()}
     supported={'LUT4','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF','MULT18X18D'}
+    def parameter_text(value):
+        # JSON appends a space to distinguish digit-only strings from bit vectors.
+        if value.endswith(' '): return value[:-1]
+        if set(value)<={'0','1'}:
+            return int(value,2).to_bytes((len(value)+7)//8,'big').lstrip(b'\0').decode('ascii')
+        return value
     for name,cell in core['cells'].items():
         if cell['type'] not in supported: raise ValueError(f'unmodeled primitive {cell["type"]}')
+        if cell['type']=='TRELLIS_FF':
+            cell_parameters=cell['parameters']
+            if 'M' not in cell['connections']:
+                if parameter_text(cell_parameters.get('LSRMODE','LSR'))=='PRLD': raise ValueError('missing preload pin')
+                cell['connections']['M']=['0']
+                cell['port_directions']['M']='input'
+            if 'CE' not in cell['connections']:
+                if parameter_text(cell_parameters.get('CEMUX','1 ')) not in ('0','1'): raise ValueError('missing active enable pin')
+                cell['connections']['CE']=['0']
+                cell['port_directions']['CE']='input'
         if cell['type']=='MULT18X18D':
             # Yosys' basic DSP mapper uses unregistered multipliers, without
             # cascade, bypass, clocking, or pipeline settings. Reject other modes.
@@ -42,9 +58,14 @@ def main():
             for port in ['SOURCEA','SOURCEB']+[f'C{i}' for i in range(18)]:
                 if connections[port]!=['0']: raise ValueError(f'unsupported DSP source: {port}')
     directory=ROOT/'build/gate-model';directory.mkdir(parents=True,exist_ok=True)
+    # Tie only parameter-disabled pins. No live undriven signal is replaced.
+    (directory/'normalized.json').write_text(json.dumps(source))
     yosys=ROOT/'.cache/tools/usr/bin/yosys'
     script=directory/'export.ys'
-    script.write_text(f'read_json {netlist}\nwrite_verilog -noattr {directory}/core.v\n')
+    # Scalarize internal nets, retaining the external bus interface. Otherwise
+    # packed carry-chain aliases create artificial whole-vector dependency loops
+    # in event simulators despite an acyclic bit-level circuit.
+    script.write_text(f'read_json {directory}/normalized.json\nsplitnets\nclean -purge\ncheck -assert\nwrite_verilog -noattr {directory}/core.v\n')
     with (directory/'export.log').open('w') as stream:
         subprocess.run([str(yosys),'-Q','-T','-s',str(script)],stdout=stream,stderr=subprocess.STDOUT,check=True)
     library=ROOT/'.cache/tools/usr/share/yosys/ecp5/cells_sim.v'
@@ -73,7 +94,7 @@ def main():
     # Scope generated-name and vendor-model warnings; structural warnings remain fatal.
     (directory/'vendor.vlt').write_text('`verilator_config\n'+''.join(
         f'lint_off -rule {rule} -file "{directory}/{name}"\n'
-        for name,rules in [('core.v',['DECLFILENAME','PINCONNECTEMPTY']),('cells.v',['DECLFILENAME','INITIALDLY'])]
+        for name,rules in [('core.v',['DECLFILENAME','PINCONNECTEMPTY']),('cells.v',['DECLFILENAME','INITIALDLY','GENUNNAMED','UNUSEDPARAM','WIDTHEXPAND','SYNCASYNCNET'])]
         for rule in rules))
     binary=directory/'obj/Vwasmetal_core'
     build_identity.begin(binary,'native')
@@ -84,10 +105,20 @@ def main():
                     extra_inputs={str(p.relative_to(ROOT)):digest(p) for p in extras})
     snapshot_path.write_text(json.dumps(snapshot,indent=2)+'\n')
     args=[str(ROOT/'.cache/tools/usr/bin/verilator'),'-Wall','-Wno-UNUSEDSIGNAL','--top-module','wasmetal_core',
-          '--cc','--exe','--build','-j','2','--output-split','10000','--output-split-cfuncs','10000',
+          '--cc','--exe','--output-split','10000','--output-split-cfuncs','10000',
           '--Mdir',str(binary.parent),'-CFLAGS','-std=c++17 -O2 -Wall -Wextra -Werror',
           str(directory/'vendor.vlt'),str(directory/'cells.v'),str(directory/'core.v'),str(directory/'main.cpp')]
     subprocess.run(args,cwd=ROOT,env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')),check=True)
+    # Verilator 5.020 emits integer-valued LUT ternaries in Boolean contexts.
+    # Suppress that C++ style warning only in its generated implementation;
+    # the handwritten host adapter still compiles with all warnings as errors.
+    generated=list(binary.parent.glob('Vwasmetal_core*.cpp'))
+    for path in generated:
+        path.write_text('#pragma GCC diagnostic ignored "-Wint-in-bool-context"\n'+path.read_text())
+    snapshot['extra_inputs'].update({str(p.relative_to(ROOT)):digest(p) for p in generated})
+    snapshot_path.write_text(json.dumps(snapshot,indent=2)+'\n')
+    subprocess.run(['make','-C',str(binary.parent),'-f','Vwasmetal_core.mk','-j','2'],check=True,cwd=ROOT,
+                   env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')))
     build_identity.finish(binary)
     print('Built mapped CPU simulator',binary)
 

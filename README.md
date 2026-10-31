@@ -2,7 +2,7 @@
 
 A project to build a bare metal physical implementation of WebAssembly. That's right, a WebAssembly CPU. Inspired in part by [this amazing talk](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript).
 
-WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. Its SystemVerilog execution core passes all 259 files in the pinned official WebAssembly Core 3.0 test suite, using a software loading and validation front end. See the [verification evidence](docs/verification/core-3.0-first-pass.json) and [RTL architecture](docs/RTL.md) for the precise boundary and resource limits. FPGA integration and timing closure are still in progress.
+WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. Its SystemVerilog execution core passes all 259 files in the pinned official WebAssembly Core 3.0 test suite, using a software loading and validation front end. See the [verification evidence](docs/verification/core-3.0-current.json), [RTL architecture](docs/RTL.md) and [FPGA bring-up guide](docs/FPGA.md) for the execution boundary, resource limits and hardware build.
 
 ## GUI Microarchitecture Simulator
 
@@ -34,7 +34,11 @@ WebAssembly specification and its official tests define the implementation targe
 
 ## Loading Microarchitecture Implementation to FPGA
 
-Not implemented yet.
+A host-backed ULX3S 85F reference system includes a UART loader/step interface,
+board constraints, synthesis, placement/routing and bitstream build tools. The
+whole serial interface and CPU are tested together in simulation. Its storage
+profile is smaller than the full conformance simulator's. See the
+[FPGA guide](docs/FPGA.md); physical-board testing remains a separate step.
 
 ## Roadmap
 

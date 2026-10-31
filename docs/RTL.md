@@ -5,13 +5,15 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-All 259 official core test files pass at source revision `9dd45f0`: 57,711
+All 259 official core test files pass at execution-source revision `2f3a6a4`: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
-[recorded report](verification/core-3.0-first-pass.json) identifies source and
+[recorded report](verification/core-3.0-current.json) identifies source and
 simulator hashes and every suite's counts. This establishes passage of that
-test corpus, not a proof of correctness for every possible program. FPGA
-readiness remains in progress. Unsupported behavior fails verification.
+test corpus, not a proof of correctness for every possible program. The same
+complete corpus passes with three memory wait states. FPGA deployment has a
+separate [board build and verification process](FPGA.md). Unsupported behavior
+fails verification.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged
@@ -25,6 +27,13 @@ runtime bounds checks, and traps. Integer division is iterative. Floating-point
 operations use separately licensed Berkeley HardFloat arithmetic and Wasm-specific
 SystemVerilog wrappers. No `real`, `shortreal`, DPI interpreter, or host floating-
 point execution implements Wasm instructions.
+
+Four interleaved value banks supply the four newest operands. Locals, copies and
+results reuse those read ports, and `array.copy` fetches its fifth operand in a
+separate state. Pending writes are forwarded immediately. Integer SIMD operations
+reuse a lane datapath over sixteen output-byte cycles; SIMD floating-point
+operations reuse the scalar floating-point units. Descriptor RAM uses validity
+bits so reset does not require a flip-flop for every stored data bit.
 
 The RTL now contains scalar integer and floating-point instructions, vector and
 relaxed-vector operations, structured control, direct/indirect/reference calls,
@@ -75,7 +84,9 @@ make sim
 make test
 make test-all
 make test-divider
+make test-simd test-popcount test-values test-descriptors
 make prove-masks
+python3 tools/prove_descriptors.py
 python3 tools/check_engine.py
 python3 tools/run_spec.py --suite i32 --suite i64 --wait-states 3
 ```
@@ -92,6 +103,24 @@ budget includes the official million-tail-call tests; timeouts never count as
 expected Wasm exhaustion. Loader validation and embedding assertions have
 separate counters from execution assertions.
 
+The simulator is built with runtime assertions for stack bounds, stable stalled
+memory requests and stable SIMD operands. Independent checks cover 4,041 divider
+cases, 6,761 serial-versus-parallel SIMD cases, 77,888 popcount vectors and 25,097
+banked-stack reads. A four-state Icarus test checks 40,000 descriptor reads,
+including reset, forwarding and invalid indices. Yosys proves 372 optimized
+HardFloat mask specializations equivalent for every binary input. Unbounded
+induction checks descriptor reset elision and forwarding against fully reset
+reference storage at capacities 1, 13, 16 and 256; the 13-entry case also checks
+multi-bit words. These proofs are local properties, not a formal proof of the
+entire CPU.
+
+The old parallel integer-SIMD implementation remains an independent structural
+oracle and is not instantiated in the CPU. Expected Wasm results remain outside
+both implementations. `tools/check_engine.py` deliberately supplies wrong expected
+values/traps, checks signed zero and NaN/reference matching, fills the value stack
+exactly, checks tail-frame reuse, and confirms that a timeout cannot pass an
+exhaustion assertion.
+
 The present RTL uses finite parameterized value/control/call storage. Exhaustion
 has a distinct result. Capacity limits, simulator timeouts, tool limitations and
 unimplemented behavior must remain visible in reports. A passing subset cannot
@@ -105,6 +134,11 @@ wrapper and clock/reset constraints, placement/routing timing closure, a load
 interface, and hardware bring-up tests. These are not established by compiling
 SystemVerilog with Verilator. The current external memory/descriptor interfaces
 make that integration explicit.
+
+The full UART wrapper has passed simulation. Its host adapter also supports an
+explicit physical serial device. The FPGA profile has smaller storage capacities
+than the complete-suite simulator; see [FPGA.md](FPGA.md) for that boundary and
+physical bring-up instructions. There is no claim of physical-board testing.
 
 ## Licensing
 
