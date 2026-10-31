@@ -2,7 +2,7 @@
 
 A project to build a bare metal physical implementation of WebAssembly. That's right, a WebAssembly CPU. Inspired in part by [this amazing talk](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript).
 
-WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. The repository contains an early GUI microarchitecture simulator; the RTL, FPGA, and ASIC work is still ahead. The roadmap below records the original direction and is being revisited as part of the revival.
+WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. A SystemVerilog implementation targeting the complete WebAssembly Core 3.0 ISA is in progress, alongside the historical GUI simulator. See the [RTL architecture and verification instructions](docs/RTL.md) for the current execution boundary and completion requirements. Full ISA conformance and FPGA readiness have not yet been established.
 
 ## GUI Microarchitecture Simulator
 
@@ -19,7 +19,18 @@ Go to [http://localhost:5000](http://localhost:5000) in your web browser.
 
 ## RTL Microarchitecture Simulator
 
-Not implemented yet.
+The clocked SystemVerilog core runs in Verilator. The test harness converts the
+pinned official Wasm core test suite and compares its expectations with RTL
+execution results and traps. Unsupported cases fail the run.
+
+```sh
+python3 tools/bootstrap.py
+make lint
+make test-all
+```
+
+See [docs/RTL.md](docs/RTL.md). The original roadmap below is historical; the
+WebAssembly specification and its official tests define the implementation target.
 
 ## Loading Microarchitecture Implementation to FPGA
 
