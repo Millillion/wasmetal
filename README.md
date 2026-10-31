@@ -2,7 +2,7 @@
 
 A project to build a bare metal physical implementation of WebAssembly. That's right, a WebAssembly CPU. Inspired in part by [this amazing talk](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript).
 
-WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. A SystemVerilog implementation targeting the complete WebAssembly Core 3.0 ISA is in progress, alongside the historical GUI simulator. See the [RTL architecture and verification instructions](docs/RTL.md) for the current execution boundary and completion requirements. Full ISA conformance and FPGA readiness have not yet been established.
+WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. Its SystemVerilog execution core passes all 259 files in the pinned official WebAssembly Core 3.0 test suite, using a software loading and validation front end. See the [verification evidence](docs/verification/core-3.0-first-pass.json) and [RTL architecture](docs/RTL.md) for the precise boundary and resource limits. FPGA integration and timing closure are still in progress.
 
 ## GUI Microarchitecture Simulator
 

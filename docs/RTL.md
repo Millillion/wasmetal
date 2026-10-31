@@ -5,8 +5,13 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-Implementation is in progress. Neither full conformance nor FPGA readiness is
-claimed. Unsupported instructions and script commands fail the verification run.
+All 259 official core test files pass at source revision `9dd45f0`: 57,711
+execution assertions, 4,677 loader-validation assertions, and 254 embedding
+assertions, with zero failures, unsupported cases, or blocked commands. The
+[recorded report](verification/core-3.0-first-pass.json) identifies source and
+simulator hashes and every suite's counts. This establishes passage of that
+test corpus, not a proof of correctness for every possible program. FPGA
+readiness remains in progress. Unsupported behavior fails verification.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged
@@ -69,6 +74,9 @@ make lint
 make sim
 make test
 make test-all
+make test-divider
+make prove-masks
+python3 tools/check_engine.py
 python3 tools/run_spec.py --suite i32 --suite i64 --wait-states 3
 ```
 

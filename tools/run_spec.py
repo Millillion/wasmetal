@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import subprocess
 import select
+import tarfile
 import sys
 import time
 
@@ -31,6 +32,8 @@ TRAPS = {1: "unreachable", 2: "integer divide by zero", 3: "integer overflow",
 
 
 def trap_matches(code, expected):
+    if code in (254, 255):
+        return False
     if TRAPS.get(code) == expected:
         return True
     if code == 5 and expected.startswith("undefined element"):
@@ -142,6 +145,7 @@ class RTL:
         self.type_parents = {}
         self.registered = {}
         self.max_cycles = max_cycles
+        self.rtl_cycles = 0
         self.send(f"W {wait_states}")
 
     def install_spectest(self):
@@ -192,6 +196,8 @@ class RTL:
             self.send(f"A {n} {value:x}")
         self.send(f"R {function} {len(arguments)} {self.max_cycles}")
         result = self.receive()
+        if result[0] in ("OK", "TRAP", "TIMEOUT"):
+            self.rtl_cycles += int(result[-1])
         if result[0] == "TRAP":
             raise Trap(int(result[1]), f"pc={result[2]}, cycles={result[3]}")
         if result[0] != "OK":
@@ -452,7 +458,29 @@ class RTL:
 
 
 def validate(path):
-    return subprocess.run([str(WASM_TOOLS), "validate", str(path)], capture_output=True, text=True)
+    if not path.is_file():
+        raise ExecutionError(f"validation input is missing: {path}")
+    result = subprocess.run([str(WASM_TOOLS), "validate", str(path)], capture_output=True, text=True)
+    if result.returncode not in (0, 1):
+        raise ExecutionError(f"validator failed with exit {result.returncode}: {result.stderr}")
+    return result
+
+
+def verify_official_sources():
+    archive = ROOT / ".cache/upstream/spec.tar.gz"
+    if hashlib.sha256(archive.read_bytes()).hexdigest() != LOCK["spec"]["sha256"]:
+        raise ExecutionError("upstream specification archive checksum mismatch")
+    expected = {}
+    with tarfile.open(archive) as tar:
+        for entry in tar:
+            marker = "/test/core/"
+            if entry.isfile() and marker in entry.name and entry.name.endswith(".wast"):
+                expected[entry.name.split(marker, 1)[1]] = hashlib.sha256(tar.extractfile(entry).read()).hexdigest()
+    actual = {str(p.relative_to(SPEC/"test/core")): hashlib.sha256(p.read_bytes()).hexdigest()
+              for p in (SPEC/"test/core").rglob("*.wast")}
+    if not expected or actual != expected:
+        raise ExecutionError("official core test tree differs from the checksum-pinned archive")
+    return hashlib.sha256(json.dumps(expected, sort_keys=True).encode()).hexdigest()
 
 
 def convert(source):
@@ -602,6 +630,8 @@ def run_file(source, target, args):
             if rtl.proc.poll() is None:
                 rtl.proc.kill()
                 rtl.proc.wait()
+    counts["rtl_cycles"] = rtl.rtl_cycles
+    counts["script_commands"] = len(commands)
     return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": dict(counts), "failures": failures}
 
 
@@ -614,6 +644,9 @@ def main():
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--report", type=Path, default=ROOT / "reports/spec.json")
     args = parser.parse_args()
+    if args.jobs < 1 or args.max_cycles < 1 or args.wait_states < 0:
+        parser.error("jobs and cycle budget must be positive; wait states must be nonnegative")
+    official_source_hash = verify_official_sources()
     sources = sorted((SPEC / "test/core").rglob("*.wast"))
     if args.suite:
         requested = set(args.suite)
@@ -661,6 +694,7 @@ def main():
     errors = any(totals[k] for k in ("failed", "unsupported", "conversion_errors", "blocked", "runner_errors"))
     complete = not args.suite and len(reports) == len(sources) and not errors
     result = {"spec": LOCK["spec"], "wasm_tools": LOCK["wasm_tools"]["version"],
+              "suite_files": len(reports), "official_sources_sha256": official_source_hash,
               "full_core_suite_selected": not bool(args.suite), "full_core_suite_passed": complete,
               "source_sha256": source_hash.hexdigest(), "simulator_sha256": binary_hash,
               "max_cycles_per_invocation": args.max_cycles, "memory_wait_states": args.wait_states,
