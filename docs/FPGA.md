@@ -33,6 +33,11 @@ floating-point arithmetic, passed the full official corpus with three memory
 wait states; the report below identifies its exact source and simulator hashes.
 Routing and timing closure are still unfinished, so no deployable bitstream is
 claimed at this checkpoint.
+An experimental ABC9 mapping of the same RTL uses 58,892 of 83,640 logic cells
+after packing (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks.
+The [mapping record](verification/fpga-mapping.json) includes its source hashes
+and synthesis recipe. Its mapped functional simulation, routing and timing
+checks are still in progress; it has not replaced the default build recipe.
 Heap allocation is bounded and currently has no reclamation. Earlier mapped-cell
 reports identify their smaller capacity profile explicitly; they do not establish
 conformance of a later build.
