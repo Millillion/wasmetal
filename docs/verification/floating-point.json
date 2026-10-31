@@ -1,0 +1,53 @@
+{
+  "inputs": {
+    "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
+    "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+    "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+    "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+    "tests/rtl/fp_shared.cpp": "ccf0c198737bc299b3923c5b2bf2be55e9298ff762288178f8592d4375675bab",
+    "tests/rtl/fp_shared_tb.sv": "bf45b12fa6db3fe32cda38ef60238c953d496b231193fd49546d750776bea70e",
+    "tests/rtl/fpu_shared.cpp": "d2d9f5d8cf9c6b892be79e07329430b9bfa6ddf6388ddb4e441b4f897c114cc7",
+    "tests/rtl/fpu_shared_tb.sv": "eff5e7dfc8103a0a2d4a225da13f08bc3750fbb5799460f8573b0cc4dc78f6ce",
+    "tests/rtl/wasmetal_fp_format_reference.sv": "59f0ccdfffc487baaa3ca385d7ce9edc717e9394414d81fad44697fb9459cfd2",
+    "tests/rtl/wasmetal_fpu_reference.sv": "3f03f71d997d296891c36173b2778925a5be42f04946be216a46f0f50bc531d3",
+    "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+    "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+    "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+    "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "third_party/hardfloat/source/HardFloat_primitives.v": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+    "third_party/hardfloat/source/HardFloat_rawFN.v": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+    "third_party/hardfloat/source/addRecFN.v": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+    "third_party/hardfloat/source/compareRecFN.v": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+    "third_party/hardfloat/source/divSqrtRecFN_small.v": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+    "third_party/hardfloat/source/fNToRecFN.v": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+    "third_party/hardfloat/source/iNToRecFN.v": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+    "third_party/hardfloat/source/isSigNaNRecFN.v": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+    "third_party/hardfloat/source/mulAddRecFN.v": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+    "third_party/hardfloat/source/mulRecFN.v": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+    "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+    "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+    "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+    "tools/check_fpu.py": "2fc21880f1653081316a0c9d44ab25c51119da04ea9faefa02b4dda1237c4355",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "results": [
+    {
+      "bench": "fp_shared",
+      "comparisons": 1005760,
+      "negative_controls": 0,
+      "binary_sha256": "4ce940d7a5c894a3705ed06be509db860b1a1cf942ac4fae07d0cd9c56099d97"
+    },
+    {
+      "bench": "fpu_shared",
+      "comparisons": 728608,
+      "negative_controls": 2,
+      "binary_sha256": "d434b16ead08c70a7eb53b47cdfd2e612bd4eac7dff73c04c831ebb0631248f0"
+    }
+  ],
+  "elapsed_seconds": 163.37285317998612,
+  "reference": "Separate precision RTL from f926690; both designs use pinned HardFloat.",
+  "scope": "Deterministic edge and random differential checks, including reset interruption; not a formal arithmetic proof.",
+  "verification_context": "Isolated prototype using the same floating-point RTL and test sources committed with this report."
+}

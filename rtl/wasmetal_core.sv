@@ -2,7 +2,7 @@
 // Clocked Wasm execution engine. The image loader supplies decoded immediates
 // and branch metadata; it never supplies instruction results.
 module wasmetal_core #(
-    parameter integer VALUE_DEPTH = 16384,
+    parameter integer VALUE_DEPTH = 8192,
     parameter integer CONTROL_DEPTH = 2048,
     parameter integer CALL_DEPTH = 512,
     parameter integer MEMORY_COUNT = 256,

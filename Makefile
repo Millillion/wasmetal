@@ -9,7 +9,7 @@ RTL := rtl/vendor.vlt $(wildcard rtl/*.sv) $(HARDFLOAT)
 # Unused port bits and arithmetic carry bits are intentional; all width,
 # latch, multiple-driver, and combinational-loop warnings remain fatal.
 VFLAGS := -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTIONS --top-module wasmetal_core -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV
-.PHONY: sim lint test test-all test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state prove-masks synth fpga-sim fpga-smoke fpga-host fpga-core fpga-bitstream
+.PHONY: sim lint test test-all test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks synth fpga-sim fpga-smoke fpga-host fpga-core fpga-bitstream
 sim: build/obj/Vwasmetal_core
 sim/core_config.hpp: $(RTL) $(wildcard third_party/hardfloat/source/*.vi) $(wildcard third_party/hardfloat/source/RISCV/*.vi) $(wildcard fpga/*.sv) fpga/ports.json fpga/profile.json tools/generate_fpga_ports.py
 	python3 tools/generate_fpga_ports.py
@@ -23,6 +23,8 @@ test: sim
 	python3 tools/run_spec.py --suite i32 --suite i64
 test-all: sim
 	python3 tools/run_spec.py
+test-fpu:
+	python3 tools/check_fpu.py
 test-divider:
 	mkdir -p build/unit
 	$(LOCAL_TOOLS)/usr/bin/iverilog -B$(LOCAL_TOOLS)/usr/lib/x86_64-linux-gnu/ivl -g2012 -s divider_tb -o build/unit/divider.vvp rtl/wasmetal_divider.sv tests/rtl/divider_tb.sv

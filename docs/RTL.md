@@ -5,7 +5,7 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-All 259 official core test files pass at execution-source revision `f926690`: 57,711
+All 259 official core test files passed at baseline execution-source revision `f926690`: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
 [recorded report](verification/core-3.0-current.json) identifies source and
@@ -14,6 +14,11 @@ test corpus, not a proof of correctness for every possible program. The same
 complete corpus passes with three memory wait states. FPGA deployment has a
 separate [board build and verification process](FPGA.md). Unsupported behavior
 fails verification.
+
+The current checkpoint shares floating-point arithmetic and reduces the default
+value store to 8,192 entries. Both changes passed full official regressions in
+isolated configurations; a fresh complete regression of the combined configuration
+is in progress. The baseline report above predates those changes.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged
@@ -34,6 +39,13 @@ separate state. Pending writes are forwarded immediately. Integer SIMD operation
 reuse a lane datapath over sixteen output-byte cycles; SIMD floating-point
 operations reuse the scalar floating-point units. Descriptor RAM uses validity
 bits so reset does not require a flip-flop for every stored data bit.
+
+Single-precision operands are widened exactly for a shared raw arithmetic unit.
+Its unrounded result and sticky bit feed separate final-format rounders, avoiding
+an intermediate rounding. Integer conversions and format-specific bit operations
+retain their separate precision implementations. Differential verification against
+the earlier separate units covers 1,734,368 cases; this is not a formal arithmetic
+proof. See the [floating-point report](verification/floating-point.json).
 
 Values, descriptors, control labels and saved call frames use synchronous block
 RAM. Rising edges commit state and writes; falling edges capture reads for the
@@ -93,6 +105,7 @@ make sim
 make test
 make test-all
 make test-divider
+make test-fpu
 make test-simd test-popcount test-values test-descriptors
 make test-ecp5-ram test-core-four-state
 make prove-masks
@@ -161,8 +174,8 @@ conversions, array copying, exception handling and SIMD arithmetic. Those record
 tests use the earlier smaller FPGA profile and are a subset of the full regression.
 
 The host adapter also supports an
-explicit physical serial device. The FPGA profile has smaller storage capacities
-than the complete-suite simulator; see [FPGA.md](FPGA.md) for that boundary and
+explicit physical serial device. The native and FPGA defaults have matching
+storage capacities; see [FPGA.md](FPGA.md) for those limits and
 physical bring-up instructions. There is no claim of physical-board testing.
 
 ## Licensing

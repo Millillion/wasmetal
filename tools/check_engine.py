@@ -36,7 +36,7 @@ def main():
         assert not matches(4 << 96, {"type":"structref"})
 
         # A full stack can execute a non-pushing instruction and return.
-        locals_full = "(local " + "i32 "*16384 + ")"
+        locals_full = "(local " + "i32 "*rtl.value_capacity + ")"
         module = load(rtl, "(module (func (export \"full\") " + locals_full + " nop))")
         assert rtl.invoke(module.exports["full"][1], []) == []
         module = load(rtl, "(module (func (export \"overflow\") " + locals_full + " i32.const 1 drop))")
@@ -49,9 +49,9 @@ def main():
         # Tail calls reuse the old frame even when both frames cannot coexist.
         module = load(rtl, '''(module
           (global (export "observed") (mut i32) (i32.const 0))
-          (func $callee (param i32 i32) (local ''' + "i32 "*16381 + ''')
+          (func $callee (param i32 i32) (local ''' + "i32 "*(rtl.value_capacity-3) + ''')
             local.get 0 global.set 0)
-          (func (export "tail") (local ''' + "i32 "*16382 + ''')
+          (func (export "tail") (local ''' + "i32 "*(rtl.value_capacity-2) + ''')
             i32.const 42 i32.const 7 return_call $callee))''')
         assert rtl.invoke(module.exports["tail"][1], []) == []
         assert rtl.global_value(module.exports["observed"][1]) == 42

@@ -16,24 +16,37 @@ module wasmetal_fpu (
     wire [63:0] f64_result, f64_div, f64_integer, f32_i64, f64_i64;
     wire [31:0] f64_i32, demoted;
     wire [63:0] promoted;
-    wire [32:0] f32_rec, rec_demoted;
-    wire [64:0] f64_rec, rec_promoted;
+    wire [32:0] f32_rec, f32_rec_b, rec_demoted;
+    wire [64:0] f64_rec, f64_rec_b, rec_promoted, rec_promoted_b;
     wire [2:0] f32_i32_flags, f32_i64_flags, f64_i32_flags, f64_i64_flags;
     wire f32_done, f64_done, f32_nan, f64_nan;
-    wire [4:0] unused_promote_flags, unused_demote_flags;
+    wire [4:0] unused_promote_flags, unused_promote_b_flags, unused_demote_flags;
+    wire [31:0] arithmetic32;
+    wire [63:0] arithmetic64;
+    wire arithmetic_done;
+    logic divide_wide;
     wasmetal_fp_format #(8,24) fp32(
-        .clk(clk),.reset(reset),.start(start && !wide),.operation(operation),.a(a[31:0]),.b(b[31:0]),
+        .arithmetic_result(arithmetic32),.arithmetic_done(arithmetic_done && !divide_wide),.operation(operation),.a(a[31:0]),.b(b[31:0]),
         .integer_signed(integer_signed),.result_signed(result_signed),.integer_input(integer_input),
         .result(f32_result),.div_result(f32_div),.integer_float(f32_integer),.div_done(f32_done),
         .int32_result(f32_i32),.int64_result(f32_i64),.int32_flags(f32_i32_flags),.int64_flags(f32_i64_flags),
-        .rec_a(f32_rec),.is_nan(f32_nan));
+        .rec_a(f32_rec),.rec_b(f32_rec_b),.is_nan(f32_nan));
     wasmetal_fp_format #(11,53) fp64(
-        .clk(clk),.reset(reset),.start(start && wide),.operation(operation),.a(a),.b(b),
+        .arithmetic_result(arithmetic64),.arithmetic_done(arithmetic_done && divide_wide),.operation(operation),.a(a),.b(b),
         .integer_signed(integer_signed),.result_signed(result_signed),.integer_input(integer_input),
         .result(f64_result),.div_result(f64_div),.integer_float(f64_integer),.div_done(f64_done),
         .int32_result(f64_i32),.int64_result(f64_i64),.int32_flags(f64_i32_flags),.int64_flags(f64_i64_flags),
-        .rec_a(f64_rec),.is_nan(f64_nan));
+        .rec_a(f64_rec),.rec_b(f64_rec_b),.is_nan(f64_nan));
     recFNToRecFN #(8,24,11,53) promote(1'b1,f32_rec,3'b000,rec_promoted,unused_promote_flags);
+    recFNToRecFN #(8,24,11,53) promote_b(1'b1,f32_rec_b,3'b000,rec_promoted_b,unused_promote_b_flags);
+    wasmetal_fp_arithmetic arithmetic(
+        .clk(clk),.reset(reset),.start(start),.operation(operation),
+        .a(wide ? f64_rec : rec_promoted),.b(wide ? f64_rec_b : rec_promoted_b),
+        .result32(arithmetic32),.result64(arithmetic64),.div_done(arithmetic_done));
+    always_ff @(posedge clk) begin
+        if(reset) divide_wide<=0;
+        else if(start && (operation==6 || operation==10)) divide_wide<=wide;
+    end
     recFNToFN #(11,53) encode_promote(rec_promoted,promoted);
     recFNToRecFN #(11,53,8,24) demote(1'b1,f64_rec,3'b000,rec_demoted,unused_demote_flags);
     recFNToFN #(8,24) encode_demote(rec_demoted,demoted);

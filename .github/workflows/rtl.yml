@@ -17,7 +17,7 @@ jobs:
         run: python3 tools/bootstrap.py
       - name: Lint and independent arithmetic verification
         run: |
-          make lint test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state prove-masks
+          make lint test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks
           python3 tools/prove_descriptors.py
       - name: Compile RTL and verify boundary and oracle behavior
         run: |

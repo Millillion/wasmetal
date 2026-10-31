@@ -21,13 +21,17 @@ The FPGA and native conformance simulator now use the same capacities:
 
 | Resource | Capacity |
 |---|---:|
-| 128-bit value slots, including locals | 16,384 |
+| 128-bit value slots, including locals | 8,192 |
 | Control labels | 2,048 |
 | Saved call frames | 512 |
 | Descriptors per memory/table/segment class | 256 |
 | External 128-bit heap slots | 1,048,576 |
 
 Programs exceeding these finite resources cannot be assumed to run successfully.
+The 8,192-value profile passed the full official corpus in an isolated trial;
+the current combined RTL configuration is undergoing a fresh full regression.
+Routing and timing closure are still unfinished, so no deployable bitstream is
+claimed at this checkpoint.
 Heap allocation is bounded and currently has no reclamation. Earlier mapped-cell
 reports identify their smaller capacity profile explicitly; they do not establish
 conformance of a later build.

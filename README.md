@@ -2,7 +2,16 @@
 
 A project to build a bare metal physical implementation of WebAssembly. That's right, a WebAssembly CPU. Inspired in part by [this amazing talk](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript).
 
-WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. Its SystemVerilog execution core passes all 259 files in the pinned official WebAssembly Core 3.0 test suite, using a software loading and validation front end. See the [verification evidence](docs/verification/core-3.0-current.json), [RTL architecture](docs/RTL.md) and [FPGA bring-up guide](docs/FPGA.md) for the execution boundary, resource limits and hardware build.
+WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. It implements WebAssembly Core 3.0 instructions in a clocked SystemVerilog stack machine, with a software loading and validation front end.
+
+## Current status
+
+- **Conformance baseline:** all 259 pinned official suites pass, including 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions. The [recorded baseline](docs/verification/core-3.0-current.json) identifies its exact sources and simulator; CI also passed with and without memory stalls.
+- **Current RTL:** floating-point arithmetic now shares one raw datapath and rounds directly to either precision. It passed a complete official regression in an isolated build and [1,734,368 additional comparisons](docs/verification/floating-point.json), including conversions, traps, reset interruption and negative controls. The new configuration's source-bound full regression is running.
+- **Storage:** the native and FPGA defaults now both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. The smaller value store separately passed the complete official suite. These remain finite resource limits.
+- **FPGA:** fourteen whole-board UART checks pass in simulation. Logic mapping and routing are still being optimized for the ULX3S 85F. **No routed, timing-verified bitstream is available yet, and no physical board has been tested.**
+
+See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host supplies the instruction image, metadata and backing memory; autonomous boot, a local memory controller and reclaiming garbage collection remain future work.
 
 ## GUI Microarchitecture Simulator
 
@@ -26,6 +35,7 @@ execution results and traps. Unsupported cases fail the run.
 ```sh
 python3 tools/bootstrap.py
 make lint
+make test-fpu
 make test-all
 ```
 
@@ -36,9 +46,9 @@ WebAssembly specification and its official tests define the implementation targe
 
 A host-backed ULX3S 85F reference system includes a UART loader/step interface,
 board constraints, synthesis, placement/routing and bitstream build tools. The
-whole serial interface and CPU are tested together in simulation. Its storage
-profile is smaller than the full conformance simulator's. See the
-[FPGA guide](docs/FPGA.md); physical-board testing remains a separate step.
+whole serial interface and CPU are tested together in simulation. Placement,
+routing and timing closure remain unfinished. See the [FPGA guide](docs/FPGA.md)
+for the build flow and the remaining physical-board checks.
 
 ## Roadmap
 
