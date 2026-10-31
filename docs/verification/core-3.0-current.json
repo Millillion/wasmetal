@@ -10,19 +10,20 @@
   "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
   "full_core_suite_selected": true,
   "full_core_suite_passed": true,
-  "source_sha256": "20dbf2a139204d0688c1d4c357806b78150badbebe9ae3137da43646e67434ca",
-  "simulator_sha256": "8811b337b68abbc2b99be770652d8ffde45768ac460a6dc6ee9dca090ce0c1a5",
+  "source_sha256": "50e68bca35112baeeb1b6008df1d2c936776b4d56a8314796bdfa895efdde5ab",
+  "simulator_sha256": "87393149d7a23709155abbb989e556efd65c35c60da708cf095336de2864c45c",
   "build_manifest": {
     "profile": "native",
     "inputs": {
-      "Makefile": "5063227e83f7a22ea234ea26232e90fff5cf347c5e2b2045038101db759d99cf",
+      "Makefile": "3b18ef3a30606cfd9061c0bb95c8f1df1c82a999d8c19ea7d8c2d479db2a14ee",
       "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
       "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
-      "rtl/wasmetal_core.sv": "b5ef8558bdaecd5e3217578e6cb682d41d012e1d8e166427860677a930f094ae",
-      "rtl/wasmetal_descriptors.sv": "c88ca6e113e7af14587773375f77b3a1c5cac33238edfffce7aeef62a2c2e8ad",
+      "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+      "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
       "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
-      "rtl/wasmetal_fp_format.sv": "bb6b0fb4e0557d281f9fe4f715187f74acd98f2a1cb21379262fbf5e6e217c6e",
-      "rtl/wasmetal_fpu.sv": "d11ea9f77ccf8ea5f766aacca6d48c90d0273b1e8b926793593802fb047f3821",
+      "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+      "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+      "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
       "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
       "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
       "rtl/wasmetal_simd_fp_decode.sv": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
@@ -30,8 +31,8 @@
       "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
       "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
       "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
-      "sim/core_config.hpp": "7ff2832d3c06c185c3307504174f0433f986d54657995f0386329019fb2cb30e",
-      "sim/fpga_ports.hpp": "a0d42bd3e70d666b3a89027a947d21ae5c0ecea01172e2df98ea6a2f8f93c88e",
+      "sim/core_config.hpp": "af969816adad3b6431bce0808ec12b7e15b3963df236d2f54bd98f4ccb96a9ec",
+      "sim/fpga_ports.hpp": "380e537bf734ed603c0cdb4d37da2e061aaa922c0bf5bff253b8da20250edaee",
       "sim/fpga_remote.hpp": "1eb10beb2bee2f8d2293030c6d2852aec37fa5b8e2db9719529e783747ea0cb5",
       "sim/main.cpp": "9a3941624dad3c44de53f204b547e9ba69416ad2a5b540142e1033d5625f8650",
       "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
@@ -59,15 +60,15 @@
       "tools/generate_fpga_ports.py": "89b3ae960061ffaefe9d8376dfb5d7dd3c3229d6c2bd9677dd6f985db85290c9",
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
     },
-    "binary_sha256": "8811b337b68abbc2b99be770652d8ffde45768ac460a6dc6ee9dca090ce0c1a5"
+    "binary_sha256": "87393149d7a23709155abbb989e556efd65c35c60da708cf095336de2864c45c"
   },
   "runner_inputs": {
     "tools/run_spec.py": "1eb4fedfe34369dde44d1d5a47358b65f342587c437965c979d262162b31d039",
     "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f"
   },
-  "rtl_build_id": "93a74efd60f1c4617cf61c185edbe758",
+  "rtl_build_id": "5c57ee7e6b27f2ea506dd1bc9fa1ee55",
   "capacities": {
-    "value": 16384,
+    "value": 8192,
     "control": 2048,
     "call": 512,
     "descriptor": 256,
@@ -76,12 +77,12 @@
   "identity_error": null,
   "max_cycles_per_invocation": 300000000,
   "memory_wait_states": 3,
-  "elapsed_seconds": 1103.5074150562286,
+  "elapsed_seconds": 1433.8758254051208,
   "totals": {
     "modules_instantiated": 2266,
     "rtl_assertions_passed": 57711,
     "loader_assertions_passed": 4677,
-    "rtl_cycles": 306363457,
+    "rtl_cycles": 306351688,
     "script_commands": 65353,
     "rtl_actions_completed": 359,
     "registrations": 80,
@@ -485,7 +486,7 @@
         "modules_instantiated": 1,
         "rtl_assertions_passed": 2500,
         "loader_assertions_passed": 13,
-        "rtl_cycles": 46401,
+        "rtl_cycles": 50751,
         "script_commands": 2514
       },
       "failures": []
@@ -561,7 +562,7 @@
         "modules_instantiated": 98,
         "rtl_assertions_passed": 819,
         "rtl_actions_completed": 10,
-        "rtl_cycles": 91363,
+        "rtl_cycles": 95742,
         "script_commands": 927
       },
       "failures": []
@@ -593,7 +594,7 @@
       "counts": {
         "modules_instantiated": 1,
         "rtl_assertions_passed": 470,
-        "rtl_cycles": 15265,
+        "rtl_cycles": 17498,
         "script_commands": 471
       },
       "failures": []
@@ -1024,7 +1025,7 @@
         "modules_instantiated": 1,
         "rtl_assertions_passed": 78,
         "loader_assertions_passed": 42,
-        "rtl_cycles": 27979,
+        "rtl_cycles": 28530,
         "script_commands": 121
       },
       "failures": []
@@ -2095,7 +2096,7 @@
         "modules_instantiated": 3,
         "rtl_assertions_passed": 1803,
         "loader_assertions_passed": 16,
-        "rtl_cycles": 65391,
+        "rtl_cycles": 89693,
         "script_commands": 1822
       },
       "failures": []
@@ -2586,7 +2587,7 @@
         "modules_instantiated": 4,
         "rtl_assertions_passed": 158,
         "loader_assertions_passed": 23,
-        "rtl_cycles": 6704,
+        "rtl_cycles": 6820,
         "script_commands": 185
       },
       "failures": []
@@ -2651,7 +2652,7 @@
       "counts": {
         "modules_instantiated": 1,
         "rtl_assertions_passed": 10,
-        "rtl_cycles": 156296,
+        "rtl_cycles": 108596,
         "script_commands": 11
       },
       "failures": []
@@ -2901,5 +2902,5 @@
       "failures": []
     }
   ],
-  "runtime_source_revision": "f926690a0af4409a4071e607d17f7b9af5eddb3e"
+  "runtime_source_revision": "bf3ce2405f2ac14e4712bd4126929e69320ef93b"
 }

@@ -5,20 +5,20 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-All 259 official core test files passed at baseline execution-source revision `f926690`: 57,711
+All 259 official core test files passed at execution-source revision `bf3ce24`: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
 [recorded report](verification/core-3.0-current.json) identifies source and
 simulator hashes and every suite's counts. This establishes passage of that
-test corpus, not a proof of correctness for every possible program. The same
-complete corpus passes with three memory wait states. FPGA deployment has a
+test corpus, not a proof of correctness for every possible program. The recorded
+run uses three memory wait states and completes 306,351,688 simulated cycles.
+FPGA deployment has a
 separate [board build and verification process](FPGA.md). Unsupported behavior
 fails verification.
 
-The current checkpoint shares floating-point arithmetic and reduces the default
-value store to 8,192 entries. Both changes and their combination passed full
-official regressions in isolated builds; a fresh complete regression of the
-committed build is in progress. The baseline report above predates those changes.
+The verified configuration shares floating-point arithmetic and uses 8,192
+value slots. The report above covers the committed configuration, including
+the descriptor RAM changes and matching generated interface headers.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged

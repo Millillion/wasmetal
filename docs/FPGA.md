@@ -28,8 +28,9 @@ The FPGA and native conformance simulator now use the same capacities:
 | External 128-bit heap slots | 1,048,576 |
 
 Programs exceeding these finite resources cannot be assumed to run successfully.
-The 8,192-value profile passed the full official corpus in an isolated trial;
-the current combined RTL configuration is undergoing a fresh full regression.
+The current committed RTL, including the 8,192-value profile and shared
+floating-point arithmetic, passed the full official corpus with three memory
+wait states; the report below identifies its exact source and simulator hashes.
 Routing and timing closure are still unfinished, so no deployable bitstream is
 claimed at this checkpoint.
 Heap allocation is bounded and currently has no reclamation. Earlier mapped-cell
@@ -110,7 +111,7 @@ arithmetic, SIMD, GC, exceptions and structured control in the
 [whole-board UART report](verification/fpga-uart.json) records fourteen passing
 execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the
-[complete 259-suite report](verification/core-3.0-current.json) records the baseline native RTL simulation profile.
+[complete 259-suite report](verification/core-3.0-current.json) records the current native RTL simulation with the same capacities as the FPGA profile.
 
 ## Loading a physical board
 
