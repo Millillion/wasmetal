@@ -138,6 +138,10 @@ execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the
 [complete 259-suite report](verification/core-3.0-current.json) records the current native RTL simulation with the same capacities as the FPGA profile.
 
+The complete mapped regression is now running against the unchanged default
+ABC9 core netlist. The [design-flow explanation](DESIGN-FLOW.md) gives the full
+command and partial-progress locations. A full mapped pass remains pending.
+
 An additional [whole-mapping equivalence attempt](verification/mapping-equivalence.json)
 was inconclusive. The bounded solver timed out. A second model used 929 internal
 cut points with an acyclic dependency graph, but allowed independent internal

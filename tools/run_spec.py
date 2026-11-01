@@ -124,7 +124,9 @@ class Instance:
 
 
 class RTL:
-    def __init__(self, wait_states=0, max_cycles=300000000, simulator=None):
+    def __init__(self, wait_states=0, max_cycles=300000000, simulator=None, response_timeout=3600):
+        if response_timeout <= 0:
+            raise ValueError("response timeout must be positive")
         self.proc = subprocess.Popen([str(simulator or ROOT / "build/obj/Vwasmetal_core")],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
         self.instructions = 0
@@ -145,6 +147,7 @@ class RTL:
         self.type_parents = {}
         self.registered = {}
         self.max_cycles = max_cycles
+        self.response_timeout = response_timeout
         self.rtl_cycles = 0
         self.send(f"W {wait_states}")
         self.send("V")
@@ -190,10 +193,10 @@ class RTL:
 
     def receive(self):
         self.proc.stdin.flush()
-        if not select.select([self.proc.stdout], [], [], 3600)[0]:
+        if not select.select([self.proc.stdout], [], [], self.response_timeout)[0]:
             self.proc.terminate()
             self.proc.wait(timeout=10)
-            raise ExecutionError("TIMEOUT waiting for simulator response (3600 seconds)")
+            raise ExecutionError(f"TIMEOUT waiting for simulator response ({self.response_timeout} seconds)")
         line = self.proc.stdout.readline().strip()
         if not line:
             raise ExecutionError(f"simulator terminated: {self.proc.poll()}")
@@ -508,9 +511,10 @@ def convert(source):
 
 
 def run_file(source, target, args):
+    started = time.monotonic()
     counts = Counter()
     failures = []
-    rtl = RTL(args.wait_states, args.max_cycles, args.simulator)
+    rtl = RTL(args.wait_states, args.max_cycles, args.simulator, args.response_timeout)
     rtl.install_spectest()
     current, named = None, {}
     definitions = {}
@@ -640,7 +644,8 @@ def run_file(source, target, args):
                 rtl.proc.wait()
     counts["rtl_cycles"] = rtl.rtl_cycles
     counts["script_commands"] = len(commands)
-    return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": dict(counts), "failures": failures}
+    return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": dict(counts), "failures": failures,
+            "elapsed_seconds": time.monotonic()-started}
 
 
 def main():
@@ -649,12 +654,18 @@ def main():
     parser.add_argument("--wait-states", type=int, default=0)
     parser.add_argument("--max-cycles", type=int, default=300000000)
     parser.add_argument("--jobs", type=int, default=4)
+    parser.add_argument("--response-timeout", type=int, default=3600,
+                        help="wall-clock seconds allowed per simulator response; expiry is a failure")
+    parser.add_argument("--progress-report", type=Path,
+                        help="atomically save partial results as each suite completes")
+    parser.add_argument("--schedule-from", type=Path,
+                        help="prior report used only to run suites with more recorded cycles first")
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--simulator", type=Path, default=ROOT / "build/obj/Vwasmetal_core")
     parser.add_argument("--report", type=Path, default=ROOT / "reports/spec.json")
     args = parser.parse_args()
-    if args.jobs < 1 or args.max_cycles < 1 or args.wait_states < 0:
-        parser.error("jobs and cycle budget must be positive; wait states must be nonnegative")
+    if args.jobs < 1 or args.max_cycles < 1 or args.wait_states < 0 or args.response_timeout < 1:
+        parser.error("jobs, cycle budget and response timeout must be positive; wait states must be nonnegative")
     import build_identity
     build_manifest=build_identity.verify(args.simulator)
     runner_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
@@ -668,6 +679,15 @@ def main():
             parser.error("unknown suite")
     if not sources:
         parser.error("official test sources are missing")
+    schedule_hash = None
+    if args.schedule_from:
+        schedule_bytes = args.schedule_from.read_bytes()
+        schedule = json.loads(schedule_bytes)
+        if schedule.get("spec", {}).get("revision") != LOCK["spec"]["revision"]:
+            parser.error("scheduling report must describe the pinned specification revision")
+        schedule_hash = hashlib.sha256(schedule_bytes).hexdigest()
+        cycle_counts = {s["suite"]: s["counts"].get("rtl_cycles", 0) for s in schedule["suites"]}
+        sources.sort(key=lambda s: -cycle_counts.get(str(s.relative_to(SPEC/"test/core")), 0))
     started = time.time()
     source_files = sorted(p for d in ("rtl", "sim", "tools", "fpga", "third_party/hardfloat") for p in (ROOT/d).rglob("*")
                           if p.is_file() and p.suffix in (".sv", ".svh", ".v", ".vi", ".vlt", ".cpp", ".hpp", ".py", ".json"))
@@ -676,10 +696,27 @@ def main():
         source_hash.update(str(p.relative_to(ROOT)).encode()+b"\0"+p.read_bytes())
     binary_hash = hashlib.sha256(args.simulator.read_bytes()).hexdigest()
     reports = []
+    def write_progress(status):
+        if args.progress_report is None:
+            return
+        counts = Counter()
+        for report in reports:
+            counts.update(report["counts"])
+        progress = {"status": status, "spec": LOCK["spec"], "selected_suites": len(sources),
+                    "completed_suites": len(reports), "full_core_suite_passed": False,
+                    "elapsed_seconds": time.time()-started, "simulator_sha256": binary_hash,
+                    "source_sha256": source_hash.hexdigest(), "runner_inputs": runner_inputs,
+                    "totals": dict(counts), "suites": sorted(reports, key=lambda r:r["suite"]),
+                    "note": "Partial observation only; final report and end-of-run identity checks are authoritative."}
+        args.progress_report.parent.mkdir(parents=True, exist_ok=True)
+        temporary = args.progress_report.with_suffix(args.progress_report.suffix+".tmp")
+        temporary.write_text(json.dumps(progress, indent=2)+"\n")
+        temporary.replace(args.progress_report)
+    write_progress("running")
     with ThreadPoolExecutor(max_workers=4) as pool:
         converted = list(pool.map(convert, sources))
     # Create the shared, immutable standard test fixture before parallel workers.
-    fixture = RTL(simulator=args.simulator)
+    fixture = RTL(simulator=args.simulator, response_timeout=args.response_timeout)
     capacities={name:getattr(fixture,name+"_capacity") for name in ("value","control","call","descriptor","heap")}
     rtl_build_id=fixture.build_id
     fixture.install_spectest()
@@ -699,6 +736,7 @@ def main():
         for future in as_completed(futures):
             report = future.result()
             reports.append(report)
+            write_progress("running")
             print(report["suite"], json.dumps(report["counts"], sort_keys=True), flush=True)
             for failure in report["failures"][:3]:
                 print(" ", failure.get("location", ""), failure["reason"], flush=True)
@@ -723,9 +761,12 @@ def main():
               "build_manifest":build_manifest,"runner_inputs":runner_inputs,
               "rtl_build_id":rtl_build_id,"capacities":capacities,"identity_error":identity_error,
               "max_cycles_per_invocation": args.max_cycles, "memory_wait_states": args.wait_states,
+              "response_timeout_seconds": args.response_timeout, "jobs": args.jobs,
+              "schedule_report_sha256": schedule_hash,
               "elapsed_seconds": time.time()-started, "totals": dict(totals), "suites": reports}
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(result, indent=2)+"\n")
+    write_progress("finished; consult final report")
     print("TOTAL", json.dumps(dict(totals), sort_keys=True))
     return 1 if errors else 0
 
