@@ -10,12 +10,12 @@
   "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
   "full_core_suite_selected": true,
   "full_core_suite_passed": true,
-  "source_sha256": "50e68bca35112baeeb1b6008df1d2c936776b4d56a8314796bdfa895efdde5ab",
+  "source_sha256": "61e55af37b9a32695340ad4444e9ba08070300db035e4a0fbe97c7f3703ee2e5",
   "simulator_sha256": "87393149d7a23709155abbb989e556efd65c35c60da708cf095336de2864c45c",
   "build_manifest": {
     "profile": "native",
     "inputs": {
-      "Makefile": "3b18ef3a30606cfd9061c0bb95c8f1df1c82a999d8c19ea7d8c2d479db2a14ee",
+      "Makefile": "02bda9a8675e5bc5a81aae31714738b7fca54e0ae1b47288f3d1d26aa60e65a9",
       "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
       "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
       "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
@@ -63,7 +63,7 @@
     "binary_sha256": "87393149d7a23709155abbb989e556efd65c35c60da708cf095336de2864c45c"
   },
   "runner_inputs": {
-    "tools/run_spec.py": "1eb4fedfe34369dde44d1d5a47358b65f342587c437965c979d262162b31d039",
+    "tools/run_spec.py": "41bfe0d16d8d65de3f3b0ec9ae4e765640d21ec94de2539d02ec58a484588c99",
     "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f"
   },
   "rtl_build_id": "5c57ee7e6b27f2ea506dd1bc9fa1ee55",
@@ -77,7 +77,10 @@
   "identity_error": null,
   "max_cycles_per_invocation": 300000000,
   "memory_wait_states": 3,
-  "elapsed_seconds": 1433.8758254051208,
+  "response_timeout_seconds": 3600,
+  "jobs": 2,
+  "schedule_report_sha256": "700cd8f9961b2d78a6a47933ddb1a95278823cbeac8a0652f52f8a59e5c20dfe",
+  "elapsed_seconds": 2195.3785145282745,
   "totals": {
     "modules_instantiated": 2266,
     "rtl_assertions_passed": 57711,
@@ -99,7 +102,8 @@
         "rtl_cycles": 4147,
         "script_commands": 260
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.24524384801043198
     },
     {
       "suite": "align.wast",
@@ -110,7 +114,8 @@
         "rtl_cycles": 4193,
         "script_commands": 165
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.009791992022656
     },
     {
       "suite": "annotations.wast",
@@ -120,7 +125,8 @@
         "rtl_cycles": 128,
         "script_commands": 74
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.48580270499223843
     },
     {
       "suite": "binary-leb128.wast",
@@ -130,7 +136,8 @@
         "rtl_cycles": 252,
         "script_commands": 91
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7097569589968771
     },
     {
       "suite": "binary.wast",
@@ -140,7 +147,8 @@
         "rtl_cycles": 80,
         "script_commands": 129
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.8959477269672789
     },
     {
       "suite": "block.wast",
@@ -151,7 +159,8 @@
         "rtl_cycles": 1971,
         "script_commands": 223
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.53270987898577
     },
     {
       "suite": "br.wast",
@@ -162,7 +171,8 @@
         "rtl_cycles": 1665,
         "script_commands": 97
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.27122164599131793
     },
     {
       "suite": "br_if.wast",
@@ -173,7 +183,8 @@
         "rtl_cycles": 2304,
         "script_commands": 119
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.42909464496187866
     },
     {
       "suite": "br_on_non_null.wast",
@@ -184,7 +195,8 @@
         "rtl_cycles": 354,
         "script_commands": 12
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07493195397546515
     },
     {
       "suite": "br_on_null.wast",
@@ -195,7 +207,8 @@
         "rtl_cycles": 274,
         "script_commands": 10
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07000774599146098
     },
     {
       "suite": "br_table.wast",
@@ -206,7 +219,8 @@
         "rtl_cycles": 4701,
         "script_commands": 186
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5367062009754591
     },
     {
       "suite": "bulk-memory/bulk.wast",
@@ -217,7 +231,8 @@
         "rtl_cycles": 23018,
         "script_commands": 117
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.6219505539629608
     },
     {
       "suite": "bulk-memory/memory_copy.wast",
@@ -229,7 +244,8 @@
         "rtl_cycles": 9688163,
         "script_commands": 4450
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 109.68915443000151
     },
     {
       "suite": "bulk-memory/memory_fill.wast",
@@ -241,7 +257,8 @@
         "rtl_cycles": 9458378,
         "script_commands": 100
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 104.29545552603668
     },
     {
       "suite": "bulk-memory/memory_init.wast",
@@ -253,7 +270,8 @@
         "rtl_cycles": 3217,
         "script_commands": 250
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.0524746889714152
     },
     {
       "suite": "bulk-memory/table-sub.wast",
@@ -263,7 +281,8 @@
         "rtl_cycles": 48,
         "script_commands": 3
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.047993172018323094
     },
     {
       "suite": "bulk-memory/table_copy.wast",
@@ -275,7 +294,8 @@
         "rtl_cycles": 40444,
         "script_commands": 1728
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.792317038984038
     },
     {
       "suite": "bulk-memory/table_fill.wast",
@@ -286,7 +306,8 @@
         "rtl_cycles": 691,
         "script_commands": 45
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1288496109773405
     },
     {
       "suite": "bulk-memory/table_init.wast",
@@ -299,7 +320,8 @@
         "rtl_cycles": 18619,
         "script_commands": 792
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.4680175700341351
     },
     {
       "suite": "call.wast",
@@ -310,7 +332,8 @@
         "rtl_cycles": 665270,
         "script_commands": 91
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 8.54643338295864
     },
     {
       "suite": "call_indirect.wast",
@@ -321,7 +344,8 @@
         "rtl_cycles": 3269242,
         "script_commands": 172
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 45.98046059801709
     },
     {
       "suite": "call_ref.wast",
@@ -332,7 +356,8 @@
         "rtl_cycles": 794362,
         "script_commands": 35
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 11.35443058196688
     },
     {
       "suite": "comments.wast",
@@ -342,7 +367,8 @@
         "rtl_cycles": 90,
         "script_commands": 8
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06861290603410453
     },
     {
       "suite": "const.wast",
@@ -353,7 +379,8 @@
         "rtl_cycles": 3648,
         "script_commands": 778
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 4.415644114022143
     },
     {
       "suite": "conversions.wast",
@@ -364,7 +391,8 @@
         "rtl_cycles": 8396,
         "script_commands": 619
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5677183690131642
     },
     {
       "suite": "custom.wast",
@@ -374,7 +402,8 @@
         "rtl_cycles": 48,
         "script_commands": 11
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08559991302900016
     },
     {
       "suite": "data.wast",
@@ -387,7 +416,8 @@
         "rtl_cycles": 1140,
         "script_commands": 68
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5886506430106238
     },
     {
       "suite": "elem.wast",
@@ -401,7 +431,8 @@
         "rtl_cycles": 4887,
         "script_commands": 154
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.1991373189957812
     },
     {
       "suite": "endianness.wast",
@@ -411,7 +442,8 @@
         "rtl_cycles": 8816,
         "script_commands": 69
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.17506286298157647
     },
     {
       "suite": "exceptions/cast.wast",
@@ -421,7 +453,8 @@
         "rtl_cycles": 208,
         "script_commands": 5
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.032505006005521864
     },
     {
       "suite": "exceptions/tag.wast",
@@ -433,7 +466,8 @@
         "rtl_cycles": 48,
         "script_commands": 10
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07710708898957819
     },
     {
       "suite": "exceptions/throw.wast",
@@ -444,7 +478,8 @@
         "rtl_cycles": 228,
         "script_commands": 13
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.0648146890453063
     },
     {
       "suite": "exceptions/throw_ref.wast",
@@ -455,7 +490,8 @@
         "rtl_cycles": 499,
         "script_commands": 15
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06374001095537096
     },
     {
       "suite": "exceptions/try_table.wast",
@@ -467,7 +503,8 @@
         "rtl_cycles": 1771,
         "script_commands": 67
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.22647313599009067
     },
     {
       "suite": "exports.wast",
@@ -478,7 +515,8 @@
         "rtl_cycles": 264,
         "script_commands": 97
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7816402880125679
     },
     {
       "suite": "f32.wast",
@@ -489,7 +527,8 @@
         "rtl_cycles": 50751,
         "script_commands": 2514
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 2.1035125530324876
     },
     {
       "suite": "f32_bitwise.wast",
@@ -500,7 +539,8 @@
         "rtl_cycles": 6096,
         "script_commands": 364
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.32705815200461075
     },
     {
       "suite": "f32_cmp.wast",
@@ -511,7 +551,8 @@
         "rtl_cycles": 40848,
         "script_commands": 2407
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.6532591289724223
     },
     {
       "suite": "f64.wast",
@@ -522,7 +563,8 @@
         "rtl_cycles": 50752,
         "script_commands": 2514
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 2.0398766979924403
     },
     {
       "suite": "f64_bitwise.wast",
@@ -533,7 +575,8 @@
         "rtl_cycles": 6096,
         "script_commands": 364
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3144156140042469
     },
     {
       "suite": "f64_cmp.wast",
@@ -544,7 +587,8 @@
         "rtl_cycles": 40848,
         "script_commands": 2407
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.6952851740061305
     },
     {
       "suite": "fac.wast",
@@ -554,7 +598,8 @@
         "rtl_cycles": 16230,
         "script_commands": 8
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.19241127301938832
     },
     {
       "suite": "float_exprs.wast",
@@ -565,7 +610,8 @@
         "rtl_cycles": 95742,
         "script_commands": 927
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 2.766482873004861
     },
     {
       "suite": "float_literals.wast",
@@ -576,7 +622,8 @@
         "rtl_cycles": 1392,
         "script_commands": 179
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5917631319607608
     },
     {
       "suite": "float_memory.wast",
@@ -587,7 +634,8 @@
         "rtl_cycles": 1632,
         "script_commands": 90
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.14469853602349758
     },
     {
       "suite": "float_misc.wast",
@@ -597,7 +645,8 @@
         "rtl_cycles": 17498,
         "script_commands": 471
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5145236400421709
     },
     {
       "suite": "forward.wast",
@@ -607,7 +656,8 @@
         "rtl_cycles": 1864,
         "script_commands": 5
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.055330109025817364
     },
     {
       "suite": "func.wast",
@@ -618,7 +668,8 @@
         "rtl_cycles": 2008,
         "script_commands": 175
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.6859157290309668
     },
     {
       "suite": "func_ptrs.wast",
@@ -630,7 +681,8 @@
         "rtl_cycles": 733,
         "script_commands": 36
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.10973963496508077
     },
     {
       "suite": "gc/array.wast",
@@ -641,7 +693,8 @@
         "rtl_cycles": 1974,
         "script_commands": 54
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.18612306599970907
     },
     {
       "suite": "gc/array_copy.wast",
@@ -652,7 +705,8 @@
         "rtl_cycles": 1731,
         "script_commands": 44
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.12265219097025692
     },
     {
       "suite": "gc/array_fill.wast",
@@ -663,7 +717,8 @@
         "rtl_cycles": 868,
         "script_commands": 30
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07332807499915361
     },
     {
       "suite": "gc/array_init_data.wast",
@@ -674,7 +729,8 @@
         "rtl_cycles": 1260,
         "script_commands": 48
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.11204430798534304
     },
     {
       "suite": "gc/array_init_elem.wast",
@@ -685,7 +741,8 @@
         "rtl_cycles": 1243,
         "script_commands": 36
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.11695860902545974
     },
     {
       "suite": "gc/array_new_data.wast",
@@ -695,7 +752,8 @@
         "rtl_cycles": 529,
         "script_commands": 30
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.10161269101081416
     },
     {
       "suite": "gc/array_new_elem.wast",
@@ -705,7 +763,8 @@
         "rtl_cycles": 833,
         "script_commands": 24
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.09477956994669512
     },
     {
       "suite": "gc/binary-gc.wast",
@@ -714,7 +773,8 @@
         "rtl_cycles": 48,
         "script_commands": 1
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.023246683995239437
     },
     {
       "suite": "gc/br_on_cast.wast",
@@ -726,7 +786,8 @@
         "rtl_cycles": 1714,
         "script_commands": 37
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1556917909765616
     },
     {
       "suite": "gc/br_on_cast_fail.wast",
@@ -738,7 +799,8 @@
         "rtl_cycles": 1818,
         "script_commands": 37
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.14643360499758273
     },
     {
       "suite": "gc/extern.wast",
@@ -749,7 +811,8 @@
         "rtl_cycles": 462,
         "script_commands": 18
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.051355011004488915
     },
     {
       "suite": "gc/i31.wast",
@@ -761,7 +824,8 @@
         "rtl_cycles": 1688,
         "script_commands": 73
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.15419164899503812
     },
     {
       "suite": "gc/ref_cast.wast",
@@ -772,7 +836,8 @@
         "rtl_cycles": 1831,
         "script_commands": 45
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.09557035902980715
     },
     {
       "suite": "gc/ref_eq.wast",
@@ -784,7 +849,8 @@
         "rtl_cycles": 2428,
         "script_commands": 89
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.16745002899551764
     },
     {
       "suite": "gc/ref_test.wast",
@@ -795,7 +861,8 @@
         "rtl_cycles": 3609,
         "script_commands": 71
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.14398824295494705
     },
     {
       "suite": "gc/struct.wast",
@@ -806,7 +873,8 @@
         "rtl_cycles": 926,
         "script_commands": 30
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.152745480008889
     },
     {
       "suite": "gc/type-subtyping.wast",
@@ -819,7 +887,8 @@
         "rtl_cycles": 1235,
         "script_commands": 131
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.8007738149608485
     },
     {
       "suite": "global.wast",
@@ -831,7 +900,8 @@
         "rtl_cycles": 1945,
         "script_commands": 124
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5017958630342036
     },
     {
       "suite": "i32.wast",
@@ -842,7 +912,8 @@
         "rtl_cycles": 7936,
         "script_commands": 460
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.1169666199712083
     },
     {
       "suite": "i64.wast",
@@ -853,7 +924,8 @@
         "rtl_cycles": 10060,
         "script_commands": 416
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4822473360109143
     },
     {
       "suite": "id.wast",
@@ -863,7 +935,8 @@
         "rtl_cycles": 48,
         "script_commands": 7
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06050073402002454
     },
     {
       "suite": "if.wast",
@@ -874,7 +947,8 @@
         "rtl_cycles": 5552,
         "script_commands": 241
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.1386802799534053
     },
     {
       "suite": "imports.wast",
@@ -887,7 +961,8 @@
         "rtl_cycles": 926,
         "script_commands": 218
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.572468164958991
     },
     {
       "suite": "inline-module.wast",
@@ -896,7 +971,8 @@
         "rtl_cycles": 48,
         "script_commands": 1
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.030538803024683148
     },
     {
       "suite": "instance.wast",
@@ -908,7 +984,8 @@
         "rtl_cycles": 475,
         "script_commands": 23
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08609074197011068
     },
     {
       "suite": "int_exprs.wast",
@@ -918,7 +995,8 @@
         "rtl_cycles": 4424,
         "script_commands": 108
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3114477199851535
     },
     {
       "suite": "int_literals.wast",
@@ -929,7 +1007,8 @@
         "rtl_cycles": 416,
         "script_commands": 51
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.17905552400043234
     },
     {
       "suite": "labels.wast",
@@ -940,7 +1019,8 @@
         "rtl_cycles": 1390,
         "script_commands": 29
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.11025971896015108
     },
     {
       "suite": "left-to-right.wast",
@@ -950,7 +1030,8 @@
         "rtl_cycles": 23155,
         "script_commands": 96
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4623889490030706
     },
     {
       "suite": "linking.wast",
@@ -962,7 +1043,8 @@
         "rtl_cycles": 2246,
         "script_commands": 163
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7487338460050523
     },
     {
       "suite": "load.wast",
@@ -973,7 +1055,8 @@
         "rtl_cycles": 1049,
         "script_commands": 97
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5360915649798699
     },
     {
       "suite": "local_get.wast",
@@ -984,7 +1067,8 @@
         "rtl_cycles": 476,
         "script_commands": 36
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.200230146991089
     },
     {
       "suite": "local_init.wast",
@@ -995,7 +1079,8 @@
         "rtl_cycles": 124,
         "script_commands": 10
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06617351697059348
     },
     {
       "suite": "local_set.wast",
@@ -1006,7 +1091,8 @@
         "rtl_cycles": 459,
         "script_commands": 53
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.41406034998362884
     },
     {
       "suite": "local_tee.wast",
@@ -1017,7 +1103,8 @@
         "rtl_cycles": 1530,
         "script_commands": 98
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.46851845900528133
     },
     {
       "suite": "loop.wast",
@@ -1028,7 +1115,8 @@
         "rtl_cycles": 28530,
         "script_commands": 121
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7264825840247795
     },
     {
       "suite": "memory.wast",
@@ -1040,7 +1128,8 @@
         "rtl_cycles": 1631,
         "script_commands": 90
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3698438180144876
     },
     {
       "suite": "memory64/address64.wast",
@@ -1050,7 +1139,8 @@
         "rtl_cycles": 4028,
         "script_commands": 242
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.21236895601032302
     },
     {
       "suite": "memory64/align64.wast",
@@ -1061,7 +1151,8 @@
         "rtl_cycles": 4193,
         "script_commands": 157
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.044906954979524
     },
     {
       "suite": "memory64/binary_leb128_64.wast",
@@ -1071,7 +1162,8 @@
         "rtl_cycles": 48,
         "script_commands": 2
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04638540797168389
     },
     {
       "suite": "memory64/bulk64.wast",
@@ -1082,7 +1174,8 @@
         "rtl_cycles": 21975,
         "script_commands": 70
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3369668810046278
     },
     {
       "suite": "memory64/call_indirect64.wast",
@@ -1092,7 +1185,8 @@
         "rtl_cycles": 100,
         "script_commands": 2
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.02780906402040273
     },
     {
       "suite": "memory64/endianness64.wast",
@@ -1102,7 +1196,8 @@
         "rtl_cycles": 8816,
         "script_commands": 69
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.17469254799652845
     },
     {
       "suite": "memory64/float_memory64.wast",
@@ -1113,7 +1208,8 @@
         "rtl_cycles": 1632,
         "script_commands": 90
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.14791277097538114
     },
     {
       "suite": "memory64/load64.wast",
@@ -1124,7 +1220,8 @@
         "rtl_cycles": 1049,
         "script_commands": 98
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5290159659925848
     },
     {
       "suite": "memory64/memory64-imports.wast",
@@ -1135,7 +1232,8 @@
         "rtl_cycles": 48,
         "script_commands": 78
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.647269052977208
     },
     {
       "suite": "memory64/memory64.wast",
@@ -1147,7 +1245,8 @@
         "rtl_cycles": 1451,
         "script_commands": 69
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.26458079501753673
     },
     {
       "suite": "memory64/memory_copy64.wast",
@@ -1159,7 +1258,8 @@
         "rtl_cycles": 9688163,
         "script_commands": 4450
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 104.71653825300746
     },
     {
       "suite": "memory64/memory_fill64.wast",
@@ -1171,7 +1271,8 @@
         "rtl_cycles": 9458378,
         "script_commands": 100
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 140.65803832298843
     },
     {
       "suite": "memory64/memory_grow64.wast",
@@ -1181,7 +1282,8 @@
         "rtl_cycles": 17302174,
         "script_commands": 54
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 262.5423455580021
     },
     {
       "suite": "memory64/memory_init64.wast",
@@ -1193,7 +1295,8 @@
         "rtl_cycles": 3217,
         "script_commands": 250
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.0058263189857826
     },
     {
       "suite": "memory64/memory_redundancy64.wast",
@@ -1204,7 +1307,8 @@
         "rtl_cycles": 393,
         "script_commands": 8
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04985655198106542
     },
     {
       "suite": "memory64/memory_trap64.wast",
@@ -1214,7 +1318,8 @@
         "rtl_cycles": 1668,
         "script_commands": 172
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1406132309930399
     },
     {
       "suite": "memory64/table64.wast",
@@ -1225,7 +1330,8 @@
         "rtl_cycles": 48,
         "script_commands": 14
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1212043579434976
     },
     {
       "suite": "memory64/table_copy64.wast",
@@ -1237,7 +1343,8 @@
         "rtl_cycles": 40444,
         "script_commands": 1728
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.8765428030164912
     },
     {
       "suite": "memory64/table_copy_mixed.wast",
@@ -1247,7 +1354,8 @@
         "rtl_cycles": 48,
         "script_commands": 4
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05214556597638875
     },
     {
       "suite": "memory64/table_fill64.wast",
@@ -1258,7 +1366,8 @@
         "rtl_cycles": 1334,
         "script_commands": 80
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1615979020134546
     },
     {
       "suite": "memory64/table_get64.wast",
@@ -1269,7 +1378,8 @@
         "rtl_cycles": 252,
         "script_commands": 11
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.03341770201222971
     },
     {
       "suite": "memory64/table_grow64.wast",
@@ -1279,7 +1389,8 @@
         "rtl_cycles": 427,
         "script_commands": 27
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05780065798899159
     },
     {
       "suite": "memory64/table_init64.wast",
@@ -1292,7 +1403,8 @@
         "rtl_cycles": 21388,
         "script_commands": 888
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.4959276990266517
     },
     {
       "suite": "memory64/table_set64.wast",
@@ -1302,7 +1414,8 @@
         "rtl_cycles": 356,
         "script_commands": 19
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05068613600451499
     },
     {
       "suite": "memory64/table_size64.wast",
@@ -1312,7 +1425,8 @@
         "rtl_cycles": 642,
         "script_commands": 37
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05778445099713281
     },
     {
       "suite": "memory_grow.wast",
@@ -1324,7 +1438,8 @@
         "rtl_cycles": 17303048,
         "script_commands": 109
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 199.67104269197444
     },
     {
       "suite": "memory_redundancy.wast",
@@ -1335,7 +1450,8 @@
         "rtl_cycles": 393,
         "script_commands": 8
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.03846507804701105
     },
     {
       "suite": "memory_size.wast",
@@ -1346,7 +1462,8 @@
         "rtl_cycles": 512,
         "script_commands": 42
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.09848658199189231
     },
     {
       "suite": "memory_trap.wast",
@@ -1356,7 +1473,8 @@
         "rtl_cycles": 1808,
         "script_commands": 182
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.14735497703077272
     },
     {
       "suite": "multi-memory/address0.wast",
@@ -1366,7 +1484,8 @@
         "rtl_cycles": 1511,
         "script_commands": 92
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.09239400498336181
     },
     {
       "suite": "multi-memory/address1.wast",
@@ -1376,7 +1495,8 @@
         "rtl_cycles": 2086,
         "script_commands": 127
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1159134890185669
     },
     {
       "suite": "multi-memory/align0.wast",
@@ -1386,7 +1506,8 @@
         "rtl_cycles": 282,
         "script_commands": 5
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04317579895723611
     },
     {
       "suite": "multi-memory/binary0.wast",
@@ -1396,7 +1517,8 @@
         "rtl_cycles": 84,
         "script_commands": 7
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07915553997736424
     },
     {
       "suite": "multi-memory/data0.wast",
@@ -1405,7 +1527,8 @@
         "rtl_cycles": 448,
         "script_commands": 7
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1063738270313479
     },
     {
       "suite": "multi-memory/data1.wast",
@@ -1414,7 +1537,8 @@
         "rtl_cycles": 220,
         "script_commands": 14
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1478655639803037
     },
     {
       "suite": "multi-memory/data_drop0.wast",
@@ -1425,7 +1549,8 @@
         "rtl_cycles": 206,
         "script_commands": 11
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.034253010991960764
     },
     {
       "suite": "multi-memory/exports0.wast",
@@ -1434,7 +1559,8 @@
         "rtl_cycles": 48,
         "script_commands": 8
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08173769299173728
     },
     {
       "suite": "multi-memory/float_exprs0.wast",
@@ -1445,7 +1571,8 @@
         "rtl_cycles": 651,
         "script_commands": 14
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05386202997760847
     },
     {
       "suite": "multi-memory/float_exprs1.wast",
@@ -1455,7 +1582,8 @@
         "rtl_cycles": 24420,
         "script_commands": 3
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.43538359098602086
     },
     {
       "suite": "multi-memory/float_memory0.wast",
@@ -1466,7 +1594,8 @@
         "rtl_cycles": 576,
         "script_commands": 30
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06877461401745677
     },
     {
       "suite": "multi-memory/imports0.wast",
@@ -1477,7 +1606,8 @@
         "rtl_cycles": 84,
         "script_commands": 8
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08106661797501147
     },
     {
       "suite": "multi-memory/imports1.wast",
@@ -1487,7 +1617,8 @@
         "rtl_cycles": 121,
         "script_commands": 5
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.027421736042015254
     },
     {
       "suite": "multi-memory/imports2.wast",
@@ -1499,7 +1630,8 @@
         "rtl_cycles": 194,
         "script_commands": 20
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1129279849701561
     },
     {
       "suite": "multi-memory/imports3.wast",
@@ -1510,7 +1642,8 @@
         "rtl_cycles": 84,
         "script_commands": 10
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.11685813096119091
     },
     {
       "suite": "multi-memory/imports4.wast",
@@ -1521,7 +1654,8 @@
         "rtl_cycles": 158,
         "script_commands": 16
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08478947496041656
     },
     {
       "suite": "multi-memory/linking0.wast",
@@ -1533,7 +1667,8 @@
         "rtl_cycles": 183,
         "script_commands": 6
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06323488999623805
     },
     {
       "suite": "multi-memory/linking1.wast",
@@ -1545,7 +1680,8 @@
         "rtl_cycles": 246,
         "script_commands": 14
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08379641699139029
     },
     {
       "suite": "multi-memory/linking2.wast",
@@ -1556,7 +1692,8 @@
         "rtl_cycles": 172,
         "script_commands": 11
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.041626423015259206
     },
     {
       "suite": "multi-memory/linking3.wast",
@@ -1568,7 +1705,8 @@
         "rtl_cycles": 267,
         "script_commands": 14
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.09725162800168619
     },
     {
       "suite": "multi-memory/load0.wast",
@@ -1578,7 +1716,8 @@
         "rtl_cycles": 108,
         "script_commands": 3
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.028253997035790235
     },
     {
       "suite": "multi-memory/load1.wast",
@@ -1589,7 +1728,8 @@
         "rtl_cycles": 342,
         "script_commands": 18
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06877169501967728
     },
     {
       "suite": "multi-memory/load2.wast",
@@ -1599,7 +1739,8 @@
         "rtl_cycles": 1049,
         "script_commands": 38
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06356494000647217
     },
     {
       "suite": "multi-memory/memory-multi.wast",
@@ -1609,7 +1750,8 @@
         "rtl_cycles": 184,
         "script_commands": 6
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.039892545028124005
     },
     {
       "suite": "multi-memory/memory_copy0.wast",
@@ -1620,7 +1762,8 @@
         "rtl_cycles": 894,
         "script_commands": 29
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.054921543051023036
     },
     {
       "suite": "multi-memory/memory_copy1.wast",
@@ -1631,7 +1774,8 @@
         "rtl_cycles": 608,
         "script_commands": 14
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.0439266330213286
     },
     {
       "suite": "multi-memory/memory_fill0.wast",
@@ -1642,7 +1786,8 @@
         "rtl_cycles": 20790,
         "script_commands": 16
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.2434359670151025
     },
     {
       "suite": "multi-memory/memory_grow.wast",
@@ -1653,7 +1798,8 @@
         "rtl_cycles": 638,
         "script_commands": 51
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07350431801751256
     },
     {
       "suite": "multi-memory/memory_init0.wast",
@@ -1664,7 +1810,8 @@
         "rtl_cycles": 257,
         "script_commands": 13
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.03382451698416844
     },
     {
       "suite": "multi-memory/memory_size0.wast",
@@ -1674,7 +1821,8 @@
         "rtl_cycles": 138,
         "script_commands": 8
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.03449226700467989
     },
     {
       "suite": "multi-memory/memory_size1.wast",
@@ -1684,7 +1832,8 @@
         "rtl_cycles": 224,
         "script_commands": 15
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.03415673697600141
     },
     {
       "suite": "multi-memory/memory_size2.wast",
@@ -1694,7 +1843,8 @@
         "rtl_cycles": 300,
         "script_commands": 21
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04573008604347706
     },
     {
       "suite": "multi-memory/memory_size3.wast",
@@ -1703,7 +1853,8 @@
         "rtl_cycles": 48,
         "script_commands": 2
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04214648198103532
     },
     {
       "suite": "multi-memory/memory_size_import.wast",
@@ -1714,7 +1865,8 @@
         "rtl_cycles": 96,
         "script_commands": 7
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.0370987220085226
     },
     {
       "suite": "multi-memory/memory_trap0.wast",
@@ -1724,7 +1876,8 @@
         "rtl_cycles": 394,
         "script_commands": 14
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04770182498032227
     },
     {
       "suite": "multi-memory/memory_trap1.wast",
@@ -1734,7 +1887,8 @@
         "rtl_cycles": 1462,
         "script_commands": 168
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.11768747097812593
     },
     {
       "suite": "multi-memory/start0.wast",
@@ -1745,7 +1899,8 @@
         "rtl_cycles": 319,
         "script_commands": 9
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.034054938005283475
     },
     {
       "suite": "multi-memory/store0.wast",
@@ -1756,7 +1911,8 @@
         "rtl_cycles": 120,
         "script_commands": 5
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.02845156699186191
     },
     {
       "suite": "multi-memory/store1.wast",
@@ -1768,7 +1924,8 @@
         "rtl_cycles": 192,
         "script_commands": 13
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04570538201369345
     },
     {
       "suite": "multi-memory/store2.wast",
@@ -1780,7 +1937,8 @@
         "rtl_cycles": 728,
         "script_commands": 25
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.057802396011538804
     },
     {
       "suite": "multi-memory/traps0.wast",
@@ -1790,7 +1948,8 @@
         "rtl_cycles": 146,
         "script_commands": 15
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.036004610010422766
     },
     {
       "suite": "names.wast",
@@ -1800,7 +1959,8 @@
         "rtl_cycles": 5850,
         "script_commands": 486
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3361760179977864
     },
     {
       "suite": "nop.wast",
@@ -1811,7 +1971,8 @@
         "rtl_cycles": 2083,
         "script_commands": 88
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.14380589500069618
     },
     {
       "suite": "obsolete-keywords.wast",
@@ -1820,7 +1981,8 @@
         "rtl_cycles": 48,
         "script_commands": 11
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08779397502075881
     },
     {
       "suite": "ref.wast",
@@ -1830,7 +1992,8 @@
         "rtl_cycles": 48,
         "script_commands": 13
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.13442616700194776
     },
     {
       "suite": "ref_as_non_null.wast",
@@ -1841,7 +2004,8 @@
         "rtl_cycles": 154,
         "script_commands": 7
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.0619559699553065
     },
     {
       "suite": "ref_func.wast",
@@ -1854,7 +2018,8 @@
         "rtl_cycles": 562,
         "script_commands": 17
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1065949039766565
     },
     {
       "suite": "ref_is_null.wast",
@@ -1866,7 +2031,8 @@
         "rtl_cycles": 604,
         "script_commands": 22
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08062908798456192
     },
     {
       "suite": "ref_null.wast",
@@ -1876,7 +2042,8 @@
         "rtl_cycles": 816,
         "script_commands": 34
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06531855301000178
     },
     {
       "suite": "relaxed-simd/i16x8_relaxed_q15mulr_s.wast",
@@ -1886,7 +2053,8 @@
         "rtl_cycles": 156,
         "script_commands": 3
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.031472913979087025
     },
     {
       "suite": "relaxed-simd/i32x4_relaxed_trunc.wast",
@@ -1895,7 +2063,8 @@
         "rtl_cycles": 48,
         "script_commands": 1
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.029254893015604466
     },
     {
       "suite": "relaxed-simd/i8x16_relaxed_swizzle.wast",
@@ -1905,7 +2074,8 @@
         "rtl_cycles": 297,
         "script_commands": 6
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04353911697398871
     },
     {
       "suite": "relaxed-simd/relaxed_dot_product.wast",
@@ -1915,7 +2085,8 @@
         "rtl_cycles": 593,
         "script_commands": 12
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.04983454698231071
     },
     {
       "suite": "relaxed-simd/relaxed_laneselect.wast",
@@ -1925,7 +2096,8 @@
         "rtl_cycles": 653,
         "script_commands": 12
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05621525296010077
     },
     {
       "suite": "relaxed-simd/relaxed_madd_nmadd.wast",
@@ -1935,7 +2107,8 @@
         "rtl_cycles": 854,
         "script_commands": 20
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05778327101143077
     },
     {
       "suite": "relaxed-simd/relaxed_min_max.wast",
@@ -1945,7 +2118,8 @@
         "rtl_cycles": 924,
         "script_commands": 25
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05771111202193424
     },
     {
       "suite": "return.wast",
@@ -1956,7 +2130,8 @@
         "rtl_cycles": 981,
         "script_commands": 84
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.2804577779606916
     },
     {
       "suite": "return_call.wast",
@@ -1967,7 +2142,8 @@
         "rtl_cycles": 90027776,
         "script_commands": 51
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1354.481775377004
     },
     {
       "suite": "return_call_indirect.wast",
@@ -1978,7 +2154,8 @@
         "rtl_cycles": 17080883,
         "script_commands": 83
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 185.07032939599594
     },
     {
       "suite": "return_call_ref.wast",
@@ -1989,7 +2166,8 @@
         "rtl_cycles": 120037180,
         "script_commands": 53
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1755.8343175989576
     },
     {
       "suite": "select.wast",
@@ -2000,7 +2178,8 @@
         "rtl_cycles": 2894,
         "script_commands": 157
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.43823874596273527
     },
     {
       "suite": "simd/simd_address.wast",
@@ -2011,7 +2190,8 @@
         "rtl_cycles": 828,
         "script_commands": 49
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1175557509995997
     },
     {
       "suite": "simd/simd_align.wast",
@@ -2022,7 +2202,8 @@
         "rtl_cycles": 236,
         "script_commands": 100
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7637644200003706
     },
     {
       "suite": "simd/simd_bit_shift.wast",
@@ -2033,7 +2214,8 @@
         "rtl_cycles": 7803,
         "script_commands": 252
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7491153600276448
     },
     {
       "suite": "simd/simd_bitwise.wast",
@@ -2044,7 +2226,8 @@
         "rtl_cycles": 6159,
         "script_commands": 169
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4898202689946629
     },
     {
       "suite": "simd/simd_boolean.wast",
@@ -2055,7 +2238,8 @@
         "rtl_cycles": 11506,
         "script_commands": 277
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4575297110131942
     },
     {
       "suite": "simd/simd_const.wast",
@@ -2066,7 +2250,8 @@
         "rtl_cycles": 3639,
         "script_commands": 758
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 4.222849914978724
     },
     {
       "suite": "simd/simd_conversions.wast",
@@ -2077,7 +2262,8 @@
         "rtl_cycles": 6523,
         "script_commands": 282
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.5706046920386143
     },
     {
       "suite": "simd/simd_f32x4.wast",
@@ -2088,7 +2274,8 @@
         "rtl_cycles": 18576,
         "script_commands": 790
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.8272297899820842
     },
     {
       "suite": "simd/simd_f32x4_arith.wast",
@@ -2099,7 +2286,8 @@
         "rtl_cycles": 89693,
         "script_commands": 1822
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 2.618810499960091
     },
     {
       "suite": "simd/simd_f32x4_cmp.wast",
@@ -2110,7 +2298,8 @@
         "rtl_cycles": 63000,
         "script_commands": 2607
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 2.546939941996243
     },
     {
       "suite": "simd/simd_f32x4_pmin_pmax.wast",
@@ -2121,7 +2310,8 @@
         "rtl_cycles": 92976,
         "script_commands": 3887
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 3.257665580022149
     },
     {
       "suite": "simd/simd_f32x4_rounding.wast",
@@ -2132,7 +2322,8 @@
         "rtl_cycles": 3920,
         "script_commands": 201
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.35304718097904697
     },
     {
       "suite": "simd/simd_f64x2.wast",
@@ -2143,7 +2334,8 @@
         "rtl_cycles": 15890,
         "script_commands": 803
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.6554003370110877
     },
     {
       "suite": "simd/simd_f64x2_arith.wast",
@@ -2154,7 +2346,8 @@
         "rtl_cycles": 59291,
         "script_commands": 1825
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.9131091980380006
     },
     {
       "suite": "simd/simd_f64x2_cmp.wast",
@@ -2165,7 +2358,8 @@
         "rtl_cycles": 54068,
         "script_commands": 2685
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 2.3781504610087723
     },
     {
       "suite": "simd/simd_f64x2_pmin_pmax.wast",
@@ -2176,7 +2370,8 @@
         "rtl_cycles": 77488,
         "script_commands": 3887
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 3.402492421970237
     },
     {
       "suite": "simd/simd_f64x2_rounding.wast",
@@ -2187,7 +2382,8 @@
         "rtl_cycles": 3216,
         "script_commands": 201
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.35580379399470985
     },
     {
       "suite": "simd/simd_i16x8_arith.wast",
@@ -2198,7 +2394,8 @@
         "rtl_cycles": 6132,
         "script_commands": 194
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.33416011900408193
     },
     {
       "suite": "simd/simd_i16x8_arith2.wast",
@@ -2209,7 +2406,8 @@
         "rtl_cycles": 5723,
         "script_commands": 172
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3249225199688226
     },
     {
       "suite": "simd/simd_i16x8_cmp.wast",
@@ -2220,7 +2418,8 @@
         "rtl_cycles": 15723,
         "script_commands": 465
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7601185759995133
     },
     {
       "suite": "simd/simd_i16x8_extadd_pairwise_i8x16.wast",
@@ -2231,7 +2430,8 @@
         "rtl_cycles": 544,
         "script_commands": 21
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07761534897144884
     },
     {
       "suite": "simd/simd_i16x8_extmul_i8x16.wast",
@@ -2242,7 +2442,8 @@
         "rtl_cycles": 3480,
         "script_commands": 117
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.2537007199716754
     },
     {
       "suite": "simd/simd_i16x8_q15mulr_sat_s.wast",
@@ -2253,7 +2454,8 @@
         "rtl_cycles": 906,
         "script_commands": 30
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08393165201414376
     },
     {
       "suite": "simd/simd_i16x8_sat_arith.wast",
@@ -2264,7 +2466,8 @@
         "rtl_cycles": 6940,
         "script_commands": 222
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3633138270233758
     },
     {
       "suite": "simd/simd_i32x4_arith.wast",
@@ -2275,7 +2478,8 @@
         "rtl_cycles": 6132,
         "script_commands": 194
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.34523758001159877
     },
     {
       "suite": "simd/simd_i32x4_arith2.wast",
@@ -2286,7 +2490,8 @@
         "rtl_cycles": 4506,
         "script_commands": 149
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.38964236597530544
     },
     {
       "suite": "simd/simd_i32x4_cmp.wast",
@@ -2297,7 +2502,8 @@
         "rtl_cycles": 15723,
         "script_commands": 475
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7224424819578417
     },
     {
       "suite": "simd/simd_i32x4_dot_i16x8.wast",
@@ -2308,7 +2514,8 @@
         "rtl_cycles": 972,
         "script_commands": 32
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.08840187703026459
     },
     {
       "suite": "simd/simd_i32x4_extadd_pairwise_i16x8.wast",
@@ -2319,7 +2526,8 @@
         "rtl_cycles": 544,
         "script_commands": 21
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.093048351991456
     },
     {
       "suite": "simd/simd_i32x4_extmul_i16x8.wast",
@@ -2330,7 +2538,8 @@
         "rtl_cycles": 3480,
         "script_commands": 117
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.2557704630307853
     },
     {
       "suite": "simd/simd_i32x4_trunc_sat_f32x4.wast",
@@ -2341,7 +2550,8 @@
         "rtl_cycles": 2292,
         "script_commands": 107
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.15411080402554944
     },
     {
       "suite": "simd/simd_i32x4_trunc_sat_f64x2.wast",
@@ -2352,7 +2562,8 @@
         "rtl_cycles": 1884,
         "script_commands": 107
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.13907027000095695
     },
     {
       "suite": "simd/simd_i64x2_arith.wast",
@@ -2363,7 +2574,8 @@
         "rtl_cycles": 6330,
         "script_commands": 200
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.3865812310250476
     },
     {
       "suite": "simd/simd_i64x2_arith2.wast",
@@ -2374,7 +2586,8 @@
         "rtl_cycles": 718,
         "script_commands": 25
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07489057100610808
     },
     {
       "suite": "simd/simd_i64x2_cmp.wast",
@@ -2385,7 +2598,8 @@
         "rtl_cycles": 3414,
         "script_commands": 113
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.2555310290190391
     },
     {
       "suite": "simd/simd_i64x2_extmul_i32x4.wast",
@@ -2396,7 +2610,8 @@
         "rtl_cycles": 3480,
         "script_commands": 117
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.27468612196389586
     },
     {
       "suite": "simd/simd_i8x16_arith.wast",
@@ -2407,7 +2622,8 @@
         "rtl_cycles": 4091,
         "script_commands": 131
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.24558633199194446
     },
     {
       "suite": "simd/simd_i8x16_arith2.wast",
@@ -2418,7 +2634,8 @@
         "rtl_cycles": 7013,
         "script_commands": 211
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4692394270095974
     },
     {
       "suite": "simd/simd_i8x16_cmp.wast",
@@ -2429,7 +2646,8 @@
         "rtl_cycles": 15063,
         "script_commands": 445
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.7175776700023562
     },
     {
       "suite": "simd/simd_i8x16_sat_arith.wast",
@@ -2440,7 +2658,8 @@
         "rtl_cycles": 6412,
         "script_commands": 214
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4320644090184942
     },
     {
       "suite": "simd/simd_int_to_int_extend.wast",
@@ -2451,7 +2670,8 @@
         "rtl_cycles": 7116,
         "script_commands": 253
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4707952240132727
     },
     {
       "suite": "simd/simd_lane.wast",
@@ -2462,7 +2682,8 @@
         "rtl_cycles": 9898,
         "script_commands": 475
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.7427157359779812
     },
     {
       "suite": "simd/simd_linking.wast",
@@ -2472,7 +2693,8 @@
         "rtl_cycles": 72,
         "script_commands": 3
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.03582739003468305
     },
     {
       "suite": "simd/simd_load.wast",
@@ -2483,7 +2705,8 @@
         "rtl_cycles": 888,
         "script_commands": 39
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.23551528400275856
     },
     {
       "suite": "simd/simd_load16_lane.wast",
@@ -2494,7 +2717,8 @@
         "rtl_cycles": 700,
         "script_commands": 36
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07632005895720795
     },
     {
       "suite": "simd/simd_load32_lane.wast",
@@ -2505,7 +2729,8 @@
         "rtl_cycles": 460,
         "script_commands": 24
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.09691442199982703
     },
     {
       "suite": "simd/simd_load64_lane.wast",
@@ -2516,7 +2741,8 @@
         "rtl_cycles": 300,
         "script_commands": 16
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07511161704314873
     },
     {
       "suite": "simd/simd_load8_lane.wast",
@@ -2527,7 +2753,8 @@
         "rtl_cycles": 1020,
         "script_commands": 52
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.10066722601186484
     },
     {
       "suite": "simd/simd_load_extend.wast",
@@ -2538,7 +2765,8 @@
         "rtl_cycles": 1668,
         "script_commands": 104
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.24359997297869995
     },
     {
       "suite": "simd/simd_load_splat.wast",
@@ -2549,7 +2777,8 @@
         "rtl_cycles": 1884,
         "script_commands": 126
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.21314120496390387
     },
     {
       "suite": "simd/simd_load_zero.wast",
@@ -2560,7 +2789,8 @@
         "rtl_cycles": 594,
         "script_commands": 39
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1561632480006665
     },
     {
       "suite": "simd/simd_memory-multi.wast",
@@ -2569,7 +2799,8 @@
         "rtl_cycles": 48,
         "script_commands": 1
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.0345705789513886
     },
     {
       "suite": "simd/simd_select.wast",
@@ -2579,7 +2810,8 @@
         "rtl_cycles": 156,
         "script_commands": 7
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.030576042947359383
     },
     {
       "suite": "simd/simd_splat.wast",
@@ -2590,7 +2822,8 @@
         "rtl_cycles": 6820,
         "script_commands": 185
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.4300425329711288
     },
     {
       "suite": "simd/simd_store.wast",
@@ -2601,7 +2834,8 @@
         "rtl_cycles": 485,
         "script_commands": 28
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.13605278701288626
     },
     {
       "suite": "simd/simd_store16_lane.wast",
@@ -2612,7 +2846,8 @@
         "rtl_cycles": 1564,
         "script_commands": 36
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.11631267401389778
     },
     {
       "suite": "simd/simd_store32_lane.wast",
@@ -2623,7 +2858,8 @@
         "rtl_cycles": 1000,
         "script_commands": 24
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.09507552004652098
     },
     {
       "suite": "simd/simd_store64_lane.wast",
@@ -2634,7 +2870,8 @@
         "rtl_cycles": 624,
         "script_commands": 16
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07855844800360501
     },
     {
       "suite": "simd/simd_store8_lane.wast",
@@ -2645,7 +2882,8 @@
         "rtl_cycles": 2316,
         "script_commands": 52
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.1387787149869837
     },
     {
       "suite": "skip-stack-guard-page.wast",
@@ -2655,7 +2893,8 @@
         "rtl_cycles": 108596,
         "script_commands": 11
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.6270314360153861
     },
     {
       "suite": "stack.wast",
@@ -2665,7 +2904,8 @@
         "rtl_cycles": 2668,
         "script_commands": 7
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.10093926399713382
     },
     {
       "suite": "start.wast",
@@ -2678,7 +2918,8 @@
         "rtl_cycles": 533,
         "script_commands": 20
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.11930690403096378
     },
     {
       "suite": "store.wast",
@@ -2689,7 +2930,8 @@
         "rtl_cycles": 261,
         "script_commands": 68
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.552058705012314
     },
     {
       "suite": "switch.wast",
@@ -2700,7 +2942,8 @@
         "rtl_cycles": 1358,
         "script_commands": 28
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07941042998572811
     },
     {
       "suite": "table.wast",
@@ -2713,7 +2956,8 @@
         "rtl_cycles": 242,
         "script_commands": 46
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.31759020598838106
     },
     {
       "suite": "table_get.wast",
@@ -2725,7 +2969,8 @@
         "rtl_cycles": 252,
         "script_commands": 16
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.07410600001458079
     },
     {
       "suite": "table_grow.wast",
@@ -2737,7 +2982,8 @@
         "rtl_cycles": 6176,
         "script_commands": 61
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.30124108400195837
     },
     {
       "suite": "table_set.wast",
@@ -2748,7 +2994,8 @@
         "rtl_cycles": 356,
         "script_commands": 26
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.12376389396376908
     },
     {
       "suite": "table_size.wast",
@@ -2759,7 +3006,8 @@
         "rtl_cycles": 642,
         "script_commands": 39
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.06429884600220248
     },
     {
       "suite": "token.wast",
@@ -2769,7 +3017,8 @@
         "rtl_cycles": 108,
         "script_commands": 61
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.49472816102206707
     },
     {
       "suite": "traps.wast",
@@ -2779,7 +3028,8 @@
         "rtl_cycles": 310,
         "script_commands": 36
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.10029162099817768
     },
     {
       "suite": "type-canon.wast",
@@ -2788,7 +3038,8 @@
         "rtl_cycles": 48,
         "script_commands": 2
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.045724281982984394
     },
     {
       "suite": "type-equivalence.wast",
@@ -2800,7 +3051,8 @@
         "rtl_cycles": 725,
         "script_commands": 32
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.24450636701658368
     },
     {
       "suite": "type-rec.wast",
@@ -2813,7 +3065,8 @@
         "rtl_cycles": 227,
         "script_commands": 27
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.19008929404662922
     },
     {
       "suite": "type.wast",
@@ -2823,7 +3076,8 @@
         "rtl_cycles": 48,
         "script_commands": 3
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.048105487949214876
     },
     {
       "suite": "unreachable.wast",
@@ -2833,7 +3087,8 @@
         "rtl_cycles": 653,
         "script_commands": 64
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.0792022499954328
     },
     {
       "suite": "unreached-invalid.wast",
@@ -2842,7 +3097,8 @@
         "rtl_cycles": 48,
         "script_commands": 121
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.0676634979899973
     },
     {
       "suite": "unreached-valid.wast",
@@ -2852,7 +3108,8 @@
         "rtl_cycles": 106,
         "script_commands": 13
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.05076507496414706
     },
     {
       "suite": "unwind.wast",
@@ -2862,7 +3119,8 @@
         "rtl_cycles": 1026,
         "script_commands": 50
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.0874847859959118
     },
     {
       "suite": "utf8-custom-section-id.wast",
@@ -2871,7 +3129,8 @@
         "rtl_cycles": 48,
         "script_commands": 176
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.0331516389851458
     },
     {
       "suite": "utf8-import-field.wast",
@@ -2880,7 +3139,8 @@
         "rtl_cycles": 48,
         "script_commands": 176
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 1.0225331439869478
     },
     {
       "suite": "utf8-import-module.wast",
@@ -2889,7 +3149,8 @@
         "rtl_cycles": 48,
         "script_commands": 176
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.995158898003865
     },
     {
       "suite": "utf8-invalid-encoding.wast",
@@ -2899,8 +3160,8 @@
         "rtl_cycles": 48,
         "script_commands": 183
       },
-      "failures": []
+      "failures": [],
+      "elapsed_seconds": 0.8954455459606834
     }
-  ],
-  "runtime_source_revision": "bf3ce2405f2ac14e4712bd4126929e69320ef93b"
+  ]
 }

@@ -52,6 +52,8 @@ The ECP5 simulator uses Yosys logic-cell models plus checked models for the emit
 
 This is **functional** simulation. It checks values and clocked behavior, not analog electrical behavior or realistic routed wire delays. Static timing analysis separately checks whether signals can arrive before their required clock edges. Both rising and falling edges matter to WasMetal's RAM design.
 
+Simulation speed is also different from hardware clock speed. A computer may take milliseconds to evaluate one cycle of the mapped circuit. The configured FPGA carries out its circuit's operations in parallel. A slow simulator does not establish a slow FPGA clock; the recorded timing constraints and physical measurements address that question.
+
 ## Why the previous reports said 259 and 40
 
 The full original-RTL run completed all **259** pinned official core test files, with 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions. See the [recorded RTL run](verification/core-3.0-current.json).
@@ -60,7 +62,7 @@ The additional netlist regression selected **40** files and completed 17,379 exe
 
 That record does not establish failures in the remaining files; it establishes that the full mapped regression was not completed. The mapped simulation evaluates a much more detailed circuit and can take substantially longer. The direct and reference tail-call suites alone account for over 210 million simulated cycles in the recorded RTL run; their official long-running cases must remain intact.
 
-The full mapped regression is now in progress. Its final result must identify all 259 suites, show zero failures, unsupported cases, conversion errors, blocked commands or runner errors, and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
+Expanded mapped testing is now in progress. The original slow full run was interrupted while faster simulator builds were checked. Faster models are running 249 shorter suites and a separate `call_indirect` regression; nine longer suites remain pending. A final full result must identify all 259 suites, show zero failures, unsupported cases, conversion errors, blocked commands or runner errors, and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
 
 ## Running and observing the full mapped regression
 
@@ -68,14 +70,32 @@ For a freshly built model in the current workspace:
 
 ```sh
 make fpga-core
-python3 tools/build_gate_sim.py --core-netlist build/core-ecp5.json
+python3 tools/build_gate_sim.py --core-netlist build/core-ecp5.json --fast-sim --fast-luts
 python3 tools/run_spec.py \
   --simulator build/gate-model/obj/Vwasmetal_core \
-  --wait-states 3 --jobs 8 --response-timeout 172800 \
+  --wait-states 3 --jobs 4 --response-timeout 172800 \
   --schedule-from docs/verification/core-3.0-current.json \
   --progress-report reports/ecp5-full.progress.json \
   --report reports/ecp5-full.json
 ```
+
+The optional `--fast-sim` builder flag uses Clang with `-O3 -march=native` for
+the simulator executable. It changes neither the netlist nor the FPGA
+bitstream. It requires Clang and targets the development computer's instruction
+set, so rebuild the simulator when moving to a different host CPU. Compiler
+identity and flags are recorded; a full build recompiles every object to avoid
+silently reusing objects from different compiler settings. `--jobs` controls
+compilation parallelism, and `--build-directory build/gate-fast` keeps an
+experimental executable separate from an existing one.
+
+`--fast-luts` expresses each lookup table as a direct lookup when its selectors
+are known, retaining the original multiplexer expression whenever a selector is
+X or Z. This changes the simulation representation of the primitive, not the
+mapped circuit. Each build first proves binary equivalence for every possible
+table and selector and runs four-state comparisons for the mapped table values.
+A deliberately wrong primitive must fail the proof. See the
+[primitive-check report](verification/ecp5-lut-model.json). These are local
+primitive checks, separate from the inconclusive whole-CPU equivalence attempt.
 
 Omitting `--suite` selects the entire official core tree. `--schedule-from` changes only execution order, using prior cycle counts to start long suites early. Each suite has its own simulator process and independent state.
 
@@ -83,7 +103,21 @@ Omitting `--suite` selects the entire official core tree. `--schedule-from` chan
 
 The progress file is replaced atomically when a suite finishes. It is a partial observation, never evidence of a full pass. The final report is authoritative and follows the end-of-run identity checks. `--verbose` additionally logs the script location before each command, identifying long invocations while they run.
 
-The current long run reuses the verified executable under `build/abc9-check/root`, preserving its build environment. Its netlist is byte-identical to `build/core-ecp5.json`, and its RTL and host-adapter inputs match the current project. The current runner was copied into that snapshot before launch. Local launch details are in `reports/ecp5-full-launch.json`; live results go to the root workspace's `reports/` directory. Historical synthesis/routing scripts in the snapshot are not used to execute the simulation.
+The current expanded run uses the Clang-compiled executable under
+`build/abc9-check/root/build/gate-speed`, preserving the verified model's build
+environment. Its netlist is byte-identical to `build/core-ecp5.json`, and its RTL
+and host-adapter inputs match the current project. The current runner was copied
+into that snapshot before launch. Its partial results are in
+`reports/ecp5-extended.progress.json`; its final subset report will be
+`reports/ecp5-extended.json`. Local launch details for the interrupted full run
+remain in `reports/ecp5-full-launch.json`. Historical synthesis/routing scripts
+in the snapshot are not used to execute the simulation.
+
+The same 249 suites are also running on the equivalent lookup model under
+`build/abc9-check/root/build/gate-lookup-clang`. Its records are
+`reports/ecp5-optimized-extended.progress.json` and
+`reports/ecp5-optimized-extended.json`. The separate longer suite uses
+`reports/ecp5-call-indirect.progress.json` and `reports/ecp5-call-indirect.json`.
 
 ## After a full netlist pass
 

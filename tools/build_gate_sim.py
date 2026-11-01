@@ -6,7 +6,9 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
+import sys
 
 import build_identity
 import ecp5_ram
@@ -15,6 +17,39 @@ ROOT=Path(__file__).resolve().parent.parent
 
 
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def fast_lut_model(model,name):
+    """Use a direct lookup for known selectors; retain exact X/Z behavior."""
+    pins={'LUT2':'{B,A}','LUT4':'{D,C,B,A}'}[name]
+    model,count=re.subn(r'assign Z\s*=\s*A \?\s*s1\[1\]\s*:\s*s1\[0\];',
+        f'assign Z = $isunknown({pins}) ? (A ? s1[1] : s1[0]) : INIT[{pins}];',model)
+    if count!=1: raise ValueError('unrecognized pinned LUT model: '+name)
+    return model
+
+
+def compilation(fast):
+    compiler=shutil.which('clang++' if fast else 'g++')
+    if compiler is None: raise ValueError('install clang++ to use --fast-sim' if fast else 'g++ is missing')
+    flags='-std=c++17 -O2 -Wall -Wextra -Werror'
+    if fast:
+        # These two style-warning exceptions are needed by the pinned
+        # Verilator-generated code/runtime when compiled with Clang.
+        flags='-std=c++17 -O3 -march=native -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter'
+    return {'fast_sim':fast,'compiler':compiler,'compiler_sha256':digest(Path(compiler)),
+            'compiler_version':subprocess.check_output([compiler,'--version'],text=True).splitlines()[0],
+            'cflags':flags}
+
+
+def compile_model(directory,options,jobs,force):
+    command=['make','-C',str(directory/'obj'),'-f','Vwasmetal_core.mk','-j',str(jobs),
+             'CXX='+options['compiler'],'LINK='+options['compiler'],'VM_USER_CFLAGS='+options['cflags']]
+    if force: command.append('-B')  # A changed compiler/flags must not reuse old objects.
+    if options['fast_sim']: command+=['OPT_FAST=-O3','OPT_SLOW=-O3','OPT_GLOBAL=-O3']
+    subprocess.run(command,check=True,cwd=ROOT,
+                   env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')))
+    if digest(Path(options['compiler']))!=options['compiler_sha256']:
+        raise ValueError('C++ compiler changed during compilation')
 
 
 def write_adapter(directory,parameters):
@@ -29,9 +64,14 @@ def write_adapter(directory,parameters):
         if not path.exists() or path.read_text()!=text: path.write_text(text)
 
 
-def relink(directory,netlist,parameters):
+def relink(directory,netlist,parameters,options,jobs,model_options):
     binary=directory/'obj/Vwasmetal_core'
     previous=json.loads(Path(str(binary)+'.build.json').read_text())
+    if previous.get('model_options',{'fast_luts':False})!=model_options:
+        raise ValueError('changing primitive models requires a full rebuild without --relink-only')
+    previous_compilation=previous.get('compilation')
+    if previous_compilation is not None and previous_compilation!=options:
+        raise ValueError('changing compiler identity or flags requires a full rebuild without --relink-only')
     if digest(binary)!=previous['binary_sha256']: raise ValueError('existing mapped executable changed')
     for name,sha in previous['inputs'].items():
         if name.startswith(('rtl/','third_party/hardfloat/')) and digest(ROOT/name)!=sha:
@@ -48,10 +88,11 @@ def relink(directory,netlist,parameters):
     for p in [Path(__file__).resolve(),directory/'main.cpp',directory/'gate_config.hpp']+list(binary.parent.glob('V*.h')):
         extra[str(p.relative_to(ROOT))]=digest(p)
     snapshot.update(backend='mapped-ecp5-functional',parameters=parameters,extra_inputs=extra,
-                    model_generation_script_sha256=generation_sha)
+                    model_generation_script_sha256=generation_sha,compilation=options,model_options=model_options)
     path.write_text(json.dumps(snapshot,indent=2)+'\n')
-    subprocess.run(['make','-C',str(binary.parent),'-f','Vwasmetal_core.mk','-j','2'],check=True,cwd=ROOT,
-                   env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')))
+    # Old manifests did not record the compiler. Recompile their C++ once so
+    # the new compiler record describes the whole executable, not only its host.
+    compile_model(directory,options,jobs,previous_compilation is None)
     build_identity.finish(binary)
     print('Relinked unchanged mapped CPU model',binary)
 
@@ -60,7 +101,16 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--core-netlist',type=Path,default=ROOT/'build/core-ecp5.json')
     parser.add_argument('--relink-only',action='store_true',help='reuse a verified unchanged mapped model after host/configuration changes')
+    parser.add_argument('--build-directory',type=Path,default=ROOT/'build/gate-model')
+    parser.add_argument('--jobs',type=int,default=2,help='parallel C++ compilation jobs')
+    parser.add_argument('--fast-sim',action='store_true',help='compile with Clang -O3 and the current host CPU instruction set')
+    parser.add_argument('--fast-luts',action='store_true',help='use equivalence-checked lookup models without changing the mapped circuit')
     args=parser.parse_args()
+    if args.jobs<1: parser.error('jobs must be positive')
+    directory=args.build_directory.resolve()
+    if ROOT/'build' not in directory.parents: parser.error('build directory must be inside the repository build directory')
+    options=compilation(args.fast_sim)
+    model_options={'fast_luts':args.fast_luts}
     netlist=args.core_netlist.resolve()
     manifest_path=netlist.with_suffix('.manifest.json')
     manifest=json.loads(manifest_path.read_text())
@@ -70,9 +120,9 @@ def main():
     source=json.loads(netlist.read_text())
     core=source['modules']['wasmetal_core']
     parameters={name:int(value,2) for name,value in core['parameter_default_values'].items()}
-    directory=ROOT/'build/gate-model';directory.mkdir(parents=True,exist_ok=True)
+    directory.mkdir(parents=True,exist_ok=True)
     if args.relink_only:
-        relink(directory,netlist,parameters)
+        relink(directory,netlist,parameters,options,args.jobs,model_options)
         return
     supported={'LUT4','PFUMX','L6MUX21','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF','MULT18X18D','DP16KD'}
     def parameter_text(value):
@@ -116,12 +166,17 @@ def main():
     with (directory/'export.log').open('w') as stream:
         subprocess.run([str(yosys),'-Q','-T','-s',str(script)],stdout=stream,stderr=subprocess.STDOUT,check=True)
     library=ROOT/'.cache/tools/usr/share/yosys/ecp5/cells_sim.v'
+    if args.fast_luts:
+        subprocess.run([sys.executable,str(ROOT/'tools/check_ecp5_luts.py'),
+                        '--core-netlist',str(netlist),'--directory',str(directory/'lut-proof')],check=True)
     models=[]
     for name in ['LUT2','LUT4','PFUMX','L6MUX21','CCU2C','TRELLIS_DPR16X4','TRELLIS_FF']:
         match=re.search(r'\bmodule\s+'+name+r'\b.*?\bendmodule',library.read_text(),re.S)
         if not match: raise ValueError(f'missing official model {name}')
         # This is functional netlist simulation; routed timing is checked by STA.
-        models.append(re.sub(r'\bspecify\b.*?\bendspecify\b','',match[0],flags=re.S))
+        model=re.sub(r'\bspecify\b.*?\bendspecify\b','',match[0],flags=re.S)
+        if args.fast_luts and name in ('LUT2','LUT4'): model=fast_lut_model(model,name)
+        models.append(model)
     ports=source['modules']['MULT18X18D']['ports']
     used=sorted({f'{p}{i}' for p in 'ABC' for i in range(18)}|{f'P{i}' for i in range(36)}|{'SIGNEDA','SIGNEDB','SOURCEA','SOURCEB'})
     models.append('module MULT18X18D('+','.join(ports[p]['direction']+' wire '+p for p in used)+');')
@@ -143,14 +198,16 @@ def main():
     snapshot_path=Path(str(binary)+'.inputs.json')
     snapshot=json.loads(snapshot_path.read_text())
     extras=[netlist,manifest_path,library,yosys,Path(__file__).resolve(),ROOT/'tools/ecp5_ram.py']+list(directory.glob('*.v'))+list(directory.glob('*.vlt'))+[directory/'main.cpp',directory/'gate_config.hpp']
-    snapshot.update(backend='mapped-ecp5-functional',parameters=parameters,
+    if args.fast_luts:
+        extras += [ROOT/'tools/check_ecp5_luts.py']+list((directory/'lut-proof').glob('*'))
+    snapshot.update(backend='mapped-ecp5-functional',parameters=parameters,compilation=options,model_options=model_options,
                     extra_inputs={str(p.relative_to(ROOT)):digest(p) for p in extras})
     snapshot_path.write_text(json.dumps(snapshot,indent=2)+'\n')
-    args=[str(ROOT/'.cache/tools/usr/bin/verilator'),'-Wall','-Wno-UNUSEDSIGNAL','--top-module','wasmetal_core',
+    verilator_command=[str(ROOT/'.cache/tools/usr/bin/verilator'),'-Wall','-Wno-UNUSEDSIGNAL','--top-module','wasmetal_core',
           '--cc','--exe','--output-split','10000','--output-split-cfuncs','10000',
-          '--Mdir',str(binary.parent),'-CFLAGS','-std=c++17 -O2 -Wall -Wextra -Werror',
+          '--Mdir',str(binary.parent),'-CFLAGS',options['cflags'],
           str(directory/'vendor.vlt'),str(directory/'cells.v'),str(directory/'core.v'),str(directory/'main.cpp')]
-    subprocess.run(args,cwd=ROOT,env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')),check=True)
+    subprocess.run(verilator_command,cwd=ROOT,env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')),check=True)
     # Verilator 5.020 emits integer-valued LUT ternaries in Boolean contexts.
     # Suppress that C++ style warning only in its generated implementation;
     # the handwritten host adapter still compiles with all warnings as errors.
@@ -159,8 +216,7 @@ def main():
         path.write_text('#pragma GCC diagnostic ignored "-Wint-in-bool-context"\n'+path.read_text())
     snapshot['extra_inputs'].update({str(p.relative_to(ROOT)):digest(p) for p in generated+list(binary.parent.glob('V*.h'))})
     snapshot_path.write_text(json.dumps(snapshot,indent=2)+'\n')
-    subprocess.run(['make','-C',str(binary.parent),'-f','Vwasmetal_core.mk','-j','2'],check=True,cwd=ROOT,
-                   env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')))
+    compile_model(directory,options,args.jobs,True)
     build_identity.finish(binary)
     print('Built mapped CPU simulator',binary)
 
