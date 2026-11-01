@@ -18,6 +18,8 @@ WasMetal is one processor design represented and checked at several levels. The 
 
 The microarchitecture is embodied in the SystemVerilog RTL. There is no required separate compilation step called “compile the microarchitecture into RTL”; implementing the microarchitecture is the design work we do when writing that RTL.
 
+RTL describes both registers and memory accesses. WasMetal's value stack maps to FPGA block RAM; the RTL describes the control logic that selects entries to read and write on clock edges.
+
 ```mermaid
 flowchart TD
     ISA["WebAssembly ISA: required behavior"] --> ARCH["Microarchitecture: our hardware organization"]
@@ -64,7 +66,7 @@ That record does not establish failures in the remaining files; it establishes t
 
 Expanded testing has now passed [249 official suites](verification/ecp5-expanded.json), with 48,604 execution assertions, 4,320 validation assertions, 254 embedding assertions and 3,038,303 cycles. Every per-suite count matches the original RTL run. Executable/source identity checks passed, and no failures, unsupported cases, conversion errors, blocked commands or runner errors were recorded.
 
-The original slow full run was interrupted while faster simulator builds were checked. A separate `call_indirect` regression is in progress; nine longer suites remain pending. A final full result must identify all 259 suites, show zero errors and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
+The original slow full run was interrupted while faster simulator builds were checked. Work is paused at the owner's request. The [checkpoint](verification/mapped-regression-status.json) records 250 distinct suite files completed and 9 still pending. A final full result must identify all 259 suites, show zero errors and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
 
 ## Running and observing the full mapped regression
 
@@ -103,15 +105,18 @@ Omitting `--suite` selects the entire official core tree. `--schedule-from` chan
 
 `--response-timeout` sets the wall-clock deadline for a simulator response. The separate simulated-cycle budget is unchanged. Wall timeouts, cycle timeouts and unsupported instructions remain failures; they cannot satisfy an expected Wasm exhaustion assertion.
 
+CI includes regression checks for timeout classification and for recompiling simulator objects when compiler flags change.
+
 The progress file is replaced atomically when a suite finishes. It is a partial observation, never evidence of a full pass. The final report is authoritative and follows the end-of-run identity checks. `--verbose` additionally logs the script location before each command, identifying long invocations while they run.
 
-The current expanded run uses the Clang-compiled executable under
+An independent expanded run used the Clang-compiled executable under
 `build/abc9-check/root/build/gate-speed`, preserving the verified model's build
 environment. Its netlist is byte-identical to `build/core-ecp5.json`, and its RTL
 and host-adapter inputs match the current project. The current runner was copied
-into that snapshot before launch. Its partial results are in
-`reports/ecp5-extended.progress.json`; its final subset report will be
-`reports/ecp5-extended.json`. Local launch details for the interrupted full run
+into that snapshot before launch. It passed the same 249 suites using the
+original primitive expressions, with every per-suite count identical to the
+optimized lookup model; see the [independent report](verification/ecp5-compiler-only.json).
+Local launch details for the interrupted full run
 remain in `reports/ecp5-full-launch.json`. Historical synthesis/routing scripts
 in the snapshot are not used to execute the simulation.
 
@@ -122,8 +127,38 @@ The production builder also completed a fresh `--fast-sim --fast-luts` executabl
 under `build/gate-fast-lut`. It passes the existing engine boundary and negative
 checks, including wrong results, wrong traps, resource exhaustion and timeout
 classification; see the [engine report](verification/ecp5-production-engine.json).
-The separate longer suite uses
-`reports/ecp5-call-indirect.progress.json` and `reports/ecp5-call-indirect.json`.
+It also passed the original [40 official suites](verification/ecp5-production.json)
+with exactly the same assertions and cycles as both the native RTL and the
+historical mapped run. These overlapping runs do not add distinct suite coverage.
+The separate [`call_indirect` run](verification/ecp5-call-indirect.json) also
+passed, adding 134 execution assertions, 35 validation assertions and 3,269,242
+cycles with exact agreement against the original RTL.
+
+## Pause checkpoint
+
+The current mapped coverage is **250/259 distinct suite files**, comprising 48,738 execution assertions over 6,307,545 cycles. Work is paused at the owner's request. Local workers have stopped, and the two latest GitHub CI runs were cancelled for that pause. Nothing has been scheduled to resume automatically.
+
+The remaining suites are:
+
+- `bulk-memory/memory_copy.wast`
+- `bulk-memory/memory_fill.wast`
+- `memory64/memory_copy64.wast`
+- `memory64/memory_fill64.wast`
+- `memory64/memory_grow64.wast`
+- `memory_grow.wast`
+- `return_call.wast`
+- `return_call_indirect.wast`
+- `return_call_ref.wast`
+
+These stress suites account for most of the simulated cycles, so the file count alone does not measure remaining runtime. The checkpoint combines disjoint final reports; overlapping independent and fresh-builder checks are counted only once. The full mapped regression remains unfinished.
+
+After an explicit request to resume, the existing verified local executable can run the full corpus with:
+
+```sh
+python3 tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full.progress.json --report reports/ecp5-full.json
+```
+
+If that build directory is unavailable, use the fresh-build instructions above. The runner checks source and executable identities before execution. The pause checkpoint commit skips automatic CI to keep the requested pause in effect; CI should be rerun when work resumes.
 
 ## After a full netlist pass
 
