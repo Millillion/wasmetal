@@ -16,6 +16,8 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host supplies the instruction image, metadata and backing memory; autonomous boot, a local memory controller and reclaiming garbage collection remain future work.
 
+The [FPGA purchase research](docs/FPGA-SELECTION.md) compares development boards, current tool licensing, community support and US home-use compliance. It recommends Genesys 2 as the next technical platform, conditional on supplier clarification of its regulatory basis for home R&D; ZCU104 is the leading alternative with an onboard Arm host. A [core-only Xilinx synthesis estimate](docs/research/xc7-resource-estimate.json) uses 47,801 LUT primitives, about 23.5% of Genesys 2's LUT capacity, and passes structural checks. This estimate has no Xilinx functional, placement or timing validation. ULX3S 85F remains the only routed board target; no board has been purchased or physically tested by this work.
+
 ## GUI Microarchitecture Simulator
 
 The [historical demo](https://wasm-metal-demo.netlify.com) uses the original hosting address; its availability has not been verified for the revival.

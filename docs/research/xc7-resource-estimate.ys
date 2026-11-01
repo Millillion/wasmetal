@@ -1,0 +1,13 @@
+read_verilog -sv -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV third_party/hardfloat/source/HardFloat_primitives.v third_party/hardfloat/source/HardFloat_rawFN.v third_party/hardfloat/source/addRecFN.v third_party/hardfloat/source/compareRecFN.v third_party/hardfloat/source/divSqrtRecFN_small.v third_party/hardfloat/source/fNToRecFN.v third_party/hardfloat/source/iNToRecFN.v third_party/hardfloat/source/isSigNaNRecFN.v third_party/hardfloat/source/mulAddRecFN.v third_party/hardfloat/source/mulRecFN.v third_party/hardfloat/source/recFNToFN.v third_party/hardfloat/source/recFNToIN.v third_party/hardfloat/source/recFNToRecFN.v third_party/hardfloat/source/RISCV/HardFloat_specialize.v rtl/wasmetal_alu.sv rtl/wasmetal_core.sv rtl/wasmetal_descriptors.sv rtl/wasmetal_divider.sv rtl/wasmetal_fp_arithmetic.sv rtl/wasmetal_fp_format.sv rtl/wasmetal_fpu.sv rtl/wasmetal_popcount.sv rtl/wasmetal_simd_decode.sv rtl/wasmetal_simd_fp_decode.sv rtl/wasmetal_simd_int.sv rtl/wasmetal_simd_lanes.sv rtl/wasmetal_simd_serial.sv rtl/wasmetal_values.sv
+chparam -set VALUE_DEPTH 8192 -set CONTROL_DEPTH 2048 -set CALL_DEPTH 512 -set MEMORY_COUNT 256 -set HEAP_SLOTS 1048576 wasmetal_core
+synth_xilinx -family xc7 -top wasmetal_core -flatten -noiopad -noclkbuf -run begin:map_dsp
+share -fast
+synth_xilinx -family xc7 -top wasmetal_core -noiopad -noclkbuf -run map_dsp:coarse
+techmap -map +/cmp2lut.v -map +/cmp2lcu.v -D LUT_WIDTH=6
+alumacc
+opt
+memory -nomap
+opt_clean
+synth_xilinx -family xc7 -top wasmetal_core -noiopad -noclkbuf -run map_memory:check
+check -assert
+write_json build/fpga-research/core-xc7.json

@@ -4,6 +4,10 @@ The reference board is a **ULX3S 85F**, with an ECP5 LFE5U-85F, CABGA381 package
 speed grade 6. Smaller ULX3S variants cannot use this bitstream. The pin assignments
 come from the board project's [v2.0 constraints](https://github.com/emard/ulx3s/blob/6a92cec6b177191c5b0f80e260013a1f8ec147dd/doc/constraints/ulx3s_v20.lpf).
 
+For a new purchase, see the [board selection research](FPGA-SELECTION.md). Its
+Genesys 2 recommendation and exploratory resource estimate do not establish a
+supported Xilinx target; the reference build described here remains ULX3S 85F.
+
 This is a host-backed bring-up system. The FPGA contains the clocked Wasm execution
 engine, including integer, floating-point, SIMD, reference, GC and exception
 instructions. A host loads validated modules and supplies the expanded instruction
