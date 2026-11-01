@@ -43,7 +43,7 @@ cells (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks. The core meets its
 ABC9 mapping and static placement are the default recipe. A fresh
 `make fpga-bitstream` run reproduced the prototype bitstream byte for byte.
 The rebuilt native simulator is also identical to the full-suite-tested binary.
-The mapped functional suite has also completed successfully. An additional
+The selected mapped functional suites have also completed successfully. An additional
 formal comparison was inconclusive; see the verification details below.
 Heap allocation is bounded and currently has no reclamation. Mapped-cell results
 apply to their recorded netlist and capacity profile; a changed mapping requires
@@ -138,10 +138,12 @@ execution and transport checks. Each report identifies its executable, sources
 and capacity profile. The mapped results are a subset; the
 [complete 259-suite report](verification/core-3.0-current.json) records the current native RTL simulation with the same capacities as the FPGA profile.
 
-Expanded mapped testing is in progress against the unchanged default ABC9 core
-netlist. Faster models are running 249 shorter suites and a separate
-`call_indirect` regression; nine longer suites remain pending. The [design-flow explanation](DESIGN-FLOW.md) gives the
-full command and progress locations. A full mapped pass remains pending.
+Expanded testing of the unchanged default ABC9 core netlist has now passed
+[249 official suites](verification/ecp5-expanded.json): 48,604 execution assertions,
+4,320 validation assertions and 254 embedding assertions over 3,038,303 cycles.
+Every per-suite count matches the original RTL run. A separate `call_indirect`
+regression is in progress; nine longer suites remain pending. The [design-flow explanation](DESIGN-FLOW.md)
+gives the full command and progress locations. A full mapped pass remains pending.
 
 An additional [whole-mapping equivalence attempt](verification/mapping-equivalence.json)
 was inconclusive. The bounded solver timed out. A second model used 929 internal

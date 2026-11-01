@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "simulator_sha256": "a02ca2797d25a59779c25916d3e07acfb8a23593e1b7406033685572c1ad571b",
+  "elapsed_seconds": 18.049614870978985,
+  "checks": [
+    "wrong expected result rejected",
+    "wrong trap rejected",
+    "invalid/unsupported trap never accepted",
+    "signed zero and NaN distinctions",
+    "exact stack capacity and overflow",
+    "tail frame reuse at capacity",
+    "five-operand array copy",
+    "timeout remains execution error"
+  ]
+}

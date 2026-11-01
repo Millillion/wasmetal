@@ -62,7 +62,9 @@ The additional netlist regression selected **40** files and completed 17,379 exe
 
 That record does not establish failures in the remaining files; it establishes that the full mapped regression was not completed. The mapped simulation evaluates a much more detailed circuit and can take substantially longer. The direct and reference tail-call suites alone account for over 210 million simulated cycles in the recorded RTL run; their official long-running cases must remain intact.
 
-Expanded mapped testing is now in progress. The original slow full run was interrupted while faster simulator builds were checked. Faster models are running 249 shorter suites and a separate `call_indirect` regression; nine longer suites remain pending. A final full result must identify all 259 suites, show zero failures, unsupported cases, conversion errors, blocked commands or runner errors, and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
+Expanded testing has now passed [249 official suites](verification/ecp5-expanded.json), with 48,604 execution assertions, 4,320 validation assertions, 254 embedding assertions and 3,038,303 cycles. Every per-suite count matches the original RTL run. Executable/source identity checks passed, and no failures, unsupported cases, conversion errors, blocked commands or runner errors were recorded.
+
+The original slow full run was interrupted while faster simulator builds were checked. A separate `call_indirect` regression is in progress; nine longer suites remain pending. A final full result must identify all 259 suites, show zero errors and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
 
 ## Running and observing the full mapped regression
 
@@ -113,10 +115,14 @@ into that snapshot before launch. Its partial results are in
 remain in `reports/ecp5-full-launch.json`. Historical synthesis/routing scripts
 in the snapshot are not used to execute the simulation.
 
-The same 249 suites are also running on the equivalent lookup model under
-`build/abc9-check/root/build/gate-lookup-clang`. Its records are
-`reports/ecp5-optimized-extended.progress.json` and
-`reports/ecp5-optimized-extended.json`. The separate longer suite uses
+The equivalent lookup model under
+`build/abc9-check/root/build/gate-lookup-clang` completed all 249 selected suites.
+Its final report is committed as `docs/verification/ecp5-expanded.json`.
+The production builder also completed a fresh `--fast-sim --fast-luts` executable
+under `build/gate-fast-lut`. It passes the existing engine boundary and negative
+checks, including wrong results, wrong traps, resource exhaustion and timeout
+classification; see the [engine report](verification/ecp5-production-engine.json).
+The separate longer suite uses
 `reports/ecp5-call-indirect.progress.json` and `reports/ecp5-call-indirect.json`.
 
 ## After a full netlist pass
