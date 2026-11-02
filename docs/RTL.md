@@ -168,10 +168,11 @@ SystemVerilog with Verilator. The current external memory/descriptor interfaces
 make that integration explicit.
 
 The full UART wrapper has passed simulation, including fourteen execution and
-transport checks. Functional simulation of the mapped ECP5 CPU has a recorded baseline passing twenty-eight
-official suites containing 11,559 execution assertions: scalar arithmetic,
-conversions, array copying, exception handling and SIMD arithmetic. Those recorded mapped
-tests use the earlier smaller FPGA profile and are a subset of the full regression.
+transport checks. Functional simulation of the production mapped ECP5 CPU now
+passes all 259 official suites, with the same 57,711 execution assertions and
+306,351,688 cycles as the native RTL. The [full report](verification/ecp5-full.json)
+supersedes the earlier subset results. This complete run was local; the new
+[mapped CI path](DESIGN-FLOW.md#what-ci-runs) is undergoing end-to-end verification.
 
 The host adapter also supports an
 explicit physical serial device. The native and FPGA defaults have matching

@@ -28,15 +28,15 @@ def fast_lut_model(model,name):
     return model
 
 
-def compilation(fast):
+def compilation(fast,portable=False):
     compiler=shutil.which('clang++' if fast else 'g++')
     if compiler is None: raise ValueError('install clang++ to use --fast-sim' if fast else 'g++ is missing')
     flags='-std=c++17 -O2 -Wall -Wextra -Werror'
     if fast:
         # These two style-warning exceptions are needed by the pinned
         # Verilator-generated code/runtime when compiled with Clang.
-        flags='-std=c++17 -O3 -march=native -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter'
-    return {'fast_sim':fast,'compiler':compiler,'compiler_sha256':digest(Path(compiler)),
+        flags='-std=c++17 -O3'+('' if portable else ' -march=native')+' -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter'
+    return {'fast_sim':fast,'portable':portable,'compiler':compiler,'compiler_sha256':digest(Path(compiler)),
             'compiler_version':subprocess.check_output([compiler,'--version'],text=True).splitlines()[0],
             'cflags':flags}
 
@@ -104,12 +104,13 @@ def main():
     parser.add_argument('--build-directory',type=Path,default=ROOT/'build/gate-model')
     parser.add_argument('--jobs',type=int,default=2,help='parallel C++ compilation jobs')
     parser.add_argument('--fast-sim',action='store_true',help='compile with Clang -O3 and the current host CPU instruction set')
+    parser.add_argument('--portable',action='store_true',help='use the compiler baseline CPU target so CI workers can share the executable')
     parser.add_argument('--fast-luts',action='store_true',help='use equivalence-checked lookup models without changing the mapped circuit')
     args=parser.parse_args()
     if args.jobs<1: parser.error('jobs must be positive')
     directory=args.build_directory.resolve()
     if ROOT/'build' not in directory.parents: parser.error('build directory must be inside the repository build directory')
-    options=compilation(args.fast_sim)
+    options=compilation(args.fast_sim,args.portable)
     model_options={'fast_luts':args.fast_luts}
     netlist=args.core_netlist.resolve()
     manifest_path=netlist.with_suffix('.manifest.json')

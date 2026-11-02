@@ -19,6 +19,7 @@ import sys
 import time
 
 from wasm_image import Module, Unsupported, ImageError, Instruction, relocated
+import spec_shards
 
 ROOT = Path(__file__).resolve().parent.parent
 LOCK = json.loads((ROOT / "tools/upstream.lock.json").read_text())
@@ -123,6 +124,29 @@ class Instance:
     exports: dict
 
 
+def prepare_spectest():
+    path = ROOT / "build/spectest.wasm"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists():
+        wat = '''(module
+          (func (export "print"))
+          (func (export "print_i32") (param i32))
+          (func (export "print_i64") (param i64))
+          (func (export "print_f32") (param f32))
+          (func (export "print_f64") (param f64))
+          (func (export "print_i32_f32") (param i32 f32))
+          (func (export "print_f64_f64") (param f64 f64))
+          (global (export "global_i32") i32 (i32.const 666))
+          (global (export "global_i64") i64 (i64.const 666))
+          (global (export "global_f32") f32 (f32.const 666.6))
+          (global (export "global_f64") f64 (f64.const 666.6))
+          (table (export "table") 10 20 funcref)
+          (table (export "table64") i64 10 20 funcref)
+          (memory (export "memory") 1 2))'''
+        subprocess.run([str(WASM_TOOLS), "parse", "-o", str(path)], input=wat, text=True, check=True)
+    return path
+
+
 class RTL:
     def __init__(self, wait_states=0, max_cycles=300000000, simulator=None, response_timeout=3600):
         if response_timeout <= 0:
@@ -160,25 +184,7 @@ class RTL:
         self.build_id=capabilities[6]
 
     def install_spectest(self):
-        path = ROOT / "build/spectest.wasm"
-        if not path.exists():
-            wat = '''(module
-              (func (export "print"))
-              (func (export "print_i32") (param i32))
-              (func (export "print_i64") (param i64))
-              (func (export "print_f32") (param f32))
-              (func (export "print_f64") (param f64))
-              (func (export "print_i32_f32") (param i32 f32))
-              (func (export "print_f64_f64") (param f64 f64))
-              (global (export "global_i32") i32 (i32.const 666))
-              (global (export "global_i64") i64 (i64.const 666))
-              (global (export "global_f32") f32 (f32.const 666.6))
-              (global (export "global_f64") f64 (f64.const 666.6))
-              (table (export "table") 10 20 funcref)
-              (table (export "table64") i64 10 20 funcref)
-              (memory (export "memory") 1 2))'''
-            subprocess.run([str(WASM_TOOLS), "parse", "-o", str(path)], input=wat, text=True, check=True)
-        self.registered["spectest"] = self.instantiate(Module(path.read_bytes()))
+        self.registered["spectest"] = self.instantiate(Module(prepare_spectest().read_bytes()))
 
     def close(self):
         if self.proc.poll() is None:
@@ -514,15 +520,32 @@ def run_file(source, target, args):
     started = time.monotonic()
     counts = Counter()
     failures = []
-    rtl = RTL(args.wait_states, args.max_cycles, args.simulator, args.response_timeout)
-    rtl.install_spectest()
     current, named = None, {}
     definitions = {}
     last_definition = None
     commands = json.loads(target.read_text())["commands"]
+    suite_name = str(source.relative_to(SPEC / 'test/core'))
+    partition = getattr(args, 'command_partitions', {}).get(suite_name)
+    if partition is not None:
+        spec_shards.independent_script(suite_name, target, commands, ROOT/'build/spectest.wasm')
+    selected = set(range(len(commands))) if partition is None else set(partition)
+    command_cycles = [None] * len(commands)
+    executed, replayed = [], []
+    fixture_cycles = replayed_cycles = 0
+    rtl = RTL(args.wait_states, args.max_cycles, args.simulator, args.response_timeout)
     try:
+        rtl.install_spectest()
+        fixture_cycles = rtl.rtl_cycles
+        # Attribute the shared fixture to command zero once in the canonical
+        # trace. Other shards still execute it and report that extra work.
+        if 0 not in selected:
+            replayed_cycles += fixture_cycles
         for command_number, command in enumerate(commands):
             kind = command["type"]
+            owned = command_number in selected
+            if not owned and kind != 'module':
+                continue
+            before_cycles = rtl.rtl_cycles
             location = f"{source.relative_to(SPEC / 'test/core')}:{command['line']}"
             if args.verbose:
                 print(location, kind, command.get("action", {}).get("field", ""), flush=True)
@@ -557,7 +580,8 @@ def run_file(source, target, args):
                     current = rtl.instantiate(module)
                     if "name" in command:
                         named[command["name"]] = current
-                    counts["modules_instantiated"] += 1
+                    if owned:
+                        counts["modules_instantiated"] += 1
                 elif kind == "module_instance":
                     definition = definitions[command["module"]] if "module" in command else last_definition
                     current = rtl.instantiate(definition)
@@ -633,6 +657,14 @@ def run_file(source, target, args):
                     counts["blocked"] += len(commands)-command_number-1
                     failures.append({"location": location, "kind": "blocked", "reason": "Remaining script commands cannot run after simulator timeout/failure"})
                     break
+            finally:
+                elapsed_cycles = rtl.rtl_cycles - before_cycles
+                if owned:
+                    executed.append(command_number)
+                    command_cycles[command_number] = elapsed_cycles + (fixture_cycles if command_number == 0 else 0)
+                else:
+                    replayed.append(command_number)
+                    replayed_cycles += elapsed_cycles
     finally:
         try:
             rtl.close()
@@ -642,15 +674,20 @@ def run_file(source, target, args):
             if rtl.proc.poll() is None:
                 rtl.proc.kill()
                 rtl.proc.wait()
-    counts["rtl_cycles"] = rtl.rtl_cycles
-    counts["script_commands"] = len(commands)
+    counts["rtl_cycles"] = rtl.rtl_cycles - replayed_cycles
+    counts["script_commands"] = len(selected)
     return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": dict(counts), "failures": failures,
-            "elapsed_seconds": time.monotonic()-started}
+            "elapsed_seconds": time.monotonic()-started, "command_count":len(commands),
+            "command_cycles":command_cycles, "executed_commands":executed,
+            "replayed_setup_commands":replayed, "fixture_cycles":fixture_cycles,
+            "replayed_setup_cycles":replayed_cycles, "total_simulated_cycles":rtl.rtl_cycles}
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", action="append", help="exact relative suite path without .wast; repeatable")
+    parser.add_argument('--shard-plan', type=Path, help='validated complete-corpus CI ownership plan')
+    parser.add_argument('--shard-id', help='one shard from --shard-plan')
     parser.add_argument("--wait-states", type=int, default=0)
     parser.add_argument("--max-cycles", type=int, default=300000000)
     parser.add_argument("--jobs", type=int, default=4)
@@ -666,12 +703,35 @@ def main():
     args = parser.parse_args()
     if args.jobs < 1 or args.max_cycles < 1 or args.wait_states < 0 or args.response_timeout < 1:
         parser.error("jobs, cycle budget and response timeout must be positive; wait states must be nonnegative")
+    if bool(args.shard_plan) != bool(args.shard_id) or (args.shard_plan and args.suite):
+        parser.error('use --shard-plan and --shard-id together, without --suite')
     import build_identity
     build_manifest=build_identity.verify(args.simulator)
+    prepare_spectest()
     runner_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
-                   for p in (ROOT/"tools/run_spec.py",ROOT/"tools/wasm_image.py")}
+                   for p in (ROOT/"tools/run_spec.py",ROOT/"tools/wasm_image.py",ROOT/"tools/spec_shards.py",ROOT/'build/spectest.wasm')}
     official_source_hash = verify_official_sources()
     sources = sorted((SPEC / "test/core").rglob("*.wast"))
+    args.command_partitions = {}
+    plan_hash = None
+    if args.shard_plan:
+        plan_bytes = args.shard_plan.read_bytes()
+        plan_hash = hashlib.sha256(plan_bytes).hexdigest()
+        plan = json.loads(plan_bytes)
+        command_counts = {}
+        for source in sources:
+            _, target, error = convert(source)
+            if error:
+                raise ExecutionError(error)
+            command_counts[str(source.relative_to(SPEC/'test/core'))] = len(json.loads(target.read_text())['commands'])
+        spec_shards.validate_plan(plan, official_source_hash, command_counts)
+        shard = next((s for s in plan['shards'] if s['id'] == args.shard_id), None)
+        if shard is None:
+            parser.error('unknown shard id')
+        entries = {e['suite']:e for e in shard['entries']}
+        sources = [s for s in sources if str(s.relative_to(SPEC/'test/core')) in entries]
+        sources.sort(key=lambda s:-entries[str(s.relative_to(SPEC/'test/core'))]['estimated_cycles'])
+        args.command_partitions = {name:e['commands'] for name,e in entries.items() if e['commands'] is not None}
     if args.suite:
         requested = set(args.suite)
         sources = [s for s in sources if str(s.relative_to(SPEC / "test/core").with_suffix("")) in requested]
@@ -751,12 +811,16 @@ def main():
         for name,digest in runner_inputs.items():
             if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
                 raise RuntimeError("test runner changed during execution")
+        if args.shard_plan and hashlib.sha256(args.shard_plan.read_bytes()).hexdigest() != plan_hash:
+            raise RuntimeError('shard plan changed during execution')
     except RuntimeError as error:
         identity_error=str(error); errors=True
-    complete = not args.suite and len(reports) == len(sources) and not errors
+    whole = not args.suite and not args.shard_plan
+    complete = whole and len(reports) == len(sources) and not errors
     result = {"spec": LOCK["spec"], "wasm_tools": LOCK["wasm_tools"]["version"],
               "suite_files": len(reports), "official_sources_sha256": official_source_hash,
-              "full_core_suite_selected": not bool(args.suite), "full_core_suite_passed": complete,
+              "full_core_suite_selected": whole, "full_core_suite_passed": complete,
+              "shard_id":args.shard_id, "shard_plan_sha256":plan_hash,
               "source_sha256": source_hash.hexdigest(), "simulator_sha256": binary_hash,
               "build_manifest":build_manifest,"runner_inputs":runner_inputs,
               "rtl_build_id":rtl_build_id,"capacities":capacities,"identity_error":identity_error,

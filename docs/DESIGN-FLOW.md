@@ -84,8 +84,10 @@ python3 tools/run_spec.py \
 The optional `--fast-sim` builder flag uses Clang with `-O3 -march=native` for
 the simulator executable. It changes neither the netlist nor the FPGA
 bitstream. It requires Clang and targets the development computer's instruction
-set, so rebuild the simulator when moving to a different host CPU. Compiler
-identity and flags are recorded; a full build recompiles every object to avoid
+set, so rebuild the simulator when moving to a different host CPU. The builder
+option `--portable` instead selects the compiler's baseline CPU target; CI uses
+this to share one executable between workers with different host processors.
+Compiler identity and flags are recorded; a full build recompiles every object to avoid
 silently reusing objects from different compiler settings. `--jobs` controls
 compilation parallelism, and `--build-directory build/gate-fast` keeps an
 experimental executable separate from an existing one.
@@ -114,12 +116,43 @@ RTL with `make sim`. Both official-suite commands use that executable by default
 |---|---|
 | Full official corpus on the original RTL, normal memory responses | Yes |
 | Full official corpus on the original RTL, three memory wait states | Yes |
-| Full official corpus on the synthesized ECP5 CPU netlist | No; the completed full run was local |
+| Full official corpus on the synthesized ECP5 CPU netlist | Added; first end-to-end CI verification pending |
 | Mapped-RAM component checks and the RTL board/UART simulation | Yes |
 
-Mapped-RAM checks cover a component, and the UART simulation compiles the RTL
-board wrapper. Neither replaces a full synthesized-CPU regression. CI currently
-does not invoke the complete synthesis and mapped-simulator build/run sequence.
+After the original RTL passes, CI synthesizes the production ECP5 core and builds
+one portable mapped simulator. Sixteen workers execute the complete official
+corpus with three memory wait states. The executable, build inputs and manifests
+travel together in a tar archive, preserving executable permissions and allowing
+each worker to verify the exact model before and after its tests.
+
+GitHub-hosted jobs have a [six-hour limit](https://docs.github.com/en/actions/reference/limits).
+The longest tail-call script exceeded that limit locally. The runner therefore
+partitions three reviewed tail-call scripts by original script command; every
+other script runs intact. It preserves all official assertions, arguments and
+million-iteration stress cases. Static admission checks require immutable module
+state, no memory or start function, no state-changing instructions, and only the
+verified empty `spectest.print_i32_f32` import. Unknown commands or instructions
+fail admission. Stateful scripts are never partitioned this way.
+
+Workers replay the immutable module setup to establish the same function and
+table context. Each original command has one owner; repeated setup is reported
+separately. Fixture initialization cycles belong to command zero in the canonical
+trace. Both canonical and actual simulated cycles are recorded, so repeated
+setup cannot inflate assertion counts or disappear from the accounting.
+
+`tools/spec_ci.py` creates the ownership plan from a fresh complete native run.
+Measured cycles choose worker placement only. The `Complete mapped corpus` job
+requires all workers to succeed and rejects missing/duplicated commands, suites
+or shards; altered plans; source/model identity mismatches; failures, unsupported
+cases and timeouts; or differences from native counts and per-command cycles.
+Only that complete aggregate can set `full_core_suite_passed` to true. Negative
+regression tests exercise these rejection paths.
+
+The first end-to-end run of this new mapped CI workflow is still being verified.
+The earlier complete mapped result was local. CI retains native, individual
+worker and final aggregate JSON reports for 30 days, and the larger simulator
+archive for seven days. Mapped-RAM component checks and UART RTL simulation
+remain additional checks with their own scope.
 
 ## Progress and independent checks
 

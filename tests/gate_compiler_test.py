@@ -10,6 +10,13 @@ import build_gate_sim
 
 
 class CompilerRebuild(unittest.TestCase):
+    def test_portable_model_does_not_require_the_build_workers_cpu(self):
+        portable = build_gate_sim.compilation(True,portable=True)
+        self.assertTrue(portable['portable'])
+        self.assertNotIn('-march=native',portable['cflags'])
+        self.assertIn('-O3',portable['cflags'])
+        self.assertIn('-march=native',build_gate_sim.compilation(True)['cflags'])
+
     def test_changed_flags_change_the_executable_without_a_source_edit(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)

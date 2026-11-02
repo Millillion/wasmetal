@@ -22,6 +22,7 @@ jobs:
           python3 tests/check_timing_test.py
           python3 tests/run_spec_runner_test.py
           python3 tests/gate_compiler_test.py
+          python3 tests/spec_ci_test.py
       - name: Compile RTL and verify boundary and oracle behavior
         run: |
           make sim
@@ -38,5 +39,139 @@ jobs:
         with:
           name: verification-reports
           path: reports/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  mapped-build:
+    needs: core
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - name: Assign every official command to exactly one worker
+        id: plan
+        run: python3 tools/spec_ci.py plan --reference reports/native/core-stalled.json --shards 16 --output reports/mapped-plan.json --github-output "$GITHUB_OUTPUT"
+      - name: Synthesize the production ECP5 core
+        run: |
+          python3 tools/generate_fpga_ports.py
+          make fpga-core
+      - name: Compile the mapped circuit for all worker CPUs
+        run: python3 tools/build_gate_sim.py --core-netlist build/core-ecp5.json --build-directory build/gate-ci --fast-sim --fast-luts --portable --jobs 2
+      - name: Package the simulator and its verified inputs
+        run: python3 tools/spec_ci.py pack --simulator build/gate-ci/obj/Vwasmetal_core --output reports/mapped-simulator.tar.gz
+      - name: Preserve mapped model and ownership plan
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-simulator
+          path: |
+            reports/mapped-simulator.tar.gz
+            reports/mapped-plan.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve build diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-build-reports
+          path: |
+            reports/mapped-plan.json
+            build/core-ecp5*.log
+            build/core-ecp5*.json
+            build/gate-ci/*.log
+            build/gate-ci/lut-proof/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  mapped:
+    name: Mapped circuit (${{ matrix.shard }})
+    needs: mapped-build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.mapped-build.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: mapped-simulator
+          path: build/ci-artifact
+      - name: Restore the same mapped simulator on every worker
+        run: |
+          tar -xzf build/ci-artifact/mapped-simulator.tar.gz
+          python3 tools/build_identity.py verify build/gate-ci/obj/Vwasmetal_core
+      - name: Run assigned official commands on the synthesized circuit
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: >-
+          python3 tools/run_spec.py --simulator build/gate-ci/obj/Vwasmetal_core
+          --shard-plan build/ci-artifact/mapped-plan.json --shard-id "$SHARD"
+          --wait-states 3 --jobs 2 --response-timeout 18000
+          --progress-report "reports/progress-$SHARD.json"
+          --report "reports/mapped-shard-$SHARD.json"
+      - name: Preserve shard results even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-results-${{ matrix.shard }}
+          path: reports/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  mapped-complete:
+    name: Complete mapped corpus
+    if: always()
+    needs: [core, mapped-build, mapped]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Require all builds and test workers to succeed
+        env:
+          CORE_RESULT: ${{ needs.core.result }}
+          BUILD_RESULT: ${{ needs.mapped-build.result }}
+          MAPPED_RESULT: ${{ needs.mapped.result }}
+        run: test "$CORE_RESULT" = success && test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: mapped-build-reports
+          path: build/ci-plan
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: mapped-results-*
+          path: reports/shards
+      - name: Require exact corpus coverage and agreement with original RTL
+        run: >-
+          python3 tools/spec_ci.py merge --reference reports/native/core-stalled.json
+          --plan build/ci-plan/reports/mapped-plan.json --reports reports/shards
+          --output reports/mapped-complete.json
+      - name: Preserve complete mapped verification
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-complete
+          path: reports/mapped-complete.json
           if-no-files-found: warn
           retention-days: 30

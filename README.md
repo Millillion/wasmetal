@@ -11,7 +11,7 @@ Completed work lives on `main`. Temporary development branches are integrated in
 - **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41448519089) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
-- **Mapped circuit:** the unchanged default ABC9 FPGA mapping passes **all 259 pinned official suites** with three memory wait states: 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions over 306,351,688 cycles. The [final full-suite report](docs/verification/ecp5-full.json) records zero failures or unsupported cases and successful final source/executable identity checks; every per-suite count exactly matches the native RTL run. The tested netlist is identical to the standard bitstream build’s core. The run took 8 hours 14 minutes with four workers. **This complete synthesized-CPU regression ran locally; CI currently runs the full original-RTL suite with and without memory stalls.** Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md) and [completed checkpoint](docs/verification/mapped-regression-status.json). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
+- **Mapped circuit:** the unchanged default ABC9 FPGA mapping passes **all 259 pinned official suites** with three memory wait states: 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions over 306,351,688 cycles. The [final full-suite report](docs/verification/ecp5-full.json) records zero failures or unsupported cases and successful final source/executable identity checks; every per-suite count exactly matches the native RTL run. The tested netlist is identical to the standard bitstream build’s core. The run took 8 hours 14 minutes with four workers. **This complete synthesized-CPU regression ran locally. CI runs the full original-RTL suite; the newly added full mapped CI path is undergoing end-to-end verification.** Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md) and [completed checkpoint](docs/verification/mapped-regression-status.json). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
 - **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [standard build](docs/verification/fpga-routing.json) produces a routed, timing-verified ULX3S 85F bitstream: 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. A fresh build reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
 
 See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host supplies the instruction image, metadata and backing memory; autonomous boot, a local memory controller and reclaiming garbage collection remain future work.
@@ -40,9 +40,17 @@ pinned official Wasm core test suite and compares its expectations with RTL
 execution results and traps. Unsupported cases fail the run.
 
 CI runs the complete suite with zero and three memory wait states, then checks
-the serial FPGA interface. Generated JSON reports are retained for 30 days as
-the `verification-reports` artifact on each run, including reports available
-when a later step fails.
+the serial FPGA interface. The workflow now also synthesizes the ECP5 CPU and
+runs the complete official corpus against its Verilator circuit model across
+16 workers. A final check requires every official command exactly once and
+compares every suite's counts and command cycles with the original RTL run.
+The new mapped CI path is undergoing its first end-to-end verification; the
+completed mapped result above remains the local full run.
+
+JSON results are retained for 30 days as `verification-reports`,
+`mapped-results-*` and `mapped-complete` artifacts. Partial reports remain
+available after failures and cannot establish a full pass. See the
+[CI verification details](docs/DESIGN-FLOW.md#what-ci-runs).
 
 ```sh
 python3 tools/bootstrap.py
