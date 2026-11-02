@@ -130,20 +130,28 @@ official suites with three memory wait states: 17,379 execution assertions over
 1,912,810 cycles covering scalar arithmetic, SIMD, GC, exceptions, control,
 calls, locals and memory/table sizes in the
 [mapped-cell report](verification/ecp5-mapped.json). The
-default ABC9 mapping now passes the same forty suites with identical assertion
-counts and cycle counts; see its [current mapped-cell report](verification/ecp5-abc9.json).
+default ABC9 mapping first passed the same forty suites with identical assertion
+counts and cycle counts; see its [initial mapped-cell report](verification/ecp5-abc9.json).
 The tested netlist is byte-identical to the standard bitstream build’s core. The
 [whole-board UART report](verification/fpga-uart.json) records fourteen passing
 execution and transport checks. Each report identifies its executable, sources
-and capacity profile. The mapped results are a subset; the
-[complete 259-suite report](verification/core-3.0-current.json) records the current native RTL simulation with the same capacities as the FPGA profile.
+and capacity profile. These initial mapped reports are subsets; the
+[complete native 259-suite report](verification/core-3.0-current.json) records the original RTL simulation with the same capacities as the FPGA profile.
 
-Expanded testing of the unchanged default ABC9 core netlist has now passed
-[249 official suites](verification/ecp5-expanded.json): 48,604 execution assertions,
-4,320 validation assertions and 254 embedding assertions over 3,038,303 cycles.
-Every per-suite count matches the original RTL run. The [pause checkpoint](verification/mapped-regression-status.json)
-preserves those completed prior reports. The ongoing full regression has now completed 258 of 259 suites with no reported errors, and only `return_call_ref.wast` remains; see the [partial snapshot](verification/ecp5-full-progress.json). The [design-flow explanation](DESIGN-FLOW.md)
-gives the full command and progress locations. A full mapped pass remains pending.
+The unchanged default ABC9 netlist now passes the [complete 259-suite mapped
+regression](verification/ecp5-full.json): 57,711 execution assertions, 4,677
+validation assertions and 254 embedding assertions over 306,351,688 cycles,
+with three memory wait states. All final source/executable identity checks passed,
+and every per-suite count exactly matches the native RTL result. There were no
+failures, unsupported cases, conversion errors, blocked commands or runner errors.
+The local run completed in 8 hours 14 minutes with four workers. The
+[completed checkpoint](verification/mapped-regression-status.json) preserves the
+final report identity and historical evidence.
+
+CI currently runs the full official corpus against the original RTL, with and
+without memory stalls. Its mapped-RAM checks and UART simulation do not run the
+full synthesized CPU corpus. The complete netlist regression above was run locally;
+the [design-flow explanation](DESIGN-FLOW.md) gives its command and the CI boundary.
 
 An additional [whole-mapping equivalence attempt](verification/mapping-equivalence.json)
 was inconclusive. The bounded solver timed out. A second model used 929 internal

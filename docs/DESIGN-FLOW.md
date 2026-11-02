@@ -60,13 +60,11 @@ Simulation speed is also different from hardware clock speed. A computer may tak
 
 The full original-RTL run completed all **259** pinned official core test files, with 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions. See the [recorded RTL run](verification/core-3.0-current.json).
 
-The additional netlist regression selected **40** files and completed 17,379 execution assertions. Its report explicitly records `full_core_suite_passed: false`, because it is a subset. It uses the same core netlist as the default routed ULX3S bitstream. See the [recorded mapped run](verification/ecp5-abc9.json).
+The initial netlist regression selected **40** files and completed 17,379 execution assertions. Its report explicitly records `full_core_suite_passed: false`, because it is a subset. It uses the same core netlist as the default routed ULX3S bitstream. See the [initial mapped run](verification/ecp5-abc9.json).
 
-That record does not establish failures in the remaining files; it establishes that the full mapped regression was not completed. The mapped simulation evaluates a much more detailed circuit and can take substantially longer. The direct and reference tail-call suites alone account for over 210 million simulated cycles in the recorded RTL run; their official long-running cases must remain intact.
+That historical record did not establish failures in the remaining files; it established that the full mapped regression had not been completed. The mapped simulation evaluates a much more detailed circuit and can take substantially longer. The direct and reference tail-call suites alone account for over 210 million simulated cycles; their official long-running cases remained intact.
 
-Expanded testing has now passed [249 official suites](verification/ecp5-expanded.json), with 48,604 execution assertions, 4,320 validation assertions, 254 embedding assertions and 3,038,303 cycles. Every per-suite count matches the original RTL run. Executable/source identity checks passed, and no failures, unsupported cases, conversion errors, blocked commands or runner errors were recorded.
-
-The original slow full run was interrupted while faster simulator builds were checked. The full regression resumed on 2026-11-02. The [checkpoint](verification/mapped-regression-status.json) preserves 250 suites from completed prior reports. The current full run has completed 258 suites without reported errors; `return_call_ref.wast` remains. A final full result must identify all 259 suites, show zero errors and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
+The [final full mapped run](verification/ecp5-full.json) now passes **all 259 suites**, including the long stress cases. It records 57,711 execution assertions, 4,677 validation assertions, 254 embedding assertions and 306,351,688 cycles, with exact per-suite agreement against the original RTL. Final executable/source identity checks passed. There were no failures, unsupported cases, conversion errors, blocked commands or runner errors.
 
 ## Running and observing the full mapped regression
 
@@ -79,8 +77,8 @@ python3 tools/run_spec.py \
   --simulator build/gate-model/obj/Vwasmetal_core \
   --wait-states 3 --jobs 4 --response-timeout 172800 \
   --schedule-from docs/verification/core-3.0-current.json \
-  --progress-report reports/ecp5-full-20261102.progress.json \
-  --report reports/ecp5-full-20261102.json
+  --progress-report reports/ecp5-full.progress.json \
+  --report reports/ecp5-full.json
 ```
 
 The optional `--fast-sim` builder flag uses Clang with `-O3 -march=native` for
@@ -106,6 +104,24 @@ Omitting `--suite` selects the entire official core tree. `--schedule-from` chan
 `--response-timeout` sets the wall-clock deadline for a simulator response. The separate simulated-cycle budget is unchanged. Wall timeouts, cycle timeouts and unsupported instructions remain failures; they cannot satisfy an expected Wasm exhaustion assertion.
 
 CI includes regression checks for timeout classification and for recompiling simulator objects when compiler flags change.
+
+## What CI runs
+
+The [CI workflow](../.github/workflows/rtl.yml) builds the original SystemVerilog
+RTL with `make sim`. Both official-suite commands use that executable by default.
+
+| Check | Automated in current CI? |
+|---|---|
+| Full official corpus on the original RTL, normal memory responses | Yes |
+| Full official corpus on the original RTL, three memory wait states | Yes |
+| Full official corpus on the synthesized ECP5 CPU netlist | No; the completed full run was local |
+| Mapped-RAM component checks and the RTL board/UART simulation | Yes |
+
+Mapped-RAM checks cover a component, and the UART simulation compiles the RTL
+board wrapper. Neither replaces a full synthesized-CPU regression. CI currently
+does not invoke the complete synthesis and mapped-simulator build/run sequence.
+
+## Progress and independent checks
 
 The progress file is replaced atomically when a suite finishes. It is a partial observation, never evidence of a full pass. The final report is authoritative and follows the end-of-run identity checks. `--verbose` additionally logs the script location before each command, identifying long invocations while they run.
 
@@ -134,24 +150,30 @@ The separate [`call_indirect` run](verification/ecp5-call-indirect.json) also
 passed, adding 134 execution assertions, 35 validation assertions and 3,269,242
 cycles with exact agreement against the original RTL.
 
-## Resumed full regression
+## Completed full regression
 
-The current mapped coverage is **250/259 distinct suite files**, comprising 48,738 execution assertions over 6,307,545 cycles. After the owner explicitly resumed work on 2026-11-02, a fresh full 259-suite run started on the production-built simulator. Four workers start the longest suites first. The previous results remain valid; the new run must finish and pass its identity checks before it establishes a full mapped pass.
+The full mapped run finished on 2026-11-02 at 13:31 UTC, after 29,643 seconds
+(8 hours 14 minutes), using four workers and longest-first scheduling. All 259
+suites completed on the production-built simulator. The final reference-tail-call
+suite alone used 120,037,180 cycles, illustrating why suite counts did not measure
+remaining runtime. The [completed checkpoint](verification/mapped-regression-status.json)
+identifies the final report and exact executable and netlist hashes. Historical
+partial reports are retained as observations, superseded by the final result.
 
-The [partial snapshot](verification/ecp5-full-progress.json) now contains **258 completed suites**, 57,676 execution assertions, 4,664 validation assertions, 254 embedding assertions and 186,314,508 cycles. Every completed suite has exactly the native RTL counts and no reported errors. Only `return_call_ref.wast` remains. A live executable/source identity check passed at the checkpoint; the final end-of-run identity check is still required.
-
-The final reference-tail-call suite accounts for 120,037,180 cycles in the native report, so the file count alone does not measure remaining runtime. The checkpoint combines disjoint final reports; overlapping independent and fresh-builder checks are counted only once. The full mapped regression remains unfinished.
-
-The active command is:
+The completed command was:
 
 ```sh
 python3 tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full-20261102.progress.json --report reports/ecp5-full-20261102.json
 ```
 
-If that build directory is unavailable, use the fresh-build instructions above. The runner checks source and executable identities before execution. The previous pause cancelled CI runs 41270306771 and 41269745152 and skipped CI for the checkpoint commit. CI run 41393251485 passed for the resume commit. The active local log is `reports/ecp5-full-20261102.log`.
+To reproduce the run when that build directory is unavailable, use the fresh-build
+instructions above. The runner checks source and executable identities before and
+after execution. The local log is `reports/ecp5-full-20261102.log`. CI run
+[41448519089](https://github.com/Millillion/wasmetal/actions/runs/41448519089)
+also passed the original-RTL workflow; it did not execute the mapped full run.
 
 ## After a full netlist pass
 
-A full netlist pass would establish that the synthesized functional model passes the same official corpus as the RTL model. It would not establish a mathematical proof for every possible program, a transistor-level simulation or a physical-board result.
+This full netlist pass establishes that the synthesized functional model passes the same pinned official corpus as the RTL model. It does not establish a mathematical proof for every possible program, a transistor-level simulation or a physical-board result.
 
 WasMetal has a routed ULX3S bitstream with recorded timing checks. Physical programming, board bring-up and on-board tests remain separate milestones. An ASIC is another implementation target: synthesis and physical design use a chip process's cell and memory libraries, followed by manufacturing, packaging and silicon testing.

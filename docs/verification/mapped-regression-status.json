@@ -1,11 +1,12 @@
 {
-  "status": "full regression running after explicit owner resume",
-  "updated_utc": "2026-11-02T12:53:44.638587+00:00",
-  "automatic_resumption": false,
-  "full_core_suite_passed": false,
+  "status": "complete: full mapped functional regression passed",
+  "updated_utc": "2026-11-02T14:14:04.466586+00:00",
+  "completed_utc": "2026-11-02T13:31:29.745295+00:00",
+  "full_core_suite_selected": true,
+  "full_core_suite_passed": true,
   "official_suite_files": 259,
-  "completed_distinct_suite_files": 250,
-  "pending_suite_files": 9,
+  "completed_distinct_suite_files": 259,
+  "pending_suite_files": 0,
   "spec": {
     "version": "WebAssembly Core 3.0",
     "revision": "6057acdb1a213f85369c64454c078a15f11ac4b1",
@@ -15,15 +16,19 @@
   "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
   "netlist_sha256": "76e239dbc1b3bee95b22ceea400abe5811abc0190af8a10a9844b4aed4e1d2e3",
   "rtl_build_id": "5c57ee7e6b27f2ea506dd1bc9fa1ee55",
+  "simulator_sha256": "a02ca2797d25a59779c25916d3e07acfb8a23593e1b7406033685572c1ad571b",
   "memory_wait_states": 3,
+  "identity_error": null,
+  "exact_native_per_suite_counts": true,
+  "elapsed_seconds": 29643.120157957077,
   "totals_for_completed_distinct_suites": {
-    "modules_instantiated": 2153,
-    "rtl_assertions_passed": 48738,
-    "loader_assertions_passed": 4355,
-    "rtl_cycles": 6307545,
-    "script_commands": 55903,
-    "rtl_actions_completed": 319,
-    "registrations": 78,
+    "modules_instantiated": 2266,
+    "rtl_assertions_passed": 57711,
+    "loader_assertions_passed": 4677,
+    "rtl_cycles": 306351688,
+    "script_commands": 65353,
+    "rtl_actions_completed": 359,
+    "registrations": 80,
     "embedding_assertions_passed": 254,
     "module_definitions": 6
   },
@@ -40,6 +45,8 @@
     "br_on_null.wast",
     "br_table.wast",
     "bulk-memory/bulk.wast",
+    "bulk-memory/memory_copy.wast",
+    "bulk-memory/memory_fill.wast",
     "bulk-memory/memory_init.wast",
     "bulk-memory/table-sub.wast",
     "bulk-memory/table_copy.wast",
@@ -122,6 +129,9 @@
     "memory64/load64.wast",
     "memory64/memory64-imports.wast",
     "memory64/memory64.wast",
+    "memory64/memory_copy64.wast",
+    "memory64/memory_fill64.wast",
+    "memory64/memory_grow64.wast",
     "memory64/memory_init64.wast",
     "memory64/memory_redundancy64.wast",
     "memory64/memory_trap64.wast",
@@ -134,6 +144,7 @@
     "memory64/table_init64.wast",
     "memory64/table_set64.wast",
     "memory64/table_size64.wast",
+    "memory_grow.wast",
     "memory_redundancy.wast",
     "memory_size.wast",
     "memory_trap.wast",
@@ -194,6 +205,9 @@
     "relaxed-simd/relaxed_madd_nmadd.wast",
     "relaxed-simd/relaxed_min_max.wast",
     "return.wast",
+    "return_call.wast",
+    "return_call_indirect.wast",
+    "return_call_ref.wast",
     "select.wast",
     "simd/simd_address.wast",
     "simd/simd_align.wast",
@@ -279,63 +293,26 @@
     "utf8-import-module.wast",
     "utf8-invalid-encoding.wast"
   ],
-  "pending_suites": [
-    "bulk-memory/memory_copy.wast",
-    "bulk-memory/memory_fill.wast",
-    "memory64/memory_copy64.wast",
-    "memory64/memory_fill64.wast",
-    "memory64/memory_grow64.wast",
-    "memory_grow.wast",
-    "return_call.wast",
-    "return_call_indirect.wast",
-    "return_call_ref.wast"
-  ],
-  "pending_cycles_from_native_report": 300044143,
+  "pending_suites": [],
+  "pending_cycles_from_native_report": 0,
   "coverage_reports": [
     {
-      "path": "docs/verification/ecp5-expanded.json",
-      "sha256": "bc4ee94ef8cf79c9bbb237d0cd83b0d3ffaf9d802be5e2b38e9aca515fd37533",
-      "suite_files": 249
-    },
-    {
-      "path": "docs/verification/ecp5-call-indirect.json",
-      "sha256": "d9b26efb9ede99d4b9e69f45a9bdd9407e87cc5e24899fc6d3be68f8f7fafa3e",
-      "suite_files": 1
+      "path": "docs/verification/ecp5-full.json",
+      "sha256": "150c8f7715ffbe3866e329b7c35362ee73aa4640a826ce1b823611ef9826cab2",
+      "suite_files": 259,
+      "kind": "final full-corpus report"
     }
   ],
-  "overlapping_cross_checks": [
+  "historical_reports": [
+    "docs/verification/ecp5-expanded.json",
+    "docs/verification/ecp5-call-indirect.json",
     "docs/verification/ecp5-compiler-only.json",
     "docs/verification/ecp5-production.json",
-    "docs/verification/ecp5-production-engine.json"
+    "docs/verification/ecp5-production-engine.json",
+    "docs/verification/ecp5-full-progress.json"
   ],
-  "last_successful_ci_run": 41393251485,
-  "ci_runs_cancelled_at_owner_request": [
-    41270306771,
-    41269745152
-  ],
-  "note": "The ongoing full run has completed 258 suite files with exact native assertion and cycle counts and no reported errors. Its committed progress snapshot is partial; the final report and end-of-run identity checks remain authoritative. The separate 250-suite coverage below comes from completed prior reports.",
-  "resume_command": "python3 tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full-20261102.progress.json --report reports/ecp5-full-20261102.json",
-  "resumed_utc": "2026-11-02T05:18:27.278596+00:00",
-  "active_run": {
-    "selected_suite_files": 259,
-    "simulator": "build/gate-fast-lut/obj/Vwasmetal_core",
-    "simulator_sha256": "a02ca2797d25a59779c25916d3e07acfb8a23593e1b7406033685572c1ad571b",
-    "jobs": 4,
-    "memory_wait_states": 3,
-    "response_timeout_seconds": 172800,
-    "schedule": "longest first using native cycle counts",
-    "progress_report": "reports/ecp5-full-20261102.progress.json",
-    "final_report": "reports/ecp5-full-20261102.json",
-    "log": "reports/ecp5-full-20261102.log",
-    "completed_suite_files": 258,
-    "pending_suites": [
-      "return_call_ref.wast"
-    ],
-    "live_identity_verified_utc": "2026-11-02T12:53:44.638587+00:00"
-  },
-  "observed_completed_suites": 258,
-  "observed_pending_suites": [
-    "return_call_ref.wast"
-  ],
-  "partial_progress_report": "docs/verification/ecp5-full-progress.json"
+  "last_successful_ci_run": 41448519089,
+  "ci_scope": "Full original-RTL corpus with and without memory stalls; full synthesized-CPU corpus is a local check, not a CI job.",
+  "command": "python3 -u tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full-20261102.progress.json --report reports/ecp5-full-20261102.json",
+  "note": "All 259 pinned official suites completed with zero failures, unsupported cases, conversion errors, blocked commands or runner errors, and final identity checks passed. Every suite count matches the native RTL report. Historical partial observations are superseded by this final result. This is functional netlist simulation, not whole-CPU formal equivalence or physical-board testing."
 }
