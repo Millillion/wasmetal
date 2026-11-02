@@ -8,10 +8,10 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
-- **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41448519089) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
+- **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
-- **Mapped circuit:** the unchanged default ABC9 FPGA mapping passes **all 259 pinned official suites** with three memory wait states: 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions over 306,351,688 cycles. The [final full-suite report](docs/verification/ecp5-full.json) records zero failures or unsupported cases and successful final source/executable identity checks; every per-suite count exactly matches the native RTL run. The tested netlist is identical to the standard bitstream build’s core. The run took 8 hours 14 minutes with four workers. **This complete synthesized-CPU regression ran locally. CI runs the full original-RTL suite; the newly added full mapped CI path is undergoing end-to-end verification.** Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md) and [completed checkpoint](docs/verification/mapped-regression-status.json). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
+- **Mapped circuit:** CI passes **all 259 pinned official suites** on the default ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-complete.json) preserves source, model and report identities and an independent aggregation check. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes; its netlist is the standard bitstream build's core. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
 - **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [standard build](docs/verification/fpga-routing.json) produces a routed, timing-verified ULX3S 85F bitstream: 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. A fresh build reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
 
 See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host supplies the instruction image, metadata and backing memory; autonomous boot, a local memory controller and reclaiming garbage collection remain future work.
@@ -42,12 +42,13 @@ execution results and traps. Unsupported cases fail the run.
 CI runs the complete suite with zero and three memory wait states, then checks
 the serial FPGA interface. The workflow now also synthesizes the ECP5 CPU and
 runs the complete official corpus against its Verilator circuit model across
-16 workers. A final check requires every official command exactly once and
+16 CI jobs. Each official command is assigned to exactly one partition;
+required module setup is repeated and recorded separately. A final check
 compares every suite's counts and command cycles with the original RTL run.
-The new mapped CI path is undergoing its first end-to-end verification; the
-completed mapped result above remains the local full run. Partition/replay
-accounting is additionally checked on both actual simulator executables using
-a short synthetic script with globals, tables, calls and a trap. A
+The [complete CI run](https://github.com/Millillion/wasmetal/actions/runs/41470404770)
+passed all sixteen partitions and the final coverage and native-agreement check.
+Partition/replay accounting is additionally checked on both actual simulator
+executables using a short synthetic script with globals, tables, calls and a trap. A
 [complete native rehearsal of all 16 partitions](docs/verification/ci-partitions.json)
 matches the intact run for all 65,353 commands, every command's cycle count and
 every suite's assertion totals. The mapped acceptance check also rejects native
@@ -87,6 +88,13 @@ and the remaining physical-board checks.
 - [ ] Add local instruction/data memory, buffered loading and autonomous execution.
 - [ ] Select an ASIC process and integrate suitable memories, I/O, clocks, reset and manufacturing test support.
 - [ ] Complete physical design and signoff, fabricate a prototype, then package and test the silicon.
+
+Local memory and autonomous boot can be designed and tested in simulation before
+a board arrives. A suggested first standalone milestone is to boot a prepared
+program image from FPGA block RAM and print a result over UART, without the host
+supplying instructions or memory transactions. Image preparation and validation
+can initially remain on the development computer. See the
+[next hardware stages](docs/FPGA.md#next-hardware-stages).
 
 ## Why is this a good idea?
 

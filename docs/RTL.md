@@ -168,11 +168,15 @@ SystemVerilog with Verilator. The current external memory/descriptor interfaces
 make that integration explicit.
 
 The full UART wrapper has passed simulation, including fourteen execution and
-transport checks. Functional simulation of the production mapped ECP5 CPU now
-passes all 259 official suites, with the same 57,711 execution assertions and
-306,351,688 cycles as the native RTL. The [full report](verification/ecp5-full.json)
-supersedes the earlier subset results. This complete run was local; the new
-[mapped CI path](DESIGN-FLOW.md#what-ci-runs) is undergoing end-to-end verification.
+transport checks. Functional simulation of the production mapped ECP5 CPU passes
+all 259 official suites with three memory wait states, both locally and in CI.
+The [full CI report](verification/ci-mapped-complete.json) records the same
+57,711 execution assertions and 306,351,688 canonical cycles as native RTL under
+that memory profile, with every command's cycle count matching. The
+[earlier local report](verification/ecp5-full.json) also covers the intact corpus;
+both supersede the earlier subset results. See the
+[CI verification flow](DESIGN-FLOW.md#what-ci-runs) for complete coverage and
+repeated-setup accounting.
 
 The host adapter also supports an
 explicit physical serial device. The native and FPGA defaults have matching

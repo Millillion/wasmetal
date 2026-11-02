@@ -149,10 +149,12 @@ The local run completed in 8 hours 14 minutes with four workers. The
 final report identity and historical evidence.
 
 CI runs the full official corpus against the original RTL, with and without
-memory stalls. The workflow now also builds the synthesized CPU and distributes
-the complete corpus across 16 workers, with an exhaustive coverage and native
-agreement check. This new CI path is undergoing its first end-to-end verification;
-the completed netlist result above was local. The
+memory stalls. It also builds the synthesized CPU and distributes the complete
+corpus across 16 CI jobs. All sixteen jobs and the final coverage and native
+agreement check [passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770).
+The [full CI report](verification/ci-mapped-complete.json) and
+[verification record](verification/ci-complete.json) preserve the results and
+their source/model identities. The
 [design-flow explanation](DESIGN-FLOW.md#what-ci-runs) describes partition safety,
 the shared executable, report artifacts and the final acceptance check.
 
@@ -224,7 +226,21 @@ CPU reset during initialization.
 ## Next hardware stages
 
 Physical-board testing is still required. A practical standalone machine also
-needs buffered program loading, local memory and fetch controllers, autonomous clocking, and a boot interface. Those
-changes need their own conformance runs and timing closure. An ASIC additionally
-requires a process/PDK, memories, I/O and clock/reset integration, physical design,
-signoff and fabrication; the FPGA bitstream is not an ASIC deliverable.
+needs buffered program loading, local memory and fetch controllers, autonomous
+clocking, and a boot interface. These can be designed, simulated, synthesized and
+routed for a chosen FPGA before a physical board is available. The changes need
+their own conformance runs and timing closure.
+
+A suggested first standalone milestone is a boot controller that starts a
+prepared program image in block RAM and produces a result over UART without
+host instruction or memory service. The development computer can initially
+prepare and validate the image; loading and validating arbitrary Wasm binaries
+on the device is additional work. External memory can follow, using controller
+and memory-device models during development. Vendor-specific memory IP may
+require a vendor-supported simulator instead of Verilator.
+
+The physical board is needed to confirm electrical interfaces, memory
+calibration where applicable, power-on behavior and measured performance.
+An ASIC additionally requires a process/PDK, memories, I/O and clock/reset
+integration, physical design, signoff and fabrication; the FPGA bitstream is not
+an ASIC deliverable.

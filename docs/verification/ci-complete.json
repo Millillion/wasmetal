@@ -1,0 +1,341 @@
+{
+  "status": "passed",
+  "scope": "Complete pinned WebAssembly Core 3.0 corpus on native RTL and the functional ECP5 netlist model",
+  "checked_at": "2026-11-02T19:23:12.259282+00:00",
+  "github": {
+    "run": {
+      "id": 41470404770,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41470404770",
+      "head_sha": "f6116398411bafb05568c262bc045d931729e206",
+      "head_branch": "main",
+      "event": "push",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-02T15:19:09Z",
+      "updated_at": "2026-11-02T19:21:03Z"
+    },
+    "jobs": [
+      {
+        "id": 125362160284,
+        "name": "core",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T15:19:57Z",
+        "completed_at": "2026-11-02T15:47:43Z"
+      },
+      {
+        "id": 125378429949,
+        "name": "mapped-build",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T15:57:34Z",
+        "completed_at": "2026-11-02T16:10:04Z"
+      },
+      {
+        "id": 125391257776,
+        "name": "Mapped circuit (01)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:11:15Z",
+        "completed_at": "2026-11-02T17:55:34Z"
+      },
+      {
+        "id": 125391257781,
+        "name": "Mapped circuit (04)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:13:39Z",
+        "completed_at": "2026-11-02T17:54:08Z"
+      },
+      {
+        "id": 125391257843,
+        "name": "Mapped circuit (09)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:11:25Z",
+        "completed_at": "2026-11-02T17:31:00Z"
+      },
+      {
+        "id": 125391257903,
+        "name": "Mapped circuit (10)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:15:49Z",
+        "completed_at": "2026-11-02T17:19:58Z"
+      },
+      {
+        "id": 125391257910,
+        "name": "Mapped circuit (00)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:20:12Z",
+        "completed_at": "2026-11-02T17:34:31Z"
+      },
+      {
+        "id": 125391257913,
+        "name": "Mapped circuit (05)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:31:33Z",
+        "completed_at": "2026-11-02T18:04:41Z"
+      },
+      {
+        "id": 125391257917,
+        "name": "Mapped circuit (07)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:10:27Z",
+        "completed_at": "2026-11-02T17:21:02Z"
+      },
+      {
+        "id": 125391257942,
+        "name": "Mapped circuit (12)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:10:18Z",
+        "completed_at": "2026-11-02T16:45:07Z"
+      },
+      {
+        "id": 125391257994,
+        "name": "Mapped circuit (14)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T17:06:39Z",
+        "completed_at": "2026-11-02T18:27:51Z"
+      },
+      {
+        "id": 125391258009,
+        "name": "Mapped circuit (08)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:26:35Z",
+        "completed_at": "2026-11-02T17:31:28Z"
+      },
+      {
+        "id": 125391258010,
+        "name": "Mapped circuit (03)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:35:24Z",
+        "completed_at": "2026-11-02T17:56:30Z"
+      },
+      {
+        "id": 125391258057,
+        "name": "Mapped circuit (11)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:25:56Z",
+        "completed_at": "2026-11-02T17:44:04Z"
+      },
+      {
+        "id": 125391258077,
+        "name": "Mapped circuit (15)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:19:00Z",
+        "completed_at": "2026-11-02T16:54:56Z"
+      },
+      {
+        "id": 125391258095,
+        "name": "Mapped circuit (06)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:27:15Z",
+        "completed_at": "2026-11-02T19:02:24Z"
+      },
+      {
+        "id": 125391258143,
+        "name": "Mapped circuit (13)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:38:06Z",
+        "completed_at": "2026-11-02T17:20:15Z"
+      },
+      {
+        "id": 125391258494,
+        "name": "Mapped circuit (02)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T16:39:40Z",
+        "completed_at": "2026-11-02T18:08:41Z"
+      },
+      {
+        "id": 125486004783,
+        "name": "Complete mapped corpus",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-02T19:20:40Z",
+        "completed_at": "2026-11-02T19:21:02Z"
+      }
+    ]
+  },
+  "spec": {
+    "version": "WebAssembly Core 3.0",
+    "revision": "6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "url": "https://codeload.github.com/WebAssembly/spec/tar.gz/6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "sha256": "73b6b10278038f75d478fdcd0ed8cc4852224b379c5307056003717f403ce2e0"
+  },
+  "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
+  "rtl_build_id": "5c57ee7e6b27f2ea506dd1bc9fa1ee55",
+  "reports": {
+    "native_no_stalls": {
+      "file": "ci-native-fast.json",
+      "sha256": "a2a89a03e3f033d4d343a6c8016fd4eae61789d5969f2958e4eebb7eaca04ef4",
+      "memory_wait_states": 0,
+      "simulator_sha256": "f8ea29b933a8069b79847bf778b92a1cf02b5b9d2e4e593aa7e2c7b3cceb256c",
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 283019023,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      }
+    },
+    "native_stalled": {
+      "file": "core-3.0-current.json",
+      "sha256": "d7661849e97ece6ef89bd6af1ee5c278b052c0616838c327bd8cef521d4ee1aa",
+      "memory_wait_states": 3,
+      "simulator_sha256": "f8ea29b933a8069b79847bf778b92a1cf02b5b9d2e4e593aa7e2c7b3cceb256c",
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 306351688,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      }
+    },
+    "mapped_stalled": {
+      "file": "ci-mapped-complete.json",
+      "sha256": "45b680b8a3ff64d8216f8f7f436dbbdcf8e8530cfbdc5143fdf83c277a47c092",
+      "memory_wait_states": 3,
+      "simulator_sha256": "a2db2b4cfcf4633e56fb075d86718bd2e7ab9162f7959e32af389b6ac0dac8cb",
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 306351688,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      }
+    }
+  },
+  "mapped_coverage": {
+    "suite_files": 259,
+    "script_commands": 65353,
+    "shard_ids": [
+      "00",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "exact_native_command_cycles": true,
+    "canonical_rtl_cycles": 306351688,
+    "replayed_setup_cycles": 5088,
+    "total_simulated_cycles": 306356776,
+    "plan_sha256": "245f347c38a9e08e930a051a6f9569dfa5336808643d378e32cd4f6fd5a4e525",
+    "shard_reports": [
+      {
+        "path": "reports/shards/mapped-results-00/mapped-shard-00.json",
+        "sha256": "ed4a1e4327d70451a052ffe8d6debd9bb16532cbf58838bdf4abe520df5bbcda"
+      },
+      {
+        "path": "reports/shards/mapped-results-01/mapped-shard-01.json",
+        "sha256": "77ca436528a1ca0b944fb17531ba6bf40f8e5a325bc39da942d03273e2cb076f"
+      },
+      {
+        "path": "reports/shards/mapped-results-02/mapped-shard-02.json",
+        "sha256": "23fc9a126ff270fe06dcae3d3638838213d6238ededf25c78743a3211e6c3b61"
+      },
+      {
+        "path": "reports/shards/mapped-results-03/mapped-shard-03.json",
+        "sha256": "f058c78e12900ea4317ceacbec5c477c63f779ac2db364bc19bdd1a2e9b6c4a4"
+      },
+      {
+        "path": "reports/shards/mapped-results-04/mapped-shard-04.json",
+        "sha256": "8321473377bcdb32b55fc3f6404668dc9fc9015cfe03ed4a4755b63fa805b4b8"
+      },
+      {
+        "path": "reports/shards/mapped-results-05/mapped-shard-05.json",
+        "sha256": "237e41caa15764691e60faa99eb080ae70097a7129a659f31b1420d00e6550ba"
+      },
+      {
+        "path": "reports/shards/mapped-results-06/mapped-shard-06.json",
+        "sha256": "43a0dd1f1fd20f9110a24b72e53b87d1a9cec41ed56001eaccb3557061919c6a"
+      },
+      {
+        "path": "reports/shards/mapped-results-07/mapped-shard-07.json",
+        "sha256": "99b9c2f5d394b2ffbee3c370b3e3b19a4a11072542e3c5707986c72550e469a8"
+      },
+      {
+        "path": "reports/shards/mapped-results-08/mapped-shard-08.json",
+        "sha256": "2fd100072e8dda959264ffa2cb1f94021ba95be397c9d1e70a2ed784d100e1f5"
+      },
+      {
+        "path": "reports/shards/mapped-results-09/mapped-shard-09.json",
+        "sha256": "83b5cdefcfea5f212b6b04a36152cba6bb187ba9106133ddd0c268da2caa0d21"
+      },
+      {
+        "path": "reports/shards/mapped-results-10/mapped-shard-10.json",
+        "sha256": "ba5476274409532bd5e763a7fa81bbd29800a0063d42e7bb8e53ef152c146d17"
+      },
+      {
+        "path": "reports/shards/mapped-results-11/mapped-shard-11.json",
+        "sha256": "6a67464397536eb8a8cb7ce29235f6e9b5e3612779c27624b28cff31015f6a8f"
+      },
+      {
+        "path": "reports/shards/mapped-results-12/mapped-shard-12.json",
+        "sha256": "dae92599f37e35ee88644e17de625e8c47951fe0b7993efa5759c3edc8c86f6f"
+      },
+      {
+        "path": "reports/shards/mapped-results-13/mapped-shard-13.json",
+        "sha256": "3a6446bcb6b70fc8f5ebb9cd1ae5bf619a455f4bae274c3a12bd6a00d67d74d8"
+      },
+      {
+        "path": "reports/shards/mapped-results-14/mapped-shard-14.json",
+        "sha256": "a3a7a085979623ed57449520c88035000fb04359e409fa49fbea4045e06c9302"
+      },
+      {
+        "path": "reports/shards/mapped-results-15/mapped-shard-15.json",
+        "sha256": "e6bf2ae427bb00ccaac12403d9a0a49d93046cca8f338dba1e61875cdf4a9d4c"
+      }
+    ]
+  },
+  "independent_aggregation": {
+    "passed": true,
+    "report_sha256": "7683c32a67a516b3c5bc9044e64994928a0a46e8f67d824531a5a1fbe128b128",
+    "identical_to_ci_after_relocating_only_shard_report_paths": true
+  },
+  "synthesis_comparison": {
+    "local_netlist_sha256": "76e239dbc1b3bee95b22ceea400abe5811abc0190af8a10a9844b4aed4e1d2e3",
+    "ci_netlist_sha256": "7e1869b91fe85a2ce47601030d9b1a0bfeaadc56dc4c846b9d72a9800f18ecf8",
+    "netlists_byte_identical_after_workspace_path_relocation": true,
+    "workspace_path_occurrences_relocated": 100313,
+    "synthesis_inputs_and_options_identical": true
+  },
+  "physical_board_tested": false,
+  "whole_circuit_formal_equivalence": "inconclusive"
+}

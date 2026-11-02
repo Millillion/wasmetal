@@ -114,9 +114,9 @@ RTL with `make sim`. Both official-suite commands use that executable by default
 
 | Check | Automated in current CI? |
 |---|---|
-| Full official corpus on the original RTL, normal memory responses | Yes |
-| Full official corpus on the original RTL, three memory wait states | Yes |
-| Full official corpus on the synthesized ECP5 CPU netlist | Added; first end-to-end CI verification pending |
+| Full official corpus on the original RTL, normal memory responses | Yes; [passed](verification/ci-native-fast.json) |
+| Full official corpus on the original RTL, three memory wait states | Yes; [passed](verification/core-3.0-current.json) |
+| Full official corpus on the synthesized ECP5 CPU netlist | Yes; [passed](verification/ci-mapped-complete.json) |
 | Mapped-RAM component checks and the RTL board/UART simulation | Yes |
 
 After the original RTL passes, CI synthesizes the production ECP5 core and builds
@@ -156,13 +156,23 @@ the mapped aggregate correctly failed its backend check. A separate short
 synthetic-script regression exercises module, global and table initialization,
 calls and traps on both actual simulator executables.
 
-The first end-to-end run of this new mapped CI workflow is still being verified.
-The earlier complete mapped result was local. CI retains native, individual
-worker and final aggregate JSON reports for 30 days, and the larger simulator
-archive for seven days. Mapped-RAM component checks and UART RTL simulation
+The [complete CI run](https://github.com/Millillion/wasmetal/actions/runs/41470404770)
+passed all nineteen jobs, including all sixteen mapped partitions and the final
+aggregate. Its [verification record](verification/ci-complete.json) binds the
+source revision, models and reports. Independent local aggregation reproduced
+the CI result exactly after relocating only the sixteen downloaded report paths.
+All 259 suites and 65,353 original commands match native counts and command
+cycles. The mapped runs executed 306,351,688 canonical cycles plus 5,088 repeated
+setup cycles, for 306,356,776 actual cycles. CI synthesis reproduced the local
+production netlist byte-for-byte after replacing only workspace paths in source
+annotations.
+
+CI retains native, individual worker and final aggregate JSON reports for
+30 days, and the larger simulator archive for seven days. Mapped-RAM component
+checks and UART RTL simulation
 remain additional checks with their own scope.
-Rerunning a job replaces that job's named artifact; earlier attempt logs remain
-available in the workflow history.
+A rerun replaces a job's named artifact when it uploads reports; consult the
+latest job result. Earlier attempt logs remain available in the workflow history.
 
 ## Progress and independent checks
 
