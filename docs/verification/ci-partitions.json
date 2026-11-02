@@ -1,0 +1,105 @@
+{
+  "native_partition_equivalence_passed": true,
+  "official_suites": 259,
+  "totals": {
+    "rtl_assertions_passed": 57711,
+    "rtl_cycles": 306351688,
+    "script_commands": 65353,
+    "modules_instantiated": 2266,
+    "registrations": 80,
+    "loader_assertions_passed": 4677,
+    "embedding_assertions_passed": 254,
+    "rtl_actions_completed": 359,
+    "module_definitions": 6
+  },
+  "replayed_setup_cycles": 5088,
+  "reference_sha256": "c3dab5b88ced47ece87869c1818fd20d21637e6d6dd343706388c8c9cb70bfe3",
+  "plan_sha256": "27605127cf790b0c2870e50cbc66fe4700c840a576f5c13b3247a02fa1ac1c46",
+  "shards": [
+    {
+      "path": "reports/ci-native-shards/native-shard-00.json",
+      "sha256": "47228f3f5ebefcec7b8da9cb002c5193627443a37437cd46729b2defc08ae986"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-01.json",
+      "sha256": "cf98ef369446b4ef9918e1ad2ee644b8ef1841cb260a04b286d297235848dd31"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-02.json",
+      "sha256": "f2b1525255dcef9092aabdbed75bb002b26a04164788198d382a0478504f1b2a"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-03.json",
+      "sha256": "5e05c1c0c1e889606eb4c0c1110b85ec3025e90f17968d54efc2ee9546bef910"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-04.json",
+      "sha256": "347172badb94e70c1364582845c83002ccafb451d61e9f5fcf8fd91f16605889"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-05.json",
+      "sha256": "18f1a2754b5a2de6b0f5d5397f1e14817c428ace17aeef29536b017b5dae62af"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-06.json",
+      "sha256": "8438dc21113c9f1f53f47ecf31c6b62b85fdbc08fdcd61f0f8bec87893cf2e3e"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-07.json",
+      "sha256": "5aeb5a383fa69b58cb3784a49c730aea506ad8f8e139956b1c9b6dd09f544e99"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-08.json",
+      "sha256": "524b20cda99c1472956510515911fa454769fcb60e84c590228182a87ae18ef6"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-09.json",
+      "sha256": "0e2a2cfa2c7377f1cc823a5b167e97b1d7cbdd18057d535809ef498c27e322fd"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-10.json",
+      "sha256": "7e59c56d9aaad34b2d26f5b49f205321d1e6d033ea54d99f3ff8887b5dbb9a03"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-11.json",
+      "sha256": "e24066ac0f7f44c8a4f6541503753d84ee0a28fb4f461ae40ce61daf51beecd5"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-12.json",
+      "sha256": "1c6583dfc454a0cc37edf7d6e54d23acd7fc0e3a0a603350e32d918dde4fe3cd"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-13.json",
+      "sha256": "484658f8d345247b545eb71a0bbd30d6368c76abd13956068935e21401747a5c"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-14.json",
+      "sha256": "eea2d88cd55cca5d8f5b99e7df4666ef3bd8e0dec5bf3a0e3e267058a33ae0a4"
+    },
+    {
+      "path": "reports/ci-native-shards/native-shard-15.json",
+      "sha256": "03f30a8ea4dfaafebad9ffe8288292e61f1b8a158d95ddb61fd6add4ca67e7b6"
+    }
+  ],
+  "verification_scope": "Full command-partition rehearsal on original RTL; mapped CI verification remains pending.",
+  "observed_utc": "2026-11-02T15:19:02Z",
+  "execution_tools_commit": "1a5485e2467c1e4e7588a6336d50f2eb829efceb",
+  "spec": {
+    "version": "WebAssembly Core 3.0",
+    "revision": "6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "url": "https://codeload.github.com/WebAssembly/spec/tar.gz/6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "sha256": "73b6b10278038f75d478fdcd0ed8cc4852224b379c5307056003717f403ce2e0"
+  },
+  "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
+  "source_sha256": "d0b8b0f62d1a02fbdbe645a958521136bba3e07383b0076079eb7b3a5d947cb0",
+  "simulator_sha256": "87393149d7a23709155abbb989e556efd65c35c60da708cf095336de2864c45c",
+  "rtl_build_id": "5c57ee7e6b27f2ea506dd1bc9fa1ee55",
+  "runner_inputs": {
+    "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "build/spectest.wasm": "f80e77fd019b4d021acfd7c064378b8d7e630fda68ddf82d6fd085accd0c4e25"
+  },
+  "mapped_gate_rejects_native_results": true,
+  "exact_per_command_cycles": true
+}

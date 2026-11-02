@@ -27,6 +27,7 @@ jobs:
         run: |
           make sim
           python3 tools/check_engine.py
+          python3 tests/spec_partition_runner_test.py
       - name: Complete official suite
         run: python3 tools/run_spec.py --report reports/core.json
       - name: Complete official suite with memory stalls
@@ -38,6 +39,7 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: verification-reports
+          overwrite: true
           path: reports/*.json
           if-no-files-found: warn
           retention-days: 30
@@ -67,12 +69,17 @@ jobs:
           make fpga-core
       - name: Compile the mapped circuit for all worker CPUs
         run: python3 tools/build_gate_sim.py --core-netlist build/core-ecp5.json --build-directory build/gate-ci --fast-sim --fast-luts --portable --jobs 2
+      - name: Verify partition accounting on the real mapped simulator
+        env:
+          WASMETAL_TEST_SIMULATOR: build/gate-ci/obj/Vwasmetal_core
+        run: python3 tests/spec_partition_runner_test.py
       - name: Package the simulator and its verified inputs
         run: python3 tools/spec_ci.py pack --simulator build/gate-ci/obj/Vwasmetal_core --output reports/mapped-simulator.tar.gz
       - name: Preserve mapped model and ownership plan
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: mapped-simulator
+          overwrite: true
           path: |
             reports/mapped-simulator.tar.gz
             reports/mapped-plan.json
@@ -83,6 +90,7 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: mapped-build-reports
+          overwrite: true
           path: |
             reports/mapped-plan.json
             build/core-ecp5*.log
@@ -128,6 +136,7 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: mapped-results-${{ matrix.shard }}
+          overwrite: true
           path: reports/*.json
           if-no-files-found: warn
           retention-days: 30
@@ -172,6 +181,7 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: mapped-complete
+          overwrite: true
           path: reports/mapped-complete.json
           if-no-files-found: warn
           retention-days: 30

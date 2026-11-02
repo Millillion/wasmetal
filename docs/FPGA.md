@@ -43,7 +43,7 @@ cells (70.4%), 98 of 208 block RAMs and 27 of 156 DSP blocks. The core meets its
 ABC9 mapping and static placement are the default recipe. A fresh
 `make fpga-bitstream` run reproduced the prototype bitstream byte for byte.
 The rebuilt native simulator is also identical to the full-suite-tested binary.
-The selected mapped functional suites have also completed successfully. An additional
+The complete 259-suite mapped functional regression has also passed. An additional
 formal comparison was inconclusive; see the verification details below.
 Heap allocation is bounded and currently has no reclamation. Mapped-cell results
 apply to their recorded netlist and capacity profile; a changed mapping requires
@@ -148,10 +148,13 @@ The local run completed in 8 hours 14 minutes with four workers. The
 [completed checkpoint](verification/mapped-regression-status.json) preserves the
 final report identity and historical evidence.
 
-CI currently runs the full official corpus against the original RTL, with and
-without memory stalls. Its mapped-RAM checks and UART simulation do not run the
-full synthesized CPU corpus. The complete netlist regression above was run locally;
-the [design-flow explanation](DESIGN-FLOW.md) gives its command and the CI boundary.
+CI runs the full official corpus against the original RTL, with and without
+memory stalls. The workflow now also builds the synthesized CPU and distributes
+the complete corpus across 16 workers, with an exhaustive coverage and native
+agreement check. This new CI path is undergoing its first end-to-end verification;
+the completed netlist result above was local. The
+[design-flow explanation](DESIGN-FLOW.md#what-ci-runs) describes partition safety,
+the shared executable, report artifacts and the final acceptance check.
 
 An additional [whole-mapping equivalence attempt](verification/mapping-equivalence.json)
 was inconclusive. The bounded solver timed out. A second model used 929 internal

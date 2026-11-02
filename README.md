@@ -45,7 +45,13 @@ runs the complete official corpus against its Verilator circuit model across
 16 workers. A final check requires every official command exactly once and
 compares every suite's counts and command cycles with the original RTL run.
 The new mapped CI path is undergoing its first end-to-end verification; the
-completed mapped result above remains the local full run.
+completed mapped result above remains the local full run. Partition/replay
+accounting is additionally checked on both actual simulator executables using
+a short synthetic script with globals, tables, calls and a trap. A
+[complete native rehearsal of all 16 partitions](docs/verification/ci-partitions.json)
+matches the intact run for all 65,353 commands, every command's cycle count and
+every suite's assertion totals. The mapped acceptance check also rejects native
+simulator reports, even when their results match.
 
 JSON results are retained for 30 days as `verification-reports`,
 `mapped-results-*` and `mapped-complete` artifacts. Partial reports remain

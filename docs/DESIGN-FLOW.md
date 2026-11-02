@@ -148,11 +148,21 @@ cases and timeouts; or differences from native counts and per-command cycles.
 Only that complete aggregate can set `full_core_suite_passed` to true. Negative
 regression tests exercise these rejection paths.
 
+A [full native rehearsal](verification/ci-partitions.json) ran all sixteen
+ownership groups and reproduced the intact reference's 65,353 commands, all
+per-command cycles and every suite's counts. Replayed initialization added 5,088
+cycles, accounted for separately. Feeding those successful native results to
+the mapped aggregate correctly failed its backend check. A separate short
+synthetic-script regression exercises module, global and table initialization,
+calls and traps on both actual simulator executables.
+
 The first end-to-end run of this new mapped CI workflow is still being verified.
 The earlier complete mapped result was local. CI retains native, individual
 worker and final aggregate JSON reports for 30 days, and the larger simulator
 archive for seven days. Mapped-RAM component checks and UART RTL simulation
 remain additional checks with their own scope.
+Rerunning a job replaces that job's named artifact; earlier attempt logs remain
+available in the workflow history.
 
 ## Progress and independent checks
 
