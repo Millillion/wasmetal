@@ -66,7 +66,7 @@ That record does not establish failures in the remaining files; it establishes t
 
 Expanded testing has now passed [249 official suites](verification/ecp5-expanded.json), with 48,604 execution assertions, 4,320 validation assertions, 254 embedding assertions and 3,038,303 cycles. Every per-suite count matches the original RTL run. Executable/source identity checks passed, and no failures, unsupported cases, conversion errors, blocked commands or runner errors were recorded.
 
-The original slow full run was interrupted while faster simulator builds were checked. The full regression resumed on 2026-11-02. The [checkpoint](verification/mapped-regression-status.json) records 250 distinct suite files completed and 9 still pending. A final full result must identify all 259 suites, show zero errors and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
+The original slow full run was interrupted while faster simulator builds were checked. The full regression resumed on 2026-11-02. The [checkpoint](verification/mapped-regression-status.json) preserves 250 suites from completed prior reports. The current full run has completed 258 suites without reported errors; `return_call_ref.wast` remains. A final full result must identify all 259 suites, show zero errors and pass executable/source identity checks. No full mapped pass is claimed until that report exists.
 
 ## Running and observing the full mapped regression
 
@@ -138,19 +138,9 @@ cycles with exact agreement against the original RTL.
 
 The current mapped coverage is **250/259 distinct suite files**, comprising 48,738 execution assertions over 6,307,545 cycles. After the owner explicitly resumed work on 2026-11-02, a fresh full 259-suite run started on the production-built simulator. Four workers start the longest suites first. The previous results remain valid; the new run must finish and pass its identity checks before it establishes a full mapped pass.
 
-The remaining suites are:
+The [partial snapshot](verification/ecp5-full-progress.json) now contains **258 completed suites**, 57,676 execution assertions, 4,664 validation assertions, 254 embedding assertions and 186,314,508 cycles. Every completed suite has exactly the native RTL counts and no reported errors. Only `return_call_ref.wast` remains. A live executable/source identity check passed at the checkpoint; the final end-of-run identity check is still required.
 
-- `bulk-memory/memory_copy.wast`
-- `bulk-memory/memory_fill.wast`
-- `memory64/memory_copy64.wast`
-- `memory64/memory_fill64.wast`
-- `memory64/memory_grow64.wast`
-- `memory_grow.wast`
-- `return_call.wast`
-- `return_call_indirect.wast`
-- `return_call_ref.wast`
-
-These stress suites account for most of the simulated cycles, so the file count alone does not measure remaining runtime. The checkpoint combines disjoint final reports; overlapping independent and fresh-builder checks are counted only once. The full mapped regression remains unfinished.
+The final reference-tail-call suite accounts for 120,037,180 cycles in the native report, so the file count alone does not measure remaining runtime. The checkpoint combines disjoint final reports; overlapping independent and fresh-builder checks are counted only once. The full mapped regression remains unfinished.
 
 The active command is:
 
@@ -158,7 +148,7 @@ The active command is:
 python3 tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full-20261102.progress.json --report reports/ecp5-full-20261102.json
 ```
 
-If that build directory is unavailable, use the fresh-build instructions above. The runner checks source and executable identities before execution. The previous pause cancelled CI runs 41270306771 and 41269745152 and skipped CI for the checkpoint commit. CI resumes with the current status commit. The active local log is `reports/ecp5-full-20261102.log`.
+If that build directory is unavailable, use the fresh-build instructions above. The runner checks source and executable identities before execution. The previous pause cancelled CI runs 41270306771 and 41269745152 and skipped CI for the checkpoint commit. CI run 41393251485 passed for the resume commit. The active local log is `reports/ecp5-full-20261102.log`.
 
 ## After a full netlist pass
 

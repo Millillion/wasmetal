@@ -1,6 +1,6 @@
 {
   "status": "full regression running after explicit owner resume",
-  "updated_utc": "2026-11-02T05:18:27.278596+00:00",
+  "updated_utc": "2026-11-02T12:53:44.638587+00:00",
   "automatic_resumption": false,
   "full_core_suite_passed": false,
   "official_suite_files": 259,
@@ -308,12 +308,12 @@
     "docs/verification/ecp5-production.json",
     "docs/verification/ecp5-production-engine.json"
   ],
-  "last_successful_ci_run": 41267401966,
+  "last_successful_ci_run": 41393251485,
   "ci_runs_cancelled_at_owner_request": [
     41270306771,
     41269745152
   ],
-  "note": "The prior 250-suite coverage is preserved while a fresh full-corpus run executes on the verified production-built simulator. Running or partial checks do not establish a full pass. Most runtime is in the long stress suites.",
+  "note": "The ongoing full run has completed 258 suite files with exact native assertion and cycle counts and no reported errors. Its committed progress snapshot is partial; the final report and end-of-run identity checks remain authoritative. The separate 250-suite coverage below comes from completed prior reports.",
   "resume_command": "python3 tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full-20261102.progress.json --report reports/ecp5-full-20261102.json",
   "resumed_utc": "2026-11-02T05:18:27.278596+00:00",
   "active_run": {
@@ -326,6 +326,16 @@
     "schedule": "longest first using native cycle counts",
     "progress_report": "reports/ecp5-full-20261102.progress.json",
     "final_report": "reports/ecp5-full-20261102.json",
-    "log": "reports/ecp5-full-20261102.log"
-  }
+    "log": "reports/ecp5-full-20261102.log",
+    "completed_suite_files": 258,
+    "pending_suites": [
+      "return_call_ref.wast"
+    ],
+    "live_identity_verified_utc": "2026-11-02T12:53:44.638587+00:00"
+  },
+  "observed_completed_suites": 258,
+  "observed_pending_suites": [
+    "return_call_ref.wast"
+  ],
+  "partial_progress_report": "docs/verification/ecp5-full-progress.json"
 }
