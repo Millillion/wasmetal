@@ -1,6 +1,6 @@
 {
-  "status": "paused at owner request",
-  "updated_utc": "2026-11-01T03:51:14.508002+00:00",
+  "status": "full regression running after explicit owner resume",
+  "updated_utc": "2026-11-02T05:18:27.278596+00:00",
   "automatic_resumption": false,
   "full_core_suite_passed": false,
   "official_suite_files": 259,
@@ -313,6 +313,19 @@
     41270306771,
     41269745152
   ],
-  "note": "Coverage combines disjoint selected-suite reports with identical simulator and execution identities. Overlapping cross-checks are not counted twice. Most simulation cycles remain in the long stress suites. This is not a full-corpus pass or a physical-board result.",
-  "resume_command": "python3 tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full.progress.json --report reports/ecp5-full.json"
+  "note": "The prior 250-suite coverage is preserved while a fresh full-corpus run executes on the verified production-built simulator. Running or partial checks do not establish a full pass. Most runtime is in the long stress suites.",
+  "resume_command": "python3 tools/run_spec.py --simulator build/gate-fast-lut/obj/Vwasmetal_core --wait-states 3 --jobs 4 --response-timeout 172800 --schedule-from docs/verification/core-3.0-current.json --verbose --progress-report reports/ecp5-full-20261102.progress.json --report reports/ecp5-full-20261102.json",
+  "resumed_utc": "2026-11-02T05:18:27.278596+00:00",
+  "active_run": {
+    "selected_suite_files": 259,
+    "simulator": "build/gate-fast-lut/obj/Vwasmetal_core",
+    "simulator_sha256": "a02ca2797d25a59779c25916d3e07acfb8a23593e1b7406033685572c1ad571b",
+    "jobs": 4,
+    "memory_wait_states": 3,
+    "response_timeout_seconds": 172800,
+    "schedule": "longest first using native cycle counts",
+    "progress_report": "reports/ecp5-full-20261102.progress.json",
+    "final_report": "reports/ecp5-full-20261102.json",
+    "log": "reports/ecp5-full-20261102.log"
+  }
 }

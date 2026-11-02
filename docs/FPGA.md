@@ -142,7 +142,7 @@ Expanded testing of the unchanged default ABC9 core netlist has now passed
 [249 official suites](verification/ecp5-expanded.json): 48,604 execution assertions,
 4,320 validation assertions and 254 embedding assertions over 3,038,303 cycles.
 Every per-suite count matches the original RTL run. The [pause checkpoint](verification/mapped-regression-status.json)
-records 250 distinct suites completed and 9 pending; work is paused at the owner's request. The [design-flow explanation](DESIGN-FLOW.md)
+records 250 distinct suites completed and 9 pending; a fresh full regression is running after the owner resumed work. The [design-flow explanation](DESIGN-FLOW.md)
 gives the full command and progress locations. A full mapped pass remains pending.
 
 An additional [whole-mapping equivalence attempt](verification/mapping-equivalence.json)
