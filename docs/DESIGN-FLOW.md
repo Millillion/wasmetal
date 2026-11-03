@@ -107,6 +107,37 @@ Omitting `--suite` selects the entire official core tree. `--schedule-from` chan
 
 CI includes regression checks for timeout classification and for recompiling simulator objects when compiler flags change.
 
+## Checking the programmable wrapper mapping
+
+The programmable wrapper uses ABC9, as the CPU already does. The
+[board-wrapper comparison](verification/loadable-mapping-proof.json) independently
+maps the same synthesis input with ABC. It requires matching configurations for
+all 1,693 registers, 94 block RAMs, 64 distributed RAMs and the unchanged CPU
+instance. Register matching uses RTL signal names, excluding generated
+technology aliases, and must account for every state element exactly once.
+
+The proof replaces those elements' outputs with 5,865 arbitrary shared binary
+inputs. It then proves equality of 15,976 bits: every input to those elements
+and every external output. A deliberately inverted external output must fail.
+This checks the combinational logic between state elements under identical
+state/CPU outputs; it is not a formal proof of the CPU, clock timing or
+metastability behavior. The separate four-state primitive checks still apply.
+The [accelerated simulation configuration](verification/loadable-simulation-mapping-proof.json)
+also passes, comparing 15,892 bits around 1,668 registers and the same memory
+and CPU instances. CI requires both configurations to pass.
+
+```sh
+python3 tools/build_loadable_board.py --map-only
+python3 tools/prove_loadable_mapping.py
+# After the accelerated simulation mapping has been built:
+python3 tools/prove_loadable_mapping.py --directory build/loadable-mapped
+```
+
+The board mapper explicitly preserves the attributed reset chain before ABC9.
+The I/O audit requires real register drivers for its named stages and rejects
+an undriven stage as well as bypassed synchronization and incorrect clocks or
+reset polarity.
+
 ## What CI runs
 
 The [CI workflow](../.github/workflows/rtl.yml) builds the original SystemVerilog

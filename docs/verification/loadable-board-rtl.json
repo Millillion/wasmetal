@@ -34,6 +34,7 @@
       "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
       "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
       "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+      "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
       "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
       "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
       "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
@@ -52,7 +53,7 @@
       "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
       "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
       "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
-      "tools/build_loadable_sim.py": "61b58f7fa932ccbc131c456d6185c50e45da1b5a80f45451b865432f2d08c75d",
+      "tools/build_loadable_sim.py": "3c12f3b77ed60d33d626857892df9540dee8e3fb75edee69f62896c38bc04317",
       "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
       "tools/build_standalone_sim.py": "8dcb8a4d26cd248a17e6a6e4aa457ba97b6f3ec556c52b302481bc1c7020c020",
       "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
@@ -142,13 +143,13 @@
     }
   ],
   "inputs": {
-    "tools/check_loadable.py": "471acdfc9949188ffbba8dd854647961c72ec6831b1ba4a2ffa9d4f7ebb87ee7",
+    "tools/check_loadable.py": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
     "tools/check_standalone.py": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
     "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
     "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
     "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba"
   },
-  "elapsed_seconds": 1324.6380012580194,
+  "elapsed_seconds": 655.9105443530716,
   "physical_hardware_tested": false
 }

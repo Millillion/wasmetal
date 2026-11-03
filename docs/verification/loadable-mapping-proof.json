@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "scope": "Prove wrapper combinational equivalence with identical state and CPU outputs.\n\nRe-map the same prepared synthesis input with ABC, then compare every input of\nevery retained register, RAM and CPU instance and every external output against\nABC9. State/CPU outputs are arbitrary shared inputs. This is a combinational\ncutpoint proof, not a formal proof of the CPU or physical clock behavior.\n",
+  "top": "wasmetal_loadable_ulx3s",
+  "state_cells": {
+    "TRELLIS_FF": 1693,
+    "DP16KD": 94,
+    "wasmetal_core": 1,
+    "TRELLIS_DPR16X4": 64
+  },
+  "positive": {
+    "state_output_bits": 5865,
+    "compared_bits": 15976,
+    "log_sha256": "963f9405333009b07cb3f2bc69adc450a653df441da4b3d0eb8c46304370d641"
+  },
+  "inverted_output_rejected": true,
+  "negative": {
+    "state_output_bits": 5865,
+    "compared_bits": 15976,
+    "log_sha256": "0415b5cb26103ca6b7a744addf7d078a95ee1f1013735f7ef0fa118a9b639fe3"
+  },
+  "inputs": {
+    "tools/prove_loadable_mapping.py": "f9d8f3ac858935d775e449c411fc89e0503d4e6f8b6278a0205f5f33c30078d7",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "build/loadable-ulx3s-abc9-keep/design.manifest.json": "014b3649ebdd334f26b0b0e57d2cfb1ff5412ce33ce52a14b747ed07dd1d8091",
+    "build/loadable-ulx3s-abc9-keep/wrapper.json": "7422b0f5d60fd9dbd61bc952dc2407d02abe389bf3c607b4bb737ba0cc5bea07",
+    "build/loadable-ulx3s-abc9-keep/wrapper.ys": "9a5d33d52bf23c789e360d76b4a0abe4a874a66c5aa4344d2bfa3c55594c1fa7",
+    ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+    "build/build_loadable_abc9_keep.py": "23a1d337ef2419e0c2781a536330d58ff2048b58a5f49ee31cc3abe06b57d985",
+    "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
+    "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
+    "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "build/loadable-ulx3s-abc9-keep/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+    "build/standalone-core-ecp5.json": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
+    "build/standalone-core-ecp5.manifest.json": "6cfd713300f1133250983d0c817d7f663aa736163d70ad27e6f3c20c5ea2665e",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a"
+  },
+  "wrapper_cells": {
+    "abc": {
+      "LUT4": 8495,
+      "DCCA": 1,
+      "TRELLIS_FF": 1693,
+      "CCU2C": 806,
+      "DP16KD": 94,
+      "PFUMX": 2437,
+      "wasmetal_core": 1,
+      "L6MUX21": 978,
+      "TRELLIS_DPR16X4": 64
+    },
+    "abc9": {
+      "LUT4": 5349,
+      "DCCA": 1,
+      "TRELLIS_FF": 1693,
+      "CCU2C": 766,
+      "DP16KD": 94,
+      "PFUMX": 968,
+      "wasmetal_core": 1,
+      "L6MUX21": 263,
+      "TRELLIS_DPR16X4": 64
+    }
+  },
+  "reference_sha256": "a1278ee696796d3a6fecf55127f98ec828bfa1100540d071fa0ac69bbd923ff6",
+  "candidate_sha256": "7422b0f5d60fd9dbd61bc952dc2407d02abe389bf3c607b4bb737ba0cc5bea07",
+  "physical_hardware_tested": false
+}

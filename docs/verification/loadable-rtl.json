@@ -34,6 +34,7 @@
       "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
       "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
       "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+      "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
       "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
       "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
       "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
@@ -843,6 +844,6 @@
     "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
     "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba"
   },
-  "elapsed_seconds": 327.51509549701586,
+  "elapsed_seconds": 245.22497211699374,
   "physical_hardware_tested": false
 }

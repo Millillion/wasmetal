@@ -95,17 +95,23 @@ divider and serial timing. Every mapped UART byte, result and clock count
 matches RTL in that completed comparison. The current ABC9 wrapper mapping
 [reduces placement from 66,251 to 62,958 logic cells](docs/verification/loadable-synthesis.json),
 out of 83,640, with the same CPU circuit, all storage capacities and 192/208
-block RAMs. It explicitly preserves the audited reset synchronizer. Execution
-checks and an independent mapping-equivalence check are running for this
-smaller circuit. Programmable FPGA routing remains unresolved. The earlier
+block RAMs. It explicitly preserves the audited reset synchronizer. With
+identical stored state and CPU outputs, an
+[independent binary-equivalence proof](docs/verification/loadable-mapping-proof.json)
+passes for 15,976 boundary bits and rejects a deliberately inverted output.
+The [accelerated simulation mapping](docs/verification/loadable-simulation-mapping-proof.json)
+also passes; CI requires both comparisons.
+Execution rechecks are still running. Programmable FPGA routing remains
+unresolved. The earlier
 [routing experiment snapshot](docs/verification/loadable-routing-status.json)
 records interrupted and still-running attempts; no programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
 The programmable CI build exposed a command error: the board-clock check was
 given the core-clock simulator. `make loadable-test` now selects the board
-simulator explicitly. Its local rerun has passed all 35 core-clock cases,
-both board-clock uploads and two sender rates; the last rate check is running.
+simulator explicitly. The complete target now passes locally: all 35 core-clock
+cases, both board-clock uploads, all three sender rates, the nine host tests
+and acceptance-campaign preparation.
 The original ROM system has been reverified,
 including its mapped comparisons and fresh routing/bitstream checks.
 

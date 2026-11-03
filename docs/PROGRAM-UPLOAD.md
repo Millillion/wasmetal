@@ -208,9 +208,13 @@ matches a 9600-baud sender against the board's approximately 9645-baud UART.
 
 The [mapped I/O audit](verification/loadable-io.json) checks both stages of the
 UART and reset synchronizers, their clocks and reset polarity, exclusive
-first-stage fanout and the permanently enabled core-clock buffer. Seven
+first-stage fanout and the permanently enabled core-clock buffer. Eight
 deliberately broken circuits are rejected. This checks digital structure;
 it does not establish analog metastability reliability or physical placement.
+The ABC9 mapper preserves the audited reset-stage nets explicitly. Independent
+[mapping comparisons](DESIGN-FLOW.md#checking-the-programmable-wrapper-mapping)
+check all register, memory and CPU boundary inputs for both the board and
+accelerated simulation configurations, with a corrupted-output negative control.
 
 Mapped verification uses six independently assigned groups. The final merge
 requires all 35 integration cases, the same circuit and simulator identities, and exact
@@ -220,6 +224,7 @@ groups, native-model substitution, changed simulator binaries and incorrect
 results/clocks are rejected. The [completed comparison](verification/loadable-mapped.json)
 passes all 35 cases and seven negative controls, preserving both simulator
 identities and checker source hashes in the merged receipt.
+That receipt predates the ABC9 wrapper update; its execution recheck is running.
 These are bounded integration cases, separate from the 259-suite official
 host-backed corpus.
 CI builds the mapped simulator independently of board routing so routing
