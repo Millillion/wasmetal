@@ -2,6 +2,7 @@
 """Share the programmable circuit and require every integration case to match RTL."""
 import argparse
 import copy
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -92,7 +93,23 @@ def main():
         args.output.parent.mkdir(parents=True,exist_ok=True)
         with tarfile.open(args.output,'w:gz') as archive:
             for path in sorted(paths):archive.add(path,arcname=str(path.resolve().relative_to(ROOT)),recursive=False)
-        verify_simulator(binary);print(args.output);return
+        expected={str(path.resolve().relative_to(ROOT)):digest(path) for path in paths}
+        with tarfile.open(args.output,'r:gz') as archive:
+            members=archive.getmembers()
+            if len(members)!=len(expected) or {member.name for member in members}!=set(expected):
+                raise ValueError('simulator package is incomplete or duplicated')
+            for member in members:
+                if not member.isfile():raise ValueError('simulator package must contain only regular files')
+                if hashlib.sha256(archive.extractfile(member).read()).hexdigest()!=expected[member.name]:
+                    raise ValueError('simulator package changed an input: '+member.name)
+                if member.name==str(binary.relative_to(ROOT)) and not member.mode&0o111:
+                    raise ValueError('packaged simulator lost its executable permissions')
+        verify_simulator(binary)
+        (ROOT/'reports/loadable-package.json').write_text(json.dumps({'status':'passed',
+            'package_sha256':digest(args.output),'members':expected,'binary_sha256':identity['binary_sha256'],
+            'netlist_sha256':identity['netlist_sha256'],'inputs':{
+                str(Path(__file__).resolve().relative_to(ROOT)):digest(Path(__file__).resolve())}},indent=2)+'\n')
+        print(args.output);return
     reference=json.loads(args.reference.read_text())
     paths=sorted(args.reports.rglob('loadable-mapped-[0-9].json'))
     reports=[json.loads(path.read_text()) for path in paths]

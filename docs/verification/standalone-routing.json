@@ -11,14 +11,21 @@
     "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
     "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
     "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+    "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
+    "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
     "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
     "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
     "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
     "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
     "soc/ulx3s.lpf": "ace7a11cfea02a79ece170f1289806fb6422fde79e1bbfadbe6274c6520b8088",
-    "soc/wasmetal_local_memory.sv": "c50e55810d6b14d66144af85173df61c68cd582b5ab873075733fc8df7bc2795",
-    "soc/wasmetal_standalone.sv": "af716e0c61ebe7144a2b8aebcd4b0843baa31ae45d1c9201f291e14828121548",
-    "soc/wasmetal_standalone_ulx3s.sv": "f60f5ec4d79a42637c91db05b5e376ecb9d778317ed3aaf5f15e1d667844de8a",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "soc/wasmetal_standalone_ulx3s.sv": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
     "build/standalone-image/boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
     "build/standalone-image/code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
     "build/standalone-image/functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
@@ -164,7 +171,7 @@
     }
   },
   "core_netlist_sha256": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
-  "netlist_sha256": "dfc4b76b2bd518e2c88d2a06f3b6652b2c152972825d1cbb7584833ef6a54b7a",
+  "netlist_sha256": "37d1f98d497d42168b09d768d2d32b0df933a745c2afb8d4d9b8fa7aed594896",
   "board": "ULX3S 85F CABGA381 speed 6",
   "seed": 1,
   "commands": {
@@ -217,7 +224,7 @@
     ]
   },
   "timing": {
-    "report_sha256": "3855da8e0ac78e524ba32c2ba987b720999bfcd10e71f086a9293430c1f59add",
+    "report_sha256": "fe0f7ada31adf65e8264625b0c604f5f67c1b05e592bf91c0e56c28b23d32850",
     "clocks": {
       "oscillator": {
         "net": "$glbnet$clk_25mhz$TRELLIS_IO_IN",
@@ -227,7 +234,7 @@
       "core": {
         "net": "core_clock",
         "required_mhz": 0.78125,
-        "achieved_mhz": 2.8193633556365967
+        "achieved_mhz": 2.9951956272125244
       }
     },
     "paths": {
@@ -236,7 +243,7 @@
         "budget_ns": 40.0
       },
       "core:negedge->posedge": {
-        "delay_ns": 177.34500109404325,
+        "delay_ns": 166.93400105834007,
         "budget_ns": 640.0
       }
     },
@@ -331,7 +338,7 @@
       },
       "TRELLIS_COMB": {
         "available": 83640,
-        "used": 63695
+        "used": 63656
       },
       "TRELLIS_ECLKBUF": {
         "available": 8,
@@ -357,12 +364,12 @@
     "physical_hardware_tested": false
   },
   "artifacts": {
-    "design.json": "dfc4b76b2bd518e2c88d2a06f3b6652b2c152972825d1cbb7584833ef6a54b7a",
-    "placed.json": "78d4c3b2e153fbe6c55aa21a7506c35cef372f8ef0a8a37300077cee0702d3d8",
-    "routed.json": "0ca0e7b82c7359d123ecde47022c69d19c067f9ffc883711e8c4f9c31cecf232",
-    "design.config": "27855a77e27e177bf46d535feb146569611a7f5e62d2c89185750cd5d23fe544",
-    "timing.json": "3855da8e0ac78e524ba32c2ba987b720999bfcd10e71f086a9293430c1f59add",
-    "wasmetal.bit": "2c5f88b6c0e6aed8d78d6dc4ac7357dbf287abc869f88fcac6037602bcae7540"
+    "design.json": "37d1f98d497d42168b09d768d2d32b0df933a745c2afb8d4d9b8fa7aed594896",
+    "placed.json": "185188cf79e09552992c0de62d1a4683e41d7102225a3f50fb3bdfa46605d8f4",
+    "routed.json": "3844850dae7a035c32254769c4d220f3f482fa3f6ea62c0ebfc5a4419616a7f4",
+    "design.config": "40caccd1c9c2a5a37e47358acaa114ce93bb989f105a7d864f2cf9ff7bbee17f",
+    "timing.json": "fe0f7ada31adf65e8264625b0c604f5f67c1b05e592bf91c0e56c28b23d32850",
+    "wasmetal.bit": "a52c9d677f9072620c1cbf80f41844d4da1c7dd20f94b37c2ec901f5bbbdd710"
   },
   "bitstream_round_trip_passed": true,
   "physical_hardware_tested": false

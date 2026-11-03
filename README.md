@@ -8,7 +8,7 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
-- **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 63,695/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
+- **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 63,656/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
 - **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
@@ -53,7 +53,8 @@ The wider memory is integrated into the standalone RTL and mapped model.
 from 73 to 39 for unaligned SIMD and from 73 to 31 for struct allocation/cast;
 arithmetic-only examples retain their cycle counts. The 128 KiB startup clear
 takes 32,768 core cycles, down from 131,072. The complete system passes mapped comparison and routing at the same clock.
-The wider memory costs 4,038 additional logic cells, with block-RAM use unchanged.
+The current standalone uses about 4,000 more logic cells than the earlier
+byte-wide prototype, with block-RAM use unchanged.
 
 The [external-memory AXI4 adapter](docs/AXI.md) separately passes
 [21,732 transactions in RTL and mapped simulation](docs/verification/axi-mapped.json)
@@ -80,9 +81,13 @@ Run `make image-loader-test`.
 The [host uploader](tools/upload_program.py) handles the ready/commit exchange,
 serial deadlines and execution results, including replies arriving together.
 Its serial-device tests pass. The programmable system now connects UART loading
-to writable instruction and metadata stores and the complete CPU. Its expanded
-native, mapped, board-clock and routing verification is running; the existing
-standalone build continues to boot from its prepared ROM image.
+to writable instruction and metadata stores and the complete CPU.
+[All 35 native integration checks](docs/verification/loadable-rtl.json) pass,
+including program replacement, rejection, timeout, UART break, rate variation
+and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
+also pass. Full mapped checks, extended board-rate checks and programmable
+routing are still in progress. The original ROM system has been reverified,
+including its mapped comparisons and fresh routing/bitstream checks.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
 integer dot products, with independently calculated results and repeated resets.
@@ -127,7 +132,7 @@ compares the mapped circuit with board RTL. It retains `standalone-verification`
 and `standalone-fpga` artifacts for 30 days. The first
 [clean CI job passed](https://github.com/Millillion/wasmetal/actions/runs/41572176563/job/125707382260),
 reproducing every local case's UART bytes and completion clocks and the exact
-same FPGA bitstream. The [CI receipt](docs/verification/standalone-ci.json)
+FPGA bitstream from that earlier build. The [CI receipt](docs/verification/standalone-ci.json)
 preserves the downloaded reports, artifact hashes and source checks.
 Its mapped integration checks use
 the comprehensive prepared self-test; they do not run all official suites on

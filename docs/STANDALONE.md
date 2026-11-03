@@ -174,10 +174,10 @@ For non-default exports or arguments, prepare the image explicitly, run
 Do not run `make standalone-bitstream` afterward unless intending to replace
 that image with `STANDALONE_IMAGE`.
 
-The [routing receipt](verification/standalone-routing.json) records 63,695 of
+The [routing receipt](verification/standalone-routing.json) records 63,656 of
 83,640 logic cells, 171 of 208 block RAMs and 27 of 156 multipliers. The core
-meets the configured 0.78125 MHz clock; the timing tool reports a 2.82 MHz
-maximum. Its critical falling-to-rising path is 177.35 ns against a 640 ns
+meets the configured 0.78125 MHz clock; the timing tool reports a 3.00 MHz
+maximum. Its critical falling-to-rising path is 166.93 ns against a 640 ns
 budget. These are tool estimates, not measured board performance.
 
 The bitstream is `build/standalone-ulx3s/wasmetal.bit`. Its neighboring manifest
