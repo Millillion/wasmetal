@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import time
 
-from check_standalone import decode, check_expected, SELFTEST_VALUES
+from check_standalone import decode, check_expected, reset_schedule, SELFTEST_VALUES
 from prepare_standalone import ROOT, digest
 from standalone_support import verify_image, verify_simulator
 
@@ -21,8 +21,7 @@ def main():
     if mapped['image']!=image: raise ValueError('mapped circuit contains a different image')
     scenarios=[('power-on-and-restart',['--power-on','--reboots','2']),
                ('external-reset',[]),
-               ('reset-during-execution',['--power-on','--reset-at',str(132000*32)]),
-               ('reset-during-uart',['--power-on','--reset-at','5000000'])]
+               ('reset-during-execution',None),('reset-during-uart',None)]
     report={'status':'running','scope':'fixed selftest image on the full standalone board circuit',
             'netlist_sha256':identities['mapped']['netlist_sha256'],'image':image,
             'builds':identities,'cases':[],'physical_hardware_tested':False}
@@ -35,13 +34,18 @@ def main():
     save()
     try:
         for name,flags in scenarios:
+            if flags is None:
+                reference=report['cases'][0]['frames'][0]
+                flags=['--power-on','--reset-at',str(reset_schedule(reference,name.removeprefix('reset-during-'),True))]
             observed={}
             for backend,binary in binaries.items():
                 result=subprocess.run([str(binary),*flags],cwd=ROOT,capture_output=True,text=True,timeout=900)
                 if result.returncode: raise RuntimeError(result.stdout+result.stderr)
                 frames=[json.loads(line) for line in result.stdout.splitlines()]
                 if len(frames)!=(2 if '--reboots' in flags else 1): raise AssertionError('missing serial frame')
-                for entry in frames: check_expected(decode(entry['uart']),SELFTEST_VALUES)
+                for entry in frames:
+                    check_expected(decode(entry['uart']),SELFTEST_VALUES)
+                    if entry['reset_injected']!=('--reset-at' in flags): raise AssertionError('reset coverage mismatch')
                 observed[backend]=frames
             if observed['rtl']!=observed['mapped']:
                 raise AssertionError('mapped UART bytes or completion clocks differ from RTL')

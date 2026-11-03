@@ -78,6 +78,7 @@ standalone-test: sim standalone-sim
 	python3 tools/check_standalone.py
 	python3 tools/build_standalone_sim.py --board
 	python3 tools/check_standalone.py --board
+	python3 tools/compare_standalone_performance.py
 standalone-core:
 	python3 tools/synth.py --fpga --fast-share --abc9 --profile soc/profile.json --output-name standalone-core-ecp5
 standalone-bitstream: standalone-image standalone-core

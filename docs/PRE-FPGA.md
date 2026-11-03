@@ -11,7 +11,7 @@ board result and foundry signoff are separate kinds of evidence.
   lost response.
 - [x] Verify region translation, unaligned transfers, read-only segments, all
   logical memory kinds, stalls, faults and reset against an independent oracle.
-- [ ] Integrate a wider local block-RAM backend, measure boot and execution
+- [x] Integrate a wider local block-RAM backend, measure boot and execution
   cycles, and repeat standalone RTL, mapped-circuit and routing checks.
 - [ ] Add an external-memory controller with independently checked device
   commands, timing, refresh, masking and reset. Board-specific PHY timing and

@@ -8,6 +8,7 @@ import subprocess
 
 import ecp5_ram
 import ecp5_standalone_ram as local
+from build_board import yosys
 from prepare_standalone import ROOT, digest
 
 
@@ -17,12 +18,24 @@ def main():
     memory_netlist=ROOT/'build/standalone-memory-production/memory.json'
     source=json.loads(netlist.read_text())['modules']['wasmetal_standalone_ulx3s']
     memory=json.loads(memory_netlist.read_text())['modules']['wasmetal_local_memory']
+    fixture=ROOT/'tests/standalone/ram1_fixture.sv'
+    inputs=[Path(__file__).resolve(),ROOT/'tools/ecp5_ram.py',ROOT/'tools/ecp5_standalone_ram.py',
+            ROOT/'tools/build_board.py',fixture,netlist,memory_netlist]
+    hashes={str(p.relative_to(ROOT)):digest(p) for p in inputs}
+    fixture_netlist=directory/'fixture.json'
+    yosys(f'read_verilog -sv {fixture}\nsynth_ecp5 -top wasmetal_ram1_fixture -json {fixture_netlist}\ncheck -assert\n',
+          'fixture',directory)
+    fixture_cells=json.loads(fixture_netlist.read_text())['modules']['wasmetal_ram1_fixture']['cells']
     examples={}
-    for cell in list(source['cells'].values())+list(memory['cells'].values()):
-        if cell['type']!='DP16KD': continue
-        try: kind=local.check(cell)
-        except ValueError: continue
-        examples.setdefault(kind,cell)
+    used_modes=set()
+    for cells,live in [(source['cells'],True),(memory['cells'],True),(fixture_cells,False)]:
+        for cell in cells.values():
+            if cell['type']!='DP16KD': continue
+            try: ecp5_ram.check(cell)
+            except ValueError: kind=local.check(cell)  # Unknown configurations must fail.
+            else: continue
+            if live: used_modes.add(kind)
+            examples.setdefault(kind,cell)
     wanted=['rom18-CLKA','rom18-INV','rom36','ram1','rom36-positive']
     if set(examples)!=set(wanted): raise ValueError('expected standalone RAM modes are missing')
     rng=random.Random(0x574d52414d)
@@ -104,6 +117,7 @@ end endmodule
 ''']
     bench=directory/'bench.sv';bench.write_text('\n'.join(text))
     model=directory/'model.v';model.write_text(ecp5_ram.model()+local.model())
+    hashes.update({str(p.relative_to(ROOT)):digest(p) for p in (fixture_netlist,bench,model)})
     def execute(source,name):
         binary=directory/(name+'.vvp')
         subprocess.run([str(ROOT/'.cache/tools/usr/bin/iverilog'),'-B',str(ROOT/'.cache/tools/usr/lib/x86_64-linux-gnu/ivl'),
@@ -131,11 +145,12 @@ end endmodule
         try: local.check(cell)
         except ValueError: rejected+=1
         else: raise ValueError('unsupported RAM reset admitted')
+    if any(digest(ROOT/name)!=value for name,value in hashes.items()):raise ValueError('RAM check inputs changed')
     report={'status':'passed','modes':wanted,'rom18_words_per_edge':1024,'rom36_words':512,
+            'live_additional_modes':sorted(used_modes),'dormant_mode_fixture':'ram1',
             'ram1_addresses':16384,'rom36_clock_edges':['positive','negative'],'four_state_unknown_addresses_checked':True,
             'negative_control_rejected':True,'unsupported_configurations_rejected':rejected,
-            'inputs':{str(p.relative_to(ROOT)):digest(p) for p in
-                [Path(__file__).resolve(),ROOT/'tools/ecp5_ram.py',ROOT/'tools/ecp5_standalone_ram.py',netlist,memory_netlist,bench,model]},
+            'inputs':hashes,
             'physical_hardware_tested':False}
     (ROOT/'reports/standalone-ram-model.json').write_text(json.dumps(report,indent=2)+'\n')
     print(result.stdout,end='')

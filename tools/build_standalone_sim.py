@@ -13,7 +13,7 @@ from standalone_support import generate_parameters, parameters
 def sources():
     vendor = ROOT / 'third_party/hardfloat/source'
     return [ROOT/'rtl/vendor.vlt'] + sorted((ROOT/'rtl').glob('*.sv')) + sorted(vendor.glob('*.v')) + [
-        vendor/'RISCV/HardFloat_specialize.v', ROOT/'fpga/wasmetal_uart.sv'] + sorted((ROOT/'soc').glob('*.sv'))
+        vendor/'RISCV/HardFloat_specialize.v', ROOT/'fpga/wasmetal_uart.sv'] + sorted((ROOT/'soc').rglob('*.sv'))
 
 
 def build(board=False, lint=False):

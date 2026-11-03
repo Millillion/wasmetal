@@ -1,106 +1,42 @@
 // SPDX-License-Identifier: MIT
-// One bounded byte RAM serves all six core memory spaces. Whole-transaction
-// checks precede every write; a response is held for one complete clock cycle.
+// Bounded Wasm regions backed by masked, 128-bit local block RAM.
 module wasmetal_local_memory #(
     parameter integer RAM_BYTES=131072,
     parameter integer REGIONS_PER_KIND=16,
     parameter IMAGE_DIR="build/standalone-image"
 ) (
     input logic clk, reset,
-    output wire initialized,
+    output wire initialized, initialization_failed,
     input logic valid, write, initialize,
     input logic [2:0] kind,
     input logic [31:0] index,
     input logic [63:0] address,
     input logic [4:0] bytes,
     input logic [127:0] wdata,
-    output wire ready,
-    output logic fault,
-    output logic [127:0] rdata
+    output wire ready, fault,
+    output wire [127:0] rdata
 );
-    localparam integer AW=$clog2(RAM_BYTES), IW=$clog2(REGIONS_PER_KIND);
-    (* ram_style="block" *) logic [7:0] storage [0:RAM_BYTES-1];
     (* rom_style="block" *) logic [63:0] regions [0:6*REGIONS_PER_KIND-1];
     initial $readmemh({IMAGE_DIR,"/regions.hex"},regions);
-    typedef enum logic [2:0] {CLEAR,IDLE,CHECK,READ_BYTE,CAPTURE,WRITE_BYTE,RESPONSE} state_t;
-    state_t state;
-    logic [AW-1:0] clear_index, location;
-    logic [4:0] position, length;
-    logic [63:0] offset, region;
-    logic [2:0] saved_kind;
-    logic saved_write, saved_initialize, valid_region;
-    logic [127:0] payload;
-    logic [7:0] read_byte;
-    wire [AW-1:0] ram_address=state==CLEAR ? clear_index : location+AW'(position);
-    wire value_slots=saved_kind==1 || saved_kind==2 || saved_kind==4 || saved_kind==5;
-    wire [68:0] relative_address=value_slots ? {1'b0,offset,4'b0} : {5'b0,offset};
-    wire [68:0] end_address=relative_address+{64'b0,length};
-    wire [68:0] physical_end={37'b0,region[31:0]}+end_address;
-    wire normal_valid=valid_region && length!=0 && length<=16 &&
-        (!value_slots || length==16) && end_address<={37'b0,region[63:32]} &&
-        physical_end<=69'(RAM_BYTES) && !(saved_write && (saved_kind==3 || saved_kind==4));
-    wire init_valid=saved_write && length!=0 && length<=16 &&
-        ({5'b0,offset}+{64'b0,length})<=69'(RAM_BYTES);
-    assign initialized=state!=CLEAR;
-    assign ready=state==RESPONSE;
-
-    always_ff @(posedge clk) begin
+    logic [63:0] region;
+    always_ff @(posedge clk)
         region<=regions[(kind<6 && index<REGIONS_PER_KIND) ?
-                        (32'(kind)*REGIONS_PER_KIND+32'(index[IW-1:0])) : 0];
-        read_byte<=storage[ram_address];
-        if(!reset) begin
-            if(state==CLEAR) storage[ram_address]<=0;
-            else if(state==WRITE_BYTE) storage[ram_address]<=payload[position*8+:8];
-        end
-    end
+                        (32'(kind)*REGIONS_PER_KIND+index) : 0];
 
-    always_ff @(posedge clk) begin
-        if(reset) begin
-            state<=CLEAR; clear_index<=0; location<=0; position<=0; length<=0;
-            offset<=0; saved_kind<=0; saved_write<=0; saved_initialize<=0;
-            valid_region<=0; payload<=0; fault<=0; rdata<=0;
-        end else case(state)
-            CLEAR: begin
-                if(clear_index==AW'(RAM_BYTES-1)) state<=IDLE;
-                else clear_index<=clear_index+1'b1;
-            end
-            IDLE: if(valid) begin
-                saved_kind<=kind; saved_write<=write; saved_initialize<=initialize;
-                valid_region<=kind<6 && index<REGIONS_PER_KIND;
-                offset<=address; length<=bytes; payload<=wdata;
-                position<=0; fault<=0; rdata<=0; state<=CHECK;
-            end
-            CHECK: begin
-                if(!(saved_initialize ? init_valid : normal_valid)) begin
-                    fault<=1; state<=RESPONSE;
-                end else begin
-                    location<=saved_initialize ? offset[AW-1:0] :
-                              AW'(region[31:0])+relative_address[AW-1:0];
-                    state<=saved_write ? WRITE_BYTE : READ_BYTE;
-                end
-            end
-            READ_BYTE: state<=CAPTURE;
-            CAPTURE: begin
-                rdata[position*8+:8]<=read_byte;
-                if(position+5'd1==length) state<=RESPONSE;
-                else begin position<=position+1'b1; state<=READ_BYTE; end
-            end
-            WRITE_BYTE: begin
-                if(position+5'd1==length) state<=RESPONSE;
-                else position<=position+1'b1;
-            end
-            RESPONSE: state<=IDLE;
-            default: begin state<=CLEAR; clear_index<=0; end
-        endcase
-    end
-
-`ifdef WASMETAL_ASSERTIONS
-    always_ff @(posedge clk) if(!reset) begin
-        if(state!=CLEAR && state!=IDLE) assert(valid);
-        if(state==WRITE_BYTE || state==READ_BYTE || state==CAPTURE) begin
-            assert(position<length && length<=16);
-            assert(saved_initialize ? init_valid : normal_valid);
-        end
-    end
-`endif
+    wire bus_valid, bus_write, bus_ready, bus_fault;
+    wire [31:0] bus_address;
+    wire [15:0] bus_mask;
+    wire [127:0] bus_wdata, bus_rdata;
+    wasmetal_memory_bridge #(.RAM_BYTES(RAM_BYTES),.REGIONS_PER_KIND(REGIONS_PER_KIND)) bridge(
+        .clk(clk),.reset(reset),.initialized(initialized),.initialization_failed(initialization_failed),
+        .valid(valid),.write(write),.initialize(initialize),.kind(kind),.index(index),
+        .address(address),.bytes(bytes),.wdata(wdata),.region(region),
+        .ready(ready),.fault(fault),.rdata(rdata),
+        .bus_valid(bus_valid),.bus_write(bus_write),.bus_address(bus_address),
+        .bus_mask(bus_mask),.bus_wdata(bus_wdata),.bus_ready(bus_ready),
+        .bus_fault(bus_fault),.bus_rdata(bus_rdata));
+    wasmetal_bram #(.RAM_BYTES(RAM_BYTES)) ram_backend(
+        .clk(clk),.reset(reset),.valid(bus_valid),.write(bus_write),
+        .address(bus_address),.mask(bus_mask),.wdata(bus_wdata),
+        .ready(bus_ready),.fault(bus_fault),.rdata(bus_rdata));
 endmodule

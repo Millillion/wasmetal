@@ -49,7 +49,7 @@ module wasmetal_standalone #(
     wire [31:0] result_count, pc, function_index, type_actual, type_expected;
     wire [127:0] result_data;
     wire [31:0] result_index=tx_index>=10 ? (32'(tx_index)-32'd10)>>4 : 32'b0;
-    wire mem_valid, mem_write, mem_ready, mem_fault, memory_initialized;
+    wire mem_valid, mem_write, mem_ready, mem_fault, memory_initialized, memory_failed;
     wire [2:0] mem_kind;
     wire [31:0] mem_index;
     wire [63:0] mem_address;
@@ -94,6 +94,7 @@ module wasmetal_standalone #(
     wasmetal_local_memory #(.RAM_BYTES(RAM_BYTES),.REGIONS_PER_KIND(REGIONS_PER_KIND),
         .IMAGE_DIR(IMAGE_DIR)) memory(
         .clk(clk),.reset(reset || halted_core),.initialized(memory_initialized),
+        .initialization_failed(memory_failed),
         .valid(initializing || mem_valid),.write(initializing || mem_write),.initialize(initializing),
         .kind(mem_kind),.index(mem_index),
         .address(initializing ? {32'b0,record_index} : mem_address),
@@ -144,7 +145,10 @@ module wasmetal_standalone #(
             final_seen<=0; halted_core<=0; status<=0; reported_trap<=0; count<=0;
             run_cycles<=0; tx_index<=0; crc<=16'hffff;
         end else case(state)
-            WAIT_CLEAR: if(memory_initialized) state<=HEADER;
+            WAIT_CLEAR: begin
+                if(memory_failed) finish_error(5,0);
+                else if(memory_initialized) state<=HEADER;
+            end
             HEADER: begin
                 if(mode!=15 || boot_record[227:128]!=0 || record_data[31:0]!=32'h574d5301 ||
                    record_data[63:32]==0 || record_data[63:32]>INSTRUCTION_DEPTH ||

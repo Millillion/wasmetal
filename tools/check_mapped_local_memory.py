@@ -16,10 +16,11 @@ def main():
              (128,16),(0,0),(144,16),(0,0),(160,96),(0,0)]
     (directory/'regions.hex').write_text(''.join(f'{base|size<<32:016x}\n' for base,size in entries))
     rtl=ROOT/'soc/wasmetal_local_memory.sv';harness=ROOT/'tests/standalone/memory.cpp'
-    inputs=[rtl,harness,Path(__file__).resolve(),directory/'regions.hex']
+    sources=[rtl]+sorted((ROOT/'soc/memory').glob('*.sv'))
+    inputs=sources+[harness,Path(__file__).resolve(),directory/'regions.hex']
     hashes={str(p.relative_to(ROOT)):digest(p) for p in inputs}
     image=str(directory.relative_to(ROOT))
-    script=f'''read_verilog -sv {rtl}
+    script=f'''read_verilog -sv {' '.join(map(str,sources))}
 chparam -set RAM_BYTES 131072 -set REGIONS_PER_KIND 2 -set IMAGE_DIR "{image}" wasmetal_local_memory
 synth_ecp5 -top wasmetal_local_memory -json {directory}/memory.json
 check -assert
@@ -33,7 +34,7 @@ check -assert
           '-DWASMETAL_ASSERTIONS','--top-module','wasmetal_local_memory',
           '-GRAM_BYTES=131072','-GREGIONS_PER_KIND=2',f'-GIMAGE_DIR="{image}"',
           '--cc','--exe','--build','-j','4','--Mdir',str(native),'-CFLAGS',
-          '-std=c++17 -O2 -Wall -Wextra -Werror -DPHYSICAL_RAM_BYTES=131072',str(rtl),str(harness)]
+          '-std=c++17 -O2 -Wall -Wextra -Werror -DPHYSICAL_RAM_BYTES=131072']+list(map(str,sources+[harness]))
     with (directory/'native.log').open('w') as log:
         result=subprocess.run(args,cwd=ROOT,env=dict(os.environ,
             VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')),stdout=log,stderr=subprocess.STDOUT)

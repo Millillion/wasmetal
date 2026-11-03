@@ -22,7 +22,7 @@ def decode(packet):
         raise ValueError('bad standalone frame length')
     if binascii.crc_hqx(raw[2:-2], 0xffff) != int.from_bytes(raw[-2:], 'little'):
         raise ValueError('bad standalone frame checksum')
-    if raw[3] > 4 or (raw[3] != 0 and count) or (raw[3] == 0 and raw[4]):
+    if raw[3] > 5 or (raw[3] != 0 and count) or (raw[3] == 0 and raw[4]):
         raise ValueError('inconsistent standalone status')
     return {'status': raw[3], 'trap': raw[4], 'cycles': int.from_bytes(raw[6:10], 'little'),
             'values': [int.from_bytes(raw[n:n+16], 'little') for n in range(10, len(raw)-2, 16)]}
@@ -31,6 +31,24 @@ def decode(packet):
 def check_expected(frame, expected, status=0, trap=0):
     if (frame['status'], frame['trap'], frame['values']) != (status, trap, expected):
         raise AssertionError(f'UART result differs from independent expectation: {frame}')
+
+
+def reset_schedule(reference, phase, board):
+    """Locate a reset using only a completed run's UART pin and cycle counter."""
+    first=reference['first_uart_clock'];scale=32 if board else 1
+    if phase=='execution':
+        cycles=decode(reference['uart'])['cycles']
+        if cycles<64: raise ValueError('execution reset needs a sufficiently long invocation')
+        # Successful RUN -> ADVANCE -> FETCH -> ISSUE(end) -> SEND takes four
+        # core clocks. Choose the middle, with margins on both ends.
+        at=first-(cycles//2+4)*scale
+        if not first-(cycles-8)*scale<at<first-8*scale:
+            raise ValueError('execution reset falls outside the measured invocation')
+    elif phase=='uart':
+        at=first+35*(81*32 if board else 4)  # Inside the fourth serial byte.
+        if not first<at<reference['clocks']: raise ValueError('reset falls outside UART transmission')
+    else: raise ValueError('unknown reset phase')
+    return at
 
 
 SELFTEST_VALUES = [42,42,2,39,0x40700000,0x4008000000000000,
@@ -103,12 +121,13 @@ def cases():
         end))'''}
     yield {'name':'watchdog','expected':[],'status':3,'trap':0,'reference':False,
            'wat':'(module (func (export "main") (loop $forever br $forever)))'}
-    for name,at,source,expected in [
-        ('reset-during-clear',50,'answer', [42]),
-        ('reset-during-execution',132000,'selftest',SELFTEST_VALUES),
-        ('reset-during-uart',131500,'answer',[42])]:
+    yield {'name':'reset-during-clear','source':ROOT/'examples/standalone/answer.wat',
+           'reset_at':50,'expected':[42]}
+    for name,phase,source,expected in [
+        ('reset-during-execution','execution','selftest',SELFTEST_VALUES),
+        ('reset-during-uart','uart','answer',[42])]:
         yield {'name':name,'source':ROOT/f'examples/standalone/{source}.wat',
-               'reset_at':at,'expected':expected}
+               'reset_phase':phase,'expected':expected}
     for name,status,trap in [('bad-header',2,254),('bad-command',2,254),
                             ('bad-init-range',2,254),('missing-end',2,254),
                             ('damaged-instruction',1,1),('boot-initializer-trap',4,1)]:
@@ -198,13 +217,20 @@ def main():
             flags=['--power-on'] if args.board else []
             if case['name'] in ('answer','selftest'): flags+=['--reboots','2']
             if 'reset_at' in case: flags+=['--reset-at',str(case['reset_at']*(32 if args.board else 1))]
+            if 'reset_phase' in case:
+                reference=subprocess.run([str(binary),*flags],cwd=cwd,capture_output=True,text=True,check=True,timeout=300)
+                calibration=json.loads(reference.stdout)
+                check_expected(decode(calibration['uart']),case['expected'])
+                flags+=['--reset-at',str(reset_schedule(calibration,case['reset_phase'],args.board))]
             result=subprocess.run([str(binary),*flags],cwd=cwd,capture_output=True,text=True,timeout=300)
             if result.returncode: raise RuntimeError(result.stdout+result.stderr)
             frames=[]
             for line in result.stdout.splitlines():
                 entry=json.loads(line); frame=decode(entry['uart'])
                 check_expected(frame,case['expected'],case.get('status',0),case.get('trap',0))
-                frames.append(dict(frame,simulation_clocks=entry['clocks'],uart=entry['uart']))
+                if entry['reset_injected']!=('--reset-at' in flags): raise AssertionError('reset coverage mismatch')
+                frames.append(dict(frame,simulation_clocks=entry['clocks'],uart=entry['uart'],
+                    first_uart_clock=entry['first_uart_clock'],reset_injected=entry['reset_injected'],reset_at=entry['reset_at']))
             if len(frames)!=(2 if '--reboots' in flags else 1):
                 raise AssertionError('missing UART completion or restart')
             results.append({'name':case['name'],'source_sha256':digest(source),
@@ -213,6 +239,11 @@ def main():
                 'reference_compared':case.get('reference',True),
                 'intentional_corruption':case.get('corrupt'), 'frames':frames})
             if case['name']=='answer':
+                missed=subprocess.run([str(binary),'--reset-at',str(frames[0]['simulation_clocks']+10000)],
+                    cwd=cwd,capture_output=True,text=True,timeout=300)
+                if missed.returncode==0 or 'scheduled reset never occurred' not in missed.stderr:
+                    raise AssertionError('unreached reset escaped the coverage check')
+                controls['unreached_reset_rejected']=True
                 raw=bytearray.fromhex(frames[0]['uart']);raw[10]^=1
                 try: decode(raw.hex())
                 except ValueError: controls['corrupt_uart_rejected']=True

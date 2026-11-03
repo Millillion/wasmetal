@@ -69,7 +69,7 @@ def main():
     paths=[Path(__file__).resolve(),ROOT/'tools/build_board.py',ROOT/'tools/check_timing.py',
            ROOT/'tools/cad.py',ROOT/'tools/standalone_support.py',ROOT/'tools/prepare_standalone.py',
            ROOT/'tools/upstream.lock.json',ROOT/'fpga/ports.json',ROOT/'fpga/wasmetal_uart.sv',generated]
-    paths+=sorted((ROOT/'soc').glob('*'))+sorted(image.glob('*'))+[directory/'core_stub.v']
+    paths+=sorted((ROOT/'soc').rglob('*'))+sorted(image.glob('*'))+[directory/'core_stub.v']
     source=core=None
     if not args.wrapper_only:
         netlist=args.core_netlist.resolve()
@@ -87,7 +87,7 @@ def main():
         paths+=[netlist,manifest_path]
     hashes={str(path.relative_to(ROOT)):digest(path) for path in paths if path.is_file()}
     script=f'''read_verilog {directory}/core_stub.v
-read_verilog -sv -Ibuild -DWASMETAL_MAPPED_CORE fpga/wasmetal_uart.sv soc/wasmetal_local_memory.sv soc/wasmetal_standalone.sv soc/wasmetal_standalone_ulx3s.sv
+read_verilog -sv -Ibuild -DWASMETAL_MAPPED_CORE fpga/wasmetal_uart.sv soc/memory/*.sv soc/wasmetal_local_memory.sv soc/wasmetal_standalone.sv soc/wasmetal_standalone_ulx3s.sv
 synth_ecp5 -top {TOP} -json {directory}/wrapper.json
 check -assert
 '''

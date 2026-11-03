@@ -36,6 +36,15 @@ class SerialTests(unittest.TestCase):
             with self.assertRaises(TimeoutError):read_frame(read,0.01)
         finally:os.close(read);os.close(write)
 
+    def test_memory_startup_failure(self):
+        for status in (5,6):
+            payload=bytes([1,status,0,0])+bytes(4)
+            packet=b'WM'+payload+binascii.crc_hqx(payload,0xffff).to_bytes(2,'little')
+            if status==5:
+                self.assertEqual(decode(packet.hex()),{'status':5,'trap':0,'cycles':0,'values':[]})
+            else:
+                with self.assertRaises(ValueError):decode(packet.hex())
+
     def test_terminal_configuration_and_restoration(self):
         master,slave=os.openpty();ready=threading.Event()
         original=termios.tcgetattr(slave);configure=termios.tcsetattr

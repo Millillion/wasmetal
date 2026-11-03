@@ -1,7 +1,7 @@
 # Memory transaction boundary
 
 The new `soc/memory` components separate Wasm address checking from physical
-storage. Integration into the standalone system is in progress. The interface
+storage. The standalone system now uses this bridge and masked local RAM. The interface
 is a small synchronous request/completion protocol, not AXI or Wishbone.
 
 ## Logical requests

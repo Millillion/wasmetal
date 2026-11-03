@@ -9,6 +9,13 @@
   ],
   "rom18_words_per_edge": 1024,
   "rom36_words": 512,
+  "live_additional_modes": [
+    "rom18-CLKA",
+    "rom18-INV",
+    "rom36",
+    "rom36-positive"
+  ],
+  "dormant_mode_fixture": "ram1",
   "ram1_addresses": 16384,
   "rom36_clock_edges": [
     "positive",
@@ -18,11 +25,14 @@
   "negative_control_rejected": true,
   "unsupported_configurations_rejected": 20,
   "inputs": {
-    "tools/check_standalone_ram.py": "ea8c94cb0b40ffb3d0bbe9466fc2f33179e0c6bc1f25b97fd72fe7c6c2ec2af6",
+    "tools/check_standalone_ram.py": "462ab3371da775c0f1fa3335b1b75dd645f4160aac87e87f44b48d94daa1106a",
     "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
     "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
-    "build/standalone-ulx3s/design.json": "f7300a380c961d8edaa74087870d7956074133fb6b566cdeb3201cf2c033e87c",
-    "build/standalone-memory-production/memory.json": "406b73b476befef06f8634b513bf86ffa6cf0f79d6ec770ff660e3cecdf1b200",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tests/standalone/ram1_fixture.sv": "b3b5a27763c5d47a5b43ddcf373246a2c5b3940bf919a34626c48a1637f7db36",
+    "build/standalone-ulx3s/design.json": "dfc4b76b2bd518e2c88d2a06f3b6652b2c152972825d1cbb7584833ef6a54b7a",
+    "build/standalone-memory-production/memory.json": "cafac3a5654b7c7c0b443c2bcb6ee97cca8ec13fa464493a7de85fc4e82b6372",
+    "build/standalone-ram-check/fixture.json": "8dab4b35eed50e7aad096fbbec3cba7ab63baee7bfd7248bb79c7422bc67cdc2",
     "build/standalone-ram-check/bench.sv": "5f718c892ed0fa8c26610e6ab73122b6b851de32f8bcf9c2207cde875839e54b",
     "build/standalone-ram-check/model.v": "056498baa349eb5528aa7bbe4f87a52d1eea9f923a1224f4d807ca1b3ef30898"
   },

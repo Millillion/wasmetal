@@ -2,11 +2,14 @@
   "status": "passed",
   "transactions": 4836,
   "inputs": {
-    "soc/wasmetal_local_memory.sv": "2f04e0b3e1c42b111c0e62e6b4e0ea2424234a6c311c8fc68d8d90552714979d",
+    "soc/wasmetal_local_memory.sv": "c50e55810d6b14d66144af85173df61c68cd582b5ab873075733fc8df7bc2795",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
     "tests/standalone/memory.cpp": "4e1aadd1b156f6ed085c25621352a5e23d2f0931a2307bdd36163a4dcdfa37ac",
-    "tools/check_local_memory.py": "17f46a618d8a1526990b9d19247bb0c72cbb48b200716bc7dbb5a6cb66451b24",
+    "tools/check_local_memory.py": "2af613a62066104faff71cfd6e4647a36695b190ee01afd1822da764b6259649",
     "build/standalone-memory-fixture/regions.hex": "477046fd05c18aeca400a842873fcc74c335e7e29ecd84a6dddcac76d2a168b3"
   },
-  "binary_sha256": "d548ae667ad09b09348a9e289ccffe669fa96c2ba586b710df0ed6f13343a4ff",
+  "binary_sha256": "ad91f786d7986d52c7de25dc44632b538d61e0d0642280aa866cfcf4095d9aa6",
   "physical_hardware_tested": false
 }

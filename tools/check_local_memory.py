@@ -13,7 +13,8 @@ def main():
     entries=[(0,64),(64,16),(80,16),(0,0),(96,32),(0,0),
              (128,16),(0,0),(144,16),(0,0),(160,96),(0,0)]
     (fixture/'regions.hex').write_text(''.join(f'{base | size<<32:016x}\n' for base,size in entries))
-    inputs=[ROOT/'soc/wasmetal_local_memory.sv',ROOT/'tests/standalone/memory.cpp',
+    sources=[ROOT/'soc/wasmetal_local_memory.sv']+sorted((ROOT/'soc/memory').glob('*.sv'))
+    inputs=sources+[ROOT/'tests/standalone/memory.cpp',
             Path(__file__).resolve(),fixture/'regions.hex']
     hashes={str(p.relative_to(ROOT)):digest(p) for p in inputs}
     args=[str(ROOT/'.cache/tools/usr/bin/verilator'),'-Wall','-Wno-UNUSEDSIGNAL',
@@ -21,7 +22,7 @@ def main():
           '-GRAM_BYTES=256','-GREGIONS_PER_KIND=2',
           '-GIMAGE_DIR="build/standalone-memory-fixture"',
           '--cc','--exe','--build','-j','4','--Mdir',str(directory),
-          '-CFLAGS','-std=c++17 -O2 -Wall -Wextra -Werror']+list(map(str,inputs[:2]))
+          '-CFLAGS','-std=c++17 -O2 -Wall -Wextra -Werror']+list(map(str,sources+[ROOT/'tests/standalone/memory.cpp']))
     with (directory/'build.log').open('w') as log:
         result=subprocess.run(args,cwd=ROOT,env=dict(os.environ,
             VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')),stdout=log,stderr=subprocess.STDOUT)

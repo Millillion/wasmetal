@@ -8,7 +8,7 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
-- **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 59,657/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
+- **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 63,695/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
 - **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
@@ -48,8 +48,12 @@ The 128 KiB masked RAM backend passes
 [36,432 transactions](docs/verification/masked-bram-mapped.json) in both RTL and
 mapped simulation with identical cycle counts. Run these checks with
 `make memory-test`; CI runs them in a dedicated job.
-These components are not yet integrated into the standalone bitstream;
-the standalone results above describe the existing byte-oriented memory system.
+The wider memory is integrated into the standalone RTL and mapped model.
+[Measured execution cycles](docs/verification/standalone-performance.json) drop
+from 73 to 39 for unaligned SIMD and from 73 to 31 for struct allocation/cast;
+arithmetic-only examples retain their cycle counts. The 128 KiB startup clear
+takes 32,768 core cycles, down from 131,072. The complete system passes mapped comparison and routing at the same clock.
+The wider memory costs 4,038 additional logic cells, with block-RAM use unchanged.
 
 ## RTL Microarchitecture Simulator
 

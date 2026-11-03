@@ -1,0 +1,284 @@
+{
+  "status": "passed",
+  "baseline_commit": "4e8e696ff7d568e43d04e77c4a6088409ad8dfa0",
+  "baseline_run": "https://github.com/Millillion/wasmetal/actions/runs/41572176563",
+  "scope": "first boot of identical images; execution counter excludes clearing, boot replay and UART",
+  "clock_units": {
+    "standalone": "core cycles, accelerated test UART",
+    "standalone-board": "25 MHz oscillator cycles, board-rate UART"
+  },
+  "inputs": {
+    "tools/compare_standalone_performance.py": "e82049866aa10b7160b42a7e6ca483cde0cc431055e3e8380af5a4391829a7fe",
+    "docs/verification/standalone-ci/standalone.json": "906ec3d98927373023e92658a44bd0692a4d10723ae0d55845d2e3bd8ad2155f",
+    "reports/standalone.json": "558898dcc4b792d84e33a1ab1721ff2ab4bbfddb736658340acb625bdb780ee7",
+    "docs/verification/standalone-ci/standalone-board.json": "552a432ab84352bdd2fa380162f3ae7b401c222f9b6e88e33ac9580e7f56cf41",
+    "reports/standalone-board.json": "e8f69b620c1eec0563884183df079d0bebd3590179a56398d696e425ccae89ce"
+  },
+  "comparisons": {
+    "standalone": [
+      {
+        "name": "answer",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 100,
+        "new_execution_cycles": 53,
+        "old_completion_clocks": 132402,
+        "new_completion_clocks": 34036,
+        "execution_speedup": 1.8867924528301887
+      },
+      {
+        "name": "selftest",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 2306,
+        "new_execution_cycles": 2005,
+        "old_completion_clocks": 142145,
+        "new_completion_clocks": 43391,
+        "execution_speedup": 1.1501246882793017
+      },
+      {
+        "name": "arguments",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 15,
+        "new_execution_cycles": 15,
+        "old_completion_clocks": 132250,
+        "new_completion_clocks": 33946,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "memory64",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 59,
+        "new_execution_cycles": 41,
+        "old_completion_clocks": 133602,
+        "new_completion_clocks": 35280,
+        "execution_speedup": 1.4390243902439024
+      },
+      {
+        "name": "unaligned-simd",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 73,
+        "new_execution_cycles": 39,
+        "old_completion_clocks": 132304,
+        "new_completion_clocks": 33966,
+        "execution_speedup": 1.8717948717948718
+      },
+      {
+        "name": "subtype-cast",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 73,
+        "new_execution_cycles": 31,
+        "old_completion_clocks": 132300,
+        "new_completion_clocks": 33954,
+        "execution_speedup": 2.3548387096774195
+      },
+      {
+        "name": "tail-reference",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 37,
+        "new_execution_cycles": 37,
+        "old_completion_clocks": 132303,
+        "new_completion_clocks": 33986,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "branches",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 2642,
+        "new_execution_cycles": 2642,
+        "old_completion_clocks": 135525,
+        "new_completion_clocks": 37221,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "sixteen-results",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 56,
+        "new_execution_cycles": 56,
+        "old_completion_clocks": 142123,
+        "new_completion_clocks": 43819,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "no-results",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 10,
+        "new_execution_cycles": 10,
+        "old_completion_clocks": 131581,
+        "new_completion_clocks": 33277,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "unreachable",
+        "status": 1,
+        "trap": 1,
+        "old_execution_cycles": 5,
+        "new_execution_cycles": 5,
+        "old_completion_clocks": 131573,
+        "new_completion_clocks": 33269,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "divide-zero",
+        "status": 1,
+        "trap": 2,
+        "old_execution_cycles": 10,
+        "new_execution_cycles": 10,
+        "old_completion_clocks": 131578,
+        "new_completion_clocks": 33274,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "memory-oob",
+        "status": 1,
+        "trap": 4,
+        "old_execution_cycles": 7,
+        "new_execution_cycles": 7,
+        "old_completion_clocks": 131579,
+        "new_completion_clocks": 33275,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "memory64-wrap",
+        "status": 1,
+        "trap": 4,
+        "old_execution_cycles": 7,
+        "new_execution_cycles": 7,
+        "old_completion_clocks": 131579,
+        "new_completion_clocks": 33275,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "table-oob",
+        "status": 1,
+        "trap": 5,
+        "old_execution_cycles": 7,
+        "new_execution_cycles": 7,
+        "old_completion_clocks": 131579,
+        "new_completion_clocks": 33275,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "null-call",
+        "status": 1,
+        "trap": 6,
+        "old_execution_cycles": 7,
+        "new_execution_cycles": 7,
+        "old_completion_clocks": 131575,
+        "new_completion_clocks": 33271,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "bad-cast",
+        "status": 1,
+        "trap": 10,
+        "old_execution_cycles": 7,
+        "new_execution_cycles": 7,
+        "old_completion_clocks": 131575,
+        "new_completion_clocks": 33271,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "uncaught",
+        "status": 1,
+        "trap": 13,
+        "old_execution_cycles": 7,
+        "new_execution_cycles": 7,
+        "old_completion_clocks": 131575,
+        "new_completion_clocks": 33271,
+        "execution_speedup": 1.0
+      },
+      {
+        "name": "heap-exhaustion",
+        "status": 1,
+        "trap": 12,
+        "old_execution_cycles": 44042,
+        "new_execution_cycles": 30730,
+        "old_completion_clocks": 175610,
+        "new_completion_clocks": 63994,
+        "execution_speedup": 1.4331923202082655
+      },
+      {
+        "name": "damaged-instruction",
+        "status": 1,
+        "trap": 1,
+        "old_execution_cycles": 5,
+        "new_execution_cycles": 5,
+        "old_completion_clocks": 131648,
+        "new_completion_clocks": 33329,
+        "execution_speedup": 1.0
+      }
+    ],
+    "standalone-board": [
+      {
+        "name": "answer",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 100,
+        "new_execution_cycles": 53,
+        "old_completion_clocks": 4926832,
+        "new_completion_clocks": 1779120,
+        "execution_speedup": 1.8867924528301887,
+        "old_simulated_completion_ms": 197.07328,
+        "new_simulated_completion_ms": 71.1648
+      },
+      {
+        "name": "selftest",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 2306,
+        "new_execution_cycles": 2005,
+        "old_completion_clocks": 9575248,
+        "new_completion_clocks": 6415120,
+        "execution_speedup": 1.1501246882793017,
+        "old_simulated_completion_ms": 383.00992,
+        "new_simulated_completion_ms": 256.6048
+      },
+      {
+        "name": "memory64",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 59,
+        "new_execution_cycles": 41,
+        "old_completion_clocks": 5753712,
+        "new_completion_clocks": 2607408,
+        "execution_speedup": 1.4390243902439024,
+        "old_simulated_completion_ms": 230.14848,
+        "new_simulated_completion_ms": 104.29632
+      },
+      {
+        "name": "sixteen-results",
+        "status": 0,
+        "trap": 0,
+        "old_execution_cycles": 56,
+        "new_execution_cycles": 56,
+        "old_completion_clocks": 11151504,
+        "new_completion_clocks": 8005776,
+        "execution_speedup": 1.0,
+        "old_simulated_completion_ms": 446.06016,
+        "new_simulated_completion_ms": 320.23104
+      },
+      {
+        "name": "memory-oob",
+        "status": 1,
+        "trap": 4,
+        "old_execution_cycles": 7,
+        "new_execution_cycles": 7,
+        "old_completion_clocks": 4506256,
+        "new_completion_clocks": 1360528,
+        "execution_speedup": 1.0,
+        "old_simulated_completion_ms": 180.25024,
+        "new_simulated_completion_ms": 54.42112
+      }
+    ]
+  },
+  "physical_hardware_tested": false
+}

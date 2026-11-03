@@ -43,6 +43,13 @@ slots contain 128-bit values; byte memory supports unaligned 1–16-byte accesse
 Reset clears mutable storage before replaying the image, including after a
 reset in the middle of a transaction.
 
+The [memory bridge](MEMORY.md) uses aligned 128-bit physical transactions with
+byte enables. A logical access needs at most two physical transfers; a full-word
+write clears sixteen bytes at once. The local backend completes each clearing
+request in four cycles including the release gap, reducing the 128 KiB clear
+from 131,072 to 32,768 core cycles. Backend faults or lost responses poison the
+interface until reset; an initialization failure prevents CPU execution.
+
 Instruction and function ROMs use synchronous falling-edge reads, consistent
 with the core's existing half-cycle RAM contract. Type matching uses a bounded
 subtype matrix. The CPU, memory controller, boot sequencer and UART share one
@@ -102,6 +109,10 @@ it cannot supply instructions or backing memory. The
 [memory report](verification/standalone-memory.json) compares 4,836 transactions
 with an independent byte-array oracle, including invalid requests and reset
 interruption. UART checksum and deliberately wrong-result controls must fail.
+Reset cases record that the reset actually occurred. Execution and transmission
+injection times come from a reference run's first UART edge and invocation
+cycle counter, so changing boot or memory latency cannot silently skip a reset.
+A reset deliberately scheduled after completion must fail the test driver.
 
 The comprehensive [self-test](../examples/standalone/selftest.wat) exercises all
 six backing-memory kinds, initialization, direct/indirect/reference/tail calls,
@@ -118,6 +129,10 @@ in all five additional configurations, both ROM clock edges, read-before-write
 behavior, unknown addresses, and deliberate model corruption. Unsupported modes
 fail model generation. The existing execution core's checked RAM models remain
 unchanged.
+The earlier single-bit backing-RAM configuration is now exercised through a
+separately synthesized fixture; the other four additional configurations come
+from the current system and production controller netlists. Removing that RAM
+from the live design does not remove its model from verification.
 
 The [complete-system mapped report](verification/standalone-mapped.json) compares
 the self-test's UART bytes and exact completion clocks with board RTL for
@@ -127,6 +142,22 @@ sequencer, divided clock, reset and UART. It uses the complete pre-routing
 mapped netlist, not a delay-annotated post-routing simulation. Placement/routing
 timing analysis is a separate gate; these checks are not whole-circuit formal
 equivalence or electrical testing.
+
+The [performance comparison](verification/standalone-performance.json) checks
+identical prepared images and results against the preserved byte-memory CI run.
+Invocation cycles exclude clearing, boot replay and UART transmission:
+
+| Example | Byte-memory cycles | Wide-memory cycles |
+| --- | ---: | ---: |
+| Self-test | 2,306 | 2,005 |
+| Unaligned SIMD store/load | 73 | 39 |
+| Struct allocation and cast | 73 | 31 |
+| Arithmetic and branches | 2,642 | 2,642 |
+
+The report also records completion time at the simulated board clock and UART
+rate. These results measure particular bounded programs, not overall Wasm
+throughput or physical hardware performance. Reproduce them with
+`python3 tools/compare_standalone_performance.py` after both RTL test runs.
 
 ## Reproducing the FPGA build
 
@@ -143,10 +174,10 @@ For non-default exports or arguments, prepare the image explicitly, run
 Do not run `make standalone-bitstream` afterward unless intending to replace
 that image with `STANDALONE_IMAGE`.
 
-The [routing receipt](verification/standalone-routing.json) records 59,657 of
+The [routing receipt](verification/standalone-routing.json) records 63,695 of
 83,640 logic cells, 171 of 208 block RAMs and 27 of 156 multipliers. The core
-meets the configured 0.78125 MHz clock; the timing tool reports a 3.04 MHz
-maximum. Its critical falling-to-rising path is 164.36 ns against a 640 ns
+meets the configured 0.78125 MHz clock; the timing tool reports a 2.82 MHz
+maximum. Its critical falling-to-rising path is 177.35 ns against a 640 ns
 budget. These are tool estimates, not measured board performance.
 
 The bitstream is `build/standalone-ulx3s/wasmetal.bit`. Its neighboring manifest
@@ -191,8 +222,9 @@ The binary result frame contains `57 4d 01`, status, Wasm trap code, result coun
 a four-byte invocation cycle count, each result as sixteen little-endian bytes,
 and a two-byte little-endian CRC-16/CCITT (polynomial 0x1021, initial 0xffff).
 CRC covers the version through the last result. Status is 0 for success, 1 for
-an exported-function trap, 2 for an invalid image, 3 for watchdog expiry, or 4
-for an initializer trap. Errors carry no results. The watchdog bounds each
+an exported-function trap, 2 for an invalid image, 3 for watchdog expiry, 4
+for an initializer trap, or 5 for backing-memory initialization failure.
+Errors carry no results. The watchdog bounds each
 invocation, including initializers; UART completes after the CPU stops.
 
 When a physical board is available, the [volatile SRAM loading procedure](FPGA.md#loading-a-physical-board)

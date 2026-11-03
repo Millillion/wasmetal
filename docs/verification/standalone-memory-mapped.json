@@ -5,26 +5,29 @@
     "rtl": {
       "status": "passed",
       "transactions": 4837,
-      "binary_sha256": "ce4ed3626602b940561502c37f96b2ebf316bf3c4f803ec28ec838ae446f3f8a"
+      "binary_sha256": "3f82edcb485cc79f1be8f346db326a72ebbc59d8db173e3af3616679f1f2d57a"
     },
     "mapped": {
       "status": "passed",
       "transactions": 4837,
-      "binary_sha256": "e3cefeced2456212dc23c7ac7724f838d552c2c848e453a442708b2dbd6666f2"
+      "binary_sha256": "32122e2c2ca60871736caa439c68ada94f76214b19219b06e5d0dd3a24a05658"
     }
   },
   "inputs": {
-    "soc/wasmetal_local_memory.sv": "2f04e0b3e1c42b111c0e62e6b4e0ea2424234a6c311c8fc68d8d90552714979d",
+    "soc/wasmetal_local_memory.sv": "c50e55810d6b14d66144af85173df61c68cd582b5ab873075733fc8df7bc2795",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
     "tests/standalone/memory.cpp": "4e1aadd1b156f6ed085c25621352a5e23d2f0931a2307bdd36163a4dcdfa37ac",
-    "tools/check_mapped_local_memory.py": "889ed163ecde2d8e9e207d7d0a256dce47666c215dfb57accf50d49a23bd2a41",
+    "tools/check_mapped_local_memory.py": "90506ae999b7b9175fce72ddd4b49a4ddd94173bf30433e9264417187ef02759",
     "build/standalone-memory-production/regions.hex": "450b3db3918842a5d67a5d0b85f40a0f479d6ea38ecd1ee76d51fdd7d053d004"
   },
-  "netlist_sha256": "406b73b476befef06f8634b513bf86ffa6cf0f79d6ec770ff660e3cecdf1b200",
+  "netlist_sha256": "cafac3a5654b7c7c0b443c2bcb6ee97cca8ec13fa464493a7de85fc4e82b6372",
   "mapped_build": {
     "backend": "standalone-mapped-ecp5-functional",
     "top": "wasmetal_local_memory",
     "inputs": {
-      "build/standalone-memory-production/memory.json": "406b73b476befef06f8634b513bf86ffa6cf0f79d6ec770ff660e3cecdf1b200",
+      "build/standalone-memory-production/memory.json": "cafac3a5654b7c7c0b443c2bcb6ee97cca8ec13fa464493a7de85fc4e82b6372",
       "tools/build_standalone_gate_sim.py": "eef5411ecca80e21c2237b6ba7eef7dc21cbde8be51580f804dd58d4b6f38f70",
       "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
       "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -32,19 +35,22 @@
       "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
       ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
       "tests/standalone/memory.cpp": "4e1aadd1b156f6ed085c25621352a5e23d2f0931a2307bdd36163a4dcdfa37ac",
-      "build/standalone-memory-production/memory.manifest.json": "4fad9077df8ba9e1f874a5c3485ee5083caf424e84fe41dff9d7f26c5ea811c2",
-      "soc/wasmetal_local_memory.sv": "2f04e0b3e1c42b111c0e62e6b4e0ea2424234a6c311c8fc68d8d90552714979d",
-      "tools/check_mapped_local_memory.py": "889ed163ecde2d8e9e207d7d0a256dce47666c215dfb57accf50d49a23bd2a41",
+      "build/standalone-memory-production/memory.manifest.json": "27fb92420049f0847078d795d4b8a3f93111872f0d24fd47086169309a6511ce",
+      "soc/wasmetal_local_memory.sv": "c50e55810d6b14d66144af85173df61c68cd582b5ab873075733fc8df7bc2795",
+      "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+      "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+      "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+      "tools/check_mapped_local_memory.py": "90506ae999b7b9175fce72ddd4b49a4ddd94173bf30433e9264417187ef02759",
       "build/standalone-memory-production/regions.hex": "450b3db3918842a5d67a5d0b85f40a0f479d6ea38ecd1ee76d51fdd7d053d004",
-      "build/standalone-memory-production/mapped/circuit.v": "b0c18c5ccd07b3cc7e9933e8421c08510f4d18fda45d96f330ac5722046c934d",
+      "build/standalone-memory-production/mapped/circuit.v": "e096dbb6c029f8d3f4ab7b639cb67dfc45a0ae3195b589df4dd0d56a91d008ba",
       "build/standalone-memory-production/mapped/cells.v": "e8bdcf8d30b67f40164e870b325b31bb7dd8f7f9dcf6dc908153f71bd7b03437",
-      "build/standalone-memory-production/mapped/lut-proof/report.json": "a7b49fd7a0544040d90ba306f8c68c95b6e51bc6283d749dfe427b156a7b6938"
+      "build/standalone-memory-production/mapped/lut-proof/report.json": "cb61b483159276f96b86e29fce3a01a0ad421caf0bc2317e3593bb901705ea07"
     },
-    "binary_sha256": "e3cefeced2456212dc23c7ac7724f838d552c2c848e453a442708b2dbd6666f2",
-    "netlist_sha256": "406b73b476befef06f8634b513bf86ffa6cf0f79d6ec770ff660e3cecdf1b200",
+    "binary_sha256": "32122e2c2ca60871736caa439c68ada94f76214b19219b06e5d0dd3a24a05658",
+    "netlist_sha256": "cafac3a5654b7c7c0b443c2bcb6ee97cca8ec13fa464493a7de85fc4e82b6372",
     "ram_modes": {
-      "rom36-positive": 1,
-      "ram1": 64
+      "core": 64,
+      "rom36-positive": 1
     },
     "compilation": {
       "fast_sim": true,

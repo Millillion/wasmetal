@@ -70,12 +70,12 @@ int main(int argc,char** argv) {
     try {
         uint64_t limit=20000000,reset_at=0;
         unsigned reboots=1;
-        bool power_on=false;
+        bool power_on=false,reset_requested=false;
         for(int n=1;n<argc;n++) {
             const std::string arg=argv[n];
             if(arg=="--power-on") power_on=true;
             else if(n+1<argc && arg=="--limit") limit=std::stoull(argv[++n]);
-            else if(n+1<argc && arg=="--reset-at") reset_at=std::stoull(argv[++n]);
+            else if(n+1<argc && arg=="--reset-at") { reset_at=std::stoull(argv[++n]); reset_requested=true; }
             else if(n+1<argc && arg=="--reboots") reboots=static_cast<unsigned>(std::stoul(argv[++n]));
             else throw std::runtime_error("unknown driver argument");
         }
@@ -86,17 +86,23 @@ int main(int argc,char** argv) {
             }
             set_reset(*m,false);
             Receiver receiver;
-            uint64_t clocks=0;
+            uint64_t clocks=0,first_uart_clock=0;
+            bool reset_injected=false;
             for(;clocks<limit;clocks++) {
-                if(reset_at && clocks==reset_at) {
+                if(reset_requested && !reset_injected && clocks==reset_at) {
                     set_reset(*m,true); for(unsigned n=0;n<128;n++) tick(*m);
+                    clocks+=128; reset_injected=true; first_uart_clock=0;
                     receiver=Receiver{}; set_reset(*m,false);
                 }
                 tick(*m); receiver.sample(serial(*m));
+                if(!serial(*m) && !first_uart_clock) first_uart_clock=clocks+1;
                 if(finished(*m)) break;
             }
-            if(clocks==limit) throw std::runtime_error("standalone system did not finish");
-            std::cout<<"{\"clocks\":"<<clocks+1<<",\"uart\":\"";
+            if(clocks>=limit) throw std::runtime_error("standalone system did not finish");
+            if(reset_requested && !reset_injected) throw std::runtime_error("scheduled reset never occurred");
+            std::cout<<"{\"clocks\":"<<clocks+1<<",\"first_uart_clock\":"<<first_uart_clock
+                     <<",\"reset_injected\":"<<(reset_injected ? "true" : "false")
+                     <<",\"reset_at\":"<<(reset_injected ? reset_at : 0)<<",\"uart\":\"";
             const char* hex="0123456789abcdef";
             for(uint8_t b:receiver.bytes) std::cout<<hex[b>>4]<<hex[b&15];
             std::cout<<"\"}\n";
