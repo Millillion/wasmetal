@@ -206,15 +206,20 @@ deliberately broken circuits are rejected. This checks digital structure;
 it does not establish analog metastability reliability or physical placement.
 
 Mapped verification uses six independently assigned groups. The final merge
-requires all 35 integration cases, the same circuit identity, and exact
+requires all 35 integration cases, the same circuit and simulator identities, and exact
 agreement with native UART bytes, execution results and clock counts. Type
 replacement cases remain together in one simulator. Missing or duplicated
-groups, native-model substitution, and incorrect results/clocks are rejected.
+groups, native-model substitution, changed simulator binaries and incorrect
+results/clocks are rejected. The [completed comparison](verification/loadable-mapped.json)
+passes all 35 cases and seven negative controls, preserving both simulator
+identities and checker source hashes in the merged receipt.
 These are bounded integration cases, separate from the 259-suite official
 host-backed corpus.
 CI builds the mapped simulator independently of board routing so routing
 congestion cannot postpone execution testing. The final integration job
-requires native tests, every mapped group and board routing to succeed.
+requires native tests, every mapped group, the compiled C workload and board
+routing to succeed. The programmable bitstream has not yet completed routing;
+passing the mapped execution campaign does not establish physical routability.
 
 The new [RAM-model checks](verification/loadable-ram.json) cover all 1,024
 addresses and four write masks in 18-bit mode, and all 512 addresses and 16

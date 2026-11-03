@@ -1,0 +1,955 @@
+{
+  "status": "passed",
+  "scope": "all programmable integration cases; not the official host-backed corpus",
+  "netlist_sha256": "cc6dde9a95613e0eefe2db9832413a7e43e8259f9d04274a451e007d64b130dc",
+  "case_count": 35,
+  "uart_and_cycles_identical": true,
+  "models": {
+    "rtl": {
+      "backend": "loadable-rtl",
+      "inputs": {
+        "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
+        "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
+        "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+        "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
+        "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
+        "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+        "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+        "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+        "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
+        "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
+        "rtl/wasmetal_simd_fp_decode.sv": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
+        "rtl/wasmetal_simd_int.sv": "d64aaee7e053fae5b24e59d8e0e819c5eb065060ae6f9d426ea83404a703cf71",
+        "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
+        "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
+        "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
+        "third_party/hardfloat/source/HardFloat_primitives.v": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+        "third_party/hardfloat/source/HardFloat_rawFN.v": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+        "third_party/hardfloat/source/addRecFN.v": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+        "third_party/hardfloat/source/compareRecFN.v": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+        "third_party/hardfloat/source/divSqrtRecFN_small.v": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+        "third_party/hardfloat/source/fNToRecFN.v": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+        "third_party/hardfloat/source/iNToRecFN.v": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+        "third_party/hardfloat/source/isSigNaNRecFN.v": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+        "third_party/hardfloat/source/mulAddRecFN.v": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+        "third_party/hardfloat/source/mulRecFN.v": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+        "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+        "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+        "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+        "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+        "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+        "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+        "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+        "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+        "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+        "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+        "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+        "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+        "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+        "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+        "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+        "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+        "soc/wasmetal_standalone_ulx3s.sv": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
+        "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+        "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+        "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+        "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+        "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+        "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
+        "tools/build_loadable_sim.py": "3c12f3b77ed60d33d626857892df9540dee8e3fb75edee69f62896c38bc04317",
+        "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+        "tools/build_standalone_sim.py": "8dcb8a4d26cd248a17e6a6e4aa457ba97b6f3ec556c52b302481bc1c7020c020",
+        "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+        "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+        "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+        "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+        "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+      },
+      "profile": {
+        "core": {
+          "VALUE_DEPTH": 8192,
+          "CONTROL_DEPTH": 2048,
+          "CALL_DEPTH": 512,
+          "MEMORY_COUNT": 256,
+          "HEAP_SLOTS": 1024
+        },
+        "instruction_depth": 1024,
+        "function_depth": 128,
+        "type_depth": 64,
+        "boot_depth": 512,
+        "regions_per_kind": 16,
+        "ram_bytes": 131072,
+        "memory_pages": 1,
+        "table_slots": 128,
+        "max_results": 16,
+        "watchdog_cycles": 10000000
+      },
+      "profile_tag": "08f9ad0c6e2434a8bd79ed730e831ffa",
+      "uart_ticks": 4,
+      "clock_scale": 1,
+      "upload_timeout": 4096,
+      "binary_sha256": "15894525a0a5d6c2ed42e9f4dc54bda7878f1ecc3049b31ef279c68b7b0eabc6"
+    },
+    "mapped": {
+      "backend": "loadable-mapped-ecp5-functional",
+      "top": "wasmetal_loadable",
+      "inputs": {
+        "build/loadable-mapped/design.json": "cc6dde9a95613e0eefe2db9832413a7e43e8259f9d04274a451e007d64b130dc",
+        "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+        "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+        "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+        "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+        "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+        "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+        ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+        "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
+        "build/loadable-mapped/design.manifest.json": "3dd1388c77db62aca6938300a58a0ebf3a94361df263daf98df7ab24595b76d4",
+        "tools/build_loadable_board.py": "c0a1e7c749dc415a36337696d19ffa6dd77c37aff375a2063421692cc8b5c384",
+        "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+        "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
+        "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+        "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+        "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+        "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+        "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+        "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+        "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
+        "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+        "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
+        "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+        "build/loadable-mapped/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+        "build/standalone-core-ecp5.json": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
+        "build/standalone-core-ecp5.manifest.json": "6cfd713300f1133250983d0c817d7f663aa736163d70ad27e6f3c20c5ea2665e",
+        "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+        "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+        "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+        "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+        "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+        "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+        "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+        "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+        "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+        "build/loadable-gate-sim/circuit.v": "0e88cf8068b3b6f609c9c9073afa505a483ccd27654f2baa2056b7384098f8f9",
+        "build/loadable-gate-sim/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+        "build/loadable-gate-sim/lut-proof/report.json": "71b957e48b90121bb0fe765cadbd4b659377fc81f630df637566eb8d2d594b54",
+        "tools/build_loadable_gate_sim.py": "5527163fbd909b210c7f23c690644d062def5fa4e58ba3dfcc99c26cacce7c5b"
+      },
+      "binary_sha256": "b88c14e10044a5dbe339ead460be2e0f128dc84a018cf7b1a6bb8d0cc03d8d84",
+      "netlist_sha256": "cc6dde9a95613e0eefe2db9832413a7e43e8259f9d04274a451e007d64b130dc",
+      "ram_modes": {
+        "core": 174,
+        "ram18-opposite-edges": 16,
+        "ram36-same-edge": 2
+      },
+      "compilation": {
+        "fast_sim": true,
+        "portable": true,
+        "compiler": "/usr/bin/clang++",
+        "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+        "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+        "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+      },
+      "physical_hardware_tested": false,
+      "profile": {
+        "core": {
+          "VALUE_DEPTH": 8192,
+          "CONTROL_DEPTH": 2048,
+          "CALL_DEPTH": 512,
+          "MEMORY_COUNT": 256,
+          "HEAP_SLOTS": 1024
+        },
+        "instruction_depth": 1024,
+        "function_depth": 128,
+        "type_depth": 64,
+        "boot_depth": 512,
+        "regions_per_kind": 16,
+        "ram_bytes": 131072,
+        "memory_pages": 1,
+        "table_slots": 128,
+        "max_results": 16,
+        "watchdog_cycles": 10000000
+      },
+      "profile_tag": "08f9ad0c6e2434a8bd79ed730e831ffa",
+      "uart_ticks": 4,
+      "clock_scale": 1,
+      "upload_timeout": 4096
+    }
+  },
+  "checker_inputs": {
+    "tools/check_loadable.py": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "tools/check_standalone.py": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba"
+  },
+  "cases": [
+    {
+      "name": "answer",
+      "packet_sha256": "33e7ef5368fda57f63b79bce68e247ecf3bc89181b607b5b08b6ac98c37c3ab7",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259198,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258051,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201010000000000004d57ce759ebb8fce574d01000001350000002a0000000000000000000000000000000d44"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 53,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "arguments",
+      "packet_sha256": "359c004b0ee61ffbdaacb27a3125360398e8f97ab19688cd65da0f1cc600a1e8",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259108,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257961,
+        "interrupted": false,
+        "uart": "574d4c5201000200000000004d57000000005482574d4c5201010200000000004d57c6e62ced932e574d010000010f0000002a000000000000000000000000000000272f"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 15,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "bad-cast",
+      "packet_sha256": "c7aa47c4b1cdfa1979c048fd3fef40578be2f4a1421e38e15fe42b9e5ebbf913",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258433,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257942,
+        "interrupted": false,
+        "uart": "574d4c5201001000000000004d5700000000eeb3574d4c5201011000000000004d5799e156855031574d01010a0007000000a319"
+      },
+      "result": {
+        "status": 1,
+        "trap": 10,
+        "cycles": 7,
+        "values": []
+      }
+    },
+    {
+      "name": "boot-address-boundaries",
+      "packet_sha256": "0adce4333bebfe9139b52492cdabccf44a53071d2bee2fdc724a2cc21c0596f8",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2262630,
+        "commit_clock": 2225200,
+        "first_result_clock": 2261483,
+        "interrupted": false,
+        "uart": "574d4c5201001700000000004d5700000000a5bb574d4c5201011700000000004d57ce2b24f2709c574d0100000113000000a8a9aaab00000000000000000000000089ac"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 19,
+        "values": [
+          2880088488
+        ]
+      }
+    },
+    {
+      "name": "branches",
+      "packet_sha256": "499ff75cf96ce275cb66fae8795d692d129af82c23b50b0521469df9ec1aca93",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2262383,
+        "commit_clock": 2225200,
+        "first_result_clock": 2260580,
+        "interrupted": false,
+        "uart": "574d4c5201000700000000004d5700000000f58c574d4c5201010700000000004d5755642e8587a3574d01000002520a0000ba1300000000000000000000000000002a000000000000000000000000000000f5f6"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 2642,
+        "values": [
+          5050,
+          42
+        ]
+      }
+    },
+    {
+      "name": "break-abort",
+      "uart": {
+        "operation": "break",
+        "clocks": 4440,
+        "commit_clock": 0,
+        "first_result_clock": 0,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201070000000000004d5700000000b64e"
+      },
+      "replies": [
+        {
+          "status": "ready",
+          "status_code": 0,
+          "nonce": 6290684254506450944,
+          "checksum": 0
+        },
+        {
+          "status": "abort",
+          "status_code": 7,
+          "nonce": 6290684254506450944,
+          "checksum": 0
+        }
+      ],
+      "results": []
+    },
+    {
+      "name": "crc-rejection",
+      "uart": {
+        "operation": "bad-crc",
+        "clocks": 2225200,
+        "commit_clock": 2225200,
+        "first_result_clock": 0,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201050000000000004d57ce759ebb22cb"
+      },
+      "replies": [
+        {
+          "status": "ready",
+          "status_code": 0,
+          "nonce": 6290684254506450944,
+          "checksum": 0
+        },
+        {
+          "status": "checksum",
+          "status_code": 5,
+          "nonce": 6290684254506450944,
+          "checksum": 3147724238
+        }
+      ],
+      "results": []
+    },
+    {
+      "name": "divide-zero",
+      "packet_sha256": "d5c47a601059bd3ed7fe24d89e1ee75d209eed3f213bb4b5aeec4eb37c2842b7",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258436,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257945,
+        "interrupted": false,
+        "uart": "574d4c5201000b00000000004d5700000000899a574d4c5201010b00000000004d5718c5902dad61574d010102000a000000672d"
+      },
+      "result": {
+        "status": 1,
+        "trap": 2,
+        "cycles": 10,
+        "values": []
+      }
+    },
+    {
+      "name": "heap-exhaustion",
+      "packet_sha256": "67f7913038912f01c6c791156e3c9634cebaf14d4ad1c70f412975b8095dc6f3",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2289156,
+        "commit_clock": 2225200,
+        "first_result_clock": 2288665,
+        "interrupted": false,
+        "uart": "574d4c5201001200000000004d570000000004b5574d4c5201011200000000004d57d82a928e6f92574d01010c000a7800006ddc"
+      },
+      "result": {
+        "status": 1,
+        "trap": 12,
+        "cycles": 30730,
+        "values": []
+      }
+    },
+    {
+      "name": "memory-oob",
+      "packet_sha256": "a69c692f62a499b547e48194994762cfb4cc8b03db53f05dbe2a77aaca141f77",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258437,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257946,
+        "interrupted": false,
+        "uart": "574d4c5201000c00000000004d5700000000c292574d4c5201010c00000000004d57e9cd04d340f3574d01010400070000000099"
+      },
+      "result": {
+        "status": 1,
+        "trap": 4,
+        "cycles": 7,
+        "values": []
+      }
+    },
+    {
+      "name": "memory64",
+      "packet_sha256": "f3fe11cb0318ebe45b4aafd26ed4d00649fd3d43b15fb1220cecff03391afa90",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2260442,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257983,
+        "interrupted": false,
+        "uart": "574d4c5201000300000000004d57000000002181574d4c5201010300000000004d57f11e51f68ec7574d01000003290000000000000000000000000000000000000088776655443322110000000000000000ffffffffffffffff000000000000000013a1"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 41,
+        "values": [
+          0,
+          1234605616436508552,
+          18446744073709551615
+        ]
+      }
+    },
+    {
+      "name": "memory64-wrap",
+      "packet_sha256": "928ce9950188c0d84798378c6494620400145b4f9c2384235e51ead39ec138b9",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258437,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257946,
+        "interrupted": false,
+        "uart": "574d4c5201000d00000000004d5700000000b791574d4c5201010d00000000004d57ab4f37f6fa02574d01010400070000000099"
+      },
+      "result": {
+        "status": 1,
+        "trap": 4,
+        "cycles": 7,
+        "values": []
+      }
+    },
+    {
+      "name": "no-results",
+      "packet_sha256": "133f2accf898f703cf34078dd4fccfcb1dd68f301c2cf557282116a3dc405fb9",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258439,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257948,
+        "interrupted": false,
+        "uart": "574d4c5201000900000000004d5700000000639c574d4c5201010900000000004d575b737b8dfaa7574d010000000a000000461e"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 10,
+        "values": []
+      }
+    },
+    {
+      "name": "null-call",
+      "packet_sha256": "7c408439b2f1bdb0db544e0dbc2ef0735385d1ff1b312464cb40b9b795c60b77",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258433,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257942,
+        "interrupted": false,
+        "uart": "574d4c5201000f00000000004d57000000005d97574d4c5201010f00000000004d57e3a335ff54cd574d01010600070000004012"
+      },
+      "result": {
+        "status": 1,
+        "trap": 6,
+        "cycles": 7,
+        "values": []
+      }
+    },
+    {
+      "name": "partial-reset",
+      "uart": {
+        "operation": "partial",
+        "clocks": 3796,
+        "commit_clock": 0,
+        "first_result_clock": 0,
+        "interrupted": true,
+        "uart": ""
+      },
+      "replies": [],
+      "results": []
+    },
+    {
+      "name": "profile-rejection",
+      "uart": {
+        "operation": "bad-profile",
+        "clocks": 2140,
+        "commit_clock": 0,
+        "first_result_clock": 0,
+        "interrupted": false,
+        "uart": "574d4c5201030000000000004d57000000001b4b"
+      },
+      "replies": [
+        {
+          "status": "profile",
+          "status_code": 3,
+          "nonce": 6290684254506450944,
+          "checksum": 0
+        }
+      ],
+      "results": []
+    },
+    {
+      "name": "program-address-boundaries",
+      "packet_sha256": "49b74083ca96bc10810289da9542d886d384b277412c8e153725908da88bb0ae",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259106,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257959,
+        "interrupted": false,
+        "uart": "574d4c5201001400000000004d57000000003abe574d4c5201011400000000004d573c6492b07b06574d010000011500000077000000000000000000000000000000fa04"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 21,
+        "values": [
+          119
+        ]
+      }
+    },
+    {
+      "name": "receive-timeout",
+      "uart": {
+        "operation": "timeout",
+        "clocks": 8536,
+        "commit_clock": 0,
+        "first_result_clock": 0,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201060000000000004d5700000000d50b"
+      },
+      "replies": [
+        {
+          "status": "ready",
+          "status_code": 0,
+          "nonce": 6290684254506450944,
+          "checksum": 0
+        },
+        {
+          "status": "timeout",
+          "status_code": 6,
+          "nonce": 6290684254506450944,
+          "checksum": 0
+        }
+      ],
+      "results": []
+    },
+    {
+      "name": "recovery-upload",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259198,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258051,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201010000000000004d57ce759ebb8fce574d01000001350000002a0000000000000000000000000000000d44"
+      },
+      "replies": [
+        {
+          "status": "ready",
+          "status_code": 0,
+          "nonce": 6290684254506450944,
+          "checksum": 0
+        },
+        {
+          "status": "committed",
+          "status_code": 1,
+          "nonce": 6290684254506450944,
+          "checksum": 3147724238
+        }
+      ],
+      "results": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 53,
+          "values": [
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reset-during-execution",
+      "offset_after_commit": 33984,
+      "interrupted": {
+        "operation": "interrupt",
+        "clocks": 2259440,
+        "commit_clock": 2225200,
+        "first_result_clock": 0,
+        "interrupted": true,
+        "uart": ""
+      },
+      "recovered": {
+        "operation": "upload",
+        "clocks": 2259198,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258051,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201010000000000004d57ce759ebb8fce574d01000001350000002a0000000000000000000000000000000d44"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 53,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "reset-during-result",
+      "offset_after_commit": 32991,
+      "interrupted": {
+        "operation": "interrupt",
+        "clocks": 2258447,
+        "commit_clock": 2225200,
+        "first_result_clock": 0,
+        "interrupted": true,
+        "uart": ""
+      },
+      "recovered": {
+        "operation": "upload",
+        "clocks": 2259198,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258051,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201010000000000004d57ce759ebb8fce574d01000001350000002a0000000000000000000000000000000d44"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 53,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "segment-address-boundaries",
+      "packet_sha256": "e6f59e2ca31df359c55088b04e4a70d03e247684745dcab1b21227747ea51536",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259322,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258175,
+        "interrupted": false,
+        "uart": "574d4c5201001800000000004d570000000046a8574d4c5201011800000000004d5741d8f45ba30d574d010000012900000050000000000000000000000000000000f1fc"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 41,
+        "values": [
+          80
+        ]
+      }
+    },
+    {
+      "name": "selftest",
+      "packet_sha256": "1a046282c62d98f85b8ea91a2ae8caf704a8a95fcd3d60e5d963ef040b76d721",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2268553,
+        "commit_clock": 2225200,
+        "first_result_clock": 2260190,
+        "interrupted": false,
+        "uart": "574d4c5201000100000000004d5700000000cb87574d4c5201010100000000004d57b8856ab822a4574d0100000cd50700002a0000000000000000000000000000002a000000000000000000000000000000020000000000000000000000000000002700000000000000000000000000000000007040000000000000000000000000000000000000084000000000000000000b00160021002c00370042004d0058002a00000000000000000000000000000011112233000000000000000000000000a5a500000000000000000000000000001400000000000000000000000000000063000000000000000000000000000000015b"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 2005,
+        "values": [
+          42,
+          42,
+          2,
+          39,
+          1081081856,
+          4613937818241073152,
+          456928224199368548342553000122122251,
+          42,
+          857870609,
+          42405,
+          20,
+          99
+        ]
+      }
+    },
+    {
+      "name": "serial-period-1020",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2303667,
+        "commit_clock": 2269669,
+        "first_result_clock": 2302520,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201010000000000004d57ce759ebb8fce574d01000001350000002a0000000000000000000000000000000d44"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 53,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "serial-period-980",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2214728,
+        "commit_clock": 2180730,
+        "first_result_clock": 2213581,
+        "interrupted": false,
+        "uart": "574d4c5201000000000000004d5700000000be84574d4c5201010000000000004d57ce759ebb8fce574d01000001350000002a0000000000000000000000000000000d44"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 53,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "sixteen-results",
+      "packet_sha256": "69aea1a760822a2119a7bd84e8e2f7a74b09b3768f5219ea67f06dbb38a9444c",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2268981,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257994,
+        "interrupted": false,
+        "uart": "574d4c5201000800000000004d5700000000169f574d4c5201010800000000004d57fbe72596ea64574d0100001038000000000000000000000000000000000000000100000000000000000000000000000002000000000000000000000000000000030000000000000000000000000000000400000000000000000000000000000005000000000000000000000000000000060000000000000000000000000000000700000000000000000000000000000008000000000000000000000000000000090000000000000000000000000000000a0000000000000000000000000000000b0000000000000000000000000000000c0000000000000000000000000000000d0000000000000000000000000000000e0000000000000000000000000000000f000000000000000000000000000000d20d"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 56,
+        "values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      }
+    },
+    {
+      "name": "subtype-cast",
+      "packet_sha256": "4325b336afac26f7e1467240e0993fb87acbdc2f0f3ca59b4426cde6f1c55b7b",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259116,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257969,
+        "interrupted": false,
+        "uart": "574d4c5201000500000000004d57000000001f8a574d4c5201010500000000004d575cacd5a75712574d010000011f0000002a0000000000000000000000000000007444"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 31,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "table-oob",
+      "packet_sha256": "4e87f8af83a8103f25cc54b4df160d2c54dd2df3186c72c892b9bf382cd45373",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258437,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257946,
+        "interrupted": false,
+        "uart": "574d4c5201000e00000000004d57000000002894574d4c5201010e00000000004d5744afa3ef67a0574d0101050007000000a0dc"
+      },
+      "result": {
+        "status": 1,
+        "trap": 5,
+        "cycles": 7,
+        "values": []
+      }
+    },
+    {
+      "name": "tail-reference",
+      "packet_sha256": "2076f70cbba2d7f17c472b7725f80cd114fcfd6c94b143ddaec9fc8f10c44347",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259148,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258001,
+        "interrupted": false,
+        "uart": "574d4c5201000600000000004d5700000000808f574d4c5201010600000000004d577a4947518ebd574d01000001250000002a0000000000000000000000000000005e2f"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 37,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "type-address-boundaries",
+      "packet_sha256": "8e92ff8d7f185fed9514e14f4e4105c427fa9981cfa30225b5ea71cc4e3e4ce6",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259656,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258509,
+        "interrupted": false,
+        "uart": "574d4c5201001500000000004d57000000004fbd574d4c5201011500000000004d57f7817911f78a574d010000013b0200002a00000000000000000000000000000001e8"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 571,
+        "values": [
+          42
+        ]
+      }
+    },
+    {
+      "name": "type-boundary-rejection",
+      "packet_sha256": "345425e98392945489f7d168dbee372c80d83e7dd16085a2a7e32a4e5f5e2435",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258983,
+        "commit_clock": 2225200,
+        "first_result_clock": 2258492,
+        "interrupted": false,
+        "uart": "574d4c5201001600000000004d5700000000d0b8574d4c5201011600000000004d571ffb5eb3519b574d01010a002d0200002628"
+      },
+      "result": {
+        "status": 1,
+        "trap": 10,
+        "cycles": 557,
+        "values": []
+      }
+    },
+    {
+      "name": "unaligned-simd",
+      "packet_sha256": "841eb4fddc5960d517fca16d5cc2a5c152467fa3cb1e77ba07c49bec87593461",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2259128,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257981,
+        "interrupted": false,
+        "uart": "574d4c5201000400000000004d57000000006a89574d4c5201010400000000004d579a0fa702a7ea574d0100000127000000ffffffffffffffffffffffffffffffff8153"
+      },
+      "result": {
+        "status": 0,
+        "trap": 0,
+        "cycles": 39,
+        "values": [
+          340282366920938463463374607431768211455
+        ]
+      }
+    },
+    {
+      "name": "uncaught",
+      "packet_sha256": "b28d16bf7b0999385e2c44da2a7a34a3657633cf9073fc2a482516cc3c21a6a4",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258433,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257942,
+        "interrupted": false,
+        "uart": "574d4c5201001100000000004d57000000009bb0574d4c5201011100000000004d575ec4868c9439574d01010d0007000000e2d1"
+      },
+      "result": {
+        "status": 1,
+        "trap": 13,
+        "cycles": 7,
+        "values": []
+      }
+    },
+    {
+      "name": "unreachable",
+      "packet_sha256": "c16a0f186410d131b3c9b62178c7961e6d2c44d406321948e2e69cb0ae97d3cc",
+      "uart": {
+        "operation": "upload",
+        "clocks": 2258431,
+        "commit_clock": 2225200,
+        "first_result_clock": 2257940,
+        "interrupted": false,
+        "uart": "574d4c5201000a00000000004d5700000000fc99574d4c5201010a00000000004d57cc5f5299bb28574d01010100050000006937"
+      },
+      "result": {
+        "status": 1,
+        "trap": 1,
+        "cycles": 5,
+        "values": []
+      }
+    },
+    {
+      "name": "watchdog",
+      "packet_sha256": "896114a0c1cfc0a0cb0e5323132d72cff976be41948491e648c1f474c7f9e31e",
+      "uart": {
+        "operation": "upload",
+        "clocks": 12258426,
+        "commit_clock": 2225200,
+        "first_result_clock": 12257935,
+        "interrupted": false,
+        "uart": "574d4c5201001300000000004d570000000071b6574d4c5201011300000000004d578cc78218bc2c574d01030000809698008c28"
+      },
+      "result": {
+        "status": 3,
+        "trap": 0,
+        "cycles": 10000000,
+        "values": []
+      }
+    }
+  ],
+  "negative_controls_rejected": [
+    "missing-shard",
+    "duplicate-shard",
+    "native-substitution",
+    "wrong-result",
+    "wrong-clock",
+    "wrong-netlist",
+    "wrong-simulator"
+  ],
+  "reports": {
+    "reports/loadable-rtl.json": "50adc5ffde66c07b87f83d53d7a4ffb1a2ef583bec91a93e196d8cdca220c976",
+    "reports/loadable-mapped-0.json": "901003f374fbc196efa48a78676d22fba98e8fcbb854cfcfe46e7e74bb928a67",
+    "reports/loadable-mapped-1.json": "857b86bfbf5e7dd24aff43383f3b81b5a46c2c1324829bd4f9e0788f2439743e",
+    "reports/loadable-mapped-2.json": "dc92b318157d66db6e30368177a670fc78a097f3c51f388fe28a0cb231281324",
+    "reports/loadable-mapped-3.json": "a360a7831092407716b9e9c8c03d9069cc3b900e40cacab0f5deb14cc007500a",
+    "reports/loadable-mapped-4.json": "3f4e18ced17b5af1bdc8cbfa3537c91a081baabbf3ec9074bdda15f4d890234e",
+    "reports/loadable-mapped-5.json": "b2b914dccdff8078555eb1c2ace74c1d059aad263e44fdf240e69ba8eb462d43"
+  },
+  "inputs": {
+    "tools/loadable_ci.py": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52"
+  },
+  "physical_hardware_tested": false
+}

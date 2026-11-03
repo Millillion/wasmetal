@@ -31,8 +31,8 @@ board result and foundry signoff are separate kinds of evidence.
   memories, allowing program upload without rebuilding the FPGA bitstream.
 - [x] Exercise interrupted uploads, repeated boots, multiple programs, malformed
   traffic and independent serial clock rates in simulation.
-  Native checks pass; complete mapped integration and programmable routing are
-  still in progress. See the [upload guide](PROGRAM-UPLOAD.md).
+  All 35 native and mapped checks pass with identical UART output and clocks.
+  Programmable FPGA routing is still in progress. See the [upload guide](PROGRAM-UPLOAD.md).
 - [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
   See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).

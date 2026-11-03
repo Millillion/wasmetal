@@ -82,7 +82,8 @@ The [host uploader](tools/upload_program.py) handles the ready/commit exchange,
 serial deadlines and execution results, including replies arriving together.
 Its serial-device tests pass. The programmable system now connects UART loading
 to writable instruction and metadata stores and the complete CPU.
-[All 35 native integration checks](docs/verification/loadable-rtl.json) pass,
+[All 35 native integration checks](docs/verification/loadable-rtl.json) and
+[all 35 mapped-circuit checks](docs/verification/loadable-mapped.json) pass,
 including program replacement, rejection, timeout, UART break, rate variation
 and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
 and [three board-clock sender rates](docs/verification/loadable-board-rates.json)
@@ -90,9 +91,9 @@ also pass, including the expected 9600-baud setting. A
 [mapped I/O audit](docs/verification/loadable-io.json) checks the UART/reset
 synchronizers and free-running clock, with seven rejected circuit mutations.
 Core-level integration uses a faster test UART; board tests retain the actual
-divider and serial timing. Full mapped execution checks and programmable
-routing are still in progress. Routing and mapped execution have separate CI
-jobs, and both must pass the final integration check.
+divider and serial timing. Every mapped UART byte, result and clock count
+matches RTL. Programmable FPGA routing is still in progress. Routing and mapped
+execution have separate CI jobs, and both must pass the final integration check.
 The original ROM system has been reverified,
 including its mapped comparisons and fresh routing/bitstream checks.
 

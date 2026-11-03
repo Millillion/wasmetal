@@ -121,6 +121,15 @@ RTL with `make sim`. Both official-suite commands use that executable by default
 | Bounded standalone images, local-memory oracle and autonomous board RTL | Yes; separate standalone job |
 | Complete standalone mapped circuit compared with board RTL | Yes; prepared self-test and reset scenarios |
 | Standalone placement/routing timing and bitstream round trip | Yes; separate standalone job |
+| Programmable uploads, replacement and recovery | Yes; all 35 local RTL/mapped comparisons passed |
+| Compiled freestanding C through programmable uploads | Yes; all five local RTL/mapped comparisons passed |
+| Programmable placement/routing and bitstream round trip | Required by CI; routing has not completed locally |
+| Wide memory, AXI, clock crossing and SRAM adapter checks | Yes; component proofs, RTL and mapped simulations |
+
+The [programmable integration flow](PROGRAM-UPLOAD.md) requires all six mapped
+groups, native tests, the compiled C workload and board routing. Its execution
+results are complete locally; programmable routing remains unresolved. These
+jobs supplement the complete official core corpus with bounded system tests.
 
 The standalone job runs `make standalone-mapped-test` and retains its reports,
 bitstream and prepared image for 30 days. Its local-memory integration coverage

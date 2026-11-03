@@ -43,7 +43,7 @@ def compare(reference,shards):
     names={name for group in GROUPS for name in group}|set(RECOVERY)
     if len(reference['cases'])!=len(names) or set(expected)!=names:
         raise ValueError('native reference has incomplete integration coverage')
-    observed={};netlist=None;groups=set()
+    observed={};netlist=None;model=None;groups=set()
     for report in shards:
         if report['status']!='passed' or report['model']['backend']!='loadable-mapped-ecp5-functional':
             raise ValueError('passed mapped circuit report required')
@@ -53,6 +53,8 @@ def compare(reference,shards):
         if report['inputs']!=reference['inputs']:raise ValueError('different integration checker inputs')
         if not identity.get('netlist_sha256'):raise ValueError('missing circuit identity')
         if netlist is not None and netlist!=identity['netlist_sha256']:raise ValueError('different mapped circuits')
+        if model is not None and model!=identity:raise ValueError('different mapped simulator identities')
+        model=identity
         netlist=identity['netlist_sha256']
         actual=[case['name'] for case in report['cases']]
         candidates=[n for n,group in enumerate(GROUPS) if actual==group+(RECOVERY if n==0 else [])]
@@ -125,19 +127,22 @@ def main():
             if not name.startswith('build/') and digest(ROOT/path)!=value:
                 raise ValueError('stale programmable model source: '+name)
     rejected=[]
-    for name in ('missing-shard','duplicate-shard','native-substitution','wrong-result','wrong-clock','wrong-netlist'):
+    for name in ('missing-shard','duplicate-shard','native-substitution','wrong-result','wrong-clock','wrong-netlist','wrong-simulator'):
         broken=copy.deepcopy(reports)
         if name=='missing-shard':broken.pop()
         elif name=='duplicate-shard':broken.append(copy.deepcopy(broken[0]))
         elif name=='native-substitution':broken[0]['model']['backend']='loadable-rtl'
         elif name=='wrong-result':broken[0]['cases'][0]['result']['values'][0]^=1
         elif name=='wrong-clock':broken[0]['cases'][0]['uart']['clocks']+=1
-        else:broken[0]['model']['netlist_sha256']='0'*64
+        elif name=='wrong-netlist':broken[0]['model']['netlist_sha256']='0'*64
+        else:broken[0]['model']['binary_sha256']='0'*64
         try:compare(reference,broken)
         except ValueError:rejected.append(name)
         else:raise ValueError('integration merge accepted '+name)
     output={'status':'passed','scope':'all programmable integration cases; not the official host-backed corpus',
         'netlist_sha256':netlist,'case_count':len(observed),'uart_and_cycles_identical':True,
+        'models':{'rtl':reference['model'],'mapped':reports[0]['model']},
+        'checker_inputs':reference['inputs'],
         'cases':[observed[name] for name in sorted(observed)],'negative_controls_rejected':rejected,
         'reports':{str(path.resolve().relative_to(ROOT)):digest(path) for path in [args.reference,*paths]},
         'inputs':{str(Path(__file__).resolve().relative_to(ROOT)):digest(Path(__file__).resolve())},
