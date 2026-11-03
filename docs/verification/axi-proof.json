@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "scope": "unbounded protocol safety induction, not liveness or complete data equivalence",
+  "configurations": [
+    {
+      "base_address": 0,
+      "id_width": 4,
+      "status": "proven"
+    },
+    {
+      "base_address": 4096,
+      "id_width": 4,
+      "status": "proven"
+    },
+    {
+      "base_address": 4294963200,
+      "id_width": 4,
+      "status": "proven"
+    }
+  ],
+  "properties": [
+    "address/data stability through stalls",
+    "VALID independent of READY",
+    "write response only after address and data",
+    "read response only after address",
+    "aligned requests and nonzero write strobes",
+    "no new transactions after a response error"
+  ],
+  "environment": "initial reset, then arbitrary binary local requests, channel handshakes, responses and resets",
+  "negative_controls_rejected": [
+    "valid-depends-on-ready",
+    "early-write-response",
+    "missing-data-reset"
+  ],
+  "inputs": {
+    "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+    "tools/prove_axi.py": "d9337f089a160c9e30168d55f405ce71b4ef1ad093ef225c7cad20fdeccb689e",
+    "build/formal-axi/axi.sv": "84fcbb35f108bcf90051d82247ff835a62b2819a570e1a3bc3f3eae8d9f424ed"
+  },
+  "physical_hardware_tested": false
+}

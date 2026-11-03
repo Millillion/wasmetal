@@ -13,6 +13,10 @@ board result and foundry signoff are separate kinds of evidence.
   logical memory kinds, stalls, faults and reset against an independent oracle.
 - [x] Integrate a wider local block-RAM backend, measure boot and execution
   cycles, and repeat standalone RTL, mapped-circuit and routing checks.
+- [x] Add an independently verified AXI4 adapter for a future board-specific
+  memory controller, including separate channel stalls and error recovery.
+- [ ] Verify crossing to a separate memory-controller clock and integrate
+  controller startup/reset sequencing before issuing timed memory requests.
 - [ ] Add an external-memory controller with independently checked device
   commands, timing, refresh, masking and reset. Board-specific PHY timing and
   electrical behavior still require hardware.
@@ -31,11 +35,13 @@ board result and foundry signoff are separate kinds of evidence.
 
 ## ASIC preparation
 
-- [ ] Inventory inferred memories, clock edges, reset assumptions and FPGA
-  primitives. Expose replaceable memory and clock/reset boundaries.
-- [ ] Produce technology-neutral synthesis evidence and constraints without
+- [x] Inventory inferred memories, clock edges, reset assumptions and FPGA
+  primitives. Identify the memory and clock/reset boundaries needing replacement.
+- [x] Produce technology-neutral elaboration evidence without
   silently converting large SRAMs to flip-flops or claiming an FPGA bitstream
   is an ASIC implementation.
+- [ ] Define implementation timing constraints against selected clocks,
+  interfaces, macros, standard cells and operating corners.
 - [ ] Define SRAM/ROM macro contracts, power-on reset, debug/test access,
   manufacturing-test requirements and physical-design acceptance checks.
 - [ ] Select a real process, compatible macros, I/O and packaging, then perform

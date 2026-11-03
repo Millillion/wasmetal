@@ -1,0 +1,2506 @@
+{
+  "status": "elaborated_and_audited",
+  "top": "wasmetal_standalone",
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 1024
+    },
+    "instruction_depth": 1024,
+    "function_depth": 128,
+    "type_depth": 64,
+    "boot_depth": 512,
+    "regions_per_kind": 16,
+    "ram_bytes": 131072,
+    "memory_pages": 1,
+    "table_slots": 128,
+    "max_results": 16,
+    "watchdog_cycles": 10000000
+  },
+  "scope": "generic standalone SoC; excludes FPGA divider, reset synchronizer, pads and clock buffer",
+  "inputs": {
+    "third_party/hardfloat/source/HardFloat_primitives.v": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+    "third_party/hardfloat/source/HardFloat_rawFN.v": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+    "third_party/hardfloat/source/addRecFN.v": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+    "third_party/hardfloat/source/compareRecFN.v": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+    "third_party/hardfloat/source/divSqrtRecFN_small.v": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+    "third_party/hardfloat/source/fNToRecFN.v": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+    "third_party/hardfloat/source/iNToRecFN.v": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+    "third_party/hardfloat/source/isSigNaNRecFN.v": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+    "third_party/hardfloat/source/mulAddRecFN.v": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+    "third_party/hardfloat/source/mulRecFN.v": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+    "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+    "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+    "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+    "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
+    "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+    "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
+    "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
+    "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+    "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+    "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+    "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
+    "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
+    "rtl/wasmetal_simd_fp_decode.sv": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
+    "rtl/wasmetal_simd_int.sv": "d64aaee7e053fae5b24e59d8e0e819c5eb065060ae6f9d426ea83404a703cf71",
+    "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
+    "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
+    "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "soc/wasmetal_standalone.sv": "af716e0c61ebe7144a2b8aebcd4b0843baa31ae45d1c9201f291e14828121548",
+    "soc/wasmetal_local_memory.sv": "c50e55810d6b14d66144af85173df61c68cd582b5ab873075733fc8df7bc2795",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+    "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+    "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+    "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+    "tools/audit_asic.py": "3b6e84c775cafcaa6e07b62b09a1b9e5d3eeb201709a937a0a222f534f44fe1f",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "build/standalone-image/boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+    "build/standalone-image/code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+    "build/standalone-image/functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+    "build/standalone-image/initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+    "build/standalone-image/manifest.json": "e447bcb613448387511cd1d455659a49235b87ed11f11f8c53389ef67fcb829c",
+    "build/standalone-image/program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310",
+    "build/standalone-image/regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+    "build/standalone-image/types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e"
+  },
+  "image": {
+    "format": "wasmetal-standalone-v1",
+    "profile": {
+      "core": {
+        "VALUE_DEPTH": 8192,
+        "CONTROL_DEPTH": 2048,
+        "CALL_DEPTH": 512,
+        "MEMORY_COUNT": 256,
+        "HEAP_SLOTS": 1024
+      },
+      "instruction_depth": 1024,
+      "function_depth": 128,
+      "type_depth": 64,
+      "boot_depth": 512,
+      "regions_per_kind": 16,
+      "ram_bytes": 131072,
+      "memory_pages": 1,
+      "table_slots": 128,
+      "max_results": 16,
+      "watchdog_cycles": 10000000
+    },
+    "export": "main",
+    "arguments": [],
+    "counts": {
+      "code": 99,
+      "functions": 13,
+      "types": 64,
+      "regions": 96,
+      "boot": 28
+    },
+    "allocated_ram_bytes": 82148,
+    "regions": [
+      {
+        "kind": 0,
+        "index": 0,
+        "base": 16384,
+        "bytes": 0
+      },
+      {
+        "kind": 0,
+        "index": 1,
+        "base": 16384,
+        "bytes": 65536
+      },
+      {
+        "kind": 1,
+        "index": 0,
+        "base": 82048,
+        "bytes": 16
+      },
+      {
+        "kind": 1,
+        "index": 1,
+        "base": 82064,
+        "bytes": 16
+      },
+      {
+        "kind": 2,
+        "index": 0,
+        "base": 81920,
+        "bytes": 128
+      },
+      {
+        "kind": 3,
+        "index": 0,
+        "base": 82128,
+        "bytes": 4
+      },
+      {
+        "kind": 3,
+        "index": 1,
+        "base": 82144,
+        "bytes": 4
+      },
+      {
+        "kind": 4,
+        "index": 0,
+        "base": 82080,
+        "bytes": 32
+      },
+      {
+        "kind": 4,
+        "index": 1,
+        "base": 82112,
+        "bytes": 16
+      },
+      {
+        "kind": 5,
+        "index": 0,
+        "base": 0,
+        "bytes": 16384
+      }
+    ],
+    "files": {
+      "code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+      "functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+      "types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e",
+      "regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+      "boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+      "initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+      "program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310"
+    },
+    "source_sha256": "a1c18ab9e6d9fc02c644ace57cc042dfa2123b5d9e078886ad54c1f54b2f4daf",
+    "preparation_simulator_sha256": "87393149d7a23709155abbb989e556efd65c35c60da708cf095336de2864c45c",
+    "preparation_build_id": "5c57ee7e6b27f2ea506dd1bc9fa1ee55",
+    "physical_hardware_tested": false,
+    "preparation_inputs": {
+      "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+      "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+      "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+      "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+    }
+  },
+  "script_sha256": "7a798f41f375b0e9d95e1fa3e411ec407b035e3e23d115c7aaad1aa5f12f1e00",
+  "netlist_sha256": "3b67f5933bbf58830d235c3b3e31bc54d4f56f2ad2ab2458790111ebf9abbfef",
+  "yosys_sha256": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+  "cells": {
+    "$add": 267,
+    "$adff": 1,
+    "$and": 68,
+    "$dff": 1696,
+    "$eq": 932,
+    "$ge": 65,
+    "$gt": 61,
+    "$le": 46,
+    "$logic_and": 1968,
+    "$logic_not": 198,
+    "$logic_or": 238,
+    "$lt": 158,
+    "$mem_v2": 82,
+    "$mul": 11,
+    "$mux": 6388,
+    "$ne": 16,
+    "$neg": 16,
+    "$not": 70,
+    "$or": 437,
+    "$pmux": 153,
+    "$reduce_and": 16,
+    "$reduce_bool": 18,
+    "$reduce_or": 276,
+    "$shift": 14,
+    "$shiftx": 26,
+    "$shl": 25,
+    "$shr": 71,
+    "$sshr": 3,
+    "$sub": 82,
+    "$xor": 13
+  },
+  "generic_memory_count": 82,
+  "generic_memory_bits": 3035968,
+  "backing_memory_bits": 1048576,
+  "value_stack_bits": 1048576,
+  "register_cell_bits": 6177,
+  "clocked_cells_by_edge": {
+    "rising": 1683,
+    "falling": 14
+  },
+  "initialized_register_nets": [],
+  "memories": [
+    {
+      "name": "$flatten\\core.$auto$proc_rom.cc:150:do_switch$18706",
+      "width": 5,
+      "words": 64,
+      "bits": 320,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_core.sv:309.9-314.16",
+      "known_initial_bits": 320,
+      "read_ports": [
+        {
+          "clocked": false,
+          "clock_bit": null,
+          "edge": "asynchronous"
+        }
+      ],
+      "write_ports": [],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "boot",
+      "width": 232,
+      "words": 512,
+      "bits": 118784,
+      "source": "soc/wasmetal_standalone.sv:21.43-21.47",
+      "known_initial_bits": 118784,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.data_sizes.words",
+      "width": 64,
+      "words": 256,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:163.45-165.132",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.element_sizes.words",
+      "width": 64,
+      "words": 256,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:166.45-168.138",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.frames_memory",
+      "width": 128,
+      "words": 512,
+      "bits": 65536,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_core.sv:63.43-63.56",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.labels_memory",
+      "width": 161,
+      "words": 2048,
+      "bits": 329728,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_core.sv:62.43-62.56",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.memory_bounds.words",
+      "width": 65,
+      "words": 256,
+      "bits": 16640,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:154.45-156.138",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.memory_sizes.words",
+      "width": 64,
+      "words": 256,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:151.45-153.133",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        },
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "00",
+      "rd_collision_x_mask": "00",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.table_bounds.words",
+      "width": 65,
+      "words": 256,
+      "bits": 16640,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:160.45-162.136",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.table_sizes.words",
+      "width": 64,
+      "words": 256,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:157.45-159.129",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        },
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "00",
+      "rd_collision_x_mask": "00",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.value_file.banks[0].words",
+      "width": 128,
+      "words": 2048,
+      "bits": 262144,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.value_file.banks[1].words",
+      "width": 128,
+      "words": 2048,
+      "bits": 262144,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.value_file.banks[2].words",
+      "width": 128,
+      "words": 2048,
+      "bits": 262144,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "core.value_file.banks[3].words",
+      "width": 128,
+      "words": 2048,
+      "bits": 262144,
+      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "functions",
+      "width": 160,
+      "words": 128,
+      "bits": 20480,
+      "source": "soc/wasmetal_standalone.sv:19.43-19.52",
+      "known_initial_bits": 20480,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "instructions",
+      "width": 288,
+      "words": 1024,
+      "bits": 294912,
+      "source": "soc/wasmetal_standalone.sv:18.43-18.55",
+      "known_initial_bits": 294912,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[0].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[10].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[11].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[12].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[13].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[14].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[15].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[1].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[2].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[3].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[4].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[5].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[6].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[7].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[8].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[0].lanes[9].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[0].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[10].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[11].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[12].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[13].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[14].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[15].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[1].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[2].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[3].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[4].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[5].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[6].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[7].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[8].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[1].lanes[9].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[0].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[10].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[11].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[12].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[13].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[14].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[15].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[1].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[2].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[3].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[4].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[5].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[6].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[7].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[8].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[2].lanes[9].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[0].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[10].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[11].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[12].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[13].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[14].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[15].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[1].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[2].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[3].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[4].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[5].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[6].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[7].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[8].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.ram_backend.banks[3].lanes[9].storage",
+      "width": 8,
+      "words": 2048,
+      "bits": 16384,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "known_initial_bits": 0,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "falling"
+        }
+      ],
+      "write_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising",
+          "per_bit_masking": false,
+          "permanently_disabled": false,
+          "enable_signal_count": 1
+        }
+      ],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "memory.regions",
+      "width": 64,
+      "words": 96,
+      "bits": 6144,
+      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/wasmetal_local_memory.sv:19.42-19.49",
+      "known_initial_bits": 6144,
+      "read_ports": [
+        {
+          "clocked": true,
+          "clock_bit": 2,
+          "edge": "rising"
+        }
+      ],
+      "write_ports": [],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    },
+    {
+      "name": "types",
+      "width": 64,
+      "words": 64,
+      "bits": 4096,
+      "source": "soc/wasmetal_standalone.sv:20.28-20.33",
+      "known_initial_bits": 4096,
+      "read_ports": [
+        {
+          "clocked": false,
+          "clock_bit": null,
+          "edge": "asynchronous"
+        }
+      ],
+      "write_ports": [],
+      "rd_transparency_mask": "0",
+      "rd_collision_x_mask": "0",
+      "wr_priority_mask": "0"
+    }
+  ],
+  "requires_macro_review": [
+    "$flatten\\core.$auto$proc_rom.cc:150:do_switch$18706",
+    "boot",
+    "core.memory_sizes.words",
+    "core.table_sizes.words",
+    "functions",
+    "instructions",
+    "memory.regions",
+    "types"
+  ],
+  "process_selected": false,
+  "sram_macros_mapped": false,
+  "standard_cells_mapped": false,
+  "silicon_area_estimated": false,
+  "timing_closed": false,
+  "physical_hardware_tested": false
+}
