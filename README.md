@@ -117,6 +117,13 @@ checks all five writable program stores: 444,416 bits with no preset contents,
 loaded before execution. That system retains the same memory capacity and
 uses 7,125 generic register bits; it still needs real SRAM macros and physical
 clock, reset and test implementations.
+The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
+[719,924 transactions per model](docs/verification/sram-mapped.json), including
+every byte mask, five capacity/latency configurations and 90 resets. Its
+[unbounded protocol proof](docs/verification/sram-proof.json) and
+[four-state checks](docs/verification/sram-four-state.json) also pass. It defines
+a concrete interface for a future macro wrapper; it is not connected to the
+CPU and does not supply a foundry SRAM or physical timing signoff.
 
 ## RTL Microarchitecture Simulator
 

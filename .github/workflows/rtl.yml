@@ -21,6 +21,11 @@ jobs:
         run: python3 tools/bootstrap.py
       - name: Prove memory, AXI and CDC safety, test independent memory models
         run: make memory-test axi-test cdc-test image-loader-test
+      - name: Verify the ASIC SRAM adapter and its macro-interface contract
+        run: |
+          python3 tools/check_sram.py --mapped
+          python3 tools/prove_sram.py
+          python3 tools/check_sram_four_state.py
       - name: Preserve memory verification evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -33,6 +38,7 @@ jobs:
             reports/cdc*.json
             reports/async-axi*.json
             reports/image-loader*.json
+            reports/sram-*.json
             build/formal-memory-*/*.log
             build/memory-bridge/*.log
             build/masked-bram/*.log
@@ -50,6 +56,10 @@ jobs:
             build/async-axi-memory/mapped/*.log
             build/async-axi-memory/mapped/lut-proof/*.json
             build/formal-image-loader/*.log
+            build/formal-sram/*.log
+            build/sram-*/*.log
+            build/sram-*/mapped/*.log
+            build/sram-*/mapped/lut-proof/*.json
             build/image-loader/*/*.log
             build/image-loader/*/mapped/*.log
             build/image-loader/*/mapped/lut-proof/*.json

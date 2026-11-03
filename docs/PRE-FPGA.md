@@ -50,6 +50,9 @@ board result and foundry signoff are separate kinds of evidence.
 - [x] Produce technology-neutral elaboration evidence without
   silently converting large SRAMs to flip-flops or claiming an FPGA bitstream
   is an ASIC implementation.
+- [x] Define and independently verify a synchronous backing-SRAM adapter with
+  byte masks, configurable read latency and reset/release behavior. The
+  [macro contract](SRAM.md) is concrete; a real macro and CPU integration remain.
 - [ ] Define implementation timing constraints against selected clocks,
   interfaces, macros, standard cells and operating corners.
 - [ ] Define SRAM/ROM macro contracts, power-on reset, debug/test access,

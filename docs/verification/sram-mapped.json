@@ -1,0 +1,385 @@
+{
+  "status": "passed",
+  "scope": "adapter RTL and functional ECP5 mapping; independent behavioral SRAM, no foundry macro",
+  "configurations": [
+    {
+      "ram_bytes": 131072,
+      "read_latency": 1,
+      "tests": {
+        "rtl": {
+          "results": {
+            "status": "passed",
+            "transactions": 150528,
+            "cycles": 1279583,
+            "macro_commands": 150499,
+            "reads": 75328,
+            "writes": 75171,
+            "resets": 14,
+            "held_valid_cycles": 451584
+          },
+          "binary_sha256": "9f7d85374187b9da11c7158ee335e6adbf921267e1f9640b4b2adcf4bba1e56a",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        },
+        "mapped": {
+          "results": {
+            "status": "passed",
+            "transactions": 150528,
+            "cycles": 1279583,
+            "macro_commands": 150499,
+            "reads": 75328,
+            "writes": 75171,
+            "resets": 14,
+            "held_valid_cycles": 451584
+          },
+          "binary_sha256": "a28068cef1049f420320e0e2b242f814ddb43d666bca41f98612d4b31f4d95c2",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        }
+      },
+      "mapped_build": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_sram_memory",
+        "inputs": {
+          "build/sram-131072-1/adapter.json": "f1c66abb10edd352292962cb4f49b02ee0008cbcd5838dfe2cc735f945ba2794",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/sram.cpp": "2e2190e7ba82af16d7807f6a1097f2e532e236d3013f28daa476ba6b41f43353",
+          "build/sram-131072-1/adapter.manifest.json": "4238b16b955f1818cf2074e648805b51fe72ea398426622827674add4dd04e07",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_sram.py": "8343172ea2cbe780252ad9db172697f40fac906b235b7e068ca5f6098b0c5955",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          "build/sram-131072-1/mapped/circuit.v": "57a6239aa2026b56ea9db7d707379ff53731f2dcfa335fbc80f3b03f4f371b8a",
+          "build/sram-131072-1/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/sram-131072-1/mapped/lut-proof/report.json": "fa00646628a58610d2c2fd48ac31203cacb4a233c0897c29d4f9479b6e0b6dab"
+        },
+        "binary_sha256": "a28068cef1049f420320e0e2b242f814ddb43d666bca41f98612d4b31f4d95c2",
+        "netlist_sha256": "f1c66abb10edd352292962cb4f49b02ee0008cbcd5838dfe2cc735f945ba2794",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 131072,
+      "read_latency": 2,
+      "tests": {
+        "rtl": {
+          "results": {
+            "status": "passed",
+            "transactions": 150532,
+            "cycles": 1354965,
+            "macro_commands": 150505,
+            "reads": 75333,
+            "writes": 75172,
+            "resets": 16,
+            "held_valid_cycles": 451596
+          },
+          "binary_sha256": "95713cbbb7e07da38c9b233049325706efe62c68fcffc3147d779bafc04ab3bb",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        },
+        "mapped": {
+          "results": {
+            "status": "passed",
+            "transactions": 150532,
+            "cycles": 1354965,
+            "macro_commands": 150505,
+            "reads": 75333,
+            "writes": 75172,
+            "resets": 16,
+            "held_valid_cycles": 451596
+          },
+          "binary_sha256": "81480308d964a84cb6e5633e832748942d77667767446d702ce6a04499217db6",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        }
+      },
+      "mapped_build": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_sram_memory",
+        "inputs": {
+          "build/sram-131072-2/adapter.json": "748ce6537c8f3ec76a00c6bd0c5c31de76bf096e7519f157f575dea77324815d",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/sram.cpp": "2e2190e7ba82af16d7807f6a1097f2e532e236d3013f28daa476ba6b41f43353",
+          "build/sram-131072-2/adapter.manifest.json": "5eab2909bd3183688a72e3605611d7efba3c2f96ff3ffbfb4f9fce2ca65060de",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_sram.py": "8343172ea2cbe780252ad9db172697f40fac906b235b7e068ca5f6098b0c5955",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          "build/sram-131072-2/mapped/circuit.v": "08db1cfbe3d51ad321dc46e9dd12560b07d3baec346d663cd14ef3ab1adb5d70",
+          "build/sram-131072-2/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/sram-131072-2/mapped/lut-proof/report.json": "b8dcc60183ff96993c107ddcaa46a0516f66f3953d32cf32b20e58219675f297"
+        },
+        "binary_sha256": "81480308d964a84cb6e5633e832748942d77667767446d702ce6a04499217db6",
+        "netlist_sha256": "748ce6537c8f3ec76a00c6bd0c5c31de76bf096e7519f157f575dea77324815d",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 131072,
+      "read_latency": 3,
+      "tests": {
+        "rtl": {
+          "results": {
+            "status": "passed",
+            "transactions": 150536,
+            "cycles": 1430357,
+            "macro_commands": 150511,
+            "reads": 75338,
+            "writes": 75173,
+            "resets": 18,
+            "held_valid_cycles": 451608
+          },
+          "binary_sha256": "3257ed25cbbf9d47d4c9b63d73ff830b1159fb150fd4ab68c7f5c887cc7e6d3d",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        },
+        "mapped": {
+          "results": {
+            "status": "passed",
+            "transactions": 150536,
+            "cycles": 1430357,
+            "macro_commands": 150511,
+            "reads": 75338,
+            "writes": 75173,
+            "resets": 18,
+            "held_valid_cycles": 451608
+          },
+          "binary_sha256": "5c1ca4446faa4a5ac2e0a6b6ddeb30a6b8abdd18c81040a0fd03bca7134631f6",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        }
+      },
+      "mapped_build": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_sram_memory",
+        "inputs": {
+          "build/sram-131072-3/adapter.json": "7cfc3c451fad0b79be3e2716f67fcbeb586cd3ddf811333bc328d5724d2d9375",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/sram.cpp": "2e2190e7ba82af16d7807f6a1097f2e532e236d3013f28daa476ba6b41f43353",
+          "build/sram-131072-3/adapter.manifest.json": "95fd6d7783b72c309af6ddc3611f585b2fad84458e963e6d021be2433566b080",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_sram.py": "8343172ea2cbe780252ad9db172697f40fac906b235b7e068ca5f6098b0c5955",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          "build/sram-131072-3/mapped/circuit.v": "4b00378bd82892219abb263990ede103cf41d5fa6747a95cdf503063c2648da3",
+          "build/sram-131072-3/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/sram-131072-3/mapped/lut-proof/report.json": "d81875298874f5ddea79f790d67d91ace08b118600ccf6ab83c012d7484591eb"
+        },
+        "binary_sha256": "5c1ca4446faa4a5ac2e0a6b6ddeb30a6b8abdd18c81040a0fd03bca7134631f6",
+        "netlist_sha256": "7cfc3c451fad0b79be3e2716f67fcbeb586cd3ddf811333bc328d5724d2d9375",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 8,
+      "tests": {
+        "rtl": {
+          "results": {
+            "status": "passed",
+            "transactions": 134182,
+            "cycles": 1610587,
+            "macro_commands": 134167,
+            "reads": 67127,
+            "writes": 67040,
+            "resets": 28,
+            "held_valid_cycles": 402546
+          },
+          "binary_sha256": "8c815fa2734413f72e01bb23525a89f7ef6f291c67e2ef6b2a53cf0e4fc61a63",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        },
+        "mapped": {
+          "results": {
+            "status": "passed",
+            "transactions": 134182,
+            "cycles": 1610587,
+            "macro_commands": 134167,
+            "reads": 67127,
+            "writes": 67040,
+            "resets": 28,
+            "held_valid_cycles": 402546
+          },
+          "binary_sha256": "f3af4f6d92d69af17b9d9c12585fefc805d95d8c6d0b56e515a1f752f6d91e13",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        }
+      },
+      "mapped_build": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_sram_memory",
+        "inputs": {
+          "build/sram-80-8/adapter.json": "6a99a5ae2b66f1343149321ccea7efc4de45e7faf66b7c9ac1710cc9cfff55a9",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/sram.cpp": "2e2190e7ba82af16d7807f6a1097f2e532e236d3013f28daa476ba6b41f43353",
+          "build/sram-80-8/adapter.manifest.json": "aba6daf0cfc909dc1f7c68628436d3089e7badbd4f7a3e5286490b2f364eb8a8",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_sram.py": "8343172ea2cbe780252ad9db172697f40fac906b235b7e068ca5f6098b0c5955",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          "build/sram-80-8/mapped/circuit.v": "d74bd6954e160fa5be8f5d532105f944ba4abf3f64d4853786161dec64d3a2f3",
+          "build/sram-80-8/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/sram-80-8/mapped/lut-proof/report.json": "05bc9094372888b2945c8399de6a635f52e337aeda35caf674ca1864d82ad5b2"
+        },
+        "binary_sha256": "f3af4f6d92d69af17b9d9c12585fefc805d95d8c6d0b56e515a1f752f6d91e13",
+        "netlist_sha256": "6a99a5ae2b66f1343149321ccea7efc4de45e7faf66b7c9ac1710cc9cfff55a9",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 16,
+      "read_latency": 1,
+      "tests": {
+        "rtl": {
+          "results": {
+            "status": "passed",
+            "transactions": 134146,
+            "cycles": 1140299,
+            "macro_commands": 134117,
+            "reads": 67100,
+            "writes": 67017,
+            "resets": 14,
+            "held_valid_cycles": 402438
+          },
+          "binary_sha256": "42eb93c1c2c01a678fff13d3901a0b40765e1787dbecb751028a1420c363a680",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        },
+        "mapped": {
+          "results": {
+            "status": "passed",
+            "transactions": 134146,
+            "cycles": 1140299,
+            "macro_commands": 134117,
+            "reads": 67100,
+            "writes": 67017,
+            "resets": 14,
+            "held_valid_cycles": 402438
+          },
+          "binary_sha256": "3ae39b7252066a5a702a7a93d3832a551a157436013b19ffac657a41263e6062",
+          "negative_controls_rejected": [
+            "--corrupt-read",
+            "--ignore-masks"
+          ]
+        }
+      },
+      "mapped_build": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_sram_memory",
+        "inputs": {
+          "build/sram-16-1/adapter.json": "6f16ca66aa94e226ff878fb80d501ab45fcd9ea83d8dcc1e7e64bea707e4b7e3",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/sram.cpp": "2e2190e7ba82af16d7807f6a1097f2e532e236d3013f28daa476ba6b41f43353",
+          "build/sram-16-1/adapter.manifest.json": "a196587e6fc519fe85753954c41193237512e05a0e0fb2ce16d57e7eec821233",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_sram.py": "8343172ea2cbe780252ad9db172697f40fac906b235b7e068ca5f6098b0c5955",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          "build/sram-16-1/mapped/circuit.v": "bcf0e629f6faa4e0ae8f0423c87ce74cb854330c231e14ba29253bcba2ebb2b8",
+          "build/sram-16-1/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/sram-16-1/mapped/lut-proof/report.json": "769188a78d482be925dd325d31627aa3bfafa165772ce84c2233356b556b6505"
+        },
+        "binary_sha256": "3ae39b7252066a5a702a7a93d3832a551a157436013b19ffac657a41263e6062",
+        "netlist_sha256": "6f16ca66aa94e226ff878fb80d501ab45fcd9ea83d8dcc1e7e64bea707e4b7e3",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    }
+  ],
+  "all_65536_write_masks_checked_per_configuration": true,
+  "inputs": {
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "tests/memory/sram.cpp": "2e2190e7ba82af16d7807f6a1097f2e532e236d3013f28daa476ba6b41f43353",
+    "tools/check_sram.py": "8343172ea2cbe780252ad9db172697f40fac906b235b7e068ca5f6098b0c5955",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "physical_hardware_tested": false,
+  "connected_to_cpu": false
+}

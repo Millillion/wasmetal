@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "scope": "unbounded adapter protocol and response safety, not SRAM stored-data equivalence or physical timing",
+  "environment": "initial reset, then arbitrary binary requests, read data and resets; fixed latency is an adapter contract",
+  "configurations": [
+    {
+      "ram_bytes": 131072,
+      "read_latency": 1,
+      "status": "proven"
+    },
+    {
+      "ram_bytes": 131072,
+      "read_latency": 2,
+      "status": "proven"
+    },
+    {
+      "ram_bytes": 131072,
+      "read_latency": 3,
+      "status": "proven"
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 8,
+      "status": "proven"
+    },
+    {
+      "ram_bytes": 16,
+      "read_latency": 1,
+      "status": "proven"
+    }
+  ],
+  "properties": [
+    "one in-bounds macro command per legal request",
+    "exact address/data/byte enables",
+    "no command on invalid request",
+    "exact fixed-latency completion",
+    "read captures previous edge input",
+    "no repetition while valid stays asserted",
+    "reset establishes defined controller state"
+  ],
+  "negative_controls_rejected": [
+    "wrong-byte-enable",
+    "early-read-capture",
+    "duplicate-held-command",
+    "missing-data-reset"
+  ],
+  "inputs": {
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "build/formal-sram/sram.sv": "bb53352e189ac6d01b474e736fc604545aebb6a27316e725db75c74a15a17170",
+    "tools/prove_sram.py": "f372395c4044ecc86ef5f0b2a0d77b73c264a5a1f414f11656291c2bf22c851b",
+    "tools/check_sram.py": "8343172ea2cbe780252ad9db172697f40fac906b235b7e068ca5f6098b0c5955",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "physical_hardware_tested": false
+}

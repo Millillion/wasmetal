@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "controller reset and four-state data behavior; no foundry macro or physical timing model",
+  "ram_bytes": 80,
+  "read_latency": 2,
+  "negative_controls_rejected": [
+    "unknown-coerced-to-zero",
+    "missing-reset-isolation"
+  ],
+  "positive_log_sha256": "c3d7c25f3f2db9115b9e8b9bc94d100e0ad0e76803db4e208a51ae9bd2cf5258",
+  "inputs": {
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "tests/memory/sram_four_state.sv": "1044237dcbbf0ab97bf0613cc1d01bb8361af809033432318316ddfc1c2d5ecb",
+    "tools/check_sram_four_state.py": "05d8a81476bf68e3551c7481c6db13b9b669cd9f8a0e2a61ac4869a24c6c7084",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "physical_hardware_tested": false
+}
