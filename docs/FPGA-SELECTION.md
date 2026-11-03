@@ -1,6 +1,6 @@
 # FPGA selection for WasMetal
 
-Research checked on **31 October 2026, America/New_York** (1 November UTC). Prices are USD snapshots before shipping, tax and any applicable tariffs. The recommendation considers a first FPGA purchase, sustained CPU development, open tools, community support and use in a US home engineering workspace.
+Board and purchasing research checked on **31 October 2026, America/New_York** (1 November UTC); engineering capacity measurements updated **3 November 2026**. Prices are USD snapshots before shipping, tax and any applicable tariffs. The recommendation considers a first FPGA purchase, sustained CPU development, open tools, community support and use in a US home engineering workspace.
 
 **The Digilent Genesys 2 is the best technical fit for the next WasMetal development platform.** Its combination of programmable logic, directly attached DDR3, existing open CPU projects and approachable board interfaces is more useful here than the specialized interfaces on many much more expensive kits. Digilent lists it at $1,183; the checked US DigiKey listing was $1,244.01 with 112 units in stock. Purchase the exact **410-300 / XC7K325T-2FFG900C** kit through an authorized distributor. Stock and the final price need checking at checkout. [Digilent product](https://digilent.com/shop/genesys-2-amd-kintex-7-fpga-development-board/?setCurrencyId=1), [DigiKey listing](https://www.digikey.com/en/products/detail/digilent-inc/410-300/5730862).
 
@@ -10,9 +10,9 @@ The **AMD ZCU104** is the strongest alternative when an onboard Arm/Linux host i
 
 ## What the current design actually needs
 
-The existing [RTL description](RTL.md), [FPGA guide](FPGA.md), [conformance record](verification/core-3.0-current.json) and [routed-board record](verification/fpga-routing.json) provide the starting point:
+The existing [RTL description](RTL.md), [FPGA guide](FPGA.md), [conformance record](verification/core-3.0-current.json) and [routed-board record](verification/fpga-routing.json) describe this host-backed reference configuration. The newer complete-system measurement follows below:
 
-| Current property | Evidence and implication |
+| Host-backed reference | Evidence and implication |
 |---|---|
 | Compatibility target | Pinned WebAssembly Core 3.0; all 259 pinned official suites pass the current RTL/software harness. Finite tests do not prove every possible program correct. |
 | ECP5 logic | 58,892 / 83,640 logic cells, **70.4%**, for the routed host-backed ULX3S system. |
@@ -21,7 +21,7 @@ The existing [RTL description](RTL.md), [FPGA guide](FPGA.md), [conformance reco
 | Timing | The core meets its 1 MHz constraint; the routed report gives 3.24 MHz maximum. This is a property of this implementation and its half-cycle paths, not an ECP5 family speed limit. |
 | Execution architecture | Shared floating-point arithmetic and serialized integer SIMD reduce area. Supporting a vector instruction does not require executing every lane simultaneously. |
 | Storage | 8,192 128-bit value slots, 2,048 labels, 512 frames, 256 descriptors per class and 1,048,576 external heap slots. The external heap is not all FPGA block RAM. |
-| System boundary | The host supplies expanded instructions, metadata and backing memory. Autonomous boot, a local DRAM controller and reclaiming garbage collection remain future work. |
+| System boundary | The host supplies expanded instructions, metadata and backing memory. Separate [bounded standalone and programmable systems](PRE-FPGA.md) now provide these locally; physical DRAM integration and reclaiming garbage collection remain future work. |
 | Physical status | Routed bitstream and simulation evidence exist; no physical FPGA has been tested. |
 
 The premise that implementing the rest of Wasm necessarily requires a giant FPGA is misleading. Much of the instruction execution already exists. The substantial next work is turning that engine into a useful independent computer and improving its performance.
@@ -30,9 +30,51 @@ WebAssembly 3.0 includes memory64, multiple memories, GC, typed function referen
 
 WASI and the Component Model additionally involve software interfaces, loading and runtime services. They are not a simple list of gates to add to a CPU. Similarly, a reclaiming collector needs an explicit hardware/software design; implementing GC instructions and object allocation alone does not supply one.
 
-### A measured Xilinx resource estimate
+### Complete programmable system (3 November 2026)
 
-An isolated Yosys 0.33 experiment mapped the unchanged current core to Xilinx 7-series primitives using the existing FPGA capacity profile. The [machine-readable result](research/xc7-resource-estimate.json) records source hashes, tool identity, cell counts, warnings and limitations. The [exact recipe](research/xc7-resource-estimate.ys) is retained.
+The [complete-system measurement](research/xc7-system-estimate.json) includes
+the CPU, serial loader, writable instruction and metadata stores, UART and
+128 KiB backing RAM. It uses the current bounded standalone profile, including
+8,192 value slots and 1,024 heap slots. Synthesis preserves the configured
+value-stack and backing-memory capacities and passes structural checks.
+
+| Complete programmable system | Count | Fraction of Genesys 2 device capacity |
+|---|---:|---:|
+| Logic LUT1–LUT6 primitives | 52,437 | 25.7% of 203,800 LUT sites |
+| Flip-flops | 6,951 | 1.7% of 407,600 |
+| DSP48E1 | 30 | 3.6% of 840 |
+| RAMB18E1 / RAMB36E1 | 136 / 28 | 96 equivalent 36-Kbit blocks; 21.6% of 445 |
+
+There are also 22 RAM64M distributed-memory primitives. Their LUT-site use is
+not included in the logic-LUT total. These counts precede packing and placement;
+they are not routed utilization. The denominator comes from the
+[Genesys 2 reference manual](https://digilent.com/reference/_media/reference/programmable-logic/genesys-2/genesys2_rm.pdf)
+and [AMD's device table](https://docs.amd.com/api/khub/documents/2LByHkO~nSZXcei2D55fTg/content).
+
+The measurement excludes board clock/reset generation, I/O buffers, a DDR
+controller, caches and a reclaiming collector. It has no Xilinx functional
+simulation, placement, timing, bitstream or hardware validation. It strengthens
+the capacity evidence for the existing technical recommendation; it does not
+establish a working Genesys 2 port. The older core-only run below used a
+different heap profile and synthesis context, so subtracting its counts does
+not isolate the cost of the loader and local memories.
+
+Repeat the measurement with:
+
+```sh
+python3 tools/bootstrap.py
+python3 tools/estimate_xc7_system.py
+```
+
+The script records the profile, source and technology-library hashes, tool
+identities, primitive counts and warnings in
+`reports/xc7-system-estimate.json`; scripts and logs are in `build/xc7-system/`.
+CI repeats this capacity and structural check separately from the functional
+simulation and physical-routing jobs.
+
+### Earlier core-only Xilinx estimate
+
+An earlier Yosys 0.33 experiment mapped the then-current core to Xilinx 7-series primitives using the host-backed FPGA capacity profile. The [machine-readable result](research/xc7-resource-estimate.json) records source hashes, tool identity, cell counts, warnings and limitations. The [exact recipe](research/xc7-resource-estimate.ys) is retained.
 
 | Core-only estimate | Count | Fraction of Genesys 2 device capacity |
 |---|---:|---:|
@@ -204,7 +246,7 @@ These questions seek concrete product records; they do not presume Class B certi
 1. **Verify the purchased board using its vendor diagnostics.** Establish JTAG, UART, clocks, DRAM tests and temperature behavior before bringing up the CPU. Confirm the correct board revision and constraints.
 2. **Create a minimal WasMetal board port.** Preserve the core's generic RTL, isolate vendor RAM/clock/I/O wrappers, constrain both clock edges and retain the existing UART protocol initially. Run the official RTL suite, appropriate mapped-circuit checks and static timing before claiming a supported bitstream.
 3. **Run selected conformance tests on physical hardware, then broaden the hardware corpus.** Check stalls, resets, errors and memory boundaries. Simulated passes and hardware passes must remain separate records.
-4. **Add the local memory subsystem and autonomous execution.** Bring up DDR independently, add interconnect/buffers and a boot/loading path, then move instructions and data onto the board. Define the boundary between a software loader/runtime and the Wasm CPU explicitly.
+4. **Expand the local memory system to DRAM.** Bounded block-RAM boot and program loading already pass system simulation. Bring up DDR independently, connect the checked AXI and clock-crossing path, and verify controller startup before expanding the working set. Preserve the explicit boundary between the software loader/runtime and the Wasm CPU.
 5. **Measure real workloads.** Collect instruction/cycle counts, memory stalls, frequency, utilization and power. Use those results to decide on pipelines, caches, parallel SIMD, collector design and additional cores.
 6. **Revisit capacity when measurements justify it.** Synthesize complete candidate configurations before buying a larger board. An FPGA purchase is a development tool choice, not a final microarchitecture commitment.
 7. **Prepare separately for an ASIC.** Replace FPGA-specific memories and clocking with process-compatible macros, add manufacturing test, complete physical implementation/signoff, and plan packaging and board bring-up. FPGA success substantially helps functional development but does not establish ASIC timing, power or manufacturability.

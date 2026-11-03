@@ -9,6 +9,29 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  xilinx-resource-estimate:
+    name: Programmable 7-series resource estimate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned synthesis tools
+        run: python3 tools/bootstrap.py
+      - name: Synthesize the complete core-clock system and check its structure
+        run: python3 tools/estimate_xc7_system.py
+      - name: Preserve the estimate and synthesis diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-resource-estimate
+          path: |
+            reports/xc7-system-estimate.json
+            build/xc7-system/*.log
+            build/xc7-system/*.ys
+          if-no-files-found: warn
+          retention-days: 30
   external-memory-system:
     name: Complete CPU with asynchronous AXI memory
     runs-on: ubuntu-24.04
@@ -379,6 +402,11 @@ jobs:
         run: make loadable-mapped-build
       - name: Prove the simulation wrapper mapping at every state and CPU boundary
         run: python3 tools/prove_loadable_mapping.py --directory build/loadable-mapped
+      - name: Map and audit the board wrapper before physical routing
+        run: |
+          python3 tools/build_loadable_board.py --map-only
+          python3 tools/audit_loadable_io.py
+          python3 tools/prove_loadable_mapping.py
       - name: Package the portable mapped simulator and all generated inputs
         run: python3 tools/loadable_ci.py pack
       - name: Preserve the native integration reference
@@ -417,6 +445,7 @@ jobs:
             build/loadable-ulx3s/timing*.json
             build/loadable-gate-sim/lut-proof/report.json
             build/loadable-mapped/mapping-proof/**/*.log
+            build/loadable-ulx3s/mapping-proof/**/*.log
             build/asic-loadable-audit/*.log
           if-no-files-found: warn
           retention-days: 30

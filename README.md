@@ -15,11 +15,11 @@ Completed work lives on `main`. Temporary development branches are integrated in
 - **Mapped circuit:** CI passes **all 259 pinned official suites** on the default ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-complete.json) preserves source, model and report identities and an independent aggregation check. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes; its netlist is the standard bitstream build's core. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
 - **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [standard build](docs/verification/fpga-routing.json) produces a routed, timing-verified ULX3S 85F bitstream: 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. A fresh build reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
 
-See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host-backed conformance system supplies the instruction image, metadata and backing memory from the computer. The standalone prototype supplies these locally for bounded prepared images. Programmable prepared-image loading is under integration verification. External RAM and reclaiming garbage collection remain future work.
+See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host-backed conformance system supplies the instruction image, metadata and backing memory from the computer. The standalone prototype supplies these locally for bounded prepared images. Programmable prepared-image loading passes RTL and mapped integration checks; its FPGA routing remains incomplete. External RAM and reclaiming garbage collection remain future work.
 
 For an explanation of the ISA, microarchitecture, SystemVerilog RTL, the two simulation models, synthesis and the FPGA bitstream, read [From the Wasm specification to an FPGA](docs/DESIGN-FLOW.md).
 
-The [FPGA purchase research](docs/FPGA-SELECTION.md) compares development boards, current tool licensing, community support and US home-use compliance. It recommends Genesys 2 as the next technical platform, conditional on supplier clarification of its regulatory basis for home R&D; ZCU104 is the leading alternative with an onboard Arm host. A [core-only Xilinx synthesis estimate](docs/research/xc7-resource-estimate.json) uses 47,801 LUT primitives, about 23.5% of Genesys 2's LUT capacity, and passes structural checks. This estimate has no Xilinx functional, placement or timing validation. ULX3S 85F remains the only routed board target; no board has been purchased or physically tested by this work.
+The [FPGA purchase research](docs/FPGA-SELECTION.md) compares development boards, tool licensing, community support and US home-use compliance. It recommends Genesys 2 as the next technical platform, conditional on supplier clarification of its regulatory basis for home R&D; ZCU104 is the leading alternative with an onboard Arm host. The new [complete programmable-system Xilinx estimate](docs/research/xc7-system-estimate.json) passes structural checks with 52,437 logic LUT primitives, 6,951 flip-flops, 30 DSPs and 96 equivalent 36-Kbit RAM blocks. That is about 25.7% of Genesys 2's LUT sites and 21.6% of its block RAM; additional distributed RAM also consumes LUT sites. It includes the loader and local memories but excludes board clock/reset logic and DDR control. This is a resource estimate, with no Xilinx functional, placement or timing validation. Run `python3 tools/estimate_xc7_system.py` after tool bootstrap; CI also runs it. ULX3S 85F remains the only routed board target; no board has been purchased or physically tested by this work.
 
 ## GUI Microarchitecture Simulator
 
@@ -74,8 +74,10 @@ using a behavioral RAM slave. All 35 system cases pass with the AXI clock at
 [one-sixth](docs/verification/axi-system-3-5.json) the CPU frequency, with
 different response delays, independent channel stalls and retained memory
 across resets. [Corrupted reads](docs/verification/axi-system-1-1-negative.json)
-fail the independent result oracle. CI now runs both configurations and that
-negative control. The default FPGA system still uses block RAM; DDR controller
+fail the independent result oracle. Both configurations and that negative
+control [also pass in CI](docs/verification/ci-axi-system.json), with downloaded
+observations and bus counters matching the local runs. The default FPGA system
+still uses block RAM; DDR controller
 integration, physical clock-crossing constraints and controller startup remain.
 
 The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
@@ -108,10 +110,13 @@ identical stored state and CPU outputs, an
 [independent binary-equivalence proof](docs/verification/loadable-mapping-proof.json)
 passes for 15,976 boundary bits and rejects a deliberately inverted output.
 The [accelerated simulation mapping](docs/verification/loadable-simulation-mapping-proof.json)
-also passes; CI requires both comparisons.
-Programmable FPGA routing remains unresolved. The earlier
+also passes; CI requires both comparisons before the programmable execution
+shards, independently of the long physical-routing job.
+Programmable FPGA routing remains unresolved. The current
 [routing experiment snapshot](docs/verification/loadable-routing-status.json)
-records interrupted and still-running attempts; no programmable bitstream has
+records ABC9 placement/routing strategies and an isolated deeper-RAM experiment,
+with unchanged capacities. Earlier interrupted attempts are retained in Git
+history. No programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
 The programmable CI build exposed a command error: the board-clock check was

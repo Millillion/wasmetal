@@ -82,7 +82,12 @@ The negative control corrupts actual read data and must fail the independent
 UART-result oracle. That expected rejection may terminate the simulator before
 its final coverage flush; the negative report records that explicitly. Positive
 runs must complete and supply their bus coverage. CI runs these three commands
-and retains the reports, execution logs and coverage.
+and retains the reports, execution logs and coverage. The
+[completed CI job and inspected artifacts](verification/ci-axi-system.json)
+pass both 35-case configurations and reject the corrupt-read control.
+Every observed case and bus counter matches the local run. Source hashes match;
+the scoped lint waiver differs only in its absolute workspace path. The receipt
+identifies this job separately from the full workflow, which was still running.
 
 This is RTL integration evidence. It does not include a DDR controller, device
 timing model, PHY, calibration, physical clock constraints or a board test.

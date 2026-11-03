@@ -1,0 +1,118 @@
+{
+  "status": "passed",
+  "captured_at_utc": "2026-11-03T14:37:52.002841+00:00",
+  "scope": "completed AXI system CI job and independently inspected artifacts, not the entire workflow",
+  "source_revision": "108be49fdccb964519190fe8e30b983fabbe7bae",
+  "run_url": "https://github.com/Millillion/wasmetal/actions/runs/41652274208",
+  "job_url": "https://github.com/Millillion/wasmetal/actions/runs/41652274208/job/125973588426",
+  "job_started_at": "2026-11-03T14:18:24Z",
+  "job_completed_at": "2026-11-03T14:29:02Z",
+  "artifact_id": 13237733919,
+  "artifact_name": "external-memory-system",
+  "github_artifact_digest": "4947b65ea4cde6ccd83ba699c239c28a896c6cdfa507998e2846b84f6784355d",
+  "downloaded_archive_digest_verified": true,
+  "coverage_totals_independently_recomputed": true,
+  "results": [
+    {
+      "report": "axi-system-ci/axi-system-1-1.json",
+      "report_sha256": "b2c909b73e339ccbe792e0b7a1b4d6a53131c31fbf2138c10ddaaf630af74bfc",
+      "case_count": 35,
+      "corrupt_read_negative_control_rejected": false,
+      "bus_coverage": {
+        "writes": 263820,
+        "reads": 48,
+        "aw_first": 131911,
+        "w_first": 131909,
+        "resets": 32
+      },
+      "observation_report_sha256": "8df4ed47f31ac30753f77eebc38b9e27e46d1cd3ddba2bc36df502bba8cd8bbc",
+      "all_source_inputs_match_current_workspace": true,
+      "generated_inputs_verified_with_workspace_relocation": {
+        "build/axi-system-1-1/reset.vlt": {
+          "ci_sha256": "23f9a4199d1cc2d99d03f61bf889b0b58a9c65ddd22c8eb323f21ef4459e6c0a",
+          "local_sha256": "24221311b5f9f64aa25966a2ea466cafd57ca2eee04ce378d879f0872cd32f0c",
+          "verified_difference": "absolute workspace root in scoped reset lint waiver"
+        }
+      },
+      "local_and_ci_observations_identical": true,
+      "local_and_ci_bus_coverage_identical": true,
+      "negative_control_evidence": null
+    },
+    {
+      "report": "axi-system-ci/axi-system-3-5.json",
+      "report_sha256": "107fa5bb3a68ef746e307c4ef12e983c81944a736998eb4f20bf7e63985b29c6",
+      "case_count": 35,
+      "corrupt_read_negative_control_rejected": false,
+      "bus_coverage": {
+        "writes": 263819,
+        "reads": 47,
+        "aw_first": 131911,
+        "w_first": 131909,
+        "resets": 32
+      },
+      "observation_report_sha256": "e6d1f9f129b832d6a1e8f65d99194d4b7704c3f247cb081553980eac2ab11486",
+      "all_source_inputs_match_current_workspace": true,
+      "generated_inputs_verified_with_workspace_relocation": {
+        "build/axi-system-3-5/reset.vlt": {
+          "ci_sha256": "23f9a4199d1cc2d99d03f61bf889b0b58a9c65ddd22c8eb323f21ef4459e6c0a",
+          "local_sha256": "24221311b5f9f64aa25966a2ea466cafd57ca2eee04ce378d879f0872cd32f0c",
+          "verified_difference": "absolute workspace root in scoped reset lint waiver"
+        }
+      },
+      "local_and_ci_observations_identical": true,
+      "local_and_ci_bus_coverage_identical": true,
+      "negative_control_evidence": null
+    },
+    {
+      "report": "axi-system-ci/axi-system-1-1-negative.json",
+      "report_sha256": "a5b87933a76d4714e49d9e4a4dd0af26e4fccd2e25c105599f558ec6803a8d6d",
+      "case_count": 0,
+      "corrupt_read_negative_control_rejected": true,
+      "bus_coverage": {
+        "writes": 8213,
+        "reads": 13,
+        "aw_first": 4107,
+        "w_first": 4106,
+        "resets": 1
+      },
+      "observation_report_sha256": "b47128f7c80548b9c1f0d2dba6eb2acabeee8bd9452fb87081cb232cdd5937f8",
+      "all_source_inputs_match_current_workspace": true,
+      "generated_inputs_verified_with_workspace_relocation": {
+        "build/axi-system-1-1-corrupt/reset.vlt": {
+          "ci_sha256": "23f9a4199d1cc2d99d03f61bf889b0b58a9c65ddd22c8eb323f21ef4459e6c0a",
+          "local_sha256": "24221311b5f9f64aa25966a2ea466cafd57ca2eee04ce378d879f0872cd32f0c",
+          "verified_difference": "absolute workspace root in scoped reset lint waiver"
+        }
+      },
+      "local_and_ci_observations_identical": true,
+      "local_and_ci_bus_coverage_identical": true,
+      "negative_control_evidence": {
+        "log": "axi-system-ci/corrupt-read.txt",
+        "log_sha256": "c7e85175fe62dd26dffd817e9e994bc521e8d763b55f8bee755ce4993cfcfb33",
+        "oracle_error": "UART result differs from independent expectation",
+        "local_and_ci_wrong_frames_identical": true,
+        "observed_frame": {
+          "status": 0,
+          "trap": 0,
+          "cycles": 2431,
+          "values": [
+            41,
+            42,
+            2,
+            0,
+            1081081856,
+            4613937818241073152,
+            456928224199368548342553000122122251,
+            43,
+            857870609,
+            42405,
+            21,
+            99
+          ]
+        }
+      }
+    }
+  ],
+  "physical_hardware_tested": false,
+  "physical_memory_controller_tested": false
+}

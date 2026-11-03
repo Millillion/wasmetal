@@ -1,8 +1,8 @@
 {
   "status": "incomplete",
-  "captured_at_utc": "2026-11-03T09:22:05.483488+00:00",
-  "scope": "local programmable ULX3S 85F placement and routing experiments; not proof of unroutability",
-  "source_revision_at_snapshot": "79dbf5c",
+  "captured_at_utc": "2026-11-03T14:49:22.704565+00:00",
+  "scope": "programmable ULX3S 85F placement and routing experiments; not proof of unroutability",
+  "source_revision_at_snapshot": "108be49fdccb964519190fe8e30b983fabbe7bae",
   "profile": {
     "core": {
       "VALUE_DEPTH": 8192,
@@ -22,136 +22,69 @@
     "max_results": 16,
     "watchdog_cycles": 10000000
   },
+  "production_board_netlist_sha256": "3ae56b8176b1f21acadb8072987851fa849db5d1153b993b5a4b32057a4dd82c",
   "verified_programmable_bitstream_available": false,
   "physical_hardware_tested": false,
-  "interpretation": "Functional RTL and mapped execution passed separately. Placement/resource counts alone do not establish routability or timing closure. Interrupted trials are not completed tool failures. Running trials may change after this snapshot.",
+  "interpretation": "All 35 execution cases and five compiled C cases pass on the current accelerated ABC9 system mapping. Physical routing is independent and incomplete. Congestion need not decrease monotonically. Running trials can change after this snapshot.",
+  "reproduction_note": "Install pinned FPGA tools and prepare the standalone core mapping first. Production commands share build/loadable-ulx3s and must be run sequentially or in isolated copies. Experimental deeper RAM is not a production configuration.",
+  "historical_snapshot": {
+    "url": "https://github.com/Millillion/wasmetal/blob/108be49fdccb964519190fe8e30b983fabbe7bae/docs/verification/loadable-routing-status.json",
+    "captured_at_utc": "2026-11-03T09:22:05.483488+00:00",
+    "updates": [
+      {
+        "directory": "build/loadable-ulx3s",
+        "status_now": "interrupted"
+      },
+      {
+        "directory": "build/loadable-ulx3s-seed2",
+        "status_now": "interrupted"
+      },
+      {
+        "directory": "build/loadable-ulx3s-heap",
+        "status_now": "interrupted"
+      },
+      {
+        "directory": "build/loadable-ulx3s-router1",
+        "status_now": "interrupted"
+      },
+      {
+        "directory": "build/loadable-ulx3s-compact-stores",
+        "status_now": "interrupted"
+      },
+      {
+        "directory": "build/loadable-ulx3s-alt",
+        "status_now": "interrupted"
+      },
+      {
+        "directory": "build/loadable-ulx3s-density",
+        "status_now": "interrupted"
+      }
+    ],
+    "note": "Interrupted trials are not completed router failures. The production build directory has since been remapped; its old placed.json must not be combined with the new design.json."
+  },
   "trials": [
     {
-      "directory": "build/loadable-ulx3s",
-      "status_at_snapshot": "interrupted",
+      "directory": "build/loadable-ulx3s-abc9-keep",
+      "status_at_snapshot": "running",
+      "phase_at_snapshot": "routing",
       "placer": "static",
       "seed": 1,
       "router": "router2",
-      "alternate_router_weights": false,
-      "mapping_experiment": null,
-      "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+      "wrapper_mapper": "abc9",
+      "reset_synchronizer_preserved": true,
       "profile_unchanged": true,
-      "routing_log_sha256_at_snapshot": "92cfd589b50f3fd292a34364fc4ad74ea9dff51679446d36de8a423d1b6c6ce9",
-      "routing_log_bytes_at_snapshot": 3074,
-      "completed_router2_iterations": [
-        {
-          "iteration": 1,
-          "wires": 942918,
-          "overused_wires": 95202,
-          "overuse": 117276
-        },
-        {
-          "iteration": 2,
-          "wires": 981764,
-          "overused_wires": 69212,
-          "overuse": 77055
-        },
-        {
-          "iteration": 3,
-          "wires": 1003703,
-          "overused_wires": 53641,
-          "overuse": 57422
-        },
-        {
-          "iteration": 4,
-          "wires": 1018388,
-          "overused_wires": 43615,
-          "overuse": 45953
-        },
-        {
-          "iteration": 5,
-          "wires": 1030696,
-          "overused_wires": 36965,
-          "overuse": 38574
-        },
-        {
-          "iteration": 6,
-          "wires": 1040651,
-          "overused_wires": 32592,
-          "overuse": 33801
-        },
-        {
-          "iteration": 7,
-          "wires": 1049390,
-          "overused_wires": 29369,
-          "overuse": 30317
-        },
-        {
-          "iteration": 8,
-          "wires": 1056436,
-          "overused_wires": 27181,
-          "overuse": 27863
-        },
-        {
-          "iteration": 9,
-          "wires": 1063369,
-          "overused_wires": 26066,
-          "overuse": 26792
-        },
-        {
-          "iteration": 10,
-          "wires": 1069527,
-          "overused_wires": 25461,
-          "overuse": 26064
-        },
-        {
-          "iteration": 11,
-          "wires": 1076352,
-          "overused_wires": 25103,
-          "overuse": 25682
-        },
-        {
-          "iteration": 12,
-          "wires": 1082619,
-          "overused_wires": 24776,
-          "overuse": 25323
-        },
-        {
-          "iteration": 13,
-          "wires": 1089370,
-          "overused_wires": 25380,
-          "overuse": 25929
-        },
-        {
-          "iteration": 14,
-          "wires": 1095480,
-          "overused_wires": 24991,
-          "overuse": 25493
-        },
-        {
-          "iteration": 15,
-          "wires": 1101426,
-          "overused_wires": 25397,
-          "overuse": 25923
-        },
-        {
-          "iteration": 16,
-          "wires": 1106855,
-          "overused_wires": 25238,
-          "overuse": 25725
-        },
-        {
-          "iteration": 17,
-          "wires": 1114317,
-          "overused_wires": 26284,
-          "overuse": 26792
-        }
-      ],
-      "last_log_lines_at_snapshot": [
-        "Info:     iter=12 wires=1082619 overused=24776 overuse=25323 archfail=NA",
-        "Info:     iter=13 wires=1089370 overused=25380 overuse=25929 archfail=NA",
-        "Info:     iter=14 wires=1095480 overused=24991 overuse=25493 archfail=NA",
-        "Info:     iter=15 wires=1101426 overused=25397 overuse=25923 archfail=NA",
-        "Info:     iter=16 wires=1106855 overused=25238 overuse=25725 archfail=NA",
-        "Info:     iter=17 wires=1114317 overused=26284 overuse=26792 archfail=NA"
-      ],
-      "verified_manifest_present": false,
-      "placement_utilization": {
+      "same_netlist_as_current_production_board": true,
+      "production_reproduction_command": "python3 tools/build_loadable_board.py --placer static --router router2",
+      "experimental_rtl": null,
+      "netlist_sha256": "3ae56b8176b1f21acadb8072987851fa849db5d1153b993b5a4b32057a4dd82c",
+      "source_manifest_sha256": "014b3649ebdd334f26b0b0e57d2cfb1ff5412ce33ce52a14b747ed07dd1d8091",
+      "all_manifest_inputs_still_match": true,
+      "synthesis_scripts": {
+        "flatten.ys": "read_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-keep/combined.json\nread_verilog -lib -overwrite +/ecp5/cells_sim.v\nhierarchy -check -top wasmetal_loadable_ulx3s\nflatten\nblackbox =A:whitebox\ncheck -assert\nwrite_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-keep/design.json\n",
+        "wrapper.ys": "read_verilog /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-keep/core_stub.v\nread_verilog -sv -defer -Ibuild -DWASMETAL_MAPPED_CORE /home/lastmjs/development/wasmetal/fpga/wasmetal_uart.sv /home/lastmjs/development/wasmetal/soc/wasmetal_local_memory.sv /home/lastmjs/development/wasmetal/soc/wasmetal_standalone.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_bram.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_bridge.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_lanes.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_image_loader.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable_ulx3s.sv\nchparam -set PROFILE_TAG 128'hfa1f830e73ed79bda834246e0cadf908 wasmetal_loadable_ulx3s\nhierarchy -top wasmetal_loadable_ulx3s\nselect -assert-count 1 wasmetal_loadable_ulx3s/reset_sync\nsetattr -set keep 1 wasmetal_loadable_ulx3s/reset_sync\nselect -clear\nsynth_ecp5 -abc9 -top wasmetal_loadable_ulx3s -json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-keep/wrapper.json\ncheck -assert\n"
+      },
+      "placed_netlist_sha256": "1c7ca76ea132ec5a9ecae6064618047392ff564d5d023d4cef016d97389d8cf4",
+      "placement_resources": {
         "DP16KD": {
           "used": 192,
           "available": 208
@@ -161,253 +94,58 @@
           "available": 83640
         },
         "TRELLIS_COMB": {
-          "used": 66251,
+          "used": 62958,
           "available": 83640
         }
-      }
+      },
+      "placement_log_sha256": "65c689e3c7f2f3b9e241503f6ef86101bb1060067cb34f545817d524e48c07e4",
+      "routing_log_sha256_at_snapshot": "6decdf7138803fe79dd86edd81b5182f1cdca192889fa9631c479242c19002fb",
+      "routing_log_bytes_at_snapshot": 4166,
+      "routing_log_tail_at_snapshot": [
+        "Info:     iter=29 wires=1115946 overused=21617 overuse=21928 archfail=NA",
+        "Info:     iter=30 wires=1121862 overused=23215 overuse=23579 archfail=NA",
+        "Info:     iter=31 wires=1129560 overused=25200 overuse=25575 archfail=NA",
+        "Info:     iter=32 wires=1136404 overused=27280 overuse=27750 archfail=NA"
+      ],
+      "completed_router2_iterations": 32,
+      "latest_iteration": {
+        "iteration": 32,
+        "wires": 1136404,
+        "overused_wires": 27280,
+        "overuse": 27750
+      },
+      "lowest_observed_overused_wires": {
+        "iteration": 17,
+        "wires": 1056695,
+        "overused_wires": 12315,
+        "overuse": 12438
+      },
+      "routing_complete": false,
+      "timing_verified": false,
+      "bitstream_generated": false
     },
     {
-      "directory": "build/loadable-ulx3s-seed2",
-      "status_at_snapshot": "interrupted",
-      "placer": "static",
-      "seed": 2,
-      "router": "router2",
-      "alternate_router_weights": false,
-      "mapping_experiment": null,
-      "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
-      "profile_unchanged": true,
-      "routing_log_sha256_at_snapshot": "55eb6f29a8fbff3f6f907564fb8cf01dea53df573f7e28d849e2c56e96ede138",
-      "routing_log_bytes_at_snapshot": 3074,
-      "completed_router2_iterations": [
-        {
-          "iteration": 1,
-          "wires": 957564,
-          "overused_wires": 98218,
-          "overuse": 120074
-        },
-        {
-          "iteration": 2,
-          "wires": 993077,
-          "overused_wires": 71255,
-          "overuse": 79539
-        },
-        {
-          "iteration": 3,
-          "wires": 1013434,
-          "overused_wires": 55633,
-          "overuse": 59714
-        },
-        {
-          "iteration": 4,
-          "wires": 1029353,
-          "overused_wires": 45744,
-          "overuse": 48434
-        },
-        {
-          "iteration": 5,
-          "wires": 1040678,
-          "overused_wires": 38809,
-          "overuse": 40586
-        },
-        {
-          "iteration": 6,
-          "wires": 1050561,
-          "overused_wires": 33784,
-          "overuse": 35073
-        },
-        {
-          "iteration": 7,
-          "wires": 1059951,
-          "overused_wires": 30701,
-          "overuse": 31776
-        },
-        {
-          "iteration": 8,
-          "wires": 1066101,
-          "overused_wires": 28899,
-          "overuse": 29842
-        },
-        {
-          "iteration": 9,
-          "wires": 1073256,
-          "overused_wires": 27567,
-          "overuse": 28348
-        },
-        {
-          "iteration": 10,
-          "wires": 1080044,
-          "overused_wires": 26915,
-          "overuse": 27633
-        },
-        {
-          "iteration": 11,
-          "wires": 1086100,
-          "overused_wires": 26450,
-          "overuse": 27099
-        },
-        {
-          "iteration": 12,
-          "wires": 1093215,
-          "overused_wires": 26658,
-          "overuse": 27255
-        },
-        {
-          "iteration": 13,
-          "wires": 1099597,
-          "overused_wires": 26119,
-          "overuse": 26682
-        },
-        {
-          "iteration": 14,
-          "wires": 1104910,
-          "overused_wires": 26765,
-          "overuse": 27382
-        },
-        {
-          "iteration": 15,
-          "wires": 1112536,
-          "overused_wires": 27723,
-          "overuse": 28343
-        },
-        {
-          "iteration": 16,
-          "wires": 1118954,
-          "overused_wires": 29096,
-          "overuse": 29742
-        },
-        {
-          "iteration": 17,
-          "wires": 1126687,
-          "overused_wires": 30782,
-          "overuse": 31525
-        }
-      ],
-      "last_log_lines_at_snapshot": [
-        "Info:     iter=12 wires=1093215 overused=26658 overuse=27255 archfail=NA",
-        "Info:     iter=13 wires=1099597 overused=26119 overuse=26682 archfail=NA",
-        "Info:     iter=14 wires=1104910 overused=26765 overuse=27382 archfail=NA",
-        "Info:     iter=15 wires=1112536 overused=27723 overuse=28343 archfail=NA",
-        "Info:     iter=16 wires=1118954 overused=29096 overuse=29742 archfail=NA",
-        "Info:     iter=17 wires=1126687 overused=30782 overuse=31525 archfail=NA"
-      ],
-      "verified_manifest_present": false,
-      "placement_utilization": {
-        "DP16KD": {
-          "used": 192,
-          "available": 208
-        },
-        "TRELLIS_FF": {
-          "used": 6958,
-          "available": 83640
-        },
-        "TRELLIS_COMB": {
-          "used": 66251,
-          "available": 83640
-        }
-      }
-    },
-    {
-      "directory": "build/loadable-ulx3s-heap",
-      "status_at_snapshot": "interrupted",
+      "directory": "build/loadable-ulx3s-abc9-heap",
+      "status_at_snapshot": "running",
+      "phase_at_snapshot": "routing",
       "placer": "heap",
       "seed": 1,
       "router": "router2",
-      "alternate_router_weights": false,
-      "mapping_experiment": null,
-      "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+      "wrapper_mapper": "abc9",
+      "reset_synchronizer_preserved": true,
       "profile_unchanged": true,
-      "routing_log_sha256_at_snapshot": "11e30c33aca0fc03d7b7b87efa507b7f442f6b60193ed48df752f774fcc44150",
-      "routing_log_bytes_at_snapshot": 2782,
-      "completed_router2_iterations": [
-        {
-          "iteration": 1,
-          "wires": 945533,
-          "overused_wires": 94952,
-          "overuse": 118902
-        },
-        {
-          "iteration": 2,
-          "wires": 987780,
-          "overused_wires": 71387,
-          "overuse": 79784
-        },
-        {
-          "iteration": 3,
-          "wires": 1008518,
-          "overused_wires": 56434,
-          "overuse": 60841
-        },
-        {
-          "iteration": 4,
-          "wires": 1025300,
-          "overused_wires": 47309,
-          "overuse": 50100
-        },
-        {
-          "iteration": 5,
-          "wires": 1039616,
-          "overused_wires": 41341,
-          "overuse": 43377
-        },
-        {
-          "iteration": 6,
-          "wires": 1050141,
-          "overused_wires": 37672,
-          "overuse": 39249
-        },
-        {
-          "iteration": 7,
-          "wires": 1059616,
-          "overused_wires": 35038,
-          "overuse": 36299
-        },
-        {
-          "iteration": 8,
-          "wires": 1069623,
-          "overused_wires": 33518,
-          "overuse": 34592
-        },
-        {
-          "iteration": 9,
-          "wires": 1078373,
-          "overused_wires": 32974,
-          "overuse": 33897
-        },
-        {
-          "iteration": 10,
-          "wires": 1087321,
-          "overused_wires": 33731,
-          "overuse": 34645
-        },
-        {
-          "iteration": 11,
-          "wires": 1096831,
-          "overused_wires": 34106,
-          "overuse": 34999
-        },
-        {
-          "iteration": 12,
-          "wires": 1105486,
-          "overused_wires": 35974,
-          "overuse": 36972
-        },
-        {
-          "iteration": 13,
-          "wires": 1114469,
-          "overused_wires": 37687,
-          "overuse": 38756
-        }
-      ],
-      "last_log_lines_at_snapshot": [
-        "Info:     iter=8 wires=1069623 overused=33518 overuse=34592 archfail=NA",
-        "Info:     iter=9 wires=1078373 overused=32974 overuse=33897 archfail=NA",
-        "Info:     iter=10 wires=1087321 overused=33731 overuse=34645 archfail=NA",
-        "Info:     iter=11 wires=1096831 overused=34106 overuse=34999 archfail=NA",
-        "Info:     iter=12 wires=1105486 overused=35974 overuse=36972 archfail=NA",
-        "Info:     iter=13 wires=1114469 overused=37687 overuse=38756 archfail=NA"
-      ],
-      "verified_manifest_present": false,
-      "placement_utilization": {
+      "same_netlist_as_current_production_board": true,
+      "production_reproduction_command": "python3 tools/build_loadable_board.py --placer heap --router router2",
+      "experimental_rtl": null,
+      "netlist_sha256": "3ae56b8176b1f21acadb8072987851fa849db5d1153b993b5a4b32057a4dd82c",
+      "source_manifest_sha256": "a2115e089e8ab8d146ad5466afe07344ad023007f6c27856fda86a0fdb75baff",
+      "all_manifest_inputs_still_match": true,
+      "synthesis_scripts": {
+        "flatten.ys": "read_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-heap/combined.json\nread_verilog -lib -overwrite +/ecp5/cells_sim.v\nhierarchy -check -top wasmetal_loadable_ulx3s\nflatten\nblackbox =A:whitebox\ncheck -assert\nwrite_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-heap/design.json\n",
+        "wrapper.ys": "read_verilog /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-heap/core_stub.v\nread_verilog -sv -defer -Ibuild -DWASMETAL_MAPPED_CORE /home/lastmjs/development/wasmetal/fpga/wasmetal_uart.sv /home/lastmjs/development/wasmetal/soc/wasmetal_local_memory.sv /home/lastmjs/development/wasmetal/soc/wasmetal_standalone.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_bram.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_bridge.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_lanes.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_image_loader.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable_ulx3s.sv\nchparam -set PROFILE_TAG 128'hfa1f830e73ed79bda834246e0cadf908 wasmetal_loadable_ulx3s\nhierarchy -top wasmetal_loadable_ulx3s\nselect -assert-count 1 wasmetal_loadable_ulx3s/reset_sync\nsetattr -set keep 1 wasmetal_loadable_ulx3s/reset_sync\nselect -clear\nsynth_ecp5 -abc9 -top wasmetal_loadable_ulx3s -json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-heap/wrapper.json\ncheck -assert\n"
+      },
+      "placed_netlist_sha256": "cf5ff3a4894377753f264b3fa125ae818a5ad6a56d09044ae95ceda1446534ab",
+      "placement_resources": {
         "DP16KD": {
           "used": 192,
           "available": 208
@@ -417,34 +155,58 @@
           "available": 83640
         },
         "TRELLIS_COMB": {
-          "used": 66251,
+          "used": 62958,
           "available": 83640
         }
-      }
+      },
+      "placement_log_sha256": "1e1bf5cbd86e3684526559b9a5ea773a40a8da9149a14259535ffe55d3740eb0",
+      "routing_log_sha256_at_snapshot": "364aa6e618dba4943ea3fe316eff667802a50f1d9a685977a781f9b6ad107bc1",
+      "routing_log_bytes_at_snapshot": 2780,
+      "routing_log_tail_at_snapshot": [
+        "Info:     iter=10 wires=1049752 overused=27294 overuse=27949 archfail=NA",
+        "Info:     iter=11 wires=1057519 overused=26391 overuse=26930 archfail=NA",
+        "Info:     iter=12 wires=1064232 overused=26720 overuse=27340 archfail=NA",
+        "Info:     iter=13 wires=1071905 overused=27415 overuse=27992 archfail=NA"
+      ],
+      "completed_router2_iterations": 13,
+      "latest_iteration": {
+        "iteration": 13,
+        "wires": 1071905,
+        "overused_wires": 27415,
+        "overuse": 27992
+      },
+      "lowest_observed_overused_wires": {
+        "iteration": 11,
+        "wires": 1057519,
+        "overused_wires": 26391,
+        "overuse": 26930
+      },
+      "routing_complete": false,
+      "timing_verified": false,
+      "bitstream_generated": false
     },
     {
-      "directory": "build/loadable-ulx3s-router1",
-      "status_at_snapshot": "interrupted",
-      "placer": "heap",
+      "directory": "build/loadable-ulx3s-abc9-router1",
+      "status_at_snapshot": "running",
+      "phase_at_snapshot": "routing",
+      "placer": "static",
       "seed": 1,
       "router": "router1",
-      "alternate_router_weights": false,
-      "mapping_experiment": null,
-      "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+      "wrapper_mapper": "abc9",
+      "reset_synchronizer_preserved": true,
       "profile_unchanged": true,
-      "routing_log_sha256_at_snapshot": "d449636643b1d7b1944155ca4c7e4553927046f98e132715cc0aef09b0b39f6c",
-      "routing_log_bytes_at_snapshot": 97566,
-      "completed_router2_iterations": [],
-      "last_log_lines_at_snapshot": [
-        "Info:    1081000 |   421417     655079 |  366   634 |     87444|      27.30    4712.22|",
-        "Info:    1082000 |   421807     655679 |  390   600 |     87212|      10.74    4722.96|",
-        "Info:    1083000 |   422252     656234 |  445   555 |     87486|      47.73    4770.70|",
-        "Info:    1084000 |   422606     656880 |  354   646 |     87509|      63.12    4833.82|",
-        "Info:    1085000 |   423061     657425 |  455   545 |     87354|      13.05    4846.87|",
-        "Info:    1086000 |   423412     658052 |  351   627 |     87060|       7.28    4854.15|"
-      ],
-      "verified_manifest_present": false,
-      "placement_utilization": {
+      "same_netlist_as_current_production_board": true,
+      "production_reproduction_command": "python3 tools/build_loadable_board.py --placer static --router router1",
+      "experimental_rtl": null,
+      "netlist_sha256": "3ae56b8176b1f21acadb8072987851fa849db5d1153b993b5a4b32057a4dd82c",
+      "source_manifest_sha256": "37b3a9a6fa6009f189a98584851441ded3d367f4be16046b3412fec6e18a553c",
+      "all_manifest_inputs_still_match": true,
+      "synthesis_scripts": {
+        "flatten.ys": "read_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-router1/combined.json\nread_verilog -lib -overwrite +/ecp5/cells_sim.v\nhierarchy -check -top wasmetal_loadable_ulx3s\nflatten\nblackbox =A:whitebox\ncheck -assert\nwrite_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-router1/design.json\n",
+        "wrapper.ys": "read_verilog /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-router1/core_stub.v\nread_verilog -sv -defer -Ibuild -DWASMETAL_MAPPED_CORE /home/lastmjs/development/wasmetal/fpga/wasmetal_uart.sv /home/lastmjs/development/wasmetal/soc/wasmetal_local_memory.sv /home/lastmjs/development/wasmetal/soc/wasmetal_standalone.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_bram.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_bridge.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_lanes.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_image_loader.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable_ulx3s.sv\nchparam -set PROFILE_TAG 128'hfa1f830e73ed79bda834246e0cadf908 wasmetal_loadable_ulx3s\nhierarchy -top wasmetal_loadable_ulx3s\nselect -assert-count 1 wasmetal_loadable_ulx3s/reset_sync\nsetattr -set keep 1 wasmetal_loadable_ulx3s/reset_sync\nselect -clear\nsynth_ecp5 -abc9 -top wasmetal_loadable_ulx3s -json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-abc9-router1/wrapper.json\ncheck -assert\n"
+      },
+      "placed_netlist_sha256": "5d1253e5fa07fe855151e3bfd05094f1c5b266ebac523b2e680c6a7eb63066e1",
+      "placement_resources": {
         "DP16KD": {
           "used": 192,
           "available": 208
@@ -454,352 +216,54 @@
           "available": 83640
         },
         "TRELLIS_COMB": {
-          "used": 66251,
+          "used": 62958,
           "available": 83640
         }
-      }
+      },
+      "placement_log_sha256": "0927f4c41595c3b31e0f166e8415accbb74b60a360f6671b69a5e2a72cd5fe30",
+      "routing_log_sha256_at_snapshot": "f500f1aadfd8dcfb70893d7a11370f3465c7577e48e33658fbdaef9f06ccb99b",
+      "routing_log_bytes_at_snapshot": 5606,
+      "routing_log_tail_at_snapshot": [
+        "Info:      38000 |    19936      18063 |  434   566 |    224991|       2.21      67.74|",
+        "Info:      39000 |    20342      18657 |  406   594 |    224829|       1.54      69.28|",
+        "Info:      40000 |    20782      19217 |  440   560 |    224751|       2.30      71.58|",
+        "Info:      41000 |    21234      19765 |  452   548 |    224530|       1.47      73.05|"
+      ],
+      "completed_router2_iterations": null,
+      "latest_iteration": null,
+      "lowest_observed_overused_wires": null,
+      "routing_complete": false,
+      "timing_verified": false,
+      "bitstream_generated": false
     },
     {
-      "directory": "build/loadable-ulx3s-compact-stores",
-      "status_at_snapshot": "interrupted",
-      "placer": "heap",
-      "seed": 1,
-      "router": "router2",
-      "alternate_router_weights": false,
-      "mapping_experiment": "distributed function and region stores",
-      "netlist_sha256": "31c3f6b34aedf19bad4474b9b634593c3d65a08dce0ec16099c5ff2c11254b80",
-      "profile_unchanged": true,
-      "routing_log_sha256_at_snapshot": "527c11d387e11f55f903bcea031dc75bef221e38d21426be5cea34a686fbf66a",
-      "routing_log_bytes_at_snapshot": 2637,
-      "completed_router2_iterations": [
-        {
-          "iteration": 1,
-          "wires": 996736,
-          "overused_wires": 95241,
-          "overuse": 118354
-        },
-        {
-          "iteration": 2,
-          "wires": 1037867,
-          "overused_wires": 70371,
-          "overuse": 78102
-        },
-        {
-          "iteration": 3,
-          "wires": 1058609,
-          "overused_wires": 54578,
-          "overuse": 58355
-        },
-        {
-          "iteration": 4,
-          "wires": 1075782,
-          "overused_wires": 45147,
-          "overuse": 47545
-        },
-        {
-          "iteration": 5,
-          "wires": 1090550,
-          "overused_wires": 38806,
-          "overuse": 40476
-        },
-        {
-          "iteration": 6,
-          "wires": 1100736,
-          "overused_wires": 35316,
-          "overuse": 36704
-        },
-        {
-          "iteration": 7,
-          "wires": 1109930,
-          "overused_wires": 32728,
-          "overuse": 33830
-        },
-        {
-          "iteration": 8,
-          "wires": 1118471,
-          "overused_wires": 31584,
-          "overuse": 32586
-        },
-        {
-          "iteration": 9,
-          "wires": 1125499,
-          "overused_wires": 31008,
-          "overuse": 31881
-        },
-        {
-          "iteration": 10,
-          "wires": 1134212,
-          "overused_wires": 30689,
-          "overuse": 31534
-        },
-        {
-          "iteration": 11,
-          "wires": 1141651,
-          "overused_wires": 31137,
-          "overuse": 31952
-        }
-      ],
-      "last_log_lines_at_snapshot": [
-        "Info:     iter=6 wires=1100736 overused=35316 overuse=36704 archfail=NA",
-        "Info:     iter=7 wires=1109930 overused=32728 overuse=33830 archfail=NA",
-        "Info:     iter=8 wires=1118471 overused=31584 overuse=32586 archfail=NA",
-        "Info:     iter=9 wires=1125499 overused=31008 overuse=31881 archfail=NA",
-        "Info:     iter=10 wires=1134212 overused=30689 overuse=31534 archfail=NA",
-        "Info:     iter=11 wires=1141651 overused=31137 overuse=31952 archfail=NA"
-      ],
-      "verified_manifest_present": false,
-      "placement_utilization": {
-        "DP16KD": {
-          "used": 185,
-          "available": 208
-        },
-        "TRELLIS_FF": {
-          "used": 7182,
-          "available": 83640
-        },
-        "TRELLIS_COMB": {
-          "used": 69930,
-          "available": 83640
-        }
-      }
-    },
-    {
-      "directory": "build/loadable-ulx3s-alt",
+      "directory": "build/loadable-ulx3s-linear-abc9-keep",
       "status_at_snapshot": "running",
+      "phase_at_snapshot": "routing",
       "placer": "static",
-      "seed": 2,
-      "router": "router2",
-      "alternate_router_weights": true,
-      "mapping_experiment": null,
-      "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
-      "profile_unchanged": true,
-      "routing_log_sha256_at_snapshot": "92c5434a5c36025c92d43ab47dd9a7927eeaea77b85a59096f65b9fada65c4e7",
-      "routing_log_bytes_at_snapshot": 3289,
-      "completed_router2_iterations": [
-        {
-          "iteration": 1,
-          "wires": 973584,
-          "overused_wires": 65785,
-          "overuse": 72850
-        },
-        {
-          "iteration": 2,
-          "wires": 989706,
-          "overused_wires": 58761,
-          "overuse": 63704
-        },
-        {
-          "iteration": 3,
-          "wires": 995110,
-          "overused_wires": 53271,
-          "overuse": 57256
-        },
-        {
-          "iteration": 4,
-          "wires": 997879,
-          "overused_wires": 49325,
-          "overuse": 52578
-        },
-        {
-          "iteration": 5,
-          "wires": 999206,
-          "overused_wires": 46516,
-          "overuse": 49290
-        },
-        {
-          "iteration": 6,
-          "wires": 1001665,
-          "overused_wires": 44246,
-          "overuse": 46805
-        },
-        {
-          "iteration": 7,
-          "wires": 1002950,
-          "overused_wires": 42600,
-          "overuse": 44992
-        },
-        {
-          "iteration": 8,
-          "wires": 1003525,
-          "overused_wires": 41293,
-          "overuse": 43446
-        },
-        {
-          "iteration": 9,
-          "wires": 1005284,
-          "overused_wires": 40537,
-          "overuse": 42546
-        },
-        {
-          "iteration": 10,
-          "wires": 1006416,
-          "overused_wires": 39545,
-          "overuse": 41444
-        },
-        {
-          "iteration": 11,
-          "wires": 1006715,
-          "overused_wires": 39033,
-          "overuse": 40942
-        },
-        {
-          "iteration": 12,
-          "wires": 1007979,
-          "overused_wires": 37884,
-          "overuse": 39588
-        },
-        {
-          "iteration": 13,
-          "wires": 1008434,
-          "overused_wires": 37259,
-          "overuse": 38949
-        },
-        {
-          "iteration": 14,
-          "wires": 1009809,
-          "overused_wires": 36530,
-          "overuse": 38086
-        },
-        {
-          "iteration": 15,
-          "wires": 1010496,
-          "overused_wires": 35623,
-          "overuse": 37125
-        },
-        {
-          "iteration": 16,
-          "wires": 1010586,
-          "overused_wires": 35398,
-          "overuse": 36823
-        },
-        {
-          "iteration": 17,
-          "wires": 1012239,
-          "overused_wires": 35349,
-          "overuse": 36714
-        },
-        {
-          "iteration": 18,
-          "wires": 1012641,
-          "overused_wires": 35009,
-          "overuse": 36321
-        },
-        {
-          "iteration": 19,
-          "wires": 1013740,
-          "overused_wires": 34746,
-          "overuse": 36039
-        },
-        {
-          "iteration": 20,
-          "wires": 1014501,
-          "overused_wires": 33897,
-          "overuse": 35034
-        }
-      ],
-      "last_log_lines_at_snapshot": [
-        "Info:     iter=15 wires=1010496 overused=35623 overuse=37125 archfail=NA",
-        "Info:     iter=16 wires=1010586 overused=35398 overuse=36823 archfail=NA",
-        "Info:     iter=17 wires=1012239 overused=35349 overuse=36714 archfail=NA",
-        "Info:     iter=18 wires=1012641 overused=35009 overuse=36321 archfail=NA",
-        "Info:     iter=19 wires=1013740 overused=34746 overuse=36039 archfail=NA",
-        "Info:     iter=20 wires=1014501 overused=33897 overuse=35034 archfail=NA"
-      ],
-      "verified_manifest_present": false,
-      "placement_utilization": {
-        "DP16KD": {
-          "used": 192,
-          "available": 208
-        },
-        "TRELLIS_FF": {
-          "used": 6958,
-          "available": 83640
-        },
-        "TRELLIS_COMB": {
-          "used": 66251,
-          "available": 83640
-        }
-      }
-    },
-    {
-      "directory": "build/loadable-ulx3s-density",
-      "status_at_snapshot": "running",
-      "placer": "heap",
       "seed": 1,
       "router": "router2",
-      "alternate_router_weights": true,
-      "mapping_experiment": null,
-      "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+      "wrapper_mapper": "abc9",
+      "reset_synchronizer_preserved": true,
       "profile_unchanged": true,
-      "routing_log_sha256_at_snapshot": "5916074483f07b74e20378317d49b584563a5e61127893c5d84489657fff81eb",
-      "routing_log_bytes_at_snapshot": 2486,
-      "completed_router2_iterations": [
-        {
-          "iteration": 1,
-          "wires": 970706,
-          "overused_wires": 68226,
-          "overuse": 75809
-        },
-        {
-          "iteration": 2,
-          "wires": 989069,
-          "overused_wires": 60938,
-          "overuse": 66060
-        },
-        {
-          "iteration": 3,
-          "wires": 994737,
-          "overused_wires": 55192,
-          "overuse": 59313
-        },
-        {
-          "iteration": 4,
-          "wires": 997188,
-          "overused_wires": 51860,
-          "overuse": 55362
-        },
-        {
-          "iteration": 5,
-          "wires": 999589,
-          "overused_wires": 49444,
-          "overuse": 52543
-        },
-        {
-          "iteration": 6,
-          "wires": 1000547,
-          "overused_wires": 47719,
-          "overuse": 50609
-        },
-        {
-          "iteration": 7,
-          "wires": 1002066,
-          "overused_wires": 46055,
-          "overuse": 48688
-        },
-        {
-          "iteration": 8,
-          "wires": 1003640,
-          "overused_wires": 44601,
-          "overuse": 46997
-        },
-        {
-          "iteration": 9,
-          "wires": 1004918,
-          "overused_wires": 43255,
-          "overuse": 45538
-        }
-      ],
-      "last_log_lines_at_snapshot": [
-        "Info:     iter=4 wires=997188 overused=51860 overuse=55362 archfail=NA",
-        "Info:     iter=5 wires=999589 overused=49444 overuse=52543 archfail=NA",
-        "Info:     iter=6 wires=1000547 overused=47719 overuse=50609 archfail=NA",
-        "Info:     iter=7 wires=1002066 overused=46055 overuse=48688 archfail=NA",
-        "Info:     iter=8 wires=1003640 overused=44601 overuse=46997 archfail=NA",
-        "Info:     iter=9 wires=1004918 overused=43255 overuse=45538 archfail=NA"
-      ],
-      "verified_manifest_present": false,
-      "heap_maximum_placement_density": 0.8,
-      "placement_utilization": {
+      "same_netlist_as_current_production_board": false,
+      "production_reproduction_command": null,
+      "experimental_rtl": {
+        "path": "build/linear-ram/wasmetal_bram.sv",
+        "sha256": "b9bc8e4f14b16ebc213ad524222d67122c42f380880f2d2f6def5c734d26c823",
+        "change": "BANK_WORDS ceiling 2048 to 8192; same backing capacity and interface",
+        "production_change": false,
+        "full_system_execution_verified": false
+      },
+      "netlist_sha256": "0111d37e9c07ddabf4acfa8419e358cd92275bb972ab097115158507f38ce28e",
+      "source_manifest_sha256": "dc679ef3d6a6fdbf594379903467982f68db7c537b8939dbf8ed5c1c12a04157",
+      "all_manifest_inputs_still_match": true,
+      "synthesis_scripts": {
+        "flatten.ys": "read_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-linear-abc9-keep/combined.json\nread_verilog -lib -overwrite +/ecp5/cells_sim.v\nhierarchy -check -top wasmetal_loadable_ulx3s\nflatten\nblackbox =A:whitebox\ncheck -assert\nwrite_json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-linear-abc9-keep/design.json\n",
+        "wrapper.ys": "read_verilog /home/lastmjs/development/wasmetal/build/loadable-ulx3s-linear-abc9-keep/core_stub.v\nread_verilog -sv -defer -Ibuild -DWASMETAL_MAPPED_CORE /home/lastmjs/development/wasmetal/fpga/wasmetal_uart.sv /home/lastmjs/development/wasmetal/soc/wasmetal_local_memory.sv /home/lastmjs/development/wasmetal/soc/wasmetal_standalone.sv /home/lastmjs/development/wasmetal/build/linear-ram/wasmetal_bram.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_bridge.sv /home/lastmjs/development/wasmetal/soc/memory/wasmetal_memory_lanes.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_image_loader.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable.sv /home/lastmjs/development/wasmetal/soc/loader/wasmetal_loadable_ulx3s.sv\nchparam -set PROFILE_TAG 128'hfa1f830e73ed79bda834246e0cadf908 wasmetal_loadable_ulx3s\nhierarchy -top wasmetal_loadable_ulx3s\nselect -assert-count 1 wasmetal_loadable_ulx3s/reset_sync\nsetattr -set keep 1 wasmetal_loadable_ulx3s/reset_sync\nselect -clear\nsynth_ecp5 -abc9 -top wasmetal_loadable_ulx3s -json /home/lastmjs/development/wasmetal/build/loadable-ulx3s-linear-abc9-keep/wrapper.json\ncheck -assert\n"
+      },
+      "placed_netlist_sha256": "88cb3ca8a8c764cc8e090801621198f91a9e0c8e68b795dd89753f28592cf397",
+      "placement_resources": {
         "DP16KD": {
           "used": 192,
           "available": 208
@@ -809,10 +273,35 @@
           "available": 83640
         },
         "TRELLIS_COMB": {
-          "used": 66251,
+          "used": 62645,
           "available": 83640
         }
-      }
+      },
+      "placement_log_sha256": "bf49c6b05eeec3f0b875d53a8107e761d2ead87e1915aa0cf2a34ee45dc167e0",
+      "routing_log_sha256_at_snapshot": "dcc6d60679b6d7dff9c7427ba243526e7c62589f95688f8fbe2ee478a230004d",
+      "routing_log_bytes_at_snapshot": 3144,
+      "routing_log_tail_at_snapshot": [
+        "Info:     iter=15 wires=1052342 overused=18541 overuse=18864 archfail=NA",
+        "Info:     iter=16 wires=1057797 overused=18805 overuse=19087 archfail=NA",
+        "Info:     iter=17 wires=1062658 overused=19318 overuse=19694 archfail=NA",
+        "Info:     iter=18 wires=1066476 overused=19255 overuse=19554 archfail=NA"
+      ],
+      "completed_router2_iterations": 18,
+      "latest_iteration": {
+        "iteration": 18,
+        "wires": 1066476,
+        "overused_wires": 19255,
+        "overuse": 19554
+      },
+      "lowest_observed_overused_wires": {
+        "iteration": 15,
+        "wires": 1052342,
+        "overused_wires": 18541,
+        "overuse": 18864
+      },
+      "routing_complete": false,
+      "timing_verified": false,
+      "bitstream_generated": false
     }
   ]
 }

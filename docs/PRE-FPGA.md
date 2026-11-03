@@ -40,7 +40,15 @@ board result and foundry signoff are separate kinds of evidence.
   See the [upload guide](PROGRAM-UPLOAD.md).
 - [ ] Complete programmable FPGA routing, timing verification and bitstream
   round-trip checks. The current ULX3S placement uses 192 of 208 block RAMs;
+  ABC9 reduces placed logic from 66,251 to 62,958 cells with unchanged
+  capacities. Both wrapper comparisons and all 35 execution checks pass, but
   [routing attempts remain incomplete](verification/loadable-routing-status.json).
+- [x] Measure the complete programmable system on a larger FPGA family without
+  reducing configured capacities. The [7-series estimate](research/xc7-system-estimate.json)
+  passes structural checks with 52,437 logic LUT primitives and 96 equivalent
+  36-Kbit RAM blocks. Xilinx functional verification and physical implementation
+  remain separate work; no board selection or working port follows from this
+  measurement alone.
 - [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
   See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).
