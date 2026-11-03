@@ -228,9 +228,11 @@ CPU reset during initialization.
 Physical-board testing is still required. A separate
 [standalone prototype](STANDALONE.md) now implements local memory and fetch
 controllers, autonomous clocking, prepared-image boot and UART results. Its
-RTL and board-clock integration tests pass. Mapped-system verification and
-standalone routing are in progress; buffered program loading and external memory
-remain future work.
+RTL and board-clock integration tests pass, the complete mapped system matches
+the self-test's UART results and clocks through boot/reset scenarios, and the
+standalone bitstream meets routing/timing and unpack/repack checks. Run
+`make standalone-mapped-test` to reproduce those gates. Buffered program loading
+and external memory remain future work.
 
 The development computer prepares and validates the image; loading and
 validating arbitrary Wasm binaries on the device is additional work. External

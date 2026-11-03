@@ -1,9 +1,10 @@
 # Standalone boot
 
 This milestone adds a second FPGA system around the existing WasMetal execution
-core. RTL integration is implemented and tested; mapped-system verification and
-routing are in progress. The host-backed reference system and its conformance
-reports remain separate from verification of this integration.
+core. RTL and mapped-system integration tests pass, and the complete system
+routes for ULX3S 85F with checked timing and a verified bitstream round trip.
+No physical board has been tested. The host-backed reference system and its
+conformance reports remain separate from verification of this integration.
 
 The first standalone system boots a prepared image from block RAM, supplies all
 instruction, function, type and backing-memory interfaces locally, and reports
@@ -25,6 +26,14 @@ The [profile](../soc/profile.json) bounds every image and storage structure.
 An image that exceeds a bound must be rejected, not truncated. Linear memories
 and tables receive explicit physical growth limits. The heap limit is passed
 to the execution core. Resource exhaustion during execution can still trap.
+
+The current profile has 128 KiB of shared backing RAM, 1,024 instructions,
+128 functions, 64 types, 512 boot records and at most 16 returned values.
+Each linear memory is limited to one 64 KiB page, each table to 128 entries,
+and the heap to 1,024 sixteen-byte slots. These allocations share the 128 KiB
+pool with globals and passive segments; their individual maxima are not all
+simultaneously available. Programs that need more storage require a new profile
+and sufficient FPGA resources or external memory.
 
 The local memory controller serves all six core memory kinds: linear bytes,
 globals, tables, data segments, element segments and heap values. It checks
@@ -101,6 +110,65 @@ results, beginning with 42. Other integration cases exercise Memory64, subtypes,
 sixteen results, resource limits and corruption. This is bounded integration
 coverage, not the full official Wasm corpus on local RAM.
 
+The [production memory-controller report](verification/standalone-memory-mapped.json)
+checks 4,837 transactions against the independent oracle in both RTL and mapped
+simulation, using the full 128 KiB RAM and regions crossing physical RAM banks.
+The [RAM-model checks](verification/standalone-ram-model.json) cover every address
+in all five additional configurations, both ROM clock edges, read-before-write
+behavior, unknown addresses, and deliberate model corruption. Unsupported modes
+fail model generation. The existing execution core's checked RAM models remain
+unchanged.
+
+The [complete-system mapped report](verification/standalone-mapped.json) compares
+the self-test's UART bytes and exact completion clocks with board RTL for
+power-on and restart, external reset, reset during execution and reset during
+UART transmission. The mapped model includes the CPU, local memory, boot
+sequencer, divided clock, reset and UART. It uses the complete pre-routing
+mapped netlist, not a delay-annotated post-routing simulation. Placement/routing
+timing analysis is a separate gate; these checks are not whole-circuit formal
+equivalence or electrical testing.
+
+## Reproducing the FPGA build
+
+```sh
+python3 tools/bootstrap.py --fpga-tools
+make standalone-test
+make standalone-bitstream
+```
+
+The default image is `examples/standalone/selftest.wat`. To build a different
+bounded image, use `make standalone-bitstream STANDALONE_IMAGE=path/to/program.wat`.
+For non-default exports or arguments, prepare the image explicitly, run
+`make standalone-core`, then `python3 tools/build_standalone_board.py`.
+Do not run `make standalone-bitstream` afterward unless intending to replace
+that image with `STANDALONE_IMAGE`.
+
+The [routing receipt](verification/standalone-routing.json) records 59,657 of
+83,640 logic cells, 171 of 208 block RAMs and 27 of 156 multipliers. The core
+meets the configured 0.78125 MHz clock; the timing tool reports a 3.04 MHz
+maximum. Its critical falling-to-rising path is 164.36 ns against a 640 ns
+budget. These are tool estimates, not measured board performance.
+
+The bitstream is `build/standalone-ulx3s/wasmetal.bit`. Its neighboring manifest
+records the source, image, netlist, timing and bitstream hashes. Build acceptance
+requires both clocks and half-cycle paths to meet timing, resource limits to
+hold, and unpacking/repacking to reproduce the bitstream exactly. The unchanged
+mapped CPU is restored after separately synthesizing the wrapper, so synthesis
+cannot replace instruction execution with a constant result for the example.
+
+```sh
+make standalone-mapped-test
+```
+
+This runs the native checks, prepares the self-test, synthesizes the CPU, routes
+the board, checks production memory in both models, checks RAM models, builds
+the full mapped simulator, and compares board RTL and mapped behavior. CI runs
+the same target in its **Standalone FPGA system** job. Reports and the verified
+bitstream/image are retained as artifacts for 30 days; local reports are under
+`reports/standalone*.json`. The older host-backed target and all 259 official
+conformance suites remain separate. New pushes cancel superseded runs of the
+same workflow/ref.
+
 ## Clock and UART
 
 The board divides its 25 MHz oscillator by 32 to obtain a 781.25 kHz free-running
@@ -117,3 +185,16 @@ CRC covers the version through the last result. Status is 0 for success, 1 for
 an exported-function trap, 2 for an invalid image, 3 for watchdog expiry, or 4
 for an initializer trap. Errors carry no results. The watchdog bounds each
 invocation, including initializers; UART completes after the CPU stops.
+
+On a POSIX host, start the reader and then reset the programmed board:
+
+```sh
+python3 tools/read_standalone.py --device /dev/ttyUSB0
+```
+
+Choose the actual board serial device. The reader temporarily configures
+9600-baud 8N1, verifies frame length/status/CRC, prints numeric and raw hexadecimal
+results, and restores terminal settings on exit. It tolerates a truncated old
+frame and times out after 30 seconds by default. `--hex` decodes a captured frame
+without a serial device. The reader is tested with pipes and a pseudo-terminal;
+physical UART connectivity still needs board testing.

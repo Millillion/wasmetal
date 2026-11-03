@@ -11,17 +11,25 @@
 
 using Value=std::array<uint8_t,16>;
 struct Region { uint32_t base,size; };
+#ifndef PHYSICAL_RAM_BYTES
+#define PHYSICAL_RAM_BYTES 256
+#endif
+#if PHYSICAL_RAM_BYTES > 256
+static constexpr Region regions[6][2]={{{16380,64},{65530,16}},{{131056,16},{131064,16}},
+    {{70000,32},{0,0}},{{128,16},{0,0}},{{144,16},{0,0}},{{160,96},{0,0}}};
+#else
 static constexpr Region regions[6][2]={{{0,64},{64,16}},{{80,16},{0,0}},
     {{96,32},{0,0}},{{128,16},{0,0}},{{144,16},{0,0}},{{160,96},{0,0}}};
+#endif
 class Test {
     Vwasmetal_local_memory dut;
-    std::array<uint8_t,256> bytes{};
+    std::array<uint8_t,PHYSICAL_RAM_BYTES> bytes{};
 public:
     unsigned checks=0;
     void tick() { dut.clk=0; dut.eval(); dut.clk=1; dut.eval(); dut.clk=0; dut.eval(); }
     void reset() {
         dut.reset=1; dut.valid=0; tick(); tick(); dut.reset=0;
-        unsigned remaining=300;
+        unsigned remaining=PHYSICAL_RAM_BYTES+20;
         while(!dut.initialized && remaining--) tick();
         if(!dut.initialized) throw std::runtime_error("RAM clear timed out");
         bytes.fill(0);
@@ -50,6 +58,7 @@ public:
             legal=legal && translated<=region.size && size<=region.size-translated &&
                 !(write && (kind==3 || kind==4));
             translated+=region.base;
+            legal=legal && translated<=bytes.size() && size<=bytes.size()-translated;
         }
         Value expected{};
         if(legal) for(unsigned n=0;n<size;n++) {

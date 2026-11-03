@@ -8,7 +8,7 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
-- **Standalone boot:** prepared images now execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json), [nine board-clock cases](docs/verification/standalone-board-rtl.json), and [4,836 local-memory transactions](docs/verification/standalone-memory.json) passed, including reset recovery, traps, watchdog expiry and deliberate image corruption. These bounded integration tests are separate from the complete host-backed conformance corpus below. Standalone mapped-system simulation and routing are in progress; see the [standalone guide](docs/STANDALONE.md).
+- **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 59,657/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
 - **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
@@ -55,6 +55,13 @@ matches the intact run for all 65,353 commands, every command's cycle count and
 every suite's assertion totals. The mapped acceptance check also rejects native
 simulator reports, even when their results match.
 
+A separate standalone CI job runs the local-memory and UART integration tests,
+builds and routes the complete autonomous system, checks its RAM models, and
+compares the mapped circuit with board RTL. It retains `standalone-verification`
+and `standalone-fpga` artifacts for 30 days. Its mapped integration checks use
+the comprehensive prepared self-test; they do not run all official suites on
+the standalone system's bounded local RAM.
+
 JSON results are retained for 30 days as `verification-reports`,
 `mapped-results-*` and `mapped-complete` artifacts. Partial reports remain
 available after failures and cannot establish a full pass. See the
@@ -79,6 +86,11 @@ build has completed routing and timing closure, and produces the verified
 bitstream at `build/ulx3s/wasmetal.bit`. See the [FPGA guide](docs/FPGA.md) for the build flow
 and the remaining physical-board checks.
 
+For autonomous execution, `make standalone-bitstream` instead builds
+`build/standalone-ulx3s/wasmetal.bit`, including the prepared self-test image.
+`make standalone-mapped-test` runs its complete verification flow. The
+[standalone guide](docs/STANDALONE.md) describes image limits and UART decoding.
+
 ## Hardware roadmap
 
 - [x] Implement Core 3.0 instruction execution in clocked SystemVerilog.
@@ -87,16 +99,17 @@ and the remaining physical-board checks.
 - [x] Complete FPGA placement, routing and timing closure for the host-backed reference system.
 - [ ] Load and verify the design on a physical ULX3S 85F.
 - [x] Simulate local instruction/data memory and autonomous prepared-image execution.
-- [ ] Route and verify the standalone system on a physical FPGA.
+- [x] Simulate the complete standalone mapped circuit and complete FPGA routing and timing checks.
+- [ ] Verify autonomous execution on a physical FPGA.
 - [ ] Add buffered program loading and external memory.
 - [ ] Select an ASIC process and integrate suitable memories, I/O, clocks, reset and manufacturing test support.
 - [ ] Complete physical design and signoff, fabricate a prototype, then package and test the silicon.
 
 The standalone prototype boots a prepared image from local FPGA memory and
 reports results over UART without host instruction or memory service. Image
-preparation and validation run on the development computer. Simulation has
-passed; standalone mapping, routing and physical-board checks remain distinct
-milestones. See the [standalone guide](docs/STANDALONE.md).
+preparation and validation run on the development computer. RTL simulation,
+mapped simulation and standalone routing have passed; physical-board checks
+remain. See the [standalone guide](docs/STANDALONE.md).
 
 ## Why is this a good idea?
 

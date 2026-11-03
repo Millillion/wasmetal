@@ -13,6 +13,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--core-netlist',type=Path,default=ROOT/'build/core-ecp5.json')
     parser.add_argument('--directory',type=Path,default=ROOT/'build/lut-model-check')
+    parser.add_argument('--top',default='wasmetal_core')
     args=parser.parse_args()
     directory=args.directory.resolve();directory.mkdir(parents=True,exist_ok=True)
     library=ROOT/'.cache/tools/usr/share/yosys/ecp5/cells_sim.v'
@@ -55,7 +56,7 @@ candidate2 u3(pins[0],pins[1],table_value[3:0],d);
         raise ValueError('equivalence checker did not reject the wrong LUT')
     netlist=json.loads(args.core_netlist.read_text())
     tables={'0'*16,'1'*16}
-    for cell in netlist['modules']['wasmetal_core']['cells'].values():
+    for cell in netlist['modules'][args.top]['cells'].values():
         if cell['type'] in ('LUT4','CCU2C'):
             for name,value in cell.get('parameters',{}).items():
                 if name in ('INIT','INIT0','INIT1'):
@@ -95,7 +96,7 @@ endmodule
     (directory/'four_state.log').write_text(result.stdout+result.stderr)
     report={'binary_equivalence_proven':True,'negative_control_rejected':True,'binary_scope':'every 16-bit or 4-bit INIT table and every binary selector',
             'four_state_cases_passed':count*256,'four_state_scope':'every selector combination for all mapped tables plus single X/Z table-bit patterns',
-            'library_sha256':digest(library),'netlist_sha256':digest(args.core_netlist),
+            'library_sha256':digest(library),'netlist_sha256':digest(args.core_netlist),'top':args.top,
             'optimizer_source_sha256':digest(ROOT/'tools/build_gate_sim.py'),
             'checker_sha256':digest(Path(__file__).resolve()),'proof_sha256':digest(proof),
             'four_state_test_sha256':digest(bench)}

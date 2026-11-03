@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   core:
     runs-on: ubuntu-24.04
@@ -184,4 +187,46 @@ jobs:
           overwrite: true
           path: reports/mapped-complete.json
           if-no-files-found: warn
+          retention-days: 30
+
+  standalone:
+    name: Standalone FPGA system
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation and FPGA tools
+        run: python3 tools/bootstrap.py --fpga-tools
+      - name: Verify standalone RTL, map the complete system, route and compare circuit behavior
+        run: make standalone-mapped-test
+      - name: Preserve standalone verification evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: standalone-verification
+          overwrite: true
+          path: |
+            reports/standalone*.json
+            build/standalone-core-ecp5*.log
+            build/standalone-core-ecp5.manifest.json
+            build/standalone-ulx3s/*.log
+            build/standalone-ulx3s/timing*.json
+            build/standalone-gate-sim/*.log
+            build/standalone-gate-sim/lut-proof/report.json
+            build/standalone-ram-check/*.log
+            build/standalone-memory-production/*.log
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Preserve verified bitstream and prepared program
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: standalone-fpga
+          overwrite: true
+          path: |
+            build/standalone-ulx3s/wasmetal.bit
+            build/standalone-ulx3s/manifest.json
+            build/standalone-image/
+          if-no-files-found: error
           retention-days: 30

@@ -3,10 +3,11 @@
 from copy import deepcopy
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from prepare_standalone import load_profile, pack_trace, MAGIC
+from prepare_standalone import load_profile, pack_trace, prepare, MAGIC
 
 
 class ImageTests(unittest.TestCase):
@@ -63,6 +64,15 @@ class ImageTests(unittest.TestCase):
                       ['A 0 1'] * 512):
             with self.subTest(setup=setup[:1]), self.assertRaises(ValueError):
                 self.pack(setup)
+
+    def test_invalid_wasm_never_publishes_an_image(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source=Path(tmp)/'bad.wat'
+            source.write_text('(module (func (export "main") (result i32)))')
+            output=Path(tmp)/'image'
+            with self.assertRaisesRegex(ValueError,'validation'):
+                prepare(source,output)
+            self.assertFalse((output/'manifest.json').exists())
 
 
 if __name__ == '__main__':

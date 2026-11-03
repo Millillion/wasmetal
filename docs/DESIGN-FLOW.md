@@ -118,6 +118,14 @@ RTL with `make sim`. Both official-suite commands use that executable by default
 | Full official corpus on the original RTL, three memory wait states | Yes; [passed](verification/core-3.0-current.json) |
 | Full official corpus on the synthesized ECP5 CPU netlist | Yes; [passed](verification/ci-mapped-complete.json) |
 | Mapped-RAM component checks and the RTL board/UART simulation | Yes |
+| Bounded standalone images, local-memory oracle and autonomous board RTL | Yes; separate standalone job |
+| Complete standalone mapped circuit compared with board RTL | Yes; prepared self-test and reset scenarios |
+| Standalone placement/routing timing and bitstream round trip | Yes; separate standalone job |
+
+The standalone job runs `make standalone-mapped-test` and retains its reports,
+bitstream and prepared image for 30 days. Its local-memory integration coverage
+does not replace or claim the entire official corpus on the standalone system.
+See the [standalone guide](STANDALONE.md) for capacities and recorded evidence.
 
 After the original RTL passes, CI synthesizes the production ECP5 core and builds
 one portable mapped simulator. Sixteen workers execute the complete official

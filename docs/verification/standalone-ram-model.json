@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "modes": [
+    "rom18-CLKA",
+    "rom18-INV",
+    "rom36",
+    "ram1",
+    "rom36-positive"
+  ],
+  "rom18_words_per_edge": 1024,
+  "rom36_words": 512,
+  "ram1_addresses": 16384,
+  "rom36_clock_edges": [
+    "positive",
+    "negative"
+  ],
+  "four_state_unknown_addresses_checked": true,
+  "negative_control_rejected": true,
+  "unsupported_configurations_rejected": 20,
+  "inputs": {
+    "tools/check_standalone_ram.py": "ea8c94cb0b40ffb3d0bbe9466fc2f33179e0c6bc1f25b97fd72fe7c6c2ec2af6",
+    "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+    "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+    "build/standalone-ulx3s/design.json": "f7300a380c961d8edaa74087870d7956074133fb6b566cdeb3201cf2c033e87c",
+    "build/standalone-memory-production/memory.json": "406b73b476befef06f8634b513bf86ffa6cf0f79d6ec770ff660e3cecdf1b200",
+    "build/standalone-ram-check/bench.sv": "5f718c892ed0fa8c26610e6ab73122b6b851de32f8bcf9c2207cde875839e54b",
+    "build/standalone-ram-check/model.v": "056498baa349eb5528aa7bbe4f87a52d1eea9f923a1224f4d807ca1b3ef30898"
+  },
+  "physical_hardware_tested": false
+}
