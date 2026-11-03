@@ -58,7 +58,12 @@ simulator reports, even when their results match.
 A separate standalone CI job runs the local-memory and UART integration tests,
 builds and routes the complete autonomous system, checks its RAM models, and
 compares the mapped circuit with board RTL. It retains `standalone-verification`
-and `standalone-fpga` artifacts for 30 days. Its mapped integration checks use
+and `standalone-fpga` artifacts for 30 days. The first
+[clean CI job passed](https://github.com/Millillion/wasmetal/actions/runs/41572176563/job/125707382260),
+reproducing every local case's UART bytes and completion clocks and the exact
+same FPGA bitstream. The [CI receipt](docs/verification/standalone-ci.json)
+preserves the downloaded reports, artifact hashes and source checks.
+Its mapped integration checks use
 the comprehensive prepared self-test; they do not run all official suites on
 the standalone system's bounded local RAM.
 

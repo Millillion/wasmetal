@@ -126,6 +126,9 @@ The standalone job runs `make standalone-mapped-test` and retains its reports,
 bitstream and prepared image for 30 days. Its local-memory integration coverage
 does not replace or claim the entire official corpus on the standalone system.
 See the [standalone guide](STANDALONE.md) for capacities and recorded evidence.
+Its [first clean CI job passed](https://github.com/Millillion/wasmetal/actions/runs/41572176563/job/125707382260)
+and reproduced the local bitstream exactly; the [receipt](verification/standalone-ci.json)
+records verified artifact hashes and all local/CI UART-frame and clock comparisons.
 
 After the original RTL passes, CI synthesizes the production ECP5 core and builds
 one portable mapped simulator. Sixteen workers execute the complete official

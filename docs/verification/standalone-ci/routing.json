@@ -1,0 +1,366 @@
+{
+  "top": "wasmetal_standalone_ulx3s",
+  "inputs": {
+    "tools/build_standalone_board.py": "b4a63416a996f65650bca2db5cb5d35041a9ba7172033efd70b551be14deb3a9",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "soc/ulx3s.lpf": "ace7a11cfea02a79ece170f1289806fb6422fde79e1bbfadbe6274c6520b8088",
+    "soc/wasmetal_local_memory.sv": "2f04e0b3e1c42b111c0e62e6b4e0ea2424234a6c311c8fc68d8d90552714979d",
+    "soc/wasmetal_standalone.sv": "22389c406c0d7c19f13cc35cbd0e2865361cd2ea3cdc019e7363428a61431b39",
+    "soc/wasmetal_standalone_ulx3s.sv": "f60f5ec4d79a42637c91db05b5e376ecb9d778317ed3aaf5f15e1d667844de8a",
+    "build/standalone-image/boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+    "build/standalone-image/code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+    "build/standalone-image/functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+    "build/standalone-image/initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+    "build/standalone-image/manifest.json": "44d256102f5dca6b968137938e27003a5416b96ded3ce9f7effda4ab481af84b",
+    "build/standalone-image/program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310",
+    "build/standalone-image/regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+    "build/standalone-image/types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e",
+    "build/standalone-ulx3s/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+    "build/standalone-core-ecp5.json": "b3b67522097b725795f780c6e4a53c3c702cd4ea876832edd5f3dbcfb2c65f9d",
+    "build/standalone-core-ecp5.manifest.json": "b3f714c7e2a9abeaaca94f6d0d6884bf29f2cfcd5df48abc4231af3f471f6045"
+  },
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 1024
+    },
+    "instruction_depth": 1024,
+    "function_depth": 128,
+    "type_depth": 64,
+    "boot_depth": 512,
+    "regions_per_kind": 16,
+    "ram_bytes": 131072,
+    "memory_pages": 1,
+    "table_slots": 128,
+    "max_results": 16,
+    "watchdog_cycles": 10000000
+  },
+  "image": {
+    "format": "wasmetal-standalone-v1",
+    "profile": {
+      "core": {
+        "VALUE_DEPTH": 8192,
+        "CONTROL_DEPTH": 2048,
+        "CALL_DEPTH": 512,
+        "MEMORY_COUNT": 256,
+        "HEAP_SLOTS": 1024
+      },
+      "instruction_depth": 1024,
+      "function_depth": 128,
+      "type_depth": 64,
+      "boot_depth": 512,
+      "regions_per_kind": 16,
+      "ram_bytes": 131072,
+      "memory_pages": 1,
+      "table_slots": 128,
+      "max_results": 16,
+      "watchdog_cycles": 10000000
+    },
+    "export": "main",
+    "arguments": [],
+    "counts": {
+      "code": 99,
+      "functions": 13,
+      "types": 64,
+      "regions": 96,
+      "boot": 28
+    },
+    "allocated_ram_bytes": 82148,
+    "regions": [
+      {
+        "kind": 0,
+        "index": 0,
+        "base": 16384,
+        "bytes": 0
+      },
+      {
+        "kind": 0,
+        "index": 1,
+        "base": 16384,
+        "bytes": 65536
+      },
+      {
+        "kind": 1,
+        "index": 0,
+        "base": 82048,
+        "bytes": 16
+      },
+      {
+        "kind": 1,
+        "index": 1,
+        "base": 82064,
+        "bytes": 16
+      },
+      {
+        "kind": 2,
+        "index": 0,
+        "base": 81920,
+        "bytes": 128
+      },
+      {
+        "kind": 3,
+        "index": 0,
+        "base": 82128,
+        "bytes": 4
+      },
+      {
+        "kind": 3,
+        "index": 1,
+        "base": 82144,
+        "bytes": 4
+      },
+      {
+        "kind": 4,
+        "index": 0,
+        "base": 82080,
+        "bytes": 32
+      },
+      {
+        "kind": 4,
+        "index": 1,
+        "base": 82112,
+        "bytes": 16
+      },
+      {
+        "kind": 5,
+        "index": 0,
+        "base": 0,
+        "bytes": 16384
+      }
+    ],
+    "files": {
+      "code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+      "functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+      "types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e",
+      "regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+      "boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+      "initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+      "program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310"
+    },
+    "source_sha256": "a1c18ab9e6d9fc02c644ace57cc042dfa2123b5d9e078886ad54c1f54b2f4daf",
+    "preparation_simulator_sha256": "f8ea29b933a8069b79847bf778b92a1cf02b5b9d2e4e593aa7e2c7b3cceb256c",
+    "preparation_build_id": "5c57ee7e6b27f2ea506dd1bc9fa1ee55",
+    "physical_hardware_tested": false,
+    "preparation_inputs": {
+      "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+      "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+      "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+      "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+    }
+  },
+  "core_netlist_sha256": "b3b67522097b725795f780c6e4a53c3c702cd4ea876832edd5f3dbcfb2c65f9d",
+  "netlist_sha256": "5a7131052acc11d96d4b77884315628b48c4d1bf2b6892639007900592f56a32",
+  "board": "ULX3S 85F CABGA381 speed 6",
+  "seed": 1,
+  "commands": {
+    "placement": [
+      "--85k",
+      "--package",
+      "CABGA381",
+      "--speed",
+      "6",
+      "--seed",
+      "1",
+      "--router",
+      "router2",
+      "--lpf",
+      "/home/runner/work/wasmetal/wasmetal/soc/ulx3s.lpf",
+      "--freq",
+      "25",
+      "--json",
+      "/home/runner/work/wasmetal/wasmetal/build/standalone-ulx3s/design.json",
+      "--write",
+      "/home/runner/work/wasmetal/wasmetal/build/standalone-ulx3s/placed.json",
+      "--no-route",
+      "--placer",
+      "static"
+    ],
+    "routing": [
+      "--85k",
+      "--package",
+      "CABGA381",
+      "--speed",
+      "6",
+      "--seed",
+      "1",
+      "--router",
+      "router2",
+      "--lpf",
+      "/home/runner/work/wasmetal/wasmetal/soc/ulx3s.lpf",
+      "--freq",
+      "25",
+      "--json",
+      "/home/runner/work/wasmetal/wasmetal/build/standalone-ulx3s/placed.json",
+      "--write",
+      "/home/runner/work/wasmetal/wasmetal/build/standalone-ulx3s/routed.json",
+      "--no-pack",
+      "--no-place",
+      "--textcfg",
+      "/home/runner/work/wasmetal/wasmetal/build/standalone-ulx3s/design.config",
+      "--report",
+      "/home/runner/work/wasmetal/wasmetal/build/standalone-ulx3s/timing.json"
+    ]
+  },
+  "timing": {
+    "report_sha256": "a408004fd940a342e44016330584ddc2dbcb65dcaaf9df209a36d712b0d7f1fb",
+    "clocks": {
+      "oscillator": {
+        "net": "$glbnet$clk_25mhz$TRELLIS_IO_IN",
+        "required_mhz": 25.0,
+        "achieved_mhz": 368.3241271972656
+      },
+      "core": {
+        "net": "core_clock",
+        "required_mhz": 0.78125,
+        "achieved_mhz": 3.042158365249634
+      }
+    },
+    "paths": {
+      "oscillator:posedge->posedge": {
+        "delay_ns": 2.714999981224537,
+        "budget_ns": 40.0
+      },
+      "core:negedge->posedge": {
+        "delay_ns": 164.35700091719627,
+        "budget_ns": 640.0
+      }
+    },
+    "utilization": {
+      "ALU54B": {
+        "available": 78,
+        "used": 0
+      },
+      "CLKDIVF": {
+        "available": 4,
+        "used": 0
+      },
+      "DCCA": {
+        "available": 56,
+        "used": 2
+      },
+      "DCSC": {
+        "available": 2,
+        "used": 0
+      },
+      "DCUA": {
+        "available": 2,
+        "used": 0
+      },
+      "DDRDLL": {
+        "available": 4,
+        "used": 0
+      },
+      "DLLDELD": {
+        "available": 8,
+        "used": 0
+      },
+      "DP16KD": {
+        "available": 208,
+        "used": 171
+      },
+      "DQSBUFM": {
+        "available": 14,
+        "used": 0
+      },
+      "DTR": {
+        "available": 1,
+        "used": 0
+      },
+      "ECLKBRIDGECS": {
+        "available": 2,
+        "used": 0
+      },
+      "ECLKSYNCB": {
+        "available": 10,
+        "used": 0
+      },
+      "EHXPLLL": {
+        "available": 4,
+        "used": 0
+      },
+      "EXTREFB": {
+        "available": 2,
+        "used": 0
+      },
+      "GSR": {
+        "available": 1,
+        "used": 0
+      },
+      "IOLOGIC": {
+        "available": 224,
+        "used": 0
+      },
+      "JTAGG": {
+        "available": 1,
+        "used": 0
+      },
+      "MULT18X18D": {
+        "available": 156,
+        "used": 27
+      },
+      "OSCG": {
+        "available": 1,
+        "used": 0
+      },
+      "PCSCLKDIV": {
+        "available": 2,
+        "used": 0
+      },
+      "SEDGA": {
+        "available": 1,
+        "used": 0
+      },
+      "SIOLOGIC": {
+        "available": 141,
+        "used": 0
+      },
+      "TRELLIS_COMB": {
+        "available": 83640,
+        "used": 59657
+      },
+      "TRELLIS_ECLKBUF": {
+        "available": 8,
+        "used": 0
+      },
+      "TRELLIS_FF": {
+        "available": 83640,
+        "used": 5801
+      },
+      "TRELLIS_IO": {
+        "available": 365,
+        "used": 5
+      },
+      "TRELLIS_RAMW": {
+        "available": 10455,
+        "used": 0
+      },
+      "USRMCLK": {
+        "available": 1,
+        "used": 0
+      }
+    },
+    "physical_hardware_tested": false
+  },
+  "artifacts": {
+    "design.json": "5a7131052acc11d96d4b77884315628b48c4d1bf2b6892639007900592f56a32",
+    "placed.json": "c48e7a3f52944100746af615bba9da5248c69fbf75a44fd4e2a17a4b9c2dbd22",
+    "routed.json": "eea2e8c21dee96fc747f417e6ce9d75bc48e36da08557d186a78e80b63ee9430",
+    "design.config": "0b226cb3dea25ed2feac776dd24438434c66851d695fe9793397f45af52b293b",
+    "timing.json": "a408004fd940a342e44016330584ddc2dbcb65dcaaf9df209a36d712b0d7f1fb",
+    "wasmetal.bit": "a4d5bf55853979b0042dc95d295c0b8db0ba3ce62b7d68e92051f31067c3694e"
+  },
+  "bitstream_round_trip_passed": true,
+  "physical_hardware_tested": false
+}

@@ -169,6 +169,15 @@ bitstream/image are retained as artifacts for 30 days; local reports are under
 conformance suites remain separate. New pushes cancel superseded runs of the
 same workflow/ref.
 
+The [first clean CI job](https://github.com/Millillion/wasmetal/actions/runs/41572176563/job/125707382260)
+passed on source commit `4e8e696ff7d568e43d04e77c4a6088409ad8dfa0`.
+The [CI receipt](verification/standalone-ci.json) preserves its reports and
+artifact archive hashes. Independent checks after download confirmed all 63
+referenced tracked source hashes, identical UART bytes and completion clocks
+for every local/CI case, identical prepared images, accepted timing, and a
+bitstream identical byte for byte to the local build. This records the
+standalone job's success; the separate full-core workflow has its own results.
+
 ## Clock and UART
 
 The board divides its 25 MHz oscillator by 32 to obtain a 781.25 kHz free-running
@@ -186,15 +195,24 @@ an exported-function trap, 2 for an invalid image, 3 for watchdog expiry, or 4
 for an initializer trap. Errors carry no results. The watchdog bounds each
 invocation, including initializers; UART completes after the CPU stops.
 
-On a POSIX host, start the reader and then reset the programmed board:
+When a physical board is available, the [volatile SRAM loading procedure](FPGA.md#loading-a-physical-board)
+uses the standalone bitstream instead of the host-backed one:
+
+```sh
+openFPGALoader -b ulx3s -d /dev/ttyUSB0 build/standalone-ulx3s/wasmetal.bit
+```
+
+This hardware step has not been executed here. On a POSIX host, start the reader
+and then reset the programmed board:
 
 ```sh
 python3 tools/read_standalone.py --device /dev/ttyUSB0
 ```
 
 Choose the actual board serial device. The reader temporarily configures
-9600-baud 8N1, verifies frame length/status/CRC, prints numeric and raw hexadecimal
-results, and restores terminal settings on exit. It tolerates a truncated old
+9600-baud 8N1, verifies frame length/status/CRC, prints raw result bits in decimal
+and hexadecimal, and restores terminal settings on exit. Floating-point and
+SIMD values are not converted to decimal floats or lane arrays. It tolerates a truncated old
 frame and times out after 30 seconds by default. `--hex` decodes a captured frame
 without a serial device. The reader is tested with pipes and a pseudo-terminal;
 physical UART connectivity still needs board testing.
