@@ -98,6 +98,10 @@ matches RTL. Programmable FPGA routing remains unresolved: placement uses
 records interrupted and still-running attempts; no programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
+The programmable CI build exposed a command error: the board-clock check was
+given the core-clock simulator. `make loadable-test` now selects the board
+simulator explicitly. Its local rerun has passed all 35 core-clock cases and
+the first board-clock upload; the remaining board checks are still running.
 The original ROM system has been reverified,
 including its mapped comparisons and fresh routing/bitstream checks.
 
