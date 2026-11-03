@@ -102,6 +102,11 @@ and execution cycles over serial with repeatable program replacement and
 partial failure reports. Its nine host tests pass, including 50 uploads through
 a pseudo-terminal. The physical-board campaign remains to be run.
 
+A [freestanding C example](examples/c/README.md) now compiles through Clang to
+Wasm and uploads through the same prepared-image path. All five native CRC-32
+cases match an independent Python result; their mapped checks are in progress.
+The compiler-generated workload is also a required CI integration job.
+
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
 integer dot products, with independently calculated results and repeated resets.
 For 1,024 multiply-accumulates, SIMD takes 21,524 invocation cycles versus
