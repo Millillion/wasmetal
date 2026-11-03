@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "scope": "unbounded safety induction, not complete memory data equivalence or liveness",
+  "configurations": [
+    {
+      "ram_bytes": 256,
+      "regions_per_kind": 2,
+      "timeout_cycles": 4,
+      "status": "proven"
+    },
+    {
+      "ram_bytes": 131072,
+      "regions_per_kind": 16,
+      "timeout_cycles": 1024,
+      "status": "proven"
+    }
+  ],
+  "properties": [
+    "aligned in-range physical requests",
+    "stable request through stalls",
+    "nonzero byte mask",
+    "no physical requests when poisoned",
+    "valid beat geometry"
+  ],
+  "environment": "one initial reset; arbitrary binary later resets, requests, regions, data and backend responses",
+  "negative_controls_rejected": [
+    "misaligned-address",
+    "uninitialized-payload"
+  ],
+  "inputs": {
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "tools/prove_memory_bridge.py": "207fed5a3aa97a71bd2007fc5aa3fd7a7f463237662e437c0916921a126fffa4",
+    "build/formal-memory-bridge/bridge.sv": "fe8c4aec7c6332e1a6b41beff7e4d9b0836388b989b320d73013373f0f7d1546"
+  },
+  "physical_hardware_tested": false
+}

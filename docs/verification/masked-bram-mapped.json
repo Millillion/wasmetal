@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "ram_bytes": 131072,
+  "tests": {
+    "rtl": {
+      "status": "passed",
+      "transactions": 36432,
+      "cycles": 291462,
+      "binary_sha256": "076703dbf29d54c16fec4dcd97ce673c20d7268e96ef8c3e8039a874244859da"
+    },
+    "mapped": {
+      "status": "passed",
+      "transactions": 36432,
+      "cycles": 291462,
+      "binary_sha256": "e4944cfdaf61b29b3cc18e24e1e4d7dea9fcc426e740edb860375632b77f3b6b"
+    }
+  },
+  "inputs": {
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "tests/memory/bram.cpp": "12e069a1d8cee60fa5eacac968073fbbdb58cfa6088b4755b409d7b7e6df8a29",
+    "tools/check_bram.py": "c5e31d3ebb55d628e0b5834f42445d578e6726caf18f33ad10f1c6652005c72d"
+  },
+  "physical_hardware_tested": false,
+  "mapped_build": {
+    "backend": "standalone-mapped-ecp5-functional",
+    "top": "wasmetal_bram",
+    "inputs": {
+      "build/masked-bram/memory.json": "aad310237c7e54741303b6b095832b5309d0ebecd54e99745c8e97e3fad227b1",
+      "tools/build_standalone_gate_sim.py": "eef5411ecca80e21c2237b6ba7eef7dc21cbde8be51580f804dd58d4b6f38f70",
+      "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+      "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+      "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+      "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+      ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+      "tests/memory/bram.cpp": "12e069a1d8cee60fa5eacac968073fbbdb58cfa6088b4755b409d7b7e6df8a29",
+      "build/masked-bram/memory.manifest.json": "a4fb2fef97e8ca7254c808bce58da7810d3ea412cd8f32f01c059166b0b29696",
+      "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+      "tools/check_bram.py": "c5e31d3ebb55d628e0b5834f42445d578e6726caf18f33ad10f1c6652005c72d",
+      "build/masked-bram/mapped/circuit.v": "59085dd5e1fe110a418b98b7b6387a19e2b0ef001d7d6f8346ba7b7258e62feb",
+      "build/masked-bram/mapped/cells.v": "e8bdcf8d30b67f40164e870b325b31bb7dd8f7f9dcf6dc908153f71bd7b03437",
+      "build/masked-bram/mapped/lut-proof/report.json": "b01c96f943ff73255e03b6d8a9b5f8c2259015466500347a9da2f37eafb8c958"
+    },
+    "binary_sha256": "e4944cfdaf61b29b3cc18e24e1e4d7dea9fcc426e740edb860375632b77f3b6b",
+    "netlist_sha256": "aad310237c7e54741303b6b095832b5309d0ebecd54e99745c8e97e3fad227b1",
+    "ram_modes": {
+      "core": 64
+    },
+    "compilation": {
+      "fast_sim": true,
+      "portable": true,
+      "compiler": "/usr/bin/clang++",
+      "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+      "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+      "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+    },
+    "physical_hardware_tested": false
+  }
+}

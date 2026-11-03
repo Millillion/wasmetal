@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "transactions": 13327,
+  "bus_completions": 4215,
+  "cycles": 74350,
+  "inputs": {
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "tests/memory/bridge.cpp": "cb5eab1df0eb8cab963dcb21d6130d258c8b196399950a23337a33ed56f4dc36",
+    "tools/check_memory_bridge.py": "9f2f9508808cde019e4d94d93eecff5d415b3fa753ec42b18d22da03321b99c4"
+  },
+  "binary_sha256": "2ebe88c3f845991a1179b36c8e93d431afc498e0cbdad9708f776bbfc0c75739",
+  "physical_hardware_tested": false,
+  "coverage": [
+    "all six logical spaces",
+    "every byte width and alignment",
+    "bounds and 64-bit overflow",
+    "read-only segments",
+    "0-7 backend wait cycles",
+    "request stability",
+    "backend errors on first and second beat",
+    "startup failure",
+    "timeout poisoning",
+    "reset recovery"
+  ]
+}

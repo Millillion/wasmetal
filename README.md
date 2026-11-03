@@ -34,6 +34,23 @@ npm start
 
 Go to [http://localhost:5000](http://localhost:5000) in your web browser.
 
+## Work before the FPGA arrives
+
+The [active engineering sequence](docs/PRE-FPGA.md) covers wider memory,
+program upload, external-memory verification and ASIC preparation. The new
+[memory interface](docs/MEMORY.md) has passed
+[13,327 independently checked transactions](docs/verification/memory-bridge.json)
+under stalls and faults. Its byte-lane alignment has an
+[exhaustive symbolic proof](docs/verification/memory-lanes-proof.json), and its
+[bus safety invariants](docs/verification/memory-bridge-proof.json) have an
+unbounded induction proof for the tested small and production configurations.
+The 128 KiB masked RAM backend passes
+[36,432 transactions](docs/verification/masked-bram-mapped.json) in both RTL and
+mapped simulation with identical cycle counts. Run these checks with
+`make memory-test`; CI runs them in a dedicated job.
+These components are not yet integrated into the standalone bitstream;
+the standalone results above describe the existing byte-oriented memory system.
+
 ## RTL Microarchitecture Simulator
 
 The clocked SystemVerilog core runs in Verilator. The test harness converts the

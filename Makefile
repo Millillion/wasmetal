@@ -11,6 +11,7 @@ RTL := rtl/vendor.vlt $(wildcard rtl/*.sv) $(HARDFLOAT)
 VFLAGS := -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTIONS --top-module wasmetal_core -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV
 .PHONY: sim lint test test-all test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks synth fpga-sim fpga-smoke fpga-host fpga-core fpga-bitstream
 .PHONY: standalone-image standalone-sim standalone-test standalone-core standalone-bitstream standalone-mapped-test
+.PHONY: memory-test
 STANDALONE_IMAGE ?= examples/standalone/selftest.wat
 sim: build/obj/Vwasmetal_core
 sim/core_config.hpp: $(RTL) $(wildcard third_party/hardfloat/source/*.vi) $(wildcard third_party/hardfloat/source/RISCV/*.vi) $(wildcard fpga/*.sv) fpga/ports.json fpga/profile.json tools/generate_fpga_ports.py
@@ -86,3 +87,8 @@ standalone-mapped-test: standalone-test standalone-bitstream
 	python3 tools/check_standalone_ram.py
 	python3 tools/build_standalone_gate_sim.py
 	python3 tools/check_standalone_mapped.py
+memory-test:
+	python3 tools/prove_memory_lanes.py
+	python3 tools/prove_memory_bridge.py
+	python3 tools/check_memory_bridge.py
+	python3 tools/check_bram.py --mapped

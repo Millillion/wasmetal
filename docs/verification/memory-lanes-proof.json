@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "scope": "all binary payloads, memory words, valid lengths, positions and offsets",
+  "properties": [
+    "beat size",
+    "byte enables",
+    "aligned write payload",
+    "zero-padded read assembly"
+  ],
+  "negative_control_rejected": true,
+  "inputs": {
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "tools/prove_memory_lanes.py": "f908cbb49803485da49b7ed686016c8dfa04472ac4769604e054dfb5113718eb",
+    "build/formal-memory-lanes/proof.sv": "f3d5eec36431925bd91fabaebb16798db2c26e97995f18fe18413738ef92b56c"
+  },
+  "physical_hardware_tested": false
+}
