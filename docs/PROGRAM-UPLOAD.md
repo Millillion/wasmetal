@@ -191,7 +191,16 @@ that must change from true to false on replacement. Ten additional cases cover
 rejection, interrupted transfers, reset, timeout, UART break, recovery and
 independent serial periods of 98% and 102% of nominal. The board-clock tests
 retain the actual divider and UART timing; core-level integration accelerates
-UART to 16 clocks per bit and the receive timeout to 4,096 clocks.
+UART to four clocks per bit and the receive timeout to 4,096 clocks.
+The [board-rate checks](verification/loadable-board-rates.json) pass at 98%,
+100.5% and 102% of the board's nominal bit period. The middle setting closely
+matches a 9600-baud sender against the board's approximately 9645-baud UART.
+
+The [mapped I/O audit](verification/loadable-io.json) checks both stages of the
+UART and reset synchronizers, their clocks and reset polarity, exclusive
+first-stage fanout and the permanently enabled core-clock buffer. Seven
+deliberately broken circuits are rejected. This checks digital structure;
+it does not establish analog metastability reliability or physical placement.
 
 Mapped verification uses six independently assigned groups. The final merge
 requires all 35 integration cases, the same circuit identity, and exact
@@ -200,6 +209,9 @@ replacement cases remain together in one simulator. Missing or duplicated
 groups, native-model substitution, and incorrect results/clocks are rejected.
 These are bounded integration cases, separate from the 259-suite official
 host-backed corpus.
+CI builds the mapped simulator independently of board routing so routing
+congestion cannot postpone execution testing. The final integration job
+requires native tests, every mapped group and board routing to succeed.
 
 The new [RAM-model checks](verification/loadable-ram.json) cover all 1,024
 addresses and four write masks in 18-bit mode, and all 512 addresses and 16

@@ -18,6 +18,9 @@ def main():
     parser.add_argument('--core-netlist',type=Path,default=ROOT/'build/standalone-core-ecp5.json')
     parser.add_argument('--simulation',action='store_true',help='map the core-clock top with accelerated UART/receive timeout')
     parser.add_argument('--map-only',action='store_true');parser.add_argument('--seed',type=int,default=1)
+    parser.add_argument('--placer',choices=('static','heap','sa'),default='static')
+    parser.add_argument('--router',choices=('router1','router2'),default='router2')
+    parser.add_argument('--alternate-router-weights',action='store_true')
     args=parser.parse_args();profile=load_profile();generated=generate_parameters();tag=profile_tag(profile)
     top='wasmetal_loadable' if args.simulation else 'wasmetal_loadable_ulx3s'
     directory=ROOT/'build'/('loadable-mapped' if args.simulation else 'loadable-ulx3s');directory.mkdir(parents=True,exist_ok=True)
@@ -45,7 +48,7 @@ def main():
         ROOT/'soc/loader/ulx3s.lpf',generated,stub,netlist,core_manifest_path,*rtl]
     hashes={str(p.relative_to(ROOT)):digest(p) for p in paths}
     params={'PROFILE_TAG':f"128'h{int.from_bytes(tag,'little'):032x}"}
-    if args.simulation:params.update(parameters(profile),UART_TICKS=16,UPLOAD_TIMEOUT_CYCLES=4096)
+    if args.simulation:params.update(parameters(profile),UART_TICKS=4,UPLOAD_TIMEOUT_CYCLES=4096)
     # Deferring elaboration avoids reading the legacy ROM files: this top has
     # writable, uninitialized stores and does not depend on a prepared program.
     yosys(f'read_verilog {stub}\nread_verilog -sv -defer -Ibuild -DWASMETAL_MAPPED_CORE '+
@@ -71,9 +74,12 @@ write_json {directory}/design.json
         'netlist_sha256':digest(directory/'design.json'),'physical_hardware_tested':False}
     (directory/'design.manifest.json').write_text(json.dumps(mapped,indent=2)+'\n')
     if args.simulation or args.map_only:print(directory/'design.json');return
-    common=['--85k','--package','CABGA381','--speed','6','--seed',str(args.seed),'--router','router2',
+    common=['--85k','--package','CABGA381','--speed','6','--seed',str(args.seed),'--router',args.router,
         '--lpf',str(ROOT/'soc/loader/ulx3s.lpf'),'--freq','25']
-    place=common+['--json',str(directory/'design.json'),'--write',str(directory/'placed.json'),'--no-route','--placer','static']
+    if args.alternate_router_weights:
+        if args.router!='router2':raise ValueError('alternate weights require router2')
+        common.append('--router2-alt-weights')
+    place=common+['--json',str(directory/'design.json'),'--write',str(directory/'placed.json'),'--no-route','--placer',args.placer]
     route=common+['--json',str(directory/'placed.json'),'--write',str(directory/'routed.json'),'--no-pack','--no-place',
         '--textcfg',str(directory/'design.config'),'--report',str(directory/'timing.json')]
     for name,command in [('placement',place),('routing',route)]:

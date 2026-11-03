@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "scope": "mapped functional structure, not analog metastability or physical timing signoff",
+  "chains": {
+    "reset_sync": {
+      "stages": [
+        "reset_sync_TRELLIS_FF_Q_1",
+        "reset_sync_TRELLIS_FF_Q"
+      ],
+      "clock": [
+        70886
+      ],
+      "asynchronous_assertion": true
+    },
+    "system.serial.rx_sync": {
+      "stages": [
+        "system.serial.rx_sync_TRELLIS_FF_Q_1",
+        "system.serial.rx_sync_TRELLIS_FF_Q"
+      ],
+      "clock": [
+        70886
+      ],
+      "asynchronous_assertion": false
+    }
+  },
+  "divider_registers": 5,
+  "negative_controls_rejected": [
+    "uart-bypass",
+    "first-stage-leak",
+    "wrong-clock",
+    "synchronous-reset",
+    "reset-polarity",
+    "missing-attribute",
+    "gated-clock"
+  ],
+  "inputs": {
+    "tools/audit_loadable_io.py": "6d4e9dcaae31394f53e727f0dc5c16a62fa5375a054ce50fe337c08d48a42d55",
+    "build/loadable-ulx3s/design.json": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+    "build/loadable-ulx3s/design.manifest.json": "dd8a0e49b7386d49df09ab7683e351ad5f1a6bc58c74c6ba403b333426926042"
+  },
+  "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+  "physical_hardware_tested": false
+}

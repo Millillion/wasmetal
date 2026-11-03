@@ -122,6 +122,7 @@ loadable-test: sim
 	python3 tools/check_loadable_board_rates.py
 loadable-bitstream: standalone-core
 	python3 tools/build_loadable_board.py
+	python3 tools/audit_loadable_io.py
 loadable-mapped-build:
 	python3 tools/build_loadable_board.py --simulation
 	python3 tools/check_loadable_ram.py

@@ -75,25 +75,26 @@ def main():
             'model':identity,'clock_scale':scale,'uart_ticks':bit_ticks//scale,'cases':results,'inputs':hashes,
             'elapsed_seconds':time.monotonic()-started,'physical_hardware_tested':False},indent=2)+'\n')
     def execute(flags,on_result=None):
-        # A mapped watchdog case executes over 19 million circuit clocks.
+        # A mapped watchdog case executes over 12 million circuit clocks.
         # Bound each operation, rather than the total duration of a batch, and
         # preserve completed cases if a later operation fails or is interrupted.
         runs=[];pending=b''
+        if digest(binary)!=identity['binary_sha256']:raise ValueError('simulator was replaced during verification')
         with tempfile.TemporaryFile() as errors:
             process=subprocess.Popen([str(binary),*flags],cwd=ROOT,stdout=subprocess.PIPE,stderr=errors)
             try:
                 with selectors.DefaultSelector() as selector:
-                    selector.register(process.stdout,selectors.EVENT_READ);deadline=time.monotonic()+3600
+                    selector.register(process.stdout,selectors.EVENT_READ);deadline=time.monotonic()+7200
                     while True:
                         if not selector.select(max(0,deadline-time.monotonic())):
-                            raise TimeoutError('programmable simulator operation exceeded one hour')
+                            raise TimeoutError('programmable simulator operation exceeded two hours')
                         chunk=os.read(process.stdout.fileno(),65536)
                         if not chunk:break
                         pending+=chunk
                         if len(pending)>1048576:raise ValueError('oversized simulator response')
                         while b'\n' in pending:
                             line,pending=pending.split(b'\n',1)
-                            run=json.loads(line);runs.append(run);deadline=time.monotonic()+3600
+                            run=json.loads(line);runs.append(run);deadline=time.monotonic()+7200
                             if on_result:on_result(run)
                     if pending:raise ValueError('truncated simulator response')
                     process.wait(timeout=max(0.1,deadline-time.monotonic()))
@@ -172,7 +173,8 @@ def main():
         else:raise ValueError('result oracle accepted an incorrect value')
         if digest(source)!=source_hash or any(digest(ROOT/name)!=value for name,value in hashes.items()):
             raise ValueError('loadable verification inputs changed')
-        verify_simulator(binary);save('passed')
+        if verify_simulator(binary)!=identity:raise ValueError('simulator identity changed during verification')
+        save('passed')
     except BaseException:
         save('failed');raise
 

@@ -85,8 +85,15 @@ to writable instruction and metadata stores and the complete CPU.
 [All 35 native integration checks](docs/verification/loadable-rtl.json) pass,
 including program replacement, rejection, timeout, UART break, rate variation
 and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
-also pass. Full mapped checks, extended board-rate checks and programmable
-routing are still in progress. The original ROM system has been reverified,
+and [three board-clock sender rates](docs/verification/loadable-board-rates.json)
+also pass, including the expected 9600-baud setting. A
+[mapped I/O audit](docs/verification/loadable-io.json) checks the UART/reset
+synchronizers and free-running clock, with seven rejected circuit mutations.
+Core-level integration uses a faster test UART; board tests retain the actual
+divider and serial timing. Full mapped execution checks and programmable
+routing are still in progress. Routing and mapped execution have separate CI
+jobs, and both must pass the final integration check.
+The original ROM system has been reverified,
 including its mapped comparisons and fresh routing/bitstream checks.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD

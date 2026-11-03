@@ -17,7 +17,7 @@ def main():
     profile=load_profile();generated=generate_parameters();tag=profile_tag(profile)
     top='wasmetal_loadable_ulx3s' if args.board else 'wasmetal_loadable'
     directory=ROOT/'build'/('loadable-board-sim' if args.board else 'loadable-sim');directory.mkdir(parents=True,exist_ok=True)
-    uart_ticks=81 if args.board else 16;timeout=2000000 if args.board else 4096;scale=32 if args.board else 1
+    uart_ticks=81 if args.board else 4;timeout=2000000 if args.board else 4096;scale=32 if args.board else 1
     params={'PROFILE_TAG':f"128'h{int.from_bytes(tag,'little'):032x}"}
     if not args.board:params.update(parameters(profile),UART_TICKS=uart_ticks,UPLOAD_TIMEOUT_CYCLES=timeout)
     vendor=ROOT/'third_party/hardfloat/source';source=sources();harness=ROOT/'tests/standalone/loadable.cpp'
