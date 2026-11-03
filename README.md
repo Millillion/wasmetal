@@ -8,14 +8,14 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
-- **Standalone boot (in progress):** prepared-image tooling and storage admission checks are implemented; a local-memory system with autonomous boot and UART results is being added around the execution core. Its [design and verification gates](docs/STANDALONE.md) are separate from the completed host-backed checks below; standalone simulation and routing have not yet passed.
+- **Standalone boot:** prepared images now execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json), [nine board-clock cases](docs/verification/standalone-board-rtl.json), and [4,836 local-memory transactions](docs/verification/standalone-memory.json) passed, including reset recovery, traps, watchdog expiry and deliberate image corruption. These bounded integration tests are separate from the complete host-backed conformance corpus below. Standalone mapped-system simulation and routing are in progress; see the [standalone guide](docs/STANDALONE.md).
 - **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
 - **Mapped circuit:** CI passes **all 259 pinned official suites** on the default ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-complete.json) preserves source, model and report identities and an independent aggregation check. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes; its netlist is the standard bitstream build's core. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
 - **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [standard build](docs/verification/fpga-routing.json) produces a routed, timing-verified ULX3S 85F bitstream: 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. A fresh build reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
 
-See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host supplies the instruction image, metadata and backing memory; autonomous boot, a local memory controller and reclaiming garbage collection remain future work.
+See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host-backed conformance system supplies the instruction image, metadata and backing memory from the computer. The standalone prototype supplies these locally for bounded prepared images. External RAM, dynamic program loading and reclaiming garbage collection remain future work.
 
 For an explanation of the ISA, microarchitecture, SystemVerilog RTL, the two simulation models, synthesis and the FPGA bitstream, read [From the Wasm specification to an FPGA](docs/DESIGN-FLOW.md).
 
@@ -86,16 +86,17 @@ and the remaining physical-board checks.
 - [x] Verify a host-backed FPGA board interface in simulation.
 - [x] Complete FPGA placement, routing and timing closure for the host-backed reference system.
 - [ ] Load and verify the design on a physical ULX3S 85F.
-- [ ] Add local instruction/data memory, buffered loading and autonomous execution.
+- [x] Simulate local instruction/data memory and autonomous prepared-image execution.
+- [ ] Route and verify the standalone system on a physical FPGA.
+- [ ] Add buffered program loading and external memory.
 - [ ] Select an ASIC process and integrate suitable memories, I/O, clocks, reset and manufacturing test support.
 - [ ] Complete physical design and signoff, fabricate a prototype, then package and test the silicon.
 
-Local memory and autonomous boot can be designed and tested in simulation before
-a board arrives. A suggested first standalone milestone is to boot a prepared
-program image from FPGA block RAM and print a result over UART, without the host
-supplying instructions or memory transactions. Image preparation and validation
-can initially remain on the development computer. See the
-[next hardware stages](docs/FPGA.md#next-hardware-stages).
+The standalone prototype boots a prepared image from local FPGA memory and
+reports results over UART without host instruction or memory service. Image
+preparation and validation run on the development computer. Simulation has
+passed; standalone mapping, routing and physical-board checks remain distinct
+milestones. See the [standalone guide](docs/STANDALONE.md).
 
 ## Why is this a good idea?
 

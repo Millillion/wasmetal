@@ -19,6 +19,7 @@ def main():
     mapping.add_argument("--lut4",action="store_true",help="map directly to four-input LUTs")
     mapping.add_argument("--abc9",action="store_true",help="use ECP5 LUT timing models with a 500 ns combinational target")
     parser.add_argument("--value-depth", type=int)
+    parser.add_argument("--profile", default="fpga/profile.json", help="core capacities, or a standalone profile containing core capacities")
     parser.add_argument("--output-name")
     parser.add_argument("--top",default="wasmetal_core")
     args = parser.parse_args()
@@ -28,7 +29,12 @@ def main():
     (ROOT / "build").mkdir(exist_ok=True)
     vendor = ROOT / "third_party/hardfloat/source"
     sources = sorted(vendor.glob("*.v")) + [vendor / "RISCV/HardFloat_specialize.v"] + sorted((ROOT / "rtl").glob("*.sv"))
-    profile=json.loads((ROOT/"fpga/profile.json").read_text())
+    profile_path=(ROOT/args.profile).resolve()
+    profile=json.loads(profile_path.read_text())
+    if "core" in profile: profile=profile["core"]
+    if set(profile)!={"VALUE_DEPTH","CONTROL_DEPTH","CALL_DEPTH","MEMORY_COUNT","HEAP_SLOTS"} or any(
+            type(value) is not int or not 1<=value<1<<30 for value in profile.values()):
+        parser.error("invalid core capacity profile")
     if args.value_depth is not None: profile["VALUE_DEPTH"]=args.value_depth
     script = "read_verilog -sv -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV "
     script += " ".join(str(p.relative_to(ROOT)) for p in sources) + "\n"
@@ -81,7 +87,7 @@ opt_clean
     script=script.replace("-top wasmetal_core","-top "+args.top)
     path.write_text(script)
     inputs=sources+sorted(vendor.rglob("*.vi"))+[ROOT/"tools/synth.py",ROOT/"tools/upstream.lock.json"]
-    if args.fpga: inputs.append(ROOT/"fpga/profile.json")
+    if args.fpga: inputs.append(profile_path)
     manifest={"top":args.top,"arguments":vars(args),"inputs":{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},
               "script_sha256":hashlib.sha256(path.read_bytes()).hexdigest()}
     yosys = ROOT / ".cache/tools/usr/bin/yosys"

@@ -1,7 +1,8 @@
 # Standalone boot
 
 This milestone adds a second FPGA system around the existing WasMetal execution
-core. Work is in progress. The host-backed reference system and its conformance
+core. RTL integration is implemented and tested; mapped-system verification and
+routing are in progress. The host-backed reference system and its conformance
 reports remain separate from verification of this integration.
 
 The first standalone system boots a prepared image from block RAM, supplies all
@@ -74,4 +75,45 @@ binary, the recorded initialization, five padded hexadecimal ROM files, and a
 manifest with storage bounds and hashes. `--export` chooses the function;
 repeat `--arg` to supply numeric or SIMD arguments as unsigned raw bits.
 Preparation does not invoke that exported function. The example's expected
-result is 42; standalone execution is still being implemented and verified.
+result is 42.
+
+```sh
+python3 tools/build_standalone_sim.py
+python3 tools/check_local_memory.py
+python3 tools/check_standalone.py
+python3 tools/build_standalone_sim.py --board
+python3 tools/check_standalone.py --board
+```
+
+The [RTL report](verification/standalone-rtl.json) covers 29 cases. The
+[board-clock report](verification/standalone-board-rtl.json) covers nine cases,
+including power-on, reset during RAM clearing, execution and UART transmission,
+and restart. The test driver only drives clock/reset and samples the serial pin;
+it cannot supply instructions or backing memory. The
+[memory report](verification/standalone-memory.json) compares 4,836 transactions
+with an independent byte-array oracle, including invalid requests and reset
+interruption. UART checksum and deliberately wrong-result controls must fail.
+
+The comprehensive [self-test](../examples/standalone/selftest.wat) exercises all
+six backing-memory kinds, initialization, direct/indirect/reference/tail calls,
+bulk operations, GC, exceptions, floating point and SIMD. It returns twelve
+results, beginning with 42. Other integration cases exercise Memory64, subtypes,
+sixteen results, resource limits and corruption. This is bounded integration
+coverage, not the full official Wasm corpus on local RAM.
+
+## Clock and UART
+
+The board divides its 25 MHz oscillator by 32 to obtain a 781.25 kHz free-running
+system clock with equal phases. The UART sends 8 data bits, no parity and one
+stop bit, at 81 clocks per bit: about 9645 baud, 0.47% above 9600 baud. A terminal
+or serial decoder should use 9600 baud. Reset asserts asynchronously at the board
+reset synchronizer and releases through two clocked stages; boot clears the
+entire local RAM before replaying initialization.
+
+The binary result frame contains `57 4d 01`, status, Wasm trap code, result count,
+a four-byte invocation cycle count, each result as sixteen little-endian bytes,
+and a two-byte little-endian CRC-16/CCITT (polynomial 0x1021, initial 0xffff).
+CRC covers the version through the last result. Status is 0 for success, 1 for
+an exported-function trap, 2 for an invalid image, 3 for watchdog expiry, or 4
+for an initializer trap. Errors carry no results. The watchdog bounds each
+invocation, including initializers; UART completes after the CPU stops.

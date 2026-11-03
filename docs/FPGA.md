@@ -225,19 +225,18 @@ CPU reset during initialization.
 
 ## Next hardware stages
 
-Physical-board testing is still required. A practical standalone machine also
-needs buffered program loading, local memory and fetch controllers, autonomous
-clocking, and a boot interface. These can be designed, simulated, synthesized and
-routed for a chosen FPGA before a physical board is available. The changes need
-their own conformance runs and timing closure.
+Physical-board testing is still required. A separate
+[standalone prototype](STANDALONE.md) now implements local memory and fetch
+controllers, autonomous clocking, prepared-image boot and UART results. Its
+RTL and board-clock integration tests pass. Mapped-system verification and
+standalone routing are in progress; buffered program loading and external memory
+remain future work.
 
-A suggested first standalone milestone is a boot controller that starts a
-prepared program image in block RAM and produces a result over UART without
-host instruction or memory service. The development computer can initially
-prepare and validate the image; loading and validating arbitrary Wasm binaries
-on the device is additional work. External memory can follow, using controller
-and memory-device models during development. Vendor-specific memory IP may
-require a vendor-supported simulator instead of Verilator.
+The development computer prepares and validates the image; loading and
+validating arbitrary Wasm binaries on the device is additional work. External
+memory can follow, using controller and memory-device models during development.
+Vendor-specific memory IP may require a vendor-supported simulator instead of
+Verilator.
 
 The physical board is needed to confirm electrical interfaces, memory
 calibration where applicable, power-on behavior and measured performance.
