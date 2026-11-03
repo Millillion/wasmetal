@@ -8,7 +8,7 @@
         "reset_sync_TRELLIS_FF_Q"
       ],
       "clock": [
-        70886
+        70885
       ],
       "asynchronous_assertion": true
     },
@@ -18,7 +18,7 @@
         "system.serial.rx_sync_TRELLIS_FF_Q"
       ],
       "clock": [
-        70886
+        70885
       ],
       "asynchronous_assertion": false
     }
@@ -31,13 +31,14 @@
     "synchronous-reset",
     "reset-polarity",
     "missing-attribute",
-    "gated-clock"
+    "gated-clock",
+    "undriven-stage"
   ],
   "inputs": {
-    "tools/audit_loadable_io.py": "6d4e9dcaae31394f53e727f0dc5c16a62fa5375a054ce50fe337c08d48a42d55",
-    "build/loadable-ulx3s/design.json": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
-    "build/loadable-ulx3s/design.manifest.json": "dd8a0e49b7386d49df09ab7683e351ad5f1a6bc58c74c6ba403b333426926042"
+    "tools/audit_loadable_io.py": "b9586cdae010eb9a0c9376879efbf32b5efd175993f715e54fafcc53b29b3e4b",
+    "build/loadable-ulx3s/design.json": "3ae56b8176b1f21acadb8072987851fa849db5d1153b993b5a4b32057a4dd82c",
+    "build/loadable-ulx3s/design.manifest.json": "8f42e81e401ff943ba2e45111941596c1c3f166a8dda5ffa92f650ec3de51ef1"
   },
-  "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+  "netlist_sha256": "3ae56b8176b1f21acadb8072987851fa849db5d1153b993b5a4b32057a4dd82c",
   "physical_hardware_tested": false
 }

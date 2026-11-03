@@ -1,0 +1,138 @@
+{
+  "status": "passed",
+  "captured_at_utc": "2026-11-03T12:54:25.559701+00:00",
+  "scope": "programmable wrapper synthesis and completed placement; routing and new mapped execution remain in progress",
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 1024
+    },
+    "instruction_depth": 1024,
+    "function_depth": 128,
+    "type_depth": 64,
+    "boot_depth": 512,
+    "regions_per_kind": 16,
+    "ram_bytes": 131072,
+    "memory_pages": 1,
+    "table_slots": 128,
+    "max_results": 16,
+    "watchdog_cycles": 10000000
+  },
+  "core_netlist_sha256": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
+  "core_circuit_unchanged": true,
+  "rtl_and_capacities_unchanged": true,
+  "reference": {
+    "netlist_sha256": "fe9b035bfec7f95c0944999c7328c625cd9cd5035019c1d0d2c6b9961bd14e55",
+    "core_netlist_sha256": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
+    "profile": {
+      "core": {
+        "VALUE_DEPTH": 8192,
+        "CONTROL_DEPTH": 2048,
+        "CALL_DEPTH": 512,
+        "MEMORY_COUNT": 256,
+        "HEAP_SLOTS": 1024
+      },
+      "instruction_depth": 1024,
+      "function_depth": 128,
+      "type_depth": 64,
+      "boot_depth": 512,
+      "regions_per_kind": 16,
+      "ram_bytes": 131072,
+      "memory_pages": 1,
+      "table_slots": 128,
+      "max_results": 16,
+      "watchdog_cycles": 10000000
+    },
+    "counts": {
+      "LUT4": 51643,
+      "PFUMX": 6977,
+      "CCU2C": 6264,
+      "TRELLIS_FF": 6958,
+      "MULT18X18D": 27,
+      "DCCA": 1,
+      "DP16KD": 192,
+      "L6MUX21": 987,
+      "TRELLIS_DPR16X4": 64
+    }
+  },
+  "candidate": {
+    "netlist_sha256": "3ae56b8176b1f21acadb8072987851fa849db5d1153b993b5a4b32057a4dd82c",
+    "wrapper_mapper": "abc9",
+    "counts": {
+      "LUT4": 48450,
+      "PFUMX": 5464,
+      "CCU2C": 6224,
+      "TRELLIS_FF": 6958,
+      "MULT18X18D": 27,
+      "DCCA": 1,
+      "DP16KD": 192,
+      "L6MUX21": 263,
+      "TRELLIS_DPR16X4": 64
+    }
+  },
+  "placements": {
+    "abc": {
+      "path": "build/loadable-ulx3s/placed.json",
+      "sha256": "1432a2ab0ec93a85b2d1792889674db311b9f16b15a49822873a7a01da297ad6",
+      "cells": {
+        "DCCA": 2,
+        "TRELLIS_COMB": 66251,
+        "TRELLIS_FF": 6958,
+        "DP16KD": 192,
+        "TRELLIS_IO": 6,
+        "MULT18X18D": 27,
+        "TRELLIS_RAMW": 64
+      }
+    },
+    "abc9": {
+      "path": "build/loadable-ulx3s-abc9-keep/placed.json",
+      "sha256": "1c7ca76ea132ec5a9ecae6064618047392ff564d5d023d4cef016d97389d8cf4",
+      "cells": {
+        "DCCA": 2,
+        "TRELLIS_COMB": 62958,
+        "TRELLIS_FF": 6958,
+        "DP16KD": 192,
+        "TRELLIS_IO": 6,
+        "MULT18X18D": 27,
+        "TRELLIS_RAMW": 64
+      }
+    }
+  },
+  "logic_cells_saved": 3293,
+  "lut4_cells_saved": 3193,
+  "source_inputs": {
+    "tools/build_loadable_board.py": "57a58b47730514b09e7bd338ba7f82aab65062c6fcbddd430ca900bd9ac02053",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
+    "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
+    "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "build/loadable-ulx3s/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+    "build/standalone-core-ecp5.json": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
+    "build/standalone-core-ecp5.manifest.json": "6cfd713300f1133250983d0c817d7f663aa736163d70ad27e6f3c20c5ea2665e",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a"
+  },
+  "experimental_placement_entrypoint": "build/build_loadable_abc9_keep.py",
+  "experimental_entrypoint_sha256": "23a1d337ef2419e0c2781a536330d58ff2048b58a5f49ee31cc3abe06b57d985",
+  "reproduction": "The placement entrypoint differs from tools/build_loadable_board.py only in its build directory. The standard mapper reproduces its design.json byte for byte.",
+  "routing_complete": false,
+  "physical_hardware_tested": false
+}

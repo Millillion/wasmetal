@@ -27,6 +27,7 @@ def audit(module):
     clock=bits('core_clock',1);oscillator=module['ports']['clk_25mhz']['bits']
     divider=bits('divider',5)
     def flop(bit,clk):
+        if bit not in drivers:raise ValueError('synchronizer or divider net has no register driver')
         name,cell,port=drivers[bit];p=cell['parameters'];pins=cell['connections']
         if cell['type']!='TRELLIS_FF' or port!='Q' or pins['CLK']!=clk:
             raise ValueError('wrong register or clock')
@@ -84,9 +85,9 @@ def main():
     module=json.loads(path.read_text())['modules']['wasmetal_loadable_ulx3s'];chains=audit(module)
     inputs={str(p.relative_to(ROOT)):digest(p) for p in [Path(__file__).resolve(),path,manifest_path]}
     rejected=[]
-    for kind in ('uart-bypass','first-stage-leak','wrong-clock','synchronous-reset','reset-polarity','missing-attribute','gated-clock'):
+    for kind in ('uart-bypass','first-stage-leak','wrong-clock','synchronous-reset','reset-polarity','missing-attribute','gated-clock','undriven-stage'):
         broken=dict(module);broken['cells']=dict(module['cells'])
-        net='reset_sync' if kind in ('synchronous-reset','reset-polarity') else 'system.serial.rx_sync'
+        net='reset_sync' if kind in ('synchronous-reset','reset-polarity','undriven-stage') else 'system.serial.rx_sync'
         first,second=chains[net]['stages']
         broken['cells'][second]=copy.deepcopy(module['cells'][second]);cell=broken['cells'][second]
         if kind=='uart-bypass':cell['connections']['DI']=module['ports']['ftdi_txd']['bits']
@@ -97,6 +98,10 @@ def main():
         elif kind=='synchronous-reset':cell['parameters']['SRMODE']='LSR_OVER_CE'
         elif kind=='reset-polarity':cell['connections']['LSR']=module['ports']['btn_n']['bits']
         elif kind=='gated-clock':cell['parameters']['CEMUX']='0'
+        elif kind=='undriven-stage':
+            broken['netnames']=dict(module['netnames']);broken['netnames'][net]=copy.deepcopy(module['netnames'][net])
+            orphan=1+max(bit for wire in module['netnames'].values() for bit in wire['bits'] if isinstance(bit,int))
+            broken['netnames'][net]['bits'][1]=orphan
         else:
             broken['netnames']=dict(module['netnames']);broken['netnames'][net]=copy.deepcopy(module['netnames'][net])
             for key in ('ASYNC_REG','async_reg'):broken['netnames'][net]['attributes'].pop(key,None)

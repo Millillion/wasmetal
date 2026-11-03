@@ -83,25 +83,29 @@ serial deadlines and execution results, including replies arriving together.
 Its serial-device tests pass. The programmable system now connects UART loading
 to writable instruction and metadata stores and the complete CPU.
 [All 35 native integration checks](docs/verification/loadable-rtl.json) and
-[all 35 mapped-circuit checks](docs/verification/loadable-mapped.json) pass,
+[all 35 checks on the previous mapped circuit](docs/verification/loadable-mapped.json) pass,
 including program replacement, rejection, timeout, UART break, rate variation
 and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
 and [three board-clock sender rates](docs/verification/loadable-board-rates.json)
 also pass, including the expected 9600-baud setting. A
 [mapped I/O audit](docs/verification/loadable-io.json) checks the UART/reset
-synchronizers and free-running clock, with seven rejected circuit mutations.
+synchronizers and free-running clock, with eight rejected circuit mutations.
 Core-level integration uses a faster test UART; board tests retain the actual
 divider and serial timing. Every mapped UART byte, result and clock count
-matches RTL. Programmable FPGA routing remains unresolved: placement uses
-66,251/83,640 logic cells and 192/208 block RAMs. The
+matches RTL in that completed comparison. The current ABC9 wrapper mapping
+[reduces placement from 66,251 to 62,958 logic cells](docs/verification/loadable-synthesis.json),
+out of 83,640, with the same CPU circuit, all storage capacities and 192/208
+block RAMs. It explicitly preserves the audited reset synchronizer. Execution
+checks and an independent mapping-equivalence check are running for this
+smaller circuit. Programmable FPGA routing remains unresolved. The earlier
 [routing experiment snapshot](docs/verification/loadable-routing-status.json)
 records interrupted and still-running attempts; no programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
 The programmable CI build exposed a command error: the board-clock check was
 given the core-clock simulator. `make loadable-test` now selects the board
-simulator explicitly. Its local rerun has passed all 35 core-clock cases and
-the first board-clock upload; the remaining board checks are still running.
+simulator explicitly. Its local rerun has passed all 35 core-clock cases,
+both board-clock uploads and two sender rates; the last rate check is running.
 The original ROM system has been reverified,
 including its mapped comparisons and fresh routing/bitstream checks.
 

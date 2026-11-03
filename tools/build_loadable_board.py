@@ -51,9 +51,14 @@ def main():
     if args.simulation:params.update(parameters(profile),UART_TICKS=4,UPLOAD_TIMEOUT_CYCLES=4096)
     # Deferring elaboration avoids reading the legacy ROM files: this top has
     # writable, uninitialized stores and does not depend on a prepared program.
+    # Preserve the attributed reset chain's actual nets through ABC9. Without
+    # keep, ABC9 can leave the annotated second-stage alias undriven while the
+    # register survives under a generated name, defeating structural CDC audits.
+    preserve_reset='' if args.simulation else (f'hierarchy -top {top}\n'
+        f'select -assert-count 1 {top}/reset_sync\nsetattr -set keep 1 {top}/reset_sync\nselect -clear\n')
     yosys(f'read_verilog {stub}\nread_verilog -sv -defer -Ibuild -DWASMETAL_MAPPED_CORE '+
         ' '.join(map(str,rtl))+'\nchparam '+' '.join(f'-set {key} {value}' for key,value in params.items())+
-        f' {top}\nsynth_ecp5 -top {top} -json {directory}/wrapper.json\ncheck -assert\n','wrapper',directory)
+        f' {top}\n'+preserve_reset+f'synth_ecp5 -abc9 -top {top} -json {directory}/wrapper.json\ncheck -assert\n','wrapper',directory)
     wrapper=json.loads((directory/'wrapper.json').read_text());restored=copy.deepcopy(core);restored['attributes'].pop('top',None)
     wrapper['modules']['wasmetal_core']=restored
     for name,module in source['modules'].items():
@@ -70,7 +75,7 @@ write_json {directory}/design.json
     for name,value in hashes.items():
         if digest(ROOT/name)!=value:raise ValueError('mapping input changed: '+name)
     mapped={'top':top,'inputs':hashes,'profile':profile,'profile_tag':tag.hex(),
-        'parameters':params,'prepared_program_embedded':False,'core_netlist_sha256':digest(netlist),
+        'parameters':params,'wrapper_mapper':'abc9','prepared_program_embedded':False,'core_netlist_sha256':digest(netlist),
         'netlist_sha256':digest(directory/'design.json'),'physical_hardware_tested':False}
     (directory/'design.manifest.json').write_text(json.dumps(mapped,indent=2)+'\n')
     if args.simulation or args.map_only:print(directory/'design.json');return
