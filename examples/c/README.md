@@ -38,6 +38,11 @@ versions, executable hashes, commands and the resulting Wasm hash are recorded;
 LLVM's major version is selected, but its package patch version is not pinned.
 CI compiles once and uses that same Wasm file for both models.
 
+The [completed local comparison](../../docs/verification/c-workload-mapped.json)
+passes all five inputs in both models with identical UART output and cycle
+counts. The 1,024-byte case takes 210,290 invocation cycles; this excludes
+upload, initialization and result transmission and is not a board measurement.
+
 The generated files are under `build/c-workload`, and reports are
 `reports/c-workload-rtl.json` or `reports/c-workload-mapped.json`. After loading a
 verified [programmable bitstream](../../docs/PROGRAM-UPLOAD.md) onto a board, the

@@ -103,8 +103,9 @@ partial failure reports. Its nine host tests pass, including 50 uploads through
 a pseudo-terminal. The physical-board campaign remains to be run.
 
 A [freestanding C example](examples/c/README.md) now compiles through Clang to
-Wasm and uploads through the same prepared-image path. All five native CRC-32
-cases match an independent Python result; their mapped checks are in progress.
+Wasm and uploads through the same prepared-image path. All five CRC-32 cases
+[pass in both RTL and mapped simulation](docs/verification/c-workload-mapped.json),
+matching independent Python results with identical UART output and cycle counts.
 The compiler-generated workload is also a required CI integration job.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD

@@ -36,6 +36,9 @@ board result and foundry signoff are separate kinds of evidence.
 - [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
   See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).
+- [x] Compile a freestanding C program to Wasm and execute its uploads in both
+  complete-system models, comparing independent results, UART bytes and cycles.
+  See the [compiled CRC-32 example](../examples/c/README.md).
 - [x] Prepare a reproducible physical-board acceptance campaign with exact
   simulation references, repeated program replacement and partial failure
   reports. The [host tooling](BOARD-ACCEPTANCE.md) is tested; the physical run
