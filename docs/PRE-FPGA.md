@@ -25,9 +25,10 @@ board result and foundry signoff are separate kinds of evidence.
 
 ## Program loading and useful operation
 
-- [ ] Upload a prepared program without rebuilding the FPGA bitstream. Define
-  framing, bounds, profile identity, corruption detection, commit/abort behavior
-  and reset recovery before making writable instruction and metadata memories.
+- [x] Define and verify prepared-image framing, bounds, profile identity,
+  corruption detection, commit/abort behavior and reset recovery.
+- [ ] Connect the verified receiver to writable instruction and metadata
+  memories, allowing program upload without rebuilding the FPGA bitstream.
 - [ ] Exercise interrupted uploads, repeated boots, multiple programs, malformed
   traffic and independent serial clock rates in simulation.
 - [ ] Add reproducible workloads and cycle/memory statistics so optimization

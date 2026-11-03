@@ -20,7 +20,7 @@ jobs:
       - name: Install pinned verification tools
         run: python3 tools/bootstrap.py
       - name: Prove memory, AXI and CDC safety, test independent memory models
-        run: make memory-test axi-test cdc-test
+        run: make memory-test axi-test cdc-test image-loader-test
       - name: Preserve memory verification evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -32,6 +32,7 @@ jobs:
             reports/axi*.json
             reports/cdc*.json
             reports/async-axi*.json
+            reports/image-loader*.json
             build/formal-memory-*/*.log
             build/memory-bridge/*.log
             build/masked-bram/*.log
@@ -48,6 +49,10 @@ jobs:
             build/async-axi-memory/*.log
             build/async-axi-memory/mapped/*.log
             build/async-axi-memory/mapped/lut-proof/*.json
+            build/formal-image-loader/*.log
+            build/image-loader/*/*.log
+            build/image-loader/*/mapped/*.log
+            build/image-loader/*/mapped/lut-proof/*.json
           if-no-files-found: warn
           retention-days: 30
   core:

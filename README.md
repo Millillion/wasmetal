@@ -69,6 +69,17 @@ with faster and slower memory clocks. Run `make cdc-test`.
 These components are not yet connected to a DDR controller or the CPU's active
 memory path; physical clock-crossing constraints and controller startup remain.
 
+The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
+receiver and Python encoder. The production layout test checks
+[80,537 store writes in each model](docs/verification/image-loader-mapped.json),
+plus a complete Python-encoded image. Corrupt and interrupted uploads cannot
+authorize execution; [four-state tests](docs/verification/image-loader-four-state.json)
+also reject an unknown payload. An [unbounded safety proof](docs/verification/image-loader-proof.json)
+checks store bounds, initialization and the conditions for execution permission.
+Run `make image-loader-test`.
+Connecting this receiver to writable program storage and the CPU is in progress;
+the existing standalone build still boots from its prepared ROM image.
+
 The [ASIC preparation audit](docs/ASIC.md) retains 82 logical memories containing
 3,035,968 bits and identifies the memory-port, clock-edge and boot requirements
 for a silicon implementation. This is technology-neutral elaboration; it is
