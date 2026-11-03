@@ -11,7 +11,7 @@ RTL := rtl/vendor.vlt $(wildcard rtl/*.sv) $(HARDFLOAT)
 VFLAGS := -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTIONS --top-module wasmetal_core -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV
 .PHONY: sim lint test test-all test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks synth fpga-sim fpga-smoke fpga-host fpga-core fpga-bitstream
 .PHONY: standalone-image standalone-sim standalone-test standalone-core standalone-bitstream standalone-mapped-test
-.PHONY: memory-test axi-test asic-audit
+.PHONY: memory-test axi-test cdc-test asic-audit
 STANDALONE_IMAGE ?= examples/standalone/selftest.wat
 sim: build/obj/Vwasmetal_core
 sim/core_config.hpp: $(RTL) $(wildcard third_party/hardfloat/source/*.vi) $(wildcard third_party/hardfloat/source/RISCV/*.vi) $(wildcard fpga/*.sv) fpga/ports.json fpga/profile.json tools/generate_fpga_ports.py
@@ -96,5 +96,10 @@ memory-test:
 axi-test:
 	python3 tools/prove_axi.py
 	python3 tools/check_axi.py --mapped
+cdc-test:
+	python3 tools/prove_cdc.py
+	python3 tools/check_cdc.py --mapped
+	python3 tools/audit_cdc.py
+	python3 tools/check_axi.py --async --mapped
 asic-audit: standalone-image
 	python3 tools/audit_asic.py

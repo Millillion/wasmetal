@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "unbounded register initialization and stall safety; not complete transfer equivalence, liveness or analog CDC signoff",
+  "properties": [
+    "source payload stable while waiting for response",
+    "destination valid and payload held through stalls",
+    "all RTL registers remain defined after reset"
+  ],
+  "environment": "initial common reset; arbitrary binary inputs, independent clocks and later common resets; clocks may stop",
+  "clock_model": "Yosys clk2fflogic converts both clocks to edge detection on the formal global time step",
+  "reachable_state_lemmas": "proven jointly with the original RTL assertions; no payload or clock fairness assumptions",
+  "negative_controls_rejected": [
+    "missing-payload-reset",
+    "payload-changes-while-pending"
+  ],
+  "inputs": {
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "tools/prove_cdc.py": "681728c7c96df05ac2257f4a1d0139f92077d859f8d87a23ff0c4754c087d955",
+    "build/formal-cdc/cdc.sv": "07267bd9b0da43502302387f611d7c0cb1eff952a06c57e9db9f4719e85b3743"
+  },
+  "physical_hardware_tested": false
+}

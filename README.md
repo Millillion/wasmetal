@@ -58,7 +58,16 @@ The wider memory costs 4,038 additional logic cells, with block-RAM use unchange
 The [external-memory AXI4 adapter](docs/AXI.md) separately passes
 [21,732 transactions in RTL and mapped simulation](docs/verification/axi-mapped.json)
 and an [inductive protocol safety proof](docs/verification/axi-proof.json).
-It is not yet connected to DDR or a different clock domain. Run `make axi-test`.
+Run `make axi-test`. The [clock-crossing link](docs/CDC.md) passes
+[7,290 transfers across seven clock configurations](docs/verification/cdc-mapped.json),
+including stopped clocks and 294 resets. Its
+[initialization and stall safety proof](docs/verification/cdc-proof.json) is
+unbounded; its [structural and four-state checks](docs/verification/cdc-structure.json)
+also pass. The assembled asynchronous AXI path passes
+[43,464 transactions in each model](docs/verification/async-axi-mapped.json),
+with faster and slower memory clocks. Run `make cdc-test`.
+These components are not yet connected to a DDR controller or the CPU's active
+memory path; physical clock-crossing constraints and controller startup remain.
 
 The [ASIC preparation audit](docs/ASIC.md) retains 82 logical memories containing
 3,035,968 bits and identifies the memory-port, clock-edge and boot requirements

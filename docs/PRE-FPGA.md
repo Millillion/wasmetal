@@ -15,8 +15,10 @@ board result and foundry signoff are separate kinds of evidence.
   cycles, and repeat standalone RTL, mapped-circuit and routing checks.
 - [x] Add an independently verified AXI4 adapter for a future board-specific
   memory controller, including separate channel stalls and error recovery.
-- [ ] Verify crossing to a separate memory-controller clock and integrate
-  controller startup/reset sequencing before issuing timed memory requests.
+- [x] Verify a separate memory clock, common reset and stopped-clock recovery;
+  test the assembled clock-crossing and AXI path in RTL and mapped simulation.
+- [ ] Integrate controller startup/calibration and physical clock-crossing
+  constraints before issuing timed CPU memory requests.
 - [ ] Add an external-memory controller with independently checked device
   commands, timing, refresh, masking and reset. Board-specific PHY timing and
   electrical behavior still require hardware.

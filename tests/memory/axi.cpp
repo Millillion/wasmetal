@@ -1,7 +1,14 @@
 // SPDX-License-Identifier: MIT
 // Independent AXI subordinate and byte oracle; channel handshakes are sampled
 // separately. No RTL internals or implementation-state names are accessed.
+#ifdef WASMETAL_ASYNC_AXI
+#include "Vwasmetal_async_axi_memory.h"
+using Model=Vwasmetal_async_axi_memory;
+static unsigned source_half=7,memory_half=3,clock_phase=1;
+#else
 #include "Vwasmetal_axi_memory.h"
+using Model=Vwasmetal_axi_memory;
+#endif
 #include "verilated.h"
 #include <array>
 #include <cstdint>
@@ -25,13 +32,16 @@ template<class T> static void pack(T& data,const Word& value) {
 
 class Test {
 public:
-    Vwasmetal_axi_memory dut;
+    Model dut;
     std::array<uint8_t,size> actual{},expected{};
     std::mt19937 rng{0x41584934};
     unsigned order=0,response=0,response_id=0;
     bool last=true,blocked=false;
     uint64_t accepted=0;
 private:
+#ifdef WASMETAL_ASYNC_AXI
+    uint64_t simulation_time=0;
+#endif
     bool have_aw=false,have_w=false,pending_b=false,pending_r=false;
     uint32_t saved_aw=0;
     uint16_t saved_mask=0;
@@ -42,8 +52,14 @@ private:
     uint16_t old_mask=0;
     Word old_data{};
 public:
-    void tick() {
-        if(dut.reset) {
+    void sample_backend(bool edge) {
+        dut.eval();
+#ifdef WASMETAL_ASYNC_AXI
+        const bool backend_reset=dut.axi_reset;
+#else
+        const bool backend_reset=dut.reset;
+#endif
+        if(backend_reset) {
             have_aw=have_w=pending_b=pending_r=false;
             held_aw=held_w=held_ar=false;
         }
@@ -53,8 +69,8 @@ public:
         dut.bvalid=pending_b && b_delay==0;dut.bresp=write_response;dut.bid=response_id;
         dut.rvalid=pending_r && r_delay==0;dut.rresp=read_response;dut.rid=response_id;dut.rlast=last;
         Word data=read_word;if(corrupt_read) data[0]^=1;pack(dut.read_data,data);
-        dut.clk=0;dut.eval();
-        if(!dut.reset) {
+        dut.eval();
+        if(!backend_reset && edge) {
             if(held_aw) require(dut.awvalid && dut.awaddr==old_aw,"AW changed during a stall");
             if(held_w) require(dut.wvalid && dut.wstrb==old_mask && unpack(dut.write_data)==old_data,"W changed during a stall");
             if(held_ar) require(dut.arvalid && dut.araddr==old_ar,"AR changed during a stall");
@@ -98,11 +114,27 @@ public:
             held_aw=dut.awvalid && !dut.awready;held_w=dut.wvalid && !dut.wready;held_ar=dut.arvalid && !dut.arready;
             old_aw=dut.awaddr;old_ar=dut.araddr;old_mask=dut.wstrb;old_data=unpack(dut.write_data);
         }
-        dut.clk=1;dut.eval();dut.clk=0;dut.eval();++clocks;
+    }
+    void tick() {
+#ifdef WASMETAL_ASYNC_AXI
+        for(unsigned step=0;step<2*source_half;step++,simulation_time++) {
+            const bool core_clock=((simulation_time/source_half)&1)!=0;
+            const bool memory_clock=(((simulation_time+clock_phase)/memory_half)&1)!=0;
+            sample_backend(memory_clock && !dut.axi_clk);
+            dut.clk=core_clock;dut.axi_clk=memory_clock;dut.eval();
+        }
+#else
+        dut.clk=0;sample_backend(true);dut.clk=1;dut.eval();dut.clk=0;dut.eval();
+#endif
+        ++clocks;
     }
     void reset() {
         dut.valid=0;dut.reset=1;tick();tick();dut.reset=0;
         for(unsigned n=0;n<4;n++) {tick();require(!dut.ready && !dut.awvalid && !dut.wvalid && !dut.arvalid,"phantom transaction after reset");}
+#ifdef WASMETAL_ASYNC_AXI
+        unsigned count=0;while(!dut.online && count++<1000) tick();
+        require(dut.online,"asynchronous AXI link did not initialize");
+#endif
     }
     void start(uint32_t address,bool write,uint16_t mask,const Word& data) {
         dut.address=address;dut.write=write;dut.mask=mask;pack(dut.wdata,data);dut.valid=1;
@@ -144,7 +176,13 @@ public:
 int main(int argc,char** argv) {
     Verilated::commandArgs(argc,argv);
     try {
-        if(argc==2 && std::string(argv[1])=="--corrupt-read") corrupt_read=true;
+        for(int n=1;n<argc;n++) {
+            if(std::string(argv[n])=="--corrupt-read") corrupt_read=true;
+#ifdef WASMETAL_ASYNC_AXI
+            else if(std::string(argv[n])=="--slow-axi") {source_half=3;memory_half=7;clock_phase=2;}
+#endif
+            else throw std::runtime_error("unknown test argument");
+        }
         auto t=std::make_unique<Test>();t->reset();Word pattern{};
         for(unsigned address=0;address<size;address+=16) {
             for(unsigned n=0;n<16;n++) pattern[n]=uint8_t(address/16+n*19);

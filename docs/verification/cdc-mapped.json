@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "scope": "digital transaction integrity under independently scheduled clocks, not metastability or physical timing signoff",
+  "clock_half_periods_and_phases": [
+    [
+      2,
+      3,
+      0
+    ],
+    [
+      3,
+      2,
+      1
+    ],
+    [
+      5,
+      7,
+      3
+    ],
+    [
+      4,
+      4,
+      2
+    ],
+    [
+      32,
+      1,
+      0
+    ],
+    [
+      1,
+      32,
+      17
+    ],
+    [
+      1,
+      1,
+      0
+    ]
+  ],
+  "reset_phases": [
+    "before destination capture",
+    "backend pending",
+    "response crossing",
+    "source completed"
+  ],
+  "tests": {
+    "rtl": {
+      "status": "passed",
+      "transfers": 7290,
+      "time_steps": 3183543,
+      "clock_configurations": 7,
+      "resets": 294,
+      "paused_transfers": 371,
+      "reset_phase_coverage": 15,
+      "binary_sha256": "d9cbe27528ccffb36272b4776f32b9049dd9062a4cb7a9b314bae5158951bee1",
+      "negative_control_rejected": true
+    },
+    "mapped": {
+      "status": "passed",
+      "transfers": 7290,
+      "time_steps": 3183543,
+      "clock_configurations": 7,
+      "resets": 294,
+      "paused_transfers": 371,
+      "reset_phase_coverage": 15,
+      "binary_sha256": "29cf73feb971c503c9ad56928481c594a4546c614bb1e0eca7a04c94640ce85e",
+      "negative_control_rejected": true
+    }
+  },
+  "inputs": {
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "tests/memory/cdc.cpp": "62d32927a912f19c0d8ff4a64f82a9de1c48e2f9d553bb4e31fd69b8caac7199",
+    "tools/check_cdc.py": "fe8d2a3fda8e78c17b1cc12d032d75f18527e654f4b314815de56ac958ddffc1",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "physical_hardware_tested": false,
+  "physical_cdc_constraints_verified": false,
+  "mapped_build": {
+    "backend": "standalone-mapped-ecp5-functional",
+    "top": "wasmetal_memory_cdc",
+    "inputs": {
+      "build/memory-cdc/cdc.json": "4cfc460f53aded5fbbd89cfe44d3b7a12a6d167a59754c88b953e4714b3f570a",
+      "tools/build_standalone_gate_sim.py": "eef5411ecca80e21c2237b6ba7eef7dc21cbde8be51580f804dd58d4b6f38f70",
+      "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+      "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+      "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+      "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+      ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+      "tests/memory/cdc.cpp": "62d32927a912f19c0d8ff4a64f82a9de1c48e2f9d553bb4e31fd69b8caac7199",
+      "build/memory-cdc/cdc.manifest.json": "58eeb521e9dfe5c8cc1f1e5392a518b03949ffe3e1761e26977641f805edb9ec",
+      "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+      "tools/check_cdc.py": "fe8d2a3fda8e78c17b1cc12d032d75f18527e654f4b314815de56ac958ddffc1",
+      "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+      "build/memory-cdc/mapped/circuit.v": "fa689363fb1537d4f51d9ee3ac4ff2aa5e62c2279dc22b68152d38e1fc3321e0",
+      "build/memory-cdc/mapped/cells.v": "e8bdcf8d30b67f40164e870b325b31bb7dd8f7f9dcf6dc908153f71bd7b03437",
+      "build/memory-cdc/mapped/lut-proof/report.json": "6802981cd4d106ccd8835f8534f40eaab2f70ef83be83d3793fa4a0cfc850731"
+    },
+    "binary_sha256": "29cf73feb971c503c9ad56928481c594a4546c614bb1e0eca7a04c94640ce85e",
+    "netlist_sha256": "4cfc460f53aded5fbbd89cfe44d3b7a12a6d167a59754c88b953e4714b3f570a",
+    "ram_modes": {},
+    "compilation": {
+      "fast_sim": true,
+      "portable": true,
+      "compiler": "/usr/bin/clang++",
+      "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+      "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+      "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+    },
+    "physical_hardware_tested": false
+  }
+}

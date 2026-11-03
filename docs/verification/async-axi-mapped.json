@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "scope": "one outstanding 128-bit AXI4 beat; behavioral subordinate, no DDR PHY; independent clocks and common reset",
+  "base_address": 4096,
+  "tests": {
+    "rtl": {
+      "axi_faster": {
+        "status": "passed",
+        "transactions": 21732,
+        "cycles": 262718,
+        "aw_before_w": 3554,
+        "w_before_aw": 3539,
+        "aw_with_w": 3538,
+        "binary_sha256": "a35707b6a5df0b341ccd742b2f7508d02b203edb115ab22b21f400ecbb6449a0",
+        "negative_control_rejected": true
+      },
+      "axi_slower": {
+        "status": "passed",
+        "transactions": 21732,
+        "cycles": 767501,
+        "aw_before_w": 3548,
+        "w_before_aw": 3533,
+        "aw_with_w": 3533,
+        "binary_sha256": "a35707b6a5df0b341ccd742b2f7508d02b203edb115ab22b21f400ecbb6449a0",
+        "negative_control_rejected": true
+      }
+    },
+    "mapped": {
+      "axi_faster": {
+        "status": "passed",
+        "transactions": 21732,
+        "cycles": 262718,
+        "aw_before_w": 3554,
+        "w_before_aw": 3539,
+        "aw_with_w": 3538,
+        "binary_sha256": "7d5f1d1882a5a8ce69bc6bde1dac2e55eb71a4a711a35dfe9b28963f0f2e8759",
+        "negative_control_rejected": true
+      },
+      "axi_slower": {
+        "status": "passed",
+        "transactions": 21732,
+        "cycles": 767501,
+        "aw_before_w": 3548,
+        "w_before_aw": 3533,
+        "aw_with_w": 3533,
+        "binary_sha256": "7d5f1d1882a5a8ce69bc6bde1dac2e55eb71a4a711a35dfe9b28963f0f2e8759",
+        "negative_control_rejected": true
+      }
+    }
+  },
+  "inputs": {
+    "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+    "tests/memory/axi.cpp": "a99a200de13f9cfaef08a42d77548ec3f598ac3c957d565e335243b585675760",
+    "tools/check_axi.py": "a2ad848524de1ab814bb2955fee43c4638012df7b90b67ce5d5559a66bb57d73",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "physical_hardware_tested": false,
+  "mapped_build": {
+    "backend": "standalone-mapped-ecp5-functional",
+    "top": "wasmetal_async_axi_memory",
+    "inputs": {
+      "build/async-axi-memory/axi.json": "a1ddcb196ab787af25daeb25f19578a6c9a68c4ccfdd4d0d5ec5e23f63ff16cb",
+      "tools/build_standalone_gate_sim.py": "eef5411ecca80e21c2237b6ba7eef7dc21cbde8be51580f804dd58d4b6f38f70",
+      "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+      "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+      "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+      "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+      ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+      "tests/memory/axi.cpp": "a99a200de13f9cfaef08a42d77548ec3f598ac3c957d565e335243b585675760",
+      "build/async-axi-memory/axi.manifest.json": "e6e7436804c11d55437f9733598830859c48c1da18c7c260631452da0233611b",
+      "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+      "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+      "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+      "tools/check_axi.py": "a2ad848524de1ab814bb2955fee43c4638012df7b90b67ce5d5559a66bb57d73",
+      "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+      "build/async-axi-memory/mapped/circuit.v": "8828001c8deb8fd0ce6a685f0e1ceabd2a7fe843b53d35f1a01f06f5fc35e0ca",
+      "build/async-axi-memory/mapped/cells.v": "e8bdcf8d30b67f40164e870b325b31bb7dd8f7f9dcf6dc908153f71bd7b03437",
+      "build/async-axi-memory/mapped/lut-proof/report.json": "424f7aca1b6bd41f8eff1f0caa168a965f2e9db9984bcae1094f0320f5f19d16"
+    },
+    "binary_sha256": "7d5f1d1882a5a8ce69bc6bde1dac2e55eb71a4a711a35dfe9b28963f0f2e8759",
+    "netlist_sha256": "a1ddcb196ab787af25daeb25f19578a6c9a68c4ccfdd4d0d5ec5e23f63ff16cb",
+    "ram_modes": {},
+    "compilation": {
+      "fast_sim": true,
+      "portable": true,
+      "compiler": "/usr/bin/clang++",
+      "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+      "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+      "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+    },
+    "physical_hardware_tested": false
+  },
+  "clocks": {
+    "axi_faster": {
+      "source_half": 7,
+      "axi_half": 3,
+      "phase": 1
+    },
+    "axi_slower": {
+      "source_half": 3,
+      "axi_half": 7,
+      "phase": 2
+    }
+  }
+}

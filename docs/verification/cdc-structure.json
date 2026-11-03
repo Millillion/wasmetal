@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "scope": "designated synchronizers, generic register crossings and four-state startup/reset",
+  "structure": {
+    "generic": {
+      "chains": [
+        {
+          "name": "source_release",
+          "clock": "s_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "destination_release",
+          "clock": "m_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "request_sync",
+          "clock": "m_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "response_sync",
+          "clock": "s_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "destination_up_sync",
+          "clock": "s_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        }
+      ],
+      "allowed_register_crossings": [
+        "destination_up_sync",
+        "request payload",
+        "request_sync",
+        "response payload",
+        "response_sync"
+      ]
+    },
+    "mapped": {
+      "chains": [
+        {
+          "name": "source_release",
+          "clock": "s_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "destination_release",
+          "clock": "m_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "request_sync",
+          "clock": "m_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "response_sync",
+          "clock": "s_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        },
+        {
+          "name": "destination_up_sync",
+          "clock": "s_clk",
+          "stages": 2,
+          "first_stage_consumers": 1
+        }
+      ],
+      "allowed_register_crossings": []
+    }
+  },
+  "negative_controls_rejected": [
+    "missing-attribute",
+    "first-stage-output",
+    "bypassed-stage",
+    "raw-data-crossing",
+    "uninitialized-request-toggle"
+  ],
+  "inputs": {
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "tests/memory/cdc_four_state.sv": "c90e3dd32b73dce996541fa2a8a9afba9ce21e42fb3e71b4be9ad5bfdbc1dfdd",
+    "tools/audit_cdc.py": "a83171dc9b6593b55512d985b0dee5d0e1a724180eab7ea374819e683371c53a",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "build/memory-cdc/cdc.json": "4cfc460f53aded5fbbd89cfe44d3b7a12a6d167a59754c88b953e4714b3f570a"
+  },
+  "generic_netlist_sha256": "e7eba8977a432e2c0e079b4f06b4846868849c5d10c1fb4bbb9c378925153b46",
+  "physical_placement_checked": false,
+  "bundled_data_delays_constrained": false,
+  "metastability_signoff": false
+}

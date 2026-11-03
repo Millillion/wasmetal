@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "scope": "one outstanding 128-bit AXI4 beat; behavioral subordinate, no DDR PHY or clock crossing",
+  "scope": "one outstanding 128-bit AXI4 beat; behavioral subordinate, no DDR PHY; no clock crossing",
   "base_address": 4096,
   "tests": {
     "rtl": {
@@ -10,7 +10,7 @@
       "aw_before_w": 3552,
       "w_before_aw": 3537,
       "aw_with_w": 3538,
-      "binary_sha256": "a4b4f3cd8e99ef8e7bc2dcb9973a3bc7085357e9c0f5b43183a7834cc2018bab",
+      "binary_sha256": "d8c400ee95c4ec5725319e5c86252c1640b3fb4d5091e66862f973f444a44946",
       "negative_control_rejected": true
     },
     "mapped": {
@@ -20,14 +20,14 @@
       "aw_before_w": 3552,
       "w_before_aw": 3537,
       "aw_with_w": 3538,
-      "binary_sha256": "67a010ff6ab081157924103de7e5218b3e9bce060e2e7e41fc2adceadef36ea9",
+      "binary_sha256": "a65c011d633b5df91b924b44dff036b8c40e7ff6d9f9798f98641034d24d0038",
       "negative_control_rejected": true
     }
   },
   "inputs": {
     "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
-    "tests/memory/axi.cpp": "4fdb55cbf5110f76399d144cb873edc0cd85b481e5904507b71fd126b0d8808c",
-    "tools/check_axi.py": "98ce839a51edba3c4a2a7144b3ba83cee857c693dd3c616b1c6b21ceb3429c3d",
+    "tests/memory/axi.cpp": "a99a200de13f9cfaef08a42d77548ec3f598ac3c957d565e335243b585675760",
+    "tools/check_axi.py": "a2ad848524de1ab814bb2955fee43c4638012df7b90b67ce5d5559a66bb57d73",
     "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
   },
   "physical_hardware_tested": false,
@@ -42,16 +42,16 @@
       "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
       "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
       ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
-      "tests/memory/axi.cpp": "4fdb55cbf5110f76399d144cb873edc0cd85b481e5904507b71fd126b0d8808c",
-      "build/axi-memory/axi.manifest.json": "9cfac5addaf0980904cf51a8dc4e72b206e634c1b208ceb3cf101a17fac42afe",
+      "tests/memory/axi.cpp": "a99a200de13f9cfaef08a42d77548ec3f598ac3c957d565e335243b585675760",
+      "build/axi-memory/axi.manifest.json": "62ee0f28194dc9afa0da9dfd3959c24d9ffc8948dac73d226ced0176c1ededfc",
       "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
-      "tools/check_axi.py": "98ce839a51edba3c4a2a7144b3ba83cee857c693dd3c616b1c6b21ceb3429c3d",
+      "tools/check_axi.py": "a2ad848524de1ab814bb2955fee43c4638012df7b90b67ce5d5559a66bb57d73",
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
       "build/axi-memory/mapped/circuit.v": "76eb2e588925cebf2bd08bb14ebec82ce20aeec5b202a077ec406551d5902413",
       "build/axi-memory/mapped/cells.v": "e8bdcf8d30b67f40164e870b325b31bb7dd8f7f9dcf6dc908153f71bd7b03437",
       "build/axi-memory/mapped/lut-proof/report.json": "2562d73c2b69fcdbec885158340fc812c522ffce6caf35745f4ec33c1e6df40c"
     },
-    "binary_sha256": "67a010ff6ab081157924103de7e5218b3e9bce060e2e7e41fc2adceadef36ea9",
+    "binary_sha256": "a65c011d633b5df91b924b44dff036b8c40e7ff6d9f9798f98641034d24d0038",
     "netlist_sha256": "5d04093a3ff41253e02115f765d071b9a057be3573d6901c6476f15d2790f781",
     "ram_modes": {},
     "compilation": {
