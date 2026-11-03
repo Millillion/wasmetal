@@ -96,6 +96,12 @@ jobs, and both must pass the final integration check.
 The original ROM system has been reverified,
 including its mapped comparisons and fresh routing/bitstream checks.
 
+The [board acceptance runner](docs/BOARD-ACCEPTANCE.md) prepares 25 programs
+whose upload packets match the native simulation reference, then checks results
+and execution cycles over serial with repeatable program replacement and
+partial failure reports. Its nine host tests pass, including 50 uploads through
+a pseudo-terminal. The physical-board campaign remains to be run.
+
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
 integer dot products, with independently calculated results and repeated resets.
 For 1,024 multiply-accumulates, SIMD takes 21,524 invocation cycles versus

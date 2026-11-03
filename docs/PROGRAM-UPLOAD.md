@@ -19,7 +19,7 @@ make sim
 python3 tools/prepare_standalone.py examples/standalone/selftest.wat --output build/program-image
 ```
 
-The new bitstream is `build/loadable-ulx3s/wasmetal.bit`. It contains the complete
+A successful build writes `build/loadable-ulx3s/wasmetal.bit`. It contains the complete
 CPU and writable storage, with no prepared program embedded. Follow the board
 connection and volatile-SRAM loading procedure in the [FPGA guide](FPGA.md),
 using this bitstream path. Once it is running on the correct board:
@@ -27,6 +27,9 @@ using this bitstream path. Once it is running on the correct board:
 ```sh
 python3 tools/upload_program.py build/program-image --device /dev/ttyUSB0
 ```
+
+For repeated checks of 25 programs against their simulated results and cycle
+counts, use the [board acceptance runner](BOARD-ACCEPTANCE.md).
 
 No physical board has been programmed or tested by this work. The existing
 ULX3S clock divider and 9600-baud connection are retained. The busy LED stays on

@@ -120,6 +120,8 @@ loadable-test: sim
 	python3 tools/build_loadable_sim.py --board
 	python3 tools/check_loadable.py --board --no-recovery --report reports/loadable-board-rtl.json
 	python3 tools/check_loadable_board_rates.py
+	python3 tests/board_acceptance_test.py
+	python3 tools/board_acceptance.py prepare
 loadable-bitstream: standalone-core
 	python3 tools/build_loadable_board.py
 	python3 tools/audit_loadable_io.py

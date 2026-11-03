@@ -36,6 +36,10 @@ board result and foundry signoff are separate kinds of evidence.
 - [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
   See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).
+- [x] Prepare a reproducible physical-board acceptance campaign with exact
+  simulation references, repeated program replacement and partial failure
+  reports. The [host tooling](BOARD-ACCEPTANCE.md) is tested; the physical run
+  still requires a board.
 - [ ] Define the host-call/runtime boundary for applications that need I/O;
   arbitrary Wasm binary validation and garbage collection are additional work.
 
