@@ -12,6 +12,13 @@ images, not a Wasm binary validator, authentication mechanism or secure boot.
 
 ## Building and using the programmable system
 
+All 35 local RTL/mapped integration cases pass, but the programmable ULX3S
+bitstream has not yet completed routing and timing verification. The
+[routing snapshot](verification/loadable-routing-status.json) records the
+remaining congestion and attempted placements. The commands below describe
+the build and subsequent board workflow; a verified programmable bitstream
+is still required before physical acceptance testing.
+
 ```sh
 python3 tools/bootstrap.py --fpga-tools
 make loadable-bitstream

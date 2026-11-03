@@ -32,7 +32,10 @@ board result and foundry signoff are separate kinds of evidence.
 - [x] Exercise interrupted uploads, repeated boots, multiple programs, malformed
   traffic and independent serial clock rates in simulation.
   All 35 native and mapped checks pass with identical UART output and clocks.
-  Programmable FPGA routing is still in progress. See the [upload guide](PROGRAM-UPLOAD.md).
+  See the [upload guide](PROGRAM-UPLOAD.md).
+- [ ] Complete programmable FPGA routing, timing verification and bitstream
+  round-trip checks. The current ULX3S placement uses 192 of 208 block RAMs;
+  [routing attempts remain incomplete](verification/loadable-routing-status.json).
 - [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
   See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).

@@ -92,7 +92,11 @@ also pass, including the expected 9600-baud setting. A
 synchronizers and free-running clock, with seven rejected circuit mutations.
 Core-level integration uses a faster test UART; board tests retain the actual
 divider and serial timing. Every mapped UART byte, result and clock count
-matches RTL. Programmable FPGA routing is still in progress. Routing and mapped
+matches RTL. Programmable FPGA routing remains unresolved: placement uses
+66,251/83,640 logic cells and 192/208 block RAMs. The
+[routing experiment snapshot](docs/verification/loadable-routing-status.json)
+records interrupted and still-running attempts; no programmable bitstream has
+passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
 The original ROM system has been reverified,
 including its mapped comparisons and fresh routing/bitstream checks.
