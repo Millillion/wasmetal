@@ -1,8 +1,9 @@
 # Synchronous SRAM macro boundary
 
 `soc/asic/wasmetal_sram_memory.sv` adapts the existing 128-bit physical memory
-transaction interface to a synchronous SRAM port. It is verified separately
-and is not connected to the CPU's active memory path. No foundry macro, PDK,
+transaction interface to a synchronous SRAM port. The default FPGA build uses
+block RAM; a separate full-CPU simulation connects this adapter to a behavioral
+SRAM. No foundry macro, PDK,
 standard-cell mapping or silicon timing is supplied by this component.
 
 ## Macro contract
@@ -82,3 +83,41 @@ reset isolation, unknown-read propagation, subsequent known reads and fault
 responses. Mutants that erase unknown data or remove reset isolation fail.
 The ECP5 mapping is an extra logic implementation check; it is not an ASIC
 implementation of the SRAM.
+
+## Complete-CPU integration
+
+```sh
+make sim
+python3 tools/check_sram_system.py --latency 1
+python3 tools/check_sram_system.py --latency 3
+python3 tools/check_sram_system.py --latency 1 --negative-control
+```
+
+The integration builder explicitly excludes the FPGA backing-memory module
+and substitutes `tests/asic/wasmetal_bram.sv`, which connects the real SRAM
+adapter and an independent behavioral array to the same memory-bridge port.
+The CPU, region checks, serial loader, prepared stores and test driver stay
+in the execution path. The array starts with nonzero values and survives
+reset; boot initialization must clear it through actual memory transactions.
+The model also permits pending macro reads to complete after reset. The
+component tests above directly target reset during those read pipelines.
+
+Each latency runs all 25 program uploads and ten protocol/reset recovery cases.
+An additional model corrupts SRAM reads; the independent UART-result checker
+must reject the self-test's values. The dedicated CI job retains observations,
+build inputs and logs. Its distinct simulator identity cannot substitute for
+the normal FPGA model in the mapped comparison or board-acceptance reference.
+
+All 35 cases pass at [latency 1](verification/asic-sram-system-1.json) and
+[latency 3](verification/asic-sram-system-3.json). The
+[corrupted-read control](verification/asic-sram-system-1-negative.json) is
+rejected for incorrect execution results. The comprehensive self-test takes
+2,017 invocation cycles at latency 1 and 2,041 at latency 3, compared with
+2,005 on the FPGA block-RAM backend. These differences reflect memory wait
+cycles in simulation, not ASIC frequency or physical performance.
+
+These are RTL system simulations with a behavioral macro. The adapter has
+separate mapped-circuit checks above; this does not claim that the entire SRAM
+system has been mapped to standard cells or tested with foundry memory models.
+The remaining core memories still have the contracts described in the
+[ASIC audit](ASIC.md).

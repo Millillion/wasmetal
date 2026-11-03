@@ -65,9 +65,12 @@ An ASIC SRAM adapter can therefore replace the FPGA-specific banking without
 changing the logical Wasm address checks. The core's internal stack and control
 memories have separate timing contracts and are not covered by that flexibility.
 The separately verified [synchronous SRAM adapter](SRAM.md) now implements that
-transaction boundary with explicit byte masks and fixed read latency. It still
-needs a compatible real macro wrapper and integration into the CPU's memory
-path; it does not replace the other logical memories listed above.
+transaction boundary with explicit byte masks and fixed read latency. A
+separate complete-CPU simulation binds it into the memory path with a
+behavioral SRAM; all 35 integration cases pass at each of two read latencies.
+A compatible real
+macro wrapper remains necessary; this does not replace the other logical
+memories listed above or change the default FPGA backend.
 
 For programmable storage, the generic audit also reports an asynchronous region
 array feeding a separately retained enabled read register. A macro integration

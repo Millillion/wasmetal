@@ -55,7 +55,11 @@ board result and foundry signoff are separate kinds of evidence.
   is an ASIC implementation.
 - [x] Define and independently verify a synchronous backing-SRAM adapter with
   byte masks, configurable read latency and reset/release behavior. The
-  [macro contract](SRAM.md) is concrete; a real macro and CPU integration remain.
+  [macro contract](SRAM.md) is concrete; integration with a real macro remains.
+- [x] Connect that adapter to the complete CPU in simulation and run all 35
+  system cases at two read latencies, starting SRAM with nonzero contents and
+  preserving memory across reset. Reject deliberately corrupted read data.
+  This uses a behavioral macro; the default FPGA backend remains block RAM.
 - [ ] Define implementation timing constraints against selected clocks,
   interfaces, macros, standard cells and operating corners.
 - [ ] Define SRAM/ROM macro contracts, power-on reset, debug/test access,

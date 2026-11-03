@@ -9,6 +9,33 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  asic-memory-system:
+    name: Complete CPU with behavioral ASIC SRAM
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned verification tools and build the software preparation frontend
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+      - name: Verify complete programmable execution at two SRAM latencies
+        run: |
+          python3 tools/check_sram_system.py --latency 1
+          python3 tools/check_sram_system.py --latency 3
+          python3 tools/check_sram_system.py --latency 1 --negative-control
+      - name: Preserve SRAM system observations and failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: asic-sram-system
+          path: |
+            reports/asic-sram-system-*.json
+            build/asic-sram-system-*/*.log
+          if-no-files-found: warn
+          retention-days: 30
   memory:
     name: Memory interface verification
     runs-on: ubuntu-24.04

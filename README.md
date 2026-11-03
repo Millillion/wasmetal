@@ -130,7 +130,13 @@ every byte mask, five capacity/latency configurations and 90 resets. Its
 [unbounded protocol proof](docs/verification/sram-proof.json) and
 [four-state checks](docs/verification/sram-four-state.json) also pass. It defines
 a concrete interface for a future macro wrapper; it is not connected to the
-CPU and does not supply a foundry SRAM or physical timing signoff.
+default FPGA memory path and does not supply a foundry SRAM or physical timing
+signoff. A separate complete-CPU simulation binds this adapter to a behavioral
+SRAM with nonzero initial contents. All 35 system cases pass at
+[one-cycle](docs/verification/asic-sram-system-1.json) and
+[three-cycle](docs/verification/asic-sram-system-3.json) read latencies; deliberately
+corrupted reads fail the independent result check. This full-system SRAM test
+also runs in CI.
 
 ## RTL Microarchitecture Simulator
 

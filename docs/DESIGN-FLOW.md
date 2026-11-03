@@ -125,6 +125,7 @@ RTL with `make sim`. Both official-suite commands use that executable by default
 | Compiled freestanding C through programmable uploads | Yes; all five local RTL/mapped comparisons passed |
 | Programmable placement/routing and bitstream round trip | Required by CI; routing has not completed locally |
 | Wide memory, AXI, clock crossing and SRAM adapter checks | Yes; component proofs, RTL and mapped simulations |
+| Complete CPU through SRAM adapter and behavioral macro | Yes; separate RTL job at two read latencies, with a corrupt-read control |
 
 The [programmable integration flow](PROGRAM-UPLOAD.md) requires all six mapped
 groups, native tests, the compiled C workload and board routing. Its execution
