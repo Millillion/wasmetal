@@ -224,7 +224,8 @@ groups, native-model substitution, changed simulator binaries and incorrect
 results/clocks are rejected. The [completed comparison](verification/loadable-mapped.json)
 passes all 35 cases and seven negative controls, preserving both simulator
 identities and checker source hashes in the merged receipt.
-That receipt predates the ABC9 wrapper update; its execution recheck is running.
+The receipt now covers the current ABC9 wrapper, with all 35 cases passing and
+every UART byte, result and clock count matching native RTL.
 These are bounded integration cases, separate from the 259-suite official
 host-backed corpus.
 CI builds the mapped simulator independently of board routing so routing

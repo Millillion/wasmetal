@@ -91,7 +91,7 @@ serial deadlines and execution results, including replies arriving together.
 Its serial-device tests pass. The programmable system now connects UART loading
 to writable instruction and metadata stores and the complete CPU.
 [All 35 native integration checks](docs/verification/loadable-rtl.json) and
-[all 35 checks on the previous mapped circuit](docs/verification/loadable-mapped.json) pass,
+[all 35 checks on the current ABC9 mapped circuit](docs/verification/loadable-mapped.json) pass,
 including program replacement, rejection, timeout, UART break, rate variation
 and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
 and [three board-clock sender rates](docs/verification/loadable-board-rates.json)
@@ -109,8 +109,7 @@ identical stored state and CPU outputs, an
 passes for 15,976 boundary bits and rejects a deliberately inverted output.
 The [accelerated simulation mapping](docs/verification/loadable-simulation-mapping-proof.json)
 also passes; CI requires both comparisons.
-Execution rechecks are still running. Programmable FPGA routing remains
-unresolved. The earlier
+Programmable FPGA routing remains unresolved. The earlier
 [routing experiment snapshot](docs/verification/loadable-routing-status.json)
 records interrupted and still-running attempts; no programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
@@ -132,7 +131,8 @@ a pseudo-terminal. The physical-board campaign remains to be run.
 A [freestanding C example](examples/c/README.md) now compiles through Clang to
 Wasm and uploads through the same prepared-image path. All five CRC-32 cases
 [pass in both RTL and mapped simulation](docs/verification/c-workload-mapped.json),
-matching independent Python results with identical UART output and cycle counts.
+including a fresh run on the current ABC9 wrapper. They match independent
+Python results with identical UART output and cycle counts.
 The compiler-generated workload is also a required CI integration job.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD

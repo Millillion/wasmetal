@@ -85,6 +85,7 @@
         "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
         "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
         "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+        "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
         "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
         "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
         "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
@@ -141,7 +142,7 @@
       "backend": "loadable-mapped-ecp5-functional",
       "top": "wasmetal_loadable",
       "inputs": {
-        "build/loadable-mapped/design.json": "cc6dde9a95613e0eefe2db9832413a7e43e8259f9d04274a451e007d64b130dc",
+        "build/loadable-mapped/design.json": "9b9a1f7425c5368066ca26339273ea1db8de3777c11d90f446cd2688ae4f258a",
         "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
         "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
         "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -150,8 +151,8 @@
         "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
         ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
         "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
-        "build/loadable-mapped/design.manifest.json": "3dd1388c77db62aca6938300a58a0ebf3a94361df263daf98df7ab24595b76d4",
-        "tools/build_loadable_board.py": "c0a1e7c749dc415a36337696d19ffa6dd77c37aff375a2063421692cc8b5c384",
+        "build/loadable-mapped/design.manifest.json": "f3cbc5c89495e47978d54eab0e29fa694a51dbaac97d57d28739a90f0a9ef9e7",
+        "tools/build_loadable_board.py": "57a58b47730514b09e7bd338ba7f82aab65062c6fcbddd430ca900bd9ac02053",
         "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
         "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
         "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
@@ -176,13 +177,13 @@
         "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
         "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
         "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
-        "build/loadable-gate-sim/circuit.v": "0e88cf8068b3b6f609c9c9073afa505a483ccd27654f2baa2056b7384098f8f9",
+        "build/loadable-gate-sim/circuit.v": "d754e683499cc4ab33ed410dcac601caa5c915c57488bac81864f45ed3bdaad3",
         "build/loadable-gate-sim/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-        "build/loadable-gate-sim/lut-proof/report.json": "71b957e48b90121bb0fe765cadbd4b659377fc81f630df637566eb8d2d594b54",
+        "build/loadable-gate-sim/lut-proof/report.json": "af481c6e959165c4dab7e41d49bdd1b88b8e1dd0b1a8534a6a989db9b773ee68",
         "tools/build_loadable_gate_sim.py": "5527163fbd909b210c7f23c690644d062def5fa4e58ba3dfcc99c26cacce7c5b"
       },
-      "binary_sha256": "b88c14e10044a5dbe339ead460be2e0f128dc84a018cf7b1a6bb8d0cc03d8d84",
-      "netlist_sha256": "cc6dde9a95613e0eefe2db9832413a7e43e8259f9d04274a451e007d64b130dc",
+      "binary_sha256": "3b80bc3cf274d176e4fd08f428c7171c090f9056caea80d03c679ea88dc953b5",
+      "netlist_sha256": "9b9a1f7425c5368066ca26339273ea1db8de3777c11d90f446cd2688ae4f258a",
       "ram_modes": {
         "core": 174,
         "ram18-opposite-edges": 16,
@@ -560,5 +561,5 @@
   },
   "physical_hardware_tested": false,
   "scope": "compiler-generated C workload through programmable UART; software preparation and bounded local memory",
-  "elapsed_seconds": 1976.9785680659115
+  "elapsed_seconds": 3590.6577539030695
 }
