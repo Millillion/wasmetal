@@ -71,8 +71,10 @@ def transfer(upload,device,timeout=120):
         return {'nonce':upload.nonce,'image_checksum':upload.checksum,'profile_tag':upload.tag.hex(),
                 'payload_bytes':len(upload.payload),'result':result}
     finally:
-        if original is not None:termios.tcsetattr(fd,termios.TCSANOW,original)
-        os.close(fd)
+        try:
+            if original is not None:termios.tcsetattr(fd,termios.TCSANOW,original)
+        finally:
+            os.close(fd)
 
 
 def main():

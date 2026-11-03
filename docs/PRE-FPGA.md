@@ -31,8 +31,9 @@ board result and foundry signoff are separate kinds of evidence.
   memories, allowing program upload without rebuilding the FPGA bitstream.
 - [ ] Exercise interrupted uploads, repeated boots, multiple programs, malformed
   traffic and independent serial clock rates in simulation.
-- [ ] Add reproducible workloads and cycle/memory statistics so optimization
+- [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
+  See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).
 - [ ] Define the host-call/runtime boundary for applications that need I/O;
   arbitrary Wasm binary validation and garbage collection are additional work.
 

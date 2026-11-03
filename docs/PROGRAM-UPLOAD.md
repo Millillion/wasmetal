@@ -1,13 +1,51 @@
 # Prepared-program upload
 
-The byte-level receiver in `soc/loader/wasmetal_image_loader.sv` and the encoder
-in `tools/program_upload.py` implement the protocol below. CPU, writable-store
-and UART integration is in progress. The current standalone bitstream still
-boots its prepared ROM image; this component alone does not enable board upload.
+The receiver in `soc/loader/wasmetal_image_loader.sv`, writable program stores
+and execution system are connected in `soc/loader/wasmetal_loadable.sv`.
+`tools/upload_program.py` sends a prepared image through the board's UART,
+then reads its execution result. The separate original standalone bitstream
+continues to boot a fixed ROM image.
 
 The goal is to change a program without rebuilding the FPGA bitstream. The
 host still prepares and validates Wasm. This is a transport for trusted prepared
 images, not a Wasm binary validator, authentication mechanism or secure boot.
+
+## Building and using the programmable system
+
+```sh
+python3 tools/bootstrap.py --fpga-tools
+make loadable-bitstream
+make sim
+python3 tools/prepare_standalone.py examples/standalone/selftest.wat --output build/program-image
+```
+
+The new bitstream is `build/loadable-ulx3s/wasmetal.bit`. It contains the complete
+CPU and writable storage, with no prepared program embedded. Follow the board
+connection and volatile-SRAM loading procedure in the [FPGA guide](FPGA.md),
+using this bitstream path. Once it is running on the correct board:
+
+```sh
+python3 tools/upload_program.py build/program-image --device /dev/ttyUSB0
+```
+
+No physical board has been programmed or tested by this work. The existing
+ULX3S clock divider and 9600-baud connection are retained. The busy LED stays on
+while waiting for an image, receiving it, clearing backing RAM and executing;
+it turns off after a complete result is transmitted. An execution failure lights
+the error LED. Upload rejection is reported through the serial reply.
+
+The CPU stays in reset while the loader writes the instruction, function,
+type, region and boot stores. A successful commit releases execution; boot then
+clears the backing pool and applies the uploaded initialization records. The
+same FPGA configuration can accept another program after completion. Reset
+revokes execution permission and requires another upload.
+
+The full padded image is about 55.6 kB and takes roughly 58 seconds over a
+9600-baud 8N1 link, before execution. The uploader's default overall timeout is
+120 seconds; `--timeout` can change it. This first implementation prioritizes a
+checked boot path. Transfer compression, faster serial rates and external RAM
+are future improvements. Profile limits and the no-import requirement in the
+[standalone guide](STANDALONE.md) also apply here.
 
 ## Image and handshake
 
@@ -65,8 +103,8 @@ before it accepts payload bytes.
 committed checksum, preserves a result arriving with the acknowledgment, imposes
 an overall deadline and restores terminal settings. Its pseudo-terminal tests
 exercise fragmented, corrupt and stale replies, rejection, timeout and cleanup.
-CPU and board integration is still in progress; the existing ROM bitstream does
-not accept this protocol.
+The existing ROM bitstream does not accept this protocol; use the programmable
+bitstream above.
 
 ## Reply and recovery
 
@@ -103,8 +141,8 @@ even if the store contents remain physically present.
 The default inter-byte timeout is 2,000,000 receiver clocks. At 781.25 kHz that
 is 2.56 seconds. Header, payload and checksum timeouts discard the attempt.
 Partial magic prefixes also expire. A dedicated `abort_load` input immediately
-revokes permission and discards the attempt; UART integration will use framing
-errors/break to trigger it. Transmit backpressure holds a reply indefinitely
+revokes permission and discards the attempt; UART framing errors/break trigger
+it in the assembled system. Transmit backpressure holds a reply indefinitely
 without granting permission early. Unexpected bytes during reply transmission
 are ignored; the host must observe the two-phase handshake.
 
@@ -138,5 +176,38 @@ Run `make image-loader-test`. CI preserves the reports and logs.
   premature execution permission make negative controls fail. This is not
   complete CRC/data equivalence or CPU-level correctness.
 
-These are component checks. They do not establish execution on a CPU, serial
-timing tolerance, writable-memory mapping, routed timing or physical operation.
+These component checks are supplemented by the complete-system integration
+flow:
+
+```sh
+make loadable-test
+make loadable-mapped-test
+```
+
+The integration runner uses UART pins, reset and public completion signals.
+It uploads 25 programs into the same running simulator, including high
+instruction/function/boot addresses, every segment slot and type-matrix bits
+that must change from true to false on replacement. Ten additional cases cover
+rejection, interrupted transfers, reset, timeout, UART break, recovery and
+independent serial periods of 98% and 102% of nominal. The board-clock tests
+retain the actual divider and UART timing; core-level integration accelerates
+UART to 16 clocks per bit and the receive timeout to 4,096 clocks.
+
+Mapped verification uses six independently assigned groups. The final merge
+requires all 35 integration cases, the same circuit identity, and exact
+agreement with native UART bytes, execution results and clock counts. Type
+replacement cases remain together in one simulator. Missing or duplicated
+groups, native-model substitution, and incorrect results/clocks are rejected.
+These are bounded integration cases, separate from the 259-suite official
+host-backed corpus.
+
+The new [RAM-model checks](verification/loadable-ram.json) cover all 1,024
+addresses and four write masks in 18-bit mode, and all 512 addresses and 16
+masks in 36-bit mode. They test initialization, opposite and same clock edges,
+read enables, unknown addresses, read-before-write and collision behavior.
+An independent combinational proof on the actual mapped region memories
+excludes simultaneous reads and writes. Mutated read data, ignored masks and
+disabled read protection must fail. This is functional primitive verification;
+physical setup/hold timing and electrical behavior still require their own
+checks. See Lattice's [ECP5 memory guide](https://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/EH/FPGA-TN-02204-1-6-ECP5-and-ECP5-5G-Memory-Usage-Guide.ashx?document_id=50466)
+for the primitive behavior and collision restrictions.

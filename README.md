@@ -15,7 +15,7 @@ Completed work lives on `main`. Temporary development branches are integrated in
 - **Mapped circuit:** CI passes **all 259 pinned official suites** on the default ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-complete.json) preserves source, model and report identities and an independent aggregation check. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes; its netlist is the standard bitstream build's core. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
 - **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [standard build](docs/verification/fpga-routing.json) produces a routed, timing-verified ULX3S 85F bitstream: 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. A fresh build reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
 
-See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host-backed conformance system supplies the instruction image, metadata and backing memory from the computer. The standalone prototype supplies these locally for bounded prepared images. External RAM, dynamic program loading and reclaiming garbage collection remain future work.
+See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host-backed conformance system supplies the instruction image, metadata and backing memory from the computer. The standalone prototype supplies these locally for bounded prepared images. Programmable prepared-image loading is under integration verification. External RAM and reclaiming garbage collection remain future work.
 
 For an explanation of the ISA, microarchitecture, SystemVerilog RTL, the two simulation models, synthesis and the FPGA bitstream, read [From the Wasm specification to an FPGA](docs/DESIGN-FLOW.md).
 
@@ -72,21 +72,33 @@ memory path; physical clock-crossing constraints and controller startup remain.
 The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
 receiver and Python encoder. The production layout test checks
 [80,537 store writes in each model](docs/verification/image-loader-mapped.json),
-plus a complete Python-encoded image. Corrupt and interrupted uploads cannot
-authorize execution; [four-state tests](docs/verification/image-loader-four-state.json)
+plus a complete Python-encoded image. Uploads with a bad checksum or incomplete
+payload cannot authorize execution; [four-state tests](docs/verification/image-loader-four-state.json)
 also reject an unknown payload. An [unbounded safety proof](docs/verification/image-loader-proof.json)
 checks store bounds, initialization and the conditions for execution permission.
 Run `make image-loader-test`.
 The [host uploader](tools/upload_program.py) handles the ready/commit exchange,
 serial deadlines and execution results, including replies arriving together.
-Its serial-device tests pass. CPU integration and its broader native, mapped,
-board-clock and routing checks are in progress; the existing standalone build
-continues to boot from its prepared ROM image.
+Its serial-device tests pass. The programmable system now connects UART loading
+to writable instruction and metadata stores and the complete CPU. Its expanded
+native, mapped, board-clock and routing verification is running; the existing
+standalone build continues to boot from its prepared ROM image.
+
+[Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
+integer dot products, with independently calculated results and repeated resets.
+For 1,024 multiply-accumulates, SIMD takes 21,524 invocation cycles versus
+49,596 for scalar code. These are [simulation measurements](docs/verification/benchmarks.json),
+excluding upload, initialization and UART output; no physical performance is claimed.
 
 The [ASIC preparation audit](docs/ASIC.md) retains 82 logical memories containing
 3,035,968 bits and identifies the memory-port, clock-edge and boot requirements
 for a silicon implementation. This is technology-neutral elaboration; it is
 not standard-cell mapping, SRAM-macro integration or physical signoff.
+The [programmable audit](docs/verification/asic-loadable-audit.json) additionally
+checks all five writable program stores: 444,416 bits with no preset contents,
+loaded before execution. That system retains the same memory capacity and
+uses 7,125 generic register bits; it still needs real SRAM macros and physical
+clock, reset and test implementations.
 
 ## RTL Microarchitecture Simulator
 

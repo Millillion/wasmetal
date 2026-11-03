@@ -51,8 +51,8 @@
     "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
     "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
     "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
-    "soc/wasmetal_standalone.sv": "af716e0c61ebe7144a2b8aebcd4b0843baa31ae45d1c9201f291e14828121548",
-    "soc/wasmetal_local_memory.sv": "c50e55810d6b14d66144af85173df61c68cd582b5ab873075733fc8df7bc2795",
+    "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
     "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
     "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
     "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
@@ -61,11 +61,12 @@
     "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
     "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
     "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
-    "tools/audit_asic.py": "3b6e84c775cafcaa6e07b62b09a1b9e5d3eeb201709a937a0a222f534f44fe1f",
+    "tools/audit_asic.py": "2c76e4f61fbed37d0b0ad209b9d176d34a92a908eabf71714df99f8eea8bd1db",
     "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
     "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
     "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
     "build/standalone-image/boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
     "build/standalone-image/code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
     "build/standalone-image/functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
@@ -188,8 +189,8 @@
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
     }
   },
-  "script_sha256": "7a798f41f375b0e9d95e1fa3e411ec407b035e3e23d115c7aaad1aa5f12f1e00",
-  "netlist_sha256": "3b67f5933bbf58830d235c3b3e31bc54d4f56f2ad2ab2458790111ebf9abbfef",
+  "script_sha256": "7b969a541faa112c5cd0aa04ff0021a9668ab8c7ab9d5fe9195aee17147a3c29",
+  "netlist_sha256": "e25ff57a368ff1008028557e182dbebbdfadb6299a68ce1dcdb02464f60ce085",
   "yosys_sha256": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
   "cells": {
     "$add": 267,
@@ -235,11 +236,11 @@
   "initialized_register_nets": [],
   "memories": [
     {
-      "name": "$flatten\\core.$auto$proc_rom.cc:150:do_switch$18706",
+      "name": "$flatten\\core.$auto$proc_rom.cc:150:do_switch$11410",
       "width": 5,
       "words": 64,
       "bits": 320,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_core.sv:309.9-314.16",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_core.sv:309.9-314.16",
       "known_initial_bits": 320,
       "read_ports": [
         {
@@ -258,7 +259,7 @@
       "width": 232,
       "words": 512,
       "bits": 118784,
-      "source": "soc/wasmetal_standalone.sv:21.43-21.47",
+      "source": "soc/wasmetal_standalone.sv:29.43-29.47",
       "known_initial_bits": 118784,
       "read_ports": [
         {
@@ -277,7 +278,7 @@
       "width": 64,
       "words": 256,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:163.45-165.132",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:163.45-165.132",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -305,7 +306,7 @@
       "width": 64,
       "words": 256,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:166.45-168.138",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:166.45-168.138",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -333,7 +334,7 @@
       "width": 128,
       "words": 512,
       "bits": 65536,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_core.sv:63.43-63.56",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_core.sv:63.43-63.56",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -361,7 +362,7 @@
       "width": 161,
       "words": 2048,
       "bits": 329728,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_core.sv:62.43-62.56",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_core.sv:62.43-62.56",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -389,7 +390,7 @@
       "width": 65,
       "words": 256,
       "bits": 16640,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:154.45-156.138",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:154.45-156.138",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -417,7 +418,7 @@
       "width": 64,
       "words": 256,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:151.45-153.133",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:151.45-153.133",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -450,7 +451,7 @@
       "width": 65,
       "words": 256,
       "bits": 16640,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:160.45-162.136",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:160.45-162.136",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -478,7 +479,7 @@
       "width": 64,
       "words": 256,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:157.45-159.129",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_descriptors.sv:27.47-27.52|rtl/wasmetal_core.sv:157.45-159.129",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -511,7 +512,7 @@
       "width": 128,
       "words": 2048,
       "bits": 262144,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -539,7 +540,7 @@
       "width": 128,
       "words": 2048,
       "bits": 262144,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -567,7 +568,7 @@
       "width": 128,
       "words": 2048,
       "bits": 262144,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -595,7 +596,7 @@
       "width": 128,
       "words": 2048,
       "bits": 262144,
-      "source": "soc/wasmetal_standalone.sv:77.86-92.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_values.sv:21.47-21.52|rtl/wasmetal_core.sv:182.36-184.118",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -623,7 +624,7 @@
       "width": 160,
       "words": 128,
       "bits": 20480,
-      "source": "soc/wasmetal_standalone.sv:19.43-19.52",
+      "source": "soc/wasmetal_standalone.sv:27.43-27.52",
       "known_initial_bits": 20480,
       "read_ports": [
         {
@@ -642,7 +643,7 @@
       "width": 288,
       "words": 1024,
       "bits": 294912,
-      "source": "soc/wasmetal_standalone.sv:18.43-18.55",
+      "source": "soc/wasmetal_standalone.sv:26.43-26.55",
       "known_initial_bits": 294912,
       "read_ports": [
         {
@@ -661,7 +662,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -689,7 +690,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -717,7 +718,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -745,7 +746,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -773,7 +774,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -801,7 +802,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -829,7 +830,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -857,7 +858,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -885,7 +886,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -913,7 +914,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -941,7 +942,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -969,7 +970,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -997,7 +998,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1025,7 +1026,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1053,7 +1054,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1081,7 +1082,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1109,7 +1110,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1137,7 +1138,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1165,7 +1166,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1193,7 +1194,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1221,7 +1222,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1249,7 +1250,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1277,7 +1278,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1305,7 +1306,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1333,7 +1334,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1361,7 +1362,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1389,7 +1390,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1417,7 +1418,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1445,7 +1446,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1473,7 +1474,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1501,7 +1502,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1529,7 +1530,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1557,7 +1558,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1585,7 +1586,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1613,7 +1614,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1641,7 +1642,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1669,7 +1670,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1697,7 +1698,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1725,7 +1726,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1753,7 +1754,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1781,7 +1782,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1809,7 +1810,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1837,7 +1838,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1865,7 +1866,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1893,7 +1894,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1921,7 +1922,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1949,7 +1950,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -1977,7 +1978,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2005,7 +2006,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2033,7 +2034,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2061,7 +2062,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2089,7 +2090,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2117,7 +2118,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2145,7 +2146,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2173,7 +2174,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2201,7 +2202,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2229,7 +2230,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2257,7 +2258,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2285,7 +2286,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2313,7 +2314,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2341,7 +2342,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2369,7 +2370,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2397,7 +2398,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2425,7 +2426,7 @@
       "width": 8,
       "words": 2048,
       "bits": 16384,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:38.44-41.63",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/memory/wasmetal_bram.sv:28.49-28.56|soc/wasmetal_local_memory.sv:48.44-51.63",
       "known_initial_bits": 0,
       "read_ports": [
         {
@@ -2453,7 +2454,7 @@
       "width": 64,
       "words": 96,
       "bits": 6144,
-      "source": "soc/wasmetal_standalone.sv:95.32-103.63|soc/wasmetal_local_memory.sv:19.42-19.49",
+      "source": "soc/wasmetal_standalone.sv:116.32-126.67|soc/wasmetal_local_memory.sv:23.42-23.49",
       "known_initial_bits": 6144,
       "read_ports": [
         {
@@ -2472,7 +2473,7 @@
       "width": 64,
       "words": 64,
       "bits": 4096,
-      "source": "soc/wasmetal_standalone.sv:20.28-20.33",
+      "source": "soc/wasmetal_standalone.sv:28.28-28.33",
       "known_initial_bits": 4096,
       "read_ports": [
         {
@@ -2487,8 +2488,17 @@
       "wr_priority_mask": "0"
     }
   ],
+  "program_storage": [
+    "boot",
+    "functions",
+    "instructions",
+    "memory.regions",
+    "types"
+  ],
+  "program_storage_bits": 444416,
+  "prepared_program_embedded": true,
   "requires_macro_review": [
-    "$flatten\\core.$auto$proc_rom.cc:150:do_switch$18706",
+    "$flatten\\core.$auto$proc_rom.cc:150:do_switch$11410",
     "boot",
     "core.memory_sizes.words",
     "core.table_sizes.words",

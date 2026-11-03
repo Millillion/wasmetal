@@ -3,6 +3,7 @@
 module wasmetal_local_memory #(
     parameter integer RAM_BYTES=131072,
     parameter integer REGIONS_PER_KIND=16,
+    parameter integer LOADABLE=0,
     parameter IMAGE_DIR="build/standalone-image"
 ) (
     input logic clk, reset,
@@ -14,14 +15,23 @@ module wasmetal_local_memory #(
     input logic [4:0] bytes,
     input logic [127:0] wdata,
     output wire ready, fault,
-    output wire [127:0] rdata
+    output wire [127:0] rdata,
+    input wire image_write_valid,
+    input wire [31:0] image_index,
+    input wire [63:0] image_region
 );
     (* rom_style="block" *) logic [63:0] regions [0:6*REGIONS_PER_KIND-1];
+    generate if(LOADABLE==0) begin: read_only_image
     initial $readmemh({IMAGE_DIR,"/regions.hex"},regions);
+    end else begin: writable_image
+        always_ff @(posedge clk)
+            if(reset && image_write_valid && image_index<6*REGIONS_PER_KIND) regions[image_index]<=image_region;
+    end endgenerate
     logic [63:0] region;
     always_ff @(posedge clk)
-        region<=regions[(kind<6 && index<REGIONS_PER_KIND) ?
-                        (32'(kind)*REGIONS_PER_KIND+index) : 0];
+        if(LOADABLE==0 || !reset)
+            region<=regions[(kind<6 && index<REGIONS_PER_KIND) ?
+                            (32'(kind)*REGIONS_PER_KIND+index) : 0];
 
     wire bus_valid, bus_write, bus_ready, bus_fault;
     wire [31:0] bus_address;

@@ -12,6 +12,7 @@ import sys
 
 import ecp5_ram
 import ecp5_standalone_ram
+import ecp5_loadable_ram
 from build_gate_sim import compilation, fast_lut_model
 from prepare_standalone import ROOT, digest
 
@@ -30,8 +31,11 @@ def normalize(source, top):
         if ty=='DP16KD':
             try: ecp5_ram.check(c)
             except ValueError:
-                kinds[ecp5_standalone_ram.check(c,consumed)]+=1
-                c['type']=ecp5_standalone_ram.NAME
+                try:kind=ecp5_standalone_ram.check(c,consumed)
+                except ValueError:
+                    kind=ecp5_loadable_ram.check(c,consumed);c['type']=ecp5_loadable_ram.NAME
+                else:c['type']=ecp5_standalone_ram.NAME
+                kinds[kind]+=1
             else: kinds['core']+=1
         elif ty=='DCCA':
             if params or set(pins)!={'CLKI','CE','CLKO'} or pins['CE']!=['1']:
@@ -52,6 +56,8 @@ def normalize(source, top):
                 raise ValueError('unsupported multiplier cascade')
     if any(c['type']==ecp5_standalone_ram.NAME for c in cells.values()):
         source['modules'][ecp5_standalone_ram.NAME]=copy.deepcopy(source['modules']['DP16KD'])
+    if any(c['type']==ecp5_loadable_ram.NAME for c in cells.values()):
+        source['modules'][ecp5_loadable_ram.NAME]=copy.deepcopy(source['modules']['DP16KD'])
     return dict(kinds)
 
 
@@ -70,7 +76,7 @@ def models(library):
              f'wire signed [18:0] b={{SIGNEDB && B17,{concat("B",18)}}};',
              'wire signed [37:0] product=a*b;',f'assign {concat("P",36)}=product[35:0];','endmodule',
              'module DCCA(input wire CLKI,CE,output wire CLKO); assign CLKO=CLKI & CE; endmodule',
-             ecp5_ram.model(),ecp5_standalone_ram.model()]
+             ecp5_ram.model(),ecp5_standalone_ram.model(),ecp5_loadable_ram.model()]
     return '\n'.join(result)+'\n'
 
 
@@ -79,7 +85,7 @@ def build(netlist,directory,top='wasmetal_standalone_ulx3s',harness=None,cflags=
     harness=harness or ROOT/'tests/standalone/system.cpp'
     library=ROOT/'.cache/tools/usr/share/yosys/ecp5/cells_sim.v'
     inputs=[netlist,Path(__file__).resolve(),ROOT/'tools/build_gate_sim.py',ROOT/'tools/ecp5_ram.py',
-            ROOT/'tools/ecp5_standalone_ram.py',ROOT/'tools/check_ecp5_luts.py',library,harness]
+            ROOT/'tools/ecp5_standalone_ram.py',ROOT/'tools/ecp5_loadable_ram.py',ROOT/'tools/check_ecp5_luts.py',library,harness]
     manifest_path=netlist.with_suffix('.manifest.json')
     manifest=json.loads(manifest_path.read_text())
     if digest(netlist)!=manifest['netlist_sha256']: raise ValueError('standalone netlist hash mismatch')

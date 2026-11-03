@@ -7,10 +7,18 @@ module wasmetal_standalone #(
     parameter integer BOOT_DEPTH=512, REGIONS_PER_KIND=16, RAM_BYTES=131072,
     parameter integer MAX_RESULTS=16, WATCHDOG_CYCLES=10000000,
     parameter integer UART_TICKS=81,
+    parameter integer LOADABLE=0, EXTERNAL_UART=0,
     parameter IMAGE_DIR="build/standalone-image"
 ) (
     input logic clk, reset,
-    output wire tx, finished, error
+    output wire tx, finished, error,
+    input wire image_write_valid,
+    input wire [2:0] image_section,
+    input wire [31:0] image_index,
+    input wire [(TYPE_DEPTH>288 ? TYPE_DEPTH : 288)-1:0] image_word,
+    output wire result_valid,
+    output wire [7:0] result_byte,
+    input wire result_ready
 );
     localparam integer CW=$clog2(INSTRUCTION_DEPTH), FW=$clog2(FUNCTION_DEPTH),
                        TW=$clog2(TYPE_DEPTH), BW=$clog2(BOOT_DEPTH),
@@ -19,12 +27,24 @@ module wasmetal_standalone #(
     (* rom_style="block" *) logic [159:0] functions [0:FUNCTION_DEPTH-1];
     logic [TYPE_DEPTH-1:0] types [0:TYPE_DEPTH-1];
     (* rom_style="block" *) logic [231:0] boot [0:BOOT_DEPTH-1];
+    generate if(LOADABLE==0) begin: read_only_image
     initial begin
         $readmemh({IMAGE_DIR,"/code.hex"},instructions);
         $readmemh({IMAGE_DIR,"/functions.hex"},functions);
         $readmemh({IMAGE_DIR,"/types.hex"},types);
         $readmemh({IMAGE_DIR,"/boot.hex"},boot);
     end
+    end else begin: writable_image
+        // A loader may write only while the execution system is held in reset.
+        // All rows must be supplied before that reset can be released.
+        always_ff @(posedge clk) if(reset && image_write_valid) case(image_section)
+            0: if(image_index<INSTRUCTION_DEPTH) instructions[image_index[CW-1:0]]<=image_word[287:0];
+            1: if(image_index<FUNCTION_DEPTH) functions[image_index[FW-1:0]]<=image_word[159:0];
+            2: if(image_index<TYPE_DEPTH) types[image_index[TW-1:0]]<=image_word[TYPE_DEPTH-1:0];
+            4: if(image_index<BOOT_DEPTH) boot[image_index[BW-1:0]]<=image_word[231:0];
+            default: begin end
+        endcase
+    end endgenerate
     logic [287:0] instruction;
     logic [159:0] function_data;
     logic [231:0] boot_record;
@@ -41,8 +61,7 @@ module wasmetal_standalone #(
     logic [UW-1:0] tx_index;
     logic [15:0] crc;
     wire [UW-1:0] payload_end=UW'(9)+UW'(count)*UW'(16);
-    wire tx_ready, ignored_rx_valid, ignored_rx_error;
-    wire [7:0] ignored_rx_data;
+    wire tx_ready;
     logic [7:0] tx_data;
     wire busy, done;
     wire [7:0] trap;
@@ -63,6 +82,8 @@ module wasmetal_standalone #(
                      types[type_actual[TW-1:0]][type_expected[TW-1:0]];
     assign finished=state==HALT && tx_ready;
     assign error=status!=0;
+    assign result_valid=state==SEND;
+    assign result_byte=tx_data;
 
     always_ff @(negedge clk) begin
         instruction<=instructions[pc[CW-1:0]];
@@ -91,7 +112,7 @@ module wasmetal_standalone #(
         .mem_address(mem_address),.mem_bytes(mem_bytes),.mem_wdata(mem_wdata),
         .mem_ready(mem_ready && !initializing),.mem_fault(mem_fault),.mem_rdata(mem_rdata));
 
-    wasmetal_local_memory #(.RAM_BYTES(RAM_BYTES),.REGIONS_PER_KIND(REGIONS_PER_KIND),
+    wasmetal_local_memory #(.RAM_BYTES(RAM_BYTES),.REGIONS_PER_KIND(REGIONS_PER_KIND),.LOADABLE(LOADABLE),
         .IMAGE_DIR(IMAGE_DIR)) memory(
         .clk(clk),.reset(reset || halted_core),.initialized(memory_initialized),
         .initialization_failed(memory_failed),
@@ -100,12 +121,21 @@ module wasmetal_standalone #(
         .address(initializing ? {32'b0,record_index} : mem_address),
         .bytes(initializing ? record_aux[4:0] : mem_bytes),
         .wdata(initializing ? record_data : mem_wdata),
-        .ready(mem_ready),.fault(mem_fault),.rdata(mem_rdata));
+        .ready(mem_ready),.fault(mem_fault),.rdata(mem_rdata),
+        .image_write_valid(image_write_valid && image_section==3),
+        .image_index(image_index),.image_region(image_word[63:0]));
 
+    generate if(EXTERNAL_UART==0) begin: internal_uart
+    wire ignored_rx_valid,ignored_rx_error;
+    wire [7:0] ignored_rx_data;
     wasmetal_uart #(.BIT_TICKS(UART_TICKS)) uart(
         .clk(clk),.reset(reset),.rx(1'b1),.tx(tx),.tx_valid(state==SEND),
         .tx_data(tx_data),.tx_ready(tx_ready),.rx_valid(ignored_rx_valid),
         .rx_error(ignored_rx_error),.rx_data(ignored_rx_data));
+    end else begin: external_uart
+        assign tx=1'b1;
+        assign tx_ready=result_ready;
+    end endgenerate
 
     function automatic [15:0] crc_byte(input [15:0] previous,input [7:0] data);
         reg [15:0] value;

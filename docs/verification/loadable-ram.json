@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "scope": "exact mapped programmable EBR modes and combinational exclusion of same-edge read/write",
+  "modes": [
+    "ram18-opposite-edges",
+    "ram36-same-edge"
+  ],
+  "addresses": {
+    "ram18": 1024,
+    "ram36": 512
+  },
+  "mask_patterns": {
+    "ram18": 4,
+    "ram36": 16
+  },
+  "same_edge_memories_proven": 2,
+  "proof_abstraction": "every non-LUT/mux output is an unconstrained Boolean input; all physical addresses conservatively ignored",
+  "negative_controls_rejected": [
+    "bad-read",
+    "ignored-mask",
+    "disabled-read-protection"
+  ],
+  "unsupported_configurations_rejected": 6,
+  "inputs": {
+    "tools/check_loadable_ram.py": "9b7a94f2bf2ae5f6753b406fe9d865a02194a0497662e3a965109eea0d556072",
+    "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+    "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "build/loadable-mapped/design.json": "fa8fbbdb1a148968d85adc2ae7207d4c195e2ecb4bca5146c8d33fd322fb3c3e"
+  },
+  "physical_hardware_tested": false
+}

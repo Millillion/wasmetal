@@ -11,6 +11,7 @@ import tempfile
 import termios
 import time
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from program_upload import encode
@@ -77,8 +78,26 @@ class TransportTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'different image checksum'):transfer(self.upload,os.ttyname(self.slave),3)
             peer.result()
         self.assertEqual(termios.tcgetattr(self.slave),self.original)
+
         with self.assertRaises(TimeoutError):transfer(self.upload,os.ttyname(self.slave),0.02)
         self.assertEqual(termios.tcgetattr(self.slave),self.original)
+
+    def test_device_closes_even_when_restoring_terminal_fails(self):
+        real_setattr=termios.tcsetattr;real_close=os.close;closed=[]
+        def configure(fd,when,settings):
+            if settings==self.original:raise OSError('simulated disconnected terminal')
+            real_setattr(fd,when,settings)
+        def close(fd):closed.append(fd);real_close(fd)
+        def server():
+            read_exact(self.master,33);os.write(self.master,reply(3,self.upload.nonce))
+        with concurrent.futures.ThreadPoolExecutor() as pool:
+            peer=pool.submit(server)
+            with patch('upload_program.termios.tcsetattr',side_effect=configure),patch('upload_program.os.close',side_effect=close):
+                with self.assertRaisesRegex(OSError,'disconnected terminal'):
+                    transfer(self.upload,os.ttyname(self.slave),3)
+            peer.result()
+        self.assertEqual(len(closed),1)
+        with self.assertRaises(OSError):os.fstat(closed[0])
 
 
 if __name__=='__main__':unittest.main()

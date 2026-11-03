@@ -20,10 +20,13 @@ module wasmetal_standalone_ulx3s (
         if(!btn_n) reset_sync<=0;
         else reset_sync<={reset_sync[0],1'b1};
     end
-    wire finished;
+    wire finished,ignored_result_valid;
+    wire [7:0] ignored_result_byte;
     wasmetal_standalone #(
 `include "standalone_parameters.svh"
     ) system(.clk(core_clock),.reset(!reset_sync[1]),
-        .tx(ftdi_rxd),.finished(finished),.error(led_error));
+        .tx(ftdi_rxd),.finished(finished),.error(led_error),
+        .image_write_valid(1'b0),.image_section(3'b0),.image_index(32'b0),.image_word('0),
+        .result_valid(ignored_result_valid),.result_byte(ignored_result_byte),.result_ready(1'b0));
     assign led_busy=!finished;
 endmodule

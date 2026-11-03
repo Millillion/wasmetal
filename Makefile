@@ -12,6 +12,7 @@ VFLAGS := -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTI
 .PHONY: sim lint test test-all test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks synth fpga-sim fpga-smoke fpga-host fpga-core fpga-bitstream
 .PHONY: standalone-image standalone-sim standalone-test standalone-core standalone-bitstream standalone-mapped-test
 .PHONY: memory-test axi-test cdc-test image-loader-test asic-audit
+.PHONY: loadable-test loadable-bitstream loadable-mapped-build loadable-mapped-test
 STANDALONE_IMAGE ?= examples/standalone/selftest.wat
 sim: build/obj/Vwasmetal_core
 sim/core_config.hpp: $(RTL) $(wildcard third_party/hardfloat/source/*.vi) $(wildcard third_party/hardfloat/source/RISCV/*.vi) $(wildcard fpga/*.sv) fpga/ports.json fpga/profile.json tools/generate_fpga_ports.py
@@ -79,6 +80,7 @@ standalone-test: sim standalone-sim
 	python3 tools/build_standalone_sim.py --board
 	python3 tools/check_standalone.py --board
 	python3 tools/compare_standalone_performance.py
+	python3 tools/benchmark_standalone.py
 standalone-core:
 	python3 tools/synth.py --fpga --fast-share --abc9 --profile soc/profile.json --output-name standalone-core-ecp5
 standalone-bitstream: standalone-image standalone-core
@@ -103,8 +105,33 @@ cdc-test:
 	python3 tools/check_axi.py --async --mapped
 image-loader-test:
 	python3 tests/program_upload_test.py
+	python3 tests/upload_transport_test.py
 	python3 tools/prove_image_loader.py
 	python3 tools/check_image_loader_four_state.py
 	python3 tools/check_image_loader.py --mapped
 asic-audit: standalone-image
 	python3 tools/audit_asic.py
+	python3 tools/audit_asic.py --loadable
+loadable-test: sim
+	python3 tests/program_upload_test.py
+	python3 tests/upload_transport_test.py
+	python3 tools/build_loadable_sim.py
+	python3 tools/check_loadable.py
+	python3 tools/build_loadable_sim.py --board
+	python3 tools/check_loadable.py --board --no-recovery --report reports/loadable-board-rtl.json
+	python3 tools/check_loadable_board_rates.py
+loadable-bitstream: standalone-core
+	python3 tools/build_loadable_board.py
+loadable-mapped-build:
+	python3 tools/build_loadable_board.py --simulation
+	python3 tools/check_loadable_ram.py
+	python3 tools/build_loadable_gate_sim.py
+loadable-mapped-test: loadable-test standalone-core
+	$(MAKE) loadable-mapped-build
+	python3 tools/loadable_ci.py run --shard 0
+	python3 tools/loadable_ci.py run --shard 1
+	python3 tools/loadable_ci.py run --shard 2
+	python3 tools/loadable_ci.py run --shard 3
+	python3 tools/loadable_ci.py run --shard 4
+	python3 tools/loadable_ci.py run --shard 5
+	python3 tools/loadable_ci.py merge

@@ -21,6 +21,21 @@ The output is `reports/asic-audit.json`; the generic netlist and synthesis log
 are in `build/asic-audit`. This flow does not perform standard-cell mapping,
 SRAM-macro mapping, static timing analysis, placement, routing or signoff.
 
+The programmable system has a separate audit:
+
+```sh
+python3 tools/audit_asic.py --loadable
+```
+
+It does not read a prepared ROM image. The
+[programmable audit](verification/asic-loadable-audit.json) retains the same
+82 logical memories and 3,035,968 memory bits, plus 7,125 generic register bits.
+All five program stores are writable, have their expected dimensions and
+contain no known initial bits: 444,416 bits are supplied through the serial
+loader before execution. No initialized registers remain in this SoC either.
+This removes the fixed-program ROM assumption for this implementation; SRAM
+macro mapping and clock/reset implementation still require real technology IP.
+
 ## Memory boundaries that need real implementations
 
 | Storage | Logical organization | Contract to preserve |
@@ -49,6 +64,15 @@ The wide backing-memory boundary already supports variable response latency.
 An ASIC SRAM adapter can therefore replace the FPGA-specific banking without
 changing the logical Wasm address checks. The core's internal stack and control
 memories have separate timing contracts and are not covered by that flexibility.
+
+For programmable storage, the generic audit also reports an asynchronous region
+array feeding a separately retained enabled read register. A macro integration
+must preserve that complete read boundary; the raw array's port description
+alone does not describe its architectural latency. Instructions, functions and
+boot records retain falling-edge reads and rising-edge writes. The region
+read is disabled during upload, preventing simultaneous read/write access in
+the FPGA's same-edge RAM mode; that exclusion is separately proved against the
+mapped circuit. The type matrix remains an asynchronous lookup.
 
 ## Reset, boot and test access
 

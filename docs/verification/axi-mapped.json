@@ -36,10 +36,11 @@
     "top": "wasmetal_axi_memory",
     "inputs": {
       "build/axi-memory/axi.json": "5d04093a3ff41253e02115f765d071b9a057be3573d6901c6476f15d2790f781",
-      "tools/build_standalone_gate_sim.py": "eef5411ecca80e21c2237b6ba7eef7dc21cbde8be51580f804dd58d4b6f38f70",
+      "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
       "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
       "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
       "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+      "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
       "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
       ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
       "tests/memory/axi.cpp": "a99a200de13f9cfaef08a42d77548ec3f598ac3c957d565e335243b585675760",
@@ -48,7 +49,7 @@
       "tools/check_axi.py": "a2ad848524de1ab814bb2955fee43c4638012df7b90b67ce5d5559a66bb57d73",
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
       "build/axi-memory/mapped/circuit.v": "76eb2e588925cebf2bd08bb14ebec82ce20aeec5b202a077ec406551d5902413",
-      "build/axi-memory/mapped/cells.v": "e8bdcf8d30b67f40164e870b325b31bb7dd8f7f9dcf6dc908153f71bd7b03437",
+      "build/axi-memory/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
       "build/axi-memory/mapped/lut-proof/report.json": "2562d73c2b69fcdbec885158340fc812c522ffce6caf35745f4ec33c1e6df40c"
     },
     "binary_sha256": "a65c011d633b5df91b924b44dff036b8c40e7ff6d9f9798f98641034d24d0038",

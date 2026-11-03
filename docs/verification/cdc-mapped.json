@@ -81,10 +81,11 @@
     "top": "wasmetal_memory_cdc",
     "inputs": {
       "build/memory-cdc/cdc.json": "4cfc460f53aded5fbbd89cfe44d3b7a12a6d167a59754c88b953e4714b3f570a",
-      "tools/build_standalone_gate_sim.py": "eef5411ecca80e21c2237b6ba7eef7dc21cbde8be51580f804dd58d4b6f38f70",
+      "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
       "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
       "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
       "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+      "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
       "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
       ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
       "tests/memory/cdc.cpp": "62d32927a912f19c0d8ff4a64f82a9de1c48e2f9d553bb4e31fd69b8caac7199",
@@ -93,7 +94,7 @@
       "tools/check_cdc.py": "fe8d2a3fda8e78c17b1cc12d032d75f18527e654f4b314815de56ac958ddffc1",
       "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
       "build/memory-cdc/mapped/circuit.v": "fa689363fb1537d4f51d9ee3ac4ff2aa5e62c2279dc22b68152d38e1fc3321e0",
-      "build/memory-cdc/mapped/cells.v": "e8bdcf8d30b67f40164e870b325b31bb7dd8f7f9dcf6dc908153f71bd7b03437",
+      "build/memory-cdc/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
       "build/memory-cdc/mapped/lut-proof/report.json": "6802981cd4d106ccd8835f8534f40eaab2f70ef83be83d3793fa4a0cfc850731"
     },
     "binary_sha256": "29cf73feb971c503c9ad56928481c594a4546c614bb1e0eca7a04c94640ce85e",
