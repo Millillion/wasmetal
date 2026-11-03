@@ -60,6 +60,14 @@ The output file contains header, payload and checksum. **Do not send it as one
 uninterrupted stream:** the receiver waits for the ready reply to be transmitted
 before it accepts payload bytes.
 
+`tools/upload_program.py` implements this handshake on a POSIX serial device at
+9600 baud, then decodes the execution result. It checks the echoed nonce and
+committed checksum, preserves a result arriving with the acknowledgment, imposes
+an overall deadline and restores terminal settings. Its pseudo-terminal tests
+exercise fragmented, corrupt and stale replies, rejection, timeout and cleanup.
+CPU and board integration is still in progress; the existing ROM bitstream does
+not accept this protocol.
+
 ## Reply and recovery
 
 A reply is 20 bytes: ASCII `WMLR`, version (1 byte), status (1 byte), nonce

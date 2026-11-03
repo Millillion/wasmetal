@@ -11,14 +11,10 @@ import time
 from check_standalone import decode
 
 
-def read_frame(fd, timeout):
+def read_frame(fd, timeout, buffer=None):
     deadline=time.monotonic()+timeout
-    data=bytearray()
+    data=bytearray() if buffer is None else buffer
     while time.monotonic()<deadline:
-        if not select.select([fd],[],[],max(0,deadline-time.monotonic()))[0]: break
-        chunk=os.read(fd,4096)
-        if not chunk: raise EOFError('Serial stream closed before a valid result frame arrived.')
-        data.extend(chunk)
         # Search every candidate so a truncated old frame cannot hide a fresh
         # boot result. Length and checksum must both validate before returning.
         start=0
@@ -28,10 +24,17 @@ def read_frame(fd, timeout):
             if len(data)-start>=6:
                 length=12+16*data[start+5]
                 if len(data)-start>=length:
-                    try: return decode(data[start:start+length].hex())
+                    try:
+                        frame=decode(data[start:start+length].hex())
+                        del data[:start+length]
+                        return frame
                     except ValueError: pass
             start+=1
         if len(data)>8192: del data[:-4096]
+        if not select.select([fd],[],[],max(0,deadline-time.monotonic()))[0]: break
+        chunk=os.read(fd,4096)
+        if not chunk: raise EOFError('Serial stream closed before a valid result frame arrived.')
+        data.extend(chunk)
     raise TimeoutError('No valid WasMetal frame received; start the reader, then reset the board.')
 
 

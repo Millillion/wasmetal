@@ -77,8 +77,11 @@ authorize execution; [four-state tests](docs/verification/image-loader-four-stat
 also reject an unknown payload. An [unbounded safety proof](docs/verification/image-loader-proof.json)
 checks store bounds, initialization and the conditions for execution permission.
 Run `make image-loader-test`.
-Connecting this receiver to writable program storage and the CPU is in progress;
-the existing standalone build still boots from its prepared ROM image.
+The [host uploader](tools/upload_program.py) handles the ready/commit exchange,
+serial deadlines and execution results, including replies arriving together.
+Its serial-device tests pass. CPU integration and its broader native, mapped,
+board-clock and routing checks are in progress; the existing standalone build
+continues to boot from its prepared ROM image.
 
 The [ASIC preparation audit](docs/ASIC.md) retains 82 logical memories containing
 3,035,968 bits and identifies the memory-port, clock-edge and boot requirements
