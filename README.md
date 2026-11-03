@@ -67,8 +67,16 @@ unbounded; its [structural and four-state checks](docs/verification/cdc-structur
 also pass. The assembled asynchronous AXI path passes
 [43,464 transactions in each model](docs/verification/async-axi-mapped.json),
 with faster and slower memory clocks. Run `make cdc-test`.
-These components are not yet connected to a DDR controller or the CPU's active
-memory path; physical clock-crossing constraints and controller startup remain.
+The new [complete-CPU AXI integration test](docs/AXI.md#complete-cpu-integration)
+connects these components to the active memory path in a separate simulation,
+using a behavioral RAM slave. All 35 system cases pass with the AXI clock at
+[one-half](docs/verification/axi-system-1-1.json) and
+[one-sixth](docs/verification/axi-system-3-5.json) the CPU frequency, with
+different response delays, independent channel stalls and retained memory
+across resets. [Corrupted reads](docs/verification/axi-system-1-1-negative.json)
+fail the independent result oracle. CI now runs both configurations and that
+negative control. The default FPGA system still uses block RAM; DDR controller
+integration, physical clock-crossing constraints and controller startup remain.
 
 The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
 receiver and Python encoder. The production layout test checks

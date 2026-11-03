@@ -17,6 +17,11 @@ board result and foundry signoff are separate kinds of evidence.
   memory controller, including separate channel stalls and error recovery.
 - [x] Verify a separate memory clock, common reset and stopped-clock recovery;
   test the assembled clock-crossing and AXI path in RTL and mapped simulation.
+- [x] Connect the complete CPU to that AXI path in simulation. All 35 system
+  cases pass with two slower memory clocks, response delays, separate channel
+  stalls, nonzero initial RAM and retained contents across reset. Deliberately
+  corrupted reads fail the independent result check. See the
+  [complete-CPU AXI checks](AXI.md#complete-cpu-integration).
 - [ ] Integrate controller startup/calibration and physical clock-crossing
   constraints before issuing timed CPU memory requests.
 - [ ] Add an external-memory controller with independently checked device

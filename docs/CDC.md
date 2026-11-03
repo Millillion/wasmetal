@@ -3,8 +3,9 @@
 `soc/external/wasmetal_memory_cdc.sv` transports one 128-bit physical memory
 request between independent CPU and memory clocks. The assembled
 `wasmetal_async_axi_memory.sv` connects it to the [AXI adapter](AXI.md).
-These verified components are not yet connected to the CPU's active memory
-path or a DDR controller. The standalone system still uses local block RAM.
+The [complete-CPU AXI test](AXI.md#complete-cpu-integration) connects these
+components to the CPU's memory path in a dedicated simulation. The default FPGA
+system still uses local block RAM; no DDR controller is connected yet.
 
 ## Transaction and reset contract
 
