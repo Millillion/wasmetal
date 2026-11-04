@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "scope": "synthetic proof-driver fixtures, not the CPU proof",
+  "inputs": {
+    "tools/check_core_mapping_classic_driver.py": "468f170682442f540d8750edc41547e704e794f985309eedb8cdca5e49a0af3a",
+    "tools/prove_core_mapping.py": "75469f4f4e3c8f3f65d364132e0ec8d14b5c420e3057efffc6c1812f072ee7ad",
+    "tools/resume_core_mapping.py": "be4716bc216a1fb99ae9ff5aca28a7fd4649c728f88ff0a95427d78983e9f3f5",
+    "tools/prove_core_mapping_classic.py": "1fe508df11c3ccb76a618eab20b11a8c4a4b65615ddd2fcd1fda75b46e5d1376",
+    "tools/resume_core_mapping_classic.py": "d9be871b830b9b6cb1354b6baa76eddf292c85226c41a11d6af560afd711362a",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    ".cache/tools/oss-cad-suite/libexec/yosys-abc": "17f424979db52516d136c941663d4f523902bfeaea0b1d759594e75876c451f3"
+  },
+  "rejected_defects": [
+    {
+      "name": "changed abstract primitive configuration",
+      "reason": "primitive configuration differs: register"
+    },
+    {
+      "name": "counterexample relabeled as proof",
+      "reason": "classic proof status does not match solver output"
+    },
+    {
+      "name": "changed solver input",
+      "reason": "proof input changed: build/core-classic-driver/inverted/candidate.aig"
+    },
+    {
+      "name": "inherited out-of-range bit",
+      "reason": "invalid original proof coverage"
+    },
+    {
+      "name": "Boolean as inherited bit",
+      "reason": "invalid original proof coverage"
+    },
+    {
+      "name": "zero group size",
+      "reason": "invalid original proof coverage"
+    },
+    {
+      "name": "wrong completion order",
+      "reason": "classic proof partition order differs"
+    },
+    {
+      "name": "duplicate bit",
+      "reason": "classic proof partition order differs"
+    },
+    {
+      "name": "inherited bit counted twice",
+      "reason": "classic proof partition order differs"
+    },
+    {
+      "name": "omitted obligation",
+      "reason": "classic proof partition order differs"
+    },
+    {
+      "name": "hidden counterexample",
+      "reason": "counterexample or unknown classic proof status"
+    },
+    {
+      "name": "unrecognized status",
+      "reason": "counterexample or unknown classic proof status"
+    },
+    {
+      "name": "forged proof count",
+      "reason": "real resume command rejected inconsistent checkpoint"
+    },
+    {
+      "name": "forged pending count",
+      "reason": "real resume command rejected inconsistent checkpoint"
+    },
+    {
+      "name": "missing negative control",
+      "reason": "real resume command rejected inconsistent checkpoint"
+    }
+  ],
+  "inherited_bits": 2,
+  "completed_fixture_bits": 3,
+  "inconclusive_singleton_preserved": true,
+  "completed_run_reverified": true,
+  "artifacts": {
+    "build/core-classic-driver/initial.log": "510c40e65bcc538486cb231893b82e83ec3ac1e45400993d6471719d68810929",
+    "build/core-classic-driver/missing-negative-control.log": "d66e49122bcdfa40d995d0fe0002c75c69729ccc0dddaac7d749c76a52fb69fa",
+    "build/core-classic-driver/repeat-completed.log": "c13961d7453c29f698216860982b8f661dba01c73de62f594c3c2a3f06eaf69f",
+    "build/core-classic-driver/forged-proof-count.log": "3a04d02eec4941a87165649eb481f2cd676f821224182c009e451ce3d11bd778",
+    "build/core-classic-driver/forged-pending-count.log": "3a04d02eec4941a87165649eb481f2cd676f821224182c009e451ce3d11bd778"
+  }
+}

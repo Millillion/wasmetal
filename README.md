@@ -32,7 +32,11 @@ A new [CPU mapping comparison](docs/DESIGN-FLOW.md#comparing-complete-cpu-logic-
 retains complete logic cones and resumes verified checkpoints. Its
 [driver checks](docs/verification/core-mapping-driver.json) reject an inverted
 output and 17 malformed inputs or checkpoint defects; the complete CPU proof
-is still running.
+is still running. A second checker now applies classic CEC to the remaining
+groups. Its [driver checks](docs/verification/core-classic-driver.json) reject
+15 defects and preserve inherited proofs and unresolved bits. The initial
+[all-boundary classic attempt](docs/verification/core-mapping-classic-whole.json)
+timed out without a conclusion; no complete CPU equivalence result is claimed.
 Fresh proofs pass for the programmable
 [board wrapper](docs/verification/loadable-mapping-proof.json) and
 [simulation wrapper](docs/verification/loadable-simulation-mapping-proof.json),

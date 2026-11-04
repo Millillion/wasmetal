@@ -156,6 +156,38 @@ same command again to continue. Zero means the complete boundary comparison
 passed; other failures need investigation. Source changes invalidate a saved
 comparison instead of silently reusing its results.
 
+ABC's classic CEC engine is an additional search strategy for difficult groups.
+The [initial all-boundary attempt](verification/core-mapping-classic-whole.json)
+rejected its inverted-output control but reached its 600-second wall limit
+without proving the positive case. That attempt is inconclusive. A second
+driver applies classic CEC to the observations still unproved by the original
+checkpoint, retaining every original gate and input in each selected cone:
+
+```sh
+python3 tools/check_core_mapping_classic_driver.py
+python3 tools/resume_core_mapping_classic.py \
+  --source-directory build/core-mapping-proof \
+  --source-checkpoint reports/core-mapping-proof.json \
+  --directory build/core-classic-remaining \
+  --report reports/core-classic-remaining.json \
+  --work-seconds 600
+```
+
+The [driver fixture](verification/core-classic-driver.json) runs real solver
+comparisons on known circuits, completes and rechecks an inherited proof, and
+rejects 15 malformed inputs or checkpoint defects. It checks that inconclusive
+single bits remain unproved and that neither inherited bits nor out-of-order
+parallel results can be counted twice. CI repeats both proof-driver fixtures.
+
+The driver verifies the original inputs, saved circuits and solver logs before
+reusing proven observations. It runs at most two independent comparisons,
+records them in queue order, writes atomic checkpoints and prevents concurrent
+writers to the same work directory. Exit 75 again means comparisons remain.
+Only exact coverage of every original boundary bit, with no counterexample or
+unresolved bit, produces a pass. This remains a comparison of technology
+mappings with matching storage/DSP primitives abstracted; it does not prove
+primitive behavior, physical timing or the RTL synthesis front end.
+
 ## Checking the programmable wrapper mapping
 
 The programmable wrapper uses ABC9, as the CPU already does. The
@@ -203,12 +235,14 @@ RTL with `make sim`. Both official-suite commands use that executable by default
 | Standalone placement/routing timing and bitstream round trip | Yes; separate standalone-routing job |
 | Programmable uploads, replacement and recovery | Yes; all 35 local RTL/mapped comparisons passed |
 | Compiled freestanding C through programmable uploads | Yes; all five local RTL/mapped comparisons passed |
+| Complete ROM and programmable systems with initially unknown storage | Required; the production-capacity local four-state campaign passed |
+| Mapping-proof drivers and checkpoint integrity | Yes; synthetic circuits and deliberate defects, separate from CPU equivalence |
 | Programmable placement/routing and bitstream round trip | Required by CI; routing has not completed locally |
 | Wide memory, AXI, clock crossing and SRAM adapter checks | Yes; component proofs, RTL and mapped simulations |
 | Complete CPU through SRAM adapter and behavioral macro | Yes; separate RTL job at two read latencies, with a corrupt-read control |
 
 The [programmable integration flow](PROGRAM-UPLOAD.md) requires all six mapped
-groups, native tests, the compiled C workload and board routing. Its execution
+groups, native tests, the compiled C workload, four-state boot/upload tests and board routing. Its execution
 results are complete locally; programmable routing remains unresolved. These
 jobs supplement the complete official core corpus with bounded system tests.
 
