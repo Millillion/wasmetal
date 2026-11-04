@@ -213,6 +213,11 @@ The clocked SystemVerilog core runs in Verilator. The test harness converts the
 pinned official Wasm core test suite and compares its expectations with RTL
 execution results and traps. Unsupported cases fail the run.
 
+Documentation-only pushes touching just `README.md` and `docs/` do not start a
+new hardware workflow, so publishing verification evidence does not cancel a
+running source verification. Code, build-tool and workflow changes still
+trigger CI; pull requests and manual runs remain unfiltered.
+
 CI runs the complete suite with zero and three memory wait states, then checks
 the serial FPGA interface. The workflow now also synthesizes the ECP5 CPU and
 runs the complete official corpus against its Verilator circuit model across

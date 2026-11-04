@@ -1,6 +1,10 @@
 name: RTL verification
 on:
   push:
+    # Evidence and README updates must not cancel long-running RTL checks.
+    paths-ignore:
+      - README.md
+      - docs/**
   pull_request:
   workflow_dispatch:
 permissions:
