@@ -67,7 +67,9 @@ after five worsening iterations; its best result still had 23,415 conflicting
 wires. Saved placement settings initially overrode the command-line router
 choice. The [corrected trial](docs/verification/reset-router1-preflight.json)
 changes only that setting, checks every other placement value and confirms
-router1 in its live log. It is running with a two-hour limit; CI repeats
+router1 in its log. It [reached its two-hour limit without completing](docs/verification/reset-replication-router1-timeout.json);
+all inputs were rechecked afterward, and no routed design or bitstream was
+produced. Both router trials remain incomplete. CI repeats
 [13 corruption controls](docs/verification/routing-placement-driver.json).
 A real
 [timeout control](docs/verification/reset-routing-timeout.json) verifies that

@@ -62,8 +62,13 @@ The [corrected trial](verification/reset-router1-preflight.json) creates a copy
 of the placement with only its router setting changed. It compares every other
 JSON value, preserving the entire circuit, placed locations, clocks, timing
 target and saved random state. The original placement remains untouched. The
-live nextpnr log now confirms router1. Its result is still incomplete, with a
-two-hour limit. A final pass also requires that the log identifies the requested
+nextpnr log confirms router1. The [completed attempt](verification/reset-replication-router1-timeout.json)
+reached its two-hour limit without finishing. Its last progress line reports
+81,298 remaining arcs from an initial 226,827; this is a different metric from
+router2's conflicting-wire count. All 40 frozen inputs were rechecked after
+the timeout. No routed design, timing report or bitstream was produced; the
+[raw log](verification/reset-replication-router1-timeout.log) is retained.
+A final pass also requires that the log identifies the requested
 algorithm. The [driver fixture](verification/routing-placement-driver.json)
 accepts both routers and rejects 13 circuit, placement, setting and log defects;
 CI repeats it.
