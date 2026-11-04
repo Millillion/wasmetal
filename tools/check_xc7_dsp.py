@@ -15,6 +15,7 @@ import time
 from check_xc7_memory_mapping import TOOLS, VENDOR, identities, verify_vendor
 from check_xc7_ram_models import outcome, run
 from prepare_standalone import ROOT, digest
+from xc7_dsp_model import split_carries
 
 BUILD = ROOT/'build/xc7-dsp'
 BENCH = ROOT/'tests/xc7/dsp.sv'
@@ -189,11 +190,13 @@ def main():
         'version':subprocess.check_output([str(compiler),'--version'],text=True).splitlines()[0]}
     inputs=identities([Path(__file__).resolve(),BENCH,LIBRARY,estimate,netlist,
         ROOT/'tools/check_xc7_memory_mapping.py',ROOT/'tools/check_xc7_ram_models.py',ROOT/'tools/prepare_standalone.py',
+        ROOT/'tools/xc7_dsp_model.py',
         *[VENDOR/n for n in ['DSP48E1.v','DSP48E1.UPSTREAM.json','UPSTREAM.json','LICENSE','glbl.v']],
         TOOLS/'bin/iverilog',TOOLS/'bin/vvp',TOOLS/'bin/verilator',TOOLS/'bin/verilator_bin'])
     extracted=re.findall(r'\bmodule\s+DSP48E1\b.*?\bendmodule',LIBRARY.read_text(),re.S)
     if len(extracted)!=1:raise ValueError('ambiguous standard DSP model')
     model=BUILD/'yosys-dsp.v';model.write_text(extracted[0]+'\n')
+    split_model=BUILD/'yosys-dsp-split.v';split_model.write_text(split_carries(extracted[0])+'\n')
     checks=[];negative=[]
     for index,(group,instances) in enumerate(sorted(groups.items())):
         directory=BUILD/f'configuration-{index}';directory.mkdir(exist_ok=True)
@@ -201,17 +204,19 @@ def main():
         trace=directory/'vectors.txt';count=vectors(group,trace)
         vendor=simulate(directory,'vendor',wrapper,VENDOR/'DSP48E1.v',trace,count)
         standard=simulate(directory,'yosys',wrapper,model,trace,count)
-        compiled=simulate(directory,'verilator',wrapper,model,trace,count,verilator=True)
+        split=simulate(directory,'split-icarus',wrapper,split_model,trace,count)
+        compiled=simulate(directory,'verilator',wrapper,split_model,trace,count,verilator=True)
         mutations=[]
         if group==('DIRECT','DIRECT',5):mutations+=['wrong-carry','flipped-product','lost-cascade-output']
         if group[0]=='CASCADE':mutations+=['wrong-a-cascade','unshifted-cascade']
         if group[1]=='CASCADE':mutations+=['wrong-b-cascade']
         for mutation in mutations:
             changed=directory/(mutation+'.sv');changed.write_text(fixture(group,mutation))
-            negative.append(simulate(directory,mutation,changed,model,trace,count,failure='DSP_DATA_MISMATCH'))
+            negative.append(simulate(directory,mutation,changed,split_model,trace,count,failure='DSP_DATA_MISMATCH'))
         checks.append({'a_input':group[0],'b_input':group[1],'opmode':group[2],
-                       'instances':instances,'vectors_per_model':count,'vendor':vendor,'yosys':standard,'verilator':compiled})
-        print(f'PASS DSP {group}: {count} integer-oracle vectors in vendor, Yosys and Verilator models',flush=True)
+                       'instances':instances,'vectors_per_model':count,'vendor':vendor,'yosys':standard,
+                       'split_icarus':split,'verilator':compiled})
+        print(f'PASS DSP {group}: {count} integer-oracle vectors in vendor, original Yosys and split-carry models',flush=True)
     if len(negative)!=6:raise ValueError('missing DSP fault controls')
     if identities([ROOT/n for n in inputs])!=inputs:raise ValueError('DSP verification inputs changed')
     if digest(compiler)!=compiler_identity['sha256']:raise ValueError('DSP test compiler changed')

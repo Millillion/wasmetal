@@ -7,8 +7,9 @@ trusting a simulation of the complete mapped CPU.
 
 The [recorded regression](verification/xc7-dsp.json) covers every configuration
 present in the corrected system netlist. It runs the same independent integer
-oracle against three simulations: the unmodified Xilinx model in Icarus, the
-Yosys model in Icarus, and the Yosys model in Verilator. All 87,040 vectors per
+oracle against four simulations: the unmodified Xilinx model in Icarus, the
+original Yosys model in Icarus, and the model with explicit carry connections
+in both Icarus and Verilator. All 87,040 vectors per
 model pass. The original logs are preserved beside the receipt.
 
 | A input | B input | OPMODE | Added value | Instances | Vectors per model |
@@ -30,6 +31,13 @@ bit/complement cases across all data inputs, and 16,384 deterministic random
 cases. Comparisons occur before, on and after clock edges while reset and
 enable inputs toggle. These toggles must not introduce latency or gating into
 the unregistered configurations.
+
+The complete-system simulator uses three explicit bit connections for the
+standard model's `int_carry_in[3:1] = int_carry_out[2:0]` assignment. These
+represent the same wires, while allowing Verilator to schedule each carry
+separately. `tools/xc7_dsp_model.py` requires an exact recognized source anchor
+before producing this private simulation copy. The original library remains
+the reference, and the candidate repeats the full arithmetic regression.
 
 Six real simulated faults must fail: choosing the wrong A or B cascade source,
 omitting the cascade shift, adding a carry, flipping a product bit, and losing

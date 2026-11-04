@@ -122,6 +122,9 @@ blocks: 87,040 vectors per model across five configurations agree with an
 independent signed-integer oracle, using both original Xilinx and Yosys models.
 Six arithmetic faults and eight unreviewed configuration/output changes are
 rejected. CI now runs this check after synthesis.
+An explicit-bit form of the DSP carry bus also passes the same oracle in both
+Icarus and Verilator; it removes an artificial scheduling loop when compiling
+the complete mapped circuit.
 Complete Xilinx CPU simulation, placement and timing
 remain unverified. ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.

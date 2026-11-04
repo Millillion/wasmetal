@@ -13,118 +13,118 @@
                        /tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:2:8: ... Location of module with timescale
     2 | module xc7_dsp;
       |        ^~~~~~~
-%Warning-TIMESCALEMOD: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+%Warning-TIMESCALEMOD: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
     1 | module DSP48E1 (
       |        ^~~~~~~
                        /tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:2:8: ... Location of module with timescale
     2 | module xc7_dsp;
       |        ^~~~~~~
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:337:21: Operator EQ expects 56 bits on the LHS, but LHS's VARREF 'A_INPUT' generates 48 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:337:21: Operator EQ expects 56 bits on the LHS, but LHS's VARREF 'A_INPUT' generates 48 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
   337 |         if (A_INPUT == "CASCADE") assign A_muxed = ACIN;
       |                     ^~
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:621:22: Operator EQ expects 48 bits on the LHS, but LHS's VARREF 'USE_SIMD' generates 40 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:621:22: Operator EQ expects 48 bits on the LHS, but LHS's VARREF 'USE_SIMD' generates 40 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
   621 |         if (USE_SIMD == "FOUR12") begin
       |                      ^~
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:324:68: Operator NEQ expects 48 bits on the LHS, but LHS's VARREF 'USE_SIMD' generates 40 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:324:68: Operator NEQ expects 48 bits on the LHS, but LHS's VARREF 'USE_SIMD' generates 40 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
   324 |         if (USE_SIMD != "ONE48" && USE_SIMD != "TWO24" && USE_SIMD != "FOUR12")    $fatal(1, "Unsupported USE_SIMD value");
       |                                                                    ^~
-%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:443:35: Operator ASSIGNW expects 25 bits on the Assign RHS, but Assign RHS's COND generates 30 bits.
-                                                                                   : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:443:35: Operator ASSIGNW expects 25 bits on the Assign RHS, but Assign RHS's COND generates 30 bits.
+                                                                                         : ... note: In instance 'xc7_dsp.dut.cell_under_test'
   443 |     wire signed [24:0] Ar12_muxed = INMODEr[0] ? Ar1 : Ar2;
       |                                   ^
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:482:28: Operator ASSIGN expects 48 bits on the Assign RHS, but Assign RHS's SIGNED generates 43 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:482:28: Operator ASSIGN expects 48 bits on the Assign RHS, but Assign RHS's SIGNED generates 43 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
   482 |             2'b01: begin X = $signed(Mrx);
       |                            ^
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:537:23: Operator ASSIGN expects 48 bits on the Assign RHS, but Assign RHS's SIGNED generates 31 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:537:23: Operator ASSIGN expects 48 bits on the Assign RHS, but Assign RHS's SIGNED generates 31 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
   537 |             3'b101: Z = $signed(PCIN[47:17]);
       |                       ^
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:540:23: Operator ASSIGN expects 48 bits on the Assign RHS, but Assign RHS's SIGNED generates 31 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:540:23: Operator ASSIGN expects 48 bits on the Assign RHS, but Assign RHS's SIGNED generates 31 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
   540 |                     Z = $signed(P[47:17]);
       |                       ^
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:664:91: Operator ADD expects 13 bits on the RHS, but RHS's SEL generates 1 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
-  664 |                                                               + xor_xyz_muxed[i*12 +: 12] + int_carry_in[i];
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:666:91: Operator ADD expects 13 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+  666 |                                                               + xor_xyz_muxed[i*12 +: 12] + int_carry_in[i];
       |                                                                                           ^
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:664:63: Operator ADD expects 14 bits on the RHS, but RHS's SEL generates 12 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
-  664 |                                                               + xor_xyz_muxed[i*12 +: 12] + int_carry_in[i];
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:666:63: Operator ADD expects 14 bits on the RHS, but RHS's SEL generates 12 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+  666 |                                                               + xor_xyz_muxed[i*12 +: 12] + int_carry_in[i];
       |                                                               ^
-%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:664:91: Operator ADD expects 14 bits on the RHS, but RHS's SEL generates 1 bits.
-                                                                                    : ... note: In instance 'xc7_dsp.dut.cell_under_test'
-  664 |                                                               + xor_xyz_muxed[i*12 +: 12] + int_carry_in[i];
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:666:91: Operator ADD expects 14 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                          : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+  666 |                                                               + xor_xyz_muxed[i*12 +: 12] + int_carry_in[i];
       |                                                                                           ^
-%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:663:60: Operator ASSIGNW expects 13 bits on the Assign RHS, but Assign RHS's ADD generates 14 bits.
-                                                                                   : ... note: In instance 'xc7_dsp.dut.cell_under_test'
-  663 |             assign {int_carry_out[i], alu_sum[i*12 +: 12]} = {1'b0, maj_xyz_simd_gated[i*12 +: ((i == 3) ? 13 : 12)]}
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:665:60: Operator ASSIGNW expects 13 bits on the Assign RHS, but Assign RHS's ADD generates 14 bits.
+                                                                                         : ... note: In instance 'xc7_dsp.dut.cell_under_test'
+  665 |             assign {int_carry_out[i], alu_sum[i*12 +: 12]} = {1'b0, maj_xyz_simd_gated[i*12 +: ((i == 3) ? 13 : 12)]}
       |                                                            ^
 %Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:22:13: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'fd' generates 32 bits.
                                                                          : ... note: In instance 'xc7_dsp'
    22 |         if (!fd) $fatal(1,"MISSING_DSP_TRACE");
       |             ^
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:378:27: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:378:27: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   378 |             always @* Ar1 <= A_muxed;
       |                           ^~
                   *** See https://verilator.org/warn/COMBDLY before disabling this,
                   else you may end up with different sim results.
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:379:27: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:379:27: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   379 |             always @* Ar2 <= A_muxed;
       |                           ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:406:27: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:406:27: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   406 |             always @* Br1 <= B_muxed;
       |                           ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:407:27: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:407:27: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   407 |             always @* Br2 <= B_muxed;
       |                           ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:413:37: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:413:37: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   413 |         else           always @* Cr <= C;
       |                                     ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:417:37: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:417:37: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   417 |         else           always @* Dr <= D;
       |                                     ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:422:42: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:422:42: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   422 |         else           always @* INMODEr <= INMODE;
       |                                          ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:425:42: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:425:42: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   425 |         else           always @* OPMODEr <= OPMODE;
       |                                          ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:428:43: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:428:43: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   428 |         else           always @* ALUMODEr <= ALUMODE;
       |                                           ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:431:46: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:431:46: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   431 |         else           always @* CARRYINSELr <= CARRYINSEL;
       |                                              ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:452:39: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:452:39: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   452 |         else            always @* ADr <= AD_result;
       |                                       ^~
-%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:470:37: Non-blocking assignment '<=' in combinational logic process
-                                                                                : ... This will be executed as a blocking assignment '='!
+%Warning-COMBDLY: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:470:37: Non-blocking assignment '<=' in combinational logic process
+                                                                                      : ... This will be executed as a blocking assignment '='!
   470 |         else           always @* Mr <= Mx;
       |                                     ^~
-%Warning-UNOPTFLAT: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:615:30: Signal unoptimizable: Circular combinational logic: 'xc7_dsp.dut.cell_under_test.int_carry_out'
+%Warning-UNOPTFLAT: /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:615:30: Signal unoptimizable: Circular combinational logic: 'xc7_dsp.dut.cell_under_test.int_carry_out'
   615 |     wire [3:0] int_carry_in, int_carry_out, ext_carry_out;
       |                              ^~~~~~~~~~~~~
-                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:615:30:      Example path: xc7_dsp.dut.cell_under_test.int_carry_out
-                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:617:30:      Example path: ASSIGNW
-                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:615:16:      Example path: xc7_dsp.dut.cell_under_test.int_carry_in
-                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:663:37:      Example path: ASSIGNW
-                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v:615:30:      Example path: xc7_dsp.dut.cell_under_test.int_carry_out
+                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:615:30:      Example path: xc7_dsp.dut.cell_under_test.int_carry_out
+                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:617:30:      Example path: ASSIGNW
+                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:615:16:      Example path: xc7_dsp.dut.cell_under_test.int_carry_in
+                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:665:37:      Example path: ASSIGNW
+                    /tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v:615:30:      Example path: xc7_dsp.dut.cell_under_test.int_carry_out
 make: Entering directory '/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-1/verilator-obj'
 g++ -Os  -I.  -MMD -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/verilated.cpp
 g++ -Os  -I.  -MMD -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/verilated_timing.cpp

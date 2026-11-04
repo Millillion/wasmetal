@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "inputs": {
-    "tools/check_xc7_dsp.py": "d120ef27f953e46a52e436dfb534931a0bd07cb20f9a059516f7f6d354dad885",
+    "tools/check_xc7_dsp.py": "a73f1a76a30afe2c9cef9b795b03e1049b4cf60a07731b85cbbddfe60e1e498d",
     "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
     ".cache/tools/usr/share/yosys/xilinx/cells_sim.v": "10f8afc61bf708949ebf238294327dce95eaa68919bb0ab5938d40f24e39d15e",
     "reports/xc7-system-estimate.json": "af80e83f01a905462b202497bdd608da64cb6c06a2b2e269e9cbbd1f48f63e86",
@@ -9,6 +9,7 @@
     "tools/check_xc7_memory_mapping.py": "8a150ca919c09059724a58bd78eb26196d159df9fe068f41e0fe2e88c530cd9d",
     "tools/check_xc7_ram_models.py": "b43163d4b66b661263ea29460fc5430bfa46c9bddc359dd16e0d9fb08231a3fc",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/xc7_dsp_model.py": "ffcf88f83148af7b143bf625b815bdf7118154629b536a6f9d4e288f7d9c3aff",
     "third_party/xilinx-unisim/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
     "third_party/xilinx-unisim/DSP48E1.UPSTREAM.json": "077de48cd6c73b7224992960cdf62267b4cd041221dff8f3865ff902a37177a6",
     "third_party/xilinx-unisim/UPSTREAM.json": "a2b685dbffe02b5f95cd453268a6f604195391fe54efb30c387baa0904736e2c",
@@ -56,7 +57,7 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-0/vendor.vvp": "d613f8999ca65e1044e8f181f37eae788bd302702edc8ed6447fdc78c0d783d1",
+          "build/xc7-dsp/configuration-0/vendor.vvp": "2031905764130b7f270940ffdb42f9b095d849fe95e9849fb256cc41f890c8f6",
           "build/xc7-dsp/configuration-0/vendor-compile.log": "b8c0fa106fb1dc24abe6c69b439f5b8d09334b9e06069ba43bdaa043572e3757",
           "build/xc7-dsp/configuration-0/vendor.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
@@ -91,15 +92,50 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-0/yosys.vvp": "cd2137aef4b711a72f370cf8f840a5ff0c2ae24391a32b9c1c3c6a578abba63c",
+          "build/xc7-dsp/configuration-0/yosys.vvp": "c156303789fa9727d2a04563ba2adeb685dd8b84948896a0f3752eca0dd963a7",
           "build/xc7-dsp/configuration-0/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-dsp/configuration-0/yosys.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-0/fixture.sv": "e7e73b6e31d83c37da6ef2bd7a783ecf34b0f89297915456b26264cb72fd269f",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/split-icarus.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/fixture.sv",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-0/split-icarus.vvp": "69bb2e955fa05f8da69844e64d881fde4e0f998647f88b4293732a056eeea99f",
+          "build/xc7-dsp/configuration-0/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-0/split-icarus.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
       },
       "verilator": {
         "inputs": {
           "build/xc7-dsp/configuration-0/fixture.sv": "e7e73b6e31d83c37da6ef2bd7a783ecf34b0f89297915456b26264cb72fd269f",
-          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
           "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
           "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
           "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
@@ -117,7 +153,7 @@
           "--Mdir",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/verilator-obj",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/fixture.sv",
-          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
           "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
         ],
@@ -129,7 +165,7 @@
         ],
         "artifacts": {
           "build/xc7-dsp/configuration-0/verilator-obj/Vxc7_dsp": "18fcb43bfc38eec39e7922af81928c8cc8a2932221b0de0ef23899006336fd62",
-          "build/xc7-dsp/configuration-0/verilator-compile.log": "ac070961a3ba8a8f455eed47bc4b5b57dddf716f470869942babb6430786626d",
+          "build/xc7-dsp/configuration-0/verilator-compile.log": "2b101b02aade4d693820a8d69c0caee408868d8f31be2e0c800855de592f2030",
           "build/xc7-dsp/configuration-0/verilator.log": "1816708fdd74801638d9929bd92f27322130a98e1f5f1e667006ed7343e46544"
         }
       }
@@ -170,7 +206,7 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-1/vendor.vvp": "7d8148ecca2223f46308e74590f7df6b3b80738b11ac09800ae5d14b0975cff0",
+          "build/xc7-dsp/configuration-1/vendor.vvp": "7b0e7c17a0817b73b77d1fea8289cf1657726b00ed2d02bccdcbe72ffc0cea42",
           "build/xc7-dsp/configuration-1/vendor-compile.log": "b8c0fa106fb1dc24abe6c69b439f5b8d09334b9e06069ba43bdaa043572e3757",
           "build/xc7-dsp/configuration-1/vendor.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
@@ -205,15 +241,50 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-1/yosys.vvp": "4a09ace544bce3f716bbc3621c0d91eed3bf0182441b3f2d968515d315d0976b",
+          "build/xc7-dsp/configuration-1/yosys.vvp": "d092502e38f0dd3faaa1fa5aa0652c31119c34fd1cdc420fd747a1b899e36a6f",
           "build/xc7-dsp/configuration-1/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-dsp/configuration-1/yosys.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-1/fixture.sv": "1577d324d565702cace24e0f90762c0baffe479c5cde6fae7359ccfe6c0d6403",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-1/split-icarus.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-1/fixture.sv",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-1/split-icarus.vvp": "0b16a388b2c0e9c77d349eba3affd429c3936dfb2c8d51f1b50e00f178795e87",
+          "build/xc7-dsp/configuration-1/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-1/split-icarus.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
       },
       "verilator": {
         "inputs": {
           "build/xc7-dsp/configuration-1/fixture.sv": "1577d324d565702cace24e0f90762c0baffe479c5cde6fae7359ccfe6c0d6403",
-          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
           "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
           "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
           "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
@@ -231,7 +302,7 @@
           "--Mdir",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-1/verilator-obj",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-1/fixture.sv",
-          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
           "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
         ],
@@ -243,7 +314,7 @@
         ],
         "artifacts": {
           "build/xc7-dsp/configuration-1/verilator-obj/Vxc7_dsp": "8a8c0a3a437966557a22ed31e11c51ce8719f535f555e7b42af87e6c1e35c7f1",
-          "build/xc7-dsp/configuration-1/verilator-compile.log": "17bea71074d76af64691cad50eab7953c2794c38696600f443c55df1b783871d",
+          "build/xc7-dsp/configuration-1/verilator-compile.log": "ff9282923d335cc3ad0e039219ca6487cf1d4c72de3df75bf9702d97ca1e3df9",
           "build/xc7-dsp/configuration-1/verilator.log": "1816708fdd74801638d9929bd92f27322130a98e1f5f1e667006ed7343e46544"
         }
       }
@@ -284,7 +355,7 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-2/vendor.vvp": "e4981d1731c4fce70a863f732ef1cb7a4e40f985e98b27e25cb619bd382ef0eb",
+          "build/xc7-dsp/configuration-2/vendor.vvp": "b2b0c9b3fc935dd07f66bf33f4b02731c26873ed9be67c50d9f6497404e51ba5",
           "build/xc7-dsp/configuration-2/vendor-compile.log": "b8c0fa106fb1dc24abe6c69b439f5b8d09334b9e06069ba43bdaa043572e3757",
           "build/xc7-dsp/configuration-2/vendor.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
@@ -319,15 +390,50 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-2/yosys.vvp": "a11e6021b1c572238cf8e5f7f3a26aa33551c46dd8f74809d1611ac8c06574d0",
+          "build/xc7-dsp/configuration-2/yosys.vvp": "8374a342ac5a181349a600fa2976f16f3afde36996ebfe1b48c1d8432a104ebe",
           "build/xc7-dsp/configuration-2/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-dsp/configuration-2/yosys.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-2/fixture.sv": "c3a98451b3ae2f8b44b34201a83ac0fdfaca7d214da9ea225c5467be3ff1bbf3",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/split-icarus.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/fixture.sv",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-2/split-icarus.vvp": "841e233f042f81e6a1782c9d623909701fd8a3ef5ad21d0288420ed1e5d92ac5",
+          "build/xc7-dsp/configuration-2/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-2/split-icarus.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
       },
       "verilator": {
         "inputs": {
           "build/xc7-dsp/configuration-2/fixture.sv": "c3a98451b3ae2f8b44b34201a83ac0fdfaca7d214da9ea225c5467be3ff1bbf3",
-          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
           "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
           "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
           "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
@@ -345,7 +451,7 @@
           "--Mdir",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/verilator-obj",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/fixture.sv",
-          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
           "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
         ],
@@ -357,7 +463,7 @@
         ],
         "artifacts": {
           "build/xc7-dsp/configuration-2/verilator-obj/Vxc7_dsp": "4ea3a486d1cd97fa987586a0d1e739e33d16db2644e9373013964b9a0e24da8b",
-          "build/xc7-dsp/configuration-2/verilator-compile.log": "17a599025dea3d7028d2c2593a16686338eceab482a6ebe96506ac1d8b340f0f",
+          "build/xc7-dsp/configuration-2/verilator-compile.log": "30966867564caf76d8306497ec9e2d665bdb0ecf054e311cfbbe02279a630363",
           "build/xc7-dsp/configuration-2/verilator.log": "1816708fdd74801638d9929bd92f27322130a98e1f5f1e667006ed7343e46544"
         }
       }
@@ -398,7 +504,7 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-3/vendor.vvp": "f5acc91ceecd5abd1603679665ae528aa63e5e5bb9104d0baac7bf7201db0b50",
+          "build/xc7-dsp/configuration-3/vendor.vvp": "ebde2f7584307cab9253d2302ff3a3081c5af2861a4704e9ad8644b0136a8261",
           "build/xc7-dsp/configuration-3/vendor-compile.log": "b8c0fa106fb1dc24abe6c69b439f5b8d09334b9e06069ba43bdaa043572e3757",
           "build/xc7-dsp/configuration-3/vendor.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
@@ -433,15 +539,50 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-3/yosys.vvp": "9970a50efb18d8bfba7fa8ac52b9c4db91b914a5c4e9f20f5104f0ebd5ea72c7",
+          "build/xc7-dsp/configuration-3/yosys.vvp": "6497e7753e394b7ba9231e2631742772b51343f738c2cbcc569d8653f43da941",
           "build/xc7-dsp/configuration-3/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-dsp/configuration-3/yosys.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-3/fixture.sv": "448699ca5f01c935c9a05a1fec8fb2d5160f7b0487aea7ecd501be11f4c7c5db",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-3/vectors.txt": "787260f2f1582f95c907b7feb76f366c6aeb77d473fe1c2afe07d8ca11ae7982"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-3/split-icarus.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-3/fixture.sv",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-3/split-icarus.vvp": "48d9372d895303a4b701112f32b1af68b76b48c09bfce5bb37402ae182aff3cc",
+          "build/xc7-dsp/configuration-3/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-3/split-icarus.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
       },
       "verilator": {
         "inputs": {
           "build/xc7-dsp/configuration-3/fixture.sv": "448699ca5f01c935c9a05a1fec8fb2d5160f7b0487aea7ecd501be11f4c7c5db",
-          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
           "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
           "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
           "build/xc7-dsp/configuration-3/vectors.txt": "787260f2f1582f95c907b7feb76f366c6aeb77d473fe1c2afe07d8ca11ae7982"
@@ -459,7 +600,7 @@
           "--Mdir",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-3/verilator-obj",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-3/fixture.sv",
-          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
           "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
         ],
@@ -471,7 +612,7 @@
         ],
         "artifacts": {
           "build/xc7-dsp/configuration-3/verilator-obj/Vxc7_dsp": "f8b0afd48fa1f7a46accb3f0bc02515c15cbc83e40fedba865737fc9c666a453",
-          "build/xc7-dsp/configuration-3/verilator-compile.log": "2bb2c21479defbd28a0763dfbbf2c84203465da13352f9cf1659f97ef58a35dd",
+          "build/xc7-dsp/configuration-3/verilator-compile.log": "33e845c9a8f3b7a6fcbad327a0030c877814654468eb6cb75c7d9eaacd63adeb",
           "build/xc7-dsp/configuration-3/verilator.log": "1816708fdd74801638d9929bd92f27322130a98e1f5f1e667006ed7343e46544"
         }
       }
@@ -512,7 +653,7 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-4/vendor.vvp": "e60fdd29ff0e9bcd0c0ed8bccdf83b8b391ca31407ba30d82c77037dd1d5ebb5",
+          "build/xc7-dsp/configuration-4/vendor.vvp": "e25eb178fd0a409e06813c21d22a8e7f1e8bcf22d505fa2b9d8654f5e51f7e6b",
           "build/xc7-dsp/configuration-4/vendor-compile.log": "b8c0fa106fb1dc24abe6c69b439f5b8d09334b9e06069ba43bdaa043572e3757",
           "build/xc7-dsp/configuration-4/vendor.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
@@ -547,15 +688,50 @@
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
         ],
         "artifacts": {
-          "build/xc7-dsp/configuration-4/yosys.vvp": "16e77847f7f050e51b2fdd09aa2789fe9013c2bbc879a388e14e4daaa0ccf33f",
+          "build/xc7-dsp/configuration-4/yosys.vvp": "ec587f4b902f74135308a986e2e93b6d077b9dc9fb83432596c29764a71d7d85",
           "build/xc7-dsp/configuration-4/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-dsp/configuration-4/yosys.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-4/fixture.sv": "7e072f125f36d7dd99540ca93c60011e4f151cb155240a24a5dac901c5429eeb",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-4/vectors.txt": "c8ab68a94130af7779e12664d89c91e39d2314164b0c9f3997b20453fd86c8b4"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-4/split-icarus.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-4/fixture.sv",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-4/split-icarus.vvp": "7321b526a674a0c009d519f5a5de62cc6d3c3962d5b93cd8a1a0bb8f0cfcc573",
+          "build/xc7-dsp/configuration-4/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-4/split-icarus.log": "09b638a2cb09225ad21e4f539801e4b241294c8f2b066540b1f307b180d66169"
         }
       },
       "verilator": {
         "inputs": {
           "build/xc7-dsp/configuration-4/fixture.sv": "7e072f125f36d7dd99540ca93c60011e4f151cb155240a24a5dac901c5429eeb",
-          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
           "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
           "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
           "build/xc7-dsp/configuration-4/vectors.txt": "c8ab68a94130af7779e12664d89c91e39d2314164b0c9f3997b20453fd86c8b4"
@@ -573,7 +749,7 @@
           "--Mdir",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-4/verilator-obj",
           "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-4/fixture.sv",
-          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
           "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
           "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
         ],
@@ -585,7 +761,7 @@
         ],
         "artifacts": {
           "build/xc7-dsp/configuration-4/verilator-obj/Vxc7_dsp": "a48bd4debab4c37f91b83ae46b36ce705e8342e53f0293e446ecbe6bf16782bf",
-          "build/xc7-dsp/configuration-4/verilator-compile.log": "eb1dd2df55d225a2085fd6eb049cc22e7f81855faa0ad79323b2dabd329e75ba",
+          "build/xc7-dsp/configuration-4/verilator-compile.log": "1f99555d0c2bcfdd8cb57d67c605b3b5c5bbc35abf30cfb3ff740740aa023dc9",
           "build/xc7-dsp/configuration-4/verilator.log": "1816708fdd74801638d9929bd92f27322130a98e1f5f1e667006ed7343e46544"
         }
       }
@@ -602,7 +778,7 @@
     {
       "inputs": {
         "build/xc7-dsp/configuration-0/wrong-a-cascade.sv": "b010592cd42fd60809b86d50acd23ad1d7cf965dd66be48988afe659ca1ffc14",
-        "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
         "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
         "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
         "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
@@ -618,7 +794,7 @@
         "-o",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/wrong-a-cascade.vvp",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/wrong-a-cascade.sv",
-        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
         "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
         "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
       ],
@@ -629,7 +805,7 @@
         "       Time: 210000  Scope: xc7_dsp.check"
       ],
       "artifacts": {
-        "build/xc7-dsp/configuration-0/wrong-a-cascade.vvp": "418524883315b412600ecdd767ef38ac72d83e83b4d590e4d65dd8541783e447",
+        "build/xc7-dsp/configuration-0/wrong-a-cascade.vvp": "b9717bd34fc7ad42af7eb6a9be820352fb8f1ee9b46ee711dae4d7f1b4614435",
         "build/xc7-dsp/configuration-0/wrong-a-cascade-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "build/xc7-dsp/configuration-0/wrong-a-cascade.log": "e1f4def09382d523ab6169a2af96702bb6f01357dd75256e6899e86641e992aa"
       }
@@ -637,7 +813,7 @@
     {
       "inputs": {
         "build/xc7-dsp/configuration-0/unshifted-cascade.sv": "ae0fd2ebe308ad9c6ff60c30c4374b00475c14fcc37cc84f0f834259975c2e32",
-        "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
         "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
         "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
         "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
@@ -653,7 +829,7 @@
         "-o",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/unshifted-cascade.vvp",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-0/unshifted-cascade.sv",
-        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
         "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
         "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
       ],
@@ -664,7 +840,7 @@
         "       Time: 240000  Scope: xc7_dsp.check"
       ],
       "artifacts": {
-        "build/xc7-dsp/configuration-0/unshifted-cascade.vvp": "ace8f20b12d83433da4586323c46ac9dd683d20ad9cb08952d60ff9026ef9ba1",
+        "build/xc7-dsp/configuration-0/unshifted-cascade.vvp": "bff197ea7f4d31c8c9365f1a69240f8955798092901a8641eef5c29ab33f4f33",
         "build/xc7-dsp/configuration-0/unshifted-cascade-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "build/xc7-dsp/configuration-0/unshifted-cascade.log": "27051e09dafe4bc7e46bf8b566d9a787ff264581571f9c69bfe351efe37e4394"
       }
@@ -672,7 +848,7 @@
     {
       "inputs": {
         "build/xc7-dsp/configuration-1/wrong-b-cascade.sv": "b010592cd42fd60809b86d50acd23ad1d7cf965dd66be48988afe659ca1ffc14",
-        "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
         "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
         "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
         "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
@@ -688,7 +864,7 @@
         "-o",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-1/wrong-b-cascade.vvp",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-1/wrong-b-cascade.sv",
-        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
         "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
         "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
       ],
@@ -699,7 +875,7 @@
         "       Time: 210000  Scope: xc7_dsp.check"
       ],
       "artifacts": {
-        "build/xc7-dsp/configuration-1/wrong-b-cascade.vvp": "41473d2c969cc10e1ee428ecd18695b2d8a40ee87289a09e17ee9096b05c648a",
+        "build/xc7-dsp/configuration-1/wrong-b-cascade.vvp": "722527420f95c51b4c4053db3e64f5804aa25ef8daf89905e6e234b8ccc3e9de",
         "build/xc7-dsp/configuration-1/wrong-b-cascade-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "build/xc7-dsp/configuration-1/wrong-b-cascade.log": "a6a6b751c46a067153754c9ab146ff539350529e8e19c792b17b26b02d64333b"
       }
@@ -707,7 +883,7 @@
     {
       "inputs": {
         "build/xc7-dsp/configuration-2/wrong-carry.sv": "363dfc6c31a103756ed1e79f44ffa28a48a0cb7a1c389ebdcee6c1a2c35f2b3f",
-        "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
         "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
         "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
         "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
@@ -723,7 +899,7 @@
         "-o",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/wrong-carry.vvp",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/wrong-carry.sv",
-        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
         "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
         "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
       ],
@@ -734,7 +910,7 @@
         "       Time: 210000  Scope: xc7_dsp.check"
       ],
       "artifacts": {
-        "build/xc7-dsp/configuration-2/wrong-carry.vvp": "6712f75b58544999c63b4b4e13ab6de147153eecfe8cf9fe8764bb9ff49cd5fc",
+        "build/xc7-dsp/configuration-2/wrong-carry.vvp": "06a9cc64870e15de2bff25fe5eb6b1527da9caa47b084f9aeae8f1c1a76dfa90",
         "build/xc7-dsp/configuration-2/wrong-carry-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "build/xc7-dsp/configuration-2/wrong-carry.log": "1ba21af8b1d8a3b71d9de1899998597a43a10dfc93413ea57679a9ef48bd3100"
       }
@@ -742,7 +918,7 @@
     {
       "inputs": {
         "build/xc7-dsp/configuration-2/flipped-product.sv": "172d38fa29b335195ae1f597eff105ca86940bac38ed0aa38e2294bbc27d3ee6",
-        "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
         "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
         "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
         "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
@@ -758,7 +934,7 @@
         "-o",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/flipped-product.vvp",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/flipped-product.sv",
-        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
         "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
         "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
       ],
@@ -769,7 +945,7 @@
         "       Time: 210000  Scope: xc7_dsp.check"
       ],
       "artifacts": {
-        "build/xc7-dsp/configuration-2/flipped-product.vvp": "6429ba94051349d4c5804731963760ccbec1eeef0d3cca4b6f736b8300b16932",
+        "build/xc7-dsp/configuration-2/flipped-product.vvp": "9a693c0fd88e8661d7d06f06ed43e479260e52ea72c85d215c299b2f01350896",
         "build/xc7-dsp/configuration-2/flipped-product-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "build/xc7-dsp/configuration-2/flipped-product.log": "6a688ee78bc2143c1d6281b8d4804bc3c75c2cca9baa640da9b1ad0ef1f27041"
       }
@@ -777,7 +953,7 @@
     {
       "inputs": {
         "build/xc7-dsp/configuration-2/lost-cascade-output.sv": "dd26616c18a12590afa5efd6154da58f1f61b61a32c78eaa976ee39a1ab4aa79",
-        "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
         "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
         "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
         "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
@@ -793,7 +969,7 @@
         "-o",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/lost-cascade-output.vvp",
         "/tmp/wasmetal-direct-rounding/build/xc7-dsp/configuration-2/lost-cascade-output.sv",
-        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-dsp/yosys-dsp-split.v",
         "/tmp/wasmetal-direct-rounding/tests/xc7/dsp.sv",
         "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v"
       ],
@@ -804,7 +980,7 @@
         "       Time: 2910000  Scope: xc7_dsp.check"
       ],
       "artifacts": {
-        "build/xc7-dsp/configuration-2/lost-cascade-output.vvp": "c43ec34106d9c3003c5ad68351c6641570554b88ad2451c40c6af3303a617cb4",
+        "build/xc7-dsp/configuration-2/lost-cascade-output.vvp": "cf493696be4bdb63c35149d952d9b61229b29cc5cf0727adee8120c0459ef256",
         "build/xc7-dsp/configuration-2/lost-cascade-output-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "build/xc7-dsp/configuration-2/lost-cascade-output.log": "3fe5ae2c14ca3488ad808288bdfbbcb51f7c42ee84e977019687fb6870a1bc34"
       }
@@ -852,5 +1028,5 @@
     "No registered DSP modes, physical timing or silicon validation."
   ],
   "physical_hardware_tested": false,
-  "elapsed_seconds": 84.72401714301668
+  "elapsed_seconds": 98.0202593319118
 }
