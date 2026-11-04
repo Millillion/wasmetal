@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Route a verified reset-replication placement without rebuilding its inputs.
+"""Route a verified LUT-replication placement without rebuilding its inputs.
 
 The experiment remains separate from the default board build. A successful
 receipt requires structural rechecking, unchanged clocks, routed timing and a
@@ -103,7 +103,8 @@ def prepare(experiment_path, baseline):
     placement = experiment_path.parent/'placed.json'
     if digest(candidate_path) != experiment['candidate_sha256']:
         raise ValueError('experiment candidate changed')
-    if digest(placement) != experiment['artifacts']['placement']:
+    placement_sha = experiment['placement_sha256'] if 'stages' in experiment else experiment['artifacts']['placement']
+    if digest(placement) != placement_sha:
         raise ValueError('experiment placement changed')
     check_inputs(experiment['inputs'])
     reference_path = baseline/'design.json'
@@ -112,7 +113,11 @@ def prepare(experiment_path, baseline):
     reference = json.loads(reference_path.read_text())
     candidate = json.loads(candidate_path.read_text())
     top = 'wasmetal_loadable_ulx3s'
-    proof = verify(reference, candidate, top, experiment['groups'][0]['driver'])
+    if 'stages' in experiment:
+        from replicate_fanout import verify_chain
+        proof = verify_chain(reference, candidate, top, experiment['stages'])
+    else:
+        proof = verify(reference, candidate, top, experiment['groups'][0]['driver'])
     if proof != experiment['proof']:
         raise ValueError('structural recheck differs from experiment receipt')
     clock_ports = {'CLK', 'CLKA', 'CLKB', 'CLKI', 'WCK', 'CLK0', 'CLK1', 'CLK2', 'CLK3'}
@@ -155,9 +160,11 @@ def main():
         ROOT/'tools/build_board.py', ROOT/'tools/check_timing.py', ROOT/'tools/standalone_support.py',
         ROOT/'tools/prepare_standalone.py', ROOT/'tools/cad.py', ROOT/'soc/loader/ulx3s.lpf',
         *[cad.SUITE/'libexec'/name for name in ('nextpnr-ecp5', 'ecppack', 'ecpunpack')]]
+    if 'stages' in experiment:
+        dependencies.append(ROOT/'tools/replicate_fanout.py')
     inputs = dict(experiment['inputs'])
     inputs[str(candidate.relative_to(ROOT))] = experiment['candidate_sha256']
-    inputs[str(placement.relative_to(ROOT))] = experiment['artifacts']['placement']
+    inputs[str(placement.relative_to(ROOT))] = digest(placement)
     for path in dependencies:
         name = str(path.relative_to(ROOT)); value = digest(path)
         if name in inputs and inputs[name] != value:

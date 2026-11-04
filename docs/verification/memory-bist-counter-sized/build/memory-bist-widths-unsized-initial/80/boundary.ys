@@ -1,0 +1,5 @@
+read_verilog -formal -sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv
+chparam -set RAM_BYTES 80 wasmetal_memory_bist
+prep -top wasmetal_memory_bist -flatten
+write_json /tmp/wasmetal-xc7-core/build/memory-bist-widths/80/elaborated.json
+sat -seq 3 -set-def-inputs -enable_undef -set-init-zero -set reset 0 -set start 0 -set ready 1 -set fault 0 -set rdata 0 -set-init state 1 -set-init phase 5 -set-init background_index 7 -set-init word_index 4 -set-init operation_count 399 -prove completed_operations 400 -prove done 1 -prove failed 0 -prove busy 0 -prove-skip 2 -verify

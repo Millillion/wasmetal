@@ -1,0 +1,122 @@
+{
+  "run_id": 41846026922,
+  "job": {
+    "id": 126650893390,
+    "run_id": 41846026922,
+    "name": "Programmable FPGA routing",
+    "workflow_name": "RTL verification",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "head_branch": "main",
+    "head_sha": "fdc25535e3ae6f2584f7d90dff6f1983f9f5faf2",
+    "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41846026922/job/126650893390",
+    "run_attempt": 1,
+    "runner_id": 1000023729,
+    "runner_name": "GitHub Actions 1000023729",
+    "runner_group_name": "GitHub Actions",
+    "labels": [
+      "ubuntu-24.04"
+    ],
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-04T14:53:45Z",
+        "completed_at": "2026-11-04T14:53:46Z"
+      },
+      {
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-04T14:53:46Z",
+        "completed_at": "2026-11-04T14:53:48Z"
+      },
+      {
+        "name": "Install pinned FPGA tools",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-04T14:53:48Z",
+        "completed_at": "2026-11-04T14:54:16Z"
+      },
+      {
+        "name": "Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-04T14:54:16Z",
+        "completed_at": "2026-11-04T14:54:18Z"
+      },
+      {
+        "name": "Route the complete programmable board and verify timing and bitstream round trip",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "number": 5,
+        "started_at": "2026-11-04T14:54:18Z",
+        "completed_at": "2026-11-04T20:44:30Z"
+      },
+      {
+        "name": "Check mapped UART and reset synchronization and clock structure",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 6,
+        "started_at": "2026-11-04T20:44:30Z",
+        "completed_at": "2026-11-04T20:44:30Z"
+      },
+      {
+        "name": "Prove the board wrapper mapping at every state and CPU boundary",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 7,
+        "started_at": "2026-11-04T20:44:30Z",
+        "completed_at": "2026-11-04T20:44:30Z"
+      },
+      {
+        "name": "Preserve the verified programmable bitstream",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 8,
+        "started_at": "2026-11-04T20:44:30Z",
+        "completed_at": "2026-11-04T20:44:30Z"
+      },
+      {
+        "name": "Preserve routing and I/O diagnostics",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9,
+        "started_at": "2026-11-04T20:44:30Z",
+        "completed_at": "2026-11-04T20:44:32Z"
+      },
+      {
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 18,
+        "started_at": "2026-11-04T20:44:32Z",
+        "completed_at": "2026-11-04T20:44:32Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19,
+        "started_at": "2026-11-04T20:44:32Z",
+        "completed_at": "2026-11-04T20:44:32Z"
+      }
+    ],
+    "created_at": "2026-11-04T14:53:40Z",
+    "started_at": "2026-11-04T14:53:44Z",
+    "completed_at": "2026-11-04T20:44:34Z"
+  },
+  "artifact_id": 13360844324,
+  "artifact_name": "loadable-routing",
+  "artifact_sha256": "edfe8db8d4c1316a0d4a95aac91ca40a9048d0fc6edbcc6fdca35ec9eba50877",
+  "job_outcomes": {
+    "success": 36,
+    "cancelled": 2,
+    "failure": 2
+  }
+}

@@ -1,0 +1,12 @@
+PASS substitution {'net': 'system.execution.core.descriptor_read_a', 'bit': 0} 649 sinks; 7 copies
+PASS substitution {'net': 'system.execution.core.descriptor_read_a', 'bit': 1} 521 sinks; 7 copies
+PASS substitution {'net': 'system.execution.core.descriptor_read_b', 'bit': 0} 654 sinks; 8 copies
+PASS substitution {'net': 'system.execution.core.descriptor_read_b', 'bit': 1} 526 sinks; 8 copies
+REJECTED wrong-truth-table
+REJECTED wrong-copy-input
+REJECTED aliased-copy-output
+REJECTED disconnected-sink
+REJECTED changed-register-reset
+REJECTED changed-clock
+REJECTED omitted-substitution-stage
+PASS fanout substitution and 7 fault controls; placement True

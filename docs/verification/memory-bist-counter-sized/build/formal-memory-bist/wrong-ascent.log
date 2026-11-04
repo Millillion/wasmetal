@@ -1,0 +1,1277 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv
+Parsing formal SystemVerilog input from `/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_bist'.
+Successfully finished Verilog frontend.
+Parameter \RAM_BYTES = 32
+Parameter \RESPONSE_TIMEOUT = 2
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 32
+Parameter \RESPONSE_TIMEOUT = 2
+Generating RTLIL representation for module `$paramod$3caf37ba67942d82845f4e90f5a8d2eb1c0abb05\wasmetal_memory_bist'.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+Removed 0 unused modules.
+Module wasmetal_memory_bist directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$781 in module wasmetal_memory_bist.
+Marked 10 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796 in module wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821 in module wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$857 in module wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873 in module wasmetal_memory_bist.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 24 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:142$1465'.
+  Set init value: \formal_started = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1466'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1468'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1470'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1472'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1474'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1476'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1478'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1480'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1482'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1484'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1486'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1488'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1490'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1492'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1494'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1496'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1498'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1500'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN = 1'0
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~23 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$781'.
+     1/1: $1\background[127:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+     1/14: $0\stop_after_release[0:0]
+     2/14: $0\write_half[0:0]
+     3/14: $0\background_index[2:0]
+     4/14: $0\phase[2:0]
+     5/14: $0\waiting[0:0]
+     6/14: $0\word_index[0:0]
+     7/14: $0\state[1:0]
+     8/14: $0\operation_count[7:0]
+     9/14: $0\observed_data[127:0]
+    10/14: $0\expected_data[127:0]
+    11/14: $0\error_address[31:0]
+    12/14: $0\error_code[1:0]
+    13/14: $0\failed[0:0]
+    14/14: $0\done[0:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+     1/16: $0\pending_payload[160:0]
+     2/16: $0\was_waiting[0:0]
+     3/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN[0:0]$823
+     4/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK[0:0]$822
+     5/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_EN[0:0]$825
+     6/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK[0:0]$824
+     7/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_EN[0:0]$827
+     8/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK[0:0]$826
+     9/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_EN[0:0]$829
+    10/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK[0:0]$828
+    11/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_EN[0:0]$831
+    12/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK[0:0]$830
+    13/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN[0:0]$833
+    14/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK[0:0]$832
+    15/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_EN[0:0]$835
+    16/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK[0:0]$834
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$857'.
+     1/1: $1\position_in_pass[63:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+     1/24: $0\saved_error[290:0]
+     2/24: $0\keep_error[0:0]
+     3/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN[0:0]$875
+     4/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK[0:0]$874
+     5/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN[0:0]$877
+     6/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK[0:0]$876
+     7/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_EN[0:0]$879
+     8/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK[0:0]$878
+     9/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_EN[0:0]$881
+    10/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK[0:0]$880
+    11/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_EN[0:0]$883
+    12/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK[0:0]$882
+    13/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_EN[0:0]$885
+    14/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK[0:0]$884
+    15/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_EN[0:0]$887
+    16/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK[0:0]$886
+    17/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_EN[0:0]$889
+    18/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK[0:0]$888
+    19/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_EN[0:0]$891
+    20/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK[0:0]$890
+    21/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN[0:0]$893
+    22/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK[0:0]$892
+    23/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN[0:0]$895
+    24/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK[0:0]$894
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1462'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:142$1465'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1466'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1468'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1470'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1472'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1474'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1476'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1478'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1480'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1482'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1484'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1486'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1488'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1490'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1492'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1494'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1496'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1498'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1500'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\wasmetal_memory_bist.\background' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$781'.
+No latch inferred for signal `\wasmetal_memory_bist.\position_in_pass' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$857'.
+No latch inferred for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_CHECK' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1462'.
+No latch inferred for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1462'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\wasmetal_memory_bist.\done' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2015' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\failed' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2016' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_code' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2017' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_address' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2018' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\expected_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2019' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\observed_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2020' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\operation_count' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2021' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\state' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2022' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\word_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2023' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\waiting' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2024' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\phase' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2025' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\background_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2026' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\write_half' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2027' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\stop_after_release' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+  created $dff cell `$procdff$2028' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\was_waiting' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2029' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\pending_payload' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2030' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2031' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2032' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2033' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2034' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2035' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2036' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2037' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2038' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2039' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2040' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2041' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2042' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2043' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+  created $dff cell `$procdff$2044' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\formal_started' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2045' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\keep_error' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2046' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\saved_error' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2047' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2048' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2049' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2050' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2051' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2052' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2053' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2054' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2055' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2056' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2057' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2058' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2059' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2060' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2061' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2062' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2063' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2064' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2065' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2066' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2067' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2068' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+  created $dff cell `$procdff$2069' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$781'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$781'.
+Found and cleaned up 14 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:66$796'.
+Found and cleaned up 2 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:124$821'.
+Found and cleaned up 1 empty switch in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$857'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$857'.
+Found and cleaned up 5 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:159$873'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1462'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:142$1465'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1466'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1468'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1470'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1472'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1474'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1476'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1478'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1480'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1482'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1484'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1486'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1488'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1490'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1492'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1494'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1496'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1498'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:0$1500'.
+Cleaned up 23 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~183 debug messages>
+
+3.3. Executing FLATTEN pass (flatten design).
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 6 unused cells and 383 unused wires.
+<suppressed ~8 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~591 debug messages>
+Removed a total of 197 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$1629: \waiting -> 1'1
+      Replacing known input bits on port B of cell $procmux$1648: \word_index -> 1'0
+      Replacing known input bits on port B of cell $procmux$1808: \failed -> 1'1
+      Replacing known input bits on port B of cell $procmux$1804: \failed -> 1'1
+      Replacing known input bits on port A of cell $procmux$1802: \failed -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~186 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+    New ctrl vector for $pmux cell $procmux$1518: $auto$opt_reduce.cc:134:opt_pmux$2071
+    New ctrl vector for $pmux cell $procmux$1569: $auto$opt_reduce.cc:134:opt_pmux$2073
+    New ctrl vector for $pmux cell $procmux$1651: $auto$opt_reduce.cc:134:opt_pmux$2075
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 5 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~102 debug messages>
+Removed a total of 34 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 233 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~175 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$mod$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$840 ($mod).
+Removed top 27 bits (of 32) from port B of cell wasmetal_memory_bist.$mod$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$840 ($mod).
+Removed top 2 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$1509_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$1508_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$1507_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:44$775 ($eq).
+Removed top 1 bits (of 2) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:59$782 ($eq).
+Removed top 2 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:64$791 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:64$792 ($eq).
+Removed top 29 bits (of 32) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$836 ($le).
+Removed top 31 bits (of 32) from port A of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$837 ($lt).
+Removed top 30 bits (of 32) from port B of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$837 ($lt).
+Removed top 28 bits (of 33) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$843 ($add).
+Removed top 28 bits (of 33) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$843 ($add).
+Removed top 27 bits (of 33) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$843 ($add).
+Removed top 27 bits (of 33) from port A of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$844 ($le).
+Removed top 27 bits (of 33) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$844 ($le).
+Removed top 56 bits (of 64) from port A of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:131$853 ($le).
+Removed top 56 bits (of 64) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:131$853 ($le).
+Removed top 30 bits (of 32) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$858 ($mul).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$858 ($mul).
+Removed top 61 bits (of 64) from port Y of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$858 ($mul).
+Removed top 62 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$859 ($add).
+Removed top 61 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$859 ($add).
+Removed top 60 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$859 ($add).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$860 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$860 ($add).
+Removed top 59 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$860 ($add).
+Removed top 61 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$862 ($add).
+Removed top 61 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$862 ($add).
+Removed top 60 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$862 ($add).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$863 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$863 ($add).
+Removed top 59 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$863 ($add).
+Removed top 63 bits (of 64) from port A of cell wasmetal_memory_bist.$sub$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:155$864 ($sub).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$sub$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:155$864 ($sub).
+Removed top 62 bits (of 64) from port Y of cell wasmetal_memory_bist.$sub$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:155$864 ($sub).
+Removed top 30 bits (of 32) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:155$865 ($mul).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:155$866 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:155$867 ($add).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:156$870 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:156$871 ($add).
+Removed top 59 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:157$872 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:157$872 ($add).
+Removed top 58 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:157$872 ($add).
+Removed top 61 bits (of 64) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$900 ($mul).
+Removed top 28 bits (of 32) from port B of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$900 ($mul).
+Removed top 57 bits (of 64) from port Y of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$900 ($mul).
+Removed top 57 bits (of 64) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$901 ($mul).
+Removed top 62 bits (of 64) from port B of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$901 ($mul).
+Removed top 55 bits (of 64) from port Y of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$901 ($mul).
+Removed top 55 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$902 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$903 ($add).
+Removed top 56 bits (of 64) from port A of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$904 ($eq).
+Removed top 31 bits (of 32) from port A of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$905 ($lt).
+Removed top 30 bits (of 32) from port B of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$905 ($lt).
+Removed top 31 bits (of 32) from port B of cell wasmetal_memory_bist.$ge$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$907 ($ge).
+Removed top 29 bits (of 32) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$908 ($le).
+Removed top 1 bits (of 2) from port B of cell wasmetal_memory_bist.$ne$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$911 ($ne).
+Removed top 31 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$932 ($shr).
+Removed top 30 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$936 ($shr).
+Removed top 29 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$940 ($shr).
+Removed top 29 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$944 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$948 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$952 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$956 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$960 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$964 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$968 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$972 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$976 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$980 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$984 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$988 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$992 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$996 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1000 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1004 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1008 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1012 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1016 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1020 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1024 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1028 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1032 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1036 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1040 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1044 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1048 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1052 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1056 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1060 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1064 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1068 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1072 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1076 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1080 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1084 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1088 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1092 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1096 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1100 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1104 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1108 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1112 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1116 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1120 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1124 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1128 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1132 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1136 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1140 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1144 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1148 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1152 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1156 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1160 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1164 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1168 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1172 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1176 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1180 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1184 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1188 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1192 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1196 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1200 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1204 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1208 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1212 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1216 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1220 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1224 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1228 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1232 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1236 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1240 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1244 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1248 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1252 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1256 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1260 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1264 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1268 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1272 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1276 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1280 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1284 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1288 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1292 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1296 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1300 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1304 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1308 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1312 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1316 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1320 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1324 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1328 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1332 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1336 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1340 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1344 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1348 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1352 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1356 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1360 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1364 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1368 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1372 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1376 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1380 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1384 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1388 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1392 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1396 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1400 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1404 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1408 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1412 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1416 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1420 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1424 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1428 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1432 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1436 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1440 ($shr).
+Removed top 27 bits (of 33) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$843_Y.
+Removed top 60 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$859_Y.
+Removed top 59 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$860_Y.
+Removed top 60 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$862_Y.
+Removed top 59 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:154$863_Y.
+Removed top 58 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:157$872_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1001_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1005_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1009_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1013_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1017_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1021_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1025_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1029_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1033_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1037_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1041_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1045_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1049_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1053_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1057_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1061_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1065_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1069_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1073_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1077_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1081_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1085_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1089_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1093_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1097_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1101_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1105_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1109_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1113_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1117_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1121_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1125_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1129_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1133_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1137_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1141_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1145_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1149_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1153_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1157_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1161_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1165_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1169_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1173_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1177_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1181_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1185_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1189_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1193_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1197_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1201_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1205_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1209_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1213_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1217_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1221_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1225_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1229_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1233_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1237_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1241_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1245_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1249_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1253_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1257_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1261_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1265_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1269_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1273_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1277_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1281_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1285_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1289_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1293_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1297_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1301_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1305_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1309_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1313_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1317_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1321_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1325_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1329_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1333_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1337_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1341_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1345_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1349_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1353_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1357_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1361_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1365_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1369_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1373_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1377_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1381_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1385_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1389_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1393_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1397_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1401_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1405_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1409_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1413_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1417_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1421_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1425_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1429_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1433_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1437_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1441_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$933_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$937_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$941_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$945_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$949_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$953_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$957_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$961_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$965_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$969_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$973_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$977_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$981_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$985_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$989_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$993_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$997_Y.
+Removed top 63 bits (of 64) from wire wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:153$858_Y.
+Removed top 57 bits (of 64) from wire wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$900_Y.
+Removed top 55 bits (of 64) from wire wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:169$901_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1008_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1016_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1024_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1032_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1040_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1048_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1056_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1064_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1072_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1080_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1088_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1096_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1104_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1112_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1120_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1128_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1136_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1144_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1152_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1160_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1168_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1176_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1184_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1192_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1200_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1208_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1216_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1224_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1232_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1240_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1248_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1256_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1264_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1272_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1280_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1288_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1296_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1304_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1312_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1320_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1328_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1336_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1344_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1352_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1360_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1368_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1376_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1384_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1392_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1400_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1408_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1416_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1424_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1432_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$1440_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$952_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$960_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$968_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$976_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$984_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$992_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:148$996_Y.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 199 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== wasmetal_memory_bist ===
+
+   Number of wires:                561
+   Number of wire bits:           9904
+   Number of public wires:          38
+   Number of public wire bits:    1593
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                569
+     $add                           15
+     $assert                        18
+     $assume                         1
+     $dff                           43
+     $eq                            20
+     $ge                             1
+     $initstate                      1
+     $le                             4
+     $logic_and                     11
+     $logic_not                     14
+     $logic_or                      14
+     $lt                             2
+     $mod                            1
+     $mul                            4
+     $mux                          265
+     $ne                             1
+     $nex                            2
+     $not                            1
+     $pmux                          17
+     $reduce_bool                    1
+     $reduce_or                      2
+     $reduce_xor                     1
+     $shr                          128
+     $sub                            2
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+4. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN = 1'0
+Import set-constraint from init attribute: \formal_started = 1'0
+Final init constraint equation: { $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK \saved_error \keep_error $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK \pending_payload \was_waiting \stop_after_release \write_half \background_index \phase \waiting \word_index \state \operation_count \observed_data \expected_data \error_address \error_code \failed \done \formal_started $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN } = 791'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 7:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 8:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 9:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 10:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 11:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Setting up time step 12:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 569 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:119$752_EN[0:0]$1464.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN.
+
+Solving problem with 2593085 variables and 7145553 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                                                                        Dec       Hex                                                                                                                                                                                                                                                                                                    Bin
+  ---- ------------------------------------------------------------------------------------------ ----------- --------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:126$754_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:127$755_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:128$756_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:129$757_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:130$758_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:132$759_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:133$760_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:160$761_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:164$762_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:167$763_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:168$764_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:170$765_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:171$766_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:172$767_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:173$768_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:174$769_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:176$770_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-ascent.sv:177$771_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init \background_index                                                                                   --        --                                                                                                                                                                                                                                                                                                    xxx
+  init \done                                                                                               --        --                                                                                                                                                                                                                                                                                                      x
+  init \error_address                                                                                      --        --                                                                                                                                                                                                                                                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \error_code                                                                                         --        --                                                                                                                                                                                                                                                                                                     xx
+  init \expected_data                                                                                      --        --                                                                                                                                                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \failed                                                                                             --        --                                                                                                                                                                                                                                                                                                      x
+  init \formal_started                                                                                      0         0                                                                                                                                                                                                                                                                                                      0
+  init \keep_error                                                                                         --        --                                                                                                                                                                                                                                                                                                      x
+  init \observed_data                                                                                      --        --                                                                                                                                                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \operation_count                                                                                    --        --                                                                                                                                                                                                                                                                                               xxxxxxxx
+  init \pending_payload                                                                                    --        --                                                                                                                                      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \phase                                                                                              --        --                                                                                                                                                                                                                                                                                                    xxx
+  init \saved_error                                                                                        --        --    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxERROR: Called with -verify and proof did fail!

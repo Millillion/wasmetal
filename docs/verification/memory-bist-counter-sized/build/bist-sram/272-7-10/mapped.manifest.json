@@ -1,0 +1,16 @@
+{
+  "inputs": {
+    "tests/asic/wasmetal_bist_sram.sv": "4e106004b27a2af7b3c3f98dd61241aa9116e800f57cb9f50c89a341e8c76f96",
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "tests/asic/bist_sram.cpp": "a96489bac87d7eb7c583b45ff92c2d5cf9fc4bd0546fdecb1d5bcfcea2c3440f",
+    "tools/check_bist_sram.py": "bd4f1693040a2762dc6273b1c0d3d0bb9c9c2c1e3137144bdcfa5c96db969af1",
+    "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0"
+  },
+  "netlist_sha256": "d358e94be6da67ed6db46fd2f0e28ccac5bccc259531a54822a5468dd2ee887d"
+}

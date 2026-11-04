@@ -1,0 +1,108 @@
+{
+  "status": "passed",
+  "inputs": {
+    "tools/check_routing_placement.py": "4a1a58efdbcc340f7ed11acde177f38f925c80b4fd3e7a85cbce270e1e4ac09b",
+    "tools/route_reset_experiment.py": "f4bb48cbdbb4476a403ac7e9e891263460b08b77713e48268ec932f7d53ffcb2",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c"
+  },
+  "scope": "Placement replay metadata guard and pinned router-log parser; no physical-fit claim",
+  "supported_routers": [
+    "router1",
+    "router2"
+  ],
+  "alternate_router2_weights": {
+    "router2/alt-weights": "00000000000000000000000000000001",
+    "router2/initCurrCongWeight": "5.000000",
+    "router2/histCongWeight": "0.500000",
+    "router2/currCongWeightMult": "0.000000",
+    "router2/estimateWeight": "1.000000"
+  },
+  "source_unchanged": true,
+  "negative_controls_rejected": 21,
+  "negative_controls": [
+    {
+      "name": "logic-value",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "placed-location",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "clock-connection",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "data-connection",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "primitive-type",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "random-state",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "timing-target",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "port-connection",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "net-attribute",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "wrong-router",
+      "diagnostic": "replay does not select the requested routing setting: router"
+    },
+    {
+      "name": "extra-settings-module",
+      "diagnostic": "placement must have exactly one settings module"
+    },
+    {
+      "name": "missing-saved-router",
+      "diagnostic": "placement has no recognized saved router"
+    },
+    {
+      "name": "alternate-router2/alt-weights",
+      "diagnostic": "replay does not select the requested routing setting: router2/alt-weights"
+    },
+    {
+      "name": "alternate-router2/initCurrCongWeight",
+      "diagnostic": "replay does not select the requested routing setting: router2/initCurrCongWeight"
+    },
+    {
+      "name": "alternate-router2/histCongWeight",
+      "diagnostic": "replay does not select the requested routing setting: router2/histCongWeight"
+    },
+    {
+      "name": "alternate-router2/currCongWeightMult",
+      "diagnostic": "replay does not select the requested routing setting: router2/currCongWeightMult"
+    },
+    {
+      "name": "alternate-router2/estimateWeight",
+      "diagnostic": "replay does not select the requested routing setting: router2/estimateWeight"
+    },
+    {
+      "name": "alternate-clock-change",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "unreviewed-routing-setting",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "alternate-with-router1",
+      "diagnostic": "alternate weights require router2"
+    },
+    {
+      "name": "ambiguous-router-log",
+      "diagnostic": "routing log identifies multiple algorithms"
+    }
+  ]
+}

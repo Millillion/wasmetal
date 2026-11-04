@@ -84,7 +84,7 @@ def main():
     controls=[]
     for name,old,new in [
         ('wrong-background',"0:background=128'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;","0:background=128'h0;"),
-        ('extra-count','completed_operations<=completed_operations+1\'b1;',"completed_operations<=completed_operations+2'd2;"),
+        ('extra-count','operation_count<=operation_count+1\'b1;',"operation_count<=operation_count+2'd2;"),
         ('timeout-withdraws-request','assign valid=state==REQUEST && !reset;','assign valid=state==REQUEST && !reset && !failed;'),
         ('wrong-ascent','wire descending=phase==3 || phase==4;',"wire descending=1'b1;")]:
         if source.read_text().count(old)!=1:raise ValueError('ambiguous proof fault: '+name)

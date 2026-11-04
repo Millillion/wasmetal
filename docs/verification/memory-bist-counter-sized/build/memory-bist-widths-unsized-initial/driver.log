@@ -1,0 +1,13 @@
+PASS capacity boundary 16 bytes; 7 counter bits
+PASS capacity boundary 80 bytes; 9 counter bits
+PASS capacity boundary 131072 bytes; 20 counter bits
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_bist_widths.py", line 70, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_bist_widths.py", line 34, in main
+    run,netlist,log,script=execute(source,size,str(size));run.check_returncode()
+                                                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 502, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['/tmp/wasmetal-xc7-core/.cache/tools/usr/bin/yosys', '-Q', '-T', '-s', '/tmp/wasmetal-xc7-core/build/memory-bist-widths/429496736/boundary.ys']' returned non-zero exit status 1.

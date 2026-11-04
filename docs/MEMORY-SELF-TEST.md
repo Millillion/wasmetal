@@ -102,7 +102,7 @@ passes for 80-byte, 16-byte and 128 KiB arrays, plus a one-clock response
 deadline; it rejects four deliberate proof faults. The positive proofs keep
 responses unconstrained after the initial reset.
 
-[Archived inputs, scripts and logs](verification/memory-bist/index.json) also
+[The original baseline archive](verification/memory-bist/index.json) also
 retain the early descending-sweep control experiments. A 12-step trace did
 not reach that late fault, and an unconstrained 32-step attempt timed out.
 A separate 32-step trace with immediate healthy responses exposed the fault.
@@ -150,6 +150,47 @@ The [completed integration report](verification/bist-sram-mapped.json) records
 2,848 campaigns, 7,329,277 macro commands and 40,301,847 clocks per model, with
 identical RTL/mapped observations. It includes 5,440 resets, 266 expected error
 detections and 400 old read responses delivered after a shared reset. All four
-controls are rejected. [Raw evidence](verification/bist-sram/index.json) retains
-the final runs and the earlier ambiguous fault-edit setup that the gate rejected.
+controls are rejected. The [original integration archive](verification/bist-sram/index.json)
+retains the baseline runs and the earlier ambiguous fault-edit setup that the gate rejected.
 The complete integration campaign runs in CI alongside the component checks.
+
+## Counter sizing
+
+The current master stores only the counter bits needed for `80 * WORDS`
+completed operations. It still reports a 64-bit zero-extended count. A 64-bit
+constant computes the bound before `$clog2`, avoiding 32-bit arithmetic overflow
+at large capacities. This saves logic without changing the transaction sequence,
+latency or diagnostic interface.
+
+The [before/after comparison](verification/memory-bist-counter-sizing.json)
+checks every component and SRAM integration configuration against the immutable
+baseline reports. All observations, trace checksums and cycle counts match;
+the independent C++ oracles are unchanged. RTL, ECP5 mapping, four-state checks
+and all four unbounded safety proofs pass again, along with their fault controls.
+
+| Master capacity | Counter bits | ECP5 registers, before → after | LUT4s, before → after |
+| --- | ---: | ---: | ---: |
+| 16 bytes | 7 | 345 → 288 | 1,227 → 1,172 |
+| 80 bytes | 9 | 350 → 295 | 1,244 → 1,187 |
+| 128 KiB | 20 | 375 → 331 | 1,295 → 1,247 |
+
+These are resources for the separate test master, not the CPU or SRAM array.
+The combined master/adapter also saves 44 registers and 44 LUT4s at 128 KiB.
+
+```sh
+python3 tools/check_memory_bist_widths.py
+```
+
+The [capacity-boundary gate](verification/memory-bist-widths.json) checks seven
+elaborated capacities, including both sides of the 32-bit count boundary and
+the largest positive signed 32-bit, 16-byte-aligned `RAM_BYTES` value. It checks
+the actual internal width and output zero extension, then uses a three-step SAT
+check seeded at the last successful read to prove the final count and completion
+status. This is a seeded boundary check, not a proof that the seed is reachable
+or a complete sweep of a large SRAM. Deliberately truncating the capacity
+arithmetic or removing a counter bit must fail the check. CI requires this gate.
+
+The [current archive](verification/memory-bist-counter-sized/index.json) retains
+the new reports, source snapshots, mapped circuits, proof scripts and logs,
+including three rejected early boundary-check setups. The original archives
+remain unchanged so the resource and behavior comparison can be repeated.

@@ -75,8 +75,8 @@ def main():
         ('wrong-descent','wire descending=phase==3 || phase==4;',"wire descending=1'b0;"),
         ('timeout-withdraws-request','assign valid=state==REQUEST && !reset;','assign valid=state==REQUEST && !reset && !failed;'),
         ('wrong-observed-data','observed_data<=rdata;',"observed_data<=rdata ^ 128'h1;"),
-        ('missing-diagnostic-reset','error_address<=0;expected_data<=0;observed_data<=0;completed_operations<=0;',
-         'error_address<=0;observed_data<=0;completed_operations<=0;')]
+        ('missing-diagnostic-reset','error_address<=0;expected_data<=0;observed_data<=0;operation_count<=0;',
+         'error_address<=0;observed_data<=0;operation_count<=0;')]
     controls=[];original=source.read_text()
     for name,old,new in mutations:
         if original.count(old)!=(2 if name=='missing-diagnostic-reset' else 1):

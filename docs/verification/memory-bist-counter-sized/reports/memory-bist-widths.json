@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "scope": "elaborated counter widths and final completion at selected capacity boundaries",
+  "inputs": {
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "tools/check_memory_bist_widths.py": "e1092d867414569a380ac7bf6b50b4939922b973adc4727c889867730ecf5fff",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "checks": [
+    {
+      "ram_bytes": 16,
+      "operation_limit": 80,
+      "counter_bits": 7,
+      "final_increment_proven": true,
+      "netlist_sha256": "73b23b6f43b159a772db2ca87c5e2400574f675fce1bfb5b35e3756c4b0e2493",
+      "script_sha256": "7e73594c6b836c87eb94d39ba09942f55284f50b70efbbd2d3616eca9f5e1fee",
+      "log_sha256": "6050c4e0f5e93badb8c078fc559a00f297478b8823e8d1c01672168df1a42fc5"
+    },
+    {
+      "ram_bytes": 80,
+      "operation_limit": 400,
+      "counter_bits": 9,
+      "final_increment_proven": true,
+      "netlist_sha256": "032d8d7bb3c6913fbd9c02c334602a5c96e2dd8bffbd94fa20b6eff39fa358a2",
+      "script_sha256": "89920cb3e9b97da238b6821b8fb35084980b7e36312be502d6f801dc6f727dfd",
+      "log_sha256": "5d9741c41e2848e2efdb433aeadc1828cb778f12a144659353aae661c2a150f3"
+    },
+    {
+      "ram_bytes": 131072,
+      "operation_limit": 655360,
+      "counter_bits": 20,
+      "final_increment_proven": true,
+      "netlist_sha256": "214b1b63dc87eb552d8996437b208c596787ac22fe403972e908078f0c9b30b1",
+      "script_sha256": "d1ae42cd220fcaf0a3ffe1e0661b5ffc4553ab3d324682f4239895a33a31aea2",
+      "log_sha256": "4095b8603e1d7b4393c961c59d3d701dbfc945e2c10d939e54cbd60e4da0452e"
+    },
+    {
+      "ram_bytes": 429496736,
+      "operation_limit": 2147483680,
+      "counter_bits": 32,
+      "final_increment_proven": true,
+      "netlist_sha256": "569e134edfb717b449751191e59db9b9631c67e5ffd784998a41598a08490bf4",
+      "script_sha256": "4266249fe7b96bc3fd6424412381bf25467c20d6e6ff06f9471e06bd9c0f240f",
+      "log_sha256": "8ec41f6ca7f43fd0af6f44ee50d6b41b223236ef3db6ee543576ba19a7d31934"
+    },
+    {
+      "ram_bytes": 858993456,
+      "operation_limit": 4294967280,
+      "counter_bits": 32,
+      "final_increment_proven": true,
+      "netlist_sha256": "9ff33e05d7e039804b12d6bf08673efe60833b75d86372f121c2e61e834d0e51",
+      "script_sha256": "2d934c243aa203a0141e8d7e8e2a34a1d5e95ced1c4f6f44aa3d9a0c589f34ac",
+      "log_sha256": "a9ce3a28d4873628333567e04ad3eff653f2ed9a6adbe21f8e021c4aa617641b"
+    },
+    {
+      "ram_bytes": 858993472,
+      "operation_limit": 4294967360,
+      "counter_bits": 33,
+      "final_increment_proven": true,
+      "netlist_sha256": "b80a4b9df29c282f1a46d76e5ec2db2e607eede5bc47d1e65f0c749dc9ea4877",
+      "script_sha256": "12194ba36281006e988b25a08f34d36712ebf1ad75f63a26fd99e63660f68700",
+      "log_sha256": "5891af04d3a71691ff5df1895ff922077ec3f4b762af286dda4d5c9c4b2d2e29"
+    },
+    {
+      "ram_bytes": 2147483632,
+      "operation_limit": 10737418160,
+      "counter_bits": 34,
+      "final_increment_proven": true,
+      "netlist_sha256": "9e11542a44c232d8f6780670420549044d8da6a93204c5d9ad21b819f5c4f106",
+      "script_sha256": "1a72066fe6b99839bcc2c64f4db7d7dfd80378cd40724025370ce4aca82dc539",
+      "log_sha256": "18eb49a1537190b7ba0407135ba2e74e12e91b23ef6a7e5aa5433fd8d5bb07da"
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "truncated-capacity",
+      "ram_bytes": 2147483632,
+      "source_sha256": "db832ff9af208c21ffcef8dcf4884694aa44a61fbe9b2123938a9ade0c380404",
+      "script_sha256": "f47598ae27eaed5cb513445b4de167246cbd42e82a4b4cde6fc8ab1cb1f58e76",
+      "log_sha256": "1b4a331619b57ab6ea8a2187557dad6d86419dec53c95a5138a7c4a14c9e385f"
+    },
+    {
+      "name": "counter-too-narrow",
+      "ram_bytes": 16,
+      "source_sha256": "b06b1a961e85d4b4d4d0106fcf0992611743e5543d7e08f7467d4a9e628f807a",
+      "script_sha256": "e895591fc82737fba8a5706c7fe53076ab7b474c07a282501badae0774c6f152",
+      "log_sha256": "8af8952e7988cde7a7ba9c08b9c466b3a5017c2e89c4270fe697b5c1ba93d085"
+    }
+  ],
+  "negative_controls_rejected": 2,
+  "assumptions": "The boundary proof starts immediately before the final successful read with corresponding phase, word and count values; memory responds with zero.",
+  "limitations": [
+    "The large-capacity fixtures do not execute full memory sweeps or prove reachability of their seeded boundary state.",
+    "Unbounded safety and full simulated campaigns are recorded separately.",
+    "No large SRAM allocation, physical implementation or hardware test is implied."
+  ],
+  "physical_hardware_tested": false
+}

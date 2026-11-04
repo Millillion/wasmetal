@@ -1,0 +1,180 @@
+{
+  "status": "incomplete",
+  "source": "GitHub Actions artifact with SHA-256 checked against the upload log",
+  "run_id": 41846026922,
+  "head_sha": "fdc25535e3ae6f2584f7d90dff6f1983f9f5faf2",
+  "job_id": 126650893390,
+  "job_url": "https://github.com/Millillion/wasmetal/actions/runs/41846026922/job/126650893390",
+  "job_conclusion": "cancelled",
+  "job_started_at": "2026-11-04T14:53:44Z",
+  "job_completed_at": "2026-11-04T20:44:34Z",
+  "workflow_job_budget_minutes": 350,
+  "artifact_id": 13360844324,
+  "archive_sha256": "edfe8db8d4c1316a0d4a95aac91ca40a9048d0fc6edbcc6fdca35ec9eba50877",
+  "artifact_url": "https://github.com/Millillion/wasmetal/actions/runs/41846026922/artifacts/13360844324",
+  "scope": "production programmable board router2 trial, distinct from the reset and descriptor fanout experiments",
+  "run_job_outcomes": {
+    "success": 36,
+    "cancelled": 2,
+    "failure": 2
+  },
+  "top": "wasmetal_loadable_ulx3s",
+  "placed_resources": {
+    "TRELLIS_COMB": 61344,
+    "TRELLIS_FF": 6958,
+    "DP16KD": 192,
+    "MULT18X18D": 26
+  },
+  "iterations": [
+    {
+      "iteration": 1,
+      "wires": 911595,
+      "overused": 95792,
+      "overuse": 120007
+    },
+    {
+      "iteration": 2,
+      "wires": 953841,
+      "overused": 71144,
+      "overuse": 79637
+    },
+    {
+      "iteration": 3,
+      "wires": 975408,
+      "overused": 54923,
+      "overuse": 58871
+    },
+    {
+      "iteration": 4,
+      "wires": 990826,
+      "overused": 44976,
+      "overuse": 47577
+    },
+    {
+      "iteration": 5,
+      "wires": 1004430,
+      "overused": 38834,
+      "overuse": 40622
+    },
+    {
+      "iteration": 6,
+      "wires": 1015840,
+      "overused": 35659,
+      "overuse": 37124
+    },
+    {
+      "iteration": 7,
+      "wires": 1025612,
+      "overused": 33261,
+      "overuse": 34454
+    },
+    {
+      "iteration": 8,
+      "wires": 1033882,
+      "overused": 31511,
+      "overuse": 32553
+    },
+    {
+      "iteration": 9,
+      "wires": 1041849,
+      "overused": 30593,
+      "overuse": 31484
+    },
+    {
+      "iteration": 10,
+      "wires": 1049222,
+      "overused": 30459,
+      "overuse": 31295
+    },
+    {
+      "iteration": 11,
+      "wires": 1055642,
+      "overused": 29956,
+      "overuse": 30766
+    },
+    {
+      "iteration": 12,
+      "wires": 1064599,
+      "overused": 30766,
+      "overuse": 31553
+    },
+    {
+      "iteration": 13,
+      "wires": 1072241,
+      "overused": 31506,
+      "overuse": 32331
+    },
+    {
+      "iteration": 14,
+      "wires": 1078753,
+      "overused": 32138,
+      "overuse": 32934
+    },
+    {
+      "iteration": 15,
+      "wires": 1087502,
+      "overused": 33774,
+      "overuse": 34737
+    },
+    {
+      "iteration": 16,
+      "wires": 1096332,
+      "overused": 36047,
+      "overuse": 37049
+    },
+    {
+      "iteration": 17,
+      "wires": 1103353,
+      "overused": 37819,
+      "overuse": 38925
+    },
+    {
+      "iteration": 18,
+      "wires": 1110843,
+      "overused": 39390,
+      "overuse": 40528
+    },
+    {
+      "iteration": 19,
+      "wires": 1120225,
+      "overused": 42183,
+      "overuse": 43403
+    },
+    {
+      "iteration": 20,
+      "wires": 1128871,
+      "overused": 45414,
+      "overuse": 46825
+    },
+    {
+      "iteration": 21,
+      "wires": 1135743,
+      "overused": 47178,
+      "overuse": 48596
+    },
+    {
+      "iteration": 22,
+      "wires": 1142143,
+      "overused": 48884,
+      "overuse": 50388
+    }
+  ],
+  "best": {
+    "iteration": 11,
+    "wires": 1055642,
+    "overused": 29956,
+    "overuse": 30766
+  },
+  "last": {
+    "iteration": 22,
+    "wires": 1142143,
+    "overused": 48884,
+    "overuse": 50388
+  },
+  "routing_completed": false,
+  "timing_passed": false,
+  "bitstream_round_trip_passed": false,
+  "physical_hardware_tested": false,
+  "limit": "The 350-minute job timeout leaves routing incomplete. It does not prove the design cannot route.",
+  "raw_evidence_index": "docs/verification/ci-programmable-routing-41846026922/index.json"
+}

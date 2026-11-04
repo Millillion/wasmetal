@@ -1,0 +1,8 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/memory-bist-widths/16/boundary.ys' --
+
+1. Executing JSON frontend.
+Importing module wasmetal_memory_bist from JSON tree.
+
+2. Executing SAT pass (solving SAT problems in the circuit).
+ERROR: Found -set-init bits that are not part of the initial_state: { \operation_count \word_index }

@@ -1,0 +1,242 @@
+{
+  "status": "passed",
+  "scope": "capacity-sized internal memory-test counter with unchanged 64-bit public interface",
+  "comparisons": [
+    {
+      "campaign": "memory-bist-mapped",
+      "baseline_report": "docs/verification/memory-bist/reports/memory-bist-mapped.json",
+      "baseline_sha256": "d3193b65476e9472930e63a3c6ea22359d96c12db5e77990a22c297bf5520a1b",
+      "current_report_sha256": "1f33020e3365007fb94221267bc0f030d43d41cdd6a06bd47cf8af28d90d34fa",
+      "unchanged_independent_oracle_sha256": "74e1fb8cb94f61ab9920b025b2a1a3af4e2238331e58673270a155bb3fe6503d",
+      "configurations": [
+        {
+          "ram_bytes": 80,
+          "read_latency": null,
+          "response_timeout": 32,
+          "internal_counter_bits": 9,
+          "before_primitives": {
+            "TRELLIS_FF": 350,
+            "LUT4": 1244,
+            "CCU2C": 35,
+            "L6MUX21": 171,
+            "PFUMX": 324
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 295,
+            "LUT4": 1187,
+            "L6MUX21": 170,
+            "PFUMX": 324,
+            "CCU2C": 8
+          },
+          "registers_saved": 55,
+          "lut4_saved": 57,
+          "exact_prior_observations_and_cycles": true
+        },
+        {
+          "ram_bytes": 16,
+          "read_latency": null,
+          "response_timeout": 16,
+          "internal_counter_bits": 7,
+          "before_primitives": {
+            "TRELLIS_FF": 345,
+            "LUT4": 1227,
+            "CCU2C": 32,
+            "L6MUX21": 168,
+            "PFUMX": 317
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 288,
+            "LUT4": 1172,
+            "L6MUX21": 169,
+            "PFUMX": 317,
+            "CCU2C": 4
+          },
+          "registers_saved": 57,
+          "lut4_saved": 55,
+          "exact_prior_observations_and_cycles": true
+        },
+        {
+          "ram_bytes": 131072,
+          "read_latency": null,
+          "response_timeout": 1024,
+          "internal_counter_bits": 20,
+          "before_primitives": {
+            "TRELLIS_FF": 375,
+            "LUT4": 1295,
+            "L6MUX21": 171,
+            "PFUMX": 325,
+            "CCU2C": 51
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 331,
+            "LUT4": 1247,
+            "L6MUX21": 169,
+            "PFUMX": 325,
+            "CCU2C": 29
+          },
+          "registers_saved": 44,
+          "lut4_saved": 48,
+          "exact_prior_observations_and_cycles": true
+        }
+      ]
+    },
+    {
+      "campaign": "bist-sram-mapped",
+      "baseline_report": "docs/verification/bist-sram/reports/bist-sram-mapped.json",
+      "baseline_sha256": "2b88b23a52dc5d2f7bf4ffb68284dd86f0f1928e07c559136d43f5f140069048",
+      "current_report_sha256": "327a1d776ecccf85b358e94a56901d18ca372fb7208e9f6e97e501e2198dea35",
+      "unchanged_independent_oracle_sha256": "a96489bac87d7eb7c583b45ff92c2d5cf9fc4bd0546fdecb1d5bcfcea2c3440f",
+      "configurations": [
+        {
+          "ram_bytes": 16,
+          "read_latency": 1,
+          "response_timeout": 9,
+          "internal_counter_bits": 7,
+          "before_primitives": {
+            "TRELLIS_FF": 611,
+            "LUT4": 1377,
+            "L6MUX21": 170,
+            "PFUMX": 321,
+            "CCU2C": 46
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 554,
+            "LUT4": 1321,
+            "L6MUX21": 171,
+            "PFUMX": 322,
+            "CCU2C": 18
+          },
+          "registers_saved": 57,
+          "lut4_saved": 56,
+          "exact_prior_observations_and_cycles": true
+        },
+        {
+          "ram_bytes": 80,
+          "read_latency": 3,
+          "response_timeout": 11,
+          "internal_counter_bits": 9,
+          "before_primitives": {
+            "TRELLIS_FF": 618,
+            "LUT4": 1451,
+            "L6MUX21": 196,
+            "PFUMX": 348,
+            "CCU2C": 46
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 563,
+            "LUT4": 1394,
+            "L6MUX21": 195,
+            "PFUMX": 348,
+            "CCU2C": 19
+          },
+          "registers_saved": 55,
+          "lut4_saved": 57,
+          "exact_prior_observations_and_cycles": true
+        },
+        {
+          "ram_bytes": 272,
+          "read_latency": 7,
+          "response_timeout": 10,
+          "internal_counter_bits": 11,
+          "before_primitives": {
+            "TRELLIS_FF": 625,
+            "LUT4": 1461,
+            "L6MUX21": 196,
+            "PFUMX": 347,
+            "CCU2C": 55
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 572,
+            "LUT4": 1408,
+            "L6MUX21": 196,
+            "PFUMX": 347,
+            "CCU2C": 29
+          },
+          "registers_saved": 53,
+          "lut4_saved": 53,
+          "exact_prior_observations_and_cycles": true
+        },
+        {
+          "ram_bytes": 131072,
+          "read_latency": 3,
+          "response_timeout": 11,
+          "internal_counter_bits": 20,
+          "before_primitives": {
+            "TRELLIS_FF": 648,
+            "LUT4": 1499,
+            "L6MUX21": 196,
+            "PFUMX": 349,
+            "CCU2C": 67
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 604,
+            "LUT4": 1455,
+            "L6MUX21": 196,
+            "PFUMX": 349,
+            "CCU2C": 45
+          },
+          "registers_saved": 44,
+          "lut4_saved": 44,
+          "exact_prior_observations_and_cycles": true
+        },
+        {
+          "ram_bytes": 80,
+          "read_latency": 3,
+          "response_timeout": 5,
+          "internal_counter_bits": 9,
+          "before_primitives": {
+            "TRELLIS_FF": 617,
+            "LUT4": 1448,
+            "L6MUX21": 195,
+            "PFUMX": 347,
+            "CCU2C": 46
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 562,
+            "LUT4": 1393,
+            "CCU2C": 19,
+            "L6MUX21": 195,
+            "PFUMX": 347
+          },
+          "registers_saved": 55,
+          "lut4_saved": 55,
+          "exact_prior_observations_and_cycles": true
+        },
+        {
+          "ram_bytes": 80,
+          "read_latency": 3,
+          "response_timeout": 2,
+          "internal_counter_bits": 9,
+          "before_primitives": {
+            "TRELLIS_FF": 615,
+            "LUT4": 1443,
+            "L6MUX21": 195,
+            "PFUMX": 347,
+            "CCU2C": 46
+          },
+          "after_primitives": {
+            "TRELLIS_FF": 560,
+            "LUT4": 1388,
+            "L6MUX21": 195,
+            "PFUMX": 347,
+            "CCU2C": 19
+          },
+          "registers_saved": 55,
+          "lut4_saved": 55,
+          "exact_prior_observations_and_cycles": true
+        }
+      ]
+    }
+  ],
+  "dedicated_fault_controls_rejected": 18,
+  "unbounded_safety_configurations": 4,
+  "capacity_boundary_configurations": 7,
+  "source_sha256": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+  "physical_hardware_tested": false,
+  "default_cpu_integration": false,
+  "limitations": [
+    "Resource savings describe the separate ECP5-mapped memory-test controller, not the default CPU or ASIC area.",
+    "Large-capacity boundary checks use seeded final-read states and do not sweep large memories.",
+    "Earlier rejected fixture setups exposed unsized signed SAT constants, width matching and JSON-alias setup issues; no success was accepted from those attempts."
+  ]
+}

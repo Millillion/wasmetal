@@ -1,0 +1,3325 @@
+[
+  {
+    "fanout": 800,
+    "bit": 70713,
+    "driver": [
+      "reset_sync_LUT4_D",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "reset_sync_LUT4_D_Z",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 654,
+    "bit": 22966,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\data_sizes.read_index_a[0]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.descriptor_read_b",
+        0,
+        32
+      ],
+      [
+        "system.execution.core.data_sizes.read_index_a",
+        0,
+        32
+      ]
+    ]
+  },
+  {
+    "fanout": 649,
+    "bit": 22261,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\memory_bounds.read_index_a[0]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.descriptor_read_a",
+        0,
+        32
+      ],
+      [
+        "system.execution.core.table_sizes.read_index_a",
+        0,
+        32
+      ]
+    ]
+  },
+  {
+    "fanout": 590,
+    "bit": 74697,
+    "driver": [
+      "system.execution.memory.bridge.reset_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.reset",
+        0,
+        1
+      ],
+      [
+        "system.execution.mem_ready_LUT4_C_Z",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 580,
+    "bit": 1121,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35690",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35764.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35830.A",
+        4,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 526,
+    "bit": 22968,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\data_sizes.read_index_a[1]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.descriptor_read_b",
+        1,
+        32
+      ],
+      [
+        "system.execution.core.data_sizes.read_index_a",
+        1,
+        32
+      ]
+    ]
+  },
+  {
+    "fanout": 521,
+    "bit": 22270,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\memory_bounds.read_index_a[1]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.descriptor_read_a",
+        1,
+        32
+      ],
+      [
+        "system.execution.core.table_sizes.read_index_a",
+        1,
+        32
+      ]
+    ]
+  },
+  {
+    "fanout": 498,
+    "bit": 675,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32365",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$98968.A",
+        3,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$106167.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 488,
+    "bit": 275,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$30810",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$74266.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$82946.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 481,
+    "bit": 76843,
+    "driver": [
+      "system.execution.memory.ram_backend.wdata_LUT4_Z_28_D_LUT4_Z_D_PFUMX_Z_C0_LUT4_Z_D_LUT4_Z_C_LUT4_Z_1_C_LUT4_D_Z_LUT4_C_Z_LUT4_C_Z_PFUMX_Z_C0_PFUMX_C0_Z_LUT4_D_1_Z_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_B",
+        2,
+        5
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_63_D",
+        0,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 425,
+    "bit": 77769,
+    "driver": [
+      "system.execution.memory.ram_backend.wdata_LUT4_Z_28_D_LUT4_Z_D_PFUMX_Z_C0_LUT4_Z_D_LUT4_Z_C_LUT4_Z_1_C_LUT4_D_Z_LUT4_C_Z_LUT4_C_Z_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_C_LUT4_Z_D",
+        1,
+        5
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_18_D_LUT4_Z_D",
+        1,
+        7
+      ]
+    ]
+  },
+  {
+    "fanout": 409,
+    "bit": 75874,
+    "driver": [
+      "system.execution.memory.bridge.position_TRELLIS_FF_Q_DI_LUT4_Z_2_D_CCU2C_S0_B0_CCU2C_B0_COUT_CCU2C_CIN_S0_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_18_D_LUT4_Z_D",
+        2,
+        7
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_19_D_LUT4_Z_D",
+        2,
+        7
+      ]
+    ]
+  },
+  {
+    "fanout": 384,
+    "bit": 1443,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43253",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut\\value_aux[0].A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut\\value_aux[1].A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 340,
+    "bit": 75416,
+    "driver": [
+      "system.execution.memory.bridge.position_TRELLIS_FF_Q_DI_LUT4_Z_4_D_CCU2C_S0_B1_CCU2C_B1_S1_PFUMX_Z_BLUT_LUT4_Z_B_CCU2C_B0_COUT_CCU2C_CIN_COUT_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_B",
+        1,
+        5
+      ],
+      [
+        "system.execution.memory.bridge.saved_write_LUT4_A_C",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 321,
+    "bit": 1279,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36456",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80814.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80835.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 321,
+    "bit": 76841,
+    "driver": [
+      "system.execution.memory.ram_backend.wdata_LUT4_Z_28_D_LUT4_Z_D_PFUMX_Z_C0_LUT4_Z_D_LUT4_Z_C_LUT4_Z_1_C_LUT4_D_Z_LUT4_C_Z_LUT4_C_Z_PFUMX_Z_C0_PFUMX_C0_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_10_B",
+        2,
+        5
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_11_B",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 289,
+    "bit": 85652,
+    "driver": [
+      "system.loader.state_TRELLIS_FF_Q_2_DI_LUT4_Z_D_LUT4_Z_D_LUT4_D_1",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.loader.state_TRELLIS_FF_Q_2_DI_LUT4_Z_D_LUT4_Z_D_LUT4_D_1_Z",
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 281,
+    "bit": 75873,
+    "driver": [
+      "system.execution.memory.bridge.saved_write_LUT4_C",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.bridge.saved_write_LUT4_C_Z",
+        2,
+        5
+      ],
+      [
+        "system.execution.memory.bridge.position_TRELLIS_FF_Q_DI_LUT4_Z_D_CCU2C_S0_B0",
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 277,
+    "bit": 556,
+    "driver": [
+      "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1401033",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.fpu.wide",
+        0,
+        1
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$60997.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 275,
+    "bit": 659,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35705",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$75462.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$82939.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 269,
+    "bit": 49732,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$simplemap.cc:240:simplemap_eqne$236739",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1422150$auto$abc9_ops.cc:1550:reintegrate$1402665.A",
+        2,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1425035$auto$abc9_ops.cc:1550:reintegrate$1402522.A",
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 263,
+    "bit": 1023,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32362",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32381.A",
+        3,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$62595.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 259,
+    "bit": 27193,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36901",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1417445$abc$1400924$lut$aiger1400923$36902.A",
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 259,
+    "bit": 22169,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$24662",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1417448$abc$1400924$lut$aiger1400923$40536.A",
+        0,
+        2
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1437827$abc$1400924$lut$flatten\\table_sizes.$logic_and$rtl/wasmetal_descriptors.sv:45$10473_Y.A",
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 258,
+    "bit": 22188,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$24706",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1417766$abc$1400924$lut$aiger1400923$36909.A",
+        0,
+        2
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1437843$abc$1400924$lut$flatten\\memory_bounds.$logic_and$rtl/wasmetal_descriptors.sv:45$11684_Y.A",
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 258,
+    "bit": 23232,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$26919",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1417895$abc$1400924$lut$aiger1400923$63335.A",
+        0,
+        2
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1438226$abc$1400924$lut$flatten\\table_bounds.$logic_and$rtl/wasmetal_descriptors.sv:45$11906_Y.A",
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 258,
+    "bit": 25055,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32231",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1424353$abc$1400924$lut$aiger1400923$69693.A",
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 258,
+    "bit": 25053,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32078",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1424356$abc$1400924$lut$aiger1400923$69698.A",
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 257,
+    "bit": 76842,
+    "driver": [
+      "system.execution.memory.ram_backend.wdata_LUT4_Z_28_D_LUT4_Z_D_PFUMX_Z_C0_LUT4_Z_D_LUT4_Z_C_LUT4_Z_1_C_LUT4_D_Z_LUT4_C_Z_LUT4_C_Z_PFUMX_Z_C0_PFUMX_C0_Z_LUT4_C_Z_PFUMX_ALUT_Z_L6MUX21_D1_Z_LUT4_Z_1",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_38_D",
+        3,
+        6
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_39_D",
+        3,
+        6
+      ]
+    ]
+  },
+  {
+    "fanout": 256,
+    "bit": 28881,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43265",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut\\value_aux[0].A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut\\value_aux[1].A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 245,
+    "bit": 1507,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$procmux$61266.Y[2]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$procmux$61266.Y",
+        2,
+        3
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$73343.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 242,
+    "bit": 639,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35711",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$101429.A",
+        3,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$105737.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 239,
+    "bit": 668,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35714",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$101429.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1424915$abc$1400924$lut$aiger1400923$99119.A",
+        1,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 239,
+    "bit": 85353,
+    "driver": [
+      "system.loader.state_LUT4_B",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.loader.state_LUT4_B_Z",
+        2,
+        5
+      ],
+      [
+        "system.loader.header_index_TRELLIS_FF_Q_CE_LUT4_Z_C",
+        1,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 236,
+    "bit": 1848,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$62840",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$106167.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$procmux$60264_Y[22].A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 222,
+    "bit": 38114,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67118",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67323.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67413.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 220,
+    "bit": 38117,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67125",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67143.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67187.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 218,
+    "bit": 70991,
+    "driver": [
+      "system.execution.reset_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.reset",
+        0,
+        1
+      ],
+      [
+        "system.loader.write_pending_LUT4_C_Z",
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 217,
+    "bit": 28357,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41247",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41290.A",
+        4,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41372.A",
+        4,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 216,
+    "bit": 1017,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$62828",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$101459.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$104476.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 214,
+    "bit": 14221,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43577",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$44094.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$44196.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 205,
+    "bit": 14222,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43951",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43957.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$44218.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 203,
+    "bit": 28356,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41244",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41290.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41372.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 203,
+    "bit": 74710,
+    "driver": [
+      "system.execution.mem_valid_LUT4_C_Z_LUT4_D",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.mem_valid_LUT4_C_Z_LUT4_D_Z",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 202,
+    "bit": 73580,
+    "driver": [
+      "system.execution.initializing_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.initializing",
+        0,
+        1
+      ],
+      [
+        "system.execution.memory.initialize",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 198,
+    "bit": 53823,
+    "driver": [
+      "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1401035",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$78862",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 196,
+    "bit": 3117,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36907",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$74349.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$87632.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 195,
+    "bit": 43162,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80808",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80814.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80835.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 193,
+    "bit": 1033,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35765",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$procmux$56977_Y[2].A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$procmux$56977_Y[3].A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 193,
+    "bit": 30049,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$47022",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$47315.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$47352.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 192,
+    "bit": 28893,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43302",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409824$abc$1400924$lut$aiger1400923$47719.A",
+        1,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1410290$abc$1400924$lut$aiger1400923$47241.A",
+        0,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 189,
+    "bit": 807,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32358",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$73826.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$73847.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 187,
+    "bit": 791,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$86400",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$142948.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$143036.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 187,
+    "bit": 2207,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41271",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1415626$abc$1400924$lut$aiger1400923$41972.A",
+        1,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1415630$abc$1400924$lut$aiger1400923$41995.A",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 184,
+    "bit": 75879,
+    "driver": [
+      "system.execution.memory.ram_backend.wdata_LUT4_Z_52_D_LUT4_D_1_Z_LUT4_Z_1_D_PFUMX_Z_C0_LUT4_Z_1_B_LUT4_C_Z_PFUMX_BLUT_Z_LUT4_Z_1_C_LUT4_Z_C_LUT4_C_Z_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_17_B_PFUMX_Z_C0_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D",
+        1,
+        5
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_53_D_LUT4_D_1_Z_LUT4_Z_C_LUT4_Z_B_LUT4_Z_D",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 184,
+    "bit": 80220,
+    "driver": [
+      "system.execution.memory.ram_backend.wdata_LUT4_Z_52_D_LUT4_D_1_Z_LUT4_Z_1_D_PFUMX_Z_C0_LUT4_Z_1_B_LUT4_C_Z_PFUMX_BLUT_Z_LUT4_Z_1_C_LUT4_Z_C_LUT4_C_Z_LUT4_Z_1",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_17_B_PFUMX_Z_C0_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D",
+        0,
+        5
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_53_D_LUT4_D_1_Z_LUT4_Z_C_LUT4_Z_B_PFUMX_Z_C0",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 181,
+    "bit": 43170,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80826",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80870.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80889.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 179,
+    "bit": 31040,
+    "driver": [
+      "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1403038",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$54359.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$54385.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 178,
+    "bit": 777,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\divider.abs_b[0]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.top",
+        0,
+        128
+      ],
+      [
+        "system.execution.core.alu.b",
+        0,
+        64
+      ]
+    ]
+  },
+  {
+    "fanout": 173,
+    "bit": 40895,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$74225",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$74473.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$75298.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 169,
+    "bit": 674,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35718",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$142987.A",
+        3,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$143075.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 169,
+    "bit": 41844,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$76684",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$77143.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$77148.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 168,
+    "bit": 5565,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$70743",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1424358$abc$1400924$lut$aiger1400923$70746.A",
+        0,
+        3
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1424363$abc$1400924$lut$aiger1400923$70759.A",
+        0,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 167,
+    "bit": 14148,
+    "driver": [
+      "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1401048",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.div_wide",
+        0,
+        1
+      ],
+      [
+        "system.execution.core.divider.wide",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 166,
+    "bit": 1008,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$62835",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$110817.A",
+        3,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$111783.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 165,
+    "bit": 28887,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43287",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$73878.A",
+        4,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1423070$abc$1400924$lut$aiger1400923$63909.A",
+        1,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 164,
+    "bit": 797,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$74321",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$139265.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$139388.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 164,
+    "bit": 26769,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35983",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36036.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1409526$abc$1400924$lut$aiger1400923$36163.A",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 163,
+    "bit": 1398,
+    "driver": [
+      "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1401043",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32381.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$99088.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 161,
+    "bit": 30046,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$47014",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$47315.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$47352.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 161,
+    "bit": 38880,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69354",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69401.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80640.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 161,
+    "bit": 49711,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$75166",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$75166",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 161,
+    "bit": 53339,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\type_actual[4]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.type_actual",
+        4,
+        32
+      ],
+      [
+        "system.execution.types.0.0_DO",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 160,
+    "bit": 49704,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$74322",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$74322",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 159,
+    "bit": 40510,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$73526",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1440815$abc$1400924$lut$aiger1400923$73510.A",
+        2,
+        3
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1440948$abc$1400924$lut$aiger1400923$75332.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 156,
+    "bit": 1047,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69627",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$100917.A",
+        3,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$108971.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 156,
+    "bit": 26944,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36328",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67695.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$68439.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 154,
+    "bit": 773,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41348",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$85941.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$110572.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 153,
+    "bit": 1167,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$95351",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$95405.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$95414.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 152,
+    "bit": 995,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$87581",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$112254.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$113169.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 151,
+    "bit": 643,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36559",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$84861.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$84867.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 151,
+    "bit": 38121,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67137",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67143.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67165.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91988,
+    "driver": [
+      "wasmetal_reset_replica_011",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_011_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91994,
+    "driver": [
+      "wasmetal_reset_replica_017",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_017_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 1403,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$32374",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1422500$abc$1400924$lut$aiger1400923$99091.A",
+        3,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1433031$abc$1400924$lut$aiger1400923$32387.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91998,
+    "driver": [
+      "wasmetal_reset_replica_021",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_021_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91992,
+    "driver": [
+      "wasmetal_reset_replica_015",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_015_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91990,
+    "driver": [
+      "wasmetal_reset_replica_013",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_013_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91986,
+    "driver": [
+      "wasmetal_reset_replica_009",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_009_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 92002,
+    "driver": [
+      "wasmetal_reset_replica_025",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_025_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91996,
+    "driver": [
+      "wasmetal_reset_replica_019",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_019_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91980,
+    "driver": [
+      "wasmetal_reset_replica_003",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_003_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91984,
+    "driver": [
+      "wasmetal_reset_replica_007",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_007_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 91982,
+    "driver": [
+      "wasmetal_reset_replica_005",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_005_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 92008,
+    "driver": [
+      "wasmetal_reset_replica_031",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_031_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 92004,
+    "driver": [
+      "wasmetal_reset_replica_027",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_027_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 92000,
+    "driver": [
+      "wasmetal_reset_replica_023",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_023_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 150,
+    "bit": 92006,
+    "driver": [
+      "wasmetal_reset_replica_029",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_029_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 92001,
+    "driver": [
+      "wasmetal_reset_replica_024",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_024_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 1967,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69486",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69516.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69577.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 92003,
+    "driver": [
+      "wasmetal_reset_replica_026",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_026_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 8,
+    "driver": [
+      "system.execution.core_reset_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.reset",
+        0,
+        1
+      ],
+      [
+        "system.execution.core_reset",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91978,
+    "driver": [
+      "wasmetal_reset_replica_001",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_001_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91989,
+    "driver": [
+      "wasmetal_reset_replica_012",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_012_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91985,
+    "driver": [
+      "wasmetal_reset_replica_008",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_008_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 92005,
+    "driver": [
+      "wasmetal_reset_replica_028",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_028_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91983,
+    "driver": [
+      "wasmetal_reset_replica_006",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_006_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91981,
+    "driver": [
+      "wasmetal_reset_replica_004",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_004_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91991,
+    "driver": [
+      "wasmetal_reset_replica_014",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_014_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91979,
+    "driver": [
+      "wasmetal_reset_replica_002",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_002_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91987,
+    "driver": [
+      "wasmetal_reset_replica_010",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_010_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91993,
+    "driver": [
+      "wasmetal_reset_replica_016",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_016_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91995,
+    "driver": [
+      "wasmetal_reset_replica_018",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_018_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 92007,
+    "driver": [
+      "wasmetal_reset_replica_030",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_030_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91997,
+    "driver": [
+      "wasmetal_reset_replica_020",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_020_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 149,
+    "bit": 91999,
+    "driver": [
+      "wasmetal_reset_replica_022",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "wasmetal_reset_replica_022_out",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 148,
+    "bit": 574,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$57976",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$60769.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$100356.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 148,
+    "bit": 38129,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67159",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67165.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$67204.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 145,
+    "bit": 28418,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41340",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1415628$abc$1400924$lut$aiger1400923$41988.A",
+        2,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1415632$abc$1400924$lut$aiger1400923$42011.A",
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 144,
+    "bit": 13983,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$49448",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$52867.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$55900.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 144,
+    "bit": 13988,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$49445",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$52867.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$55900.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 144,
+    "bit": 76488,
+    "driver": [
+      "system.execution.memory.bridge.saved_write_LUT4_C_Z_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.bridge.saved_write_LUT4_C_Z",
+        4,
+        5
+      ],
+      [
+        "system.execution.memory.ram_backend.wdata_LUT4_Z_28_D_LUT4_Z_D_PFUMX_Z_C0_LUT4_Z_D_LUT4_Z_C_LUT4_Z_D_LUT4_Z_B",
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 142,
+    "bit": 22974,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\data_sizes.read_index_a[2]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.descriptor_read_b",
+        2,
+        32
+      ],
+      [
+        "system.execution.core.data_sizes.read_index_a",
+        2,
+        32
+      ]
+    ]
+  },
+  {
+    "fanout": 141,
+    "bit": 1309,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$73513",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$88292.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$96170.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 140,
+    "bit": 1040,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36467",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69626.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$98912.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 138,
+    "bit": 802,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$70724",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$70732.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$96170.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 137,
+    "bit": 196,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$24875",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$36672.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$63015.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 137,
+    "bit": 662,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35720",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1400999.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1401238.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 137,
+    "bit": 22285,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\memory_bounds.read_index_a[2]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.core.descriptor_read_a",
+        2,
+        32
+      ],
+      [
+        "system.execution.core.table_sizes.read_index_a",
+        2,
+        32
+      ]
+    ]
+  },
+  {
+    "fanout": 137,
+    "bit": 38875,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69336",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80640.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$90751.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 137,
+    "bit": 41778,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$76525",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$88708.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$89611.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 136,
+    "bit": 787,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$63052",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$74349.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$87632.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 135,
+    "bit": 6091,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80739",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$82738.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$82757.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 133,
+    "bit": 793,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$30739",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$142948.A",
+        4,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$143036.A",
+        4,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 133,
+    "bit": 22249,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$24852",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$87655.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1424364$abc$1400924$lut$aiger1400923$70763.A",
+        0,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 132,
+    "bit": 607,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$60993",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$60997.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$61916.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 132,
+    "bit": 2176,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69286",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$98912.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$108371.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 132,
+    "bit": 40820,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$74010",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1441870$abc$1400924$lut$procmux$57594.Y[1].A",
+        2,
+        3
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1423372$auto$abc9_ops.cc:1550:reintegrate$1402635.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 132,
+    "bit": 49701,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$74250",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$74250",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 131,
+    "bit": 2011,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69631",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1400935.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1401006.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 131,
+    "bit": 36700,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$63005",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$auto$rtlil.cc:2600:NotGate$460480.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 131,
+    "bit": 43186,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80864",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80870.A",
+        0,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$80889.A",
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 131,
+    "bit": 49679,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$73578",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$73578",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 130,
+    "bit": 1961,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69465",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1415861$abc$1400924$lut$aiger1400923$94781.A",
+        1,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1415882$abc$1400924$lut$aiger1400923$94815.A",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 130,
+    "bit": 13967,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$49545",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$55295.A",
+        1,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$56023.A",
+        1,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 130,
+    "bit": 20801,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35926",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409503$abc$1400924$lut$aiger1400923$35987.A",
+        1,
+        2
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1409561$abc$1400924$lut$aiger1400923$35974.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 129,
+    "bit": 992,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$87573",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$112246.A",
+        3,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$113161.A",
+        3,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 129,
+    "bit": 1005,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$24880",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$24886.A",
+        2,
+        5
+      ],
+      [
+        "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$24904.A",
+        2,
+        5
+      ]
+    ]
+  },
+  {
+    "fanout": 129,
+    "bit": 28369,
+    "driver": [
+      "$flatten\\system.execution.core.$auto$abc9_ops.cc:1550:reintegrate$1402881",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1415625$abc$1400924$lut$aiger1400923$41968.A",
+        2,
+        3
+      ]
+    ]
+  },
+  {
+    "fanout": 129,
+    "bit": 28368,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41272",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1415624$auto$abc9_ops.cc:1550:reintegrate$1402881.A",
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 129,
+    "bit": 49712,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$75304",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$procmux$56044.Y",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 129,
+    "bit": 53341,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut\\type_actual[5]",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.type_actual",
+        5,
+        32
+      ],
+      [
+        "system.execution.types.0.0_DO",
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 1032,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43240",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1415750$abc$1400924$lut$aiger1400923$134689.A",
+        0,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1431449$auto$abc9_ops.cc:1550:reintegrate$1401232.A",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23317,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28043",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409666$abc$1400924$lut$aiger1400923$28047.A",
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23315,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28042",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409666$abc$1400924$lut$aiger1400923$28047.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23379,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28113",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409693$abc$1400924$lut$aiger1400923$28117.A",
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23377,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28112",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409693$abc$1400924$lut$aiger1400923$28117.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23442,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28186",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409721$abc$1400924$lut$aiger1400923$28190.A",
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23440,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28185",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409721$abc$1400924$lut$aiger1400923$28190.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23504,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28256",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409748$abc$1400924$lut$aiger1400923$28260.A",
+        2,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23502,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28255",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409748$abc$1400924$lut$aiger1400923$28260.A",
+        3,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23510,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28264",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1410456$abc$1400924$lut\\below[5].A",
+        1,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1410511$abc$1400924$lut\\below[1].A",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 26634,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$35732",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1409784$abc$1400924$lut$aiger1400923$38318.A",
+        1,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1409800$abc$1400924$lut$aiger1400923$38370.A",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 38874,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$69335",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1417329$abc$1400924$lut$aiger1400923$80628.A",
+        1,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 23532,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$28322",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1410459$abc$1400924$lut\\top[5].A",
+        1,
+        4
+      ],
+      [
+        "$flatten\\system.execution.core.$techmap1410514$abc$1400924$lut\\top[1].A",
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 22135,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$145689",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$techmap1437638$abc$1400924$lut\\result_data[0].A",
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 49716,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$75503",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$75503",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 49709,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$75012",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$75012",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 49707,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$74604",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$74604",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 49700,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$74220",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$74220",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 49731,
+    "driver": [
+      "$flatten\\system.execution.core.$abc$1400924$lut$auto$opt_dff.cc:219:make_patterns_logic$77293",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "$flatten\\system.execution.core.$abc$1400924$auto$opt_dff.cc:219:make_patterns_logic$77293",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 75954,
+    "driver": [
+      "system.execution.memory.bridge.saved_write_LUT4_A",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.bridge.saved_write_LUT4_A_Z",
+        0,
+        1
+      ]
+    ]
+  },
+  {
+    "fanout": 128,
+    "bit": 76623,
+    "driver": [
+      "system.execution.memory.ram_backend.banks[3].lanes[4].value_PFUMX_C0_Z_LUT4_Z",
+      "LUT4",
+      "Z"
+    ],
+    "aliases": [
+      [
+        "system.execution.memory.ram_backend.banks[0].lanes[0].value_LUT4_A_D",
+        2,
+        4
+      ],
+      [
+        "system.execution.memory.ram_backend.banks[0].lanes[0].value_LUT4_B_D",
+        2,
+        4
+      ]
+    ]
+  }
+]

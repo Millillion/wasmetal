@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "RTL simulation X/Z diagnostics, unknown initial memory and reset isolation",
+  "inputs": {
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "tests/memory/bist_four_state.sv": "51a03867fcc085b1974ea1cd08ffbc5902857db119ea9ad9c68b2be690557be1",
+    "tools/check_memory_bist_four_state.py": "ea6f8211717a37d7057f30a52792435febab3e62913b6e34dcf5d9c859bb7c00",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/iverilog": "a6071e4b4a68feafca0c8ee0e6aa275eee9a43a108c62801cfd1eca6eab6d8a3",
+    ".cache/tools/usr/bin/vvp": "a10bd7d4a0850308ac8c2c98115b6a3084f9be978307610f2a521190c28f4023"
+  },
+  "positive_log_sha256": "b7db2ca8489a1ed816345a91b3ba2b4423ba9d68bc3456bf3ae8a6bec87c76a1",
+  "negative_controls": [
+    {
+      "name": "unknown-not-diagnosed",
+      "log_sha256": "0f31b2deaf8be51e171fdbf88e945df6095fd4cf3792975399d908f8f60f6e80",
+      "source_sha256": "f6b07cdbe49924e160cef8a88d025af1cfcc752791fc76323c23e047926351e1"
+    },
+    {
+      "name": "reset-not-isolated",
+      "log_sha256": "faf9f3b02f5626e4aa0ae51b941e9d3571e26977b53df713a44ff96478196f95",
+      "source_sha256": "64d79dcef78d3847893288d3ea5a29e902f71387da1601e32fb094d73f218600"
+    }
+  ],
+  "negative_controls_rejected": 2,
+  "physical_hardware_tested": false,
+  "limitations": [
+    "Simulation X/Z diagnosis is not an electrical metastability detector.",
+    "The mapped binary-input campaign has a separate report."
+  ]
+}

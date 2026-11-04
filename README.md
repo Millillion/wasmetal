@@ -187,6 +187,10 @@ still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)
 was cancelled after about three hours. Its best 1,705 conflicting wires grew
 to 25,771 before cancellation; no routed timing or bitstream result follows.
+The same CI run's [programmable routing attempt](docs/verification/ci-programmable-routing-41846026922.json)
+hit its 350-minute limit: the best 29,956 conflicting wires grew to 48,884.
+The run finished with 36 successful jobs, two cancelled routing jobs and two
+failed dependent gates; it did not pass as a whole.
 The separate two-hour trial with nextpnr's alternative congestion weights
 [also timed out](docs/verification/reset-replication-router2-alternate-timeout.json).
 Its best observed count was 27,607 conflicting wires at iteration 32; iteration
@@ -195,6 +199,14 @@ unchanged placement/clock checks were reverified. The
 [preflight controls](docs/verification/routing-alternate.json) and
 [raw routing evidence](docs/verification/reset-routing-alternate-timeout/index.json)
 are retained; this trial produced no completed route, timing result or bitstream.
+A [follow-up experiment](docs/verification/descriptor-fanout.json) distributes four descriptor-address bits, which together
+feed 2,350 sink pins, through 30 exact LUT copies. Its structural checks and
+seven fault controls pass; six independent small-circuit fixtures also pass.
+Fresh placement completed with 61,405 logic cells, but its wirelength cost
+rose from 539,773 to 578,698. This is a placer estimate, not routed wirelength.
+The [archived circuits and checks](docs/verification/descriptor-fanout/index.json)
+include a successful routing preflight and 21 rejected routing corruptions.
+A separate two-hour routing trial is running; no routing improvement is claimed.
 
 ## GUI Microarchitecture Simulator
 
@@ -459,14 +471,20 @@ also pass. Four configurations pass [unbounded safety proofs](docs/verification/
 for request stability, complete sequence accounting and first-error retention,
 with four additional proof fault controls. These proofs assume an initial reset
 and arbitrary binary responses; they do not prove stored SRAM data or eventual
-completion when memory never responds. [Raw evidence](docs/verification/memory-bist/index.json)
+completion when memory never responds. [Raw evidence](docs/verification/memory-bist-counter-sized/index.json)
 is retained. This component requires exclusive memory access and is not connected
 to the default CPU image. The [composed SRAM test](docs/verification/bist-sram-mapped.json)
 also passes all six configurations in RTL and mapped simulation: 2,848 campaigns,
 7,329,277 macro commands and 40,301,847 clocks per model. It checks every command
 at the macro pins, 5,440 resets, tight and expired response deadlines, and 400
 old read responses delivered across reset. All four integration fault controls
-are rejected; [raw evidence](docs/verification/bist-sram/index.json) is retained.
+are rejected. A [capacity-sized internal counter](docs/verification/memory-bist-counter-sizing.json)
+now preserves the 64-bit status interface with identical observations and
+cycle counts in every repeated campaign. At 128 KiB, the separate master
+uses 331 ECP5 registers and 1,247 LUT4s, saving 44 registers and 48 LUT4s.
+Seven [capacity-boundary checks](docs/verification/memory-bist-widths.json)
+also pass and reject two undersized-counter faults. These seed the final
+transaction at each capacity; they do not simulate complete large memories.
 
 ## RTL Microarchitecture Simulator
 

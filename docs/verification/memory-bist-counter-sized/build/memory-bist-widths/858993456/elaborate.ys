@@ -1,0 +1,4 @@
+read_verilog -formal -sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv
+chparam -set RAM_BYTES 858993456 wasmetal_memory_bist
+prep -top wasmetal_memory_bist -flatten
+write_json /tmp/wasmetal-xc7-core/build/memory-bist-widths/858993456/elaborated.json

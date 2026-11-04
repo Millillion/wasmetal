@@ -1,0 +1,100 @@
+2026-11-04T14:53:48.1470324Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-04T14:53:48.1494188Z /github/runner_temp/git-credentials-26d83543-4dd1-47f9-9258-e22beeaeb9df.config
+2026-11-04T14:53:48.1502647Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-26d83543-4dd1-47f9-9258-e22beeaeb9df.config
+2026-11-04T14:53:48.1531129Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-04T14:53:48.1550261Z /github/runner_temp/git-credentials-26d83543-4dd1-47f9-9258-e22beeaeb9df.config
+2026-11-04T14:53:48.1560535Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-26d83543-4dd1-47f9-9258-e22beeaeb9df.config
+2026-11-04T14:53:48.1591944Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T14:53:48.1761115Z Removing credentials config '/home/runner/work/_temp/git-credentials-26d83543-4dd1-47f9-9258-e22beeaeb9df.config'
+2026-11-04T14:53:48.1769015Z ##[endgroup]
+2026-11-04T14:53:48.1990233Z ##[group]Run python3 tools/bootstrap.py --fpga-tools
+2026-11-04T14:53:48.1992032Z [36;1mpython3 tools/bootstrap.py --fpga-tools[0m
+2026-11-04T14:53:48.2010639Z shell: /usr/bin/bash -e {0}
+2026-11-04T14:53:48.2011758Z ##[endgroup]
+2026-11-04T14:54:11.4428905Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T14:54:11.6375484Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 verilator amd64 5.020-1 [6941 kB]
+2026-11-04T14:54:11.7410190Z Fetched 6941 kB in 0s (22.4 MB/s)
+2026-11-04T14:54:13.0558117Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T14:54:13.1179922Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 yosys amd64 0.33-5build2 [3222 kB]
+2026-11-04T14:54:13.1723655Z Fetched 3222 kB in 0s (26.1 MB/s)
+2026-11-04T14:54:14.4269325Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T14:54:14.4891545Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 yosys-abc amd64 0.33-5build2 [5829 kB]
+2026-11-04T14:54:15.0903957Z Fetched 5829 kB in 1s (8689 kB/s)
+2026-11-04T14:54:16.3945827Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T14:54:16.4593757Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 iverilog amd64 12.0-2build2 [2126 kB]
+2026-11-04T14:54:16.4813313Z Fetched 2126 kB in 0s (22.8 MB/s)
+2026-11-04T14:54:16.5063846Z Verified pinned test sources, wasm-tools, Verilator, Yosys and Icarus in .cache
+2026-11-04T14:54:16.5241603Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-04T14:54:16.5242034Z with:
+2026-11-04T14:54:16.5242269Z   name: standalone-core-mapping
+2026-11-04T14:54:16.5242560Z   path: build
+2026-11-04T14:54:16.5242773Z   merge-multiple: false
+2026-11-04T14:54:16.5243010Z   repository: Millillion/wasmetal
+2026-11-04T14:54:16.5243267Z   run-id: 41846026922
+2026-11-04T14:54:16.5243491Z   skip-decompress: false
+2026-11-04T14:54:16.5243834Z   digest-mismatch: error
+2026-11-04T14:54:16.5244075Z ##[endgroup]
+2026-11-04T14:54:16.6607559Z Downloading single artifact
+2026-11-04T14:54:16.9306780Z Preparing to download the following artifacts:
+2026-11-04T14:54:16.9310058Z - standalone-core-mapping (ID: 13336316465, Size: 2216746, Expected Digest: sha256:5e73eaeba69593e5abdb88e9e21ef04d50d0ebcccb4d64d3defd6eaeb1ec7e07)
+2026-11-04T14:54:17.4085722Z Redirecting to blob download url: https://productionresultssa3.blob.core.windows.net/actions-results/49bc371e-40dd-89c3-a1b9-f0ca887d20ba/workflow-job-run-af615371-33ad-5de9-93b6-73e533c736f3/artifacts/c44c69ea0c498beb62259817ae39ba5c9410b98be8e103f28a366ae4598c4d27.zip
+2026-11-04T14:54:17.4087279Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/build
+2026-11-04T14:54:17.6624998Z (node:2473) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-04T14:54:17.6626531Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-04T14:54:18.1567215Z SHA256 digest of downloaded artifact is 5e73eaeba69593e5abdb88e9e21ef04d50d0ebcccb4d64d3defd6eaeb1ec7e07
+2026-11-04T14:54:18.1568892Z Artifact download completed successfully.
+2026-11-04T14:54:18.1569366Z Total of 1 artifact(s) downloaded
+2026-11-04T14:54:18.1573764Z Download artifact has finished successfully
+2026-11-04T14:54:18.1666937Z ##[group]Run python3 tools/build_loadable_board.py
+2026-11-04T14:54:18.1667339Z [36;1mpython3 tools/build_loadable_board.py[0m
+2026-11-04T14:54:18.1681262Z shell: /usr/bin/bash -e {0}
+2026-11-04T14:54:18.1681543Z ##[endgroup]
+2026-11-04T20:44:30.7312120Z ##[error]The operation was canceled.
+2026-11-04T20:44:30.7401845Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-04T20:44:30.7402252Z with:
+2026-11-04T20:44:30.7402469Z   name: loadable-routing
+2026-11-04T20:44:30.7403160Z   path: reports/loadable-io.json
+reports/loadable-mapping-proof.json
+build/loadable-ulx3s/*.log
+build/loadable-ulx3s/timing*.json
+build/loadable-ulx3s/mapping-proof/**/*.log
+
+2026-11-04T20:44:30.7403860Z   if-no-files-found: warn
+2026-11-04T20:44:30.7404109Z   retention-days: 30
+2026-11-04T20:44:30.7404325Z   compression-level: 6
+2026-11-04T20:44:30.7404545Z   overwrite: false
+2026-11-04T20:44:30.7404757Z   include-hidden-files: false
+2026-11-04T20:44:30.7404992Z   archive: true
+2026-11-04T20:44:30.7405188Z ##[endgroup]
+2026-11-04T20:44:30.8929847Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-04T20:44:30.8932687Z The least common ancestor is /home/runner/work/wasmetal/wasmetal. This will be the root directory of the artifact
+2026-11-04T20:44:30.8933725Z With the provided path, there will be 4 files uploaded
+2026-11-04T20:44:30.8939130Z Artifact name is valid!
+2026-11-04T20:44:30.8939753Z Root directory input is valid!
+2026-11-04T20:44:31.4033133Z Uploading artifact: loadable-routing.zip
+2026-11-04T20:44:31.4033658Z Beginning upload of artifact content to blob storage
+2026-11-04T20:44:31.6994051Z Uploaded bytes 95741
+2026-11-04T20:44:31.7632599Z Finished uploading artifact content to blob storage!
+2026-11-04T20:44:31.7633686Z SHA256 digest of uploaded artifact is edfe8db8d4c1316a0d4a95aac91ca40a9048d0fc6edbcc6fdca35ec9eba50877
+2026-11-04T20:44:31.7634594Z Finalizing artifact upload
+2026-11-04T20:44:32.3587656Z Artifact loadable-routing successfully finalized. Artifact ID 13360844324
+2026-11-04T20:44:32.3588997Z Artifact loadable-routing has been successfully uploaded! Final size is 95741 bytes. Artifact ID is 13360844324
+2026-11-04T20:44:32.3590583Z Artifact download URL: https://github.com/Millillion/wasmetal/actions/runs/41846026922/artifacts/13360844324
+2026-11-04T20:44:32.3766643Z Post job cleanup.
+2026-11-04T20:44:32.4833404Z [command]/usr/bin/git version
+2026-11-04T20:44:32.4834231Z git version 2.56.0
+2026-11-04T20:44:32.4838202Z Temporarily overriding HOME='/home/runner/work/_temp/8d445088-354f-4c7a-a869-84306835a729' before making global git config changes
+2026-11-04T20:44:32.4839461Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T20:44:32.4840552Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wasmetal/wasmetal
+2026-11-04T20:44:32.4842666Z Removing SSH command configuration
+2026-11-04T20:44:32.4843392Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T20:44:32.4846332Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T20:44:32.5049212Z Removing HTTP extra header
+2026-11-04T20:44:32.5056130Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T20:44:32.5087068Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T20:44:32.5278899Z Removing includeIf entries pointing to credentials config files
+2026-11-04T20:44:32.5286901Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T20:44:32.5319413Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T20:44:32.5680576Z Cleaning up orphan processes
+2026-11-04T20:44:32.5826453Z Terminate orphan process: pid (2487) (python3)
+2026-11-04T20:44:32.5901901Z Terminate orphan process: pid (2629) (ld-linux-x86-64.so.2)

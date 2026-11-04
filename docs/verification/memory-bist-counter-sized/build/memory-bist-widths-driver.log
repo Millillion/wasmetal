@@ -1,0 +1,9 @@
+PASS capacity boundary 16 bytes; 7 counter bits
+PASS capacity boundary 80 bytes; 9 counter bits
+PASS capacity boundary 131072 bytes; 20 counter bits
+PASS capacity boundary 429496736 bytes; 32 counter bits
+PASS capacity boundary 858993456 bytes; 32 counter bits
+PASS capacity boundary 858993472 bytes; 33 counter bits
+PASS capacity boundary 2147483632 bytes; 34 counter bits
+REJECTED truncated-capacity
+REJECTED counter-too-narrow

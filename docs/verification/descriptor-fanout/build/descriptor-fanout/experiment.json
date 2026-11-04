@@ -1,0 +1,608 @@
+{
+  "status": "structurally_verified",
+  "scope": "Try equivalent local LUT copies for selected high-fanout data/control bits.",
+  "inputs": {
+    "build/loadable-ulx3s/design.json": "5085cbc6f05cf8d5815bb07f6d206d3ca1a2a9ccaa2f3e5dfc9b525d427c56a5",
+    "build/loadable-ulx3s/placed.json": "14bfe9a039523538e98796181fafbccef6783a60446e37429aa33e20d83e7d11",
+    "build/loadable-ulx3s/design.manifest.json": "ebbce46c7f0c17b90e4e2284da9102afc9970db9e89d73a728615627a75ed96b",
+    "tools/replicate_reset.py": "c067f8d6213b7d1c5b4e264a996ad71feea1e7a6b0e37e8430487382559ea617",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+    ".cache/tools/oss-cad-suite/libexec/nextpnr-ecp5": "7cf4c43cbc671241e1cdae23545bd479184f3c5c362132ac98cc5ee97f9d2d90",
+    "tools/build_loadable_board.py": "57a58b47730514b09e7bd338ba7f82aab65062c6fcbddd430ca900bd9ac02053",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
+    "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
+    "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "build/loadable-ulx3s/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+    "build/standalone-rounding-ecp5.json": "79e6ddbc432c9a6f4460692a2140c94062e10fcf17ecbda56a048886995ae561",
+    "build/standalone-rounding-ecp5.manifest.json": "44aee653b69ada2206e3104bc7ba8dffe5f5c26c567911ab9ce8a73957a8d2c1",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+    "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+    "build/reset-replication/design.json": "0ab4642b98ca1d2b740df60818d3fecdbc427d32318431a8610ee51c94a8aa05",
+    "build/reset-replication/placed.json": "5103194888f802f0b98515742db9c006375c6741addcbb845ae3a5a9e1be2837",
+    "build/reset-replication/experiment.json": "1a9a42ec0ce7503f3423ab0dde064a03c06af49dd9875565afa8549d6b29c1fd",
+    "build/prepare_fanout_baseline.py": "062e491cb6ae2b75d1998b29b1a62d08c1ef772b543748a55044bf23599d362d",
+    "build/reset-replication/design.manifest.json": "376d091621bd294e2bd5d183a23352c03625e4189c1320d5b970114bd02f23bf",
+    "build/fanout-selection.json": "d0240fe1eaad5c64603e1537497dc1948d8e4332db10dfada227ca843c25434e",
+    "tools/replicate_fanout.py": "9a8de42e235418be36c1fae33f049c866edf786d3dcf9432809289238cdc6842"
+  },
+  "baseline_sha256": "0ab4642b98ca1d2b740df60818d3fecdbc427d32318431a8610ee51c94a8aa05",
+  "candidate_sha256": "0a87a02b41cff80373f0b88e4f7ab2a0deb86c3ff0eddc78d9cb6ca568bca2d0",
+  "proof": {
+    "method": "reverse exact LUT substitutions followed by complete baseline equality",
+    "stages": 4,
+    "added_luts": 30,
+    "changed_state_primitives": 0,
+    "added_clock_cycles": 0,
+    "original_clock_inputs_unchanged": true
+  },
+  "stages": [
+    {
+      "selection": {
+        "net": "system.execution.core.descriptor_read_a",
+        "bit": 0
+      },
+      "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\memory_bounds.read_index_a[0]",
+      "original_output_bit": 22261,
+      "unlocated_or_clock_sink_pins_retained": 0,
+      "groups": [
+        {
+          "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\memory_bounds.read_index_a[0]",
+          "output_bit": 22261,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            22,
+            2,
+            28,
+            11
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_00_001",
+          "output_bit": 92009,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            28,
+            2,
+            44,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_00_002",
+          "output_bit": 92010,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            46,
+            2,
+            64,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_00_003",
+          "output_bit": 92011,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            64,
+            3,
+            70,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_00_004",
+          "output_bit": 92012,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            70,
+            2,
+            77,
+            9
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_00_005",
+          "output_bit": 92013,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            77,
+            3,
+            80,
+            11
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_00_006",
+          "output_bit": 92014,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            81,
+            2,
+            86,
+            9
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_00_007",
+          "output_bit": 92015,
+          "sink_pins": 82,
+          "baseline_sink_bbox": [
+            86,
+            2,
+            90,
+            9
+          ]
+        }
+      ],
+      "proof": {
+        "method": "exact structural substitution of identical combinational LUT4 functions",
+        "added_luts": 7,
+        "original_sink_pins": 649,
+        "distributed_sink_pins": 649,
+        "maximum_resulting_fanout": 82,
+        "changed_state_primitives": 0,
+        "added_clock_cycles": 0,
+        "added_net_substitutions": {
+          "92009": 22261,
+          "92010": 22261,
+          "92011": 22261,
+          "92012": 22261,
+          "92013": 22261,
+          "92014": 22261,
+          "92015": 22261
+        }
+      }
+    },
+    {
+      "selection": {
+        "net": "system.execution.core.descriptor_read_a",
+        "bit": 1
+      },
+      "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\memory_bounds.read_index_a[1]",
+      "original_output_bit": 22270,
+      "unlocated_or_clock_sink_pins_retained": 0,
+      "groups": [
+        {
+          "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\memory_bounds.read_index_a[1]",
+          "output_bit": 22270,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            22,
+            2,
+            28,
+            11
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_01_001",
+          "output_bit": 92016,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            28,
+            2,
+            44,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_01_002",
+          "output_bit": 92017,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            46,
+            2,
+            64,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_01_003",
+          "output_bit": 92018,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            64,
+            3,
+            70,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_01_004",
+          "output_bit": 92019,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            70,
+            2,
+            77,
+            9
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_01_005",
+          "output_bit": 92020,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            77,
+            3,
+            81,
+            11
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_01_006",
+          "output_bit": 92021,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            81,
+            3,
+            85,
+            9
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_01_007",
+          "output_bit": 92022,
+          "sink_pins": 66,
+          "baseline_sink_bbox": [
+            86,
+            2,
+            90,
+            9
+          ]
+        }
+      ],
+      "proof": {
+        "method": "exact structural substitution of identical combinational LUT4 functions",
+        "added_luts": 7,
+        "original_sink_pins": 521,
+        "distributed_sink_pins": 521,
+        "maximum_resulting_fanout": 66,
+        "changed_state_primitives": 0,
+        "added_clock_cycles": 0,
+        "added_net_substitutions": {
+          "92016": 22270,
+          "92017": 22270,
+          "92018": 22270,
+          "92019": 22270,
+          "92020": 22270,
+          "92021": 22270,
+          "92022": 22270
+        }
+      }
+    },
+    {
+      "selection": {
+        "net": "system.execution.core.descriptor_read_b",
+        "bit": 0
+      },
+      "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\data_sizes.read_index_a[0]",
+      "original_output_bit": 22966,
+      "unlocated_or_clock_sink_pins_retained": 1,
+      "groups": [
+        {
+          "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\data_sizes.read_index_a[0]",
+          "output_bit": 22966,
+          "sink_pins": 1,
+          "baseline_sink_bbox": null
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_001",
+          "output_bit": 92023,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            2,
+            2,
+            9,
+            6
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_002",
+          "output_bit": 92024,
+          "sink_pins": 82,
+          "baseline_sink_bbox": [
+            2,
+            6,
+            8,
+            13
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_003",
+          "output_bit": 92025,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            9,
+            2,
+            13,
+            13
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_004",
+          "output_bit": 92026,
+          "sink_pins": 82,
+          "baseline_sink_bbox": [
+            14,
+            2,
+            22,
+            11
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_005",
+          "output_bit": 92027,
+          "sink_pins": 81,
+          "baseline_sink_bbox": [
+            22,
+            2,
+            28,
+            12
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_006",
+          "output_bit": 92028,
+          "sink_pins": 82,
+          "baseline_sink_bbox": [
+            28,
+            2,
+            49,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_007",
+          "output_bit": 92029,
+          "sink_pins": 82,
+          "baseline_sink_bbox": [
+            50,
+            2,
+            65,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_02_008",
+          "output_bit": 92030,
+          "sink_pins": 82,
+          "baseline_sink_bbox": [
+            65,
+            2,
+            78,
+            22
+          ]
+        }
+      ],
+      "proof": {
+        "method": "exact structural substitution of identical combinational LUT4 functions",
+        "added_luts": 8,
+        "original_sink_pins": 654,
+        "distributed_sink_pins": 654,
+        "maximum_resulting_fanout": 82,
+        "changed_state_primitives": 0,
+        "added_clock_cycles": 0,
+        "added_net_substitutions": {
+          "92023": 22966,
+          "92024": 22966,
+          "92025": 22966,
+          "92026": 22966,
+          "92027": 22966,
+          "92028": 22966,
+          "92029": 22966,
+          "92030": 22966
+        }
+      }
+    },
+    {
+      "selection": {
+        "net": "system.execution.core.descriptor_read_b",
+        "bit": 1
+      },
+      "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\data_sizes.read_index_a[1]",
+      "original_output_bit": 22968,
+      "unlocated_or_clock_sink_pins_retained": 1,
+      "groups": [
+        {
+          "driver": "$flatten\\system.execution.core.$abc$1400924$lut\\data_sizes.read_index_a[1]",
+          "output_bit": 22968,
+          "sink_pins": 1,
+          "baseline_sink_bbox": null
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_001",
+          "output_bit": 92031,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            2,
+            2,
+            9,
+            6
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_002",
+          "output_bit": 92032,
+          "sink_pins": 66,
+          "baseline_sink_bbox": [
+            2,
+            6,
+            8,
+            13
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_003",
+          "output_bit": 92033,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            9,
+            2,
+            13,
+            13
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_004",
+          "output_bit": 92034,
+          "sink_pins": 66,
+          "baseline_sink_bbox": [
+            14,
+            2,
+            22,
+            11
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_005",
+          "output_bit": 92035,
+          "sink_pins": 65,
+          "baseline_sink_bbox": [
+            22,
+            2,
+            28,
+            18
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_006",
+          "output_bit": 92036,
+          "sink_pins": 66,
+          "baseline_sink_bbox": [
+            28,
+            2,
+            49,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_007",
+          "output_bit": 92037,
+          "sink_pins": 66,
+          "baseline_sink_bbox": [
+            50,
+            2,
+            65,
+            22
+          ]
+        },
+        {
+          "driver": "wasmetal_fanout_replica_03_008",
+          "output_bit": 92038,
+          "sink_pins": 66,
+          "baseline_sink_bbox": [
+            65,
+            2,
+            78,
+            22
+          ]
+        }
+      ],
+      "proof": {
+        "method": "exact structural substitution of identical combinational LUT4 functions",
+        "added_luts": 8,
+        "original_sink_pins": 526,
+        "distributed_sink_pins": 526,
+        "maximum_resulting_fanout": 66,
+        "changed_state_primitives": 0,
+        "added_clock_cycles": 0,
+        "added_net_substitutions": {
+          "92031": 22968,
+          "92032": 22968,
+          "92033": 22968,
+          "92034": 22968,
+          "92035": 22968,
+          "92036": 22968,
+          "92037": 22968,
+          "92038": 22968
+        }
+      }
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "wrong-truth-table",
+      "reason": "copy primitive/truth table differs: wasmetal_fanout_replica_03_001"
+    },
+    {
+      "name": "wrong-copy-input",
+      "reason": "copy inputs differ: wasmetal_fanout_replica_03_001"
+    },
+    {
+      "name": "aliased-copy-output",
+      "reason": "copy output is not a fresh unique net"
+    },
+    {
+      "name": "disconnected-sink",
+      "reason": "stage proof changed during reverse substitution"
+    },
+    {
+      "name": "changed-register-reset",
+      "reason": "collapsed circuit differs from original baseline"
+    },
+    {
+      "name": "changed-clock",
+      "reason": "original clock connection changed: $flatten\\system.execution.core.$auto$ff.cc:266:slice$116810.CLK"
+    },
+    {
+      "name": "omitted-substitution-stage",
+      "reason": "collapsed circuit differs from original baseline"
+    }
+  ],
+  "negative_controls_rejected": 7,
+  "requested_group_fanout": 128,
+  "placement_completed": true,
+  "routing_completed": false,
+  "timing_passed": false,
+  "physical_hardware_tested": false,
+  "default_board_build_changed": false,
+  "baseline_coordinates_only_guide_grouping": true,
+  "limitations": [
+    "Exact substitution preserves logical functions and clock connections, not physical delays.",
+    "Unlocated sinks and clocks remain on the original driver.",
+    "Later-stage copies may add loads to earlier-stage drivers; recorded per-stage fanout is not a global timing guarantee."
+  ],
+  "placement_command": [
+    "--85k",
+    "--package",
+    "CABGA381",
+    "--speed",
+    "6",
+    "--seed",
+    "1",
+    "--router",
+    "router2",
+    "--lpf",
+    "/tmp/wasmetal-xc7-core/soc/loader/ulx3s.lpf",
+    "--freq",
+    "25",
+    "--json",
+    "/tmp/wasmetal-xc7-core/build/descriptor-fanout/design.json",
+    "--write",
+    "/tmp/wasmetal-xc7-core/build/descriptor-fanout/placed.json",
+    "--no-route",
+    "--placer",
+    "static"
+  ],
+  "placement_sha256": "e93c594eac5ba5eed1943a5e2436c7dc0ffb533c643a23cd5a424fbd8dd0eaa9",
+  "final_input_checks_passed": true,
+  "elapsed_seconds": 790.2489493399626
+}

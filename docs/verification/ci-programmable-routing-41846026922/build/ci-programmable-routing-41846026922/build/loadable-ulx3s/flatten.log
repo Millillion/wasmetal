@@ -1,0 +1,222 @@
+
+-- Executing script file `/home/runner/work/wasmetal/wasmetal/build/loadable-ulx3s/flatten.ys' --
+
+1. Executing JSON frontend.
+Importing module $paramod$37e41664cab9052a9b41c89036e0524f666a0fee\TRELLIS_FF from JSON tree.
+Importing module wasmetal_loadable_ulx3s from JSON tree.
+Importing module wasmetal_core from JSON tree.
+Importing module USRMCLK from JSON tree.
+Importing module TSHX2DQSA from JSON tree.
+Importing module TSHX2DQA from JSON tree.
+Importing module TRELLIS_RAM16X2 from JSON tree.
+Importing module TRELLIS_IO from JSON tree.
+Importing module TRELLIS_FF from JSON tree.
+Importing module TRELLIS_DPR16X4 from JSON tree.
+Importing module TRELLIS_COMB from JSON tree.
+Importing module SGSR from JSON tree.
+Importing module PUR from JSON tree.
+Importing module PFUMX from JSON tree.
+Importing module PDPW16KD from JSON tree.
+Importing module PCSCLKDIV from JSON tree.
+Importing module OSHX2A from JSON tree.
+Importing module OSCG from JSON tree.
+Importing module OLVDS from JSON tree.
+Importing module OFS1P3JX from JSON tree.
+Importing module OFS1P3IX from JSON tree.
+Importing module OFS1P3DX from JSON tree.
+Importing module OFS1P3BX from JSON tree.
+Importing module ODDRX2F from JSON tree.
+Importing module ODDRX2DQSB from JSON tree.
+Importing module ODDRX2DQA from JSON tree.
+Importing module ODDRX1F from JSON tree.
+Importing module ODDR71B from JSON tree.
+Importing module OBZPU from JSON tree.
+Importing module OBZPD from JSON tree.
+Importing module OBZ from JSON tree.
+Importing module OBCO from JSON tree.
+Importing module OB from JSON tree.
+Importing module MULT18X18D from JSON tree.
+Importing module LUT4 from JSON tree.
+Importing module LUT2 from JSON tree.
+Importing module L6MUX21 from JSON tree.
+Importing module JTAGG from JSON tree.
+Importing module INV from JSON tree.
+Importing module ILVDS from JSON tree.
+Importing module IFS1P3JX from JSON tree.
+Importing module IFS1P3IX from JSON tree.
+Importing module IFS1P3DX from JSON tree.
+Importing module IFS1P3BX from JSON tree.
+Importing module IDDRX2F from JSON tree.
+Importing module IDDRX2DQA from JSON tree.
+Importing module IDDRX1F from JSON tree.
+Importing module IDDR71B from JSON tree.
+Importing module IBPU from JSON tree.
+Importing module IBPD from JSON tree.
+Importing module IB from JSON tree.
+Importing module GSR from JSON tree.
+Importing module FD1S3JX from JSON tree.
+Importing module FD1S3IX from JSON tree.
+Importing module FD1S3DX from JSON tree.
+Importing module FD1S3BX from JSON tree.
+Importing module FD1S3AY from JSON tree.
+Importing module FD1S3AX from JSON tree.
+Importing module FD1P3JX from JSON tree.
+Importing module FD1P3IX from JSON tree.
+Importing module FD1P3DX from JSON tree.
+Importing module FD1P3BX from JSON tree.
+Importing module FD1P3AY from JSON tree.
+Importing module FD1P3AX from JSON tree.
+Importing module EXTREFB from JSON tree.
+Importing module EHXPLLL from JSON tree.
+Importing module ECLKSYNCB from JSON tree.
+Importing module ECLKBRIDGECS from JSON tree.
+Importing module DTR from JSON tree.
+Importing module DQSBUFM from JSON tree.
+Importing module DPR16X4C from JSON tree.
+Importing module DP16KD from JSON tree.
+Importing module DLLDELD from JSON tree.
+Importing module DELAYG from JSON tree.
+Importing module DELAYF from JSON tree.
+Importing module DDRDLLA from JSON tree.
+Importing module DCUA from JSON tree.
+Importing module DCSC from JSON tree.
+Importing module DCCA from JSON tree.
+Importing module CLKDIVF from JSON tree.
+Importing module CCU2C from JSON tree.
+Importing module BBPU from JSON tree.
+Importing module BBPD from JSON tree.
+Importing module BB from JSON tree.
+Importing module ALU54B from JSON tree.
+Importing module \$__ABC9_LUT7 from JSON tree.
+Importing module \$__ABC9_LUT6 from JSON tree.
+Importing module \$__ABC9_LUT5 from JSON tree.
+Importing module $paramod$838872d5a4bab89607f53482b205c0fd50d8b82e\CCU2C from JSON tree.
+Importing module $paramod$68581f66a8fa831820fa7633bd24ba569ae9d7e3\TRELLIS_FF from JSON tree.
+Importing module $paramod$2074b3813575c9ede27f9a04ee0bf291c9c7bf2f\TRELLIS_DPR16X4 from JSON tree.
+Importing module $__DFF_P__$abc9_flop from JSON tree.
+Importing module $__DFF_N__$abc9_flop from JSON tree.
+Importing module $__ABC9_SCC_BREAKER from JSON tree.
+Importing module $__ABC9_DELAY from JSON tree.
+
+2. Executing Verilog-2005 frontend: /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v
+Parsing Verilog input from `/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v' to AST representation.
+Replacing existing blackbox module `\LUT4' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:4.1-16.10.
+Generating RTLIL representation for module `\LUT4'.
+Replacing existing blackbox module `\$__ABC9_LUT5' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:22.1-30.10.
+Generating RTLIL representation for module `\$__ABC9_LUT5'.
+Replacing existing blackbox module `\$__ABC9_LUT6' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:36.1-45.10.
+Generating RTLIL representation for module `\$__ABC9_LUT6'.
+Replacing existing blackbox module `\$__ABC9_LUT7' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:51.1-61.10.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Replacing existing blackbox module `\L6MUX21' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:65.1-72.10.
+Generating RTLIL representation for module `\L6MUX21'.
+Replacing existing blackbox module `\CCU2C' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:76.1-134.10.
+Generating RTLIL representation for module `\CCU2C'.
+Replacing existing blackbox module `\TRELLIS_RAM16X2' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:138.1-175.10.
+Generating RTLIL representation for module `\TRELLIS_RAM16X2'.
+Replacing existing blackbox module `\PFUMX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:179.1-186.10.
+Generating RTLIL representation for module `\PFUMX'.
+Replacing existing blackbox module `\TRELLIS_DPR16X4' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:190.1-231.10.
+Generating RTLIL representation for module `\TRELLIS_DPR16X4'.
+Replacing existing blackbox module `\DPR16X4C' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:236.1-295.10.
+Generating RTLIL representation for module `\DPR16X4C'.
+Replacing existing blackbox module `\LUT2' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:300.1-304.10.
+Generating RTLIL representation for module `\LUT2'.
+Replacing existing blackbox module `\TRELLIS_FF' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:311.1-376.10.
+Generating RTLIL representation for module `\TRELLIS_FF'.
+Replacing existing blackbox module `\TRELLIS_IO' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:380.1-406.10.
+Generating RTLIL representation for module `\TRELLIS_IO'.
+Replacing existing blackbox module `\INV' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:410.1-412.10.
+Generating RTLIL representation for module `\INV'.
+Replacing existing blackbox module `\TRELLIS_COMB' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:416.1-457.10.
+Generating RTLIL representation for module `\TRELLIS_COMB'.
+Replacing existing blackbox module `\DP16KD' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:460.1-674.10.
+Generating RTLIL representation for module `\DP16KD'.
+Replacing existing blackbox module `\FD1P3AX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:2.1-2.261.
+Generating RTLIL representation for module `\FD1P3AX'.
+Replacing existing blackbox module `\FD1P3AY' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:3.1-3.261.
+Generating RTLIL representation for module `\FD1P3AY'.
+Replacing existing blackbox module `\FD1P3BX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:4.1-4.261.
+Generating RTLIL representation for module `\FD1P3BX'.
+Replacing existing blackbox module `\FD1P3DX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:5.1-5.261.
+Generating RTLIL representation for module `\FD1P3DX'.
+Replacing existing blackbox module `\FD1P3IX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:6.1-6.261.
+Generating RTLIL representation for module `\FD1P3IX'.
+Replacing existing blackbox module `\FD1P3JX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:7.1-7.261.
+Generating RTLIL representation for module `\FD1P3JX'.
+Replacing existing blackbox module `\FD1S3AX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:8.1-8.261.
+Generating RTLIL representation for module `\FD1S3AX'.
+Replacing existing blackbox module `\FD1S3AY' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:9.1-9.261.
+Generating RTLIL representation for module `\FD1S3AY'.
+Replacing existing blackbox module `\FD1S3BX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:10.1-10.261.
+Generating RTLIL representation for module `\FD1S3BX'.
+Replacing existing blackbox module `\FD1S3DX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:11.1-11.261.
+Generating RTLIL representation for module `\FD1S3DX'.
+Replacing existing blackbox module `\FD1S3IX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:12.1-12.261.
+Generating RTLIL representation for module `\FD1S3IX'.
+Replacing existing blackbox module `\FD1S3JX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:13.1-13.261.
+Generating RTLIL representation for module `\FD1S3JX'.
+Replacing existing blackbox module `\IFS1P3BX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:26.1-26.301.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Replacing existing blackbox module `\IFS1P3DX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:27.1-27.301.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Replacing existing blackbox module `\IFS1P3IX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:28.1-28.301.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Replacing existing blackbox module `\IFS1P3JX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:29.1-29.301.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Replacing existing blackbox module `\OFS1P3BX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:31.1-31.302.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Replacing existing blackbox module `\OFS1P3DX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:32.1-32.302.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Replacing existing blackbox module `\OFS1P3IX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:33.1-33.302.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Replacing existing blackbox module `\OFS1P3JX' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_ff.vh:34.1-34.302.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Replacing existing blackbox module `\IB' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:2.1-2.157.
+Generating RTLIL representation for module `\IB'.
+Replacing existing blackbox module `\IBPU' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:3.1-3.157.
+Generating RTLIL representation for module `\IBPU'.
+Replacing existing blackbox module `\IBPD' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:4.1-4.157.
+Generating RTLIL representation for module `\IBPD'.
+Replacing existing blackbox module `\OB' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:5.1-5.157.
+Generating RTLIL representation for module `\OB'.
+Replacing existing blackbox module `\OBZ' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:6.1-6.164.
+Generating RTLIL representation for module `\OBZ'.
+Replacing existing blackbox module `\OBZPU' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:7.1-7.164.
+Generating RTLIL representation for module `\OBZPU'.
+Replacing existing blackbox module `\OBZPD' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:8.1-8.164.
+Generating RTLIL representation for module `\OBZPD'.
+Replacing existing blackbox module `\OBCO' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:9.1-9.90.
+Generating RTLIL representation for module `\OBCO'.
+Replacing existing blackbox module `\BB' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:10.1-10.179.
+Generating RTLIL representation for module `\BB'.
+Replacing existing blackbox module `\BBPU' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:11.1-11.179.
+Generating RTLIL representation for module `\BBPU'.
+Replacing existing blackbox module `\BBPD' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:12.1-12.179.
+Generating RTLIL representation for module `\BBPD'.
+Replacing existing blackbox module `\ILVDS' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:13.1-13.139.
+Generating RTLIL representation for module `\ILVDS'.
+Replacing existing blackbox module `\OLVDS' at /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_io.vh:14.1-14.146.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \wasmetal_loadable_ulx3s
+Used module:     \wasmetal_core
+
+3.2. Analyzing design hierarchy..
+Top module:  \wasmetal_loadable_ulx3s
+Used module:     \wasmetal_core
+Removed 0 unused modules.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module wasmetal_core.
+<suppressed ~1 debug messages>
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_loadable_ulx3s...
+Found and reported 0 problems.
+
+6. Executing JSON backend.

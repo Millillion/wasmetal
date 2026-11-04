@@ -1,0 +1,284 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/memory-bist-widths/16/elaborate.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv
+Parsing formal SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_bist'.
+Successfully finished Verilog frontend.
+Parameter \RAM_BYTES = 16
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 16
+Generating RTLIL representation for module `$paramod\wasmetal_memory_bist\RAM_BYTES=32'00000000000000000000000000010000'.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65 in module wasmetal_memory_bist.
+Marked 10 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80 in module wasmetal_memory_bist.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~15 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+     1/1: $1\background[127:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+     1/14: $0\stop_after_release[0:0]
+     2/14: $0\write_half[0:0]
+     3/14: $0\background_index[2:0]
+     4/14: $0\phase[2:0]
+     5/14: $0\waiting[9:0]
+     6/14: $0\word_index[0:0]
+     7/14: $0\state[1:0]
+     8/14: $0\operation_count[6:0]
+     9/14: $0\observed_data[127:0]
+    10/14: $0\expected_data[127:0]
+    11/14: $0\error_address[31:0]
+    12/14: $0\error_code[1:0]
+    13/14: $0\failed[0:0]
+    14/14: $0\done[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\wasmetal_memory_bist.\background' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\wasmetal_memory_bist.\done' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$437' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\failed' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$438' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_code' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$439' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_address' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$440' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\expected_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$441' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\observed_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$442' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\operation_count' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$443' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\state' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$444' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\word_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$445' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\waiting' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$446' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\phase' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$447' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\background_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\write_half' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\stop_after_release' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$450' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+Found and cleaned up 14 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+Cleaned up 15 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~39 debug messages>
+
+3.3. Executing FLATTEN pass (flatten design).
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 4 unused cells and 114 unused wires.
+<suppressed ~5 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~159 debug messages>
+Removed a total of 53 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$411: \failed -> 1'1
+      Replacing known input bits on port B of cell $procmux$407: \failed -> 1'1
+      Replacing known input bits on port A of cell $procmux$405: \failed -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+    New ctrl vector for $pmux cell $procmux$121: $auto$opt_reduce.cc:134:opt_pmux$452
+    New ctrl vector for $pmux cell $procmux$172: $auto$opt_reduce.cc:134:opt_pmux$454
+    New ctrl vector for $pmux cell $procmux$254: $auto$opt_reduce.cc:134:opt_pmux$456
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 5 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 58 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~4 debug messages>
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$251: \word_index -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 2 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 1 unused cells and 3 unused wires.
+<suppressed ~3 debug messages>
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+3.7.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.7.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.7.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.7.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.20. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$112_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$111_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$110_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$53 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$59 ($eq).
+Removed top 1 bits (of 2) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66 ($eq).
+Removed top 2 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$75 ($eq).
+Removed top 31 bits (of 32) from port B of cell wasmetal_memory_bist.$ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$89 ($ge).
+Removed top 29 bits (of 32) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$90 ($le).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== wasmetal_memory_bist ===
+
+   Number of wires:                170
+   Number of wire bits:           3773
+   Number of public wires:          31
+   Number of public wire bits:     954
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                161
+     $add                            4
+     $dff                           14
+     $eq                            15
+     $ge                             1
+     $le                             1
+     $logic_and                      4
+     $logic_not                      6
+     $logic_or                       7
+     $mux                           89
+     $nex                            1
+     $not                            1
+     $pmux                          16
+     $reduce_or                      1
+     $sub                            1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+4. Executing JSON backend.

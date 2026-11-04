@@ -1,0 +1,462 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv' to AST representation.
+Generating RTLIL representation for module `\original2'.
+Generating RTLIL representation for module `\candidate2'.
+Generating RTLIL representation for module `\original4'.
+Generating RTLIL representation for module `\candidate4'.
+Generating RTLIL representation for module `\proof'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \proof
+Used module:     \candidate2
+Used module:     \original2
+Used module:     \candidate4
+Used module:     \original4
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \proof
+Used module:     \candidate2
+Used module:     \original2
+Used module:     \candidate4
+Used module:     \original4
+Removed 0 unused modules.
+Mapping positional arguments of cell proof.u3 (candidate2).
+Mapping positional arguments of cell proof.u2 (original2).
+Mapping positional arguments of cell proof.u1 (candidate4).
+Mapping positional arguments of cell proof.u0 (original4).
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+Optimizing module candidate4.
+<suppressed ~16 debug messages>
+Optimizing module original4.
+Optimizing module candidate2.
+<suppressed ~8 debug messages>
+Optimizing module original2.
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+Optimizing module candidate4.
+Optimizing module original4.
+Optimizing module candidate2.
+Optimizing module original2.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \original2..
+Removed 0 unused cells and 37 unused wires.
+<suppressed ~5 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module candidate2...
+Checking module candidate4...
+Checking module original2...
+Checking module original4...
+Checking module proof...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module candidate2.
+Optimizing module candidate4.
+Optimizing module original2.
+Optimizing module original4.
+Optimizing module proof.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\candidate2'.
+Finding identical cells in module `\candidate4'.
+Finding identical cells in module `\original2'.
+Finding identical cells in module `\original4'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \candidate2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \candidate4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \candidate2.
+  Optimizing cells in module \candidate4.
+  Optimizing cells in module \original2.
+  Optimizing cells in module \original4.
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\candidate2'.
+Finding identical cells in module `\candidate4'.
+Finding identical cells in module `\original2'.
+Finding identical cells in module `\original4'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \original2..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \proof..
+
+2.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module candidate2.
+Optimizing module candidate4.
+Optimizing module original2.
+Optimizing module original4.
+Optimizing module proof.
+
+2.6.8. Finished OPT passes. (There is nothing left to do.)
+
+2.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port A of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$11 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$11 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$11 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:7$19 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:7$19 ($add).
+Removed top 29 bits (of 32) from port Y of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:7$19 ($add).
+Removed top 29 bits (of 32) from port A of cell candidate2.$gt$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:7$20 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate2.$gt$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:7$20 ($gt).
+Removed top 30 bits (of 32) from wire candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$11_Y.
+Removed top 29 bits (of 32) from wire candidate2.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:7$19_Y.
+Removed top 31 bits (of 32) from wire candidate2.$logic_or$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$10_Y.
+Removed top 31 bits (of 32) from wire candidate2.$logic_or$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$18_Y.
+Removed top 31 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$38 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$38 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$38 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$46 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$46 ($add).
+Removed top 29 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$46 ($add).
+Removed top 29 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$54 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$54 ($add).
+Removed top 28 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$54 ($add).
+Removed top 28 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:20$62 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:20$62 ($add).
+Removed top 27 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:20$62 ($add).
+Removed top 27 bits (of 32) from port A of cell candidate4.$gt$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:20$63 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate4.$gt$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:20$63 ($gt).
+Removed top 30 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$38_Y.
+Removed top 29 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$46_Y.
+Removed top 28 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$54_Y.
+Removed top 27 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:20$62_Y.
+Removed top 31 bits (of 32) from wire candidate4.$logic_or$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$37_Y.
+Removed top 31 bits (of 32) from wire candidate4.$logic_or$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$45_Y.
+Removed top 31 bits (of 32) from wire candidate4.$logic_or$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$53_Y.
+Removed top 31 bits (of 32) from wire candidate4.$logic_or$/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/lut-proof/negative.sv:0$61_Y.
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \original2..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \proof..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~2 debug messages>
+
+2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module candidate2.
+Optimizing module candidate4.
+Optimizing module original2.
+Optimizing module original4.
+Optimizing module proof.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\candidate2'.
+Finding identical cells in module `\candidate4'.
+Finding identical cells in module `\original2'.
+Finding identical cells in module `\original4'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \original2..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \proof..
+
+2.10.4. Finished fast OPT passes.
+
+2.11. Printing statistics.
+
+=== candidate2 ===
+
+   Number of wires:                 16
+   Number of wire bits:             85
+   Number of public wires:           5
+   Number of public wire bits:       9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 13
+     $add                            2
+     $eqx                            4
+     $gt                             1
+     $logic_or                       2
+     $mux                            3
+     $shiftx                         1
+
+=== candidate4 ===
+
+   Number of wires:                 29
+   Number of wire bits:            189
+   Number of public wires:           9
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 24
+     $add                            4
+     $eqx                            8
+     $gt                             1
+     $logic_or                       4
+     $mux                            5
+     $not                            1
+     $shiftx                         1
+
+=== original2 ===
+
+   Number of wires:                  5
+   Number of wire bits:              9
+   Number of public wires:           5
+   Number of public wire bits:       9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $mux                            2
+
+=== original4 ===
+
+   Number of wires:                  9
+   Number of wire bits:             35
+   Number of public wires:           9
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $mux                            4
+
+=== proof ===
+
+   Number of wires:                  9
+   Number of wire bits:             27
+   Number of public wires:           7
+   Number of public wire bits:      25
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  7
+     $logic_or                       1
+     $ne                             2
+     candidate2                      1
+     candidate4                      1
+     original2                       1
+     original4                       1
+
+=== design hierarchy ===
+
+   proof                             1
+     candidate2                      1
+     candidate4                      1
+     original2                       1
+     original4                       1
+
+   Number of wires:                 68
+   Number of wire bits:            345
+   Number of public wires:          35
+   Number of public wire bits:     113
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 46
+     $add                            6
+     $eqx                           12
+     $gt                             2
+     $logic_or                       7
+     $mux                           14
+     $ne                             2
+     $not                            1
+     $shiftx                         2
+
+2.12. Executing CHECK pass (checking for obvious problems).
+Checking module candidate2...
+Checking module candidate4...
+Checking module original2...
+Checking module original4...
+Checking module proof...
+Found and reported 0 problems.
+
+3. Executing FLATTEN pass (flatten design).
+Deleting now unused module candidate2.
+Deleting now unused module candidate4.
+Deleting now unused module original2.
+Deleting now unused module original4.
+<suppressed ~4 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+<suppressed ~2 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~3 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 32 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \pins
+Import show expression: \table_value
+
+Solving problem with 659 variables and 1769 clauses..
+ERROR: Called with -verify and proof did fail!

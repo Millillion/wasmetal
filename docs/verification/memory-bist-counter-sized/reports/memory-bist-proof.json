@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "scope": "unbounded protocol, complete sequence accounting and first-error retention; no stored-data or physical proof",
+  "environment": "initial reset, then arbitrary binary starts, responses, data and resets; no response fairness assumption",
+  "checks": [
+    {
+      "ram_bytes": 80,
+      "response_timeout": 32,
+      "status": "proven",
+      "log_sha256": "8ef83ef560ef5e0a3c86f86c9dad45beaec0d73e411dd13b10911e610b33f189"
+    },
+    {
+      "ram_bytes": 16,
+      "response_timeout": 16,
+      "status": "proven",
+      "log_sha256": "26e7f540a8ec0fc6e652d692cebb2f154c9d0c5e6bb098f80cfdf565a35d7a20"
+    },
+    {
+      "ram_bytes": 131072,
+      "response_timeout": 1024,
+      "status": "proven",
+      "log_sha256": "eedb1a707f59a7cb152ab1f1b3d947d1fbf7d449353ee09e8ec10031939d8be4"
+    },
+    {
+      "ram_bytes": 16,
+      "response_timeout": 1,
+      "status": "proven",
+      "log_sha256": "f4e5a114cd7462b6867160cff277fb4b652cf2d79a0f29aee4d6fce8b05d952b"
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "wrong-background",
+      "source_sha256": "4e0f3b119da280229def9aede4b79cec8e946b5cb4fa71603bef8157df67983d",
+      "log_sha256": "6aacae7902926f857e05c12db71fdca25f247de0b57bd1781316fa337da46fc8"
+    },
+    {
+      "name": "extra-count",
+      "source_sha256": "fc44c33372eb9a2e4d4af7d35a43d1be297c391c992912bf7cd9e48881079977",
+      "log_sha256": "dc9235c0b89fb994ffd9e06770b585dd2cf31833ff2bdd8b05766805aba51e9d"
+    },
+    {
+      "name": "timeout-withdraws-request",
+      "source_sha256": "8b1db8e5c93d7bdf423de7a7f9930deed5a47bf38db8fc155fd98100ec298da9",
+      "log_sha256": "f0db35e6ec86a9e9029d815525fa1325c611210f60f8cf48a3d2a2456d89cb23"
+    },
+    {
+      "name": "wrong-ascent",
+      "source_sha256": "dbe6013878c869376c36657166446f6eb9a6f612a588c622c36b2cdd83bf8585",
+      "log_sha256": "15b9a43139493ef1698bfd127189835f40b774d409846c00da45c3801fda6f21"
+    }
+  ],
+  "negative_controls_rejected": 4,
+  "inputs": {
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "build/formal-memory-bist/memory_bist.sv": "81bce65a05fe2a976c4f81ef63ed7df0e2794bafbe802d8ea2fbba1f8bf0305a",
+    "tools/prove_memory_bist.py": "b6100bf9fa614820df40da263c7df53e2de1fab6fa7b1d682d917ded61b8bab4",
+    "tools/check_memory_bist.py": "231798734a0119d4ffa2a9d9490336cefdfb7128c04a8b379917d81c433a848a",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0"
+  },
+  "physical_hardware_tested": false,
+  "elapsed_seconds": 424.25254914094694
+}

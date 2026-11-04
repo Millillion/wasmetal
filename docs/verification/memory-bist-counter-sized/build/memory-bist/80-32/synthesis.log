@@ -1,0 +1,1990 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/memory-bist/80-32/synthesis.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_bist'.
+Successfully finished Verilog frontend.
+Parameter \RAM_BYTES = 80
+Parameter \RESPONSE_TIMEOUT = 32
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 80
+Parameter \RESPONSE_TIMEOUT = 32
+Generating RTLIL representation for module `$paramod$0486cd987f73bb0e2975c147962b63c183d34339\wasmetal_memory_bist'.
+
+3. Executing SYNTH_ECP5 pass.
+
+3.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\$__ABC9_LUT5'.
+Generating RTLIL representation for module `\$__ABC9_LUT6'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\L6MUX21'.
+Generating RTLIL representation for module `\CCU2C'.
+Generating RTLIL representation for module `\TRELLIS_RAM16X2'.
+Generating RTLIL representation for module `\PFUMX'.
+Generating RTLIL representation for module `\TRELLIS_DPR16X4'.
+Generating RTLIL representation for module `\DPR16X4C'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\TRELLIS_FF'.
+Generating RTLIL representation for module `\TRELLIS_IO'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\TRELLIS_COMB'.
+Generating RTLIL representation for module `\DP16KD'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+3.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_bb.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_bb.v' to AST representation.
+Generating RTLIL representation for module `\MULT18X18D'.
+Generating RTLIL representation for module `\ALU54B'.
+Generating RTLIL representation for module `\EHXPLLL'.
+Generating RTLIL representation for module `\DTR'.
+Generating RTLIL representation for module `\OSCG'.
+Generating RTLIL representation for module `\USRMCLK'.
+Generating RTLIL representation for module `\JTAGG'.
+Generating RTLIL representation for module `\DELAYF'.
+Generating RTLIL representation for module `\DELAYG'.
+Generating RTLIL representation for module `\IDDRX1F'.
+Generating RTLIL representation for module `\IDDRX2F'.
+Generating RTLIL representation for module `\IDDR71B'.
+Generating RTLIL representation for module `\IDDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX1F'.
+Generating RTLIL representation for module `\ODDRX2F'.
+Generating RTLIL representation for module `\ODDR71B'.
+Generating RTLIL representation for module `\OSHX2A'.
+Generating RTLIL representation for module `\ODDRX2DQA'.
+Generating RTLIL representation for module `\ODDRX2DQSB'.
+Generating RTLIL representation for module `\TSHX2DQA'.
+Generating RTLIL representation for module `\TSHX2DQSA'.
+Generating RTLIL representation for module `\DQSBUFM'.
+Generating RTLIL representation for module `\DDRDLLA'.
+Generating RTLIL representation for module `\DLLDELD'.
+Generating RTLIL representation for module `\CLKDIVF'.
+Generating RTLIL representation for module `\ECLKSYNCB'.
+Generating RTLIL representation for module `\ECLKBRIDGECS'.
+Generating RTLIL representation for module `\DCCA'.
+Generating RTLIL representation for module `\DCSC'.
+Generating RTLIL representation for module `\DCUA'.
+Generating RTLIL representation for module `\EXTREFB'.
+Generating RTLIL representation for module `\PCSCLKDIV'.
+Generating RTLIL representation for module `\PUR'.
+Generating RTLIL representation for module `\GSR'.
+Generating RTLIL representation for module `\SGSR'.
+Generating RTLIL representation for module `\PDPW16KD'.
+Successfully finished Verilog frontend.
+
+3.3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.3.1. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+
+3.3.2. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+Removed 0 unused modules.
+
+3.4. Executing PROC pass (convert processes to netlists).
+
+3.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:213$221'.
+Cleaned up 1 empty switch.
+
+3.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:350$328 in module TRELLIS_FF.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:285$280 in module DPR16X4C.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:221$222 in module TRELLIS_DPR16X4.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65 in module wasmetal_memory_bist.
+Marked 10 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80 in module wasmetal_memory_bist.
+Removed a total of 0 dead cases.
+
+3.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 43 assignments to connections.
+
+3.4.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\TRELLIS_FF.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$329'.
+  Set init value: \Q = 1'0
+
+3.4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~19 debug messages>
+
+3.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\TRELLIS_FF.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$329'.
+Creating decoders for process `\TRELLIS_FF.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:350$328'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+Creating decoders for process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:285$280'.
+     1/3: $1$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:287$279_EN[3:0]$286
+     2/3: $1$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:287$279_DATA[3:0]$285
+     3/3: $1$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:287$279_ADDR[3:0]$284
+Creating decoders for process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+Creating decoders for process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:221$222'.
+     1/3: $1$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:223$220_EN[3:0]$228
+     2/3: $1$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:223$220_DATA[3:0]$227
+     3/3: $1$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:223$220_ADDR[3:0]$226
+Creating decoders for process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:213$221'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+     1/1: $1\background[127:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+     1/14: $0\stop_after_release[0:0]
+     2/14: $0\write_half[0:0]
+     3/14: $0\background_index[2:0]
+     4/14: $0\phase[2:0]
+     5/14: $0\waiting[4:0]
+     6/14: $0\word_index[2:0]
+     7/14: $0\state[1:0]
+     8/14: $0\operation_count[8:0]
+     9/14: $0\observed_data[127:0]
+    10/14: $0\expected_data[127:0]
+    11/14: $0\error_address[31:0]
+    12/14: $0\error_code[1:0]
+    13/14: $0\failed[0:0]
+    14/14: $0\done[0:0]
+
+3.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\wasmetal_memory_bist.\background' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+
+3.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\TRELLIS_FF.\Q' using process `\TRELLIS_FF.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:350$328'.
+  created $dff cell `$procdff$685' with positive edge clock.
+Creating register for signal `\DPR16X4C.\i' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$264_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$265_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$266_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$267_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$268_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$269_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$270_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$271_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$272_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$273_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$274_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$275_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$276_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$277_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:281$278_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:287$279_ADDR' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:285$280'.
+  created $dff cell `$procdff$686' with positive edge clock.
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:287$279_DATA' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:285$280'.
+  created $dff cell `$procdff$687' with positive edge clock.
+Creating register for signal `\DPR16X4C.$memwr$\ram$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:287$279_EN' using process `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:285$280'.
+  created $dff cell `$procdff$688' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.\i' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$204_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$205_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$206_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$207_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$208_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$209_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$210_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$211_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$212_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$213_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$214_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$215_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$216_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$217_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$218_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:207$219_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:223$220_ADDR' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:221$222'.
+  created $dff cell `$procdff$689' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:223$220_DATA' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:221$222'.
+  created $dff cell `$procdff$690' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.$memwr$\mem$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:223$220_EN' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:221$222'.
+  created $dff cell `$procdff$691' with positive edge clock.
+Creating register for signal `\TRELLIS_DPR16X4.\muxwre' using process `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:213$221'.
+  created direct connection (no actual register cell created).
+Creating register for signal `\wasmetal_memory_bist.\done' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$692' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\failed' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$693' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_code' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$694' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_address' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$695' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\expected_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$696' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\observed_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$697' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\operation_count' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$698' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\state' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$699' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\word_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$700' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\waiting' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$701' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\phase' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$702' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\background_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$703' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\write_half' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$704' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\stop_after_release' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+  created $dff cell `$procdff$705' with positive edge clock.
+
+3.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `TRELLIS_FF.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$329'.
+Found and cleaned up 2 empty switches in `\TRELLIS_FF.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:350$328'.
+Removing empty process `TRELLIS_FF.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:350$328'.
+Removing empty process `DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$303'.
+Found and cleaned up 1 empty switch in `\DPR16X4C.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:285$280'.
+Removing empty process `TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:0$246'.
+Found and cleaned up 1 empty switch in `\TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:221$222'.
+Removing empty process `TRELLIS_DPR16X4.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_sim.v:213$221'.
+Found and cleaned up 1 empty switch in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$65'.
+Found and cleaned up 14 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$80'.
+Cleaned up 19 empty switches.
+
+3.4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~38 debug messages>
+
+3.5. Executing FLATTEN pass (flatten design).
+
+3.6. Executing TRIBUF pass.
+
+3.7. Executing DEMINOUT pass (demote inout ports to input or output).
+
+3.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 4 unused cells and 114 unused wires.
+<suppressed ~5 debug messages>
+
+3.10. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~156 debug messages>
+Removed a total of 52 cells.
+
+3.11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$659: \failed -> 1'1
+      Replacing known input bits on port B of cell $procmux$655: \failed -> 1'1
+      Replacing known input bits on port A of cell $procmux$653: \failed -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+3.11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+    New ctrl vector for $pmux cell $procmux$369: $auto$opt_reduce.cc:134:opt_pmux$707
+    New ctrl vector for $pmux cell $procmux$420: $auto$opt_reduce.cc:134:opt_pmux$709
+    New ctrl vector for $pmux cell $procmux$502: { $auto$opt_reduce.cc:134:opt_pmux$713 $auto$opt_reduce.cc:134:opt_pmux$711 }
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 4 changes.
+
+3.11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+3.11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 55 unused wires.
+<suppressed ~1 debug messages>
+
+3.11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.11.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.11.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~19 debug messages>
+
+3.11.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.11.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.11.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.11.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.11.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.11.16. Finished OPT passes. (There is nothing left to do.)
+
+3.12. Executing FSM pass (extract and optimize FSM).
+
+3.12.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking wasmetal_memory_bist.error_code as FSM state register:
+    Register is connected to module port.
+    Users of register don't seem to benefit from recoding.
+Found FSM state register wasmetal_memory_bist.phase.
+Found FSM state register wasmetal_memory_bist.state.
+
+3.12.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\phase' from module `\wasmetal_memory_bist'.
+  found $dff cell for state register: $procdff$702
+  root of input selection tree: $0\phase[2:0]
+  found reset state: 3'000 (guessed from mux tree)
+  found ctrl input: \reset
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66_Y
+  found ctrl input: $procmux$390_CMP
+  found ctrl input: \ready
+  found ctrl input: $logic_or$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:80$85_Y
+  found ctrl input: $logic_and$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$93_Y
+  found ctrl input: \final_word
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$54_Y
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$53_Y
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$59_Y
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$75_Y
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$72_Y
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:99$98_Y
+  found state code: 3'000
+  found state code: 3'101
+  found state code: 3'100
+  found state code: 3'011
+  found state code: 3'010
+  found state code: 3'001
+  found ctrl input: \start
+  found ctrl output: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$53_Y
+  found ctrl output: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$54_Y
+  found ctrl output: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$59_Y
+  found ctrl output: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$72_Y
+  found ctrl output: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$75_Y
+  found ctrl output: $ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$89_Y
+  found ctrl output: $le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$90_Y
+  ctrl inputs: { $procmux$390_CMP $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:99$98_Y $logic_and$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$93_Y $logic_or$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:80$85_Y $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66_Y \final_word \ready \start \reset }
+  ctrl outputs: { $le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$90_Y $ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$89_Y $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$75_Y $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$72_Y $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$59_Y $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$54_Y $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$53_Y $0\phase[2:0] }
+  transition:      3'000 9'0---0---0 ->      3'000 10'1001000000
+  transition:      3'000 9'1------00 ->      3'000 10'1001000000
+  transition:      3'000 9'1------10 ->      3'000 10'1001000000
+  transition:      3'000 9'----1-0-0 ->      3'000 10'1001000000
+  transition:      3'000 9'--00101-0 ->      3'000 10'1001000000
+  transition:      3'000 9'--00111-0 ->      3'001 10'1001000001
+  transition:      3'000 9'--101-1-0 ->      3'000 10'1001000000
+  transition:      3'000 9'---11-1-0 ->      3'000 10'1001000000
+  transition:      3'000 9'--------1 ->      3'000 10'1001000000
+  transition:      3'100 9'0---0---0 ->      3'100 10'1100010100
+  transition:      3'100 9'1------00 ->      3'100 10'1100010100
+  transition:      3'100 9'1------10 ->      3'000 10'1100010000
+  transition:      3'100 9'----1-0-0 ->      3'100 10'1100010100
+  transition:      3'100 9'--00101-0 ->      3'100 10'1100010100
+  transition:      3'100 9'--00111-0 ->      3'101 10'1100010101
+  transition:      3'100 9'--101-1-0 ->      3'100 10'1100010100
+  transition:      3'100 9'---11-1-0 ->      3'100 10'1100010100
+  transition:      3'100 9'--------1 ->      3'000 10'1100010000
+  transition:      3'010 9'0---0---0 ->      3'010 10'1100100010
+  transition:      3'010 9'1------00 ->      3'010 10'1100100010
+  transition:      3'010 9'1------10 ->      3'000 10'1100100000
+  transition:      3'010 9'----1-0-0 ->      3'010 10'1100100010
+  transition:      3'010 9'--00101-0 ->      3'010 10'1100100010
+  transition:      3'010 9'--00111-0 ->      3'011 10'1100100011
+  transition:      3'010 9'--101-1-0 ->      3'010 10'1100100010
+  transition:      3'010 9'---11-1-0 ->      3'010 10'1100100010
+  transition:      3'010 9'--------1 ->      3'000 10'1100100000
+  transition:      3'001 9'0---0---0 ->      3'001 10'1110000001
+  transition:      3'001 9'1------00 ->      3'001 10'1110000001
+  transition:      3'001 9'1------10 ->      3'000 10'1110000000
+  transition:      3'001 9'----1-0-0 ->      3'001 10'1110000001
+  transition:      3'001 9'--00101-0 ->      3'001 10'1110000001
+  transition:      3'001 9'--00111-0 ->      3'010 10'1110000010
+  transition:      3'001 9'--101-1-0 ->      3'001 10'1110000001
+  transition:      3'001 9'---11-1-0 ->      3'001 10'1110000001
+  transition:      3'001 9'--------1 ->      3'000 10'1110000000
+  transition:      3'101 9'0---0---0 ->      3'101 10'0100000101
+  transition:      3'101 9'1------00 ->      3'101 10'0100000101
+  transition:      3'101 9'1------10 ->      3'000 10'0100000000
+  transition:      3'101 9'----1-0-0 ->      3'101 10'0100000101
+  transition:      3'101 9'--00101-0 ->      3'101 10'0100000101
+  transition:      3'101 9'-000111-0 ->      3'000 10'0100000000
+  transition:      3'101 9'-100111-0 ->      3'101 10'0100000101
+  transition:      3'101 9'--101-1-0 ->      3'101 10'0100000101
+  transition:      3'101 9'---11-1-0 ->      3'101 10'0100000101
+  transition:      3'101 9'--------1 ->      3'000 10'0100000000
+  transition:      3'011 9'0---0---0 ->      3'011 10'1100001011
+  transition:      3'011 9'1------00 ->      3'011 10'1100001011
+  transition:      3'011 9'1------10 ->      3'000 10'1100001000
+  transition:      3'011 9'----1-0-0 ->      3'011 10'1100001011
+  transition:      3'011 9'--00101-0 ->      3'011 10'1100001011
+  transition:      3'011 9'--00111-0 ->      3'100 10'1100001100
+  transition:      3'011 9'--101-1-0 ->      3'011 10'1100001011
+  transition:      3'011 9'---11-1-0 ->      3'011 10'1100001011
+  transition:      3'011 9'--------1 ->      3'000 10'1100001000
+Extracting FSM `\state' from module `\wasmetal_memory_bist'.
+  found $dff cell for state register: $procdff$699
+  root of input selection tree: $0\state[1:0]
+  found reset state: 2'00 (guessed from mux tree)
+  found ctrl input: \reset
+  found ctrl input: $procmux$530_CMP
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$67_Y
+  found ctrl input: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66_Y
+  found ctrl input: $procmux$390_CMP
+  found ctrl input: \start
+  found state code: 2'00
+  found ctrl input: \stop_after_release
+  found state code: 2'01
+  found state code: 2'11
+  found ctrl input: \ready
+  found state code: 2'10
+  found ctrl output: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66_Y
+  found ctrl output: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$67_Y
+  found ctrl output: $procmux$390_CMP
+  found ctrl output: $procmux$530_CMP
+  ctrl inputs: { \stop_after_release \ready \start \reset }
+  ctrl outputs: { $procmux$530_CMP $procmux$390_CMP $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$67_Y $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66_Y $0\state[1:0] }
+  transition:       2'00 4'--00 ->       2'00 6'010000
+  transition:       2'00 4'--10 ->       2'01 6'010001
+  transition:       2'00 4'---1 ->       2'00 6'010000
+  transition:       2'10 4'0--0 ->       2'01 6'001001
+  transition:       2'10 4'1--0 ->       2'11 6'001011
+  transition:       2'10 4'---1 ->       2'00 6'001000
+  transition:       2'01 4'-0-0 ->       2'01 6'000101
+  transition:       2'01 4'-1-0 ->       2'10 6'000110
+  transition:       2'01 4'---1 ->       2'00 6'000100
+  transition:       2'11 4'--00 ->       2'00 6'100000
+  transition:       2'11 4'--10 ->       2'11 6'100011
+  transition:       2'11 4'---1 ->       2'00 6'100000
+
+3.12.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\state$723' from module `\wasmetal_memory_bist'.
+Optimizing FSM `$fsm$\phase$714' from module `\wasmetal_memory_bist'.
+  Merging pattern 9'1------00 and 9'1------10 from group (0 0 10'1001000000).
+  Merging pattern 9'1------10 and 9'1------00 from group (0 0 10'1001000000).
+
+3.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 28 unused cells and 28 unused wires.
+<suppressed ~29 debug messages>
+
+3.12.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\phase$714' from module `\wasmetal_memory_bist'.
+  Removing unused output signal $0\phase[2:0] [0].
+  Removing unused output signal $0\phase[2:0] [1].
+  Removing unused output signal $0\phase[2:0] [2].
+Optimizing FSM `$fsm$\state$723' from module `\wasmetal_memory_bist'.
+  Removing unused output signal $0\state[1:0] [0].
+  Removing unused output signal $0\state[1:0] [1].
+  Removing unused output signal $procmux$530_CMP.
+
+3.12.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\phase$714' from module `\wasmetal_memory_bist' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  000 -> -----1
+  100 -> ----1-
+  010 -> ---1--
+  001 -> --1---
+  101 -> -1----
+  011 -> 1-----
+Recoding FSM `$fsm$\state$723' from module `\wasmetal_memory_bist' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> ---1
+  10 -> --1-
+  01 -> -1--
+  11 -> 1---
+
+3.12.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\phase$714' from module `wasmetal_memory_bist':
+-------------------------------------
+
+  Information on FSM $fsm$\phase$714 (\phase):
+
+  Number of input signals:    9
+  Number of output signals:   7
+  Number of state bits:       6
+
+  Input signals:
+    0: \reset
+    1: \start
+    2: \ready
+    3: \final_word
+    4: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66_Y
+    5: $logic_or$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:80$85_Y
+    6: $logic_and$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$93_Y
+    7: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:99$98_Y
+    8: $procmux$390_CMP
+
+  Output signals:
+    0: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$53_Y
+    1: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$54_Y
+    2: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$59_Y
+    3: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$72_Y
+    4: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$75_Y
+    5: $ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$89_Y
+    6: $le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$90_Y
+
+  State encoding:
+    0:   6'-----1  <RESET STATE>
+    1:   6'----1-
+    2:   6'---1--
+    3:   6'--1---
+    4:   6'-1----
+    5:   6'1-----
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 9'----1-0-0   ->     0 7'1001000
+      1:     0 9'--00101-0   ->     0 7'1001000
+      2:     0 9'--101-1-0   ->     0 7'1001000
+      3:     0 9'---11-1-0   ->     0 7'1001000
+      4:     0 9'0---0---0   ->     0 7'1001000
+      5:     0 9'1-------0   ->     0 7'1001000
+      6:     0 9'--------1   ->     0 7'1001000
+      7:     0 9'--00111-0   ->     3 7'1001000
+      8:     1 9'1------10   ->     0 7'1100010
+      9:     1 9'--------1   ->     0 7'1100010
+     10:     1 9'1------00   ->     1 7'1100010
+     11:     1 9'----1-0-0   ->     1 7'1100010
+     12:     1 9'--00101-0   ->     1 7'1100010
+     13:     1 9'--101-1-0   ->     1 7'1100010
+     14:     1 9'---11-1-0   ->     1 7'1100010
+     15:     1 9'0---0---0   ->     1 7'1100010
+     16:     1 9'--00111-0   ->     4 7'1100010
+     17:     2 9'1------10   ->     0 7'1100100
+     18:     2 9'--------1   ->     0 7'1100100
+     19:     2 9'1------00   ->     2 7'1100100
+     20:     2 9'----1-0-0   ->     2 7'1100100
+     21:     2 9'--00101-0   ->     2 7'1100100
+     22:     2 9'--101-1-0   ->     2 7'1100100
+     23:     2 9'---11-1-0   ->     2 7'1100100
+     24:     2 9'0---0---0   ->     2 7'1100100
+     25:     2 9'--00111-0   ->     5 7'1100100
+     26:     3 9'1------10   ->     0 7'1110000
+     27:     3 9'--------1   ->     0 7'1110000
+     28:     3 9'--00111-0   ->     2 7'1110000
+     29:     3 9'1------00   ->     3 7'1110000
+     30:     3 9'----1-0-0   ->     3 7'1110000
+     31:     3 9'--00101-0   ->     3 7'1110000
+     32:     3 9'--101-1-0   ->     3 7'1110000
+     33:     3 9'---11-1-0   ->     3 7'1110000
+     34:     3 9'0---0---0   ->     3 7'1110000
+     35:     4 9'1------10   ->     0 7'0100000
+     36:     4 9'-000111-0   ->     0 7'0100000
+     37:     4 9'--------1   ->     0 7'0100000
+     38:     4 9'1------00   ->     4 7'0100000
+     39:     4 9'----1-0-0   ->     4 7'0100000
+     40:     4 9'--00101-0   ->     4 7'0100000
+     41:     4 9'-100111-0   ->     4 7'0100000
+     42:     4 9'--101-1-0   ->     4 7'0100000
+     43:     4 9'---11-1-0   ->     4 7'0100000
+     44:     4 9'0---0---0   ->     4 7'0100000
+     45:     5 9'1------10   ->     0 7'1100001
+     46:     5 9'--------1   ->     0 7'1100001
+     47:     5 9'--00111-0   ->     1 7'1100001
+     48:     5 9'1------00   ->     5 7'1100001
+     49:     5 9'----1-0-0   ->     5 7'1100001
+     50:     5 9'--00101-0   ->     5 7'1100001
+     51:     5 9'--101-1-0   ->     5 7'1100001
+     52:     5 9'---11-1-0   ->     5 7'1100001
+     53:     5 9'0---0---0   ->     5 7'1100001
+
+-------------------------------------
+
+FSM `$fsm$\state$723' from module `wasmetal_memory_bist':
+-------------------------------------
+
+  Information on FSM $fsm$\state$723 (\state):
+
+  Number of input signals:    4
+  Number of output signals:   3
+  Number of state bits:       4
+
+  Input signals:
+    0: \reset
+    1: \start
+    2: \ready
+    3: \stop_after_release
+
+  Output signals:
+    0: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$66_Y
+    1: $eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$67_Y
+    2: $procmux$390_CMP
+
+  State encoding:
+    0:     4'---1  <RESET STATE>
+    1:     4'--1-
+    2:     4'-1--
+    3:     4'1---
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 4'--00   ->     0 3'100
+      1:     0 4'---1   ->     0 3'100
+      2:     0 4'--10   ->     2 3'100
+      3:     1 4'---1   ->     0 3'010
+      4:     1 4'0--0   ->     2 3'010
+      5:     1 4'1--0   ->     3 3'010
+      6:     2 4'---1   ->     0 3'001
+      7:     2 4'-1-0   ->     1 3'001
+      8:     2 4'-0-0   ->     2 3'001
+      9:     3 4'--00   ->     0 3'000
+     10:     3 4'---1   ->     0 3'000
+     11:     3 4'--10   ->     3 3'000
+
+-------------------------------------
+
+3.12.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\phase$714' from module `\wasmetal_memory_bist'.
+Mapping FSM `$fsm$\state$723' from module `\wasmetal_memory_bist'.
+
+3.13. Executing OPT pass (performing simple optimizations).
+
+3.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~11 debug messages>
+
+3.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~105 debug messages>
+Removed a total of 35 cells.
+
+3.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+3.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$705 ($dff) from module wasmetal_memory_bist (D = $procmux$386_Y, Q = \stop_after_release, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$956 ($sdff) from module wasmetal_memory_bist (D = $procmux$386_Y, Q = \stop_after_release).
+Adding SRST signal on $procdff$704 ($dff) from module wasmetal_memory_bist (D = $procmux$405_Y, Q = \write_half, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$974 ($sdff) from module wasmetal_memory_bist (D = $procmux$405_Y, Q = \write_half).
+Adding SRST signal on $procdff$703 ($dff) from module wasmetal_memory_bist (D = $procmux$437_Y, Q = \background_index, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$986 ($sdff) from module wasmetal_memory_bist (D = $procmux$437_Y, Q = \background_index).
+Adding SRST signal on $procdff$701 ($dff) from module wasmetal_memory_bist (D = $procmux$487_Y, Q = \waiting, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:266:slice$1006 ($sdff) from module wasmetal_memory_bist (D = $procmux$487_Y, Q = \waiting).
+Adding SRST signal on $procdff$700 ($dff) from module wasmetal_memory_bist (D = $procmux$519_Y, Q = \word_index, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$1018 ($sdff) from module wasmetal_memory_bist (D = $procmux$519_Y, Q = \word_index).
+Adding SRST signal on $procdff$698 ($dff) from module wasmetal_memory_bist (D = $procmux$550_Y, Q = \operation_count, rval = 9'000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1034 ($sdff) from module wasmetal_memory_bist (D = $procmux$550_Y, Q = \operation_count).
+Adding SRST signal on $procdff$697 ($dff) from module wasmetal_memory_bist (D = $procmux$573_Y, Q = \observed_data, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1044 ($sdff) from module wasmetal_memory_bist (D = $procmux$573_Y, Q = \observed_data).
+Adding SRST signal on $procdff$696 ($dff) from module wasmetal_memory_bist (D = $procmux$596_Y, Q = \expected_data, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1060 ($sdff) from module wasmetal_memory_bist (D = $procmux$596_Y, Q = \expected_data).
+Adding SRST signal on $procdff$695 ($dff) from module wasmetal_memory_bist (D = $procmux$619_Y, Q = \error_address, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$1076 ($sdff) from module wasmetal_memory_bist (D = $procmux$619_Y, Q = \error_address).
+Adding SRST signal on $procdff$694 ($dff) from module wasmetal_memory_bist (D = $procmux$642_Y, Q = \error_code, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$1092 ($sdff) from module wasmetal_memory_bist (D = $procmux$642_Y, Q = \error_code).
+Adding SRST signal on $procdff$693 ($dff) from module wasmetal_memory_bist (D = $procmux$665_Y, Q = \failed, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1108 ($sdff) from module wasmetal_memory_bist (D = $procmux$665_Y, Q = \failed).
+Adding SRST signal on $procdff$692 ($dff) from module wasmetal_memory_bist (D = $procmux$677_Y, Q = \done, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1118 ($sdff) from module wasmetal_memory_bist (D = $procmux$677_Y, Q = \done).
+
+3.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 12 unused cells and 64 unused wires.
+<suppressed ~13 debug messages>
+
+3.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~12 debug messages>
+
+3.13.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+3.13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.13.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~159 debug messages>
+Removed a total of 53 cells.
+
+3.13.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 53 unused wires.
+<suppressed ~1 debug messages>
+
+3.13.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.13.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.13.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+3.13.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.13.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.13.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.13.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.13.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.13.23. Finished OPT passes. (There is nothing left to do.)
+
+3.14. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 7) from port B of cell wasmetal_memory_bist.$auto$opt_dff.cc:195:make_patterns_logic$965 ($ne).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$358_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$359_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$360_CMP0 ($eq).
+Removed top 3 bits (of 7) from port B of cell wasmetal_memory_bist.$auto$fsm_map.cc:77:implement_pattern_cache$744 ($eq).
+Removed top 1 bits (of 7) from port B of cell wasmetal_memory_bist.$auto$opt_dff.cc:195:make_patterns_logic$995 ($ne).
+Removed top 2 bits (of 6) from port B of cell wasmetal_memory_bist.$auto$fsm_map.cc:77:implement_pattern_cache$899 ($eq).
+Removed top 2 bits (of 6) from port B of cell wasmetal_memory_bist.$auto$fsm_map.cc:77:implement_pattern_cache$895 ($eq).
+
+3.15. Executing PEEPOPT pass (run peephole optimizers).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.17. Executing SHARE pass (SAT-based resource sharing).
+
+3.18. Executing TECHMAP pass (map to technology primitives).
+
+3.18.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+3.18.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~6 debug messages>
+
+3.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.20. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.21. Executing TECHMAP pass (map to technology primitives).
+
+3.21.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+3.21.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/dsp_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/dsp_map.v' to AST representation.
+Generating RTLIL representation for module `\$__MUL18X18'.
+Successfully finished Verilog frontend.
+
+3.21.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+3.22. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module wasmetal_memory_bist:
+  creating $macc model for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:100$99 ($add).
+  creating $macc model for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:110$103 ($add).
+  creating $macc model for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:78$81 ($add).
+  creating $macc model for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$96 ($add).
+  creating $macc model for $sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$95 ($sub).
+  creating $alu model for $macc $sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$95.
+  creating $alu model for $macc $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$96.
+  creating $alu model for $macc $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:78$81.
+  creating $alu model for $macc $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:110$103.
+  creating $alu model for $macc $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:100$99.
+  creating $alu cell for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:100$99: $auto$alumacc.cc:485:replace_alu$1129
+  creating $alu cell for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:110$103: $auto$alumacc.cc:485:replace_alu$1132
+  creating $alu cell for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:78$81: $auto$alumacc.cc:485:replace_alu$1135
+  creating $alu cell for $add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$96: $auto$alumacc.cc:485:replace_alu$1138
+  creating $alu cell for $sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$95: $auto$alumacc.cc:485:replace_alu$1141
+  created 5 $alu and 0 $macc cells.
+
+3.23. Executing OPT pass (performing simple optimizations).
+
+3.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.23.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+3.23.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.23.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.23.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.23.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.23.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.23.9. Finished OPT passes. (There is nothing left to do.)
+
+3.24. Executing MEMORY pass.
+
+3.24.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.24.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.24.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.24.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+3.24.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.24.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.24.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.24.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.24.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.24.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.25. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.26. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+
+3.27. Executing TECHMAP pass (map to technology primitives).
+
+3.27.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/lutrams_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/lutrams_map.v' to AST representation.
+Generating RTLIL representation for module `\$__TRELLIS_DPR16X4_'.
+Successfully finished Verilog frontend.
+
+3.27.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/brams_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/brams_map.v' to AST representation.
+Generating RTLIL representation for module `\$__ECP5_DP16KD_'.
+Generating RTLIL representation for module `\$__ECP5_PDPW16KD_'.
+Successfully finished Verilog frontend.
+
+3.27.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+3.28. Executing OPT pass (performing simple optimizations).
+
+3.28.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~62 debug messages>
+
+3.28.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.28.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.28.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 50 unused wires.
+<suppressed ~1 debug messages>
+
+3.28.5. Finished fast OPT passes.
+
+3.29. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.30. Executing OPT pass (performing simple optimizations).
+
+3.30.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.30.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.30.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+3.30.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+    Consolidated identical input bits for $pmux cell $procmux$354:
+      Old ports: A=128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=896'10101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011111111000000001111111100000000111111110000000011111111000000001111111100000000111111110000000011111111000000001111111100000000111111111111111100000000000000001111111111111111000000000000000011111111111111110000000000000000111111111111111100000000000000001111111111111111111111111111111100000000000000000000000000000000111111111111111111111111111111110000000000000000000000000000000011111111111111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000, Y=\background
+      New ports: A=127'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=889'1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110001111111100000000111111110000000011111111000000001111111100000000111111110000000011111111000000001111111100000000111111110000000111111111111111100000000000000001111111111111111000000000000000011111111111111110000000000000000111111111111111100000000000000011111111111111111111111111111111000000000000000000000000000000001111111111111111111111111111111100000000000000000000000000000001111111111111111111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000, Y=\background [127:1]
+      New connections: \background [0] = 1'0
+    Consolidated identical input bits for $pmux cell $procmux$502:
+      Old ports: A=3'000, B=6'100000, Y=$procmux$502_Y
+      New ports: A=1'0, B=2'10, Y=$procmux$502_Y [2]
+      New connections: $procmux$502_Y [1:0] = 2'00
+    New ctrl vector for $pmux cell $procmux$502: $auto$opt_reduce.cc:134:opt_pmux$713
+    Consolidated identical input bits for $mux cell $procmux$619:
+      Old ports: A=0, B={ 25'0000000000000000000000000 \word_index 4'0000 }, Y=$procmux$619_Y
+      New ports: A=3'000, B=\word_index, Y=$procmux$619_Y [6:4]
+      New connections: { $procmux$619_Y [31:7] $procmux$619_Y [3:0] } = 29'00000000000000000000000000000
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 4 changes.
+
+3.30.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.30.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.30.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.30.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~6 debug messages>
+
+3.30.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.30.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+3.30.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.30.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.30.13. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$1077 ($sdffe) from module wasmetal_memory_bist.
+
+3.30.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.30.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.30.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.30.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+3.30.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.30.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.30.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.30.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.30.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.30.23. Finished OPT passes. (There is nothing left to do.)
+
+3.31. Executing TECHMAP pass (map to technology primitives).
+
+3.31.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+3.31.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/arith_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_ecp5_alu'.
+Successfully finished Verilog frontend.
+
+3.31.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $nex.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$b8c0a997bce700f23568a5ada79cc6781d1f5ca0\_90_alu for cells of type $alu.
+Using template $paramod$672a140277c71df8314410f22acc08d55222c3c7\_80_ecp5_alu for cells of type $alu.
+Using template $paramod$53700bbee849b2010ad0b60a61ccd204a10e24ca\_80_ecp5_alu for cells of type $alu.
+Using template $paramod$d56913101d6315a0d2abe75c260a8c311b0bbbc8\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~705 debug messages>
+
+3.32. Executing OPT pass (performing simple optimizations).
+
+3.32.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~1591 debug messages>
+
+3.32.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~963 debug messages>
+Removed a total of 321 cells.
+
+3.32.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 19 unused cells and 1004 unused wires.
+<suppressed ~20 debug messages>
+
+3.32.5. Finished fast OPT passes.
+
+3.33. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.34. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+3.35. Executing TECHMAP pass (map to technology primitives).
+
+3.35.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFE_NP0N_'.
+Generating RTLIL representation for module `\$_DFFE_NP1N_'.
+Generating RTLIL representation for module `\$_DFFE_PP0N_'.
+Generating RTLIL representation for module `\$_DFFE_PP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `\$_ALDFF_NP_'.
+Generating RTLIL representation for module `\$_ALDFF_PP_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Successfully finished Verilog frontend.
+
+3.35.2. Continuing TECHMAP pass.
+Using template \$_SDFFE_PP0P_ for cells of type $_SDFFE_PP0P_.
+Using template $paramod\$_DFF_P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_DFF_P_.
+No more expansions possible.
+<suppressed ~377 debug messages>
+
+3.36. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~1 debug messages>
+
+3.37. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+3.38. Executing LATTICE_GSR pass (implement FF init values).
+Handling GSR in wasmetal_memory_bist.
+
+3.39. Executing ATTRMVCP pass (move or copy attributes).
+
+3.40. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 1750 unused wires.
+<suppressed ~1 debug messages>
+
+3.41. Executing TECHMAP pass (map to technology primitives).
+
+3.41.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/latches_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/latches_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+3.41.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+3.42. Executing ABC pass (technology mapping using ABC).
+
+3.42.1. Extracting gate netlist of module `\wasmetal_memory_bist' to `<abc-temp-dir>/input.blif'..
+Extracted 1730 gates and 1902 wires to a netlist network with 170 inputs and 433 outputs.
+
+3.42.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lut <abc-temp-dir>/lutdefs.txt 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + if 
+ABC: + mfs2 
+ABC: + dress <abc-temp-dir>/input.blif 
+ABC: Total number of equiv classes                =     603.
+ABC: Participating nodes from both networks       =    1240.
+ABC: Participating nodes from the first network   =     602. (  86.74 % of nodes)
+ABC: Participating nodes from the second network  =     638. (  91.93 % of nodes)
+ABC: Node pairs (any polarity)                    =     602. (  86.74 % of names can be moved)
+ABC: Node pairs (same polarity)                   =     472. (  68.01 % of names can be moved)
+ABC: Total runtime =     0.13 sec
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+3.42.1.2. Re-integrating ABC results.
+ABC RESULTS:              $lut cells:      693
+ABC RESULTS:        internal signals:     1299
+ABC RESULTS:           input signals:      170
+ABC RESULTS:          output signals:      433
+Removing temp directory.
+Removed 0 unused cells and 562 unused wires.
+
+3.43. Executing TECHMAP pass (map to technology primitives).
+
+3.43.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/ecp5/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$_SDFF_NP0_'.
+Generating RTLIL representation for module `\$_SDFF_NP1_'.
+Generating RTLIL representation for module `\$_SDFF_PP0_'.
+Generating RTLIL representation for module `\$_SDFF_PP1_'.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFE_NP0N_'.
+Generating RTLIL representation for module `\$_DFFE_NP1N_'.
+Generating RTLIL representation for module `\$_DFFE_PP0N_'.
+Generating RTLIL representation for module `\$_DFFE_PP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0N_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1N_'.
+Generating RTLIL representation for module `\$_ALDFF_NP_'.
+Generating RTLIL representation for module `\$_ALDFF_PP_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_NPP_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPN_'.
+Generating RTLIL representation for module `\$_ALDFFE_PPP_'.
+Generating RTLIL representation for module `\FD1P3AX'.
+Generating RTLIL representation for module `\FD1P3AY'.
+Generating RTLIL representation for module `\FD1P3BX'.
+Generating RTLIL representation for module `\FD1P3DX'.
+Generating RTLIL representation for module `\FD1P3IX'.
+Generating RTLIL representation for module `\FD1P3JX'.
+Generating RTLIL representation for module `\FD1S3AX'.
+Generating RTLIL representation for module `\FD1S3AY'.
+Generating RTLIL representation for module `\FD1S3BX'.
+Generating RTLIL representation for module `\FD1S3DX'.
+Generating RTLIL representation for module `\FD1S3IX'.
+Generating RTLIL representation for module `\FD1S3JX'.
+Generating RTLIL representation for module `\IFS1P3BX'.
+Generating RTLIL representation for module `\IFS1P3DX'.
+Generating RTLIL representation for module `\IFS1P3IX'.
+Generating RTLIL representation for module `\IFS1P3JX'.
+Generating RTLIL representation for module `\OFS1P3BX'.
+Generating RTLIL representation for module `\OFS1P3DX'.
+Generating RTLIL representation for module `\OFS1P3IX'.
+Generating RTLIL representation for module `\OFS1P3JX'.
+Generating RTLIL representation for module `\IB'.
+Generating RTLIL representation for module `\IBPU'.
+Generating RTLIL representation for module `\IBPD'.
+Generating RTLIL representation for module `\OB'.
+Generating RTLIL representation for module `\OBZ'.
+Generating RTLIL representation for module `\OBZPU'.
+Generating RTLIL representation for module `\OBZPD'.
+Generating RTLIL representation for module `\OBCO'.
+Generating RTLIL representation for module `\BB'.
+Generating RTLIL representation for module `\BBPU'.
+Generating RTLIL representation for module `\BBPD'.
+Generating RTLIL representation for module `\ILVDS'.
+Generating RTLIL representation for module `\OLVDS'.
+Generating RTLIL representation for module `\$lut'.
+Successfully finished Verilog frontend.
+
+3.43.2. Continuing TECHMAP pass.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10110100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1110 for cells of type $lut.
+Using template $paramod$cfac6e56b6663404cdb65befc436ed5a71bdfbf0\$lut for cells of type $lut.
+Using template $paramod$65dfa789121658db3b273fbb303750633dd37e2e\$lut for cells of type $lut.
+Using template $paramod$044e8b1893c94f717651c5cd428e71c892566f52\$lut for cells of type $lut.
+Using template $paramod$1f3b67373a23476b64a6ed61bde9dbe9df1086de\$lut for cells of type $lut.
+Using template $paramod$77cd94da95c645b734226f0ba7e7b4da0263d9a3\$lut for cells of type $lut.
+Using template $paramod$048d4aa2263b685fba6c6b0d38f6224df0dc3042\$lut for cells of type $lut.
+Using template $paramod$c5ee66eb2a490feb211407baec4a64d121f5aead\$lut for cells of type $lut.
+Using template $paramod$e287b640f29e945a2fcebfcd4431773f8bb3f068\$lut for cells of type $lut.
+Using template $paramod$fbef11ace9bdbdedce6b366d076918a7489d2f67\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11000010 for cells of type $lut.
+Using template $paramod$41ee33f5ab5da8dab5e2ceaf74a4bbb746c056ac\$lut for cells of type $lut.
+Using template $paramod$aa569d89e9c8462354297a37f09bc519483c7133\$lut for cells of type $lut.
+Using template $paramod$d9b36ce2fdd8ce897e45d62a5761501fd1d217bc\$lut for cells of type $lut.
+Using template $paramod$2da0b3c21013db08b3822a73d504b181ac992896\$lut for cells of type $lut.
+Using template $paramod$5858bd6d78d6f4fef506811d9419710ec77e5fb5\$lut for cells of type $lut.
+Using template $paramod$821131537f5bd0b4836f5026076702f8fb1bcdf3\$lut for cells of type $lut.
+Using template $paramod$56b03bb16189d0df5732f97659a58f26b0c9c41a\$lut for cells of type $lut.
+Using template $paramod$868427562418b5dc988caeac6a54689ec9c9025e\$lut for cells of type $lut.
+Using template $paramod$6c15da6150ce36eeff7fb8c09f7ef22f5448d679\$lut for cells of type $lut.
+Using template $paramod$fb861cdb7aaf4c16c2f9a4c2080cb105e5c21f60\$lut for cells of type $lut.
+Using template $paramod$f44bfab318d1bc1d5d87088ff07a0106c367bfb3\$lut for cells of type $lut.
+Using template $paramod$d9f27eda2527dfc96b6faafb7daca211d693a25f\$lut for cells of type $lut.
+Using template $paramod$688901ae8bff259b6d6e1f40e9eee2d362da7922\$lut for cells of type $lut.
+Using template $paramod$59275444f04c94f25e2d3c5bfa51c7ff38268141\$lut for cells of type $lut.
+Using template $paramod$9ce3cb48532e1935dedb6055756fefa71d90eef1\$lut for cells of type $lut.
+Using template $paramod$af2b970363478c934f632261f05f42c59b0d7a99\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101100 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100001 for cells of type $lut.
+Using template $paramod$052ca015f1400ebf950f85d5f181f7a5865c336c\$lut for cells of type $lut.
+Using template $paramod$6e238df02989b317f10820a22773676e71120644\$lut for cells of type $lut.
+Using template $paramod$4f8cd95b67cddbb07aba8e0359c7d4bcfb254b11\$lut for cells of type $lut.
+Using template $paramod$2f59fc66ddd88cf1b05251f875f7652ea05aaaaa\$lut for cells of type $lut.
+Using template $paramod$8884bb6cf52753ff2156fb9667d7ffcab802364d\$lut for cells of type $lut.
+Using template $paramod$724a89c191dd1800c98fd017a3609c112aebe9c1\$lut for cells of type $lut.
+Using template $paramod$2c2fd732a342ca036374079c0663d22660be30bf\$lut for cells of type $lut.
+Using template $paramod$55f26a79ba0cc87e759e42e70f3d4a12518f210d\$lut for cells of type $lut.
+Using template $paramod$563364bb3904d74e7cf4736512e980338bbea5a1\$lut for cells of type $lut.
+Using template $paramod$6a9a842469a251d151186bf56c1dc185aef51555\$lut for cells of type $lut.
+Using template $paramod$c5ae4019a71aab041cad51d365f1b2b40e11154b\$lut for cells of type $lut.
+Using template $paramod$2d9afe762a0180a7d39d2459cba797ecb000cc18\$lut for cells of type $lut.
+Using template $paramod$4b19d24f7678b971edb7efa10da257ddb251b89f\$lut for cells of type $lut.
+Using template $paramod$391af202df51b9e6b5bbc99812abd3fe40ebb3d5\$lut for cells of type $lut.
+Using template $paramod$bdbc282c7f08910b6efc937e09612dae4f1a2767\$lut for cells of type $lut.
+Using template $paramod$a9ea7426a75fc092ceb2cb8d573c9492ee1b6862\$lut for cells of type $lut.
+Using template $paramod$8bf3b45d2793ccb40593b7832637077304fe974a\$lut for cells of type $lut.
+Using template $paramod$8adf7fbd410d2cc654c288d5be5f7508ee8809b0\$lut for cells of type $lut.
+Using template $paramod$f1aa33bf1a5f27810d7d35efad4f14e8c68a9bd0\$lut for cells of type $lut.
+Using template $paramod$b001e00d330c41c6ce134ccf47065f99ff6ae6b9\$lut for cells of type $lut.
+Using template $paramod$3808e3754d39962ba3e8a96cf9632ef1db51dce9\$lut for cells of type $lut.
+Using template $paramod$1aaa55311e2944830d3e04c76ea6794a9c4d7457\$lut for cells of type $lut.
+Using template $paramod$a317f08c2356f18a4a920fa23112b4c0bdeac1f2\$lut for cells of type $lut.
+Using template $paramod$c7902db3e7c1b75803330a7ec1aed7cf6c167544\$lut for cells of type $lut.
+Using template $paramod$33e58adf67c6b686a154c9ce8ebbc4b04b8cabc5\$lut for cells of type $lut.
+Using template $paramod$f7285fa7771d82ec186722184768dcfa8774b075\$lut for cells of type $lut.
+Using template $paramod$5563ec67da2e9613ec0c8c130cdbaf0577a6495c\$lut for cells of type $lut.
+Using template $paramod$fdf06b04685bd7bf3cde4580b735c93bc0ad64a7\$lut for cells of type $lut.
+Using template $paramod$d79413b6d918d4dc23e61ec9091e994ecd73fbc3\$lut for cells of type $lut.
+Using template $paramod$461826ce3d114782004f28f6ee95b2b2653b1f01\$lut for cells of type $lut.
+Using template $paramod$39c028c073e2d5753407be98f169bc499bf1568c\$lut for cells of type $lut.
+Using template $paramod$a7dad16c080c08c1647c7e1b9706a59a123d8bcd\$lut for cells of type $lut.
+Using template $paramod$49e7f1e3d11e2fc1c33f1c993f2bc181639d9308\$lut for cells of type $lut.
+Using template $paramod$2d41e84d8a20fdfcf9ef269ad61c0ae8747d3e8f\$lut for cells of type $lut.
+Using template $paramod$80b24501d43111622f6550e52d2da98493c8825b\$lut for cells of type $lut.
+Using template $paramod$65828130c38df51f6cefba95565833c60890cded\$lut for cells of type $lut.
+Using template $paramod$6a00e97cca36160fbd393538fc27826c1e88a498\$lut for cells of type $lut.
+Using template $paramod$dcd4bc651ffff2142bc763177338b4abebcbdc45\$lut for cells of type $lut.
+Using template $paramod$52a6cb786c94fdb574accd55ef9f882beeeae6b7\$lut for cells of type $lut.
+Using template $paramod$bce083ca7e2b36ba5e065a67374178bc3f914199\$lut for cells of type $lut.
+Using template $paramod$17992c83520687b6e65c9d603bc72bd975adbed2\$lut for cells of type $lut.
+Using template $paramod$42760e71a3e86da69788f07266103be2250e0568\$lut for cells of type $lut.
+Using template $paramod$303bf420644adfe5a31579bc38d10053119747f2\$lut for cells of type $lut.
+Using template $paramod$5f643150ec979b4aba71ea0ec52e86ceacf7856b\$lut for cells of type $lut.
+Using template $paramod$525425bfbe66d72ee88210d059d9a74f55ab8de8\$lut for cells of type $lut.
+Using template $paramod$50b99034fbf984a51c265442496081454147f31e\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10010000 for cells of type $lut.
+Using template $paramod$64d3a794140eb3c011057cb878a4b23f2b5bbc92\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000001 for cells of type $lut.
+Using template $paramod$4414b9a95464436c9d0e72eed924dc18fdf0bd2b\$lut for cells of type $lut.
+Using template $paramod$292db7d9037ea9b1cf9bb1c04b328bcb41b3b1d8\$lut for cells of type $lut.
+Using template $paramod$92561a947dc6410ceac3ce0db1eed3496f6a2e15\$lut for cells of type $lut.
+Using template $paramod$8318753f4301fe4cd9048d2ae493af90a6496961\$lut for cells of type $lut.
+Using template $paramod$2b09b10105cbb39661b7c7d0f1a689858536bde4\$lut for cells of type $lut.
+Using template $paramod$b8f4bf78f63e9b5a66399f1297d1af026c8217a8\$lut for cells of type $lut.
+Using template $paramod$38a207c707820f72f67386d2619ee46ee88964f9\$lut for cells of type $lut.
+Using template $paramod$a00bfdb2e32e906bd02cb90575300680c9b88850\$lut for cells of type $lut.
+Using template $paramod$3ac9bc2f89784a13aa5a8df4cbd9c60f0e527238\$lut for cells of type $lut.
+Using template $paramod$f8bce529e7382dbf8d8cb318e3ad33b29b0efa79\$lut for cells of type $lut.
+Using template $paramod$a4d2643e0dff36f14dd62523c696b3822b707084\$lut for cells of type $lut.
+Using template $paramod$ec8aaa2d846ff4859baf4f9d061bf90ad75d6692\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11010000 for cells of type $lut.
+Using template $paramod$312d4ecd4fc21644cbf6c05b47d35ce1921eca88\$lut for cells of type $lut.
+Using template $paramod$36eabd2ee2855c180b313976135e89f0d327aae2\$lut for cells of type $lut.
+Using template $paramod$83bbac075f592f65820484d8d7c1874fa68829fa\$lut for cells of type $lut.
+Using template $paramod$e6e52aa09af997eea7bab92b13a71ab3eae0c11f\$lut for cells of type $lut.
+Using template $paramod$864c51e100b1034f018a810a1b02c9d3c549c6b1\$lut for cells of type $lut.
+Using template $paramod$c22277fa843350c1ddb27196c1a3df5556ad70dd\$lut for cells of type $lut.
+Using template $paramod$6b575785b481cc0578f390ae4ccae5df033e0749\$lut for cells of type $lut.
+Using template $paramod$a8075556da031d46fdb5da7550cce089657604d9\$lut for cells of type $lut.
+Using template $paramod$10246b137bf506f39cba9bf333e6cd03b5e2052e\$lut for cells of type $lut.
+Using template $paramod$85572c15d0e9d66498693ed97cf958eb7654462d\$lut for cells of type $lut.
+Using template $paramod$6a0faddbb1877e236e8eb8130711942937277f4e\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10110000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11000001 for cells of type $lut.
+Using template $paramod$1313dfc14b0956a57876450c1f4e482f317cb2a9\$lut for cells of type $lut.
+Using template $paramod$4f75cb235aad48bc57aed6854ab55d88adfc9b6f\$lut for cells of type $lut.
+Using template $paramod$94f2d733b43f39f337f25610d448ce1c402d6a3c\$lut for cells of type $lut.
+Using template $paramod$251994398653c4cf8de320f1e306e535d5d2d624\$lut for cells of type $lut.
+Using template $paramod$389990dc22449cb34c40cec3529409ff8068a848\$lut for cells of type $lut.
+Using template $paramod$ed8c03ad511f650cbc130404bfb483f77070eec3\$lut for cells of type $lut.
+Using template $paramod$5f8126a9a3188f57b4557d0923b140f37f449471\$lut for cells of type $lut.
+Using template $paramod$01f8a92dc8132123103f733ea9b21303ad860198\$lut for cells of type $lut.
+Using template $paramod$8c2c1e59c8876a3c2b20cc33cb8585da498e9286\$lut for cells of type $lut.
+Using template $paramod$fe3c0ed47159fee0bb68c7bbaf8011b2eccd0f58\$lut for cells of type $lut.
+Using template $paramod$5d1bd51312468e001ec99b9e713f903b3ee7a2bb\$lut for cells of type $lut.
+Using template $paramod$f1fd182c987887ad8b5db1e1918693d03ce87ae6\$lut for cells of type $lut.
+Using template $paramod$0192e73ab7d31cd64fe7065aa19be884a5f8c163\$lut for cells of type $lut.
+Using template $paramod$60b04dcb4da4e330f72f396748cc0816abf9e620\$lut for cells of type $lut.
+Using template $paramod$7f8c1e083929502ef137736f54435c7ebf8aab7d\$lut for cells of type $lut.
+Using template $paramod$0b0a449d810fee32c0c48838e8c060c1ffed2dea\$lut for cells of type $lut.
+Using template $paramod$f40159924568ffe731f13e39c8ee66a4e8f6ca97\$lut for cells of type $lut.
+Using template $paramod$ae480213635cbd149c458b162b9a16424bded9da\$lut for cells of type $lut.
+Using template $paramod$732ee389fc8881cba4a74132e9e38fdea55d2e94\$lut for cells of type $lut.
+Using template $paramod$14458b45ccd8487084f058e20e43784e22fd94ef\$lut for cells of type $lut.
+Using template $paramod$014d09584897842214b77c21c7a28fac9901587a\$lut for cells of type $lut.
+Using template $paramod$944153f43289661240047bdb3b7eed39bad95e1a\$lut for cells of type $lut.
+Using template $paramod$858c6a57cbc9dcec55cced8320aded793fb1a2b9\$lut for cells of type $lut.
+Using template $paramod$909f364925a382be27e2baa14a4b803d181c5a7c\$lut for cells of type $lut.
+Using template $paramod$3b991c61170a027bd04af3d3101b14894997026c\$lut for cells of type $lut.
+Using template $paramod$20b935028c4e1e6b1cc0442da39f796f55649f46\$lut for cells of type $lut.
+Using template $paramod$2bba5c010abfb84854f5415b4f3327a441026b8e\$lut for cells of type $lut.
+Using template $paramod$22b696daebed00a2f1622680def0f97f5e96cd52\$lut for cells of type $lut.
+Using template $paramod$063c772ad92fa8696c996f46f9c75c9cc4b1c095\$lut for cells of type $lut.
+Using template $paramod$1bf2057bd0198df093f02a0db6737166edb9eb39\$lut for cells of type $lut.
+Using template $paramod$578318468cc5b90a9428d6c6ac58311971172598\$lut for cells of type $lut.
+Using template $paramod$4857356d5ab2d119c25855d9b3f1051403a2ac54\$lut for cells of type $lut.
+Using template $paramod$dd82f54fa12a35f85f9c70cec3cfef9a4fe1a608\$lut for cells of type $lut.
+Using template $paramod$bd8aeadf482cea5f26ecd527ff2820095bb31f43\$lut for cells of type $lut.
+Using template $paramod$0b546e89fa7f6fff966c19fa6c3e6dd77e2b9f7b\$lut for cells of type $lut.
+Using template $paramod$86ec62f3d1effc42b2876d125f0520f19c21ad6b\$lut for cells of type $lut.
+Using template $paramod$b2c360ca5602d3f288ddc548e1865affae90fe1c\$lut for cells of type $lut.
+Using template $paramod$d7ec878ecfa8f5f7604d3e91692b5d4c2ee758ad\$lut for cells of type $lut.
+Using template $paramod$1fbd99af8ec947385ed698fd166080f5032ffdd5\$lut for cells of type $lut.
+Using template $paramod$97e449d15b607612c49291044eca4e2c8b59088e\$lut for cells of type $lut.
+Using template $paramod$9e30614857a141918be47b6a1e0a1084ae8a3bd4\$lut for cells of type $lut.
+Using template $paramod$2041d328672c6cf8fafe6b7eb8dcd83a0fcd46d7\$lut for cells of type $lut.
+Using template $paramod$725694aeaa566ec0f3a7880cb0c725e28d9e4ac5\$lut for cells of type $lut.
+Using template $paramod$4d6b79bb4690e0d3cb77cb85e639a0944787b571\$lut for cells of type $lut.
+Using template $paramod$28351fd43cc3d50bc031f81df5394f683ea977c2\$lut for cells of type $lut.
+Using template $paramod$20ed4c2855a2e4d8d27830173da857615de978b8\$lut for cells of type $lut.
+Using template $paramod$2bc4db8bd4fb8d056f72dd182e27de9a154d9eee\$lut for cells of type $lut.
+Using template $paramod$ce607f39e77bd397640800cbd09e905c85da7c12\$lut for cells of type $lut.
+Using template $paramod$822d92db32cd3dc6029fb77c255c399f0e00204b\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000000 for cells of type $lut.
+Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000111 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11111000 for cells of type $lut.
+Using template $paramod$bba54c1ef87367812b4c15f4aed5ac70773df775\$lut for cells of type $lut.
+Using template $paramod$179512a187da069f3b79ef6612a41e494e7d54b6\$lut for cells of type $lut.
+Using template $paramod$12618d2e4f24227d6f46ca347b63e1113d3c5831\$lut for cells of type $lut.
+Using template $paramod$6b0849254d6c87461fb93e37cc18f089f61eb912\$lut for cells of type $lut.
+Using template $paramod$bf60f6ec407ee294958b6566514fc3125ec42258\$lut for cells of type $lut.
+Using template $paramod$e9c77024ca501b890c641f9c0b10e27242db8730\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod$81b4375293edfc06b87ffe97036dc1e6f1c408a8\$lut for cells of type $lut.
+Using template $paramod$be7d169d7393fbdff15c35aef12161a7ee05c6f7\$lut for cells of type $lut.
+Using template $paramod$b0a1a60564bf9a70cd83ff82c322d8476b608c8d\$lut for cells of type $lut.
+Using template $paramod$0526758529e9d8b20c704fe5ef5a5bd5d36b90f5\$lut for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9\$lut for cells of type $lut.
+Using template $paramod$2d31c827514fc8da0b625738588f92b04063f075\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$1d0c8e2c6078248324b5153508ae1a10bc410331\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1001 for cells of type $lut.
+Using template $paramod$ef6f9494c41321ef63579b1462fd44bdf781fd1c\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10010110 for cells of type $lut.
+Using template $paramod$9214992244e3995c33ea8c15152bdbb8efb78cf0\$lut for cells of type $lut.
+Using template $paramod$1a64f21ea15b05b7fc930804a66f6689ebbd6394\$lut for cells of type $lut.
+Using template $paramod$c4e2930f78e413be797d30e0655a9e8a09e64f77\$lut for cells of type $lut.
+Using template $paramod$4282def8dbd6df3d1248ad282c629bee684502c2\$lut for cells of type $lut.
+Using template $paramod$a587c1fcf59d0d189a71852ec78cfa754743eaf1\$lut for cells of type $lut.
+Using template $paramod$7e81a8ad8f27fccecc6e805c0ccf27dd70f2d2c2\$lut for cells of type $lut.
+Using template $paramod$e0f67496e110095cc9dd9ed65a21f861b69e8c86\$lut for cells of type $lut.
+Using template $paramod$6f8c8cdc4b3e951baba96b2acd13eabbb5e850fe\$lut for cells of type $lut.
+Using template $paramod$bff35d97b07dddb273c72678bf847e2b78003681\$lut for cells of type $lut.
+Using template $paramod$475fc4ee379457a10a495cd48774c3adf995fdc7\$lut for cells of type $lut.
+Using template $paramod$584f12ba49729bb69c72e933db0697f5d3708b6a\$lut for cells of type $lut.
+Using template $paramod$e5759512db67494ff77fbdfc66dff4006376568f\$lut for cells of type $lut.
+Using template $paramod$40e24d73b89a65cae2c4f34064aad37cb750346f\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010000 for cells of type $lut.
+Using template $paramod$f937daccc17291d2aa6011fab6a99ceaa05cec61\$lut for cells of type $lut.
+Using template $paramod$7614968db5bb082ee538195c00594779836d04ec\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01100000 for cells of type $lut.
+Using template $paramod$2c91cbb250dbe2eadf2552b6e01b2549b9131c49\$lut for cells of type $lut.
+Using template $paramod$78e1751931755f088c8bc676bcbc3bb642c26bfc\$lut for cells of type $lut.
+Using template $paramod$bdd4c34ce1a4941b08079cfcb51a184f6033f9fb\$lut for cells of type $lut.
+Using template $paramod$82b4a585d1edcb5c6e755dc9bd3392228a1c1304\$lut for cells of type $lut.
+Using template $paramod$a0a1d948d564ffe6c7ad50bd7b51026094a0d43c\$lut for cells of type $lut.
+Using template $paramod$b4c86683de329b1d5e65e43bb5a60d929bddd3da\$lut for cells of type $lut.
+Using template $paramod$52ea79e82f4f149ce225b8ba6e2cb42b2ab2d0c0\$lut for cells of type $lut.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01110000 for cells of type $lut.
+Using template $paramod$7572ee893a1fd1b997c16940399b4f2c951aadc0\$lut for cells of type $lut.
+Using template $paramod$a3d9d50a26c80b5c42d9b864ac52f329113a426e\$lut for cells of type $lut.
+Using template $paramod$4b2297966ddb718657b80566604f97685ffc0120\$lut for cells of type $lut.
+Using template $paramod$a670b08a47dd8a34f954c50cd06e9996d77e8467\$lut for cells of type $lut.
+Using template $paramod$0f52647588235a7349ddd3f3432c9ac1e33ad9e1\$lut for cells of type $lut.
+Using template $paramod$c0a2079b28897c1f4822572a25698355c6f33df2\$lut for cells of type $lut.
+Using template $paramod$ab8bb87959c5d7cfa27886cee1355b38e054a61a\$lut for cells of type $lut.
+No more expansions possible.
+<suppressed ~3495 debug messages>
+
+3.44. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in wasmetal_memory_bist.
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6806.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6806.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6792.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 1)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6800.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6799.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6799.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6799.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6799.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6799.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6635.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6635.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6635.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6635.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6635.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6635.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6636.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6636.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6636.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6636.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6636.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6636.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6637.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6637.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6637.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6637.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6637.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6637.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6641.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6641.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6641.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6641.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6641.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6641.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6639.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6639.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6639.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6643.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6643.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6643.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6643.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6643.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6638.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6638.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6648.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6649.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6649.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6657.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6657.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6657.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6658.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6669.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6669.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6670.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6670.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6650.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6654.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6654.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6672.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6679.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6681.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6680.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6680.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6685.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6675.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6676.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6676.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6676.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6676.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6689.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6692.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6695.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6695.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6696.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6694.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6698.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6698.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6698.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6708.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6708.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6709.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6709.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6706.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6713.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6714.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6714.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6711.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6715.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6715.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6715.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6715.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6715.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6726.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6726.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6730.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6730.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6730.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6730.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6730.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6730.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6732.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6735.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6735.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6735.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6722.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6725.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6725.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6724.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6724.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6720.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6736.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6736.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6736.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6736.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6736.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6737.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6737.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6737.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6737.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6737.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6737.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6743.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6743.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6743.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6743.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6743.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6743.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6739.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6742.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6740.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6740.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6741.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6741.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6744.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6749.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6749.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6748.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6748.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6747.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6747.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6754.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6754.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6754.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6756.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6756.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6756.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6753.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6753.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6753.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6753.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6753.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6753.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6751.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6751.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut7 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6752.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6773.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6773.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6778.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6778.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6775.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6775.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6776.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6776.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut4 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6779.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6779.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6766.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6766.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6766.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6757.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6757.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6762.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6762.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut5 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6761.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut2 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6759.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut3 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6759.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut6 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6772.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6771.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6792.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6633.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6635.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6636.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6637.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6638.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6643.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6645.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6650.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6672.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6654.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6655.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6656.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6657.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6658.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6664.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6667.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6672.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6673.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6674.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6678.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6681.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6685.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6689.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6690.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6694.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6694.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6696.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6697.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6698.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6705.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6708.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6715.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6714.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6715.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6736.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6720.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6720.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6722.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6723.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6726.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6729.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6728.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6729.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6731.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6734.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6735.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6736.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6737.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6742.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6744.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6750.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6752.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6754.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6756.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6757.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6761.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6763.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6766.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6772.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6773.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6782.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6792.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6797.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6799.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6801.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6805.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6806.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 1)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6807.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6799.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6816.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6817.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6819.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6803.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6961.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7111.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7125.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7180.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7187.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7199.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7202.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7203.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6666.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 2)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7238.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7241.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7252.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7255.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$6646.genblk1.genblk1.genblk1.genblk1.genblk1.lut1 (4 -> 3)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7300.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7310.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+  Optimizing lut $abc$6629$auto$blifparse.cc:525:parse_blif$7315.genblk1.genblk1.genblk1.genblk1.genblk1.lut0 (4 -> 0)
+Removed 0 unused cells and 1509 unused wires.
+
+3.45. Executing AUTONAME pass.
+Renamed 39880 objects in module wasmetal_memory_bist (64 iterations).
+<suppressed ~3419 debug messages>
+
+3.46. Executing HIERARCHY pass (managing design hierarchy).
+
+3.46.1. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+
+3.46.2. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+Removed 0 unused modules.
+
+3.47. Printing statistics.
+
+=== wasmetal_memory_bist ===
+
+   Number of wires:               1463
+   Number of wire bits:           2802
+   Number of public wires:        1463
+   Number of public wire bits:    2802
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1984
+     CCU2C                           8
+     L6MUX21                       170
+     LUT4                         1187
+     PFUMX                         324
+     TRELLIS_FF                    295
+
+3.48. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+3.49. Executing JSON backend.
+
+4. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.

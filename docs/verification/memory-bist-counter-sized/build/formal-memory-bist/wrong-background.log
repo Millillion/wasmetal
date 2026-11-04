@@ -1,0 +1,1279 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv
+Parsing formal SystemVerilog input from `/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_bist'.
+Successfully finished Verilog frontend.
+Parameter \RAM_BYTES = 32
+Parameter \RESPONSE_TIMEOUT = 2
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 32
+Parameter \RESPONSE_TIMEOUT = 2
+Generating RTLIL representation for module `$paramod$3caf37ba67942d82845f4e90f5a8d2eb1c0abb05\wasmetal_memory_bist'.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \wasmetal_memory_bist
+Removed 0 unused modules.
+Module wasmetal_memory_bist directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$787 in module wasmetal_memory_bist.
+Marked 10 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802 in module wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827 in module wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$863 in module wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879 in module wasmetal_memory_bist.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 24 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:142$1471'.
+  Set init value: \formal_started = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1472'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1474'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1476'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1478'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1480'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1482'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1484'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1486'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1488'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1490'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1492'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1494'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1496'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1498'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1500'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1502'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1504'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN = 1'0
+Found init rule in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1506'.
+  Set init value: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN = 1'0
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~23 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$787'.
+     1/1: $1\background[127:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+     1/14: $0\stop_after_release[0:0]
+     2/14: $0\write_half[0:0]
+     3/14: $0\background_index[2:0]
+     4/14: $0\phase[2:0]
+     5/14: $0\waiting[0:0]
+     6/14: $0\word_index[0:0]
+     7/14: $0\state[1:0]
+     8/14: $0\operation_count[7:0]
+     9/14: $0\observed_data[127:0]
+    10/14: $0\expected_data[127:0]
+    11/14: $0\error_address[31:0]
+    12/14: $0\error_code[1:0]
+    13/14: $0\failed[0:0]
+    14/14: $0\done[0:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+     1/16: $0\pending_payload[160:0]
+     2/16: $0\was_waiting[0:0]
+     3/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN[0:0]$829
+     4/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK[0:0]$828
+     5/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_EN[0:0]$831
+     6/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK[0:0]$830
+     7/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_EN[0:0]$833
+     8/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK[0:0]$832
+     9/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_EN[0:0]$835
+    10/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK[0:0]$834
+    11/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_EN[0:0]$837
+    12/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK[0:0]$836
+    13/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN[0:0]$839
+    14/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK[0:0]$838
+    15/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_EN[0:0]$841
+    16/16: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK[0:0]$840
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$863'.
+     1/1: $1\position_in_pass[63:0]
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+     1/24: $0\saved_error[290:0]
+     2/24: $0\keep_error[0:0]
+     3/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN[0:0]$881
+     4/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK[0:0]$880
+     5/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN[0:0]$883
+     6/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK[0:0]$882
+     7/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_EN[0:0]$885
+     8/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK[0:0]$884
+     9/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_EN[0:0]$887
+    10/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK[0:0]$886
+    11/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_EN[0:0]$889
+    12/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK[0:0]$888
+    13/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_EN[0:0]$891
+    14/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK[0:0]$890
+    15/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_EN[0:0]$893
+    16/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK[0:0]$892
+    17/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_EN[0:0]$895
+    18/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK[0:0]$894
+    19/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_EN[0:0]$897
+    20/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK[0:0]$896
+    21/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN[0:0]$899
+    22/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK[0:0]$898
+    23/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN[0:0]$901
+    24/24: $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK[0:0]$900
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1468'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:142$1471'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1472'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1474'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1476'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1478'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1480'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1482'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1484'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1486'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1488'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1490'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1492'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1494'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1496'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1498'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1500'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1502'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1504'.
+Creating decoders for process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1506'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\wasmetal_memory_bist.\background' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$787'.
+No latch inferred for signal `\wasmetal_memory_bist.\position_in_pass' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$863'.
+No latch inferred for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_CHECK' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1468'.
+No latch inferred for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN' from process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1468'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\wasmetal_memory_bist.\done' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2020' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\failed' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2021' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_code' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2022' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\error_address' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2023' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\expected_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2024' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\observed_data' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2025' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\operation_count' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2026' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\state' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2027' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\word_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2028' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\waiting' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2029' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\phase' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2030' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\background_index' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2031' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\write_half' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2032' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\stop_after_release' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+  created $dff cell `$procdff$2033' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\was_waiting' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2034' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\pending_payload' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2035' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2036' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2037' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2038' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2039' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2040' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2041' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2042' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2043' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2044' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2045' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2046' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2047' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2048' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+  created $dff cell `$procdff$2049' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\formal_started' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2050' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\keep_error' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2051' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.\saved_error' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2052' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2053' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2054' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2055' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2056' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2057' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2058' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2059' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2060' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2061' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2062' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2063' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2064' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2065' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2066' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2067' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2068' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2069' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2070' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2071' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2072' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2073' with positive edge clock.
+Creating register for signal `\wasmetal_memory_bist.$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN' using process `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+  created $dff cell `$procdff$2074' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$787'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$787'.
+Found and cleaned up 14 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:66$802'.
+Found and cleaned up 2 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:124$827'.
+Found and cleaned up 1 empty switch in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$863'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$863'.
+Found and cleaned up 5 empty switches in `\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:159$879'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1468'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:142$1471'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1472'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1474'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1476'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1478'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1480'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1482'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1484'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1486'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1488'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1490'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1492'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1494'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1496'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1498'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1500'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1502'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1504'.
+Removing empty process `wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:0$1506'.
+Cleaned up 23 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+<suppressed ~175 debug messages>
+
+3.3. Executing FLATTEN pass (flatten design).
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 5 unused cells and 380 unused wires.
+<suppressed ~6 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~597 debug messages>
+Removed a total of 199 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$1634: \waiting -> 1'1
+      Replacing known input bits on port B of cell $procmux$1813: \failed -> 1'1
+      Replacing known input bits on port B of cell $procmux$1809: \failed -> 1'1
+      Replacing known input bits on port A of cell $procmux$1807: \failed -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~187 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+    New ctrl vector for $pmux cell $procmux$1523: $auto$opt_reduce.cc:134:opt_pmux$2076
+    New ctrl vector for $pmux cell $procmux$1574: $auto$opt_reduce.cc:134:opt_pmux$2078
+    New ctrl vector for $pmux cell $procmux$1656: { $auto$opt_reduce.cc:134:opt_pmux$2082 $auto$opt_reduce.cc:134:opt_pmux$2080 }
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 4 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+<suppressed ~102 debug messages>
+Removed a total of 34 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 234 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_memory_bist..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~176 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_memory_bist.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$mod$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$846 ($mod).
+Removed top 27 bits (of 32) from port B of cell wasmetal_memory_bist.$mod$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$846 ($mod).
+Removed top 2 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$1515_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$1514_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$procmux$1513_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:42$775 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:44$781 ($eq).
+Removed top 1 bits (of 2) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:59$788 ($eq).
+Removed top 2 bits (of 3) from port B of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:64$797 ($eq).
+Removed top 29 bits (of 32) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$842 ($le).
+Removed top 31 bits (of 32) from port A of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$843 ($lt).
+Removed top 30 bits (of 32) from port B of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$843 ($lt).
+Removed top 28 bits (of 33) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$849 ($add).
+Removed top 28 bits (of 33) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$849 ($add).
+Removed top 27 bits (of 33) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$849 ($add).
+Removed top 27 bits (of 33) from port A of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$850 ($le).
+Removed top 27 bits (of 33) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$850 ($le).
+Removed top 56 bits (of 64) from port A of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:131$859 ($le).
+Removed top 56 bits (of 64) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:131$859 ($le).
+Removed top 30 bits (of 32) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$864 ($mul).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$864 ($mul).
+Removed top 61 bits (of 64) from port Y of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$864 ($mul).
+Removed top 62 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$865 ($add).
+Removed top 61 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$865 ($add).
+Removed top 60 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$865 ($add).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$866 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$866 ($add).
+Removed top 59 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$866 ($add).
+Removed top 61 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$868 ($add).
+Removed top 61 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$868 ($add).
+Removed top 60 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$868 ($add).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$869 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$869 ($add).
+Removed top 59 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$869 ($add).
+Removed top 63 bits (of 64) from port A of cell wasmetal_memory_bist.$sub$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:155$870 ($sub).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$sub$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:155$870 ($sub).
+Removed top 62 bits (of 64) from port Y of cell wasmetal_memory_bist.$sub$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:155$870 ($sub).
+Removed top 30 bits (of 32) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:155$871 ($mul).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:155$872 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:155$873 ($add).
+Removed top 60 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:156$876 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:156$877 ($add).
+Removed top 59 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:157$878 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:157$878 ($add).
+Removed top 58 bits (of 64) from port Y of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:157$878 ($add).
+Removed top 61 bits (of 64) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$906 ($mul).
+Removed top 28 bits (of 32) from port B of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$906 ($mul).
+Removed top 57 bits (of 64) from port Y of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$906 ($mul).
+Removed top 57 bits (of 64) from port A of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$907 ($mul).
+Removed top 62 bits (of 64) from port B of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$907 ($mul).
+Removed top 55 bits (of 64) from port Y of cell wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$907 ($mul).
+Removed top 55 bits (of 64) from port A of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$908 ($add).
+Removed top 63 bits (of 64) from port B of cell wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$909 ($add).
+Removed top 56 bits (of 64) from port A of cell wasmetal_memory_bist.$eq$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$910 ($eq).
+Removed top 31 bits (of 32) from port A of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$911 ($lt).
+Removed top 30 bits (of 32) from port B of cell wasmetal_memory_bist.$lt$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$911 ($lt).
+Removed top 31 bits (of 32) from port B of cell wasmetal_memory_bist.$ge$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$913 ($ge).
+Removed top 29 bits (of 32) from port B of cell wasmetal_memory_bist.$le$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$914 ($le).
+Removed top 1 bits (of 2) from port B of cell wasmetal_memory_bist.$ne$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$917 ($ne).
+Removed top 31 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$938 ($shr).
+Removed top 30 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$942 ($shr).
+Removed top 29 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$946 ($shr).
+Removed top 29 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$950 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$954 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$958 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$962 ($shr).
+Removed top 28 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$966 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$970 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$974 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$978 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$982 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$986 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$990 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$994 ($shr).
+Removed top 27 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$998 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1002 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1006 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1010 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1014 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1018 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1022 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1026 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1030 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1034 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1038 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1042 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1046 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1050 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1054 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1058 ($shr).
+Removed top 26 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1062 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1066 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1070 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1074 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1078 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1082 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1086 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1090 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1094 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1098 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1102 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1106 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1110 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1114 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1118 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1122 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1126 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1130 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1134 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1138 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1142 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1146 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1150 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1154 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1158 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1162 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1166 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1170 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1174 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1178 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1182 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1186 ($shr).
+Removed top 25 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1190 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1194 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1198 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1202 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1206 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1210 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1214 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1218 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1222 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1226 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1230 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1234 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1238 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1242 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1246 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1250 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1254 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1258 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1262 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1266 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1270 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1274 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1278 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1282 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1286 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1290 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1294 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1298 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1302 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1306 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1310 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1314 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1318 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1322 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1326 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1330 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1334 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1338 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1342 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1346 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1350 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1354 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1358 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1362 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1366 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1370 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1374 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1378 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1382 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1386 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1390 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1394 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1398 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1402 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1406 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1410 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1414 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1418 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1422 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1426 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1430 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1434 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1438 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1442 ($shr).
+Removed top 24 bits (of 32) from port A of cell wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1446 ($shr).
+Removed top 27 bits (of 33) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$849_Y.
+Removed top 60 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$865_Y.
+Removed top 59 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$866_Y.
+Removed top 60 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$868_Y.
+Removed top 59 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:154$869_Y.
+Removed top 58 bits (of 64) from wire wasmetal_memory_bist.$add$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:157$878_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1003_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1007_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1011_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1015_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1019_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1023_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1027_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1031_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1035_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1039_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1043_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1047_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1051_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1055_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1059_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1063_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1067_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1071_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1075_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1079_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1083_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1087_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1091_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1095_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1099_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1103_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1107_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1111_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1115_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1119_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1123_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1127_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1131_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1135_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1139_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1143_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1147_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1151_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1155_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1159_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1163_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1167_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1171_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1175_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1179_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1183_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1187_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1191_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1195_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1199_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1203_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1207_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1211_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1215_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1219_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1223_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1227_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1231_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1235_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1239_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1243_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1247_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1251_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1255_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1259_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1263_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1267_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1271_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1275_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1279_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1283_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1287_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1291_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1295_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1299_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1303_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1307_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1311_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1315_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1319_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1323_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1327_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1331_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1335_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1339_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1343_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1347_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1351_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1355_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1359_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1363_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1367_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1371_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1375_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1379_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1383_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1387_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1391_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1395_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1399_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1403_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1407_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1411_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1415_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1419_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1423_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1427_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1431_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1435_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1439_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1443_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1447_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$939_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$943_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$947_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$951_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$955_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$959_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$963_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$967_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$971_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$975_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$979_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$983_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$987_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$991_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$995_Y.
+Removed top 31 bits (of 32) from wire wasmetal_memory_bist.$and$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$999_Y.
+Removed top 63 bits (of 64) from wire wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:153$864_Y.
+Removed top 57 bits (of 64) from wire wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$906_Y.
+Removed top 55 bits (of 64) from wire wasmetal_memory_bist.$mul$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:169$907_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1006_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1014_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1022_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1030_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1038_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1046_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1054_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1062_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1070_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1078_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1086_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1094_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1102_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1110_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1118_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1126_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1134_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1142_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1150_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1158_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1166_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1174_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1182_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1190_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1198_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1206_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1214_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1222_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1230_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1238_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1246_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1254_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1262_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1270_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1278_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1286_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1294_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1302_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1310_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1318_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1326_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1334_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1342_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1350_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1358_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1366_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1374_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1382_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1390_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1398_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1406_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1414_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1422_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1430_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1438_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$1446_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$962_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$966_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$970_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$974_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$978_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$982_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$986_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$990_Y.
+Removed top 1 bits (of 32) from wire wasmetal_memory_bist.$shr$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:148$994_Y.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+Removed 0 unused cells and 202 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_memory_bist.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_memory_bist'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== wasmetal_memory_bist ===
+
+   Number of wires:                566
+   Number of wire bits:           9909
+   Number of public wires:          39
+   Number of public wire bits:    1594
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                575
+     $add                           16
+     $assert                        18
+     $assume                         1
+     $dff                           43
+     $eq                            20
+     $ge                             1
+     $initstate                      1
+     $le                             4
+     $logic_and                     11
+     $logic_not                     13
+     $logic_or                      15
+     $lt                             2
+     $mod                            1
+     $mul                            4
+     $mux                          267
+     $ne                             1
+     $nex                            2
+     $not                            2
+     $pmux                          18
+     $reduce_bool                    1
+     $reduce_or                      3
+     $reduce_xor                     1
+     $shr                          128
+     $sub                            2
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_memory_bist...
+Found and reported 0 problems.
+
+4. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_memory_bist..
+
+6. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN = 1'0
+Import set-constraint from init attribute: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN = 1'0
+Import set-constraint from init attribute: \formal_started = 1'0
+Final init constraint equation: { $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK \saved_error \keep_error $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK \pending_payload \was_waiting \stop_after_release \write_half \background_index \phase \waiting \word_index \state \operation_count \observed_data \expected_data \error_address \error_code \failed \done \formal_started $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN } = 791'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 7:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 8:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 9:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 10:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 11:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Setting up time step 12:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \start
+Import def constraint for this timestep: \reset
+Import def constraint for this timestep: \ready
+Import def constraint for this timestep: \fault
+Import def constraint for this timestep: \rdata
+Imported 575 cells to SAT database.
+Import constraint from assume cell: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN.
+Import proof for assert: 1'1 when $0$formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:119$755_EN[0:0]$1470.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN.
+Import proof for assert: $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK when $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN.
+
+Solving problem with 2592113 variables and 7142241 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                                                                            Dec       Hex                                                                                                                                                                                                                                                                                                    Bin
+  ---- ---------------------------------------------------------------------------------------------- ----------- --------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:126$757_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:127$758_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:128$759_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:129$760_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:130$761_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:132$762_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:133$763_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:160$764_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:164$765_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:167$766_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:168$767_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:170$768_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:171$769_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:172$770_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:173$771_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:174$772_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:176$773_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_CHECK               --        --                                                                                                                                                                                                                                                                                                      x
+  init $formal$/tmp/wasmetal-xc7-core/build/formal-memory-bist/wrong-background.sv:177$774_EN                   0         0                                                                                                                                                                                                                                                                                                      0
+  init \background_index                                                                                       --        --                                                                                                                                                                                                                                                                                                    xxx
+  init \done                                                                                                   --        --                                                                                                                                                                                                                                                                                                      x
+  init \error_address                                                                                          --        --                                                                                                                                                                                                                                                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \error_code                                                                                             --        --                                                                                                                                                                                                                                                                                                     xx
+  init \expected_data                                                                                          --        --                                                                                                                                                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \failed                                                                                                 --        --                                                                                                                                                                                                                                                                                                      x
+  init \formal_started                                                                                          0         0                                                                                                                                                                                                                                                                                                      0
+  init \keep_error                                                                                             --        --                                                                                                                                                                                                                                                                                                      x
+  init \observed_data                                                                                          --        --                                                                                                                                                                       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \operation_count                                                                                        --        --                                                                                                                                                                                                                                                                                               xxxxxxxx
+  init \pending_payload                                                                                        --        --                                                                                                                                      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  init \phase                                                                                                  --        --                                                                                                                                                                                                                                                                                                    xxx
+  init \savERROR: Called with -verify and proof did fail!

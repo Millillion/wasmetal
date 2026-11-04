@@ -1,0 +1,104 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/bist-sram/131072-3-11/mapped-model/export.ys' --
+
+1. Executing JSON frontend.
+Importing module wasmetal_bist_sram from JSON tree.
+Importing module USRMCLK from JSON tree.
+Importing module TSHX2DQSA from JSON tree.
+Importing module TSHX2DQA from JSON tree.
+Importing module TRELLIS_RAM16X2 from JSON tree.
+Importing module TRELLIS_IO from JSON tree.
+Importing module TRELLIS_FF from JSON tree.
+Importing module TRELLIS_DPR16X4 from JSON tree.
+Importing module TRELLIS_COMB from JSON tree.
+Importing module SGSR from JSON tree.
+Importing module PUR from JSON tree.
+Importing module PFUMX from JSON tree.
+Importing module PDPW16KD from JSON tree.
+Importing module PCSCLKDIV from JSON tree.
+Importing module OSHX2A from JSON tree.
+Importing module OSCG from JSON tree.
+Importing module OLVDS from JSON tree.
+Importing module OFS1P3JX from JSON tree.
+Importing module OFS1P3IX from JSON tree.
+Importing module OFS1P3DX from JSON tree.
+Importing module OFS1P3BX from JSON tree.
+Importing module ODDRX2F from JSON tree.
+Importing module ODDRX2DQSB from JSON tree.
+Importing module ODDRX2DQA from JSON tree.
+Importing module ODDRX1F from JSON tree.
+Importing module ODDR71B from JSON tree.
+Importing module OBZPU from JSON tree.
+Importing module OBZPD from JSON tree.
+Importing module OBZ from JSON tree.
+Importing module OBCO from JSON tree.
+Importing module OB from JSON tree.
+Importing module MULT18X18D from JSON tree.
+Importing module LUT4 from JSON tree.
+Importing module LUT2 from JSON tree.
+Importing module L6MUX21 from JSON tree.
+Importing module JTAGG from JSON tree.
+Importing module INV from JSON tree.
+Importing module ILVDS from JSON tree.
+Importing module IFS1P3JX from JSON tree.
+Importing module IFS1P3IX from JSON tree.
+Importing module IFS1P3DX from JSON tree.
+Importing module IFS1P3BX from JSON tree.
+Importing module IDDRX2F from JSON tree.
+Importing module IDDRX2DQA from JSON tree.
+Importing module IDDRX1F from JSON tree.
+Importing module IDDR71B from JSON tree.
+Importing module IBPU from JSON tree.
+Importing module IBPD from JSON tree.
+Importing module IB from JSON tree.
+Importing module GSR from JSON tree.
+Importing module FD1S3JX from JSON tree.
+Importing module FD1S3IX from JSON tree.
+Importing module FD1S3DX from JSON tree.
+Importing module FD1S3BX from JSON tree.
+Importing module FD1S3AY from JSON tree.
+Importing module FD1S3AX from JSON tree.
+Importing module FD1P3JX from JSON tree.
+Importing module FD1P3IX from JSON tree.
+Importing module FD1P3DX from JSON tree.
+Importing module FD1P3BX from JSON tree.
+Importing module FD1P3AY from JSON tree.
+Importing module FD1P3AX from JSON tree.
+Importing module EXTREFB from JSON tree.
+Importing module EHXPLLL from JSON tree.
+Importing module ECLKSYNCB from JSON tree.
+Importing module ECLKBRIDGECS from JSON tree.
+Importing module DTR from JSON tree.
+Importing module DQSBUFM from JSON tree.
+Importing module DPR16X4C from JSON tree.
+Importing module DP16KD from JSON tree.
+Importing module DLLDELD from JSON tree.
+Importing module DELAYG from JSON tree.
+Importing module DELAYF from JSON tree.
+Importing module DDRDLLA from JSON tree.
+Importing module DCUA from JSON tree.
+Importing module DCSC from JSON tree.
+Importing module DCCA from JSON tree.
+Importing module CLKDIVF from JSON tree.
+Importing module CCU2C from JSON tree.
+Importing module BBPU from JSON tree.
+Importing module BBPD from JSON tree.
+Importing module BB from JSON tree.
+Importing module ALU54B from JSON tree.
+Importing module \$__ABC9_LUT7 from JSON tree.
+Importing module \$__ABC9_LUT6 from JSON tree.
+Importing module \$__ABC9_LUT5 from JSON tree.
+
+2. Executing SPLITNETS pass (splitting up multi-bit signals).
+Removed 0 unused cells and 1763 unused wires.
+
+3. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_bist_sram...
+Found and reported 0 problems.
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\wasmetal_bist_sram'.

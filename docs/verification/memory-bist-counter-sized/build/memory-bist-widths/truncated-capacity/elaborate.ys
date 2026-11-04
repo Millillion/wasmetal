@@ -1,0 +1,4 @@
+read_verilog -formal -sv /tmp/wasmetal-xc7-core/build/memory-bist-widths/truncated-capacity.sv
+chparam -set RAM_BYTES 2147483632 wasmetal_memory_bist
+prep -top wasmetal_memory_bist -flatten
+write_json /tmp/wasmetal-xc7-core/build/memory-bist-widths/truncated-capacity/elaborated.json

@@ -24,6 +24,13 @@ module wasmetal_memory_bist #(
     localparam integer WORDS=RAM_BYTES/16,
         AW=WORDS>1 ? $clog2(WORDS) : 1,
         TW=RESPONSE_TIMEOUT>1 ? $clog2(RESPONSE_TIMEOUT) : 1;
+    // The interface remains 64 bits, but the completed sequence is bounded
+    // by 80 accesses per configured word. The 64-bit constant avoids overflow
+    // while computing the width for large legal RAM_BYTES values.
+    localparam logic [63:0] OPERATION_LIMIT=64'(WORDS)*64'd80;
+    localparam integer CW=OPERATION_LIMIT>0 ? $clog2(OPERATION_LIMIT+1) : 1;
+    logic [CW-1:0] operation_count;
+    assign completed_operations=64'(operation_count);
     localparam logic [1:0] READ_MISMATCH=1, BUS_FAULT=2, TIMEOUT=3;
     typedef enum logic [1:0] {IDLE,REQUEST,RELEASE,FINISH} state_t;
     state_t state;
@@ -60,15 +67,15 @@ module wasmetal_memory_bist #(
         if(reset) begin
             state<=IDLE;word_index<=0;waiting<=0;phase<=0;background_index<=0;
             write_half<=0;stop_after_release<=0;done<=0;failed<=0;error_code<=0;
-            error_address<=0;expected_data<=0;observed_data<=0;completed_operations<=0;
+            error_address<=0;expected_data<=0;observed_data<=0;operation_count<=0;
         end else case(state)
             IDLE: if(start) begin
                 state<=REQUEST;word_index<=0;waiting<=0;phase<=0;background_index<=0;
                 write_half<=0;stop_after_release<=0;done<=0;failed<=0;error_code<=0;
-                error_address<=0;expected_data<=0;observed_data<=0;completed_operations<=0;
+                error_address<=0;expected_data<=0;observed_data<=0;operation_count<=0;
             end
             REQUEST: if(ready) begin
-                completed_operations<=completed_operations+1'b1;
+                operation_count<=operation_count+1'b1;
                 waiting<=0;state<=RELEASE;
                 if(failed || fault || (!write && mismatch)) begin
                     stop_after_release<=1;
