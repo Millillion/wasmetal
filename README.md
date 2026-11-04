@@ -18,8 +18,10 @@ comparisons and all 35 programmable RTL cases pass.
 cells in the bounded profile and 559 in the host-backed profile, with unchanged
 memory, register and DSP counts. The new mapped CPU passes
 [5,352 execution assertions in four scalar/SIMD floating-point suites](docs/verification/fp-round-mapped-focused.json).
-Its complete corpus, complete programmable comparison and compiled C comparison
-are running. Fresh proofs pass for the programmable
+All five [compiled-C cases](docs/verification/c-workload-mapped.json) also pass
+on the new RTL and mapped programmable system, with exact UART and cycle agreement.
+Its complete mapped corpus and 35-case programmable comparison are running.
+Fresh proofs pass for the programmable
 [board wrapper](docs/verification/loadable-mapping-proof.json) and
 [simulation wrapper](docs/verification/loadable-simulation-mapping-proof.json),
 covering 15,976 and 15,892 boundary bits respectively. Both reject an inverted
