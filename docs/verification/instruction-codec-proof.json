@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "scope": "combinational binary proof; no opcode-specific assumptions or memory/loader integration",
+  "expanded_bits": 288,
+  "stored_bits": 194,
+  "properties": [
+    "encodable if and only if decoding the encoded row reproduces all 288 input bits",
+    "all 32 opcode bits are preserved even for a rejected row",
+    "every 194-bit stored word decodes to an encodable expanded row",
+    "decoding then re-encoding and decoding preserves the expanded row"
+  ],
+  "proofs": {
+    "positive": {
+      "expected_outcome": "proven",
+      "log_sha256": "be759e5c4926c3bc1b72d7bc56f15ac714c3bd6a80da2b9b5209b8dbea9274ac",
+      "script_sha256": "cc783ad3ed55d87e2d933e7627298031eab7109b5c7fe8864881d7358bd97b43"
+    },
+    "corrupted-opcode": {
+      "expected_outcome": "rejected",
+      "log_sha256": "f576b7707607ecb8e3d4c55f51aa4ab3ebf3e2f3d1486fb7a32f51f860e4197b",
+      "script_sha256": "8d4342e93c097e5f7cc8ab050c7fea1191a7766a70051d7b6338f326fcb1b563"
+    }
+  },
+  "negative_control_rejected": true,
+  "inputs": {
+    "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+    "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "tests/rtl/instruction_codec_proof.sv": "bea64825eb2f0cbe61ae854eb4d86b98c928d38378020de5087caea3e6513327",
+    "tools/prove_instruction_codec.py": "492334973fadf2bb6e1c833ac02fce2acf3eff4e5a1793cb20d0e27cadb7057e",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c"
+  },
+  "physical_hardware_tested": false
+}

@@ -127,8 +127,15 @@ Programmable FPGA routing remains unresolved. The current
 records ABC9 placement/routing strategies and an isolated deeper-RAM experiment,
 with unchanged capacities. All four recorded trials were stopped after
 prolonged unresolved congestion. Earlier attempts are retained in Git history.
-An isolated instruction-storage compression experiment is now under formal,
-execution and routing evaluation. No programmable bitstream has
+The new [instruction codec](soc/loader/wasmetal_instruction_encode.sv)
+has an [all-input binary proof](docs/verification/instruction-codec-proof.json):
+it stores suitable 288-bit expanded rows in 194 bits, retains the full 32-bit
+opcode and flags any row that would lose information. Four operand layouts
+cover different combinations of indices and wide immediates without relying
+on opcode-specific assumptions. Run `python3 tools/prove_instruction_codec.py`;
+CI also requires the proof and its corrupted-opcode negative control.
+Its system integration is still isolated under execution and routing evaluation;
+the production image store remains 288 bits wide. No programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
 The programmable CI build exposed a command error: the board-clock check was
