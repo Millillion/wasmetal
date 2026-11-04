@@ -1,0 +1,34 @@
+PASS exhaustive binary LUT equivalence and 68096 four-state cases
+/tmp/wasmetal-xc7-core/build/bist-sram/16-1-9/mapped-model/obj/Vwasmetal_bist_sram
+PASS 16 1 9 rtl {'status': 'passed', 'campaigns': 403, 'cycles': 208917, 'macro_commands': 45200, 'reads': 22520, 'writes': 22680, 'resets': 764, 'detected_errors': 40, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 1647322055257062616}
+PASS 16 1 9 mapped {'status': 'passed', 'campaigns': 403, 'cycles': 208917, 'macro_commands': 45200, 'reads': 22520, 'writes': 22680, 'resets': 764, 'detected_errors': 40, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 1647322055257062616}
+PASS exhaustive binary LUT equivalence and 74240 four-state cases
+/tmp/wasmetal-xc7-core/build/bist-sram/80-3-11/mapped-model/obj/Vwasmetal_bist_sram
+PASS 80 3 11 rtl {'status': 'passed', 'campaigns': 2403, 'cycles': 7526917, 'macro_commands': 1365280, 'reads': 677920, 'writes': 687360, 'resets': 4604, 'detected_errors': 200, 'resets_with_pending_reads': 400, 'old_reads_after_reset': 400, 'held_start_cycles': 7, 'trace': 6043821453341661900}
+PASS 80 3 11 mapped {'status': 'passed', 'campaigns': 2403, 'cycles': 7526917, 'macro_commands': 1365280, 'reads': 677920, 'writes': 687360, 'resets': 4604, 'detected_errors': 200, 'resets_with_pending_reads': 400, 'old_reads_after_reset': 400, 'held_start_cycles': 7, 'trace': 6043821453341661900}
+PASS exhaustive binary LUT equivalence and 73472 four-state cases
+/tmp/wasmetal-xc7-core/build/bist-sram/272-7-10/mapped-model/obj/Vwasmetal_bist_sram
+PASS 272 7 10 rtl {'status': 'passed', 'campaigns': 10, 'cycles': 92039, 'macro_commands': 12265, 'reads': 6121, 'writes': 6144, 'resets': 16, 'detected_errors': 2, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 9704899789194102262}
+PASS 272 7 10 mapped {'status': 'passed', 'campaigns': 10, 'cycles': 92039, 'macro_commands': 12265, 'reads': 6121, 'writes': 6144, 'resets': 16, 'detected_errors': 2, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 9704899789194102262}
+PASS exhaustive binary LUT equivalence and 73984 four-state cases
+/tmp/wasmetal-xc7-core/build/bist-sram/131072-3-11/mapped-model/obj/Vwasmetal_bist_sram
+PASS 131072 3 11 rtl {'status': 'passed', 'campaigns': 10, 'cycles': 32473247, 'macro_commands': 5906438, 'reads': 2949121, 'writes': 2957317, 'resets': 16, 'detected_errors': 2, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 4791392415729476592}
+PASS 131072 3 11 mapped {'status': 'passed', 'campaigns': 10, 'cycles': 32473247, 'macro_commands': 5906438, 'reads': 2949121, 'writes': 2957317, 'resets': 16, 'detected_errors': 2, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 4791392415729476592}
+PASS exhaustive binary LUT equivalence and 73984 four-state cases
+/tmp/wasmetal-xc7-core/build/bist-sram/80-3-5/mapped-model/obj/Vwasmetal_bist_sram
+PASS 80 3 5 rtl {'status': 'passed', 'campaigns': 11, 'cycles': 490, 'macro_commands': 76, 'reads': 11, 'writes': 65, 'resets': 20, 'detected_errors': 11, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 6724017190831608801}
+PASS 80 3 5 mapped {'status': 'passed', 'campaigns': 11, 'cycles': 490, 'macro_commands': 76, 'reads': 11, 'writes': 65, 'resets': 20, 'detected_errors': 11, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 6724017190831608801}
+PASS exhaustive binary LUT equivalence and 74752 four-state cases
+/tmp/wasmetal-xc7-core/build/bist-sram/80-3-2/mapped-model/obj/Vwasmetal_bist_sram
+PASS 80 3 2 rtl {'status': 'passed', 'campaigns': 11, 'cycles': 237, 'macro_commands': 18, 'reads': 0, 'writes': 18, 'resets': 20, 'detected_errors': 11, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 7150539954063684286}
+PASS 80 3 2 mapped {'status': 'passed', 'campaigns': 11, 'cycles': 237, 'macro_commands': 18, 'reads': 0, 'writes': 18, 'resets': 20, 'detected_errors': 11, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_start_cycles': 7, 'trace': 7150539954063684286}
+REJECTED wrong-read-latency
+REJECTED reset-not-shared
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_bist_sram.py", line 109, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_bist_sram.py", line 81, in main
+    if text.count(old)!=1:raise ValueError('ambiguous SRAM integration fault: '+name)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: ambiguous SRAM integration fault: wrong-byte-enables

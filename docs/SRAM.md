@@ -123,3 +123,9 @@ separate mapped-circuit checks above; this does not claim that the entire SRAM
 system has been mapped to standard cells or tested with foundry memory models.
 The remaining core memories still have the contracts described in the
 [ASIC audit](ASIC.md).
+
+The [memory self-test integration](MEMORY-SELF-TEST.md#sram-adapter-integration)
+connects the destructive test master to this adapter and verifies commands at
+the macro pins. Six RTL/mapped configurations pass, including shared resets with
+old read responses still in flight and response deadlines that expire before
+completion. This is a separate verification binding, without CPU arbitration.

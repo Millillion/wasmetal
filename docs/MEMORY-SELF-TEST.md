@@ -117,3 +117,39 @@ lint passes. An unused-source synthesis experiment is retained in the archive:
 parsing the extra module changed downstream mapping to 50,991 LUTs. That
 experiment was discarded; its circuit has no functional-verification claim.
 The default Xilinx estimator remains unchanged.
+
+## SRAM adapter integration
+
+`tests/asic/wasmetal_bist_sram.sv` connects the master directly to the actual
+SRAM adapter. Its C++ harness observes only the macro pins and public test
+status. It generates the full expected March command sequence independently,
+checks every address, write value and byte enable, and models the stored bytes
+and synchronous read latency separately from both controllers.
+
+```sh
+python3 tools/check_bist_sram.py --mapped
+```
+
+The six configurations cover 16 bytes, 80 bytes, 272 bytes and 128 KiB, with
+one-, three- and seven-cycle reads. They include the smallest successful
+response deadline and deliberate deadlines that expire on reads or writes.
+Timeout cases must drain the actual macro access and retain the first error.
+For the two smallest healthy configurations, the test injects corruption at
+every read position and applies a shared reset at every clock of a complete
+healthy sequence. Memory contents and outstanding macro reads survive reset;
+unused read cycles carry changing garbage to expose incorrect capture timing.
+
+Three deliberately broken bindings change read latency, omit the adapter's
+reset or drop a byte enable. A fourth control corrupts the macro's read data.
+The integration gate accepts its report only after all configurations agree
+between RTL and mapped simulation and all four controls are rejected. This
+verification binding has no CPU arbitration or boot-control logic, and does
+not substitute for a foundry macro model or physical timing signoff.
+
+The [completed integration report](verification/bist-sram-mapped.json) records
+2,848 campaigns, 7,329,277 macro commands and 40,301,847 clocks per model, with
+identical RTL/mapped observations. It includes 5,440 resets, 266 expected error
+detections and 400 old read responses delivered after a shared reset. All four
+controls are rejected. [Raw evidence](verification/bist-sram/index.json) retains
+the final runs and the earlier ambiguous fault-edit setup that the gate rejected.
+The complete integration campaign runs in CI alongside the component checks.

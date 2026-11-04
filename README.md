@@ -187,10 +187,14 @@ still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)
 was cancelled after about three hours. Its best 1,705 conflicting wires grew
 to 25,771 before cancellation; no routed timing or bitstream result follows.
-A separate two-hour trial now uses nextpnr's alternative congestion weights on
-the verified programmable placement. Its [preflight checks](docs/verification/routing-alternate.json)
-pass, including native settings import/export, 21 rejected defects and an
-actual timeout control. The routing outcome is pending.
+The separate two-hour trial with nextpnr's alternative congestion weights
+[also timed out](docs/verification/reset-replication-router2-alternate-timeout.json).
+Its best observed count was 27,607 conflicting wires at iteration 32; iteration
+33 ended with 27,672. All 40 frozen inputs, the circuit substitution and the
+unchanged placement/clock checks were reverified. The
+[preflight controls](docs/verification/routing-alternate.json) and
+[raw routing evidence](docs/verification/reset-routing-alternate-timeout/index.json)
+are retained; this trial produced no completed route, timing result or bitstream.
 
 ## GUI Microarchitecture Simulator
 
@@ -457,7 +461,12 @@ with four additional proof fault controls. These proofs assume an initial reset
 and arbitrary binary responses; they do not prove stored SRAM data or eventual
 completion when memory never responds. [Raw evidence](docs/verification/memory-bist/index.json)
 is retained. This component requires exclusive memory access and is not connected
-to the default CPU image.
+to the default CPU image. The [composed SRAM test](docs/verification/bist-sram-mapped.json)
+also passes all six configurations in RTL and mapped simulation: 2,848 campaigns,
+7,329,277 macro commands and 40,301,847 clocks per model. It checks every command
+at the macro pins, 5,440 resets, tight and expired response deadlines, and 400
+old read responses delivered across reset. All four integration fault controls
+are rejected; [raw evidence](docs/verification/bist-sram/index.json) is retained.
 
 ## RTL Microarchitecture Simulator
 

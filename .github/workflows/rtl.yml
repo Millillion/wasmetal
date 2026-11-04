@@ -239,6 +239,8 @@ jobs:
         run: python3 tools/bootstrap.py
       - name: Check actual RTL and mapped circuits against memory-fault oracles
         run: python3 tools/check_memory_bist.py --mapped
+      - name: Check the self-test and SRAM adapter together at the macro pins
+        run: python3 tools/check_bist_sram.py --mapped
       - name: Check unknown data, reset isolation and recovery
         run: python3 tools/check_memory_bist_four_state.py
       - name: Prove sequence accounting and protocol safety
@@ -250,6 +252,15 @@ jobs:
           name: memory-self-test-verification
           path: |
             reports/memory-bist-*.json
+            reports/bist-sram-*.json
+            build/bist-sram/**/*.log
+            build/bist-sram/**/*.ys
+            build/bist-sram/**/*.sv
+            build/bist-sram/**/lut-proof/report.json
+            build/bist-sram/**/mapped.json
+            build/bist-sram/**/mapped.manifest.json
+            build/bist-sram/**/*.build.json
+            build/bist-sram/corrupt-read.log
             build/memory-bist/**/*.log
             build/memory-bist/**/*.ys
             build/memory-bist/**/lut-proof/report.json

@@ -100,7 +100,9 @@ memory ports and I/O, and how failures can be observed. A simulation harness
 and a UART result packet are not substitutes for manufacturing-test coverage.
 
 A separate [destructive memory-test master](MEMORY-SELF-TEST.md) now implements
-eight March C- passes through the physical memory transaction boundary. It
+eight March C- passes through the physical memory transaction boundary. Its
+[composed SRAM check](verification/bist-sram-mapped.json) now verifies both
+controllers together at the macro pins, including delayed reads across reset. It
 checks seven separating bit backgrounds and a final zero background, records
 the first error and retains ownership of a timed-out request until completion
 or joint reset. Its independent fault-injection tests cover RTL and a functional

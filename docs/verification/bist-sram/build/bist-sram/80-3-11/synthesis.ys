@@ -1,0 +1,4 @@
+read_verilog -sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv /tmp/wasmetal-xc7-core/tests/asic/wasmetal_bist_sram.sv
+chparam -set RAM_BYTES 80 -set READ_LATENCY 3 -set RESPONSE_TIMEOUT 11 wasmetal_bist_sram
+synth_ecp5 -top wasmetal_bist_sram -json /tmp/wasmetal-xc7-core/build/bist-sram/80-3-11/mapped.json
+check -assert

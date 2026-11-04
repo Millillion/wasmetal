@@ -1,0 +1,5 @@
+read_json /tmp/wasmetal-xc7-core/build/bist-sram/16-1-9/mapped-model/normalized.json
+splitnets
+clean -purge
+check -assert
+write_verilog -noattr /tmp/wasmetal-xc7-core/build/bist-sram/16-1-9/mapped-model/circuit.v
