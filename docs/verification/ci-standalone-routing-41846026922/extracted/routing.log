@@ -1,0 +1,106 @@
+Info: constraining clock net 'clk_25mhz' to 25.00 MHz
+Info: constraining clock net 'core_clock' to 0.78 MHz
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       5/    365     1%
+Info: 	                DCCA:       2/     56     3%
+Info: 	              DP16KD:     171/    208    82%
+Info: 	          MULT18X18D:      26/    156    16%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       0/      4     0%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       0/    141     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:    6009/  83640     7%
+Info: 	        TRELLIS_COMB:   62042/  83640    74%
+Info: 	        TRELLIS_RAMW:       0/  10455     0%
+
+Info: Routing globals...
+Info:     routing clock net core_clock using global 0
+Info:     routing clock net $glbnet$clk_25mhz$TRELLIS_IO_IN using global 1
+Info: Running router2...
+Info: Setting up routing resources...
+Info: Running main router loop...
+Info:     iter=1 wires=836972 overused=78445 overuse=95884 archfail=NA
+Info:     iter=2 wires=865128 overused=55111 overuse=60785 archfail=NA
+Info:     iter=3 wires=880870 overused=39472 overuse=41693 archfail=NA
+Info:     iter=4 wires=892987 overused=29221 overuse=30486 archfail=NA
+Info:     iter=5 wires=902141 overused=21775 overuse=22565 archfail=NA
+Info:     iter=6 wires=907990 overused=17234 overuse=17763 archfail=NA
+Info:     iter=7 wires=913943 overused=14237 overuse=14584 archfail=NA
+Info:     iter=8 wires=918160 overused=11718 overuse=11990 archfail=NA
+Info:     iter=9 wires=922382 overused=10134 overuse=10365 archfail=NA
+Info:     iter=10 wires=925389 overused=8614 overuse=8785 archfail=NA
+Info:     iter=11 wires=927970 overused=7139 overuse=7284 archfail=NA
+Info:     iter=12 wires=930864 overused=6359 overuse=6463 archfail=NA
+Info:     iter=13 wires=932853 overused=5589 overuse=5672 archfail=NA
+Info:     iter=14 wires=935201 overused=4984 overuse=5069 archfail=NA
+Info:     iter=15 wires=936888 overused=4642 overuse=4710 archfail=NA
+Info:     iter=16 wires=938410 overused=4171 overuse=4218 archfail=NA
+Info:     iter=17 wires=939764 overused=3531 overuse=3578 archfail=NA
+Info:     iter=18 wires=940771 overused=3079 overuse=3117 archfail=NA
+Info:     iter=19 wires=942099 overused=2884 overuse=2907 archfail=NA
+Info:     iter=20 wires=942885 overused=2640 overuse=2661 archfail=NA
+Info:     iter=21 wires=943933 overused=2405 overuse=2427 archfail=NA
+Info:     iter=22 wires=944984 overused=2154 overuse=2168 archfail=NA
+Info:     iter=23 wires=946292 overused=2190 overuse=2205 archfail=NA
+Info:     iter=24 wires=947522 overused=2100 overuse=2114 archfail=NA
+Info:     iter=25 wires=948532 overused=2015 overuse=2028 archfail=NA
+Info:     iter=26 wires=949593 overused=1939 overuse=1952 archfail=NA
+Info:     iter=27 wires=950332 overused=1819 overuse=1827 archfail=NA
+Info:     iter=28 wires=951142 overused=1787 overuse=1791 archfail=NA
+Info:     iter=29 wires=952103 overused=1727 overuse=1733 archfail=NA
+Info:     iter=30 wires=953084 overused=1705 overuse=1710 archfail=NA
+Info:     iter=31 wires=953925 overused=1779 overuse=1786 archfail=NA
+Info:     iter=32 wires=955328 overused=1802 overuse=1807 archfail=NA
+Info:     iter=33 wires=956127 overused=1944 overuse=1951 archfail=NA
+Info:     iter=34 wires=957204 overused=1942 overuse=1944 archfail=NA
+Info:     iter=35 wires=958639 overused=1950 overuse=1955 archfail=NA
+Info:     iter=36 wires=959773 overused=2101 overuse=2109 archfail=NA
+Info:     iter=37 wires=961152 overused=2092 overuse=2102 archfail=NA
+Info:     iter=38 wires=962455 overused=2081 overuse=2092 archfail=NA
+Info:     iter=39 wires=963791 overused=2275 overuse=2284 archfail=NA
+Info:     iter=40 wires=965525 overused=2569 overuse=2578 archfail=NA
+Info:     iter=41 wires=967479 overused=2922 overuse=2931 archfail=NA
+Info:     iter=42 wires=969224 overused=3198 overuse=3215 archfail=NA
+Info:     iter=43 wires=971325 overused=3532 overuse=3543 archfail=NA
+Info:     iter=44 wires=973277 overused=3965 overuse=3988 archfail=NA
+Info:     iter=45 wires=976102 overused=4513 overuse=4538 archfail=NA
+Info:     iter=46 wires=977937 overused=4802 overuse=4834 archfail=NA
+Info:     iter=47 wires=981501 overused=5300 overuse=5331 archfail=NA
+Info:     iter=48 wires=983736 overused=5777 overuse=5813 archfail=NA
+Info:     iter=49 wires=987806 overused=6657 overuse=6724 archfail=NA
+Info:     iter=50 wires=992315 overused=7849 overuse=7918 archfail=NA
+Info:     iter=51 wires=996593 overused=9030 overuse=9132 archfail=NA
+Info:     iter=52 wires=1001255 overused=10207 overuse=10325 archfail=NA
+Info:     iter=53 wires=1006670 overused=11321 overuse=11460 archfail=NA
+Info:     iter=54 wires=1011811 overused=12509 overuse=12668 archfail=NA
+Info:     iter=55 wires=1016770 overused=13729 overuse=13936 archfail=NA
+Info:     iter=56 wires=1021567 overused=14763 overuse=15003 archfail=NA
+Info:     iter=57 wires=1026923 overused=16038 overuse=16283 archfail=NA
+Info:     iter=58 wires=1032649 overused=17458 overuse=17769 archfail=NA
+Info:     iter=59 wires=1038423 overused=18982 overuse=19323 archfail=NA
+Info:     iter=60 wires=1042702 overused=19625 overuse=19990 archfail=NA
+Info:     iter=61 wires=1047488 overused=20543 overuse=20887 archfail=NA
+Info:     iter=62 wires=1051834 overused=21198 overuse=21576 archfail=NA
+Info:     iter=63 wires=1057205 overused=22188 overuse=22607 archfail=NA
+Info:     iter=64 wires=1061452 overused=23013 overuse=23431 archfail=NA
+Info:     iter=65 wires=1066610 overused=23964 overuse=24420 archfail=NA
+Info:     iter=66 wires=1070707 overused=24920 overuse=25410 archfail=NA
+Info:     iter=67 wires=1075767 overused=25771 overuse=26291 archfail=NA

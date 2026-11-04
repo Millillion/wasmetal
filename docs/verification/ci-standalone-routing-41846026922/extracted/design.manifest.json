@@ -1,0 +1,179 @@
+{
+  "top": "wasmetal_standalone_ulx3s",
+  "inputs": {
+    "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+    "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
+    "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+    "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+    "soc/ulx3s.lpf": "ace7a11cfea02a79ece170f1289806fb6422fde79e1bbfadbe6274c6520b8088",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "soc/wasmetal_standalone_ulx3s.sv": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
+    "build/standalone-image/boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+    "build/standalone-image/code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+    "build/standalone-image/functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+    "build/standalone-image/initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+    "build/standalone-image/manifest.json": "9d7c6432abd4a96f16722929e8b0d916f953f8af400091c0869289929dd8b0f6",
+    "build/standalone-image/program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310",
+    "build/standalone-image/regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+    "build/standalone-image/types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e",
+    "build/standalone-ulx3s/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+    "build/standalone-core-ecp5.json": "e49c3b5a3d5e77ac6c399b8cd649c05f630a92a544dfcf2d55373ab425451afa",
+    "build/standalone-core-ecp5.manifest.json": "298c52845ea234f364c0b74cd8e9beb74bf59afb376dc9f05131a03b3900d259"
+  },
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 1024
+    },
+    "instruction_depth": 1024,
+    "function_depth": 128,
+    "type_depth": 64,
+    "boot_depth": 512,
+    "regions_per_kind": 16,
+    "ram_bytes": 131072,
+    "memory_pages": 1,
+    "table_slots": 128,
+    "max_results": 16,
+    "watchdog_cycles": 10000000
+  },
+  "image": {
+    "format": "wasmetal-standalone-v1",
+    "profile": {
+      "core": {
+        "VALUE_DEPTH": 8192,
+        "CONTROL_DEPTH": 2048,
+        "CALL_DEPTH": 512,
+        "MEMORY_COUNT": 256,
+        "HEAP_SLOTS": 1024
+      },
+      "instruction_depth": 1024,
+      "function_depth": 128,
+      "type_depth": 64,
+      "boot_depth": 512,
+      "regions_per_kind": 16,
+      "ram_bytes": 131072,
+      "memory_pages": 1,
+      "table_slots": 128,
+      "max_results": 16,
+      "watchdog_cycles": 10000000
+    },
+    "export": "main",
+    "arguments": [],
+    "counts": {
+      "code": 99,
+      "functions": 13,
+      "types": 64,
+      "regions": 96,
+      "boot": 28
+    },
+    "allocated_ram_bytes": 82148,
+    "regions": [
+      {
+        "kind": 0,
+        "index": 0,
+        "base": 16384,
+        "bytes": 0
+      },
+      {
+        "kind": 0,
+        "index": 1,
+        "base": 16384,
+        "bytes": 65536
+      },
+      {
+        "kind": 1,
+        "index": 0,
+        "base": 82048,
+        "bytes": 16
+      },
+      {
+        "kind": 1,
+        "index": 1,
+        "base": 82064,
+        "bytes": 16
+      },
+      {
+        "kind": 2,
+        "index": 0,
+        "base": 81920,
+        "bytes": 128
+      },
+      {
+        "kind": 3,
+        "index": 0,
+        "base": 82128,
+        "bytes": 4
+      },
+      {
+        "kind": 3,
+        "index": 1,
+        "base": 82144,
+        "bytes": 4
+      },
+      {
+        "kind": 4,
+        "index": 0,
+        "base": 82080,
+        "bytes": 32
+      },
+      {
+        "kind": 4,
+        "index": 1,
+        "base": 82112,
+        "bytes": 16
+      },
+      {
+        "kind": 5,
+        "index": 0,
+        "base": 0,
+        "bytes": 16384
+      }
+    ],
+    "files": {
+      "code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+      "functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+      "types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e",
+      "regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+      "boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+      "initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+      "program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310"
+    },
+    "source_sha256": "a1c18ab9e6d9fc02c644ace57cc042dfa2123b5d9e078886ad54c1f54b2f4daf",
+    "preparation_simulator_sha256": "4647a941b7bb62f6dc9473ad920db313d28a86eee546d3884a2b5a0a9adf36f6",
+    "preparation_build_id": "cb3c080315d13cc83ddcfc09f076c1e5",
+    "physical_hardware_tested": false,
+    "preparation_inputs": {
+      "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+      "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+      "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+      "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+    }
+  },
+  "core_netlist_sha256": "e49c3b5a3d5e77ac6c399b8cd649c05f630a92a544dfcf2d55373ab425451afa",
+  "netlist_sha256": "ebfcbbfa166970ac7e740d97d19e27e2aa34a41f72c35f158625bd9bb10861c1"
+}

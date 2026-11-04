@@ -1,0 +1,50 @@
+2026-11-04T14:54:46.3388984Z Download artifact has finished successfully
+2026-11-04T14:54:46.3534109Z ##[group]Run python3 tools/build_standalone_board.py
+2026-11-04T14:54:46.3534577Z [36;1mpython3 tools/build_standalone_board.py[0m
+2026-11-04T14:54:46.3554409Z shell: /usr/bin/bash -e {0}
+2026-11-04T14:54:46.3554671Z ##[endgroup]
+2026-11-04T17:54:51.4879641Z ##[error]The operation was canceled.
+2026-11-04T17:54:51.4981857Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-04T17:54:51.4982355Z with:
+2026-11-04T17:54:51.4982602Z   name: standalone-routing
+2026-11-04T17:54:51.4983602Z   path: build/standalone-ulx3s/*.log
+build/standalone-ulx3s/timing*.json
+build/standalone-ulx3s/design.manifest.json
+
+2026-11-04T17:54:51.4984259Z   if-no-files-found: warn
+2026-11-04T17:54:51.4984536Z   retention-days: 30
+2026-11-04T17:54:51.4984805Z   compression-level: 6
+2026-11-04T17:54:51.4985065Z   overwrite: false
+2026-11-04T17:54:51.4985320Z   include-hidden-files: false
+2026-11-04T17:54:51.4985603Z   archive: true
+2026-11-04T17:54:51.4985848Z ##[endgroup]
+2026-11-04T17:54:51.7454640Z With the provided path, there will be 5 files uploaded
+2026-11-04T17:54:51.7455725Z Artifact name is valid!
+2026-11-04T17:54:51.7456265Z Root directory input is valid!
+2026-11-04T17:54:51.9906921Z Uploading artifact: standalone-routing.zip
+2026-11-04T17:54:51.9948712Z Beginning upload of artifact content to blob storage
+2026-11-04T17:54:52.1170803Z Uploaded bytes 101509
+2026-11-04T17:54:52.1318037Z Finished uploading artifact content to blob storage!
+2026-11-04T17:54:52.1319521Z SHA256 digest of uploaded artifact is ec61cbab498ae196e41a141a20e5458f988c56ab3ad1428af087396cce0c2751
+2026-11-04T17:54:52.1320980Z Finalizing artifact upload
+2026-11-04T17:54:52.6293543Z Artifact standalone-routing successfully finalized. Artifact ID 13348803089
+2026-11-04T17:54:52.6295001Z Artifact standalone-routing has been successfully uploaded! Final size is 101509 bytes. Artifact ID is 13348803089
+2026-11-04T17:54:52.6296402Z Artifact download URL: https://github.com/Millillion/wasmetal/actions/runs/41846026922/artifacts/13348803089
+2026-11-04T17:54:52.6415070Z Post job cleanup.
+2026-11-04T17:54:52.7423500Z [command]/usr/bin/git version
+2026-11-04T17:54:52.7456260Z git version 2.56.0
+2026-11-04T17:54:52.7514241Z Temporarily overriding HOME='/home/runner/work/_temp/71928799-62ba-4d1a-8087-b1d14125b624' before making global git config changes
+2026-11-04T17:54:52.7518120Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T17:54:52.7521550Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wasmetal/wasmetal
+2026-11-04T17:54:52.7592603Z Removing SSH command configuration
+2026-11-04T17:54:52.7596353Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T17:54:52.7680813Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T17:54:52.8027358Z Removing HTTP extra header
+2026-11-04T17:54:52.8036785Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T17:54:52.8106528Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T17:54:52.8474224Z Removing includeIf entries pointing to credentials config files
+2026-11-04T17:54:52.8475239Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T17:54:52.8515510Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T17:54:52.8951360Z Cleaning up orphan processes
+2026-11-04T17:54:52.9167099Z Terminate orphan process: pid (2641) (python3)
+2026-11-04T17:54:52.9199902Z Terminate orphan process: pid (2756) (ld-linux-x86-64.so.2)

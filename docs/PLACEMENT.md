@@ -88,6 +88,17 @@ python3 tools/route_reset_experiment.py --router router1 \
 
 Use a separate output directory for each trial to preserve its diagnostics.
 
+A separate [standalone ROM-board CI attempt](verification/ci-standalone-routing-41846026922.json)
+at commit `fdc25535e3ae6f2584f7d90dff6f1983f9f5faf2` was cancelled after
+approximately three hours, with a configured 180-minute job budget. Router2
+reached 1,705 conflicting wires at iteration 30, then worsened to 25,771 at
+iteration 67. The [archived diagnostics](verification/ci-standalone-routing-41846026922/index.json)
+include the original artifact ZIP, checked against its GitHub upload SHA-256,
+plus the mapping identity, placement log and routing log. This is a different
+circuit from the programmable reset-replication trials; their conflict counts
+are not a controlled comparison. The cancelled run produced no accepted routed
+timing or bitstream evidence. Its final CI gate correctly remained failed.
+
 Reset distribution needs care on this device. Lattice documents a silicon
 startup problem when certain high-initialized reset or enable signals use the
 primary low-skew clock network, along with avoidance and startup-workaround

@@ -138,7 +138,7 @@ every binary truth table and selector at widths one through six. Independent
 oracle regressions pass 183,664 known-input cases per model in Icarus and
 Verilator, plus 11,811,032 four-state cases per model in Icarus. All eleven
 fault controls are rejected. CI repeats the proofs and the mapped-table
-regression; faster whole-system simulation is being checked separately.
+regression; the proven models also support the complete-system runs below.
 The [carry-chain checks](docs/XILINX-LOGIC.md#carry-chains) prove binary
 equivalence with Xilinx, pass every binary input and 11,264 C++-driven input
 transitions, and reject eleven faults. Each model also passes its independent
@@ -160,14 +160,19 @@ passes all **35 programmable integration cases** with accelerated UART timing,
 matching the native RTL's complete case observations, UART bytes and clock
 counts exactly. All fifteen comparison faults are rejected. Two smoke cases
 also pass with the original LUT models. The native reference at 81 clocks per
-UART bit passes all 35 cases; a mapped upload at that unchanged UART timing
-is still running. Xilinx placement and timing remain unverified.
+UART bit passes all 35 cases. A [mapped upload at that unchanged timing](docs/verification/xc7-board-rate.json)
+also passes: 45,114,201 core clocks, exact UART/commit/result timing agreement,
+and the expected result of 42 in 53 execution cycles. All six comparison faults
+are rejected. Xilinx placement and timing remain unverified.
 CI is now configured to build the native reference and accelerated Xilinx
 circuit, run all 35 cases through a supervised four-worker campaign, and
 require the full comparison. The new complete CI job has not finished on
 GitHub yet; the published passing campaign is local evidence.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
+The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)
+was cancelled after about three hours. Its best 1,705 conflicting wires grew
+to 25,771 before cancellation; no routed timing or bitstream result follows.
 
 ## GUI Microarchitecture Simulator
 

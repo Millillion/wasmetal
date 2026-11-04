@@ -1,0 +1,436 @@
+{
+  "status": "incomplete",
+  "source": "GitHub Actions artifact with SHA-256 checked against the upload log",
+  "run_id": 41846026922,
+  "head_sha": "fdc25535e3ae6f2584f7d90dff6f1983f9f5faf2",
+  "job_id": 126650893396,
+  "job_conclusion": "cancelled",
+  "artifact_id": 13348803089,
+  "archive_sha256": "ec61cbab498ae196e41a141a20e5458f988c56ab3ad1428af087396cce0c2751",
+  "workflow_job_budget_minutes": 180,
+  "scope": "standalone ROM-board router2 attempt; distinct from the programmable reset-replication experiment",
+  "top": "wasmetal_standalone_ulx3s",
+  "netlist_sha256": "ebfcbbfa166970ac7e740d97d19e27e2aa34a41f72c35f158625bd9bb10861c1",
+  "iterations": [
+    {
+      "iteration": 1,
+      "wires": 836972,
+      "overused": 78445,
+      "overuse": 95884
+    },
+    {
+      "iteration": 2,
+      "wires": 865128,
+      "overused": 55111,
+      "overuse": 60785
+    },
+    {
+      "iteration": 3,
+      "wires": 880870,
+      "overused": 39472,
+      "overuse": 41693
+    },
+    {
+      "iteration": 4,
+      "wires": 892987,
+      "overused": 29221,
+      "overuse": 30486
+    },
+    {
+      "iteration": 5,
+      "wires": 902141,
+      "overused": 21775,
+      "overuse": 22565
+    },
+    {
+      "iteration": 6,
+      "wires": 907990,
+      "overused": 17234,
+      "overuse": 17763
+    },
+    {
+      "iteration": 7,
+      "wires": 913943,
+      "overused": 14237,
+      "overuse": 14584
+    },
+    {
+      "iteration": 8,
+      "wires": 918160,
+      "overused": 11718,
+      "overuse": 11990
+    },
+    {
+      "iteration": 9,
+      "wires": 922382,
+      "overused": 10134,
+      "overuse": 10365
+    },
+    {
+      "iteration": 10,
+      "wires": 925389,
+      "overused": 8614,
+      "overuse": 8785
+    },
+    {
+      "iteration": 11,
+      "wires": 927970,
+      "overused": 7139,
+      "overuse": 7284
+    },
+    {
+      "iteration": 12,
+      "wires": 930864,
+      "overused": 6359,
+      "overuse": 6463
+    },
+    {
+      "iteration": 13,
+      "wires": 932853,
+      "overused": 5589,
+      "overuse": 5672
+    },
+    {
+      "iteration": 14,
+      "wires": 935201,
+      "overused": 4984,
+      "overuse": 5069
+    },
+    {
+      "iteration": 15,
+      "wires": 936888,
+      "overused": 4642,
+      "overuse": 4710
+    },
+    {
+      "iteration": 16,
+      "wires": 938410,
+      "overused": 4171,
+      "overuse": 4218
+    },
+    {
+      "iteration": 17,
+      "wires": 939764,
+      "overused": 3531,
+      "overuse": 3578
+    },
+    {
+      "iteration": 18,
+      "wires": 940771,
+      "overused": 3079,
+      "overuse": 3117
+    },
+    {
+      "iteration": 19,
+      "wires": 942099,
+      "overused": 2884,
+      "overuse": 2907
+    },
+    {
+      "iteration": 20,
+      "wires": 942885,
+      "overused": 2640,
+      "overuse": 2661
+    },
+    {
+      "iteration": 21,
+      "wires": 943933,
+      "overused": 2405,
+      "overuse": 2427
+    },
+    {
+      "iteration": 22,
+      "wires": 944984,
+      "overused": 2154,
+      "overuse": 2168
+    },
+    {
+      "iteration": 23,
+      "wires": 946292,
+      "overused": 2190,
+      "overuse": 2205
+    },
+    {
+      "iteration": 24,
+      "wires": 947522,
+      "overused": 2100,
+      "overuse": 2114
+    },
+    {
+      "iteration": 25,
+      "wires": 948532,
+      "overused": 2015,
+      "overuse": 2028
+    },
+    {
+      "iteration": 26,
+      "wires": 949593,
+      "overused": 1939,
+      "overuse": 1952
+    },
+    {
+      "iteration": 27,
+      "wires": 950332,
+      "overused": 1819,
+      "overuse": 1827
+    },
+    {
+      "iteration": 28,
+      "wires": 951142,
+      "overused": 1787,
+      "overuse": 1791
+    },
+    {
+      "iteration": 29,
+      "wires": 952103,
+      "overused": 1727,
+      "overuse": 1733
+    },
+    {
+      "iteration": 30,
+      "wires": 953084,
+      "overused": 1705,
+      "overuse": 1710
+    },
+    {
+      "iteration": 31,
+      "wires": 953925,
+      "overused": 1779,
+      "overuse": 1786
+    },
+    {
+      "iteration": 32,
+      "wires": 955328,
+      "overused": 1802,
+      "overuse": 1807
+    },
+    {
+      "iteration": 33,
+      "wires": 956127,
+      "overused": 1944,
+      "overuse": 1951
+    },
+    {
+      "iteration": 34,
+      "wires": 957204,
+      "overused": 1942,
+      "overuse": 1944
+    },
+    {
+      "iteration": 35,
+      "wires": 958639,
+      "overused": 1950,
+      "overuse": 1955
+    },
+    {
+      "iteration": 36,
+      "wires": 959773,
+      "overused": 2101,
+      "overuse": 2109
+    },
+    {
+      "iteration": 37,
+      "wires": 961152,
+      "overused": 2092,
+      "overuse": 2102
+    },
+    {
+      "iteration": 38,
+      "wires": 962455,
+      "overused": 2081,
+      "overuse": 2092
+    },
+    {
+      "iteration": 39,
+      "wires": 963791,
+      "overused": 2275,
+      "overuse": 2284
+    },
+    {
+      "iteration": 40,
+      "wires": 965525,
+      "overused": 2569,
+      "overuse": 2578
+    },
+    {
+      "iteration": 41,
+      "wires": 967479,
+      "overused": 2922,
+      "overuse": 2931
+    },
+    {
+      "iteration": 42,
+      "wires": 969224,
+      "overused": 3198,
+      "overuse": 3215
+    },
+    {
+      "iteration": 43,
+      "wires": 971325,
+      "overused": 3532,
+      "overuse": 3543
+    },
+    {
+      "iteration": 44,
+      "wires": 973277,
+      "overused": 3965,
+      "overuse": 3988
+    },
+    {
+      "iteration": 45,
+      "wires": 976102,
+      "overused": 4513,
+      "overuse": 4538
+    },
+    {
+      "iteration": 46,
+      "wires": 977937,
+      "overused": 4802,
+      "overuse": 4834
+    },
+    {
+      "iteration": 47,
+      "wires": 981501,
+      "overused": 5300,
+      "overuse": 5331
+    },
+    {
+      "iteration": 48,
+      "wires": 983736,
+      "overused": 5777,
+      "overuse": 5813
+    },
+    {
+      "iteration": 49,
+      "wires": 987806,
+      "overused": 6657,
+      "overuse": 6724
+    },
+    {
+      "iteration": 50,
+      "wires": 992315,
+      "overused": 7849,
+      "overuse": 7918
+    },
+    {
+      "iteration": 51,
+      "wires": 996593,
+      "overused": 9030,
+      "overuse": 9132
+    },
+    {
+      "iteration": 52,
+      "wires": 1001255,
+      "overused": 10207,
+      "overuse": 10325
+    },
+    {
+      "iteration": 53,
+      "wires": 1006670,
+      "overused": 11321,
+      "overuse": 11460
+    },
+    {
+      "iteration": 54,
+      "wires": 1011811,
+      "overused": 12509,
+      "overuse": 12668
+    },
+    {
+      "iteration": 55,
+      "wires": 1016770,
+      "overused": 13729,
+      "overuse": 13936
+    },
+    {
+      "iteration": 56,
+      "wires": 1021567,
+      "overused": 14763,
+      "overuse": 15003
+    },
+    {
+      "iteration": 57,
+      "wires": 1026923,
+      "overused": 16038,
+      "overuse": 16283
+    },
+    {
+      "iteration": 58,
+      "wires": 1032649,
+      "overused": 17458,
+      "overuse": 17769
+    },
+    {
+      "iteration": 59,
+      "wires": 1038423,
+      "overused": 18982,
+      "overuse": 19323
+    },
+    {
+      "iteration": 60,
+      "wires": 1042702,
+      "overused": 19625,
+      "overuse": 19990
+    },
+    {
+      "iteration": 61,
+      "wires": 1047488,
+      "overused": 20543,
+      "overuse": 20887
+    },
+    {
+      "iteration": 62,
+      "wires": 1051834,
+      "overused": 21198,
+      "overuse": 21576
+    },
+    {
+      "iteration": 63,
+      "wires": 1057205,
+      "overused": 22188,
+      "overuse": 22607
+    },
+    {
+      "iteration": 64,
+      "wires": 1061452,
+      "overused": 23013,
+      "overuse": 23431
+    },
+    {
+      "iteration": 65,
+      "wires": 1066610,
+      "overused": 23964,
+      "overuse": 24420
+    },
+    {
+      "iteration": 66,
+      "wires": 1070707,
+      "overused": 24920,
+      "overuse": 25410
+    },
+    {
+      "iteration": 67,
+      "wires": 1075767,
+      "overused": 25771,
+      "overuse": 26291
+    }
+  ],
+  "best": {
+    "iteration": 30,
+    "wires": 953084,
+    "overused": 1705,
+    "overuse": 1710
+  },
+  "last": {
+    "iteration": 67,
+    "wires": 1075767,
+    "overused": 25771,
+    "overuse": 26291
+  },
+  "routing_completed": false,
+  "timing_passed": false,
+  "bitstream_round_trip_passed": false,
+  "physical_hardware_tested": false,
+  "limit": "Cancellation after approximately three hours is incomplete routing evidence, not a proof that the design cannot route.",
+  "raw_evidence_index": "docs/verification/ci-standalone-routing-41846026922/index.json"
+}

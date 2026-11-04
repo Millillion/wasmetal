@@ -7,15 +7,16 @@ clock/reset circuitry, pin constraints, placement and physical timing.
 
 ## Recorded results
 
-The [initial evidence bundle](verification/xc7-system-initial/index.json)
-preserves these completed runs and the simulator identities:
+The [initial evidence bundle](verification/xc7-system-initial/index.json),
+complete campaign and board-rate archives below preserve the runs and exact
+simulator identities:
 
 | Configuration | Completed evidence |
 | --- | --- |
 | Native RTL, 81 clocks per UART bit, upload timeout 2,000,000 | All 35 programmable integration cases pass. |
 | Xilinx mapped circuit, 4 clocks per bit, timeout 4,096, original LUT models | `answer` and `program-address-boundaries` pass. UART bytes, every recorded clock count, prepared image hashes and CPU results match the corresponding RTL cases exactly. Eight comparison faults are rejected. |
 | Xilinx mapped circuit, 4 clocks per bit, proven faster LUT models | All 35 integration cases pass. Every complete case observation matches native RTL exactly, and all fifteen comparison faults are rejected. |
-| Xilinx mapped circuit, 81 clocks per bit, proven faster LUT models | One complete upload/execution is running against the finished board-rate RTL reference. |
+| Xilinx mapped circuit, 81 clocks per bit, proven faster LUT models | One complete upload/execution passes, with exactly 45,114,201 core clocks and identical native UART bytes, commit timing and first-result timing. Six comparison faults are rejected. |
 
 The original-library `answer` test takes 2,259,198 core clocks, including
 upload and response. Its CPU invocation returns 42 in 53 CPU cycles. The
@@ -29,6 +30,14 @@ the original campaign driver/plan and the
 It includes reset/recovery scenarios, memory and program boundaries, and the
 watchdog. All 48 shared model inputs agree. The comparison rechecked both
 actual simulator executables and all recorded inputs before accepting the run.
+
+The [board-rate receipt](verification/xc7-board-rate.json) and
+[raw archive](verification/xc7-board-rate/index.json) retain the unchanged
+81-clock/bit upload, packet, native 35-case reference, executable manifests and
+simulator output. The invocation returns 42 in 53 execution cycles; the much
+larger total includes the serial upload and response. The mapped check took
+5,018.624 seconds of wall time. Both executable hashes and all recorded input
+hashes were checked again after completion and before archiving.
 
 These are **bounded programmable integration tests**, distinct from the
 259-suite official Wasm corpus run against the host-backed RTL and ECP5
@@ -76,7 +85,7 @@ The first board-rate attempt with original LUT models was deliberately
 interrupted after the proven faster model became available. Its partial
 report and interruption log remain in the bundle. It produced no complete
 test result, and is neither a pass nor an observed CPU functional failure.
-The replacement permits six hours of wall time for the single upload;
+The completed replacement permitted six hours of wall time for the single upload;
 the hardware parameters and simulator cycle limits are unchanged.
 
 ## Reproduction
