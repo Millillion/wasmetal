@@ -146,8 +146,15 @@ per-process coverage. Reproduce it with
 `python3 tools/build_instruction_codec_sim.py`, then
 `python3 tools/check_instruction_corpus.py --reference reports/core-stalled.json`
 using a complete native report from the same source revision.
-Its system integration is still isolated under execution and routing evaluation;
-the production image store remains 288 bits wide. No programmable bitstream has
+The [isolated local-memory experiment](docs/research/instruction-storage-experiment.json)
+reduces block RAM from 192 to 187 but increases placed logic from 62,958 to
+63,769 cells. Its routing trial was stopped after persistent congestion; it
+produced no routed circuit or bitstream. All 35 native integration checks,
+five compiled C cases in both models, wide-offset SIMD cases and explicit
+unencodable-row rejection/recovery checks pass. The complete mapped integration
+campaign is still running. The experiment's patch and verification evidence are
+preserved, but the production image store remains 288 bits wide.
+No programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
 The programmable CI build exposed a command error: the board-clock check was

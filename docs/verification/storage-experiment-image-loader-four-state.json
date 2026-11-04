@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "four-state reset and unknown-data fail-closed image authorization",
+  "payload_bytes": 404,
+  "packet_sha256": "cca8168181eaaffde8a152a5d1550ebe844a632ef9da4e872703fbbd50bad28d",
+  "negative_controls_rejected": [
+    "missing-permission-reset",
+    "missing-checksum-gate",
+    "ignored-store-fault",
+    "unknown-store-accepted",
+    "forgotten-early-fault"
+  ],
+  "inputs": {
+    "build/compact-instruction/wasmetal_image_loader.sv": "bb30890b127ffbe6054024aa1ef37f38150b60d188082d9c1d146da94e1932a7",
+    "build/compact-instruction/image_loader_four_state.sv": "dbf9192fb97d9f50e38fd53f6e119553be9ccb58f25180ca8c1918856a3c476f",
+    "build/check_compact_image_loader_four_state.py": "4b99676c45d28a72c8fc7773442abd1a6c7cb94e5104c59cbbfb6935118b2afb"
+  },
+  "physical_hardware_tested": false
+}

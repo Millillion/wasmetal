@@ -1,0 +1,135 @@
+--- a/soc/wasmetal_standalone.sv
++++ b/soc/wasmetal_standalone.sv
+@@ -23,10 +23,15 @@
+     localparam integer CW=$clog2(INSTRUCTION_DEPTH), FW=$clog2(FUNCTION_DEPTH),
+                        TW=$clog2(TYPE_DEPTH), BW=$clog2(BOOT_DEPTH),
+                        UW=$clog2(12+16*MAX_RESULTS);
+-    (* rom_style="block" *) logic [287:0] instructions [0:INSTRUCTION_DEPTH-1];
++    localparam integer INSTRUCTION_BITS=LOADABLE!=0 ? 194 : 288;
++    (* rom_style="block" *) logic [INSTRUCTION_BITS-1:0] instructions [0:INSTRUCTION_DEPTH-1];
+     (* rom_style="block" *) logic [159:0] functions [0:FUNCTION_DEPTH-1];
+     logic [TYPE_DEPTH-1:0] types [0:TYPE_DEPTH-1];
+     (* rom_style="block" *) logic [231:0] boot [0:BOOT_DEPTH-1];
++    wire [193:0] compact_write_word;
++    wire unused_instruction_encodable;
++    wasmetal_instruction_encode instruction_encoder(.expanded(image_word[287:0]),
++        .compact(compact_write_word),.encodable(unused_instruction_encodable));
+     generate if(LOADABLE==0) begin: read_only_image
+     initial begin
+         $readmemh({IMAGE_DIR,"/code.hex"},instructions);
+@@ -38,14 +43,20 @@
+         // A loader may write only while the execution system is held in reset.
+         // All rows must be supplied before that reset can be released.
+         always_ff @(posedge clk) if(reset && image_write_valid) case(image_section)
+-            0: if(image_index<INSTRUCTION_DEPTH) instructions[image_index[CW-1:0]]<=image_word[287:0];
++            0: if(image_index<INSTRUCTION_DEPTH) instructions[image_index[CW-1:0]]<=INSTRUCTION_BITS'(compact_write_word);
+             1: if(image_index<FUNCTION_DEPTH) functions[image_index[FW-1:0]]<=image_word[159:0];
+             2: if(image_index<TYPE_DEPTH) types[image_index[TW-1:0]]<=image_word[TYPE_DEPTH-1:0];
+             4: if(image_index<BOOT_DEPTH) boot[image_index[BW-1:0]]<=image_word[231:0];
+             default: begin end
+         endcase
+     end endgenerate
+-    logic [287:0] instruction;
++    logic [INSTRUCTION_BITS-1:0] instruction_stored;
++    wire [287:0] instruction;
++    generate if(LOADABLE!=0) begin: compact_image
++        wasmetal_instruction_decode instruction_decoder(.compact(instruction_stored),.expanded(instruction));
++    end else begin: expanded_image
++        assign instruction=instruction_stored;
++    end endgenerate
+     logic [159:0] function_data;
+     logic [231:0] boot_record;
+     logic [31:0] boot_index, code_count, function_count, boot_count;
+@@ -86,7 +97,7 @@
+     assign result_byte=tx_data;
+ 
+     always_ff @(negedge clk) begin
+-        instruction<=instructions[pc[CW-1:0]];
++        instruction_stored<=instructions[pc[CW-1:0]];
+         function_data<=functions[function_index[FW-1:0]];
+         boot_record<=boot[boot_index[BW-1:0]];
+     end
+--- a/soc/loader/wasmetal_image_loader.sv
++++ b/soc/loader/wasmetal_image_loader.sv
+@@ -7,7 +7,7 @@
+     parameter logic [127:0] PROFILE_TAG=0,
+     parameter integer WORD_WIDTH=(TYPE_DEPTH>288 ? TYPE_DEPTH : 288)
+ ) (
+-    input wire clk, reset, abort_load,
++    input wire clk, reset, abort_load, store_fault,
+     input wire rx_valid,
+     input wire [7:0] rx_data,
+     output wire tx_valid,
+@@ -38,7 +38,7 @@
+     logic [2:0] section;
+     logic [BCW-1:0] byte_index;
+     logic [TCW-1:0] idle_cycles;
+-    logic write_pending, checksum_verified;
++    logic write_pending, checksum_verified, store_failed;
+     assign word_valid=write_pending && !reset && !abort_load;
+     assign tx_valid=state==REPLY && !reset && !abort_load;
+ 
+@@ -115,9 +115,10 @@
+             header_data<=0;nonce<=0;crc<=32'hffffffff;received_crc<=0;reply_image_crc<=0;
+             cursor<=0;words_sent<=0;reply_crc<=16'hffff;reply_status<=0;section<=0;
+             byte_index<=0;idle_cycles<=0;write_pending<=0;checksum_verified<=0;
+-            image_valid<=0;word_section<=0;word_index<=0;word_data<=0;
++            image_valid<=0;word_section<=0;word_index<=0;word_data<=0;store_failed<=0;
+         end else begin
+             write_pending<=0;
++            if(word_valid) store_failed<=store_failed | store_fault;
+             if(abort_load) begin
+                 image_valid<=0;checksum_verified<=0;magic_index<=0;reply(7,0);
+             end else if((state==HEADER || state==PAYLOAD || state==CHECKSUM) &&
+@@ -134,7 +135,7 @@
+                                 if(magic_index==3) begin
+                                     state<=HEADER;magic_index<=0;header_index<=0;header_data<=0;
+                                     nonce<=0;crc<=32'hffffffff;image_valid<=0;checksum_verified<=0;
+-                                    cursor<=0;section<=0;byte_index<=0;words_sent<=0;
++                                    cursor<=0;section<=0;byte_index<=0;words_sent<=0;store_failed<=0;
+                                 end else magic_index<=magic_index+1'b1;
+                             end else magic_index<=rx_data==8'h57 ? 2'd1 : 2'd0;
+                         end else if(idle_cycles==TCW'(TIMEOUT_CYCLES-1)) begin
+@@ -177,7 +178,8 @@
+                         received_crc<=checksum_next;
+                         if(checksum_index==3) begin
+                             if(checksum_next==~crc && words_sent==TOTAL_WORDS) begin
+-                                checksum_verified<=1;reply(1,~crc);
++                                if(store_failed===1'b0) begin checksum_verified<=1;reply(1,~crc);end
++                                else reply(8,0);
+                             end else reply(5,~crc);
+                         end else checksum_index<=checksum_index+1'b1;
+                     end
+@@ -193,7 +195,7 @@
+             assert(!image_valid && word_section<5);
+             assert(word_index<section_words(word_section));
+         end
+-        if(image_valid) assert(checksum_verified && words_sent==TOTAL_WORDS && state==SEARCH);
++        if(image_valid) assert(checksum_verified && words_sent==TOTAL_WORDS && state==SEARCH && !store_failed);
+         if(state==PAYLOAD) begin
+             assert(section<5 && cursor<section_words(section));
+             assert(32'(byte_index)<section_bytes(section));
+--- a/soc/loader/wasmetal_loadable.sv
++++ b/soc/loader/wasmetal_loadable.sv
+@@ -18,7 +18,10 @@
+     wire [2:0] word_section;
+     wire [31:0] word_index;
+     wire [WORD_WIDTH-1:0] word_data;
+-    wire ignored_tx;
++    wire ignored_tx,instruction_encodable;
++    wire [193:0] unused_compact_word;
++    wasmetal_instruction_encode encoding_check(.expanded(word_data[287:0]),
++        .compact(unused_compact_word),.encodable(instruction_encodable));
+     assign finished=image_valid && system_finished;
+     assign error=image_valid && system_error;
+     wasmetal_uart #(.BIT_TICKS(UART_TICKS)) serial(
+@@ -29,7 +32,8 @@
+     wasmetal_image_loader #(.INSTRUCTION_DEPTH(INSTRUCTION_DEPTH),.FUNCTION_DEPTH(FUNCTION_DEPTH),
+         .TYPE_DEPTH(TYPE_DEPTH),.BOOT_DEPTH(BOOT_DEPTH),.REGIONS_PER_KIND(REGIONS_PER_KIND),
+         .TIMEOUT_CYCLES(UPLOAD_TIMEOUT_CYCLES),.PROFILE_TAG(PROFILE_TAG)) loader(
+-        .clk(clk),.reset(reset),.abort_load(rx_error),.rx_valid(rx_valid),.rx_data(rx_data),
++        .clk(clk),.reset(reset),.abort_load(rx_error),
++        .store_fault(word_valid && word_section==0 && !instruction_encodable),.rx_valid(rx_valid),.rx_data(rx_data),
+         .tx_valid(loader_tx_valid),.tx_data(loader_tx_data),.tx_ready(tx_ready),
+         .image_valid(image_valid),.word_valid(word_valid),.word_section(word_section),
+         .word_index(word_index),.word_data(word_data));

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "scope": "unbounded upload authorization, write bounds and initialization safety; not complete CRC/data equivalence or CPU integration",
+  "configurations": [
+    {
+      "name": "small",
+      "parameters": {
+        "INSTRUCTION_DEPTH": 4,
+        "FUNCTION_DEPTH": 2,
+        "TYPE_DEPTH": 8,
+        "BOOT_DEPTH": 4,
+        "REGIONS_PER_KIND": 2,
+        "TIMEOUT_CYCLES": 64
+      },
+      "status": "proven"
+    },
+    {
+      "name": "production",
+      "parameters": {
+        "INSTRUCTION_DEPTH": 1024,
+        "FUNCTION_DEPTH": 128,
+        "TYPE_DEPTH": 64,
+        "BOOT_DEPTH": 512,
+        "REGIONS_PER_KIND": 16,
+        "TIMEOUT_CYCLES": 2000000
+      },
+      "status": "proven"
+    }
+  ],
+  "environment": "initial reset; arbitrary binary bytes, RX strobes, aborts, TX backpressure and later resets",
+  "properties": [
+    "no store write to an executable image",
+    "store writes stay within every section",
+    "execution permission requires complete word count and verified checksum state",
+    "all state registers remain defined"
+  ],
+  "reachable_state_lemmas": "proven jointly, not assumed",
+  "negative_controls_rejected": [
+    "missing-word-reset",
+    "commit-before-payload"
+  ],
+  "inputs": {
+    "build/compact-instruction/wasmetal_image_loader.sv": "bb30890b127ffbe6054024aa1ef37f38150b60d188082d9c1d146da94e1932a7",
+    "build/prove_compact_image_loader.py": "d83f167a268ab6f5563ef8d648963d5591059da67947340eec6bbbd524d21fd5",
+    "build/formal-compact-image-loader/loader.sv": "c11deecb8ed58ff311b286150724bf6b1a9c70c046f01816958685a14ae9c6e1",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98"
+  },
+  "physical_hardware_tested": false
+}
