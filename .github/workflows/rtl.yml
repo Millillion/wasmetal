@@ -14,7 +14,8 @@ permissions:
   contents: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # Let long main-branch regressions finish while subsequent work is committed.
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 jobs:
   xilinx-resource-estimate:
     name: Programmable 7-series resource estimate

@@ -27,9 +27,14 @@ board result and foundry signoff are separate kinds of evidence.
 - [x] Add a separate SDR SDRAM controller with independently checked device
   commands, timing, refresh, masking and reset. Its [six-profile campaign](SDRAM.md)
   passes 836,574 requests and 774 warm resets per model in native and mapped
-  simulation, plus four-state checks. Expanded formal proofs are running.
-- [ ] Connect that controller to the complete CPU, then implement and verify
-  its board PHY. Physical timing and electrical behavior still require
+  simulation, plus four-state checks. Unbounded protocol safety proofs pass
+  all six configurations with seven rejected controller mutations.
+- [x] Connect the SDR controller to the complete CPU in a separate simulation.
+  All 35 system cases pass in two timing configurations, including startup
+  that extends beyond program commit. Corrupted reads and deliberately
+  bypassed startup gating fail independent checks.
+- [ ] Implement and verify the board PHY, then route the complete external
+  memory system. Physical timing and electrical behavior still require
   hardware. Genesys 2 requires a separate DDR3 controller/PHY.
 
 ## Program loading and useful operation

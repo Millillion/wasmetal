@@ -2,17 +2,16 @@ name: SDRAM controller verification
 on:
   push:
     paths:
-      - 'soc/sdram/**'
-      - 'tests/memory/sdram*'
-      - 'tools/*sdram*.py'
-      - 'tools/build_board.py'
-      - 'tools/build_gate_sim.py'
-      - 'tools/build_standalone_gate_sim.py'
-      - 'tools/prepare_standalone.py'
-      - 'tools/ecp5*.py'
-      - 'tools/check_ecp5_luts.py'
-      - 'tools/bootstrap.py'
-      - 'tools/upstream.lock.json'
+      - 'rtl/**'
+      - 'soc/**'
+      - 'sim/**'
+      - 'fpga/**'
+      - 'tests/**'
+      - 'tools/**'
+      - 'third_party/**'
+      - 'examples/**'
+      - 'Makefile'
+      - 'docs/verification/standalone-ci/**'
       - '.github/workflows/sdram.yml'
   pull_request:
   workflow_dispatch:
@@ -20,8 +19,50 @@ permissions:
   contents: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 jobs:
+  system:
+    name: Complete CPU through SDRAM (${{ matrix.name }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: 25mhz
+            arguments: --timing 25mhz
+            negative: read-corruption
+          - name: 100mhz-startup
+            arguments: --timing 100mhz --startup-cycles 5000000
+            negative: startup-bypass
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and build the preparation frontend
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+      - name: Verify all 35 programmable system cases through SDRAM
+        run: python3 tools/check_sdram_system.py ${{ matrix.arguments }}
+      - name: Reject the deliberate integration fault
+        run: |
+          ulimit -c 0
+          python3 tools/check_sdram_system.py ${{ matrix.arguments }} --negative-control ${{ matrix.negative }}
+      - name: Preserve system observations, device coverage and diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: sdram-system-${{ matrix.name }}
+          path: |
+            reports/sdram-system-*.json
+            build/sdram-system-*/*.log
+            build/sdram-system-*/coverage.jsonl
+            build/sdram-system-*/*.sv
+            build/sdram-system-*/*.svh
+            build/sdram-system-*/obj/*.build.json
+          if-no-files-found: warn
+          retention-days: 30
   functional:
     name: Native, mapped and four-state SDRAM checks
     runs-on: ubuntu-24.04

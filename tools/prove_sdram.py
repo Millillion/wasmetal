@@ -95,6 +95,59 @@ HARNESS=r'''
             end
         end
     end
+
+    // These strengthening invariants are proved assertions, not extra assumptions.
+
+    localparam integer RECOVERY_BOUND=maximum(T_RCD+T_WR+8,maximum(T_RCD+CAS_LATENCY+10,T_RAS+1));
+    localparam integer PRECHARGE_BOUND=maximum(RECOVERY_BOUND+T_RP+1,T_RC+1);
+    always @(posedge clk) if(!reset)begin
+        assert(operation_age<=TRANSACTION_BOUND);
+        if(waiting_hold)assert(wait_release);
+        assert(collecting_read==(state==READ_WAIT || state==READ_BURST));
+        if(state==READ_WAIT)assert(32'(read_age)+32'(remaining)==CAS_LATENCY);
+        if(state==READ_BURST)assert(32'(read_age)==CAS_LATENCY+32'(beat));
+        if(outstanding)begin
+            assert(expected_mask==mask_q && expected_data==data_q && expected_write==write_q);
+            assert(expected_legal==!fault);
+            if(!fault)assert(decoded_address==expected_address);
+        end
+        if(state==ACTIVATE)assert(operation_age==0 && row_age==0);
+        if(outstanding && !fault && state!=ACTIVATE)begin
+            assert(operation_age>0);
+            assert(32'(row_age)==(operation_age-1>T_RAS+T_RC+1 ? T_RAS+T_RC+1 : operation_age-1));
+        end
+        if(state==WAIT_RCD)assert(operation_age+32'(remaining)==T_RCD);
+        if(state==COMMAND)assert(operation_age==T_RCD+1);
+        if(state==WRITE_BURST)assert(operation_age==T_RCD+1+32'(beat));
+        if(state==READ_WAIT)assert(operation_age+32'(remaining)==T_RCD+CAS_LATENCY+2);
+        if(state==READ_BURST)assert(operation_age==T_RCD+CAS_LATENCY+2+32'(beat));
+        if(state==RECOVER)assert(operation_age+32'(remaining)<=RECOVERY_BOUND);
+        if(state==PRECHARGE)assert(operation_age<=RECOVERY_BOUND+1);
+        if(state==WAIT_RP)assert(operation_age+32'(remaining)<=PRECHARGE_BOUND);
+        if(state==RESPONSE)assert(operation_age<=PRECHARGE_BOUND+1);
+        if(state>=RECOVER && state<=RESPONSE && !fault && !write_q)assert(rdata==expected_read);
+    end
+    generate for(genvar n=1;n<8;n=n+1)begin
+        always @(posedge clk)if(!reset && state==READ_BURST && beat==n)
+            assert(rdata[n*16-1:0]==expected_read[127:128-n*16]);
+    end endgenerate
+
+    always @(posedge clk)if(!reset)begin
+        if(outstanding)assert(32'(refresh_age)<=REFRESH_TRIGGER+operation_age);
+        if(state==IDLE)assert(32'(refresh_age)<=REFRESH_TRIGGER+PRECHARGE_BOUND+2);
+        if(state==REFRESH)assert(32'(refresh_age)<=REFRESH_TRIGGER+PRECHARGE_BOUND+3);
+        if(state==WAIT_RFC || state==INIT_RFC)assert(32'(refresh_age)+32'(remaining)==T_RFC-1);
+        if(state==INIT_MODE)assert(32'(refresh_age)==T_RFC);
+        if(state==INIT_MRD)assert(32'(refresh_age)+32'(remaining)==T_RFC+T_MRD);
+        if(state>=INIT_RFC && state<=WAIT_RFC)assert(observed_refresh);
+    end
+
+    always @(posedge clk)if(!reset)begin
+        if(state>=ACTIVATE && state<=WAIT_RP)assert(!fault);
+        if(state==READ_WAIT || state==READ_BURST)assert(!write_q);
+        if(state==WRITE_BURST)assert(write_q);
+        if(outstanding && (fault || write_q))assert(rdata==0);
+    end
 '''
 
 
@@ -153,7 +206,7 @@ def main():
     source=directory/'controller.sv';text=original.read_text()
     if text.count('endmodule')!=1:raise ValueError('review SDRAM proof injection')
     source.write_text(text.replace('endmodule',HARNESS+'\nendmodule'))
-    paths=[original,source,Path(__file__).resolve(),ROOT/'tools/check_sdram.py',ROOT/'tools/upstream.lock.json']
+    paths=[original,source,Path(__file__).resolve(),ROOT/'tools/check_sdram.py',ROOT/'tools/prepare_standalone.py',ROOT/'tools/upstream.lock.json']
     inputs={str(p.relative_to(ROOT)):digest(p) for p in paths}
     negatives=[]
     for name,(old,new) in NEGATIVES.items():

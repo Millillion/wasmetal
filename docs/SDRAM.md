@@ -1,8 +1,8 @@
 # SDR SDRAM controller
 
 `wasmetal_sdram_memory` is a separate 128-bit memory backend for an x16 SDR
-SDRAM device. It is not connected to the CPU or included in a board bitstream
-yet. It is intended to exercise a real external-memory command interface and
+SDRAM device. It is connected to the complete CPU in a separate RTL simulation;
+it is not included in a board bitstream yet. It exercises a real external-memory command interface and
 provide a path beyond the block RAM used by the existing ULX3S prototype.
 The Genesys 2 board discussed in the purchase research uses DDR3; it needs a
 DDR3 controller and PHY connected through the existing AXI path.
@@ -108,20 +108,61 @@ read capture, refresh deadlines and bounded controller activity. Seven
 controller mutations must produce counterexamples before positive proofs run.
 The formal model does not prove a DRAM array, electrical timing or a board PHY.
 
+The [completed proof](verification/sdram-proof.json) covers all six
+configurations. Intermediate assertions relate timers to controller phases,
+captured requests to device payloads and partial reads to the completed word.
+These assertions are proved along with the original properties. They are not
+additional assumptions about the inputs. This permits induction to finish
+without unrolling an entire transaction or the startup delay.
+
 Reports in `reports/sdram-*.json` identify the exact sources, tools, profiles
 and outcomes. A report is written only after its entire selected campaign
 passes and its input identities remain unchanged. Completed results are
 linked from the README; a running proof is not a completed result.
 
+## Complete CPU integration
+
+The integration builder replaces the block-RAM backend only in a private
+simulation build. It uses a second, independent SystemVerilog SDRAM model
+with nonzero initial contents, retained contents across application resets,
+pin-command timing assertions and refresh coverage. The existing UART
+uploader and independent program-result oracle remain in use.
+
+The memory bridge stays in reset until the SDR controller reports that
+initialization is complete. Application reset goes to the controller's warm
+reset input. Both [the ordinary timing run](verification/sdram-system-25mhz-5000.json)
+and [the delayed startup run](verification/sdram-system-100mhz-5000000.json)
+pass all 35 programmable-system cases. The delayed run uses 5,000,000 startup
+clocks so initialization actually overlaps a committed upload; normal serial
+uploads otherwise hide this condition. The observed startup stalls total
+12,178,089 clocks across the test processes. This is a test delay, not a new
+board startup requirement.
+
+```sh
+python3 tools/check_sdram_system.py --timing 25mhz
+python3 tools/check_sdram_system.py --timing 100mhz --startup-cycles 5000000
+python3 tools/check_sdram_system.py --timing 25mhz --negative-control read-corruption
+python3 tools/check_sdram_system.py --timing 100mhz --startup-cycles 5000000 --negative-control startup-bypass
+```
+
+The read-corruption case must fail the program-result oracle. The startup
+bypass must trigger the independent assertion against premature memory
+requests; its raw HDL diagnostic is captured directly. A generic process or
+JSON parsing failure cannot stand in for either expected rejection.
+CI repeats both complete campaigns and their negative controls.
+
+These system tests use one simulation clock and a behavioral device. The
+default board backend remains block RAM. A separate physical memory clock,
+clock crossing and board PHY are still required for the slow ULX3S CPU clock;
+the 25 MHz and 100 MHz settings describe device-model timing constraints.
+
 ## Integration work remaining
 
-1. Connect the backend to the complete CPU in a separate system simulation,
-   preserving startup clearing, image replacement and reset isolation.
-2. Add a board-specific PHY and clock/reset boundary with I/O timing
+1. Add a board-specific PHY and clock/reset boundary with I/O timing
    constraints. Check the actual populated device and board revision.
-3. Synthesize and route that complete system. Measure memory savings,
+2. Synthesize and route that complete system. Measure memory savings,
    performance and timing using the resulting implementation.
-4. Exercise a physical board with memory tests and repeated application loads.
+3. Exercise a physical board with memory tests and repeated application loads.
 
 The existing programmable FPGA system continues to use block RAM. No working
 external-memory board implementation follows from these component tests.

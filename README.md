@@ -4,7 +4,7 @@ A project to build a bare metal physical implementation of WebAssembly. That's r
 
 WasMetal is being revived under [Millillion](https://github.com/Millillion) in 2026. It implements WebAssembly Core 3.0 instructions in a clocked SystemVerilog stack machine, with a software loading and validation front end.
 
-Completed work lives on `main`. Temporary development branches are integrated into `main` and pushed before a task is finished; the README is reviewed with every commit.
+Completed work lives on `main`. Temporary development branches are integrated into `main` and pushed before a task is finished; the README is reviewed with every commit. Main-branch verification runs finish before queued code changes are tested, so frequent commits do not cancel active regressions. Newer pushes can replace an older pending run.
 
 ## Current status
 
@@ -99,11 +99,19 @@ are separate from the complete CPU tests. The
 requests and 774 warm resets in each model, with matching observations and
 cycles, all 65,536 write masks per profile and six rejected fault injections
 per model/profile. Another [366 four-state checks](docs/verification/sdram-four-state.json)
-pass with three rejected controller mutations. Expanded formal proofs are
-still running. A dedicated workflow repeats the component checks and proofs.
-This component is not connected to the CPU or a board PHY yet; it targets SDR
-SDRAM such as the ULX3S memory, while Genesys 2 requires DDR3. The default FPGA
-memory backend remains block RAM.
+pass with three rejected controller mutations. An
+[unbounded protocol safety proof](docs/verification/sdram-proof.json) now passes
+all six configurations and rejects seven controller mutations. The complete
+CPU also passes all 35 integration cases through a behavioral SDRAM device
+with [25 MHz timing](docs/verification/sdram-system-25mhz-5000.json) and
+[100 MHz timing plus a long startup delay](docs/verification/sdram-system-100mhz-5000000.json).
+The latter holds off memory requests for 12,178,089 startup cycles across the
+campaign. [Corrupted reads](docs/verification/sdram-system-25mhz-5000-read-corruption.json)
+and [bypassed startup gating](docs/verification/sdram-system-100mhz-5000000-startup-bypass.json)
+are rejected independently. A dedicated workflow repeats the component,
+formal and complete-CPU checks. These are simulation timing profiles, not
+measured FPGA clock rates. The board PHY and physical implementation remain;
+Genesys 2 requires DDR3. The default FPGA memory backend remains block RAM.
 
 The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
 receiver and Python encoder. The production layout test checks
