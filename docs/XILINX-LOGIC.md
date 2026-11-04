@@ -53,3 +53,44 @@ table-specific comparison count can differ from the two-netlist local run.
 These component checks do not establish complete CPU correctness, board timing
 or physical hardware operation. The [RAM](XILINX-MEMORY.md) and
 [DSP](XILINX-DSP.md) checks have their own scopes.
+
+## Carry chains
+
+The [CARRY4 regression](verification/xc7-carry.json) compares the Yosys model
+with the [unmodified Xilinx source](https://github.com/Xilinx/XilinxUnisimLibrary/blob/1c8e05fd1e9a79ceb8b996a0996674122eed086f/verilog/src/unisims/CARRY4.v).
+The vendor file's Git blob, SHA-256 identity and original notices are retained.
+A SAT proof establishes equivalence for every binary input. Both models also
+pass an independent Python oracle for all 1,024 binary combinations. Verilator
+checks the Yosys model with the same split-carry scheduling configuration used
+by the complete system.
+
+A separate C++ test drives the primitive's actual top-level input ports,
+checking all 1,024 complete words and every intermediate value while updating
+each bit individually: 11,264 observations. Eleven controls reject inversions
+of each of the eight outputs, an incorrect carry-input merge in Icarus and
+the C++ simulation, and that same arithmetic error in the formal proof.
+
+Four-state equivalence does **not** hold between these two library models.
+For example, Xilinx models a pull-down when `CI` or `CYINIT` is Z; Yosys does
+not. Yosys uses conditional selection, while Xilinx uses gates whose unknown
+propagation differs. Each model instead passes its own independently computed
+oracle for every one of the 1,048,576 combinations of 0, 1, X and Z at its ten
+inputs. Outputs differ between the models on 415,001 combinations. The receipt
+records examples; this difference is not counted as a successful equivalence
+check. The complete Verilator system simulations use two-state behavior.
+
+The [evidence archive](verification/xc7-carry) also retains a development
+diagnostic: a timed SystemVerilog fixture that assigned input bits in a loop
+produced stale outputs under pinned Verilator 5.020. The final timed fixture
+assigns the complete word, and the independent C++ port driver passes both
+whole-word and individual-bit updates. The failing diagnostic is not counted
+as a passed check. Unknown values are compared directly; even XOR with zero
+would incorrectly turn Z into X in a test wrapper.
+
+```sh
+python3 tools/check_xc7_carry.py
+```
+
+CI repeats the proof, simulation oracles and negative controls. These remain
+untimed component checks, without a physical timing or silicon claim. The
+Yosys library notice is preserved with both logic evidence archives.

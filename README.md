@@ -139,6 +139,12 @@ oracle regressions pass 183,664 known-input cases per model in Icarus and
 Verilator, plus 11,811,032 four-state cases per model in Icarus. All eleven
 fault controls are rejected. CI repeats the proofs and the mapped-table
 regression; faster whole-system simulation is being checked separately.
+The [carry-chain checks](docs/XILINX-LOGIC.md#carry-chains) prove binary
+equivalence with Xilinx, pass every binary input and 11,264 C++-driven input
+transitions, and reject eleven faults. Each model also passes its independent
+oracle for all 1,048,576 four-state input combinations. Their X/Z behavior
+differs on 415,001 combinations; this is explicitly recorded, and no
+four-state vendor-equivalence claim is made. CI repeats these checks.
 Complete Xilinx CPU simulation, placement and timing
 remain unverified. ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.

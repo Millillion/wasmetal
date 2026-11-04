@@ -1,0 +1,6 @@
+make: Entering directory '/tmp/wasmetal-direct-rounding/build/xc7-carry-check/obj-whole'
+Vbench.mk:54: .cache/tools/usr/share/verilator/include/verilated.mk: No such file or directory
+make: *** No rule to make target '.cache/tools/usr/share/verilator/include/verilated.mk'.  Stop.
+make: Leaving directory '/tmp/wasmetal-direct-rounding/build/xc7-carry-check/obj-whole'
+%Error: make -C build/xc7-carry-check/obj-whole -f Vbench.mk -j 1 exited with 2
+%Error: Command Failed ulimit -s unlimited 2>/dev/null; exec /tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/bin/verilator_bin --binary --timing --assert -Wall -Wno-DECLFILENAME -Wno-UNUSEDSIGNAL --top-module bench --Mdir build/xc7-carry-check/obj-whole build/xc7-carry-check/carry.vlt build/xc7-carry-check/yosys.v build/xc7-carry-check/whole-write.sv
