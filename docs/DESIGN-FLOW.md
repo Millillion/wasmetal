@@ -151,7 +151,7 @@ RTL with `make sim`. Both official-suite commands use that executable by default
 | Mapped-RAM component checks and the RTL board/UART simulation | Yes |
 | Bounded standalone images, local-memory oracle and autonomous board RTL | Yes; separate standalone job |
 | Complete standalone mapped circuit compared with board RTL | Yes; prepared self-test and reset scenarios |
-| Standalone placement/routing timing and bitstream round trip | Yes; separate standalone job |
+| Standalone placement/routing timing and bitstream round trip | Yes; separate standalone-routing job |
 | Programmable uploads, replacement and recovery | Yes; all 35 local RTL/mapped comparisons passed |
 | Compiled freestanding C through programmable uploads | Yes; all five local RTL/mapped comparisons passed |
 | Programmable placement/routing and bitstream round trip | Required by CI; routing has not completed locally |
@@ -163,9 +163,19 @@ groups, native tests, the compiled C workload and board routing. Its execution
 results are complete locally; programmable routing remains unresolved. These
 jobs supplement the complete official core corpus with bounded system tests.
 
-The standalone job runs `make standalone-mapped-test` and retains its reports,
-bitstream and prepared image for 30 days. Its local-memory integration coverage
+The standalone functional job runs the RTL tests, synthesizes the bounded CPU,
+maps the board with `--map-only`, and runs the memory-model and complete mapped
+system comparisons. It shares that CPU mapping with the programmable tests
+and a separate standalone routing job. Routing still requires timing closure
+and a bitstream round trip; its success is not needed to start the functional
+comparisons. Reports, and successful bitstreams with their prepared images,
+are retained for 30 days. The existing `Standalone FPGA system` check name
+is retained as a gate requiring both jobs, preserving its physical-success
+requirement. Its local-memory integration coverage
 does not replace or claim the entire official corpus on the standalone system.
+This separation addresses [the selector build's three-hour routing timeout](https://github.com/Millillion/wasmetal/actions/runs/41770401814/job/126379123153),
+which previously prevented the mapped standalone and programmable tests from
+starting. The physical implementation of that revision remains unverified.
 See the [standalone guide](STANDALONE.md) for capacities and recorded evidence.
 Its [first clean CI job passed](https://github.com/Millillion/wasmetal/actions/runs/41572176563/job/125707382260)
 and reproduced the local bitstream exactly; the [receipt](verification/standalone-ci.json)

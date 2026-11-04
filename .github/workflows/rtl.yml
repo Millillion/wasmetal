@@ -382,7 +382,7 @@ jobs:
           retention-days: 30
 
   standalone:
-    name: Standalone FPGA system
+    name: Standalone RTL and mapped system
     runs-on: ubuntu-24.04
     timeout-minutes: 180
     steps:
@@ -391,8 +391,16 @@ jobs:
           persist-credentials: false
       - name: Install pinned simulation and FPGA tools
         run: python3 tools/bootstrap.py --fpga-tools
-      - name: Verify standalone RTL, map the complete system, route and compare circuit behavior
-        run: make standalone-mapped-test
+      - name: Verify standalone RTL and synthesize the complete bounded CPU
+        run: make standalone-test standalone-image standalone-core
+      - name: Map the board circuit without waiting for physical routing
+        run: python3 tools/build_standalone_board.py --map-only
+      - name: Compare complete mapped behavior and verify the memory models
+        run: |
+          python3 tools/check_mapped_local_memory.py
+          python3 tools/check_standalone_ram.py
+          python3 tools/build_standalone_gate_sim.py
+          python3 tools/check_standalone_mapped.py
       - name: Audit generic memories and ASIC implementation boundaries
         run: python3 tools/audit_asic.py
       - name: Share the complete bounded CPU mapping with programmable system verification
@@ -425,6 +433,37 @@ jobs:
             build/standalone-memory-production/*.log
           if-no-files-found: warn
           retention-days: 30
+
+  standalone-board:
+    name: Standalone FPGA routing
+    needs: standalone
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned FPGA tools and prepare the same self-test image
+        run: |
+          python3 tools/bootstrap.py --fpga-tools
+          make standalone-image
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: standalone-core-mapping
+          path: build
+      - name: Route the complete board and require timing and bitstream round trip
+        run: python3 tools/build_standalone_board.py
+      - name: Preserve placement, routing and timing diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: standalone-routing
+          path: |
+            build/standalone-ulx3s/*.log
+            build/standalone-ulx3s/timing*.json
+            build/standalone-ulx3s/design.manifest.json
+          if-no-files-found: warn
+          retention-days: 30
       - name: Preserve verified bitstream and prepared program
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
@@ -436,6 +475,20 @@ jobs:
             build/standalone-image/
           if-no-files-found: error
           retention-days: 30
+
+  standalone-complete:
+    # Preserve the existing required-check name and its physical success gate.
+    name: Standalone FPGA system
+    if: always()
+    needs: [standalone, standalone-board]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require functional verification and physical implementation
+        env:
+          FUNCTIONAL_RESULT: ${{ needs.standalone.result }}
+          ROUTING_RESULT: ${{ needs.standalone-board.result }}
+        run: test "$FUNCTIONAL_RESULT" = success && test "$ROUTING_RESULT" = success
 
   programmable:
     name: Programmable simulation build
