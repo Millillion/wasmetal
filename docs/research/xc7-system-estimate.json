@@ -1,6 +1,6 @@
 {
   "status": "synthesized_and_structurally_checked",
-  "captured_at_utc": "2026-11-03T14:45:16.373397+00:00",
+  "captured_at_utc": "2026-11-04T13:41:37.386922+00:00",
   "scope": "complete programmable core-clock SoC; excludes board pads, clock/reset generation and external-memory controller",
   "top": "wasmetal_loadable",
   "family": "xc7",
@@ -43,11 +43,12 @@
   },
   "inputs": {
     "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
-    "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+    "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
     "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
     "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
     "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
-    "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+    "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+    "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
     "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
     "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
     "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
@@ -83,7 +84,10 @@
     "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
     "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
     "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
-    "tools/estimate_xc7_system.py": "dee22798fa7d0e128b357eadc2fe9e76e45f2510759156764cef49901c63e485",
+    "tools/estimate_xc7_system.py": "173f969e6d9306a4dfb1a1d6eb4748a75ba3856b3142cf647dd1646a13988794",
+    "tools/xc7_memory_mapping.py": "a554ac9ddc2123c4d818f67bc4f9118304c8dba3b7d9ba0878e507e351f02c49",
+    "build/xc7-system/mapping-overlay/brams_xc6v_map.v": "469e7d3252c031c268f70dd5b0357f4aa94f21f20bf4bd405d7a8a39c29e291b",
+    "build/xc7-system/mapping-overlay/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55",
     "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
     "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
@@ -144,33 +148,69 @@
     "yosys_sha256": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
     "abc_sha256": "001a99fb8648794076dd238e42f3bd8c5112a4b8bd89660883325a7e0d006043"
   },
-  "script_sha256": "5b88dc6b62c15ecd8460148e4e4cd1c074cc879347505d026669285d6d70a331",
-  "log_sha256": "324ac2a703f5fd25193c698a1ae6dda6d04718a06a0836730ffd21a51cf0c58e",
-  "generic_netlist_sha256": "30beaa5c1c198e0467c9d16a980268420a6d322bd8cbe789a7c5221d0ad11185",
-  "netlist_sha256": "5bbeb472e5604ac3188d71911ac0e39e5960f824c77a1f8be38968e628ec7abd",
+  "script_sha256": "975963d98bc1e3b505d44da33eebf950582dd439ee2e1a91fd383c595181c4ae",
+  "log_sha256": "b837838ce5aa8b2da665a81f4411bf99dde6bfbb6ac734442c588afa320dba99",
+  "memory_mapping": {
+    "scope": "Yosys 0.33 xc7 memory mapping; correct 72-bit SDP parity inputs and non-cascaded RAMB36E1 unused address pins",
+    "upstream_fixed_source": "https://github.com/YosysHQ/yosys/blob/24471b847a1c90b6b7a0e0535f15ea48b477d5b4/techlibs/xilinx/brams_xc6v_map.v",
+    "patch": {
+      "before": ".DIPBDIP(PORT_W_WIDTH == 71 ? DIP[7:4] : DIP[3:0])",
+      "after": ".DIPBDIP(PORT_W_WIDTH == 72 ? DIP[7:4] : DIP[3:0])",
+      "replacements": 1
+    },
+    "address_pin_guidance": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content",
+    "address_patches": {
+      ".ADDRARDADDR({1'b1, PORT_A_ADDR[14:0]})": ".ADDRARDADDR(PORT_A_ADDR | wasmetal_ramb36_unused(PORT_A_RD_USED ? PORT_A_RD_WIDTH : 0, PORT_A_WR_USED ? PORT_A_WR_WIDTH : 0))",
+      ".ADDRBWRADDR({1'b1, PORT_B_ADDR[14:0]})": ".ADDRBWRADDR(PORT_B_ADDR | wasmetal_ramb36_unused(PORT_B_RD_USED ? PORT_B_RD_WIDTH : 0, PORT_B_WR_USED ? PORT_B_WR_WIDTH : 0))",
+      ".ADDRARDADDR({1'b1, PORT_R_ADDR})": ".ADDRARDADDR(PORT_R_ADDR | wasmetal_ramb36_unused(PORT_R_USED ? PORT_R_WIDTH : 0, 0))",
+      ".ADDRBWRADDR({1'b1, PORT_W_ADDR})": ".ADDRBWRADDR(PORT_W_ADDR | wasmetal_ramb36_unused(0, PORT_W_USED ? PORT_W_WIDTH : 0))"
+    },
+    "address_function_insertions": 2,
+    "inputs": {
+      ".cache/tools/usr/share/yosys/xilinx/brams_xc6v_map.v": "678908f431dd3304aa41f2d1cb87ed6958c20adff848a0b3a6ea8903e59a1008",
+      ".cache/tools/usr/share/yosys/xilinx/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55",
+      ".cache/tools/usr/share/yosys/xilinx/brams_xc4v.txt": "13e895e452af7e34161aa7572f4e11ab81d787fc1b9b85d10c713f03554b85f2",
+      ".cache/tools/usr/share/yosys/xilinx/lutrams_xc5v.txt": "88b460c2a164059c4fb7cf89f71f7a657a993905c275e6acd8685a316d3a8ce9",
+      ".cache/tools/usr/share/yosys/xilinx/lutrams_xc5v_map.v": "a88ef19a3318a4b45655d826bfcb80f17bd241fa4f573fca8dcd6b12c5640cff"
+    },
+    "outputs": {
+      "build/xc7-system/mapping-overlay/brams_xc6v_map.v": "469e7d3252c031c268f70dd5b0357f4aa94f21f20bf4bd405d7a8a39c29e291b",
+      "build/xc7-system/mapping-overlay/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55"
+    },
+    "commands": "memory_libmap -logic-cost-rom 0.015625 -lib +/xilinx/lutrams_xc5v.txt -lib +/xilinx/brams_xc4v.txt -D HAS_SIZE_36 -D HAS_CASCADE -D HAS_CONFLICT_BUG -D HAS_MIXWIDTH_SDP -no-auto-huge\ntechmap -map +/xilinx/lutrams_xc5v_map.v\ntechmap -map \"/tmp/wasmetal-direct-rounding/build/xc7-system/mapping-overlay/brams_xc6v_map.v\"\n",
+    "installed_tools_modified": false
+  },
+  "ram_address_pin_audit": {
+    "status": "passed",
+    "ram36_cells": 28,
+    "constant_high_address_pins": 340,
+    "source": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content"
+  },
+  "generic_netlist_sha256": "7aec05172adbfc727978c72aceb4f56c8913238b2735b795ed58a524ed0776c1",
+  "netlist_sha256": "82ba955d81f735d5a0b3dc0b2b65e3670a6fb43f031248b5303ddac28c1a9239",
   "generic_memory_count": 82,
   "generic_memory_bits": 3035904,
   "cell_counts": {
-    "CARRY4": 2298,
-    "DSP48E1": 30,
+    "CARRY4": 2295,
+    "DSP48E1": 29,
     "FDCE": 6,
     "FDRE": 6677,
     "FDRE_1": 192,
     "FDSE": 76,
-    "INV": 1274,
-    "LUT1": 859,
-    "LUT2": 13433,
-    "LUT3": 13403,
-    "LUT4": 5058,
-    "LUT5": 5379,
-    "LUT6": 14305,
-    "MUXF7": 3960,
-    "MUXF8": 1477,
+    "INV": 1354,
+    "LUT1": 1001,
+    "LUT2": 13788,
+    "LUT3": 11017,
+    "LUT4": 5904,
+    "LUT5": 5102,
+    "LUT6": 14152,
+    "MUXF7": 5297,
+    "MUXF8": 1497,
     "RAM64M": 22,
     "RAMB18E1": 136,
     "RAMB36E1": 28
   },
-  "logic_lut_primitives": 52437,
+  "logic_lut_primitives": 50964,
   "flip_flops": 6951,
   "ram36_equivalent": 96.0,
   "distributed_ram_primitives": {
@@ -190,5 +230,5 @@
     "Primitive counts are not packed utilization, a Vivado report, a clock-speed estimate or proof of physical fit.",
     "Only the bounded standalone profile is represented; no DDR controller, cache, host runtime or reclaiming GC is included."
   ],
-  "elapsed_seconds": 881.4236142260488
+  "elapsed_seconds": 1297.586897928035
 }

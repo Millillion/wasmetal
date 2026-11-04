@@ -89,17 +89,19 @@ The [FPGA purchase research](docs/FPGA-SELECTION.md) compares development boards
 tools, community support and US home-use compliance. Genesys 2 remains the
 technical recommendation, conditional on supplier clarification of its
 regulatory basis for home R&D; ZCU104 is the leading alternative with an Arm
-host. The historical [complete-system Xilinx estimate](docs/research/xc7-system-estimate.json)
-counts 52,437 logic LUT primitives, 6,951 flip-flops, 30 DSPs and 96 equivalent
-36-Kbit RAM blocks, before board clock/reset and DDR integration.
+host. The corrected [complete-system Xilinx estimate](docs/research/xc7-system-estimate.json)
+counts 50,964 logic LUT primitives, 6,951 flip-flops, 29 DSPs and 96 equivalent
+36-Kbit RAM blocks, before board clock/reset and DDR integration. Logic LUTs
+occupy about 25.0% of Genesys 2's LUT-site capacity, excluding distributed RAM.
 
 New [vendor-model memory checks](docs/XILINX-MEMORY.md) exposed a real 72-bit
 RAM mapping defect in pinned Yosys 0.33. An isolated correction passes 26,028
 operations per model across five RAM configurations; all six negative controls,
 including the original faulty mapping, are rejected. CI now runs this check
 before the resource estimate. A separate address-pin audit also passes and
-rejects 18 structural mutations. The corrected complete-system synthesis is
-running; the earlier estimates are historical size evidence with a known
+rejects 18 structural mutations. The corrected complete-system synthesis passes
+structural checks and checks all 340 unused address-pin constants across its
+28 RAMB36E1 cells. Earlier estimates remain historical size evidence with a known
 functional mapping defect. Complete Xilinx CPU simulation, placement and timing
 remain unverified. ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.

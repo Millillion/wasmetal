@@ -71,7 +71,7 @@ board result and foundry signoff are separate kinds of evidence.
   [Routing remains incomplete](PLACEMENT.md).
 - [x] Measure the complete programmable system on a larger FPGA family without
   reducing configured capacities. The [7-series estimate](research/xc7-system-estimate.json)
-  passes structural checks with 52,437 logic LUT primitives and 96 equivalent
+  passes structural checks with 50,964 logic LUT primitives and 96 equivalent
   36-Kbit RAM blocks. Xilinx functional verification and physical implementation
   remain separate work; no board selection or working port follows from this
   measurement alone.
@@ -80,7 +80,8 @@ board result and foundry signoff are separate kinds of evidence.
   model and rejects six faults, including a real 72-bit RAM mapping defect in
   pinned Yosys 0.33. An address-pin audit also rejects 18 structural mutations.
   The estimator applies the verified private corrections; complete-system
-  synthesis is running. Earlier Xilinx estimates
+  synthesis passes, including 340 address-pin constants across all 28 RAMB36E1
+  cells. Earlier Xilinx estimates
   remain historical resource measurements with a known functional defect.
 - [x] Complete a comparison of every original CPU logic-mapping boundary bit.
   [All 28,506 bits pass](verification/core-mapping-cones.json) for the

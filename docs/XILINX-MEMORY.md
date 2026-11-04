@@ -96,6 +96,10 @@ The Yosys library's empty block-RAM shells are excluded from simulation.
 
 Earlier uncorrected Xilinx resource estimates remain historical size
 measurements, not deployable or functionally verified netlists. The corrected
-complete-system synthesis is being rerun. Complete Xilinx system simulation,
+[complete-system synthesis](research/xc7-system-estimate.json) passes its
+structural check and verifies 340 address-pin constants across all 28 RAMB36E1
+cells. It contains 50,964 logic LUT primitives, 6,951 flip-flops, 29 DSPs,
+136 RAMB18E1 and 28 RAMB36E1 cells, plus 22 RAM64M distributed-memory cells.
+Complete Xilinx system simulation,
 board clock/reset and memory integration, implementation timing and physical
 board tests remain required before claiming a working 7-series port.

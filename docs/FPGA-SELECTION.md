@@ -30,14 +30,15 @@ WebAssembly 3.0 includes memory64, multiple memories, GC, typed function referen
 
 WASI and the Component Model additionally involve software interfaces, loading and runtime services. They are not a simple list of gates to add to a CPU. Similarly, a reclaiming collector needs an explicit hardware/software design; implementing GC instructions and object allocation alone does not supply one.
 
-### Complete programmable system (3 November 2026)
+### Complete programmable system (4 November 2026)
 
-**Mapping correction, 4 November:** the figures below are historical resource
-counts from an uncorrected synthesis flow. Independent vendor-model simulation
-has since exposed a 72-bit RAM data-routing defect in pinned Yosys 0.33.
-The [isolated correction and five-geometry regression](XILINX-MEMORY.md) pass;
-corrected complete-system synthesis is running. These old netlists are not
-functional candidates for deployment.
+The figures below use the corrected mapping flow. Independent vendor-model
+simulation exposed a 72-bit RAM data-routing defect in pinned Yosys 0.33;
+the [correction and five-geometry regression](XILINX-MEMORY.md) pass, and unused
+RAM address pins now follow the vendor's guidance. Complete-system synthesis
+passes structural checks and verifies 340 constant address pins across all
+28 RAMB36E1 cells. The [earlier estimate](research/xc7-system-estimate-before-ram-correction.json)
+is retained as historical size evidence from a known defective mapping.
 
 The [complete-system measurement](research/xc7-system-estimate.json) includes
 the CPU, serial loader, writable instruction and metadata stores, UART and
@@ -47,9 +48,9 @@ value-stack and backing-memory capacities and passes structural checks.
 
 | Complete programmable system | Count | Fraction of Genesys 2 device capacity |
 |---|---:|---:|
-| Logic LUT1–LUT6 primitives | 52,437 | 25.7% of 203,800 LUT sites |
+| Logic LUT1–LUT6 primitives | 50,964 | 25.0% of 203,800 LUT sites |
 | Flip-flops | 6,951 | 1.7% of 407,600 |
-| DSP48E1 | 30 | 3.6% of 840 |
+| DSP48E1 | 29 | 3.5% of 840 |
 | RAMB18E1 / RAMB36E1 | 136 / 28 | 96 equivalent 36-Kbit blocks; 21.6% of 445 |
 
 There are also 22 RAM64M distributed-memory primitives. Their LUT-site use is
@@ -59,8 +60,9 @@ they are not routed utilization. The denominator comes from the
 and [AMD's device table](https://docs.amd.com/api/khub/documents/2LByHkO~nSZXcei2D55fTg/content).
 
 The measurement excludes board clock/reset generation, I/O buffers, a DDR
-controller, caches and a reclaiming collector. It has no Xilinx functional
-simulation, placement, timing, bitstream or hardware validation. It strengthens
+controller, caches and a reclaiming collector. Memory-component simulation
+passes; complete Xilinx CPU simulation, placement, timing, bitstream and
+hardware validation remain outstanding. The estimate strengthens
 the capacity evidence for the existing technical recommendation; it does not
 establish a working Genesys 2 port. The older core-only run below used a
 different heap profile and synthesis context, so subtracting its counts does
@@ -76,8 +78,9 @@ python3 tools/estimate_xc7_system.py
 The script records the profile, source and technology-library hashes, tool
 identities, primitive counts and warnings in
 `reports/xc7-system-estimate.json`; scripts and logs are in `build/xc7-system/`.
-CI repeats this capacity and structural check separately from the functional
-simulation and physical-routing jobs.
+CI first checks the RAM mapping against vendor models, then repeats this
+capacity and structural check. Complete Xilinx CPU simulation and physical
+implementation remain separate work.
 
 ### Earlier core-only Xilinx estimate
 
