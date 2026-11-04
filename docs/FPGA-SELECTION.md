@@ -32,6 +32,13 @@ WASI and the Component Model additionally involve software interfaces, loading a
 
 ### Complete programmable system (3 November 2026)
 
+**Mapping correction, 4 November:** the figures below are historical resource
+counts from an uncorrected synthesis flow. Independent vendor-model simulation
+has since exposed a 72-bit RAM data-routing defect in pinned Yosys 0.33.
+The [isolated correction and five-geometry regression](XILINX-MEMORY.md) pass;
+corrected complete-system synthesis is running. These old netlists are not
+functional candidates for deployment.
+
 The [complete-system measurement](research/xc7-system-estimate.json) includes
 the CPU, serial loader, writable instruction and metadata stores, UART and
 128 KiB backing RAM. It uses the current bounded standalone profile, including

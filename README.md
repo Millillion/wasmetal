@@ -79,7 +79,23 @@ See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the e
 
 For an explanation of the ISA, microarchitecture, SystemVerilog RTL, the two simulation models, synthesis and the FPGA bitstream, read [From the Wasm specification to an FPGA](docs/DESIGN-FLOW.md).
 
-The [FPGA purchase research](docs/FPGA-SELECTION.md) compares development boards, tool licensing, community support and US home-use compliance. It recommends Genesys 2 as the next technical platform, conditional on supplier clarification of its regulatory basis for home R&D; ZCU104 is the leading alternative with an onboard Arm host. The new [complete programmable-system Xilinx estimate](docs/research/xc7-system-estimate.json) passes structural checks with 52,437 logic LUT primitives, 6,951 flip-flops, 30 DSPs and 96 equivalent 36-Kbit RAM blocks. That is about 25.7% of Genesys 2's LUT sites and 21.6% of its block RAM; additional distributed RAM also consumes LUT sites. It includes the loader and local memories but excludes board clock/reset logic and DDR control. This is a resource estimate, with no Xilinx functional, placement or timing validation. Run `python3 tools/estimate_xc7_system.py` after tool bootstrap; CI also runs it. ULX3S 85F remains the only routed board target; no board has been purchased or physically tested by this work.
+The [FPGA purchase research](docs/FPGA-SELECTION.md) compares development boards,
+tools, community support and US home-use compliance. Genesys 2 remains the
+technical recommendation, conditional on supplier clarification of its
+regulatory basis for home R&D; ZCU104 is the leading alternative with an Arm
+host. The historical [complete-system Xilinx estimate](docs/research/xc7-system-estimate.json)
+counts 52,437 logic LUT primitives, 6,951 flip-flops, 30 DSPs and 96 equivalent
+36-Kbit RAM blocks, before board clock/reset and DDR integration.
+
+New [vendor-model memory checks](docs/XILINX-MEMORY.md) exposed a real 72-bit
+RAM mapping defect in pinned Yosys 0.33. An isolated correction passes 26,028
+operations per model across five RAM configurations; all six negative controls,
+including the original faulty mapping, are rejected. CI now runs this check
+before the resource estimate. The corrected complete-system synthesis is
+running; the earlier estimates are historical size evidence with a known
+functional mapping defect. Complete Xilinx CPU simulation, placement and timing
+remain unverified. ULX3S 85F remains the implemented board target, with routing
+still incomplete; no board has been purchased or physically tested by this work.
 
 ## GUI Microarchitecture Simulator
 

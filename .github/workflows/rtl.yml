@@ -83,6 +83,8 @@ jobs:
           persist-credentials: false
       - name: Install pinned synthesis tools
         run: python3 tools/bootstrap.py
+      - name: Verify 7-series memory mapping with original vendor models
+        run: python3 tools/check_xc7_memory_mapping.py
       - name: Synthesize the complete core-clock system and check its structure
         run: python3 tools/estimate_xc7_system.py
       - name: Preserve the estimate and synthesis diagnostics
@@ -92,8 +94,11 @@ jobs:
           name: xilinx-resource-estimate
           path: |
             reports/xc7-system-estimate.json
+            reports/xc7-memory-mapping.json
+            build/xc7-memory-mapping/
             build/xc7-system/*.log
             build/xc7-system/*.ys
+            build/xc7-system/mapping-overlay/
           if-no-files-found: warn
           retention-days: 30
   external-memory-system:

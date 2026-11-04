@@ -74,6 +74,12 @@ board result and foundry signoff are separate kinds of evidence.
   36-Kbit RAM blocks. Xilinx functional verification and physical implementation
   remain separate work; no board selection or working port follows from this
   measurement alone.
+- [x] Check 7-series memory mapping against original vendor simulation models.
+  The [five-geometry regression](XILINX-MEMORY.md) passes 26,028 operations per
+  model and rejects six faults, including a real 72-bit RAM mapping defect in
+  pinned Yosys 0.33. The estimator now applies a verified private correction;
+  the corrected complete-system synthesis is running. Earlier Xilinx estimates
+  remain historical resource measurements with a known functional defect.
 - [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
   See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).

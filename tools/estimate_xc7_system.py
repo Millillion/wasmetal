@@ -12,6 +12,7 @@ from build_board import yosys
 from prepare_standalone import ROOT,digest,load_profile
 from program_upload import profile_tag
 from standalone_support import parameters
+from xc7_memory_mapping import prepare as prepare_memory_mapping
 
 
 def main():
@@ -26,7 +27,10 @@ def main():
         *sorted((ROOT/'soc/memory').glob('*.sv')),
         ROOT/'soc/loader/wasmetal_image_loader.sv',ROOT/'soc/loader/wasmetal_loadable.sv']
     library=ROOT/'.cache/tools/usr/share/yosys'
+    memory_commands,memory_mapping=prepare_memory_mapping(directory/'mapping-overlay')
     inputs=[*rtl,*sorted(vendor.rglob('*.vi')),Path(__file__).resolve(),
+        ROOT/'tools/xc7_memory_mapping.py',
+        *[ROOT/name for name in memory_mapping['outputs']],
         ROOT/'tools/build_board.py',ROOT/'tools/prepare_standalone.py',ROOT/'tools/standalone_support.py',
         ROOT/'tools/program_upload.py',ROOT/'soc/profile.json',ROOT/'tools/upstream.lock.json',
         *[p for p in sorted((library/'xilinx').rglob('*')) if p.is_file()],
@@ -50,7 +54,7 @@ memory -nomap
 opt_clean
 check -assert
 write_json {directory}/generic.json
-{base} -run map_memory:check
+{memory_commands}{base} -run map_ffram:check
 check -assert
 write_json {directory}/mapped.json
 '''
@@ -84,6 +88,7 @@ write_json {directory}/mapped.json
         'inputs':hashes,'tool':{'version':subprocess.check_output([str(executable),'-V'],text=True).strip(),
             'yosys_sha256':digest(executable),'abc_sha256':digest(executable.with_name('yosys-abc'))},
         'script_sha256':digest(directory/'synthesis.ys'),'log_sha256':digest(directory/'synthesis.log'),
+        'memory_mapping':memory_mapping,
         'generic_netlist_sha256':digest(directory/'generic.json'),'netlist_sha256':digest(directory/'mapped.json'),
         'generic_memory_count':len(memories),'generic_memory_bits':sum(bits(c) for name,c in memories),
         'cell_counts':dict(sorted(counts.items())),

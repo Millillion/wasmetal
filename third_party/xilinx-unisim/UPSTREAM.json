@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/Xilinx/XilinxUnisimLibrary",
+  "revision": "1c8e05fd1e9a79ceb8b996a0996674122eed086f",
+  "license": "Apache-2.0",
+  "upstream_release_description": "Vivado 2020.1 (as stated in the preserved upstream README)",
+  "files": [
+    {
+      "local_path": "RAMB18E1.v",
+      "upstream_path": "verilog/src/unisims/RAMB18E1.v",
+      "git_blob_sha": "20dce8ea688d02380c37ce238c30741cbeb8ae0c",
+      "sha256": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+      "bytes": 276132
+    },
+    {
+      "local_path": "RAMB36E1.v",
+      "upstream_path": "verilog/src/unisims/RAMB36E1.v",
+      "git_blob_sha": "c91f764bf8b36eb09e617b17fb381e61e7f6dc3c",
+      "sha256": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+      "bytes": 295535
+    },
+    {
+      "local_path": "glbl.v",
+      "upstream_path": "verilog/src/glbl.v",
+      "git_blob_sha": "398a19dd4e82ec5d1ac4cdcc1a9eec42b7332b55",
+      "sha256": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+      "bytes": 2548
+    },
+    {
+      "local_path": "LICENSE",
+      "upstream_path": "LICENSE",
+      "git_blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    {
+      "local_path": "UPSTREAM_README.md",
+      "upstream_path": "README.md",
+      "git_blob_sha": "f11608b33b03affdf2d6774c1b639d73072535c7",
+      "sha256": "11450a4eb3bdd681aa0edaaaf625033d0080c4761273f399d07319cdda10c9ad",
+      "bytes": 159
+    }
+  ]
+}
