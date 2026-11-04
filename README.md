@@ -20,7 +20,7 @@ UART/reset structure audit. The completed mapped-corpus and routed-bitstream rec
 below describe the preceding CPU revision until those new checks finish.
 
 - **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 63,656/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
-- **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
+- **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41770401814/job/126379122907) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
 - **Mapped circuit:** the preceding CPU revision passed **all 259 pinned official suites** in CI on the ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-complete.json) preserves source, model and report identities and an independent aggregation check. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
@@ -90,6 +90,20 @@ control [also pass in CI](docs/verification/ci-axi-system.json), with downloaded
 observations and bus counters matching the local runs. The default FPGA system
 still uses block RAM; DDR controller
 integration, physical clock-crossing constraints and controller startup remain.
+
+A separate [SDR SDRAM backend](docs/SDRAM.md) now implements startup, refresh,
+masked eight-word bursts and warm reset without interrupting accepted device
+operations. Its six-profile native/mapped campaign and expanded formal proofs
+are separate from the complete CPU tests. The
+[component campaign](docs/verification/sdram-mapped.json) passes 836,574
+requests and 774 warm resets in each model, with matching observations and
+cycles, all 65,536 write masks per profile and six rejected fault injections
+per model/profile. Another [366 four-state checks](docs/verification/sdram-four-state.json)
+pass with three rejected controller mutations. Expanded formal proofs are
+still running. A dedicated workflow repeats the component checks and proofs.
+This component is not connected to the CPU or a board PHY yet; it targets SDR
+SDRAM such as the ULX3S memory, while Genesys 2 requires DDR3. The default FPGA
+memory backend remains block RAM.
 
 The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
 receiver and Python encoder. The production layout test checks

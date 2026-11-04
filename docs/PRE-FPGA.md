@@ -24,9 +24,13 @@ board result and foundry signoff are separate kinds of evidence.
   [complete-CPU AXI checks](AXI.md#complete-cpu-integration).
 - [ ] Integrate controller startup/calibration and physical clock-crossing
   constraints before issuing timed CPU memory requests.
-- [ ] Add an external-memory controller with independently checked device
-  commands, timing, refresh, masking and reset. Board-specific PHY timing and
-  electrical behavior still require hardware.
+- [x] Add a separate SDR SDRAM controller with independently checked device
+  commands, timing, refresh, masking and reset. Its [six-profile campaign](SDRAM.md)
+  passes 836,574 requests and 774 warm resets per model in native and mapped
+  simulation, plus four-state checks. Expanded formal proofs are running.
+- [ ] Connect that controller to the complete CPU, then implement and verify
+  its board PHY. Physical timing and electrical behavior still require
+  hardware. Genesys 2 requires a separate DDR3 controller/PHY.
 
 ## Program loading and useful operation
 

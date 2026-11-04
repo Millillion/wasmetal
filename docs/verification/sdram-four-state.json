@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "scope": "four-state request controls and data; not analog or board timing validation",
+  "cases": 366,
+  "checks": {
+    "positive": {
+      "outcome": "passed",
+      "log_sha256": "e6e2fa89aec754ff7bef1b0e629814e5abba460b1c900c90e41cb1ab70ebd83d",
+      "binary_sha256": "6f26a1e77c63bd95db7c0e3b5a89424bbb7c6149f218dbae7c3c6864facf9a33"
+    },
+    "unknown-mask": {
+      "outcome": "rejected",
+      "log_sha256": "3edba9923288cc452150b22f449fe3e1885e0ef7f11c2d302aa3a0069bfa8960",
+      "binary_sha256": "9426e4d7fc8e0cf7c569779e4815eec7bae960db8ef1045943c60238d5c64f3a"
+    },
+    "unknown-reset": {
+      "outcome": "rejected",
+      "log_sha256": "dce5a910b45408cda6cb05e1190e0c31e4f9dfdb40aca5ddfd7db4d9accfdb93",
+      "binary_sha256": "c3f3a5b99badc9520a54153cbc31fd6691f4971b2c7577c0fba944f1ec523c44"
+    },
+    "hidden-unknown-read": {
+      "outcome": "rejected",
+      "log_sha256": "4805008bc6672339a0503f057771182dd83da8b7ebf94e7319151e0842117e37",
+      "binary_sha256": "42f0678f7bc7cf7defde79e5c19fe85292bfe3dbf887355f6163d9ff09b6cba9"
+    }
+  },
+  "inputs": {
+    "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+    "tests/memory/sdram_four_state.sv": "eb989813c168187546f24ca42c6f45417c04d057f15a02e62d70b4e28409aa72",
+    "tools/check_sdram_four_state.py": "4647d1659de878aaacec7524557a4a8d176b3746099455fce41d56bc99bdeb38",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "physical_hardware_tested": false
+}
