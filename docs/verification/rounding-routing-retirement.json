@@ -1,0 +1,144 @@
+{
+  "status": "retired_incomplete",
+  "reason": "After the best observed iteration, three successive iterations increased conflicting wires. Retired this bounded baseline run to route the structurally verified reset-replication candidate. This does not establish that baseline routing is impossible.",
+  "retired_utc": "2026-11-04T11:07:38.550147+00:00",
+  "iterations": [
+    {
+      "iteration": 1,
+      "wires": 911595,
+      "overused_wires": 95792,
+      "overuse": 120007
+    },
+    {
+      "iteration": 2,
+      "wires": 953841,
+      "overused_wires": 71144,
+      "overuse": 79637
+    },
+    {
+      "iteration": 3,
+      "wires": 975408,
+      "overused_wires": 54923,
+      "overuse": 58871
+    },
+    {
+      "iteration": 4,
+      "wires": 990826,
+      "overused_wires": 44976,
+      "overuse": 47577
+    },
+    {
+      "iteration": 5,
+      "wires": 1004430,
+      "overused_wires": 38834,
+      "overuse": 40622
+    },
+    {
+      "iteration": 6,
+      "wires": 1015840,
+      "overused_wires": 35659,
+      "overuse": 37124
+    },
+    {
+      "iteration": 7,
+      "wires": 1025612,
+      "overused_wires": 33261,
+      "overuse": 34454
+    },
+    {
+      "iteration": 8,
+      "wires": 1033882,
+      "overused_wires": 31511,
+      "overuse": 32553
+    },
+    {
+      "iteration": 9,
+      "wires": 1041849,
+      "overused_wires": 30593,
+      "overuse": 31484
+    },
+    {
+      "iteration": 10,
+      "wires": 1049222,
+      "overused_wires": 30459,
+      "overuse": 31295
+    },
+    {
+      "iteration": 11,
+      "wires": 1055642,
+      "overused_wires": 29956,
+      "overuse": 30766
+    },
+    {
+      "iteration": 12,
+      "wires": 1064599,
+      "overused_wires": 30766,
+      "overuse": 31553
+    },
+    {
+      "iteration": 13,
+      "wires": 1072241,
+      "overused_wires": 31506,
+      "overuse": 32331
+    },
+    {
+      "iteration": 14,
+      "wires": 1078753,
+      "overused_wires": 32138,
+      "overuse": 32934
+    }
+  ],
+  "best_iteration": {
+    "iteration": 11,
+    "wires": 1055642,
+    "overused_wires": 29956,
+    "overuse": 30766
+  },
+  "last_iteration": {
+    "iteration": 14,
+    "wires": 1078753,
+    "overused_wires": 32138,
+    "overuse": 32934
+  },
+  "inputs": {
+    "tools/build_loadable_board.py": "57a58b47730514b09e7bd338ba7f82aab65062c6fcbddd430ca900bd9ac02053",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
+    "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "fpga/ports.json": "5212aeed9a37bfa84edc3422631ee02350256aa3ccab986f004a94206fb4681f",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
+    "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "build/loadable-ulx3s/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+    "build/standalone-rounding-ecp5.json": "79e6ddbc432c9a6f4460692a2140c94062e10fcf17ecbda56a048886995ae561",
+    "build/standalone-rounding-ecp5.manifest.json": "44aee653b69ada2206e3104bc7ba8dffe5f5c26c567911ab9ce8a73957a8d2c1",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+    "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a"
+  },
+  "artifacts": {
+    "build/loadable-ulx3s/design.json": "5085cbc6f05cf8d5815bb07f6d206d3ca1a2a9ccaa2f3e5dfc9b525d427c56a5",
+    "build/loadable-ulx3s/design.manifest.json": "ebbce46c7f0c17b90e4e2284da9102afc9970db9e89d73a728615627a75ed96b",
+    "build/loadable-ulx3s/placed.json": "14bfe9a039523538e98796181fafbccef6783a60446e37429aa33e20d83e7d11",
+    "build/loadable-ulx3s/placement.log": "2f33b0a6cb27c1a75fd4e753e92295fa67155581e6af226b6e7c920cd89128ee",
+    "build/loadable-ulx3s/routing.log": "b3c05cd9f06e5bddd0f9425ed6210db38eba806b07a0055c7d0d064f9938a4b4",
+    "build/rounding-routing-retired-processes.json": "064b7e05fc1a5aa1c91d674491cdd7a187a52728a51766e63d8e155ac9b1ed24"
+  },
+  "routing_completed": false,
+  "timing_verified": false,
+  "bitstream_produced": false,
+  "physical_hardware_tested": false
+}

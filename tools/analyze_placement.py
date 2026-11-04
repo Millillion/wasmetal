@@ -116,7 +116,15 @@ def main():
     args=parser.parse_args();placement=args.placement.resolve();manifest_path=args.manifest.resolve()
     args.report.parent.mkdir(parents=True,exist_ok=True);args.report.unlink(missing_ok=True)
     manifest=json.loads(manifest_path.read_text());design=manifest_path.parent/'design.json'
-    if digest(design)!=manifest['netlist_sha256']:raise ValueError('mapping manifest does not match the design')
+    if 'candidate_sha256' in manifest:
+        if (manifest.get('status')!='structurally_verified' or not manifest.get('placement_completed')
+                or not manifest.get('final_input_checks_passed')):
+            raise ValueError('experiment placement is not complete and verified')
+        if digest(placement)!=manifest['artifacts']['placement']:
+            raise ValueError('experiment receipt does not match the placement')
+        design_sha=manifest['candidate_sha256']
+    else:design_sha=manifest['netlist_sha256']
+    if digest(design)!=design_sha:raise ValueError('mapping manifest does not match the design')
     paths=[placement,manifest_path,design,Path(__file__).resolve(),ROOT/'tools/prepare_standalone.py']
     inputs={str(p.relative_to(ROOT)):digest(p) for p in paths};inputs.update(manifest['inputs'])
     for name,value in inputs.items():

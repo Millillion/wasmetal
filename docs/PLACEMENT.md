@@ -25,12 +25,30 @@ wire-length, delay or congestion model. Global clock and constant nets are
 reported separately. Resource categories use instance names, which packing
 can partially obscure.
 
-The next isolated experiment duplicates the existing combinational reset LUT
-for spatial groups of sinks. Each copy must have identical inputs and truth
-table, with unchanged state primitives, clocks and reset latency. A structural
-comparison must account for every changed connection and reject corrupted
-copies before any placement/routing result is considered. Whether this reduces
-congestion must be measured; extra reset nets can also make placement harder.
+The isolated [reset-replication experiment](verification/reset-replication.json)
+duplicates the existing combinational reset LUT for spatial groups of sinks.
+Exact structural substitution proves that all 31 extra LUTs have the original
+inputs and truth table and accounts for every changed connection. All 4,783
+sinks remain connected, with at most 150 per copy. Five injected defects are
+rejected: a changed truth table, changed input, aliased output, disconnected
+sink and altered register reset value. State and clock cycles are unchanged.
+
+The [new placement](research/reset-placement.json) retains all 31 additional
+logic cells, giving 61,375 logic cells and the same 6,958 registers, 192 block
+RAMs and 26 multipliers. The final placer wire-length cost drops from 580,975
+to 539,773, a [7.1% reduction](verification/reset-placement-comparison.json).
+Both use the same pinned placer, device and seed. This cost is measured before
+routing; it does not establish shorter physical routes or better timing.
+
+![Placement with replicated reset logic](research/reset-placement.png)
+
+The original routing trial was [retired incomplete](verification/rounding-routing-retirement.json)
+after its best 29,956 conflicting wires increased to 32,138 over three further
+iterations. This bounded run does not establish that routing the baseline is
+impossible. Routing the new candidate is running, separately from the default
+board build. Its driver rechecks structural equivalence, unchanged clock inputs
+and artifact hashes before routing. A successful final receipt additionally
+requires timing checks and an exact bitstream unpack/repack comparison.
 
 Reset distribution needs care on this device. Lattice documents a silicon
 startup problem when certain high-initialized reset or enable signals use the
@@ -58,3 +76,20 @@ analysis uses the Python standard library. The report checks source and artifact
 hashes before and after analysis. Its geometry and exclusion rules have also
 been checked against a small independently calculated fixture, including
 rejection of missing placement locations.
+
+To reproduce the isolated experiment from that baseline placement:
+
+```sh
+python3 tools/replicate_reset.py --place
+python3 tools/analyze_placement.py \
+  --placement build/reset-replication/placed.json \
+  --manifest build/reset-replication/experiment.json \
+  --report reports/reset-placement-analysis.json \
+  --figure build/reset-replication/placement.png
+python3 tools/route_reset_experiment.py
+```
+
+The [routing preflight](verification/reset-routing-preflight.json) rejects incomplete placements, altered candidate or
+placement identities, and forged structural-proof summaries. The placement
+analyzer also checks the experiment's completed placement hash. These commands
+do not replace the default board build or establish physical-board operation.

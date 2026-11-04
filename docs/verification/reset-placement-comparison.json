@@ -1,0 +1,13 @@
+{
+  "status": "compared",
+  "scope": "Final placer wire-length cost, before routing; not actual routed length or timing. Same pinned tool, static placer, seed 1 and device.",
+  "baseline_cost": 580975,
+  "replicated_reset_cost": 539773,
+  "reduction_fraction": 0.07091871423038858,
+  "inputs": {
+    "build/loadable-ulx3s/placement.log": "2f33b0a6cb27c1a75fd4e753e92295fa67155581e6af226b6e7c920cd89128ee",
+    "build/reset-replication/placement.log": "dfe3389027084a18bc7aa330f4425883013562405849f5f391b73e51b53b4ff3"
+  },
+  "routing_improvement_established": false,
+  "physical_hardware_tested": false
+}

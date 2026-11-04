@@ -28,8 +28,14 @@ covering 15,976 and 15,892 boundary bits respectively. Both reject an inverted
 output; their CPU and stored-state outputs are shared arbitrary inputs, so
 these are wrapper proofs. The new board design has placed; routing remains incomplete.
 The [placement analysis](docs/PLACEMENT.md) records 61,344 logic cells and
-identifies a reset net driving 4,783 pins across most of the device. A local
-reset-distribution experiment is being prepared; its routing benefit is unproven.
+identifies a reset net driving 4,783 pins across most of the device. The isolated
+[reset-distribution experiment](docs/verification/reset-replication.json) preserves
+the circuit's logic with 31 extra LUTs, limits each copy to 150 sinks and rejects
+five deliberate defects. Its completed placement has a
+[7.1% lower placer wire-length cost](docs/verification/reset-placement-comparison.json),
+with unchanged register, RAM and DSP counts. Routing this candidate is running;
+its physical benefit remains unproven. The baseline route was
+[retired after worsening congestion](docs/verification/rounding-routing-retirement.json).
 Other whole-system integration and routed-bitstream records below retain their
 earlier source identities until their replacements are verified. **No physical board
 has been tested.**
