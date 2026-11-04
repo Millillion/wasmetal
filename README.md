@@ -156,6 +156,18 @@ UART results and cycle counts match the local campaigns. These are simulation ti
 measured FPGA clock rates. The board PHY and physical implementation remain;
 Genesys 2 requires DDR3. The default FPGA memory backend remains block RAM.
 
+The [separately clocked SDRAM integration](docs/SDRAM.md#complete-cpu-with-separate-clocks)
+now passes all 35 cases with memory clocks
+[faster](docs/verification/sdram-async-faster-25mhz-5000.json) and
+[slower](docs/verification/sdram-async-slower-100mhz-2000000.json) than the CPU.
+The delayed-startup run records 3,981,937 CPU clocks of startup waiting.
+Wrong clock binding, bypassed startup permission and corrupted reads are
+rejected. The [clock scheduler](docs/verification/sdram-clock-driver.json)
+matches independent event sequences and rejects six mutations. CI is configured
+to repeat these campaigns. These checks exercise the assembled RTL and a
+behavioral SDRAM device; physical clock generation, CDC constraints and the
+board PHY remain.
+
 The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
 receiver and Python encoder. The production layout test checks
 [80,537 store writes in each model](docs/verification/image-loader-mapped.json),

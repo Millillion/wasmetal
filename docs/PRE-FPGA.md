@@ -33,6 +33,11 @@ board result and foundry signoff are separate kinds of evidence.
   All 35 system cases pass in two timing configurations, including startup
   that extends beyond program commit. Corrupted reads and deliberately
   bypassed startup gating fail independent checks.
+- [x] Run the complete CPU through the CDC and SDR controller with separately
+  scheduled clocks. All 35 cases pass with faster and slower memory clocks,
+  including delayed initialization. Wrong clock binding, startup bypass and
+  corrupted reads are rejected. The clock scheduler passes an independent
+  event-sequence check with six rejected mutations. See [SDRAM integration](SDRAM.md#complete-cpu-with-separate-clocks).
 - [ ] Implement and verify the board PHY, then route the complete external
   memory system. Physical timing and electrical behavior still require
   hardware. Genesys 2 requires a separate DDR3 controller/PHY.
@@ -49,9 +54,11 @@ board result and foundry signoff are separate kinds of evidence.
   See the [upload guide](PROGRAM-UPLOAD.md).
 - [ ] Complete programmable FPGA routing, timing verification and bitstream
   round-trip checks. The current ULX3S placement uses 192 of 208 block RAMs;
-  ABC9 reduces placed logic from 66,251 to 62,958 cells with unchanged
-  capacities. Both wrapper comparisons and all 35 execution checks pass, but
-  [routing attempts remain incomplete](verification/loadable-routing-status.json).
+  the direct-rounding baseline places 61,344 logic cells. An equivalent
+  reset-distribution experiment adds 31 LUTs and reduces the placer wire-length
+  cost by 7.1%, with unchanged capacities. Both wrapper comparisons and native
+  integration checks pass; the new complete mapped comparisons are running.
+  [Routing remains incomplete](PLACEMENT.md).
 - [x] Measure the complete programmable system on a larger FPGA family without
   reducing configured capacities. The [7-series estimate](research/xc7-system-estimate.json)
   passes structural checks with 52,437 logic LUT primitives and 96 equivalent

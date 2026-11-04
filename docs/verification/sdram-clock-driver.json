@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "scope": "Actual C++ scheduler with a recording stand-in for eval; exact independent clock-event oracle, not CPU or DRAM correctness",
+  "inputs": {
+    "tests/sdram_async/loadable.cpp": "58472bfdf79a5acc01146eacd677095b1ea9df398da75a8dba0fee34111666ac",
+    "tools/check_sdram_clock_driver.py": "a07e4d75926cf662b39268f00b394563f629f8ec84f06d964e6f94ef1cc11c17",
+    "tools/check_sdram_async_system.py": "9cfc62728af329f50f243f1ddae977d2c7ffe4f95f1940d000f5a67b5d63e9cc",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c"
+  },
+  "checks": [
+    {
+      "clock": "faster",
+      "mutation": null,
+      "exact_edge_match": true,
+      "reference_events": 1733,
+      "observed_events": 1733,
+      "generated_source_sha256": "9289aa8c1e55b18cafc5edfdfb67b225432e167abbe32839d80b60b047605af1",
+      "binary_sha256": "38d4d4947df98502a67e95e63a5003d57c5ee18ad29e58b3fc12c26d0d743cbd"
+    },
+    {
+      "clock": "faster",
+      "mutation": "early CPU edge",
+      "exact_edge_match": false,
+      "reference_events": 1733,
+      "observed_events": 1467,
+      "generated_source_sha256": "fbb1d7c7467fb3575c3be8810564adb228a05efda3ec3937057138da852bfe64",
+      "binary_sha256": "7ebf78b40e1c363dce292611a5eff8536d733bb7cd80a0c84317ee2660abb9ee"
+    },
+    {
+      "clock": "faster",
+      "mutation": "lost simultaneous edge",
+      "exact_edge_match": false,
+      "reference_events": 1733,
+      "observed_events": 1866,
+      "generated_source_sha256": "3654c29c69b03ad0dde393a2e1e077924cb171786d395975ef8849262e12509f",
+      "binary_sha256": "8566d4ea288ad3643b0c280a659664fef692ae9526e5e9eb7cbe92d5f195ab2f"
+    },
+    {
+      "clock": "faster",
+      "mutation": "wrong memory period",
+      "exact_edge_match": false,
+      "reference_events": 1733,
+      "observed_events": 1400,
+      "generated_source_sha256": "64a3a0d60b51bfdcf6e8952353779f942d910d85e14060f6029d66b60202a9b9",
+      "binary_sha256": "bb80075513c5a7ba818e8479e2c6acd015872ea0b29f27bdab7b1f7694afacad"
+    },
+    {
+      "clock": "slower",
+      "mutation": null,
+      "exact_edge_match": true,
+      "reference_events": 619,
+      "observed_events": 619,
+      "generated_source_sha256": "9289aa8c1e55b18cafc5edfdfb67b225432e167abbe32839d80b60b047605af1",
+      "binary_sha256": "a8f0eb0c7f5f74df99a4d93536658906eb00bb31bfde949d29e25d2405ff4bc7"
+    },
+    {
+      "clock": "slower",
+      "mutation": "early CPU edge",
+      "exact_edge_match": false,
+      "reference_events": 619,
+      "observed_events": 400,
+      "generated_source_sha256": "fbb1d7c7467fb3575c3be8810564adb228a05efda3ec3937057138da852bfe64",
+      "binary_sha256": "86a4599f9be1f2e8734eaf5c4dc033417984b581db0a44f9e5183b4bb012a4c7"
+    },
+    {
+      "clock": "slower",
+      "mutation": "lost simultaneous edge",
+      "exact_edge_match": false,
+      "reference_events": 619,
+      "observed_events": 655,
+      "generated_source_sha256": "3654c29c69b03ad0dde393a2e1e077924cb171786d395975ef8849262e12509f",
+      "binary_sha256": "5e9192c9bea22abb254b18accde0de04981073070146ec64527d3b662543ff41"
+    },
+    {
+      "clock": "slower",
+      "mutation": "wrong memory period",
+      "exact_edge_match": false,
+      "reference_events": 619,
+      "observed_events": 600,
+      "generated_source_sha256": "64a3a0d60b51bfdcf6e8952353779f942d910d85e14060f6029d66b60202a9b9",
+      "binary_sha256": "49c0a4f2875cbc4a5a3ea682b44f5350cf7caca8188cfbd100ca29721f8ea79c"
+    }
+  ],
+  "compiler": {
+    "path": "/usr/bin/x86_64-linux-gnu-g++-13",
+    "sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769"
+  },
+  "physical_hardware_tested": false
+}

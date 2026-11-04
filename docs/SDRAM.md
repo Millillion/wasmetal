@@ -3,7 +3,7 @@
 `wasmetal_sdram_memory` is a separate 128-bit memory backend for an x16 SDR
 SDRAM device. It is connected to the complete CPU in a separate RTL simulation;
 it is not included in a board bitstream yet. It exercises a real external-memory command interface and
-provide a path beyond the block RAM used by the existing ULX3S prototype.
+provides a path beyond the block RAM used by the existing ULX3S prototype.
 The Genesys 2 board discussed in the purchase research uses DDR3; it needs a
 DDR3 controller and PHY connected through the existing AXI path.
 
@@ -180,10 +180,67 @@ match; image-manifest identities are retained separately because those
 manifests also identify their preparation executables.
 The CI reports are archived under [verification/ci-sdram](verification/ci-sdram).
 
-These system tests use one simulation clock and a behavioral device. The
-default board backend remains block RAM. A separate physical memory clock,
-clock crossing and board PHY are still required for the slow ULX3S CPU clock;
-the 25 MHz and 100 MHz settings describe device-model timing constraints.
+Those earlier system tests use one simulation clock and a behavioral device.
+The separately clocked integration below adds digital clock-crossing verification.
+The default board backend remains block RAM. Physical memory-clock generation,
+clock-crossing constraints and a board PHY are still required; the 25 MHz and
+100 MHz settings describe device-model timing constraints.
+
+## Complete CPU with separate clocks
+
+The private integration binding now connects the complete CPU through the
+production `wasmetal_memory_cdc` and SDR controller to the behavioral device.
+The memory clock has its own schedule, with edges both between and coincident
+with CPU edges. Cold initialization occurs in the memory domain. Application
+reset resets the crossing and asserts the SDR controller's warm reset, allowing
+refresh and accepted pin operations to continue. A two-register startup
+synchronizer and the CDC's online indication hold the CPU memory bridge until
+both the device and transport are ready.
+
+All 35 integration cases pass in each configuration:
+
+| Configuration | Memory cycles per CPU cycle | Startup wait in memory clocks | Result |
+| --- | ---: | ---: | --- |
+| 25 MHz timing profile, faster memory clock | 11/3 | 5,000 | [35 passed](verification/sdram-async-faster-25mhz-5000.json) |
+| 100 MHz timing profile, slower memory clock | 7/11 | 2,000,000 | [35 passed](verification/sdram-async-slower-100mhz-2000000.json) |
+
+These clock ratios are digital stress configurations, not proposed physical
+operating frequencies. The second run deliberately extends initialization
+beyond program upload and records 3,981,937 CPU clocks of startup waiting across
+the campaign. The device begins with nonzero contents and preserves its array
+across application resets. The UART program-result oracle remains independent
+of the controller and the device model.
+
+Three deliberate integration faults are rejected: a
+[controller on the wrong clock](verification/sdram-async-faster-25mhz-5000-wrong-clock.json)
+violates the device monitor's timing checks;
+[bypassed startup permission](verification/sdram-async-slower-100mhz-2000000-startup-bypass.json)
+issues a request before device initialization; and
+[corrupted reads](verification/sdram-async-faster-25mhz-5000-read-corruption.json)
+fail the independent program-result check. Generic crashes or timeouts cannot
+satisfy those expected rejections.
+
+The [clock-driver check](verification/sdram-clock-driver.json) extracts the
+actual C++ scheduler and records every clock transition presented to `eval()`.
+Both schedules match independently enumerated event sequences exactly. Six
+mutations covering premature CPU edges, omitted simultaneous edges and the
+wrong memory period are rejected. Each full CPU run also checks its observed
+edge counts and coincident edges against arithmetic formulas.
+
+```sh
+python3 tools/check_sdram_clock_driver.py
+python3 tools/check_sdram_async_system.py --timing 25mhz --clocks faster
+python3 tools/check_sdram_async_system.py --timing 100mhz --clocks slower --startup-cycles 2000000
+python3 tools/check_sdram_async_system.py --timing 25mhz --clocks faster --negative-control wrong-clock
+python3 tools/check_sdram_async_system.py --timing 25mhz --clocks faster --negative-control read-corruption
+python3 tools/check_sdram_async_system.py --timing 100mhz --clocks slower --startup-cycles 2000000 --negative-control startup-bypass
+```
+
+CI is configured to repeat both complete campaigns, the scheduler check and
+all three faults. [Archived observations](verification/sdram-async) preserve the
+device, source-interface and clock counters. This verifies the assembled RTL
+with digital clocks; metastability, a board PHY and physical I/O timing remain
+outside this simulation.
 
 ## Integration work remaining
 
