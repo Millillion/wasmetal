@@ -28,15 +28,18 @@ and backing RAM begin unknown. Two uploaded programs, an interrupted upload,
 warm-reset memory clearing and ROM boot pass, with exact native UART results
 and invocation cycle counts. Both deliberate mutations are rejected;
 CI is configured to require this check for programmable-system completion.
-A new [CPU mapping comparison](docs/DESIGN-FLOW.md#comparing-complete-cpu-logic-cones)
-retains complete logic cones and resumes verified checkpoints. Its
-[driver checks](docs/verification/core-mapping-driver.json) reject an inverted
-output and 17 malformed inputs or checkpoint defects; the complete CPU proof
-is still running. A second checker now applies classic CEC to the remaining
-groups. Its [driver checks](docs/verification/core-classic-driver.json) reject
-15 defects and preserve inherited proofs and unresolved bits. The initial
-[all-boundary classic attempt](docs/verification/core-mapping-classic-whole.json)
-timed out without a conclusion; no complete CPU equivalence result is claimed.
+The [CPU logic-mapping comparison](docs/DESIGN-FLOW.md#comparing-complete-cpu-logic-cones)
+now [passes all 28,506 original boundary bits](docs/verification/core-mapping-cones.json)
+for the host-backed core profile. The original engine proves 27,098 bits;
+classic CEC proves the remaining 1,408. Every cone retains its original logic
+and inputs, with no additional internal logic assumptions. The completed
+receipt and all saved solver results were rechecked. Both inverted-output
+controls fail as required. This compares two technology mappings around
+matching registers, RAM and DSP blocks; their internals, physical timing and
+the common RTL synthesis front end are outside the proof. The two
+[driver](docs/verification/core-mapping-driver.json)
+[fixtures](docs/verification/core-classic-driver.json) also reject 17 and 15
+checkpoint/input defects, respectively; CI repeats those fixtures.
 Fresh proofs pass for the programmable
 [board wrapper](docs/verification/loadable-mapping-proof.json) and
 [simulation wrapper](docs/verification/loadable-simulation-mapping-proof.json),
@@ -91,8 +94,9 @@ New [vendor-model memory checks](docs/XILINX-MEMORY.md) exposed a real 72-bit
 RAM mapping defect in pinned Yosys 0.33. An isolated correction passes 26,028
 operations per model across five RAM configurations; all six negative controls,
 including the original faulty mapping, are rejected. CI now runs this check
-before the resource estimate. The corrected complete-system synthesis is
-running; the earlier estimates are historical size evidence with a known
+before the resource estimate. The complete-system estimate is being refreshed
+with an additional audit of unused RAM address pins; the earlier estimates are
+historical size evidence with a known
 functional mapping defect. Complete Xilinx CPU simulation, placement and timing
 remain unverified. ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.

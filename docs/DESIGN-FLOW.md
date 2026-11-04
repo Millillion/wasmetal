@@ -188,6 +188,30 @@ unresolved bit, produces a pass. This remains a comparison of technology
 mappings with matching storage/DSP primitives abstracted; it does not prove
 primitive behavior, physical timing or the RTL synthesis front end.
 
+The direct-rounding host-backed core now has a
+[completed comparison](verification/core-mapping-cones.json): **28,506 of
+28,506 original boundary bits**, with no unresolved bits or pending groups.
+The original engine proves 27,098 bits in 117 successful groups; classic CEC
+proves the remaining 1,408 in 26 successful groups. Earlier inconclusive parent
+groups remain in the evidence and do not count as passes. The original complete
+logic cones are retained; no additional internal logic becomes an assumption.
+
+The comparison has 10,573 primary/shared abstract input bits around matching
+5,265 registers, 98 block RAMs and 26 DSP primitives. It checks the input logic
+for those primitives and the external outputs, assuming their output values
+are shared. It applies to the recorded host-backed parameter profile, not every
+possible capacity configuration. Component behavior, the shared RTL front end,
+electrical behavior and routed timing still need their separate evidence.
+
+Both complete-interface inverted-output controls produce counterexamples,
+and the primitive-configuration mutation is rejected. Reopening the completed
+checkpoint rechecks input hashes, original circuits, every solver result and
+exact coverage before reporting success. The
+[208 original solver logs](verification/core-mapping-cones-logs.json) and
+[completed-record recheck](verification/core-mapping-cones-recheck.log) are
+preserved. The public JSON is a compact evidence record with the full reports
+and boundary inventory identified by digest; it is not a resumable checkpoint.
+
 ## Checking the programmable wrapper mapping
 
 The programmable wrapper uses ABC9, as the CPU already does. The

@@ -80,6 +80,12 @@ board result and foundry signoff are separate kinds of evidence.
   pinned Yosys 0.33. The estimator now applies a verified private correction;
   the corrected complete-system synthesis is running. Earlier Xilinx estimates
   remain historical resource measurements with a known functional defect.
+- [x] Complete a comparison of every original CPU logic-mapping boundary bit.
+  [All 28,506 bits pass](verification/core-mapping-cones.json) for the
+  host-backed profile, using checked inherited results and classic CEC for the
+  last 1,408 bits. Saved solver results and exact coverage were rechecked.
+  Registers, RAM and DSP outputs remain shared abstract inputs; this does not
+  prove primitive behavior, the shared RTL synthesis front end or routed timing.
 - [x] Add reproducible workloads and cycle/memory statistics so optimization
   follows measurements. Preserve the full Wasm instruction semantics.
   See the [CRC and scalar/SIMD baselines](BENCHMARKS.md).
