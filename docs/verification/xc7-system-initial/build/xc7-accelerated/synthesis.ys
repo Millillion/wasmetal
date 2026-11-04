@@ -1,0 +1,19 @@
+read_verilog -sv -defer -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV rtl/wasmetal_alu.sv rtl/wasmetal_core.sv rtl/wasmetal_descriptors.sv rtl/wasmetal_divider.sv rtl/wasmetal_fp_arithmetic.sv rtl/wasmetal_fp_format.sv rtl/wasmetal_fp_round.sv rtl/wasmetal_fpu.sv rtl/wasmetal_popcount.sv rtl/wasmetal_simd_decode.sv rtl/wasmetal_simd_fp_decode.sv rtl/wasmetal_simd_int.sv rtl/wasmetal_simd_lanes.sv rtl/wasmetal_simd_serial.sv rtl/wasmetal_values.sv third_party/hardfloat/source/HardFloat_primitives.v third_party/hardfloat/source/HardFloat_rawFN.v third_party/hardfloat/source/addRecFN.v third_party/hardfloat/source/compareRecFN.v third_party/hardfloat/source/divSqrtRecFN_small.v third_party/hardfloat/source/fNToRecFN.v third_party/hardfloat/source/iNToRecFN.v third_party/hardfloat/source/isSigNaNRecFN.v third_party/hardfloat/source/mulAddRecFN.v third_party/hardfloat/source/mulRecFN.v third_party/hardfloat/source/recFNToFN.v third_party/hardfloat/source/recFNToIN.v third_party/hardfloat/source/recFNToRecFN.v third_party/hardfloat/source/RISCV/HardFloat_specialize.v fpga/wasmetal_uart.sv soc/wasmetal_standalone.sv soc/wasmetal_local_memory.sv soc/memory/wasmetal_bram.sv soc/memory/wasmetal_memory_bridge.sv soc/memory/wasmetal_memory_lanes.sv soc/loader/wasmetal_image_loader.sv soc/loader/wasmetal_loadable.sv
+chparam -set VALUE_DEPTH 8192 -set CONTROL_DEPTH 2048 -set CALL_DEPTH 512 -set MEMORY_COUNT 256 -set HEAP_SLOTS 1024 -set INSTRUCTION_DEPTH 1024 -set FUNCTION_DEPTH 128 -set TYPE_DEPTH 64 -set BOOT_DEPTH 512 -set REGIONS_PER_KIND 16 -set RAM_BYTES 131072 -set MAX_RESULTS 16 -set WATCHDOG_CYCLES 10000000 -set UART_TICKS 4 -set UPLOAD_TIMEOUT_CYCLES 4096 -set PROFILE_TAG 128'hfa1f830e73ed79bda834246e0cadf908 wasmetal_loadable
+
+synth_xilinx -family xc7 -top wasmetal_loadable -noiopad -noclkbuf -flatten -run begin:map_dsp
+share -fast
+synth_xilinx -family xc7 -top wasmetal_loadable -noiopad -noclkbuf -run map_dsp:coarse
+techmap -map +/cmp2lut.v -map +/cmp2lcu.v -D LUT_WIDTH=6
+alumacc
+opt
+memory -nomap
+opt_clean
+check -assert
+write_json /tmp/wasmetal-direct-rounding/build/xc7-accelerated/generic.json
+memory_libmap -logic-cost-rom 0.015625 -lib +/xilinx/lutrams_xc5v.txt -lib +/xilinx/brams_xc4v.txt -D HAS_SIZE_36 -D HAS_CASCADE -D HAS_CONFLICT_BUG -D HAS_MIXWIDTH_SDP -no-auto-huge
+techmap -map +/xilinx/lutrams_xc5v_map.v
+techmap -map "/tmp/wasmetal-direct-rounding/build/xc7-accelerated/mapping-overlay/brams_xc6v_map.v"
+synth_xilinx -family xc7 -top wasmetal_loadable -noiopad -noclkbuf -run map_ffram:check
+check -assert
+write_json /tmp/wasmetal-direct-rounding/build/xc7-accelerated/mapped.json

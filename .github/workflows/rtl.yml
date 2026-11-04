@@ -296,6 +296,7 @@ jobs:
           python3 tests/gate_compiler_test.py
           python3 tests/asic_audit_runner_test.py
           python3 tests/spec_ci_test.py
+          python3 tests/xc7_system_test.py
       - name: Compile RTL and verify boundary and oracle behavior
         run: |
           make sim

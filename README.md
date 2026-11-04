@@ -145,8 +145,13 @@ transitions, and reject eleven faults. Each model also passes its independent
 oracle for all 1,048,576 four-state input combinations. Their X/Z behavior
 differs on 415,001 combinations; this is explicitly recorded, and no
 four-state vendor-equivalence claim is made. CI repeats these checks.
-Complete Xilinx CPU simulation, placement and timing
-remain unverified. ULX3S 85F remains the implemented board target, with routing
+The [complete Xilinx CPU simulation](docs/XILINX-SYSTEM-SIMULATION.md) now
+passes two original-library smoke cases, matching native RTL UART bytes and
+clock counts exactly. The native reference at 81 clocks per UART bit passes
+all 35 integration cases. The full accelerated mapped regression and a mapped
+upload at that unchanged UART timing are still running; neither is recorded
+as a complete pass. Xilinx placement and timing remain unverified.
+ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 
 ## GUI Microarchitecture Simulator

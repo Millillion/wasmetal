@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-direct-rounding/tools/check_loadable.py", line 182, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-direct-rounding/tools/check_loadable.py", line 133, in main
+    runs=execute(commands,completed)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-direct-rounding/tools/check_loadable.py", line 89, in execute
+    if not selector.select(max(0,deadline-time.monotonic())):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 468, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
