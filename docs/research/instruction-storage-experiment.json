@@ -1,8 +1,8 @@
 {
   "status": "evaluated_not_adopted",
-  "captured_at_utc": "2026-11-04T03:03:35.527785+00:00",
+  "captured_at_utc": "2026-11-04T03:14:47.157362+00:00",
   "scope": "isolated 194-bit local instruction RAM plus fail-closed upload authorization; production RAM remains 288 bits",
-  "source_revision": "c8543cc7707dfca6096aa3ec10dd6ba733b81ace",
+  "source_revision": "c4bceacdcb03c29dd84fd5dfc40dea62a1056490",
   "decision": "Retain the codec and its corpus audit, but do not replace the production store: this mapping saves five block RAMs, adds 811 placed logic cells and did not complete routing. Interrupted routing does not prove unroutability.",
   "experimental_rtl_patch": {
     "path": "docs/research/instruction-storage-experiment.patch",
@@ -33,42 +33,9 @@
     "native_integration_cases": 35,
     "native_observations_exactly_match_production": true,
     "mapped_integration": {
-      "status": "running",
-      "completed_cases": 30,
-      "required_cases": 35,
-      "completed_case_names": [
-        "answer",
-        "arguments",
-        "boot-address-boundaries",
-        "branches",
-        "break-abort",
-        "crc-rejection",
-        "heap-exhaustion",
-        "memory-oob",
-        "memory64",
-        "memory64-wrap",
-        "no-results",
-        "partial-reset",
-        "profile-rejection",
-        "program-address-boundaries",
-        "receive-timeout",
-        "recovery-upload",
-        "reset-during-execution",
-        "segment-address-boundaries",
-        "selftest",
-        "serial-period-1020",
-        "serial-period-980",
-        "sixteen-results",
-        "subtype-cast",
-        "table-oob",
-        "tail-reference",
-        "type-address-boundaries",
-        "type-boundary-rejection",
-        "unaligned-simd",
-        "uncaught",
-        "watchdog"
-      ],
-      "complete_corpus_claimed": false
+      "status": "passed",
+      "cases": 35,
+      "all_uart_results_and_cycles_equal_native": true
     },
     "wide_memory64_lane_cases_in_both_models": 2,
     "compiled_c_cases_in_both_models": 5,
@@ -151,6 +118,10 @@
       "c-workload-mapped": {
         "path": "docs/verification/storage-experiment-c-workload-mapped.json",
         "sha256": "0a8b83b593f44c0c75f827b7f69740c120d74bffd78380813576eaddbc731a69"
+      },
+      "loadable-mapped": {
+        "path": "docs/verification/storage-experiment-loadable-mapped.json",
+        "sha256": "bf89b11f0eb7dc1de540f1d6a018666389ee02e932b8f6ce4a1f5b5ae8dd889c"
       }
     }
   },

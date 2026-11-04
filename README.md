@@ -8,12 +8,21 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
+The SIMD floating-point selector now uses explicit lane selection. The complete
+native corpus passes with unchanged results and cycles, and
+[fresh synthesis](docs/verification/simd-selector-synthesis.json) removes
+1,301 LUT4 cells and one DSP from the bounded CPU, preserving its storage
+capacities. An [all-input proof and 12,288 four-state checks](docs/verification/simd-fp-selection.json)
+cover the changed block. Complete mapped regressions and programmable routing
+are running again. The completed mapped-corpus and routed-bitstream records
+below describe the preceding CPU revision until those new checks finish.
+
 - **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 63,656/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
 - **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41470404770) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
-- **Mapped circuit:** CI passes **all 259 pinned official suites** on the default ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-complete.json) preserves source, model and report identities and an independent aggregation check. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes; its netlist is the standard bitstream build's core. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
-- **FPGA:** the committed configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [standard build](docs/verification/fpga-routing.json) produces a routed, timing-verified ULX3S 85F bitstream: 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. A fresh build reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
+- **Mapped circuit:** the preceding CPU revision passed **all 259 pinned official suites** in CI on the ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-complete.json) preserves source, model and report identities and an independent aggregation check. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
+- **FPGA:** the current configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [last verified host-backed bitstream](docs/verification/fpga-routing.json), before the selector change, uses 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. Its rebuild reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
 
 See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host-backed conformance system supplies the instruction image, metadata and backing memory from the computer. The standalone prototype supplies these locally for bounded prepared images. Programmable prepared-image loading passes RTL and mapped integration checks; its FPGA routing remains incomplete. External RAM and reclaiming garbage collection remain future work.
 
@@ -93,7 +102,7 @@ serial deadlines and execution results, including replies arriving together.
 Its serial-device tests pass. The programmable system now connects UART loading
 to writable instruction and metadata stores and the complete CPU.
 [All 35 native integration checks](docs/verification/loadable-rtl.json) and
-[all 35 checks on the current ABC9 mapped circuit](docs/verification/loadable-mapped.json) pass,
+[all 35 checks on the preceding ABC9 mapped circuit](docs/verification/loadable-mapped.json) pass,
 including program replacement, rejection, timeout, UART break, rate variation
 and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
 and [three board-clock sender rates](docs/verification/loadable-board-rates.json)
@@ -102,7 +111,7 @@ also pass, including the expected 9600-baud setting. A
 synchronizers and free-running clock, with eight rejected circuit mutations.
 Core-level integration uses a faster test UART; board tests retain the actual
 divider and serial timing. Every mapped UART byte, result and clock count
-matches RTL in that completed comparison. The current ABC9 wrapper mapping
+matches RTL in that completed comparison. The preceding ABC9 wrapper mapping
 [reduces placement from 66,251 to 62,958 logic cells](docs/verification/loadable-synthesis.json),
 out of 83,640, with the same CPU circuit, all storage capacities and 192/208
 block RAMs. It explicitly preserves the audited reset synchronizer. With
@@ -151,8 +160,9 @@ reduces block RAM from 192 to 187 but increases placed logic from 62,958 to
 63,769 cells. Its routing trial was stopped after persistent congestion; it
 produced no routed circuit or bitstream. All 35 native integration checks,
 five compiled C cases in both models, wide-offset SIMD cases and explicit
-unencodable-row rejection/recovery checks pass. The complete mapped integration
-campaign is still running. The experiment's patch and verification evidence are
+unencodable-row rejection/recovery checks pass.
+[All 35 mapped integration cases](docs/verification/storage-experiment-loadable-mapped.json)
+also pass with identical UART bytes, results and clocks. The patch and evidence are
 preserved, but the production image store remains 288 bits wide.
 No programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
@@ -174,8 +184,10 @@ a pseudo-terminal. The physical-board campaign remains to be run.
 A [freestanding C example](examples/c/README.md) now compiles through Clang to
 Wasm and uploads through the same prepared-image path. All five CRC-32 cases
 [pass in both RTL and mapped simulation](docs/verification/c-workload-mapped.json),
-including a fresh run on the current ABC9 wrapper. They match independent
+on the preceding ABC9 wrapper. They match independent
 Python results with identical UART output and cycle counts.
+The selector update also passes [all five cases in RTL](docs/verification/c-workload-rtl.json);
+its complete mapped integration checks are being repeated.
 The compiler-generated workload is also a required CI integration job.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
@@ -193,6 +205,8 @@ checks all five writable program stores: 444,416 bits with no preset contents,
 loaded before execution. That system retains the same memory capacity and
 uses 7,125 generic register bits; it still needs real SRAM macros and physical
 clock, reset and test implementations.
+Both audits were rerun for the selector change. A failed audit now removes
+its previous output report, preventing stale success from appearing current.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its
@@ -213,10 +227,12 @@ The clocked SystemVerilog core runs in Verilator. The test harness converts the
 pinned official Wasm core test suite and compares its expectations with RTL
 execution results and traps. Unsupported cases fail the run.
 
-Documentation-only pushes touching just `README.md` and `docs/` do not start a
-new hardware workflow, so publishing verification evidence does not cancel a
-running source verification. Code, build-tool and workflow changes still
-trigger CI; pull requests and manual runs remain unfiltered.
+Pushes containing only documentation or recorded verification outputs do not
+start a new hardware workflow, so publishing evidence does not cancel running
+source verification. The performance-reference fixtures in
+`docs/verification/standalone-ci/` remain CI inputs and still trigger checks.
+Code, build-tool and workflow changes also trigger CI; pull requests and manual
+runs remain unfiltered.
 
 CI runs the complete suite with zero and three memory wait states, then checks
 the serial FPGA interface. The workflow now also synthesizes the ECP5 CPU and

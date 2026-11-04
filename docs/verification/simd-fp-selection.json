@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "scope": "actual extracted CPU combinational block; not whole-CPU sequential equivalence",
+  "binary_equivalence": "all operands, lane indices including out-of-range values, arities, modes and widths; all three selected operands, result selection and assembly",
+  "four_state_patterns": 12288,
+  "four_state_scope": "three operands, 16 data patterns including X/Z bits, three arities and every 4-state assignment of lane/width controls; known output bits must agree with all compatible binary inputs; conservative unknown outputs permitted",
+  "negative_controls_rejected": true,
+  "checks": {
+    "binary-equivalence": {
+      "outcome": "proven",
+      "log_sha256": "cff20816754c8c4c5bdec41dc4e3c9e01cad44b33b51fc0958f75d337a3d2695"
+    },
+    "corrupted-lane": {
+      "outcome": "rejected",
+      "log_sha256": "c9e6a9dc31b79249f9de9faf2547e17bc2bd82bbe52cef9a50e9720a51a5fbeb"
+    },
+    "four-state": {
+      "outcome": "passed",
+      "log_sha256": "9747b19c93dd272e828bb3539bcd8b636aca677a44183ae379c318acf09772b6"
+    },
+    "optimistic-control": {
+      "outcome": "rejected",
+      "log_sha256": "253137afac0440f5323d91c34d5dab905a2d87c3ab35a1d80fa5af13bf536210"
+    }
+  },
+  "inputs": {
+    "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
+    "tests/rtl/simd_fp_selection_reference.sv": "4f311d56737ccd7bd497120705cb4b30634a41bdac87a0490b34d75e8bedff94",
+    "tests/rtl/simd_fp_selection_four_state.sv": "ac0649957d55fb2a2489b3b563730c14396879e7d3b58f114adb52cdc110c42c",
+    "tools/check_simd_fp_selection.py": "6a39964a87cd2f164e69b57737f1d0ef64a21d830957dd88ed5b138397adbf6c",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "generated_sources": {
+    "build/simd-fp-selection/candidate.sv": "bd837987769f556750fc899dadb747cf16ca811bd040d103ffd1103871c84de4",
+    "build/simd-fp-selection/proof.sv": "8930bd038c73f3941363c178daf43ea3f26697fd35308e73226fa1068674eb07"
+  },
+  "physical_hardware_tested": false
+}

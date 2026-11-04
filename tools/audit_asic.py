@@ -50,6 +50,10 @@ def main():
     parser.add_argument('--loadable',action='store_true',help='audit writable program stores and serial boot, without a prepared ROM image')
     args=parser.parse_args()
     audit_name='asic-loadable-audit' if args.loadable else 'asic-audit'
+    report_path=ROOT/'reports'/(audit_name+'.json')
+    report_path.parent.mkdir(parents=True,exist_ok=True)
+    # A failed rerun must not leave an earlier success presented as its result.
+    report_path.unlink(missing_ok=True)
     top_name='wasmetal_loadable' if args.loadable else 'wasmetal_standalone'
     prefix='execution.' if args.loadable else ''
     directory=ROOT/'build'/audit_name;directory.mkdir(parents=True,exist_ok=True)
@@ -141,7 +145,7 @@ stat
         'process_selected':False,'sram_macros_mapped':False,'standard_cells_mapped':False,
         'silicon_area_estimated':False,'timing_closed':False,'physical_hardware_tested':False}
     if any(digest(ROOT/name)!=value for name,value in hashes.items()): raise ValueError('ASIC audit inputs changed')
-    (ROOT/'reports'/(audit_name+'.json')).write_text(json.dumps(report,indent=2)+'\n')
+    report_path.write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({key:report[key] for key in ('status','generic_memory_count','generic_memory_bits',
           'backing_memory_bits','value_stack_bits','register_cell_bits','clocked_cells_by_edge')},indent=2))
 

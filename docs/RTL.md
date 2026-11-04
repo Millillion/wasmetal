@@ -5,7 +5,7 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-All 259 official core test files passed at execution-source revision `bf3ce24`: 57,711
+All 259 official core test files passed with the current SIMD selector: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
 [recorded report](verification/core-3.0-current.json) identifies source and
@@ -18,7 +18,9 @@ fails verification.
 
 The verified configuration shares floating-point arithmetic and uses 8,192
 value slots. The report above covers the committed configuration, including
-the descriptor RAM changes and matching generated interface headers.
+the descriptor RAM changes, SIMD selector and matching generated interface headers.
+The new ECP5 mapping is undergoing the complete mapped regression; earlier
+complete mapped and routed reports identify their own preceding source revisions.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged
@@ -46,6 +48,17 @@ an intermediate rounding. Integer conversions and format-specific bit operations
 retain their separate precision implementations. Differential verification against
 the earlier separate units covers 1,734,368 cases; this is not a formal arithmetic
 proof. See the [floating-point report](verification/floating-point.json).
+
+Floating-point SIMD operands use explicit 32-bit or 64-bit lane selection.
+The narrow result is zero-extended, and every out-of-range lane returns zero.
+This removes the general multiplication formerly used to calculate the shift
+amount. An [all-input binary proof](verification/simd-fp-selection.json)
+extracts the actual CPU selection and result-assembly block and compares it
+with the original definition using multiplication and shifting. It includes all lane indices,
+operand values, arities, modes and widths. An independent four-state oracle
+also checks 12,288 patterns, including unknown selector and data bits, and
+rejects optimistic handling of unknown controls. These checks preserve the
+instruction interface and cycle behavior; they are not whole-CPU equivalence.
 
 Values, descriptors, control labels and saved call frames use synchronous block
 RAM. Rising edges commit state and writes; falling edges capture reads for the
@@ -110,6 +123,7 @@ make test-simd test-popcount test-values test-descriptors
 make test-ecp5-ram test-core-four-state
 make prove-masks
 python3 tools/prove_descriptors.py
+python3 tools/check_simd_fp_selection.py
 python3 tools/check_engine.py
 python3 tools/run_spec.py --suite i32 --suite i64 --wait-states 3
 ```

@@ -2,9 +2,12 @@ name: RTL verification
 on:
   push:
     # Evidence and README updates must not cancel long-running RTL checks.
-    paths-ignore:
-      - README.md
-      - docs/**
+    paths:
+      - '**'
+      - '!README.md'
+      - '!docs/**'
+      # These reports are executable performance-comparison fixtures.
+      - 'docs/verification/standalone-ci/**'
   pull_request:
   workflow_dispatch:
 permissions:
@@ -197,10 +200,12 @@ jobs:
       - name: Lint and independent arithmetic verification
         run: |
           make lint test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks
+          python3 tools/check_simd_fp_selection.py
           python3 tools/prove_descriptors.py
           python3 tests/check_timing_test.py
           python3 tests/run_spec_runner_test.py
           python3 tests/gate_compiler_test.py
+          python3 tests/asic_audit_runner_test.py
           python3 tests/spec_ci_test.py
       - name: Compile RTL and verify boundary and oracle behavior
         run: |
@@ -213,6 +218,16 @@ jobs:
         run: python3 tools/run_spec.py --wait-states 3 --report reports/core-stalled.json
       - name: Verify complete serial FPGA interface in simulation
         run: make fpga-smoke
+      - name: Preserve SIMD selector proof diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: simd-selector-verification
+          path: |
+            reports/simd-fp-selection.json
+            build/simd-fp-selection/*.log
+          if-no-files-found: warn
+          retention-days: 30
       - name: Preserve verification reports
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

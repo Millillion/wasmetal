@@ -6,7 +6,7 @@
     "inputs": {
       "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
       "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
-      "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+      "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
       "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
       "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
       "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
@@ -39,6 +39,8 @@
       "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
       "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
       "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+      "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+      "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
       "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
       "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
       "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
@@ -85,7 +87,7 @@
     "uart_ticks": 4,
     "clock_scale": 1,
     "upload_timeout": 4096,
-    "binary_sha256": "15894525a0a5d6c2ed42e9f4dc54bda7878f1ecc3049b31ef279c68b7b0eabc6"
+    "binary_sha256": "b0814bb6a7f020551ab0a737f596eb2460dc275273dd14918a0da5b0c213a57a"
   },
   "clock_scale": 1,
   "uart_ticks": 4,
@@ -844,6 +846,6 @@
     "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
     "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba"
   },
-  "elapsed_seconds": 245.22497211699374,
+  "elapsed_seconds": 469.41960905096494,
   "physical_hardware_tested": false
 }

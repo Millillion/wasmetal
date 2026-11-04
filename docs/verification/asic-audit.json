@@ -37,7 +37,7 @@
     "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
     "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
     "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
-    "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+    "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
     "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
     "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
     "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
@@ -61,7 +61,7 @@
     "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
     "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
     "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
-    "tools/audit_asic.py": "2c76e4f61fbed37d0b0ad209b9d176d34a92a908eabf71714df99f8eea8bd1db",
+    "tools/audit_asic.py": "3d48b568a14feb769f00e85bbb8d7f29766daa7be779d6b90267d5342ed0fc1b",
     "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
     "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
@@ -190,7 +190,7 @@
     }
   },
   "script_sha256": "7b969a541faa112c5cd0aa04ff0021a9668ab8c7ab9d5fe9195aee17147a3c29",
-  "netlist_sha256": "e25ff57a368ff1008028557e182dbebbdfadb6299a68ce1dcdb02464f60ce085",
+  "netlist_sha256": "f0c2a6f5eafe34c97205bc3996ea20141b250c599e46565bdfe7cd4a301d4e60",
   "yosys_sha256": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
   "cells": {
     "$add": 267,
@@ -206,8 +206,8 @@
     "$logic_or": 238,
     "$lt": 158,
     "$mem_v2": 82,
-    "$mul": 11,
-    "$mux": 6388,
+    "$mul": 10,
+    "$mux": 6396,
     "$ne": 16,
     "$neg": 16,
     "$not": 70,
@@ -215,7 +215,7 @@
     "$pmux": 153,
     "$reduce_and": 16,
     "$reduce_bool": 18,
-    "$reduce_or": 276,
+    "$reduce_or": 277,
     "$shift": 14,
     "$shiftx": 26,
     "$shl": 25,
@@ -236,11 +236,11 @@
   "initialized_register_nets": [],
   "memories": [
     {
-      "name": "$flatten\\core.$auto$proc_rom.cc:150:do_switch$11410",
+      "name": "$flatten\\core.$auto$proc_rom.cc:150:do_switch$11468",
       "width": 5,
       "words": 64,
       "bits": 320,
-      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_core.sv:309.9-314.16",
+      "source": "soc/wasmetal_standalone.sv:98.86-113.92|rtl/wasmetal_core.sv:315.9-320.16",
       "known_initial_bits": 320,
       "read_ports": [
         {
@@ -2498,7 +2498,7 @@
   "program_storage_bits": 444416,
   "prepared_program_embedded": true,
   "requires_macro_review": [
-    "$flatten\\core.$auto$proc_rom.cc:150:do_switch$11410",
+    "$flatten\\core.$auto$proc_rom.cc:150:do_switch$11468",
     "boot",
     "core.memory_sizes.words",
     "core.table_sizes.words",
