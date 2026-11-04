@@ -11,21 +11,21 @@
   "positive": {
     "state_output_bits": 5865,
     "compared_bits": 15976,
-    "log_sha256": "a528ec78725504c3a1f042f40a87f563e2dd786eb04a6cda69acd16a879af0d6"
+    "log_sha256": "e82ffe0535e9776abc46593e57c1abbee5162b802590c706589db7967884f9a5"
   },
   "inverted_output_rejected": true,
   "negative": {
     "state_output_bits": 5865,
     "compared_bits": 15976,
-    "log_sha256": "118a8b2a11dc17af8b5212feda327c2b0d03f318a3ea006e57a4f1c09ec9bc6b"
+    "log_sha256": "48e3e8d8ca057c2654d3fbfe78910da06c4921835915af330ae2a1de553f3a0f"
   },
   "inputs": {
     "tools/prove_loadable_mapping.py": "e7820b7ca20902f69c9b227f10d4d3a5f09ea38d9114264a8112780146f32f8f",
     "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
-    "build/loadable-ulx3s/design.manifest.json": "8f42e81e401ff943ba2e45111941596c1c3f166a8dda5ffa92f650ec3de51ef1",
-    "build/loadable-ulx3s/wrapper.json": "6ee26b754f5ab7c179f5bec82f956134f8097e34ce96d65cf5ea483c45273ab0",
-    "build/loadable-ulx3s/wrapper.ys": "72a85d9634e6f3179686f8ecb4fab85b13a352557f402712b1b5379da1e5694d",
+    "build/loadable-ulx3s/design.manifest.json": "96a231dfd710051bc886daf3830b10fd99b9825726e4fa65c0f091e328ef51e1",
+    "build/loadable-ulx3s/wrapper.json": "e339903f020f6b223b4fbf2a06276c89cba8de5f97678c6deb9b6041128fd3a7",
+    "build/loadable-ulx3s/wrapper.ys": "7c0038dadc515e7de880ae4e7db7598920d8077dab93bdefd6ef8de0d28ae3ab",
     ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
     "tools/build_loadable_board.py": "57a58b47730514b09e7bd338ba7f82aab65062c6fcbddd430ca900bd9ac02053",
     "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
@@ -39,8 +39,8 @@
     "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
     "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
     "build/loadable-ulx3s/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
-    "build/standalone-core-ecp5.json": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
-    "build/standalone-core-ecp5.manifest.json": "6cfd713300f1133250983d0c817d7f663aa736163d70ad27e6f3c20c5ea2665e",
+    "build/standalone-selector-final-ecp5.json": "5736ace783ea05514e93dd1f00d8ae5c62432b533d063474bd505b7754fcb552",
+    "build/standalone-selector-final-ecp5.manifest.json": "72aa9d757253c0d398c6e00cba922b96312bd04d64e5ee40b3e13aa08b299858",
     "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
     "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
     "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
@@ -48,19 +48,21 @@
     "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
     "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
     "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
     "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
     "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a"
   },
   "wrapper_cells": {
     "abc": {
-      "LUT4": 8495,
+      "LUT4": 8457,
       "DCCA": 1,
       "TRELLIS_FF": 1693,
       "CCU2C": 806,
       "DP16KD": 94,
-      "PFUMX": 2437,
+      "PFUMX": 2426,
+      "L6MUX21": 967,
       "wasmetal_core": 1,
-      "L6MUX21": 978,
       "TRELLIS_DPR16X4": 64
     },
     "abc9": {
@@ -69,13 +71,13 @@
       "TRELLIS_FF": 1693,
       "CCU2C": 766,
       "DP16KD": 94,
-      "PFUMX": 968,
+      "PFUMX": 967,
       "wasmetal_core": 1,
       "L6MUX21": 263,
       "TRELLIS_DPR16X4": 64
     }
   },
-  "reference_sha256": "6916e4510d946eee09027803ab30b5ba6414227235eb0534b2b13f5d289fa2a7",
-  "candidate_sha256": "6ee26b754f5ab7c179f5bec82f956134f8097e34ce96d65cf5ea483c45273ab0",
+  "reference_sha256": "9ae1fa486a35b4ed6217cfae9f74a626792ca112c956f7301c192c2a87299d5e",
+  "candidate_sha256": "e339903f020f6b223b4fbf2a06276c89cba8de5f97678c6deb9b6041128fd3a7",
   "physical_hardware_tested": false
 }

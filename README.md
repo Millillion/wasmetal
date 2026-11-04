@@ -14,7 +14,9 @@ native corpus passes with unchanged results and cycles, and
 1,301 LUT4 cells and one DSP from the bounded CPU, preserving its storage
 capacities. An [all-input proof and 12,288 four-state checks](docs/verification/simd-fp-selection.json)
 cover the changed block. Complete mapped regressions and programmable routing
-are running again. The completed mapped-corpus and routed-bitstream records
+are running again. Both updated programmable wrapper mappings pass their
+independent equivalence checks, and the updated board circuit passes its
+UART/reset structure audit. The completed mapped-corpus and routed-bitstream records
 below describe the preceding CPU revision until those new checks finish.
 
 - **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 63,656/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
