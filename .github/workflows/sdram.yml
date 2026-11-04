@@ -21,6 +21,34 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 jobs:
+  crossing-reset:
+    name: CDC and SDRAM interruption in RTL and mapped circuits
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned verification tools
+        run: python3 tools/bootstrap.py
+      - name: Interrupt reads and writes across seven clock schedules
+        run: python3 tools/check_cdc_sdram.py --mapped
+      - name: Preserve observations, mutation failures and mapping checks
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: sdram-crossing-reset
+          path: |
+            reports/cdc-sdram-mapped.json
+            build/cdc-sdram-*/*.log
+            build/cdc-sdram-*/*.json
+            build/cdc-sdram-*/*.ys
+            build/cdc-sdram-*/*.svh
+            build/cdc-sdram-*/mapped/*.log
+            build/cdc-sdram-*/mapped/obj/*.build.json
+            build/cdc-sdram-*/mapped/lut-proof/*.json
+          if-no-files-found: warn
+          retention-days: 30
   asynchronous-system:
     name: Complete CPU through CDC and SDRAM (${{ matrix.name }})
     runs-on: ubuntu-24.04

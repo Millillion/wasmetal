@@ -38,6 +38,10 @@ board result and foundry signoff are separate kinds of evidence.
   including delayed initialization. Wrong clock binding, startup bypass and
   corrupted reads are rejected. The clock scheduler passes an independent
   event-sequence check with six rejected mutations. See [SDRAM integration](SDRAM.md#complete-cpu-with-separate-clocks).
+- [x] Interrupt the assembled CDC/SDRAM path at every read/write burst beat
+  and request/response boundary. Both RTL and mapped circuits pass 1,260 resets
+  across two timing profiles and seven clock schedules, with immediate request
+  replacement, retained data and refresh checked. See the [reset campaign](SDRAM.md#reset-across-the-clock-crossing).
 - [ ] Implement and verify the board PHY, then route the complete external
   memory system. Physical timing and electrical behavior still require
   hardware. Genesys 2 requires a separate DDR3 controller/PHY.
@@ -52,6 +56,11 @@ board result and foundry signoff are separate kinds of evidence.
   traffic and independent serial clock rates in simulation.
   All 35 native and mapped checks pass with identical UART output and clocks.
   See the [upload guide](PROGRAM-UPLOAD.md).
+- [x] Execute complete ROM and programmable systems in four-state simulation,
+  checking initially unknown program stores and backing RAM at production
+  capacities. Two complete uploads and an interrupted upload pass, including
+  warm-clear and floating-point/SIMD results, with exact native UART and
+  invocation-cycle agreement. See the [unknown-storage campaign](PROGRAM-UPLOAD.md#complete-systems-with-unknown-storage).
 - [ ] Complete programmable FPGA routing, timing verification and bitstream
   round-trip checks. The current ULX3S placement uses 192 of 208 block RAMs;
   the direct-rounding baseline places 61,344 logic cells. An equivalent

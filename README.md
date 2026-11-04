@@ -21,6 +21,13 @@ memory, register and DSP counts. The new mapped CPU passes
 All five [compiled-C cases](docs/verification/c-workload-mapped.json) also pass
 on the new RTL and mapped programmable system, with exact UART and cycle agreement.
 Its complete mapped corpus and 35-case programmable comparison are running.
+The complete system also passes a new
+[four-state boot and upload campaign](docs/verification/loadable-four-state.json)
+at production capacities. All 1,492,992 bits in the five writable program stores
+and backing RAM begin unknown. Two uploaded programs, an interrupted upload,
+warm-reset memory clearing and ROM boot pass, with exact native UART results
+and invocation cycle counts. Both deliberate mutations are rejected;
+CI is configured to require this check for programmable-system completion.
 A new [CPU mapping comparison](docs/DESIGN-FLOW.md#comparing-complete-cpu-logic-cones)
 retains complete logic cones and resumes verified checkpoints. Its
 [driver checks](docs/verification/core-mapping-driver.json) reject an inverted
@@ -52,7 +59,7 @@ all 35 programmable mapped cases and all five compiled C cases. Its
 remain documented. Two older programmable routing trials were
 [retired with unresolved, increasing congestion](docs/verification/selector-routing-retirement.json).
 Their iteration records are preserved; neither produced a completed bitstream.
-The latest standalone board build [hit its three-hour CI limit](https://github.com/Millillion/wasmetal/actions/runs/41770401814/job/126379123153)
+A standalone board build [hit its three-hour CI limit](https://github.com/Millillion/wasmetal/actions/runs/41770401814/job/126379123153)
 during physical implementation, which also skipped dependent system checks.
 CI now separates mapped simulation from standalone placement/routing so those
 functional checks can finish independently. Both remain required.
@@ -150,8 +157,8 @@ are rejected independently. Compiled C also passes all five CRC-32 cases with
 [25 MHz timing](docs/verification/sdram-c-25mhz.json) and
 [100 MHz timing and delayed startup](docs/verification/sdram-c-100mhz-5000000.json),
 each exercising 1,281 SDRAM reads and 42,246 writes. A dedicated workflow repeats
-the component, formal, complete-CPU and compiled C checks. All four jobs also
-[pass in CI](docs/verification/ci-sdram.json); the downloaded device observations,
+the component, formal, complete-CPU and compiled C checks. Those four earlier jobs
+[passed in CI](docs/verification/ci-sdram.json); the downloaded device observations,
 UART results and cycle counts match the local campaigns. These are simulation timing profiles, not
 measured FPGA clock rates. The board PHY and physical implementation remain;
 Genesys 2 requires DDR3. The default FPGA memory backend remains block RAM.
@@ -167,6 +174,15 @@ matches independent event sequences and rejects six mutations. CI is configured
 to repeat these campaigns. These checks exercise the assembled RTL and a
 behavioral SDRAM device; physical clock generation, CDC constraints and the
 board PHY remain.
+
+The [CDC/SDRAM reset campaign](docs/verification/cdc-sdram-mapped.json) adds
+1,260 resets and 4,704 completed transactions per model, with identical RTL and
+mapped observations. It interrupts reads and writes at 15 observed points
+across seven clock schedules and two timing profiles. Checks cover cancellation
+before acceptance, every burst beat, immediate replacement requests, retained
+masked-write data and refresh during reset. Corrupt reads, ignored masks,
+missing refresh and incorrect cold-reset wiring are rejected. See the
+[reset contract and campaign](docs/SDRAM.md#reset-across-the-clock-crossing).
 
 The [prepared-image upload protocol](docs/PROGRAM-UPLOAD.md) now has an RTL
 receiver and Python encoder. The production layout test checks

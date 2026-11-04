@@ -230,8 +230,9 @@ These are bounded integration cases, separate from the 259-suite official
 host-backed corpus.
 CI builds the mapped simulator independently of board routing so routing
 congestion cannot postpone execution testing. The final integration job
-requires native tests, every mapped group, the compiled C workload and board
-routing to succeed. The programmable bitstream has not yet completed routing;
+requires native tests, every mapped group, the compiled C workload,
+whole-system four-state simulation and board routing to succeed. The
+programmable bitstream has not yet completed routing;
 passing the mapped execution campaign does not establish physical routability.
 
 The new [RAM-model checks](verification/loadable-ram.json) cover all 1,024
@@ -244,3 +245,41 @@ disabled read protection must fail. This is functional primitive verification;
 physical setup/hold timing and electrical behavior still require their own
 checks. See Lattice's [ECP5 memory guide](https://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/EH/FPGA-TN-02204-1-6-ECP5-and-ECP5-5G-Memory-Usage-Guide.ashx?document_id=50466)
 for the primitive behavior and collision restrictions.
+
+## Complete systems with unknown storage
+
+The [four-state campaign](verification/loadable-four-state.json) runs the
+complete production-capacity SystemVerilog system in Icarus Verilog. Before
+upload, it checks that every word in the five writable program stores and
+every backing-RAM byte is unknown: **132,896 words containing 1,492,992 bits**.
+The positive test does not seed those arrays or force CPU state. The normal
+loader and boot logic must establish the contents needed for execution.
+
+```sh
+make sim
+python3 tools/build_loadable_sim.py
+python3 tools/check_loadable_four_state.py
+```
+
+The test sends the complete prepared self-test through the UART pins and
+checks its 12 results. It resets, starts another upload, interrupts that
+upload after 70 payload bytes, and verifies that the uncommitted image cannot
+run. A second complete upload checks ten results, including scalar and SIMD
+rounding, negative zero, NaN and a load from memory that the preceding program
+wrote. That load must return zero after the new boot clear. Both complete
+uploads match the native Verilator model's UART bytes and reported invocation
+cycles exactly. The observer rejects unknown UART or image-valid signals.
+
+A separate ROM boot uses the same self-test and production memory capacities,
+starting all 131,072 backing-RAM bytes unknown. Its result frame also matches
+native execution. Deliberately making one initial program word known fails
+the storage check; removing the wrapper's commit gate fails the independent
+boot-before-commit assertion. Corrupting either program's expected result is
+also rejected by the result oracle.
+
+The full programmable run takes 4,538,765 simulated clocks with a four-clock
+UART bit period. This accelerated serial timing keeps the check practical;
+the stored program capacities are unchanged. These are bounded integration
+programs, not the entire official corpus, and the test does not establish
+analog startup behavior or physical board operation. CI now includes this
+campaign as a required dependency of the programmable-system completion job.

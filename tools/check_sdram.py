@@ -48,7 +48,7 @@ def main():
     output.unlink(missing_ok=True)
     source=ROOT/'soc/sdram/wasmetal_sdram_memory.sv';harness=ROOT/'tests/memory/sdram.cpp'
     top='wasmetal_sdram_memory'
-    paths=[source,harness,Path(__file__).resolve(),ROOT/'tools/prepare_standalone.py',
+    paths=[source,harness,ROOT/'tests/memory/sdram_device.hpp',Path(__file__).resolve(),ROOT/'tools/prepare_standalone.py',
         ROOT/'tools/build_board.py',ROOT/'tools/build_standalone_gate_sim.py',
         ROOT/'tools/build_sdram_gate_sim.py',ROOT/'tools/upstream.lock.json']
     hashes={str(p.relative_to(ROOT)):digest(p) for p in paths}

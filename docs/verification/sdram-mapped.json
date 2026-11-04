@@ -20,7 +20,7 @@
         "T_MRD": 2
       },
       "native_command": [
-        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
         "-Wall",
         "-Wno-UNUSEDSIGNAL",
         "--assert",
@@ -46,11 +46,11 @@
         "-j",
         "2",
         "--Mdir",
-        "/home/lastmjs/development/wasmetal/build/sdram-25mhz-full/native",
+        "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-full/native",
         "-CFLAGS",
         "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
-        "/home/lastmjs/development/wasmetal/soc/sdram/wasmetal_sdram_memory.sv",
-        "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+        "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+        "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
       ],
       "tests": {
         "rtl": {
@@ -74,7 +74,7 @@
             "stimulus_hash": 15460159934520677470,
             "observation_hash": 17778554872661270762
           },
-          "binary_sha256": "6e682d50b862dccbfe7db02c2fbef92351c3a10b6d97cde6d7a11713b25ae9e1",
+          "binary_sha256": "e41817105deaf69c7eb50eb64cce7a034f1c6570e7cf524123464e2e257610fa",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -105,7 +105,7 @@
             "stimulus_hash": 15460159934520677470,
             "observation_hash": 17778554872661270762
           },
-          "binary_sha256": "952be4f8ea0a747085307f1c353a04099d8d5ebb22ff0dca49c115c762d42227",
+          "binary_sha256": "97155c27edc2146282994d5426cd24ffceaffd99f03468ee24ed5b0d54861f32",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -121,15 +121,16 @@
         "top": "wasmetal_sdram_memory",
         "inputs": {
           "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
-          "tests/memory/sdram.cpp": "3bfb42ed4caa453c88965a857d0237b7b173409c9ac1fcaebb05302384d55fc2",
-          "tools/check_sdram.py": "8443dbbdfd540a3cfd7a254c405b968ed4a4938965d4a396163e0e13deac41e1",
+          "tests/memory/sdram.cpp": "b8b37a1f5b9348e5b478c371c18c273ade9c2e2532ef6609a286f48793a2c084",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
           "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
           "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
-          "tools/build_sdram_gate_sim.py": "d3800e2e930db8c276244dec2490ebbd96104dd9c591de55f6b2993a50f2cc19",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/sdram-25mhz-full/controller.json": "17223b9de984d3c14305af27b55fd7437548057f2e142bf1cc63125681d392fb",
-          "build/sdram-25mhz-full/controller.manifest.json": "deeb88d75ee59b77a8749271b8fcbfe1db34f2b5a6c736eaf09198011d0b8cdb",
+          "build/sdram-25mhz-full/controller.json": "bed27aef90fdb422f197caaa03d266aacb599cf6da060585438c299eab34443c",
+          "build/sdram-25mhz-full/controller.manifest.json": "6e6867f3a2bb54d88c3f0c1d437664b709629a14ef95a2610e4b681e3e146315",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -138,17 +139,17 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           "build/sdram-25mhz-full/mapped/circuit.v": "97e6366c89d8c42cb7751402bc5dcd2bc9052eb84250fba00b0342b72b1d663e",
           "build/sdram-25mhz-full/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/sdram-25mhz-full/mapped/vendor.vlt": "1e653864d9e75fdb196cfaa0bcdd0d34fb693b011a811776b757bfdc5b8c919c",
-          "build/sdram-25mhz-full/mapped/acyclic.ys": "ad6521ade7a7c622b9e7eb5573050c8c5eae7a8d17e096000398bf2c7d6c20fc",
-          "build/sdram-25mhz-full/mapped/acyclic.log": "01644a5fd54bbf4c7531608d01ac3f488aa4495477e4cfe1d60dbfeabb438311",
-          "build/sdram-25mhz-full/mapped/lut-proof/report.json": "32e6ac51bfde6378b5e968c55901db5a5af3412093b28405d8b79b54c5e1d4bf",
-          "build/sdram-25mhz-full/mapped/normalized.json": "8d80c5816095bce09ebefc3a6aad613611c1e4406515afa4cb0c03ac152c9524",
+          "build/sdram-25mhz-full/mapped/vendor.vlt": "aca75199546862d850236f6063679b3cf5dce137434ee2bd2083a9574701a205",
+          "build/sdram-25mhz-full/mapped/acyclic.ys": "25125931b7e3b78b9e9068d85239674df11a5ef24c056315733e21f4e2d87950",
+          "build/sdram-25mhz-full/mapped/acyclic.log": "df1d9e99fde2840b0419b77f69801052a68a5a3cc0367d4a0457985a711070ad",
+          "build/sdram-25mhz-full/mapped/lut-proof/report.json": "5b85937bbd4efe877587068383962bba401d7a4fdc118a2130337dcfb7410d2f",
+          "build/sdram-25mhz-full/mapped/normalized.json": "1ecd701d2ade379a30b174271f363e4d8048175b76888f92f52e5817a9e78085",
           "build/sdram-25mhz-full/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
-          "build/sdram-25mhz-full/mapped/cycle-probe.ys": "d01878ad51b56e578b0b9690a0796113e9844abe8bc99e5d60514da638d8e72d",
-          "build/sdram-25mhz-full/mapped/cycle-probe.log": "779f8e05acef39c4626902ed6c23d781d3a30a36dc04a3d1f461d1389c40da4c"
+          "build/sdram-25mhz-full/mapped/cycle-probe.ys": "4a5d562a9f33ffd960286a1b8a0360183ff36773536db197fb3c98123b0efcdd",
+          "build/sdram-25mhz-full/mapped/cycle-probe.log": "e3e5a20b93ae76a1f5d53b2f36a5ec433ca32460184338ab88173858fa2bf1a8"
         },
-        "binary_sha256": "952be4f8ea0a747085307f1c353a04099d8d5ebb22ff0dca49c115c762d42227",
-        "netlist_sha256": "17223b9de984d3c14305af27b55fd7437548057f2e142bf1cc63125681d392fb",
+        "binary_sha256": "97155c27edc2146282994d5426cd24ffceaffd99f03468ee24ed5b0d54861f32",
+        "netlist_sha256": "bed27aef90fdb422f197caaa03d266aacb599cf6da060585438c299eab34443c",
         "compilation": {
           "fast_sim": true,
           "portable": true,
@@ -158,7 +159,7 @@
           "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
         },
         "verilator_command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
           "-Wall",
           "-Wno-UNUSEDSIGNAL",
           "--top-module",
@@ -170,18 +171,18 @@
           "--output-split-cfuncs",
           "10000",
           "--Mdir",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-full/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-full/mapped/obj",
           "-CFLAGS",
           "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-full/mapped/vendor.vlt",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-full/mapped/cells.v",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-full/mapped/circuit.v",
-          "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-full/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-full/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-full/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
         ],
         "compiler_command": [
           "make",
           "-C",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-full/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-full/mapped/obj",
           "-f",
           "Vwasmetal_sdram_memory.mk",
           "-j",
@@ -221,7 +222,7 @@
         "T_MRD": 2
       },
       "native_command": [
-        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
         "-Wall",
         "-Wno-UNUSEDSIGNAL",
         "--assert",
@@ -247,11 +248,11 @@
         "-j",
         "2",
         "--Mdir",
-        "/home/lastmjs/development/wasmetal/build/sdram-25mhz-prefix/native",
+        "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-prefix/native",
         "-CFLAGS",
         "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=131072 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
-        "/home/lastmjs/development/wasmetal/soc/sdram/wasmetal_sdram_memory.sv",
-        "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+        "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+        "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
       ],
       "tests": {
         "rtl": {
@@ -275,7 +276,7 @@
             "stimulus_hash": 13671944048498103390,
             "observation_hash": 944983574837870171
           },
-          "binary_sha256": "69ae8cf656696a5dad0c03d7c7aff3c378bfeeb43849e833e32d24190893b3ed",
+          "binary_sha256": "99d31b6e07cc8e405ec89da7d3b4ee402bb0e3b6b69dc920feddea0f9bbec219",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -306,7 +307,7 @@
             "stimulus_hash": 13671944048498103390,
             "observation_hash": 944983574837870171
           },
-          "binary_sha256": "f7a0a9c7aa143b5a779f6a0894c39e887505de1b9eb42e23e985716c1739b637",
+          "binary_sha256": "c4c839a6fdad42ee3aace19d95002dcfa099fdae39869cfbe477254de5192b8f",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -322,15 +323,16 @@
         "top": "wasmetal_sdram_memory",
         "inputs": {
           "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
-          "tests/memory/sdram.cpp": "3bfb42ed4caa453c88965a857d0237b7b173409c9ac1fcaebb05302384d55fc2",
-          "tools/check_sdram.py": "8443dbbdfd540a3cfd7a254c405b968ed4a4938965d4a396163e0e13deac41e1",
+          "tests/memory/sdram.cpp": "b8b37a1f5b9348e5b478c371c18c273ade9c2e2532ef6609a286f48793a2c084",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
           "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
           "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
-          "tools/build_sdram_gate_sim.py": "d3800e2e930db8c276244dec2490ebbd96104dd9c591de55f6b2993a50f2cc19",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/sdram-25mhz-prefix/controller.json": "f32257a8f9151b33f887d055aec06d56d17efe1defa003311737e69fba4180d4",
-          "build/sdram-25mhz-prefix/controller.manifest.json": "70d16a99568d8dead836f9ab63c5a677acd9088ac177fcaba2932bf41f031fa3",
+          "build/sdram-25mhz-prefix/controller.json": "068b7db4ad2732598e51e417a34c525b97ca9299329d640e08cd7728c0b62c57",
+          "build/sdram-25mhz-prefix/controller.manifest.json": "48dfff2d32fc54f50ccde780a5101eb39b30571f01766575a9edf27c9c22310d",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -339,17 +341,17 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           "build/sdram-25mhz-prefix/mapped/circuit.v": "c9c2943f3650a8ae880a216fd58a42e8f50006b5bbf0e16836ec5e45845673f3",
           "build/sdram-25mhz-prefix/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/sdram-25mhz-prefix/mapped/vendor.vlt": "6f607c07c63ee1f29620e6454393adf06d797a9cae3d59aa55e1a352105252ed",
-          "build/sdram-25mhz-prefix/mapped/acyclic.ys": "38c9f6950069513c46c2062a0bd5220bc6bf7ed51c739b907f7fbdeaf3410eac",
-          "build/sdram-25mhz-prefix/mapped/acyclic.log": "a42c3eab543f04c987e8b228bae173f3a045909366d8e7cbe3ec84e4082fd5f7",
-          "build/sdram-25mhz-prefix/mapped/lut-proof/report.json": "3e3c64f08f32cb631e0296397b11e0f054488d683d7bdfdf0b2b121632d56d2d",
-          "build/sdram-25mhz-prefix/mapped/normalized.json": "55c1082bbccb70194551da58f327fc5773ed349835a4c8b8cf642b7947dfe89b",
+          "build/sdram-25mhz-prefix/mapped/vendor.vlt": "5d673c798af27aea1ac77cce8ba41515d40236bbda76dbb04bd6642bc28be9ab",
+          "build/sdram-25mhz-prefix/mapped/acyclic.ys": "0716427e42e6fe9289d42c26c95445932c581fa7a0a52f07c061d9f8eaf05925",
+          "build/sdram-25mhz-prefix/mapped/acyclic.log": "a6307840a3f8c3f3be06fb5a684932ca944bbeff104dab9669f2447b99d7bcbb",
+          "build/sdram-25mhz-prefix/mapped/lut-proof/report.json": "c3a8467f97d6fe63136b413ef59da02b54bb720339a7e15277f7d25445d279f0",
+          "build/sdram-25mhz-prefix/mapped/normalized.json": "dfd1fb7f258b9c7601c0c421f14a0de50fb0d949ba5077d635de099bf95086b7",
           "build/sdram-25mhz-prefix/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
-          "build/sdram-25mhz-prefix/mapped/cycle-probe.ys": "47e645cc63ffb837a640596184da73c263daed5e107079e0327397c5198321c1",
-          "build/sdram-25mhz-prefix/mapped/cycle-probe.log": "863e516c7ea35dcd455a8657be4135317c43c235f70998743c4a4ffb24f05a6f"
+          "build/sdram-25mhz-prefix/mapped/cycle-probe.ys": "2265126d1228d30d815274d1230a430d294b3184d142bee98e52b4a8d262afdd",
+          "build/sdram-25mhz-prefix/mapped/cycle-probe.log": "8e1c78ac5666af0555e7a7534725644d1e915a3e57190bf6e79cba6a54f60781"
         },
-        "binary_sha256": "f7a0a9c7aa143b5a779f6a0894c39e887505de1b9eb42e23e985716c1739b637",
-        "netlist_sha256": "f32257a8f9151b33f887d055aec06d56d17efe1defa003311737e69fba4180d4",
+        "binary_sha256": "c4c839a6fdad42ee3aace19d95002dcfa099fdae39869cfbe477254de5192b8f",
+        "netlist_sha256": "068b7db4ad2732598e51e417a34c525b97ca9299329d640e08cd7728c0b62c57",
         "compilation": {
           "fast_sim": true,
           "portable": true,
@@ -359,7 +361,7 @@
           "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
         },
         "verilator_command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
           "-Wall",
           "-Wno-UNUSEDSIGNAL",
           "--top-module",
@@ -371,18 +373,18 @@
           "--output-split-cfuncs",
           "10000",
           "--Mdir",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-prefix/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-prefix/mapped/obj",
           "-CFLAGS",
           "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=131072 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-prefix/mapped/vendor.vlt",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-prefix/mapped/cells.v",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-prefix/mapped/circuit.v",
-          "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-prefix/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-prefix/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-prefix/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
         ],
         "compiler_command": [
           "make",
           "-C",
-          "/home/lastmjs/development/wasmetal/build/sdram-25mhz-prefix/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-25mhz-prefix/mapped/obj",
           "-f",
           "Vwasmetal_sdram_memory.mk",
           "-j",
@@ -422,7 +424,7 @@
         "T_MRD": 2
       },
       "native_command": [
-        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
         "-Wall",
         "-Wno-UNUSEDSIGNAL",
         "--assert",
@@ -448,11 +450,11 @@
         "-j",
         "2",
         "--Mdir",
-        "/home/lastmjs/development/wasmetal/build/sdram-100mhz-full/native",
+        "/tmp/wasmetal-direct-rounding/build/sdram-100mhz-full/native",
         "-CFLAGS",
         "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=20000 -DTEST_REFRESH=781 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=6 -DTEST_RAS=5 -DTEST_WR=2 -DTEST_RC=6 -DTEST_MRD=2",
-        "/home/lastmjs/development/wasmetal/soc/sdram/wasmetal_sdram_memory.sv",
-        "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+        "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+        "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
       ],
       "tests": {
         "rtl": {
@@ -476,7 +478,7 @@
             "stimulus_hash": 15460159934520677470,
             "observation_hash": 15082218381660987822
           },
-          "binary_sha256": "a60b9d6182c2375d3e6de433f42ce730e7d95977d9a590882bc5e34d58737346",
+          "binary_sha256": "4c8deb14dcfc7d7e2dd481a16e92d8c8dc92174892d1c5533606de51f281b2fb",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -507,7 +509,7 @@
             "stimulus_hash": 15460159934520677470,
             "observation_hash": 15082218381660987822
           },
-          "binary_sha256": "6138a57ab0eef0a5da4a2af223d60372f777cd0304116e6f0d2ed0a024f00c31",
+          "binary_sha256": "4430f4247836475f1f7e0f25e54501ca556a60de3d2ed6a6744c1dac7b44510b",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -523,15 +525,16 @@
         "top": "wasmetal_sdram_memory",
         "inputs": {
           "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
-          "tests/memory/sdram.cpp": "3bfb42ed4caa453c88965a857d0237b7b173409c9ac1fcaebb05302384d55fc2",
-          "tools/check_sdram.py": "8443dbbdfd540a3cfd7a254c405b968ed4a4938965d4a396163e0e13deac41e1",
+          "tests/memory/sdram.cpp": "b8b37a1f5b9348e5b478c371c18c273ade9c2e2532ef6609a286f48793a2c084",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
           "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
           "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
-          "tools/build_sdram_gate_sim.py": "d3800e2e930db8c276244dec2490ebbd96104dd9c591de55f6b2993a50f2cc19",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/sdram-100mhz-full/controller.json": "63da94e425270827157224ca19b567c930dbe6de7d2d5078bfcac5333a029dcc",
-          "build/sdram-100mhz-full/controller.manifest.json": "ae41a847d90f60a53ceb9f1691744d1b748bc19448cdfd05fa5901248a994b95",
+          "build/sdram-100mhz-full/controller.json": "ecf2e15a1ee63f6c3da31ce47bbada6a41f1f50a6d6b2ee13b5435d464374a4f",
+          "build/sdram-100mhz-full/controller.manifest.json": "7cd597fe0dff7fc929b8f6245053a7fbaeb1f03789216ae70b50ef05e5df7a1d",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -540,17 +543,17 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           "build/sdram-100mhz-full/mapped/circuit.v": "9c73ba51fad7d2af90818f0e4ed5a4a41b9ebc1bc5f16725ec51d7696742d599",
           "build/sdram-100mhz-full/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/sdram-100mhz-full/mapped/vendor.vlt": "9031b0596777dcb33396aa5a4212a7ca10c539d102bb77526c97b8393524ebff",
-          "build/sdram-100mhz-full/mapped/acyclic.ys": "57ecfb6d1be1a9f525720a8916bd8e38c3262fa6652f7f31e2c96c31ce021706",
-          "build/sdram-100mhz-full/mapped/acyclic.log": "8415c5ae5514bfb9d0bc2192d8f889bdd1c6957b1bd1b615b7670fdd2f5855dd",
-          "build/sdram-100mhz-full/mapped/lut-proof/report.json": "9fdf2d5841cda010b1de24755d80bbc36f438b416ddbbace791c5a7a08b49188",
-          "build/sdram-100mhz-full/mapped/normalized.json": "ebbf05c272ea2051ea01845a0aa3973d94edd12af77af622d383a8aedddd09b7",
+          "build/sdram-100mhz-full/mapped/vendor.vlt": "fc66bbd9316584550c8fcca35d5c607032d07466c533827ed06732a683e6f245",
+          "build/sdram-100mhz-full/mapped/acyclic.ys": "a45d216dbd27abe78db98fe585a6e9526049bd0ff7d083046709e98dd471310f",
+          "build/sdram-100mhz-full/mapped/acyclic.log": "ab74db95b0847c06824f1da805028b57dee6a4def75755f6abc59df279d46b11",
+          "build/sdram-100mhz-full/mapped/lut-proof/report.json": "56b34e154e6a8df19b14073d7d644b822b7f1bcbf837bf89029529626aac094a",
+          "build/sdram-100mhz-full/mapped/normalized.json": "2f7a5a0214a1f288f8ea1b3e1fc88bebcb2350db3a7babc61965d2f33e5a96c9",
           "build/sdram-100mhz-full/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
-          "build/sdram-100mhz-full/mapped/cycle-probe.ys": "a4607c3857800d5b812db4258c76e828129b7e00f71b33e1dd1de7158906c3a7",
-          "build/sdram-100mhz-full/mapped/cycle-probe.log": "1db3bc9c775f68c202f66c77ca492aff0053eda6bd4ff1fbac73313f773f23fa"
+          "build/sdram-100mhz-full/mapped/cycle-probe.ys": "5971de4b9fd878ce895c8902728fd2fcb65215fbac83552963da9252267d3fc2",
+          "build/sdram-100mhz-full/mapped/cycle-probe.log": "daa80685ae97676b28e139af43612f585209967f9807dcf5c5d65b31dcd19f99"
         },
-        "binary_sha256": "6138a57ab0eef0a5da4a2af223d60372f777cd0304116e6f0d2ed0a024f00c31",
-        "netlist_sha256": "63da94e425270827157224ca19b567c930dbe6de7d2d5078bfcac5333a029dcc",
+        "binary_sha256": "4430f4247836475f1f7e0f25e54501ca556a60de3d2ed6a6744c1dac7b44510b",
+        "netlist_sha256": "ecf2e15a1ee63f6c3da31ce47bbada6a41f1f50a6d6b2ee13b5435d464374a4f",
         "compilation": {
           "fast_sim": true,
           "portable": true,
@@ -560,7 +563,7 @@
           "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
         },
         "verilator_command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
           "-Wall",
           "-Wno-UNUSEDSIGNAL",
           "--top-module",
@@ -572,18 +575,18 @@
           "--output-split-cfuncs",
           "10000",
           "--Mdir",
-          "/home/lastmjs/development/wasmetal/build/sdram-100mhz-full/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-100mhz-full/mapped/obj",
           "-CFLAGS",
           "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=20000 -DTEST_REFRESH=781 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=6 -DTEST_RAS=5 -DTEST_WR=2 -DTEST_RC=6 -DTEST_MRD=2",
-          "/home/lastmjs/development/wasmetal/build/sdram-100mhz-full/mapped/vendor.vlt",
-          "/home/lastmjs/development/wasmetal/build/sdram-100mhz-full/mapped/cells.v",
-          "/home/lastmjs/development/wasmetal/build/sdram-100mhz-full/mapped/circuit.v",
-          "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+          "/tmp/wasmetal-direct-rounding/build/sdram-100mhz-full/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/sdram-100mhz-full/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/sdram-100mhz-full/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
         ],
         "compiler_command": [
           "make",
           "-C",
-          "/home/lastmjs/development/wasmetal/build/sdram-100mhz-full/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-100mhz-full/mapped/obj",
           "-f",
           "Vwasmetal_sdram_memory.mk",
           "-j",
@@ -623,7 +626,7 @@
         "T_MRD": 3
       },
       "native_command": [
-        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
         "-Wall",
         "-Wno-UNUSEDSIGNAL",
         "--assert",
@@ -649,11 +652,11 @@
         "-j",
         "2",
         "--Mdir",
-        "/home/lastmjs/development/wasmetal/build/sdram-synthetic/native",
+        "/tmp/wasmetal-direct-rounding/build/sdram-synthetic/native",
         "-CFLAGS",
         "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=512 -DTEST_ROWS=3 -DTEST_COLUMNS=3 -DTEST_POWERUP=16 -DTEST_REFRESH=127 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=7 -DTEST_RAS=8 -DTEST_WR=3 -DTEST_RC=10 -DTEST_MRD=3",
-        "/home/lastmjs/development/wasmetal/soc/sdram/wasmetal_sdram_memory.sv",
-        "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+        "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+        "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
       ],
       "tests": {
         "rtl": {
@@ -677,7 +680,7 @@
             "stimulus_hash": 1362313415649743358,
             "observation_hash": 10119849072690789516
           },
-          "binary_sha256": "ac646abb7c5312fe46ddcbfde0790186d052138691a4792d1266703dd3fb4233",
+          "binary_sha256": "a258c0541d2e49176c52a73693d1552622963f6972ae4e4eec685c7ccd69dea5",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -708,7 +711,7 @@
             "stimulus_hash": 1362313415649743358,
             "observation_hash": 10119849072690789516
           },
-          "binary_sha256": "755a998b64f3abb3cdeccce697281db11645207a37c3bf9fb0ecc0ad8dc98e4f",
+          "binary_sha256": "40920f3c182bfaca54b286d5b3b82e17041c980fe3f9f4a34761c43cd471cb1a",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -724,15 +727,16 @@
         "top": "wasmetal_sdram_memory",
         "inputs": {
           "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
-          "tests/memory/sdram.cpp": "3bfb42ed4caa453c88965a857d0237b7b173409c9ac1fcaebb05302384d55fc2",
-          "tools/check_sdram.py": "8443dbbdfd540a3cfd7a254c405b968ed4a4938965d4a396163e0e13deac41e1",
+          "tests/memory/sdram.cpp": "b8b37a1f5b9348e5b478c371c18c273ade9c2e2532ef6609a286f48793a2c084",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
           "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
           "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
-          "tools/build_sdram_gate_sim.py": "d3800e2e930db8c276244dec2490ebbd96104dd9c591de55f6b2993a50f2cc19",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/sdram-synthetic/controller.json": "4e50d399d73d7486d134fc5b3883fe62ba3480d77708598e33643ccd2ed3953e",
-          "build/sdram-synthetic/controller.manifest.json": "b8906d6683c9853b773407c55763631ebc133ef1137aafc9e84e756fd7a0e8ce",
+          "build/sdram-synthetic/controller.json": "6d08741034fd4288edee08372b69d18c042b405118df902044c3e665772e7d44",
+          "build/sdram-synthetic/controller.manifest.json": "c1f478d9b0a99506fd46b04538122a735bd21064d9797973cb86ff0ab3c9d6d1",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -741,17 +745,17 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           "build/sdram-synthetic/mapped/circuit.v": "eea3e8ffee3b1da964eeebf402ecbd9b354a631f3825bfa64587429b72dc46db",
           "build/sdram-synthetic/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/sdram-synthetic/mapped/vendor.vlt": "cbc130b1e3925939a7feb9d16202dd8f713811396a9b309a93a077ddb5d11798",
-          "build/sdram-synthetic/mapped/acyclic.ys": "37e2a657ba4a76493f147310c60a4955789263b95e4f62d3536cc993539039b4",
-          "build/sdram-synthetic/mapped/acyclic.log": "4c8b3331025b388ecc9614a79ad73751570eb6f96a60a8d3a371f39f409f1c22",
-          "build/sdram-synthetic/mapped/lut-proof/report.json": "2512da61af73d34f2a15ebe20fe2b79f1d6f456f85af26853223f3f432d46a72",
-          "build/sdram-synthetic/mapped/normalized.json": "cdfc8bc91341dbfa9b45c8acca404c4de8c4e9f3749328e2ae76364380e20648",
+          "build/sdram-synthetic/mapped/vendor.vlt": "f57ec7522cba11e814f3b47d55e06cfb1a0b74d88efe2715cd49ddd551363f82",
+          "build/sdram-synthetic/mapped/acyclic.ys": "9c5cadb5c2fc34151df656c37cfbff32ff22a6dd2a1d9659309e22639666bf5b",
+          "build/sdram-synthetic/mapped/acyclic.log": "4242ab3ad48927c20160d1f1013c58339ea5ad52db12794e06553a3eb0937993",
+          "build/sdram-synthetic/mapped/lut-proof/report.json": "df86a45c6c4aca7b3887ec134af28d8facc88df7e8147f61732f521120acc952",
+          "build/sdram-synthetic/mapped/normalized.json": "d7c9665bc809917300bf22b769ef76d71b07985721b07d8326e468c287550713",
           "build/sdram-synthetic/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
-          "build/sdram-synthetic/mapped/cycle-probe.ys": "3a08270d6c0d3e6120654a548d7d6364ca57f31fdbf0ccb0326a14c7603d805c",
-          "build/sdram-synthetic/mapped/cycle-probe.log": "9ffef40386c2ef217627d2cae155945730730d71cb8774daab71d5209af5000e"
+          "build/sdram-synthetic/mapped/cycle-probe.ys": "a443bcb4ea6c8296a42cb6cf321c5e90136de19f0dfb80b9cc15c8a0d990bc00",
+          "build/sdram-synthetic/mapped/cycle-probe.log": "2d2881b84f5d44323b38ed6d88b53963fb5624d721b497e01727842883120704"
         },
-        "binary_sha256": "755a998b64f3abb3cdeccce697281db11645207a37c3bf9fb0ecc0ad8dc98e4f",
-        "netlist_sha256": "4e50d399d73d7486d134fc5b3883fe62ba3480d77708598e33643ccd2ed3953e",
+        "binary_sha256": "40920f3c182bfaca54b286d5b3b82e17041c980fe3f9f4a34761c43cd471cb1a",
+        "netlist_sha256": "6d08741034fd4288edee08372b69d18c042b405118df902044c3e665772e7d44",
         "compilation": {
           "fast_sim": true,
           "portable": true,
@@ -761,7 +765,7 @@
           "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
         },
         "verilator_command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
           "-Wall",
           "-Wno-UNUSEDSIGNAL",
           "--top-module",
@@ -773,18 +777,18 @@
           "--output-split-cfuncs",
           "10000",
           "--Mdir",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic/mapped/obj",
           "-CFLAGS",
           "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=512 -DTEST_ROWS=3 -DTEST_COLUMNS=3 -DTEST_POWERUP=16 -DTEST_REFRESH=127 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=7 -DTEST_RAS=8 -DTEST_WR=3 -DTEST_RC=10 -DTEST_MRD=3",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic/mapped/vendor.vlt",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic/mapped/cells.v",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic/mapped/circuit.v",
-          "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
         ],
         "compiler_command": [
           "make",
           "-C",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic/mapped/obj",
           "-f",
           "Vwasmetal_sdram_memory.mk",
           "-j",
@@ -824,7 +828,7 @@
         "T_MRD": 3
       },
       "native_command": [
-        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
         "-Wall",
         "-Wno-UNUSEDSIGNAL",
         "--assert",
@@ -850,11 +854,11 @@
         "-j",
         "2",
         "--Mdir",
-        "/home/lastmjs/development/wasmetal/build/sdram-synthetic-long-row/native",
+        "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-long-row/native",
         "-CFLAGS",
         "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=512 -DTEST_ROWS=3 -DTEST_COLUMNS=3 -DTEST_POWERUP=16 -DTEST_REFRESH=257 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=7 -DTEST_RAS=32 -DTEST_WR=3 -DTEST_RC=36 -DTEST_MRD=3",
-        "/home/lastmjs/development/wasmetal/soc/sdram/wasmetal_sdram_memory.sv",
-        "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+        "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+        "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
       ],
       "tests": {
         "rtl": {
@@ -878,7 +882,7 @@
             "stimulus_hash": 1362313415649743358,
             "observation_hash": 10590722043762242053
           },
-          "binary_sha256": "758cfc8b51f976c122ad9af621b6e2ab48f66da1f3b2598c847bad3cd6078f6d",
+          "binary_sha256": "7cc6f7d57c765e3112d8b313668770da8c11d1b597460e23eade9fa5d9db540e",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -909,7 +913,7 @@
             "stimulus_hash": 1362313415649743358,
             "observation_hash": 10590722043762242053
           },
-          "binary_sha256": "c3a72fae695e28d2388a80c0c45d0cd7e7d84733e2c1f426caf36ebc9869d4fd",
+          "binary_sha256": "654c12c2fe8ec40f320624dcf5c50cbea5e3097cf960d9400cc96533c31622eb",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -925,15 +929,16 @@
         "top": "wasmetal_sdram_memory",
         "inputs": {
           "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
-          "tests/memory/sdram.cpp": "3bfb42ed4caa453c88965a857d0237b7b173409c9ac1fcaebb05302384d55fc2",
-          "tools/check_sdram.py": "8443dbbdfd540a3cfd7a254c405b968ed4a4938965d4a396163e0e13deac41e1",
+          "tests/memory/sdram.cpp": "b8b37a1f5b9348e5b478c371c18c273ade9c2e2532ef6609a286f48793a2c084",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
           "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
           "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
-          "tools/build_sdram_gate_sim.py": "d3800e2e930db8c276244dec2490ebbd96104dd9c591de55f6b2993a50f2cc19",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/sdram-synthetic-long-row/controller.json": "8dbadf373831264b5899b9a9a88b77a071cfcede64c010e138a50263893e6c30",
-          "build/sdram-synthetic-long-row/controller.manifest.json": "868bcce2f83cf9f07b12b809022212d97233e2497122ef32b88b3da42ff42c5a",
+          "build/sdram-synthetic-long-row/controller.json": "c12d20b522a371b88ddd326ba08d3cfcf16b5e9481c30e5e7e6f42aa7a97cade",
+          "build/sdram-synthetic-long-row/controller.manifest.json": "8453f41502a4521845a4c0994d206a680c7520c0b061bb841acee1f870ddcfc8",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -942,17 +947,17 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           "build/sdram-synthetic-long-row/mapped/circuit.v": "04547beabd75420dbb142f82a78629f9f558de07207c3e238112acf22885cc1a",
           "build/sdram-synthetic-long-row/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/sdram-synthetic-long-row/mapped/vendor.vlt": "9619b144705ed67562e81c985928967ef38391576f18a75e2b4ebadef21be84c",
-          "build/sdram-synthetic-long-row/mapped/acyclic.ys": "08a8a71137e8164874de33271203984869529e73e97b889ec3f54e0b75dcbe75",
-          "build/sdram-synthetic-long-row/mapped/acyclic.log": "a820765eb431c26bda5c17f263ec868bea1576b502f676c41d29bc29535af9a7",
-          "build/sdram-synthetic-long-row/mapped/lut-proof/report.json": "b897fa2e1840af7ce7cb412e858f939c1ffce79b02583b5a459b3f91bbdab8e9",
-          "build/sdram-synthetic-long-row/mapped/normalized.json": "62451227816bca05d4cd34900774ed24f34cec8548a6ba89f556a6422e1c5178",
+          "build/sdram-synthetic-long-row/mapped/vendor.vlt": "e017c179b2c335e0ee0f16aa1bd33087efe29e0850ca874acbe45a389cf4644a",
+          "build/sdram-synthetic-long-row/mapped/acyclic.ys": "b93d33bb16e73a5047969874ac9133dc15eb1fb168bd7e989b9e667b1c0ea42a",
+          "build/sdram-synthetic-long-row/mapped/acyclic.log": "5f2c4703bdcd35706061cab190d5ea0314d207510e18aaef184e4d836b2e9f35",
+          "build/sdram-synthetic-long-row/mapped/lut-proof/report.json": "be63b8a6d1d5ec9b53e1ef4b8e68fc5a73bfa84f469db8831491403d1f2a99f8",
+          "build/sdram-synthetic-long-row/mapped/normalized.json": "f4bb516434ae40f7746cdbc1d5bdf05b8fc8b75a488d10b8e1b0d7c55dc46abf",
           "build/sdram-synthetic-long-row/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
-          "build/sdram-synthetic-long-row/mapped/cycle-probe.ys": "86b7a64b2e417a1be641bc17e0243e9a439df75a114709d3b776de575c6fbf01",
-          "build/sdram-synthetic-long-row/mapped/cycle-probe.log": "c2fe4a709ef7617f45fe78e716797dbcb7e2817ced843aed28d8af74a67f7ae8"
+          "build/sdram-synthetic-long-row/mapped/cycle-probe.ys": "1b5e75eb405646553df44f12e7e0c827f93cf9ab2a13b543b68c337c8cf8b0cc",
+          "build/sdram-synthetic-long-row/mapped/cycle-probe.log": "b21a5cd729ca9c1e9aac52e8c1b95d8c998a3b3d3db6f29550de18a21d131b5f"
         },
-        "binary_sha256": "c3a72fae695e28d2388a80c0c45d0cd7e7d84733e2c1f426caf36ebc9869d4fd",
-        "netlist_sha256": "8dbadf373831264b5899b9a9a88b77a071cfcede64c010e138a50263893e6c30",
+        "binary_sha256": "654c12c2fe8ec40f320624dcf5c50cbea5e3097cf960d9400cc96533c31622eb",
+        "netlist_sha256": "c12d20b522a371b88ddd326ba08d3cfcf16b5e9481c30e5e7e6f42aa7a97cade",
         "compilation": {
           "fast_sim": true,
           "portable": true,
@@ -962,7 +967,7 @@
           "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
         },
         "verilator_command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
           "-Wall",
           "-Wno-UNUSEDSIGNAL",
           "--top-module",
@@ -974,18 +979,18 @@
           "--output-split-cfuncs",
           "10000",
           "--Mdir",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-long-row/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-long-row/mapped/obj",
           "-CFLAGS",
           "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=512 -DTEST_ROWS=3 -DTEST_COLUMNS=3 -DTEST_POWERUP=16 -DTEST_REFRESH=257 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=7 -DTEST_RAS=32 -DTEST_WR=3 -DTEST_RC=36 -DTEST_MRD=3",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-long-row/mapped/vendor.vlt",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-long-row/mapped/cells.v",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-long-row/mapped/circuit.v",
-          "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-long-row/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-long-row/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-long-row/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
         ],
         "compiler_command": [
           "make",
           "-C",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-long-row/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-long-row/mapped/obj",
           "-f",
           "Vwasmetal_sdram_memory.mk",
           "-j",
@@ -1025,7 +1030,7 @@
         "T_MRD": 2
       },
       "native_command": [
-        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
         "-Wall",
         "-Wno-UNUSEDSIGNAL",
         "--assert",
@@ -1051,11 +1056,11 @@
         "-j",
         "2",
         "--Mdir",
-        "/home/lastmjs/development/wasmetal/build/sdram-synthetic-minimum/native",
+        "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-minimum/native",
         "-CFLAGS",
         "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=128 -DTEST_ROWS=1 -DTEST_COLUMNS=3 -DTEST_POWERUP=2 -DTEST_REFRESH=63 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=1 -DTEST_RAS=1 -DTEST_WR=2 -DTEST_RC=1 -DTEST_MRD=2",
-        "/home/lastmjs/development/wasmetal/soc/sdram/wasmetal_sdram_memory.sv",
-        "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+        "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+        "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
       ],
       "tests": {
         "rtl": {
@@ -1079,7 +1084,7 @@
             "stimulus_hash": 8640081707122166142,
             "observation_hash": 7890614570998607847
           },
-          "binary_sha256": "c4ecab1eed62c0e839d1e86fc78db6568d5845b36011c54d21d48a3fcf1e4bd9",
+          "binary_sha256": "389128b40e347b047374b2a8307b5085906dee2d1290ca38d49ad11a1221ec58",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -1110,7 +1115,7 @@
             "stimulus_hash": 8640081707122166142,
             "observation_hash": 7890614570998607847
           },
-          "binary_sha256": "55d00e4378a12cd382b6c713df7e9c66fcb00f8e9244a7e4b79a4ad016d8cbc3",
+          "binary_sha256": "2fcb219a261fce587b881f86ca78e05b4465a5c09c9eb9c6afb3cafa7a544e71",
           "negative_controls_rejected": [
             "--corrupt-read",
             "--ignore-masks",
@@ -1126,15 +1131,16 @@
         "top": "wasmetal_sdram_memory",
         "inputs": {
           "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
-          "tests/memory/sdram.cpp": "3bfb42ed4caa453c88965a857d0237b7b173409c9ac1fcaebb05302384d55fc2",
-          "tools/check_sdram.py": "8443dbbdfd540a3cfd7a254c405b968ed4a4938965d4a396163e0e13deac41e1",
+          "tests/memory/sdram.cpp": "b8b37a1f5b9348e5b478c371c18c273ade9c2e2532ef6609a286f48793a2c084",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
           "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
           "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
-          "tools/build_sdram_gate_sim.py": "d3800e2e930db8c276244dec2490ebbd96104dd9c591de55f6b2993a50f2cc19",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/sdram-synthetic-minimum/controller.json": "68d0d439a2f148a04f959e530442ce84aaf7f108a167b304c400103e01ce74f6",
-          "build/sdram-synthetic-minimum/controller.manifest.json": "1aedb3b099b8c2b2d387113f1660a51050a76a20129cb921cc08e5aba4198168",
+          "build/sdram-synthetic-minimum/controller.json": "8bf5ec0fde40a9a00d81e5fc0c63ccfc4cd6ab0714d44bcb1de56a2b87d048c5",
+          "build/sdram-synthetic-minimum/controller.manifest.json": "0de0a0cf96894421ef45f95becdd42a1434c4315d2fe6edadef17752f0370b6a",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -1143,17 +1149,17 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           "build/sdram-synthetic-minimum/mapped/circuit.v": "8cb28b107fce793123c627ce952aa9427b86e68abe5687de32fbb2dac6dbc889",
           "build/sdram-synthetic-minimum/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/sdram-synthetic-minimum/mapped/vendor.vlt": "f89588c17f46ebfab1a5cfebaefa21bffcdbd3d58ded74086f08b87f4bddf9bd",
-          "build/sdram-synthetic-minimum/mapped/acyclic.ys": "bb9cf5c2e914708f3a69ca79d142c292c346a07aafe181e4ae3de414ab445f94",
-          "build/sdram-synthetic-minimum/mapped/acyclic.log": "01c04754f3e77249d4214a4f108c62aabd7f6f3c5a2f9198f5f469f4462d1b21",
-          "build/sdram-synthetic-minimum/mapped/lut-proof/report.json": "8c3583d9948eb0d9a19d1daae12a148f10f5ac1f182071c804a3e5860ec437f5",
-          "build/sdram-synthetic-minimum/mapped/normalized.json": "cf2e3b033e197448388fcd1cd5d811631d4372b3d44a0ccf46be1f987b853a8d",
+          "build/sdram-synthetic-minimum/mapped/vendor.vlt": "d3704c14fa6a507e84b4c41a5372acb6d64b5000e38466e82a8234cc0224b00a",
+          "build/sdram-synthetic-minimum/mapped/acyclic.ys": "1b6bd4c6395b7af4b986585440fea101afe9e0dc5e0fcaae42be542f2933dc2d",
+          "build/sdram-synthetic-minimum/mapped/acyclic.log": "418bab5c5a24b6bc5793e1c6e2a2a5b9dae23461dd42dfee953ae62ad4da192a",
+          "build/sdram-synthetic-minimum/mapped/lut-proof/report.json": "cd2012f8a9a4178f866c3dd6377c966d7c2d61814c2defb2e394fe8bdb804ec6",
+          "build/sdram-synthetic-minimum/mapped/normalized.json": "952b8aaadcb690ec068883a711cb727ba8004c17362ee67ea7d49feef81111de",
           "build/sdram-synthetic-minimum/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
-          "build/sdram-synthetic-minimum/mapped/cycle-probe.ys": "cc7b738dfc1f8ec22ebe104e4ff03f79e6345ad9356e079f87515205e690086d",
-          "build/sdram-synthetic-minimum/mapped/cycle-probe.log": "c60583727ad48d321a00a1bfed3dc200834c9ebf52c90effdec18a5d4327e34e"
+          "build/sdram-synthetic-minimum/mapped/cycle-probe.ys": "c4f272238fdac61aa47a8b40296915921e3c9afc379c554895592f8ca1a26920",
+          "build/sdram-synthetic-minimum/mapped/cycle-probe.log": "143f0505b363fba1f04dd21e5696df01cc65f2a36e5b5b9949834fcd02e4c9c7"
         },
-        "binary_sha256": "55d00e4378a12cd382b6c713df7e9c66fcb00f8e9244a7e4b79a4ad016d8cbc3",
-        "netlist_sha256": "68d0d439a2f148a04f959e530442ce84aaf7f108a167b304c400103e01ce74f6",
+        "binary_sha256": "2fcb219a261fce587b881f86ca78e05b4465a5c09c9eb9c6afb3cafa7a544e71",
+        "netlist_sha256": "8bf5ec0fde40a9a00d81e5fc0c63ccfc4cd6ab0714d44bcb1de56a2b87d048c5",
         "compilation": {
           "fast_sim": true,
           "portable": true,
@@ -1163,7 +1169,7 @@
           "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
         },
         "verilator_command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
           "-Wall",
           "-Wno-UNUSEDSIGNAL",
           "--top-module",
@@ -1175,18 +1181,18 @@
           "--output-split-cfuncs",
           "10000",
           "--Mdir",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-minimum/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-minimum/mapped/obj",
           "-CFLAGS",
           "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=128 -DTEST_ROWS=1 -DTEST_COLUMNS=3 -DTEST_POWERUP=2 -DTEST_REFRESH=63 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=1 -DTEST_RAS=1 -DTEST_WR=2 -DTEST_RC=1 -DTEST_MRD=2",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-minimum/mapped/vendor.vlt",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-minimum/mapped/cells.v",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-minimum/mapped/circuit.v",
-          "/home/lastmjs/development/wasmetal/tests/memory/sdram.cpp"
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-minimum/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-minimum/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-minimum/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/sdram.cpp"
         ],
         "compiler_command": [
           "make",
           "-C",
-          "/home/lastmjs/development/wasmetal/build/sdram-synthetic-minimum/mapped/obj",
+          "/tmp/wasmetal-direct-rounding/build/sdram-synthetic-minimum/mapped/obj",
           "-f",
           "Vwasmetal_sdram_memory.mk",
           "-j",
@@ -1213,12 +1219,13 @@
   "warm_resets_per_model_per_profile": 129,
   "inputs": {
     "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
-    "tests/memory/sdram.cpp": "3bfb42ed4caa453c88965a857d0237b7b173409c9ac1fcaebb05302384d55fc2",
-    "tools/check_sdram.py": "8443dbbdfd540a3cfd7a254c405b968ed4a4938965d4a396163e0e13deac41e1",
+    "tests/memory/sdram.cpp": "b8b37a1f5b9348e5b478c371c18c273ade9c2e2532ef6609a286f48793a2c084",
+    "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+    "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
     "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
     "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
-    "tools/build_sdram_gate_sim.py": "d3800e2e930db8c276244dec2490ebbd96104dd9c591de55f6b2993a50f2cc19",
+    "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
     "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
   },
   "connected_to_cpu": false,

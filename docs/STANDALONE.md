@@ -159,6 +159,13 @@ rate. These results measure particular bounded programs, not overall Wasm
 throughput or physical hardware performance. Reproduce them with
 `python3 tools/compare_standalone_performance.py` after both RTL test runs.
 
+The complete ROM system also passes an
+[Icarus four-state boot](verification/loadable-four-state.json), with every
+backing-RAM byte initially unknown and its self-test result frame matching
+native simulation. The same campaign verifies UART program loading, interrupted
+uploads and warm-clear behavior in the full programmable system; see the
+[unknown-storage checks](PROGRAM-UPLOAD.md#complete-systems-with-unknown-storage).
+
 ## Reproducing the FPGA build
 
 ```sh

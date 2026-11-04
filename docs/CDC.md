@@ -81,6 +81,14 @@ Run `make cdc-test`; CI runs it with the memory and AXI checks.
   Missing payload reset and changing the pending payload both fail. This proof
   does not establish complete transfer equivalence, liveness or analog behavior.
 
+The [assembled SDRAM test](SDRAM.md#reset-across-the-clock-crossing) checks the
+crossing with a backend that finishes accepted physical bursts while canceling
+their logical responses. It covers all eight read and write beats, immediate
+replacement requests, retained data and continued refresh during reset. The
+two timing profiles and seven clock schedules produce 1,260 resets per model,
+with identical RTL and mapped observations. This complements the complete-CPU
+[SDRAM integration](SDRAM.md#complete-cpu-with-separate-clocks).
+
 ## Required physical implementation
 
 Digital simulation, these safety proofs and structural checks do not model

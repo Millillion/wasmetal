@@ -120,6 +120,47 @@ and outcomes. A report is written only after its entire selected campaign
 passes and its input identities remain unchanged. Completed results are
 linked from the README; a running proof is not a completed result.
 
+## Reset across the clock crossing
+
+The [CDC/SDRAM campaign](verification/cdc-sdram-mapped.json) connects the
+production crossing and controller and compares their RTL and ECP5 mappings.
+It uses the component test's independent C++ pin model and a separate byte
+oracle. The model observes public interfaces and SDRAM pins; no controller
+state encoding or internal counter selects the interruption points.
+
+```sh
+python3 tools/check_cdc_sdram.py --mapped
+```
+
+Each of the 25 MHz and 100 MHz timing configurations runs seven clock
+schedules, covering faster, slower, equal and phase-offset clocks, including
+simultaneous edges. Each schedule interrupts reads and writes at 15 points:
+the first destination request, activation, the burst command, each of the
+eight data beats, precharge, destination completion, the returning response
+and source completion. Every point runs with a one-tick reset, a held reset,
+and a stopped source clock after reset. The memory clock keeps running.
+
+This produces **1,260 resets and 4,704 completed transactions per model**
+across both timing configurations. The complete observation records, including
+pins, data, clock counts and reset coverage, match between RTL and mapped
+simulation. Algebraic edge-count and phase checks independently verify the
+clock scheduler's observations.
+
+A request canceled before controller acceptance must never activate a row.
+An already accepted operation must finish its physical burst and close the
+bank, while its canceled response must not reach the source. The test offers
+a new request immediately after reset release, without waiting for
+the old burst to finish. It verifies the new response, reads back the retained
+masked-write result and requires continued refresh during held resets.
+Warm reset must not repeat device initialization.
+
+Corrupted reads, ignored masks and omitted refresh are rejected in both
+models and timing configurations. A separate RTL mutation incorrectly wiring
+warm reset to cold reset must fail the independent device model in each
+configuration. These are digital protocol checks; they do not establish
+metastability behavior, I/O timing or a working board PHY. CI is configured
+to repeat this campaign.
+
 ## Complete CPU integration
 
 The integration builder replaces the block-RAM backend only in a private

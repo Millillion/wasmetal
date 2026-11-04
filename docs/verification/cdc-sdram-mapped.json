@@ -1,0 +1,5419 @@
+{
+  "status": "passed",
+  "scope": "production CDC plus SDRAM controller; independent pin model and byte oracle",
+  "profiles": [
+    {
+      "name": "25mhz-full",
+      "parameters": {
+        "RAM_BYTES": 33554432,
+        "ROW_BITS": 13,
+        "COLUMN_BITS": 9,
+        "POWERUP_CYCLES": 5000,
+        "REFRESH_CYCLES": 195,
+        "CAS_LATENCY": 2,
+        "T_RCD": 1,
+        "T_RP": 1,
+        "T_RFC": 2,
+        "T_RAS": 2,
+        "T_WR": 2,
+        "T_RC": 2,
+        "T_MRD": 2
+      },
+      "build_commands": [
+        [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "-Wall",
+          "-Wno-UNUSEDSIGNAL",
+          "--assert",
+          "-DWASMETAL_ASSERTIONS",
+          "-I/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full",
+          "--top-module",
+          "wasmetal_cdc_sdram",
+          "--cc",
+          "--exe",
+          "--build",
+          "-j",
+          "1",
+          "-CFLAGS",
+          "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
+          "/tmp/wasmetal-direct-rounding/soc/external/wasmetal_memory_cdc.sv",
+          "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/wasmetal_cdc_sdram.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/cdc_sdram.cpp",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full/native"
+        ],
+        [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "-Wall",
+          "-Wno-UNUSEDSIGNAL",
+          "--assert",
+          "-DWASMETAL_ASSERTIONS",
+          "-I/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full",
+          "--top-module",
+          "wasmetal_cdc_sdram",
+          "--cc",
+          "--exe",
+          "--build",
+          "-j",
+          "1",
+          "-CFLAGS",
+          "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
+          "/tmp/wasmetal-direct-rounding/soc/external/wasmetal_memory_cdc.sv",
+          "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/wasmetal_cdc_sdram.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/cdc_sdram.cpp",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full/cold-reset-mutant",
+          "-DWASMETAL_TEST_COLD_WARM_RESET"
+        ]
+      ],
+      "tests": {
+        "rtl": {
+          "results": {
+            "status": "passed",
+            "configurations": [
+              {
+                "source_half_period": 2,
+                "memory_half_period": 3,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 47578,
+                "memory_rising_edges": 46418,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 94,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 278511,
+                "stimulus_hash": 11790066216206133494,
+                "observation_hash": 12458933541223190787,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 3,
+                "memory_half_period": 2,
+                "memory_phase": 1,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 23418,
+                "memory_rising_edges": 49828,
+                "simultaneous_rising_edges": 11709,
+                "refreshes_during_reset": 91,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 199310,
+                "stimulus_hash": 13372092476149792997,
+                "observation_hash": 1919360794634629754,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 5,
+                "memory_half_period": 7,
+                "memory_phase": 3,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 44427,
+                "memory_rising_edges": 46434,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 93,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 650072,
+                "stimulus_hash": 4697084762853738210,
+                "observation_hash": 15320488614175454806,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 4,
+                "memory_half_period": 4,
+                "memory_phase": 2,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 33158,
+                "memory_rising_edges": 47858,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 92,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 382861,
+                "stimulus_hash": 17210244154819961041,
+                "observation_hash": 13237284998558291343,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 32,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 5378,
+                "memory_rising_edges": 186784,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 93,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 177,
+                "elapsed_ticks": 373569,
+                "stimulus_hash": 9514116609700658666,
+                "observation_hash": 3964322855606714608,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 32,
+                "memory_phase": 17,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 925492,
+                "memory_rising_edges": 43622,
+                "simultaneous_rising_edges": 28922,
+                "refreshes_during_reset": 92,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 2791784,
+                "stimulus_hash": 887903658876092085,
+                "observation_hash": 13388727422137068347,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 33539,
+                "memory_rising_edges": 48239,
+                "simultaneous_rising_edges": 33539,
+                "refreshes_during_reset": 93,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 96478,
+                "stimulus_hash": 3589004609881127606,
+                "observation_hash": 12517058879054142423,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              }
+            ]
+          },
+          "binary_sha256": "fecb764856c17e5f72f4998f377bc20edfecfc4e611bec1b70d685c70c6b81f2",
+          "negative_controls": [
+            {
+              "mutation": "--corrupt-read",
+              "diagnostic": "CDC SDRAM read differs from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--ignore-masks",
+              "diagnostic": "CDC SDRAM bytes differ from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--omit-refresh",
+              "diagnostic": "refresh deadline missed",
+              "exit_code": 1
+            }
+          ]
+        },
+        "mapped": {
+          "results": {
+            "status": "passed",
+            "configurations": [
+              {
+                "source_half_period": 2,
+                "memory_half_period": 3,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 47578,
+                "memory_rising_edges": 46418,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 94,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 278511,
+                "stimulus_hash": 11790066216206133494,
+                "observation_hash": 12458933541223190787,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 3,
+                "memory_half_period": 2,
+                "memory_phase": 1,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 23418,
+                "memory_rising_edges": 49828,
+                "simultaneous_rising_edges": 11709,
+                "refreshes_during_reset": 91,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 199310,
+                "stimulus_hash": 13372092476149792997,
+                "observation_hash": 1919360794634629754,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 5,
+                "memory_half_period": 7,
+                "memory_phase": 3,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 44427,
+                "memory_rising_edges": 46434,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 93,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 650072,
+                "stimulus_hash": 4697084762853738210,
+                "observation_hash": 15320488614175454806,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 4,
+                "memory_half_period": 4,
+                "memory_phase": 2,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 33158,
+                "memory_rising_edges": 47858,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 92,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 382861,
+                "stimulus_hash": 17210244154819961041,
+                "observation_hash": 13237284998558291343,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 32,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 5378,
+                "memory_rising_edges": 186784,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 93,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 177,
+                "elapsed_ticks": 373569,
+                "stimulus_hash": 9514116609700658666,
+                "observation_hash": 3964322855606714608,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 32,
+                "memory_phase": 17,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 925492,
+                "memory_rising_edges": 43622,
+                "simultaneous_rising_edges": 28922,
+                "refreshes_during_reset": 92,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 2791784,
+                "stimulus_hash": 887903658876092085,
+                "observation_hash": 13388727422137068347,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 33539,
+                "memory_rising_edges": 48239,
+                "simultaneous_rising_edges": 33539,
+                "refreshes_during_reset": 93,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 178,
+                "elapsed_ticks": 96478,
+                "stimulus_hash": 3589004609881127606,
+                "observation_hash": 12517058879054142423,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              }
+            ]
+          },
+          "binary_sha256": "f8f516d05a22e096d172adcc48795c75be8e5e8f4d3e4a99bcfe77454b8396f8",
+          "negative_controls": [
+            {
+              "mutation": "--corrupt-read",
+              "diagnostic": "CDC SDRAM read differs from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--ignore-masks",
+              "diagnostic": "CDC SDRAM bytes differ from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--omit-refresh",
+              "diagnostic": "refresh deadline missed",
+              "exit_code": 1
+            }
+          ]
+        }
+      },
+      "mapped_build": {
+        "backend": "sdram-mapped-ecp5-functional",
+        "top": "wasmetal_cdc_sdram",
+        "inputs": {
+          "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+          "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+          "tests/memory/wasmetal_cdc_sdram.sv": "a0b0650aa5de5b397f23d7e359509b9ee2e0a8c81b690861b1b7c4e9f10f0c98",
+          "tests/memory/cdc_sdram.cpp": "b605511d9328c23ba57c19e84f614c3c8d920c318db15a9156e94ff3c7990591",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_cdc_sdram.py": "1f05a5be785a409776a4f7bdfbcdcd00e384cee162766ac22808ed36cbcda9dd",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          "build/cdc-sdram-25mhz-full/sdram_test_parameters.svh": "0ea4e0d1a44861cf6d7a919b22095cf4fca234b8a417db7ca6342f8a228c6454",
+          "build/cdc-sdram-25mhz-full/design.json": "add3ecddd0122d46fd60dc9fbe619480a865c65b5cbecae626e51d69647f9a0a",
+          "build/cdc-sdram-25mhz-full/design.manifest.json": "22a031f6aba8638aab5337ee06d6b6e298f3072302eb5140187bfe346d238b1b",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          "build/cdc-sdram-25mhz-full/mapped/circuit.v": "0b6636a96d23a20ea58a9e29943f5bff3f64f0ca54417b7a8bf466d7198d9ea0",
+          "build/cdc-sdram-25mhz-full/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/cdc-sdram-25mhz-full/mapped/vendor.vlt": "cee1c5b17f28c4323aeb111b31aee8bfdc1dc3a2561a53415b0747e35b0f556c",
+          "build/cdc-sdram-25mhz-full/mapped/acyclic.ys": "b1de2ae9957a73cfa10cc981162623f2347b021c570ac343b0148df08bf3ca89",
+          "build/cdc-sdram-25mhz-full/mapped/acyclic.log": "418fd573defc245fbee8a5a0f239afb339c18f751445ab2e0fdb6090bebe0261",
+          "build/cdc-sdram-25mhz-full/mapped/lut-proof/report.json": "e5aeac589fb2646842401e7c845b3afca443250501bd3b80db2166322162bab9",
+          "build/cdc-sdram-25mhz-full/mapped/normalized.json": "6eba426926d309890fc3bf2aa6cbbb1e50036763e2e9217d87423caf47275a83",
+          "build/cdc-sdram-25mhz-full/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
+          "build/cdc-sdram-25mhz-full/mapped/cycle-probe.ys": "634d15995d88617c86f118f655d4ed6a5da2ce9a6c6bb7eab3344497051bd3ab",
+          "build/cdc-sdram-25mhz-full/mapped/cycle-probe.log": "d1466a78c442aae5a93ce33770da14f016fc7e6587e4c99fd8b4e93016000625"
+        },
+        "binary_sha256": "f8f516d05a22e096d172adcc48795c75be8e5e8f4d3e4a99bcfe77454b8396f8",
+        "netlist_sha256": "add3ecddd0122d46fd60dc9fbe619480a865c65b5cbecae626e51d69647f9a0a",
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "verilator_command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "-Wall",
+          "-Wno-UNUSEDSIGNAL",
+          "--top-module",
+          "wasmetal_cdc_sdram",
+          "--cc",
+          "--exe",
+          "--output-split",
+          "10000",
+          "--output-split-cfuncs",
+          "10000",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full/mapped/obj",
+          "-CFLAGS",
+          "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/cdc_sdram.cpp"
+        ],
+        "compiler_command": [
+          "make",
+          "-C",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-25mhz-full/mapped/obj",
+          "-f",
+          "Vwasmetal_cdc_sdram.mk",
+          "-j",
+          "2",
+          "CXX=/usr/bin/clang++",
+          "LINK=/usr/bin/clang++",
+          "VM_USER_CFLAGS=-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=5000 -DTEST_REFRESH=195 -DTEST_CAS=2 -DTEST_RCD=1 -DTEST_RP=1 -DTEST_RFC=2 -DTEST_RAS=2 -DTEST_WR=2 -DTEST_RC=2 -DTEST_MRD=2",
+          "OPT_FAST=-O3",
+          "OPT_SLOW=-O3",
+          "OPT_GLOBAL=-O3"
+        ],
+        "combinational_cycles": 0,
+        "cyclic_negative_control_rejected": true,
+        "warning_waiver": {
+          "rule": "UNOPTFLAT",
+          "signal": "sdram_address",
+          "basis": "zero bit-level combinational cycles; public-vector scheduling only"
+        },
+        "physical_hardware_tested": false
+      },
+      "cold_reset_mutation": {
+        "rejected": true,
+        "diagnostic": "unexpected clock suspension",
+        "exit_code": 1,
+        "binary_sha256": "9a0bf1349709c97fc25c7849d0e9c080c050a1aa745d02c82fffa1922df95680"
+      },
+      "artifacts": {
+        "build/cdc-sdram-25mhz-full/mapped--omit-refresh.log": "3121d0c01dbf7f4716a4fc4b560a30930d04fb160e7f7efe77e980e34f10935d",
+        "build/cdc-sdram-25mhz-full/cold-reset-mutation.log": "2a964e92cf6b46a0e2775c82cda8d2cb5c7f0c2aca864b86d477564cf67b1b82",
+        "build/cdc-sdram-25mhz-full/rtl-execution.log": "51eeb8c220c5a77e9e5980e8e71f94f2cd8044c2f55794e7e2fa0358d5667e2f",
+        "build/cdc-sdram-25mhz-full/mapped--ignore-masks.log": "5b915312d887f9634e8460d561b3efcf645a27326097696ba2e53d9220e52dc2",
+        "build/cdc-sdram-25mhz-full/mapped-execution.log": "51eeb8c220c5a77e9e5980e8e71f94f2cd8044c2f55794e7e2fa0358d5667e2f",
+        "build/cdc-sdram-25mhz-full/rtl--omit-refresh.log": "3121d0c01dbf7f4716a4fc4b560a30930d04fb160e7f7efe77e980e34f10935d",
+        "build/cdc-sdram-25mhz-full/synthesis.log": "a427531af7a1f70006f36003d50c83439f54b566733a31c9f970141e569f4348",
+        "build/cdc-sdram-25mhz-full/rtl--ignore-masks.log": "5b915312d887f9634e8460d561b3efcf645a27326097696ba2e53d9220e52dc2",
+        "build/cdc-sdram-25mhz-full/rtl--corrupt-read.log": "b9475c2cb2dc8b04d4b922a37ddcd229ec835706862cbc9a3f9bd5060d50b221",
+        "build/cdc-sdram-25mhz-full/native-build.log": "10d957ab7366e169a021b6df6f77c099272cd082e81131f30d1ea0b586d566e3",
+        "build/cdc-sdram-25mhz-full/mapped--corrupt-read.log": "b9475c2cb2dc8b04d4b922a37ddcd229ec835706862cbc9a3f9bd5060d50b221",
+        "build/cdc-sdram-25mhz-full/cold-reset-mutant-build.log": "f6750f6ecc31ed672ccf55ead08933ce1a245caa494f18233373444b054b1226"
+      }
+    },
+    {
+      "name": "100mhz-full",
+      "parameters": {
+        "RAM_BYTES": 33554432,
+        "ROW_BITS": 13,
+        "COLUMN_BITS": 9,
+        "POWERUP_CYCLES": 20000,
+        "REFRESH_CYCLES": 781,
+        "CAS_LATENCY": 3,
+        "T_RCD": 2,
+        "T_RP": 2,
+        "T_RFC": 6,
+        "T_RAS": 5,
+        "T_WR": 2,
+        "T_RC": 6,
+        "T_MRD": 2
+      },
+      "build_commands": [
+        [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "-Wall",
+          "-Wno-UNUSEDSIGNAL",
+          "--assert",
+          "-DWASMETAL_ASSERTIONS",
+          "-I/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full",
+          "--top-module",
+          "wasmetal_cdc_sdram",
+          "--cc",
+          "--exe",
+          "--build",
+          "-j",
+          "1",
+          "-CFLAGS",
+          "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=20000 -DTEST_REFRESH=781 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=6 -DTEST_RAS=5 -DTEST_WR=2 -DTEST_RC=6 -DTEST_MRD=2",
+          "/tmp/wasmetal-direct-rounding/soc/external/wasmetal_memory_cdc.sv",
+          "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/wasmetal_cdc_sdram.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/cdc_sdram.cpp",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full/native"
+        ],
+        [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "-Wall",
+          "-Wno-UNUSEDSIGNAL",
+          "--assert",
+          "-DWASMETAL_ASSERTIONS",
+          "-I/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full",
+          "--top-module",
+          "wasmetal_cdc_sdram",
+          "--cc",
+          "--exe",
+          "--build",
+          "-j",
+          "1",
+          "-CFLAGS",
+          "-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=20000 -DTEST_REFRESH=781 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=6 -DTEST_RAS=5 -DTEST_WR=2 -DTEST_RC=6 -DTEST_MRD=2",
+          "/tmp/wasmetal-direct-rounding/soc/external/wasmetal_memory_cdc.sv",
+          "/tmp/wasmetal-direct-rounding/soc/sdram/wasmetal_sdram_memory.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/wasmetal_cdc_sdram.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/cdc_sdram.cpp",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full/cold-reset-mutant",
+          "-DWASMETAL_TEST_COLD_WARM_RESET"
+        ]
+      ],
+      "tests": {
+        "rtl": {
+          "results": {
+            "status": "passed",
+            "configurations": [
+              {
+                "source_half_period": 2,
+                "memory_half_period": 3,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 124360,
+                "memory_rising_edges": 132766,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 69,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 757,
+                "elapsed_ticks": 796599,
+                "stimulus_hash": 11790066216206133494,
+                "observation_hash": 93602587178772727,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 3,
+                "memory_half_period": 2,
+                "memory_phase": 1,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 57426,
+                "memory_rising_edges": 136000,
+                "simultaneous_rising_edges": 28713,
+                "refreshes_during_reset": 65,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 755,
+                "elapsed_ticks": 543998,
+                "stimulus_hash": 13372092476149792997,
+                "observation_hash": 2509408275904391754,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 5,
+                "memory_half_period": 7,
+                "memory_phase": 3,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 116079,
+                "memory_rising_edges": 132774,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 69,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 752,
+                "elapsed_ticks": 1858832,
+                "stimulus_hash": 4697084762853738210,
+                "observation_hash": 8713366618449399290,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 4,
+                "memory_half_period": 4,
+                "memory_phase": 2,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 84318,
+                "memory_rising_edges": 134178,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 70,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 756,
+                "elapsed_ticks": 1073421,
+                "stimulus_hash": 17210244154819961041,
+                "observation_hash": 8172317363691141593,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 32,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 6955,
+                "memory_rising_edges": 272408,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 71,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 757,
+                "elapsed_ticks": 544817,
+                "stimulus_hash": 9514116609700658666,
+                "observation_hash": 681092297525424878,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 32,
+                "memory_phase": 17,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 2563924,
+                "memory_rising_edges": 129983,
+                "simultaneous_rising_edges": 80123,
+                "refreshes_during_reset": 70,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 754,
+                "elapsed_ticks": 8318888,
+                "stimulus_hash": 887903658876092085,
+                "observation_hash": 15902311587742930138,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 84698,
+                "memory_rising_edges": 134558,
+                "simultaneous_rising_edges": 84698,
+                "refreshes_during_reset": 67,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 757,
+                "elapsed_ticks": 269116,
+                "stimulus_hash": 3589004609881127606,
+                "observation_hash": 5632464529935806314,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              }
+            ]
+          },
+          "binary_sha256": "afa5445a77be8079c4fd91566288ede73b592eb6b35b80d6a6257795ce12e371",
+          "negative_controls": [
+            {
+              "mutation": "--corrupt-read",
+              "diagnostic": "CDC SDRAM read differs from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--ignore-masks",
+              "diagnostic": "CDC SDRAM bytes differ from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--omit-refresh",
+              "diagnostic": "refresh deadline missed",
+              "exit_code": 1
+            }
+          ]
+        },
+        "mapped": {
+          "results": {
+            "status": "passed",
+            "configurations": [
+              {
+                "source_half_period": 2,
+                "memory_half_period": 3,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 124360,
+                "memory_rising_edges": 132766,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 69,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 757,
+                "elapsed_ticks": 796599,
+                "stimulus_hash": 11790066216206133494,
+                "observation_hash": 93602587178772727,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 3,
+                "memory_half_period": 2,
+                "memory_phase": 1,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 57426,
+                "memory_rising_edges": 136000,
+                "simultaneous_rising_edges": 28713,
+                "refreshes_during_reset": 65,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 755,
+                "elapsed_ticks": 543998,
+                "stimulus_hash": 13372092476149792997,
+                "observation_hash": 2509408275904391754,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 5,
+                "memory_half_period": 7,
+                "memory_phase": 3,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 116079,
+                "memory_rising_edges": 132774,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 69,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 752,
+                "elapsed_ticks": 1858832,
+                "stimulus_hash": 4697084762853738210,
+                "observation_hash": 8713366618449399290,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 4,
+                "memory_half_period": 4,
+                "memory_phase": 2,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 84318,
+                "memory_rising_edges": 134178,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 70,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 756,
+                "elapsed_ticks": 1073421,
+                "stimulus_hash": 17210244154819961041,
+                "observation_hash": 8172317363691141593,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 32,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 6955,
+                "memory_rising_edges": 272408,
+                "simultaneous_rising_edges": 0,
+                "refreshes_during_reset": 71,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 757,
+                "elapsed_ticks": 544817,
+                "stimulus_hash": 9514116609700658666,
+                "observation_hash": 681092297525424878,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 32,
+                "memory_phase": 17,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 2563924,
+                "memory_rising_edges": 129983,
+                "simultaneous_rising_edges": 80123,
+                "refreshes_during_reset": 70,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 754,
+                "elapsed_ticks": 8318888,
+                "stimulus_hash": 887903658876092085,
+                "observation_hash": 15902311587742930138,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              {
+                "source_half_period": 1,
+                "memory_half_period": 1,
+                "memory_phase": 0,
+                "completed": 336,
+                "warm_resets": 90,
+                "cancelled_requests": 84,
+                "source_rising_edges": 84698,
+                "memory_rising_edges": 134558,
+                "simultaneous_rising_edges": 84698,
+                "refreshes_during_reset": 67,
+                "read_bursts": 288,
+                "write_bursts": 107,
+                "largest_refresh_gap": 757,
+                "elapsed_ticks": 269116,
+                "stimulus_hash": 3589004609881127606,
+                "observation_hash": 5632464529935806314,
+                "coverage": [
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  [
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              }
+            ]
+          },
+          "binary_sha256": "89b5314fb187e90be6e76cca812edd7feaa685e83fdbe772a188cf7b54beb990",
+          "negative_controls": [
+            {
+              "mutation": "--corrupt-read",
+              "diagnostic": "CDC SDRAM read differs from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--ignore-masks",
+              "diagnostic": "CDC SDRAM bytes differ from independent byte oracle",
+              "exit_code": 1
+            },
+            {
+              "mutation": "--omit-refresh",
+              "diagnostic": "refresh deadline missed",
+              "exit_code": 1
+            }
+          ]
+        }
+      },
+      "mapped_build": {
+        "backend": "sdram-mapped-ecp5-functional",
+        "top": "wasmetal_cdc_sdram",
+        "inputs": {
+          "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+          "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+          "tests/memory/wasmetal_cdc_sdram.sv": "a0b0650aa5de5b397f23d7e359509b9ee2e0a8c81b690861b1b7c4e9f10f0c98",
+          "tests/memory/cdc_sdram.cpp": "b605511d9328c23ba57c19e84f614c3c8d920c318db15a9156e94ff3c7990591",
+          "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+          "tools/check_cdc_sdram.py": "1f05a5be785a409776a4f7bdfbcdcd00e384cee162766ac22808ed36cbcda9dd",
+          "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          "build/cdc-sdram-100mhz-full/sdram_test_parameters.svh": "f5984fd931f864fa51df2c59bf125a7b9d9a4fa7b569847f020423d557291381",
+          "build/cdc-sdram-100mhz-full/design.json": "f0e6e3a741a4a3abd0799cf13f3a185449adfbbf72f55ea9c81e061bc5bcdb36",
+          "build/cdc-sdram-100mhz-full/design.manifest.json": "0b358508e05fe00dbeea70d6dd2fc3e4d7cb97db4cb4af3bfc993881545e0797",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          "build/cdc-sdram-100mhz-full/mapped/circuit.v": "b0bbc1ea740c305a90ff28ff987d94ed3af1da4edcb8d3f29088d0638be9d3b4",
+          "build/cdc-sdram-100mhz-full/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/cdc-sdram-100mhz-full/mapped/vendor.vlt": "86802798cfa02201cf0faab7675856ab29f980bdf013882640cfd663405f284d",
+          "build/cdc-sdram-100mhz-full/mapped/acyclic.ys": "94479f3f76f07164bed2ecd943fe6b31333f996730360528d4fbc8fe4dfa2d2f",
+          "build/cdc-sdram-100mhz-full/mapped/acyclic.log": "2e7b55c334387039a75ccd4e3e540463dd85c635b2e060c9bc37cba7d4268f2d",
+          "build/cdc-sdram-100mhz-full/mapped/lut-proof/report.json": "e451f4efc110a48590bb2b02885b7be03b1b6809a272c4ea82d4d633702d99ea",
+          "build/cdc-sdram-100mhz-full/mapped/normalized.json": "0223568ee61866b0d8350b5568e0bf489978eff9ed2a29086acfa7e4aedaba2b",
+          "build/cdc-sdram-100mhz-full/mapped/cycle-probe.sv": "ed534fa88cb8e76d5e7827a7d09c8d3996600dca56c1e106e7ef0973cf23c0c4",
+          "build/cdc-sdram-100mhz-full/mapped/cycle-probe.ys": "60659b8ec090fc2985408afea5a0b952d4e65d1ab081a9c2199461840739c159",
+          "build/cdc-sdram-100mhz-full/mapped/cycle-probe.log": "a3cfb8e6be67ab33e9d935f766b28888743862bece922db8d3302955ccec76ab"
+        },
+        "binary_sha256": "89b5314fb187e90be6e76cca812edd7feaa685e83fdbe772a188cf7b54beb990",
+        "netlist_sha256": "f0e6e3a741a4a3abd0799cf13f3a185449adfbbf72f55ea9c81e061bc5bcdb36",
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "verilator_command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "-Wall",
+          "-Wno-UNUSEDSIGNAL",
+          "--top-module",
+          "wasmetal_cdc_sdram",
+          "--cc",
+          "--exe",
+          "--output-split",
+          "10000",
+          "--output-split-cfuncs",
+          "10000",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full/mapped/obj",
+          "-CFLAGS",
+          "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=20000 -DTEST_REFRESH=781 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=6 -DTEST_RAS=5 -DTEST_WR=2 -DTEST_RC=6 -DTEST_MRD=2",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full/mapped/vendor.vlt",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full/mapped/cells.v",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full/mapped/circuit.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/cdc_sdram.cpp"
+        ],
+        "compiler_command": [
+          "make",
+          "-C",
+          "/tmp/wasmetal-direct-rounding/build/cdc-sdram-100mhz-full/mapped/obj",
+          "-f",
+          "Vwasmetal_cdc_sdram.mk",
+          "-j",
+          "2",
+          "CXX=/usr/bin/clang++",
+          "LINK=/usr/bin/clang++",
+          "VM_USER_CFLAGS=-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter -DTEST_BYTES=33554432 -DTEST_ROWS=13 -DTEST_COLUMNS=9 -DTEST_POWERUP=20000 -DTEST_REFRESH=781 -DTEST_CAS=3 -DTEST_RCD=2 -DTEST_RP=2 -DTEST_RFC=6 -DTEST_RAS=5 -DTEST_WR=2 -DTEST_RC=6 -DTEST_MRD=2",
+          "OPT_FAST=-O3",
+          "OPT_SLOW=-O3",
+          "OPT_GLOBAL=-O3"
+        ],
+        "combinational_cycles": 0,
+        "cyclic_negative_control_rejected": true,
+        "warning_waiver": {
+          "rule": "UNOPTFLAT",
+          "signal": "sdram_address",
+          "basis": "zero bit-level combinational cycles; public-vector scheduling only"
+        },
+        "physical_hardware_tested": false
+      },
+      "cold_reset_mutation": {
+        "rejected": true,
+        "diagnostic": "unexpected clock suspension",
+        "exit_code": 1,
+        "binary_sha256": "b1b67dafd725f6b71c92efeae9810dd5fb66bc7cf6d7e4b2298925c9ad35d712"
+      },
+      "artifacts": {
+        "build/cdc-sdram-100mhz-full/mapped--omit-refresh.log": "aac3ea3e9443199b5cc8e567479c7abb925f1c9e0ec7f6df5251abc2e496e47f",
+        "build/cdc-sdram-100mhz-full/cold-reset-mutation.log": "b8c873737c1c3f9c253962df27ade6935c87840d49b30352c8744810f12643e3",
+        "build/cdc-sdram-100mhz-full/rtl-execution.log": "f10f510516f9b69acac01d969e251db4bfd4d018f6d039a1783d6904c8350635",
+        "build/cdc-sdram-100mhz-full/mapped--ignore-masks.log": "5b915312d887f9634e8460d561b3efcf645a27326097696ba2e53d9220e52dc2",
+        "build/cdc-sdram-100mhz-full/mapped-execution.log": "f10f510516f9b69acac01d969e251db4bfd4d018f6d039a1783d6904c8350635",
+        "build/cdc-sdram-100mhz-full/rtl--omit-refresh.log": "aac3ea3e9443199b5cc8e567479c7abb925f1c9e0ec7f6df5251abc2e496e47f",
+        "build/cdc-sdram-100mhz-full/synthesis.log": "210cc621f17d8c289ffd472aafb9633fdf94135777386e6f92f958d1a2d70f5a",
+        "build/cdc-sdram-100mhz-full/rtl--ignore-masks.log": "5b915312d887f9634e8460d561b3efcf645a27326097696ba2e53d9220e52dc2",
+        "build/cdc-sdram-100mhz-full/rtl--corrupt-read.log": "b9475c2cb2dc8b04d4b922a37ddcd229ec835706862cbc9a3f9bd5060d50b221",
+        "build/cdc-sdram-100mhz-full/native-build.log": "6de60746c2081a2dc7b30fe1cd7f25782c5c240773c7e12a75fb31edd40c0c14",
+        "build/cdc-sdram-100mhz-full/mapped--corrupt-read.log": "b9475c2cb2dc8b04d4b922a37ddcd229ec835706862cbc9a3f9bd5060d50b221",
+        "build/cdc-sdram-100mhz-full/cold-reset-mutant-build.log": "90a0dcadf8deeb4e4be1674a4613f445d9ba5d8d322090be56d36ce74221df80"
+      }
+    }
+  ],
+  "clock_configurations": [
+    [
+      2,
+      3,
+      0
+    ],
+    [
+      3,
+      2,
+      1
+    ],
+    [
+      5,
+      7,
+      3
+    ],
+    [
+      4,
+      4,
+      2
+    ],
+    [
+      32,
+      1,
+      0
+    ],
+    [
+      1,
+      32,
+      17
+    ],
+    [
+      1,
+      1,
+      0
+    ]
+  ],
+  "reset_phases": [
+    "destination request",
+    "activate",
+    "burst command",
+    "after beat 0",
+    "after beat 1",
+    "after beat 2",
+    "after beat 3",
+    "after beat 4",
+    "after beat 5",
+    "after beat 6",
+    "after beat 7",
+    "precharge",
+    "destination ready",
+    "response crossing",
+    "source completed"
+  ],
+  "reset_styles": [
+    "one-tick reset",
+    "held reset with continued refresh",
+    "source clock paused after reset"
+  ],
+  "directions": [
+    "read",
+    "write"
+  ],
+  "inputs": {
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+    "tests/memory/wasmetal_cdc_sdram.sv": "a0b0650aa5de5b397f23d7e359509b9ee2e0a8c81b690861b1b7c4e9f10f0c98",
+    "tests/memory/cdc_sdram.cpp": "b605511d9328c23ba57c19e84f614c3c8d920c318db15a9156e94ff3c7990591",
+    "tests/memory/sdram_device.hpp": "03e18f44e8d8a985326e582e19f1d56cd936895c40a580d3c9a0199788662bd0",
+    "tools/check_cdc_sdram.py": "1f05a5be785a409776a4f7bdfbcdcd00e384cee162766ac22808ed36cbcda9dd",
+    "tools/check_sdram.py": "5317183477d85fa47f9ce653cb08439d88030dcb136142e0a8eb8c14fe3bf7d6",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/build_sdram_gate_sim.py": "9139ed51c0b7076de1babf3ef816a29deb7e1ea231a2c237ad158fb7e1d2faf5",
+    "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+  },
+  "elapsed_seconds": 461.1869797690306,
+  "physical_hardware_tested": false,
+  "metastability_or_electrical_timing_simulated": false
+}

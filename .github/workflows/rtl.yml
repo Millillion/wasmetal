@@ -671,6 +671,32 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+  programmable-four-state:
+    name: Complete systems with uninitialized storage
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and build the native comparison model
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+          python3 tools/build_loadable_sim.py
+      - name: Verify ROM boot, UART loading and warm reset in four-state RTL
+        run: python3 tools/check_loadable_four_state.py
+      - name: Preserve observations, negative controls and model identities
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: complete-system-four-state
+          path: |
+            reports/loadable-four-state.json
+            build/loadable-four-state/
+          if-no-files-found: warn
+          retention-days: 30
+
   programmable-compiled:
     name: Compiler-generated Wasm on RTL and mapped system
     needs: programmable
@@ -709,7 +735,7 @@ jobs:
   programmable-complete:
     name: Complete programmable circuit integration
     if: always()
-    needs: [programmable, programmable-mapped, programmable-board, programmable-compiled]
+    needs: [programmable, programmable-mapped, programmable-board, programmable-compiled, programmable-four-state]
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -719,7 +745,8 @@ jobs:
           MAPPED_RESULT: ${{ needs.programmable-mapped.result }}
           ROUTING_RESULT: ${{ needs.programmable-board.result }}
           COMPILED_RESULT: ${{ needs.programmable-compiled.result }}
-        run: test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success && test "$ROUTING_RESULT" = success && test "$COMPILED_RESULT" = success
+          FOUR_STATE_RESULT: ${{ needs.programmable-four-state.result }}
+        run: test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success && test "$ROUTING_RESULT" = success && test "$COMPILED_RESULT" = success && test "$FOUR_STATE_RESULT" = success
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false

@@ -12,8 +12,8 @@ from build_standalone_gate_sim import models,normalize
 from prepare_standalone import ROOT,digest
 
 
-def build(netlist,directory,harness,cflags):
-    top='wasmetal_sdram_memory';directory.mkdir(parents=True,exist_ok=True)
+def build(netlist,directory,harness,cflags,top='wasmetal_sdram_memory'):
+    directory.mkdir(parents=True,exist_ok=True)
     receipt=directory/'obj'/('V'+top+'.build.json');receipt.unlink(missing_ok=True)
     manifest_path=netlist.with_suffix('.manifest.json');manifest=json.loads(manifest_path.read_text())
     if digest(netlist)!=manifest['netlist_sha256']:raise ValueError('SDRAM circuit identity mismatch')
