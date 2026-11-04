@@ -19,8 +19,12 @@ fails verification.
 The verified configuration shares floating-point arithmetic and uses 8,192
 value slots. The report above covers the committed configuration, including
 the descriptor RAM changes, SIMD selector and matching generated interface headers.
-The new ECP5 mapping is undergoing the complete mapped regression; earlier
-complete mapped and routed reports identify their own preceding source revisions.
+The matching ECP5 mapping now [passes the complete corpus in CI](verification/ci-selector-complete.json),
+including all sixteen partitions and exact command-cycle agreement with native
+RTL. The packaged simulator and all 242 additional build inputs have been
+checked against their recorded hashes. The local and CI circuits are identical
+after workspace-path relocation. Routed reports still identify an earlier CPU
+revision; simulation does not establish current physical timing.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged

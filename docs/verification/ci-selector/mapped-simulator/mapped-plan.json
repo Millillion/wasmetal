@@ -1,0 +1,1957 @@
+{
+  "version": 1,
+  "spec": {
+    "version": "WebAssembly Core 3.0",
+    "revision": "6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "url": "https://codeload.github.com/WebAssembly/spec/tar.gz/6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "sha256": "73b6b10278038f75d478fdcd0ed8cc4852224b379c5307056003717f403ce2e0"
+  },
+  "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
+  "native_reference_sha256": "7e16893b41da3439356902f4b99a4472fa198d316dc3d23b91c88dff443173cd",
+  "command_counts": {
+    "address.wast": 260,
+    "align.wast": 165,
+    "annotations.wast": 74,
+    "binary-leb128.wast": 91,
+    "binary.wast": 129,
+    "block.wast": 223,
+    "br.wast": 97,
+    "br_if.wast": 119,
+    "br_on_non_null.wast": 12,
+    "br_on_null.wast": 10,
+    "br_table.wast": 186,
+    "bulk-memory/bulk.wast": 117,
+    "bulk-memory/memory_copy.wast": 4450,
+    "bulk-memory/memory_fill.wast": 100,
+    "bulk-memory/memory_init.wast": 250,
+    "bulk-memory/table-sub.wast": 3,
+    "bulk-memory/table_copy.wast": 1728,
+    "bulk-memory/table_fill.wast": 45,
+    "bulk-memory/table_init.wast": 792,
+    "call.wast": 91,
+    "call_indirect.wast": 172,
+    "call_ref.wast": 35,
+    "comments.wast": 8,
+    "const.wast": 778,
+    "conversions.wast": 619,
+    "custom.wast": 11,
+    "data.wast": 68,
+    "elem.wast": 154,
+    "endianness.wast": 69,
+    "exceptions/cast.wast": 5,
+    "exceptions/tag.wast": 10,
+    "exceptions/throw.wast": 13,
+    "exceptions/throw_ref.wast": 15,
+    "exceptions/try_table.wast": 67,
+    "exports.wast": 97,
+    "f32.wast": 2514,
+    "f32_bitwise.wast": 364,
+    "f32_cmp.wast": 2407,
+    "f64.wast": 2514,
+    "f64_bitwise.wast": 364,
+    "f64_cmp.wast": 2407,
+    "fac.wast": 8,
+    "float_exprs.wast": 927,
+    "float_literals.wast": 179,
+    "float_memory.wast": 90,
+    "float_misc.wast": 471,
+    "forward.wast": 5,
+    "func.wast": 175,
+    "func_ptrs.wast": 36,
+    "gc/array.wast": 54,
+    "gc/array_copy.wast": 44,
+    "gc/array_fill.wast": 30,
+    "gc/array_init_data.wast": 48,
+    "gc/array_init_elem.wast": 36,
+    "gc/array_new_data.wast": 30,
+    "gc/array_new_elem.wast": 24,
+    "gc/binary-gc.wast": 1,
+    "gc/br_on_cast.wast": 37,
+    "gc/br_on_cast_fail.wast": 37,
+    "gc/extern.wast": 18,
+    "gc/i31.wast": 73,
+    "gc/ref_cast.wast": 45,
+    "gc/ref_eq.wast": 89,
+    "gc/ref_test.wast": 71,
+    "gc/struct.wast": 30,
+    "gc/type-subtyping.wast": 131,
+    "global.wast": 124,
+    "i32.wast": 460,
+    "i64.wast": 416,
+    "id.wast": 7,
+    "if.wast": 241,
+    "imports.wast": 218,
+    "inline-module.wast": 1,
+    "instance.wast": 23,
+    "int_exprs.wast": 108,
+    "int_literals.wast": 51,
+    "labels.wast": 29,
+    "left-to-right.wast": 96,
+    "linking.wast": 163,
+    "load.wast": 97,
+    "local_get.wast": 36,
+    "local_init.wast": 10,
+    "local_set.wast": 53,
+    "local_tee.wast": 98,
+    "loop.wast": 121,
+    "memory.wast": 90,
+    "memory64/address64.wast": 242,
+    "memory64/align64.wast": 157,
+    "memory64/binary_leb128_64.wast": 2,
+    "memory64/bulk64.wast": 70,
+    "memory64/call_indirect64.wast": 2,
+    "memory64/endianness64.wast": 69,
+    "memory64/float_memory64.wast": 90,
+    "memory64/load64.wast": 98,
+    "memory64/memory64-imports.wast": 78,
+    "memory64/memory64.wast": 69,
+    "memory64/memory_copy64.wast": 4450,
+    "memory64/memory_fill64.wast": 100,
+    "memory64/memory_grow64.wast": 54,
+    "memory64/memory_init64.wast": 250,
+    "memory64/memory_redundancy64.wast": 8,
+    "memory64/memory_trap64.wast": 172,
+    "memory64/table64.wast": 14,
+    "memory64/table_copy64.wast": 1728,
+    "memory64/table_copy_mixed.wast": 4,
+    "memory64/table_fill64.wast": 80,
+    "memory64/table_get64.wast": 11,
+    "memory64/table_grow64.wast": 27,
+    "memory64/table_init64.wast": 888,
+    "memory64/table_set64.wast": 19,
+    "memory64/table_size64.wast": 37,
+    "memory_grow.wast": 109,
+    "memory_redundancy.wast": 8,
+    "memory_size.wast": 42,
+    "memory_trap.wast": 182,
+    "multi-memory/address0.wast": 92,
+    "multi-memory/address1.wast": 127,
+    "multi-memory/align0.wast": 5,
+    "multi-memory/binary0.wast": 7,
+    "multi-memory/data0.wast": 7,
+    "multi-memory/data1.wast": 14,
+    "multi-memory/data_drop0.wast": 11,
+    "multi-memory/exports0.wast": 8,
+    "multi-memory/float_exprs0.wast": 14,
+    "multi-memory/float_exprs1.wast": 3,
+    "multi-memory/float_memory0.wast": 30,
+    "multi-memory/imports0.wast": 8,
+    "multi-memory/imports1.wast": 5,
+    "multi-memory/imports2.wast": 20,
+    "multi-memory/imports3.wast": 10,
+    "multi-memory/imports4.wast": 16,
+    "multi-memory/linking0.wast": 6,
+    "multi-memory/linking1.wast": 14,
+    "multi-memory/linking2.wast": 11,
+    "multi-memory/linking3.wast": 14,
+    "multi-memory/load0.wast": 3,
+    "multi-memory/load1.wast": 18,
+    "multi-memory/load2.wast": 38,
+    "multi-memory/memory-multi.wast": 6,
+    "multi-memory/memory_copy0.wast": 29,
+    "multi-memory/memory_copy1.wast": 14,
+    "multi-memory/memory_fill0.wast": 16,
+    "multi-memory/memory_grow.wast": 51,
+    "multi-memory/memory_init0.wast": 13,
+    "multi-memory/memory_size0.wast": 8,
+    "multi-memory/memory_size1.wast": 15,
+    "multi-memory/memory_size2.wast": 21,
+    "multi-memory/memory_size3.wast": 2,
+    "multi-memory/memory_size_import.wast": 7,
+    "multi-memory/memory_trap0.wast": 14,
+    "multi-memory/memory_trap1.wast": 168,
+    "multi-memory/start0.wast": 9,
+    "multi-memory/store0.wast": 5,
+    "multi-memory/store1.wast": 13,
+    "multi-memory/store2.wast": 25,
+    "multi-memory/traps0.wast": 15,
+    "names.wast": 486,
+    "nop.wast": 88,
+    "obsolete-keywords.wast": 11,
+    "ref.wast": 13,
+    "ref_as_non_null.wast": 7,
+    "ref_func.wast": 17,
+    "ref_is_null.wast": 22,
+    "ref_null.wast": 34,
+    "relaxed-simd/i16x8_relaxed_q15mulr_s.wast": 3,
+    "relaxed-simd/i32x4_relaxed_trunc.wast": 1,
+    "relaxed-simd/i8x16_relaxed_swizzle.wast": 6,
+    "relaxed-simd/relaxed_dot_product.wast": 12,
+    "relaxed-simd/relaxed_laneselect.wast": 12,
+    "relaxed-simd/relaxed_madd_nmadd.wast": 20,
+    "relaxed-simd/relaxed_min_max.wast": 25,
+    "return.wast": 84,
+    "return_call.wast": 51,
+    "return_call_indirect.wast": 83,
+    "return_call_ref.wast": 53,
+    "select.wast": 157,
+    "simd/simd_address.wast": 49,
+    "simd/simd_align.wast": 100,
+    "simd/simd_bit_shift.wast": 252,
+    "simd/simd_bitwise.wast": 169,
+    "simd/simd_boolean.wast": 277,
+    "simd/simd_const.wast": 758,
+    "simd/simd_conversions.wast": 282,
+    "simd/simd_f32x4.wast": 790,
+    "simd/simd_f32x4_arith.wast": 1822,
+    "simd/simd_f32x4_cmp.wast": 2607,
+    "simd/simd_f32x4_pmin_pmax.wast": 3887,
+    "simd/simd_f32x4_rounding.wast": 201,
+    "simd/simd_f64x2.wast": 803,
+    "simd/simd_f64x2_arith.wast": 1825,
+    "simd/simd_f64x2_cmp.wast": 2685,
+    "simd/simd_f64x2_pmin_pmax.wast": 3887,
+    "simd/simd_f64x2_rounding.wast": 201,
+    "simd/simd_i16x8_arith.wast": 194,
+    "simd/simd_i16x8_arith2.wast": 172,
+    "simd/simd_i16x8_cmp.wast": 465,
+    "simd/simd_i16x8_extadd_pairwise_i8x16.wast": 21,
+    "simd/simd_i16x8_extmul_i8x16.wast": 117,
+    "simd/simd_i16x8_q15mulr_sat_s.wast": 30,
+    "simd/simd_i16x8_sat_arith.wast": 222,
+    "simd/simd_i32x4_arith.wast": 194,
+    "simd/simd_i32x4_arith2.wast": 149,
+    "simd/simd_i32x4_cmp.wast": 475,
+    "simd/simd_i32x4_dot_i16x8.wast": 32,
+    "simd/simd_i32x4_extadd_pairwise_i16x8.wast": 21,
+    "simd/simd_i32x4_extmul_i16x8.wast": 117,
+    "simd/simd_i32x4_trunc_sat_f32x4.wast": 107,
+    "simd/simd_i32x4_trunc_sat_f64x2.wast": 107,
+    "simd/simd_i64x2_arith.wast": 200,
+    "simd/simd_i64x2_arith2.wast": 25,
+    "simd/simd_i64x2_cmp.wast": 113,
+    "simd/simd_i64x2_extmul_i32x4.wast": 117,
+    "simd/simd_i8x16_arith.wast": 131,
+    "simd/simd_i8x16_arith2.wast": 211,
+    "simd/simd_i8x16_cmp.wast": 445,
+    "simd/simd_i8x16_sat_arith.wast": 214,
+    "simd/simd_int_to_int_extend.wast": 253,
+    "simd/simd_lane.wast": 475,
+    "simd/simd_linking.wast": 3,
+    "simd/simd_load.wast": 39,
+    "simd/simd_load16_lane.wast": 36,
+    "simd/simd_load32_lane.wast": 24,
+    "simd/simd_load64_lane.wast": 16,
+    "simd/simd_load8_lane.wast": 52,
+    "simd/simd_load_extend.wast": 104,
+    "simd/simd_load_splat.wast": 126,
+    "simd/simd_load_zero.wast": 39,
+    "simd/simd_memory-multi.wast": 1,
+    "simd/simd_select.wast": 7,
+    "simd/simd_splat.wast": 185,
+    "simd/simd_store.wast": 28,
+    "simd/simd_store16_lane.wast": 36,
+    "simd/simd_store32_lane.wast": 24,
+    "simd/simd_store64_lane.wast": 16,
+    "simd/simd_store8_lane.wast": 52,
+    "skip-stack-guard-page.wast": 11,
+    "stack.wast": 7,
+    "start.wast": 20,
+    "store.wast": 68,
+    "switch.wast": 28,
+    "table.wast": 46,
+    "table_get.wast": 16,
+    "table_grow.wast": 61,
+    "table_set.wast": 26,
+    "table_size.wast": 39,
+    "token.wast": 61,
+    "traps.wast": 36,
+    "type-canon.wast": 2,
+    "type-equivalence.wast": 32,
+    "type-rec.wast": 27,
+    "type.wast": 3,
+    "unreachable.wast": 64,
+    "unreached-invalid.wast": 121,
+    "unreached-valid.wast": 13,
+    "unwind.wast": 50,
+    "utf8-custom-section-id.wast": 176,
+    "utf8-import-field.wast": 176,
+    "utf8-import-module.wast": 176,
+    "utf8-invalid-encoding.wast": 183
+  },
+  "shards": [
+    {
+      "id": "00",
+      "estimated_cycles": 24000047,
+      "entries": [
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            26
+          ],
+          "estimated_cycles": 24000047
+        }
+      ]
+    },
+    {
+      "id": "01",
+      "estimated_cycles": 24000023,
+      "entries": [
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            20
+          ],
+          "estimated_cycles": 24000023
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "estimated_cycles": 24000023,
+      "entries": [
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            25
+          ],
+          "estimated_cycles": 24000023
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "estimated_cycles": 24000023,
+      "entries": [
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            31
+          ],
+          "estimated_cycles": 24000023
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "estimated_cycles": 23999999,
+      "entries": [
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            32
+          ],
+          "estimated_cycles": 23999999
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "estimated_cycles": 18000041,
+      "entries": [
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            25
+          ],
+          "estimated_cycles": 18000041
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "estimated_cycles": 18000023,
+      "entries": [
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            19
+          ],
+          "estimated_cycles": 18000023
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "estimated_cycles": 18000023,
+      "entries": [
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            24
+          ],
+          "estimated_cycles": 18000023
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "estimated_cycles": 18000023,
+      "entries": [
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            30
+          ],
+          "estimated_cycles": 18000023
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "estimated_cycles": 18000005,
+      "entries": [
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            31
+          ],
+          "estimated_cycles": 18000005
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "estimated_cycles": 17303048,
+      "entries": [
+        {
+          "suite": "memory_grow.wast",
+          "commands": null,
+          "estimated_cycles": 17303048
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "estimated_cycles": 17302174,
+      "entries": [
+        {
+          "suite": "memory64/memory_grow64.wast",
+          "commands": null,
+          "estimated_cycles": 17302174
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "estimated_cycles": 15029275,
+      "entries": [
+        {
+          "suite": "binary.wast",
+          "commands": null,
+          "estimated_cycles": 80
+        },
+        {
+          "suite": "block.wast",
+          "commands": null,
+          "estimated_cycles": 1971
+        },
+        {
+          "suite": "br_on_null.wast",
+          "commands": null,
+          "estimated_cycles": 274
+        },
+        {
+          "suite": "br_table.wast",
+          "commands": null,
+          "estimated_cycles": 4701
+        },
+        {
+          "suite": "bulk-memory/bulk.wast",
+          "commands": null,
+          "estimated_cycles": 23018
+        },
+        {
+          "suite": "bulk-memory/memory_copy.wast",
+          "commands": null,
+          "estimated_cycles": 9688163
+        },
+        {
+          "suite": "bulk-memory/memory_init.wast",
+          "commands": null,
+          "estimated_cycles": 3217
+        },
+        {
+          "suite": "bulk-memory/table_copy.wast",
+          "commands": null,
+          "estimated_cycles": 40444
+        },
+        {
+          "suite": "call.wast",
+          "commands": null,
+          "estimated_cycles": 665270
+        },
+        {
+          "suite": "call_indirect.wast",
+          "commands": null,
+          "estimated_cycles": 3269242
+        },
+        {
+          "suite": "call_ref.wast",
+          "commands": null,
+          "estimated_cycles": 794362
+        },
+        {
+          "suite": "comments.wast",
+          "commands": null,
+          "estimated_cycles": 90
+        },
+        {
+          "suite": "const.wast",
+          "commands": null,
+          "estimated_cycles": 3648
+        },
+        {
+          "suite": "conversions.wast",
+          "commands": null,
+          "estimated_cycles": 8396
+        },
+        {
+          "suite": "exceptions/tag.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "exceptions/throw.wast",
+          "commands": null,
+          "estimated_cycles": 228
+        },
+        {
+          "suite": "exceptions/throw_ref.wast",
+          "commands": null,
+          "estimated_cycles": 499
+        },
+        {
+          "suite": "exceptions/try_table.wast",
+          "commands": null,
+          "estimated_cycles": 1771
+        },
+        {
+          "suite": "f32_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 40848
+        },
+        {
+          "suite": "f64.wast",
+          "commands": null,
+          "estimated_cycles": 50752
+        },
+        {
+          "suite": "f64_bitwise.wast",
+          "commands": null,
+          "estimated_cycles": 6096
+        },
+        {
+          "suite": "float_memory.wast",
+          "commands": null,
+          "estimated_cycles": 1632
+        },
+        {
+          "suite": "func.wast",
+          "commands": null,
+          "estimated_cycles": 2008
+        },
+        {
+          "suite": "func_ptrs.wast",
+          "commands": null,
+          "estimated_cycles": 733
+        },
+        {
+          "suite": "gc/array_fill.wast",
+          "commands": null,
+          "estimated_cycles": 868
+        },
+        {
+          "suite": "gc/array_init_data.wast",
+          "commands": null,
+          "estimated_cycles": 1260
+        },
+        {
+          "suite": "gc/array_init_elem.wast",
+          "commands": null,
+          "estimated_cycles": 1243
+        },
+        {
+          "suite": "gc/br_on_cast.wast",
+          "commands": null,
+          "estimated_cycles": 1714
+        },
+        {
+          "suite": "gc/ref_cast.wast",
+          "commands": null,
+          "estimated_cycles": 1831
+        },
+        {
+          "suite": "if.wast",
+          "commands": null,
+          "estimated_cycles": 5552
+        },
+        {
+          "suite": "inline-module.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "instance.wast",
+          "commands": null,
+          "estimated_cycles": 475
+        },
+        {
+          "suite": "int_exprs.wast",
+          "commands": null,
+          "estimated_cycles": 4424
+        },
+        {
+          "suite": "memory64/load64.wast",
+          "commands": null,
+          "estimated_cycles": 1049
+        },
+        {
+          "suite": "memory64/memory_trap64.wast",
+          "commands": null,
+          "estimated_cycles": 1668
+        },
+        {
+          "suite": "memory64/table64.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "memory64/table_grow64.wast",
+          "commands": null,
+          "estimated_cycles": 427
+        },
+        {
+          "suite": "memory_redundancy.wast",
+          "commands": null,
+          "estimated_cycles": 393
+        },
+        {
+          "suite": "multi-memory/align0.wast",
+          "commands": null,
+          "estimated_cycles": 282
+        },
+        {
+          "suite": "multi-memory/binary0.wast",
+          "commands": null,
+          "estimated_cycles": 84
+        },
+        {
+          "suite": "multi-memory/data0.wast",
+          "commands": null,
+          "estimated_cycles": 448
+        },
+        {
+          "suite": "multi-memory/float_exprs0.wast",
+          "commands": null,
+          "estimated_cycles": 651
+        },
+        {
+          "suite": "multi-memory/float_exprs1.wast",
+          "commands": null,
+          "estimated_cycles": 24420
+        },
+        {
+          "suite": "multi-memory/imports2.wast",
+          "commands": null,
+          "estimated_cycles": 194
+        },
+        {
+          "suite": "multi-memory/imports4.wast",
+          "commands": null,
+          "estimated_cycles": 158
+        },
+        {
+          "suite": "multi-memory/linking0.wast",
+          "commands": null,
+          "estimated_cycles": 183
+        },
+        {
+          "suite": "multi-memory/memory_copy1.wast",
+          "commands": null,
+          "estimated_cycles": 608
+        },
+        {
+          "suite": "multi-memory/memory_fill0.wast",
+          "commands": null,
+          "estimated_cycles": 20790
+        },
+        {
+          "suite": "multi-memory/memory_size2.wast",
+          "commands": null,
+          "estimated_cycles": 300
+        },
+        {
+          "suite": "multi-memory/memory_size3.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "multi-memory/memory_trap0.wast",
+          "commands": null,
+          "estimated_cycles": 394
+        },
+        {
+          "suite": "multi-memory/store0.wast",
+          "commands": null,
+          "estimated_cycles": 120
+        },
+        {
+          "suite": "multi-memory/traps0.wast",
+          "commands": null,
+          "estimated_cycles": 146
+        },
+        {
+          "suite": "ref_as_non_null.wast",
+          "commands": null,
+          "estimated_cycles": 154
+        },
+        {
+          "suite": "ref_func.wast",
+          "commands": null,
+          "estimated_cycles": 562
+        },
+        {
+          "suite": "ref_is_null.wast",
+          "commands": null,
+          "estimated_cycles": 604
+        },
+        {
+          "suite": "relaxed-simd/i32x4_relaxed_trunc.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "relaxed-simd/relaxed_madd_nmadd.wast",
+          "commands": null,
+          "estimated_cycles": 854
+        },
+        {
+          "suite": "relaxed-simd/relaxed_min_max.wast",
+          "commands": null,
+          "estimated_cycles": 924
+        },
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            1,
+            3,
+            7,
+            9,
+            12,
+            18,
+            20,
+            23,
+            28,
+            29,
+            33,
+            35,
+            37,
+            39,
+            41,
+            43,
+            46,
+            49
+          ],
+          "estimated_cycles": 24626
+        },
+        {
+          "suite": "return_call_indirect.wast",
+          "commands": [
+            2,
+            5,
+            8,
+            12,
+            15,
+            16,
+            18,
+            22,
+            24,
+            25,
+            28,
+            29,
+            30,
+            36,
+            37,
+            49,
+            52,
+            55,
+            58,
+            61,
+            64,
+            67,
+            70,
+            73,
+            76,
+            79,
+            82
+          ],
+          "estimated_cycles": 937
+        },
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            1,
+            4,
+            6,
+            10,
+            17,
+            21,
+            24,
+            28,
+            33,
+            36,
+            39,
+            43,
+            47,
+            50
+          ],
+          "estimated_cycles": 2897
+        },
+        {
+          "suite": "select.wast",
+          "commands": null,
+          "estimated_cycles": 2894
+        },
+        {
+          "suite": "simd/simd_f32x4_pmin_pmax.wast",
+          "commands": null,
+          "estimated_cycles": 92976
+        },
+        {
+          "suite": "simd/simd_f64x2.wast",
+          "commands": null,
+          "estimated_cycles": 15890
+        },
+        {
+          "suite": "simd/simd_f64x2_arith.wast",
+          "commands": null,
+          "estimated_cycles": 59291
+        },
+        {
+          "suite": "simd/simd_f64x2_pmin_pmax.wast",
+          "commands": null,
+          "estimated_cycles": 77488
+        },
+        {
+          "suite": "simd/simd_i16x8_arith.wast",
+          "commands": null,
+          "estimated_cycles": 6132
+        },
+        {
+          "suite": "simd/simd_i32x4_dot_i16x8.wast",
+          "commands": null,
+          "estimated_cycles": 972
+        },
+        {
+          "suite": "simd/simd_i32x4_extmul_i16x8.wast",
+          "commands": null,
+          "estimated_cycles": 3480
+        },
+        {
+          "suite": "simd/simd_i32x4_trunc_sat_f32x4.wast",
+          "commands": null,
+          "estimated_cycles": 2292
+        },
+        {
+          "suite": "simd/simd_i64x2_arith.wast",
+          "commands": null,
+          "estimated_cycles": 6330
+        },
+        {
+          "suite": "simd/simd_i64x2_arith2.wast",
+          "commands": null,
+          "estimated_cycles": 718
+        },
+        {
+          "suite": "simd/simd_i8x16_arith.wast",
+          "commands": null,
+          "estimated_cycles": 4091
+        },
+        {
+          "suite": "simd/simd_i8x16_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 15063
+        },
+        {
+          "suite": "simd/simd_int_to_int_extend.wast",
+          "commands": null,
+          "estimated_cycles": 7116
+        },
+        {
+          "suite": "simd/simd_lane.wast",
+          "commands": null,
+          "estimated_cycles": 9898
+        },
+        {
+          "suite": "simd/simd_load8_lane.wast",
+          "commands": null,
+          "estimated_cycles": 1020
+        },
+        {
+          "suite": "simd/simd_load_splat.wast",
+          "commands": null,
+          "estimated_cycles": 1884
+        },
+        {
+          "suite": "simd/simd_splat.wast",
+          "commands": null,
+          "estimated_cycles": 6820
+        },
+        {
+          "suite": "simd/simd_store16_lane.wast",
+          "commands": null,
+          "estimated_cycles": 1564
+        },
+        {
+          "suite": "simd/simd_store8_lane.wast",
+          "commands": null,
+          "estimated_cycles": 2316
+        },
+        {
+          "suite": "start.wast",
+          "commands": null,
+          "estimated_cycles": 533
+        },
+        {
+          "suite": "store.wast",
+          "commands": null,
+          "estimated_cycles": 261
+        },
+        {
+          "suite": "table_get.wast",
+          "commands": null,
+          "estimated_cycles": 252
+        },
+        {
+          "suite": "table_size.wast",
+          "commands": null,
+          "estimated_cycles": 642
+        },
+        {
+          "suite": "type-rec.wast",
+          "commands": null,
+          "estimated_cycles": 227
+        },
+        {
+          "suite": "type.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "unreached-valid.wast",
+          "commands": null,
+          "estimated_cycles": 106
+        },
+        {
+          "suite": "utf8-import-field.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "estimated_cycles": 15029275,
+      "entries": [
+        {
+          "suite": "br_on_non_null.wast",
+          "commands": null,
+          "estimated_cycles": 354
+        },
+        {
+          "suite": "bulk-memory/table-sub.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "data.wast",
+          "commands": null,
+          "estimated_cycles": 1140
+        },
+        {
+          "suite": "exceptions/cast.wast",
+          "commands": null,
+          "estimated_cycles": 208
+        },
+        {
+          "suite": "exports.wast",
+          "commands": null,
+          "estimated_cycles": 264
+        },
+        {
+          "suite": "f32_bitwise.wast",
+          "commands": null,
+          "estimated_cycles": 6096
+        },
+        {
+          "suite": "fac.wast",
+          "commands": null,
+          "estimated_cycles": 16230
+        },
+        {
+          "suite": "float_literals.wast",
+          "commands": null,
+          "estimated_cycles": 1392
+        },
+        {
+          "suite": "gc/array_new_data.wast",
+          "commands": null,
+          "estimated_cycles": 529
+        },
+        {
+          "suite": "gc/array_new_elem.wast",
+          "commands": null,
+          "estimated_cycles": 833
+        },
+        {
+          "suite": "gc/binary-gc.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "gc/i31.wast",
+          "commands": null,
+          "estimated_cycles": 1688
+        },
+        {
+          "suite": "global.wast",
+          "commands": null,
+          "estimated_cycles": 1945
+        },
+        {
+          "suite": "i64.wast",
+          "commands": null,
+          "estimated_cycles": 10060
+        },
+        {
+          "suite": "left-to-right.wast",
+          "commands": null,
+          "estimated_cycles": 23155
+        },
+        {
+          "suite": "linking.wast",
+          "commands": null,
+          "estimated_cycles": 2246
+        },
+        {
+          "suite": "load.wast",
+          "commands": null,
+          "estimated_cycles": 1049
+        },
+        {
+          "suite": "local_get.wast",
+          "commands": null,
+          "estimated_cycles": 476
+        },
+        {
+          "suite": "memory.wast",
+          "commands": null,
+          "estimated_cycles": 1631
+        },
+        {
+          "suite": "memory64/address64.wast",
+          "commands": null,
+          "estimated_cycles": 4028
+        },
+        {
+          "suite": "memory64/align64.wast",
+          "commands": null,
+          "estimated_cycles": 4193
+        },
+        {
+          "suite": "memory64/binary_leb128_64.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "memory64/endianness64.wast",
+          "commands": null,
+          "estimated_cycles": 8816
+        },
+        {
+          "suite": "memory64/memory_copy64.wast",
+          "commands": null,
+          "estimated_cycles": 9688163
+        },
+        {
+          "suite": "memory64/memory_init64.wast",
+          "commands": null,
+          "estimated_cycles": 3217
+        },
+        {
+          "suite": "memory64/memory_redundancy64.wast",
+          "commands": null,
+          "estimated_cycles": 393
+        },
+        {
+          "suite": "memory64/table_copy64.wast",
+          "commands": null,
+          "estimated_cycles": 40444
+        },
+        {
+          "suite": "memory64/table_copy_mixed.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "memory64/table_init64.wast",
+          "commands": null,
+          "estimated_cycles": 21388
+        },
+        {
+          "suite": "memory64/table_set64.wast",
+          "commands": null,
+          "estimated_cycles": 356
+        },
+        {
+          "suite": "memory64/table_size64.wast",
+          "commands": null,
+          "estimated_cycles": 642
+        },
+        {
+          "suite": "memory_trap.wast",
+          "commands": null,
+          "estimated_cycles": 1808
+        },
+        {
+          "suite": "multi-memory/address0.wast",
+          "commands": null,
+          "estimated_cycles": 1511
+        },
+        {
+          "suite": "multi-memory/data1.wast",
+          "commands": null,
+          "estimated_cycles": 220
+        },
+        {
+          "suite": "multi-memory/float_memory0.wast",
+          "commands": null,
+          "estimated_cycles": 576
+        },
+        {
+          "suite": "multi-memory/imports0.wast",
+          "commands": null,
+          "estimated_cycles": 84
+        },
+        {
+          "suite": "multi-memory/imports1.wast",
+          "commands": null,
+          "estimated_cycles": 121
+        },
+        {
+          "suite": "multi-memory/linking1.wast",
+          "commands": null,
+          "estimated_cycles": 246
+        },
+        {
+          "suite": "multi-memory/memory-multi.wast",
+          "commands": null,
+          "estimated_cycles": 184
+        },
+        {
+          "suite": "multi-memory/memory_copy0.wast",
+          "commands": null,
+          "estimated_cycles": 894
+        },
+        {
+          "suite": "multi-memory/memory_init0.wast",
+          "commands": null,
+          "estimated_cycles": 257
+        },
+        {
+          "suite": "multi-memory/memory_size0.wast",
+          "commands": null,
+          "estimated_cycles": 138
+        },
+        {
+          "suite": "multi-memory/memory_size_import.wast",
+          "commands": null,
+          "estimated_cycles": 96
+        },
+        {
+          "suite": "multi-memory/memory_trap1.wast",
+          "commands": null,
+          "estimated_cycles": 1462
+        },
+        {
+          "suite": "multi-memory/store1.wast",
+          "commands": null,
+          "estimated_cycles": 192
+        },
+        {
+          "suite": "multi-memory/store2.wast",
+          "commands": null,
+          "estimated_cycles": 728
+        },
+        {
+          "suite": "nop.wast",
+          "commands": null,
+          "estimated_cycles": 2083
+        },
+        {
+          "suite": "obsolete-keywords.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "ref_null.wast",
+          "commands": null,
+          "estimated_cycles": 816
+        },
+        {
+          "suite": "relaxed-simd/i16x8_relaxed_q15mulr_s.wast",
+          "commands": null,
+          "estimated_cycles": 156
+        },
+        {
+          "suite": "return.wast",
+          "commands": null,
+          "estimated_cycles": 981
+        },
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            0,
+            5,
+            6,
+            11,
+            17,
+            21,
+            22,
+            32,
+            34,
+            44,
+            47,
+            50
+          ],
+          "estimated_cycles": 2037
+        },
+        {
+          "suite": "return_call_indirect.wast",
+          "commands": [
+            1,
+            4,
+            7,
+            11,
+            14,
+            21,
+            23,
+            27,
+            31,
+            32,
+            39,
+            40,
+            41,
+            43,
+            44,
+            50,
+            53,
+            56,
+            59,
+            62,
+            65,
+            68,
+            71,
+            74,
+            77,
+            80
+          ],
+          "estimated_cycles": 5073751
+        },
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            0,
+            3,
+            5,
+            8,
+            9,
+            12,
+            18,
+            23,
+            30,
+            34,
+            37,
+            40,
+            41,
+            44,
+            45,
+            48,
+            51
+          ],
+          "estimated_cycles": 4909
+        },
+        {
+          "suite": "simd/simd_bit_shift.wast",
+          "commands": null,
+          "estimated_cycles": 7803
+        },
+        {
+          "suite": "simd/simd_bitwise.wast",
+          "commands": null,
+          "estimated_cycles": 6159
+        },
+        {
+          "suite": "simd/simd_const.wast",
+          "commands": null,
+          "estimated_cycles": 3639
+        },
+        {
+          "suite": "simd/simd_f32x4.wast",
+          "commands": null,
+          "estimated_cycles": 18576
+        },
+        {
+          "suite": "simd/simd_i16x8_arith2.wast",
+          "commands": null,
+          "estimated_cycles": 5723
+        },
+        {
+          "suite": "simd/simd_i16x8_extmul_i8x16.wast",
+          "commands": null,
+          "estimated_cycles": 3480
+        },
+        {
+          "suite": "simd/simd_i16x8_q15mulr_sat_s.wast",
+          "commands": null,
+          "estimated_cycles": 906
+        },
+        {
+          "suite": "simd/simd_i16x8_sat_arith.wast",
+          "commands": null,
+          "estimated_cycles": 6940
+        },
+        {
+          "suite": "simd/simd_i32x4_arith2.wast",
+          "commands": null,
+          "estimated_cycles": 4506
+        },
+        {
+          "suite": "simd/simd_i32x4_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 15723
+        },
+        {
+          "suite": "simd/simd_i64x2_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 3414
+        },
+        {
+          "suite": "simd/simd_i8x16_sat_arith.wast",
+          "commands": null,
+          "estimated_cycles": 6412
+        },
+        {
+          "suite": "simd/simd_linking.wast",
+          "commands": null,
+          "estimated_cycles": 72
+        },
+        {
+          "suite": "simd/simd_load16_lane.wast",
+          "commands": null,
+          "estimated_cycles": 700
+        },
+        {
+          "suite": "simd/simd_load32_lane.wast",
+          "commands": null,
+          "estimated_cycles": 460
+        },
+        {
+          "suite": "simd/simd_load64_lane.wast",
+          "commands": null,
+          "estimated_cycles": 300
+        },
+        {
+          "suite": "simd/simd_load_extend.wast",
+          "commands": null,
+          "estimated_cycles": 1668
+        },
+        {
+          "suite": "simd/simd_load_zero.wast",
+          "commands": null,
+          "estimated_cycles": 594
+        },
+        {
+          "suite": "simd/simd_memory-multi.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "simd/simd_select.wast",
+          "commands": null,
+          "estimated_cycles": 156
+        },
+        {
+          "suite": "simd/simd_store.wast",
+          "commands": null,
+          "estimated_cycles": 485
+        },
+        {
+          "suite": "simd/simd_store64_lane.wast",
+          "commands": null,
+          "estimated_cycles": 624
+        },
+        {
+          "suite": "stack.wast",
+          "commands": null,
+          "estimated_cycles": 2668
+        },
+        {
+          "suite": "switch.wast",
+          "commands": null,
+          "estimated_cycles": 1358
+        },
+        {
+          "suite": "table.wast",
+          "commands": null,
+          "estimated_cycles": 242
+        },
+        {
+          "suite": "token.wast",
+          "commands": null,
+          "estimated_cycles": 108
+        },
+        {
+          "suite": "traps.wast",
+          "commands": null,
+          "estimated_cycles": 310
+        },
+        {
+          "suite": "unreachable.wast",
+          "commands": null,
+          "estimated_cycles": 653
+        },
+        {
+          "suite": "unreached-invalid.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "unwind.wast",
+          "commands": null,
+          "estimated_cycles": 1026
+        },
+        {
+          "suite": "utf8-import-module.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "estimated_cycles": 16658473,
+      "entries": [
+        {
+          "suite": "bulk-memory/memory_fill.wast",
+          "commands": null,
+          "estimated_cycles": 9458378
+        },
+        {
+          "suite": "return_call_indirect.wast",
+          "commands": [
+            47
+          ],
+          "estimated_cycles": 7200095
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "estimated_cycles": 15029275,
+      "entries": [
+        {
+          "suite": "address.wast",
+          "commands": null,
+          "estimated_cycles": 4147
+        },
+        {
+          "suite": "align.wast",
+          "commands": null,
+          "estimated_cycles": 4193
+        },
+        {
+          "suite": "annotations.wast",
+          "commands": null,
+          "estimated_cycles": 128
+        },
+        {
+          "suite": "binary-leb128.wast",
+          "commands": null,
+          "estimated_cycles": 252
+        },
+        {
+          "suite": "br.wast",
+          "commands": null,
+          "estimated_cycles": 1665
+        },
+        {
+          "suite": "br_if.wast",
+          "commands": null,
+          "estimated_cycles": 2304
+        },
+        {
+          "suite": "bulk-memory/table_fill.wast",
+          "commands": null,
+          "estimated_cycles": 691
+        },
+        {
+          "suite": "bulk-memory/table_init.wast",
+          "commands": null,
+          "estimated_cycles": 18619
+        },
+        {
+          "suite": "custom.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "elem.wast",
+          "commands": null,
+          "estimated_cycles": 4887
+        },
+        {
+          "suite": "endianness.wast",
+          "commands": null,
+          "estimated_cycles": 8816
+        },
+        {
+          "suite": "f32.wast",
+          "commands": null,
+          "estimated_cycles": 50751
+        },
+        {
+          "suite": "f64_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 40848
+        },
+        {
+          "suite": "float_exprs.wast",
+          "commands": null,
+          "estimated_cycles": 95742
+        },
+        {
+          "suite": "float_misc.wast",
+          "commands": null,
+          "estimated_cycles": 17498
+        },
+        {
+          "suite": "forward.wast",
+          "commands": null,
+          "estimated_cycles": 1864
+        },
+        {
+          "suite": "gc/array.wast",
+          "commands": null,
+          "estimated_cycles": 1974
+        },
+        {
+          "suite": "gc/array_copy.wast",
+          "commands": null,
+          "estimated_cycles": 1731
+        },
+        {
+          "suite": "gc/br_on_cast_fail.wast",
+          "commands": null,
+          "estimated_cycles": 1818
+        },
+        {
+          "suite": "gc/extern.wast",
+          "commands": null,
+          "estimated_cycles": 462
+        },
+        {
+          "suite": "gc/ref_eq.wast",
+          "commands": null,
+          "estimated_cycles": 2428
+        },
+        {
+          "suite": "gc/ref_test.wast",
+          "commands": null,
+          "estimated_cycles": 3609
+        },
+        {
+          "suite": "gc/struct.wast",
+          "commands": null,
+          "estimated_cycles": 926
+        },
+        {
+          "suite": "gc/type-subtyping.wast",
+          "commands": null,
+          "estimated_cycles": 1235
+        },
+        {
+          "suite": "i32.wast",
+          "commands": null,
+          "estimated_cycles": 7936
+        },
+        {
+          "suite": "id.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "imports.wast",
+          "commands": null,
+          "estimated_cycles": 926
+        },
+        {
+          "suite": "int_literals.wast",
+          "commands": null,
+          "estimated_cycles": 416
+        },
+        {
+          "suite": "labels.wast",
+          "commands": null,
+          "estimated_cycles": 1390
+        },
+        {
+          "suite": "local_init.wast",
+          "commands": null,
+          "estimated_cycles": 124
+        },
+        {
+          "suite": "local_set.wast",
+          "commands": null,
+          "estimated_cycles": 459
+        },
+        {
+          "suite": "local_tee.wast",
+          "commands": null,
+          "estimated_cycles": 1530
+        },
+        {
+          "suite": "loop.wast",
+          "commands": null,
+          "estimated_cycles": 28530
+        },
+        {
+          "suite": "memory64/bulk64.wast",
+          "commands": null,
+          "estimated_cycles": 21975
+        },
+        {
+          "suite": "memory64/call_indirect64.wast",
+          "commands": null,
+          "estimated_cycles": 100
+        },
+        {
+          "suite": "memory64/float_memory64.wast",
+          "commands": null,
+          "estimated_cycles": 1632
+        },
+        {
+          "suite": "memory64/memory64-imports.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "memory64/memory64.wast",
+          "commands": null,
+          "estimated_cycles": 1451
+        },
+        {
+          "suite": "memory64/memory_fill64.wast",
+          "commands": null,
+          "estimated_cycles": 9458378
+        },
+        {
+          "suite": "memory64/table_fill64.wast",
+          "commands": null,
+          "estimated_cycles": 1334
+        },
+        {
+          "suite": "memory64/table_get64.wast",
+          "commands": null,
+          "estimated_cycles": 252
+        },
+        {
+          "suite": "memory_size.wast",
+          "commands": null,
+          "estimated_cycles": 512
+        },
+        {
+          "suite": "multi-memory/address1.wast",
+          "commands": null,
+          "estimated_cycles": 2086
+        },
+        {
+          "suite": "multi-memory/data_drop0.wast",
+          "commands": null,
+          "estimated_cycles": 206
+        },
+        {
+          "suite": "multi-memory/exports0.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "multi-memory/imports3.wast",
+          "commands": null,
+          "estimated_cycles": 84
+        },
+        {
+          "suite": "multi-memory/linking2.wast",
+          "commands": null,
+          "estimated_cycles": 172
+        },
+        {
+          "suite": "multi-memory/linking3.wast",
+          "commands": null,
+          "estimated_cycles": 267
+        },
+        {
+          "suite": "multi-memory/load0.wast",
+          "commands": null,
+          "estimated_cycles": 108
+        },
+        {
+          "suite": "multi-memory/load1.wast",
+          "commands": null,
+          "estimated_cycles": 342
+        },
+        {
+          "suite": "multi-memory/load2.wast",
+          "commands": null,
+          "estimated_cycles": 1049
+        },
+        {
+          "suite": "multi-memory/memory_grow.wast",
+          "commands": null,
+          "estimated_cycles": 638
+        },
+        {
+          "suite": "multi-memory/memory_size1.wast",
+          "commands": null,
+          "estimated_cycles": 224
+        },
+        {
+          "suite": "multi-memory/start0.wast",
+          "commands": null,
+          "estimated_cycles": 319
+        },
+        {
+          "suite": "names.wast",
+          "commands": null,
+          "estimated_cycles": 5850
+        },
+        {
+          "suite": "ref.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "relaxed-simd/i8x16_relaxed_swizzle.wast",
+          "commands": null,
+          "estimated_cycles": 297
+        },
+        {
+          "suite": "relaxed-simd/relaxed_dot_product.wast",
+          "commands": null,
+          "estimated_cycles": 593
+        },
+        {
+          "suite": "relaxed-simd/relaxed_laneselect.wast",
+          "commands": null,
+          "estimated_cycles": 653
+        },
+        {
+          "suite": "return_call.wast",
+          "commands": [
+            2,
+            4,
+            8,
+            10,
+            13,
+            14,
+            15,
+            16,
+            26,
+            27,
+            36,
+            38,
+            40,
+            42,
+            45,
+            48
+          ],
+          "estimated_cycles": 1014
+        },
+        {
+          "suite": "return_call_indirect.wast",
+          "commands": [
+            0,
+            3,
+            6,
+            9,
+            10,
+            13,
+            17,
+            19,
+            20,
+            26,
+            33,
+            34,
+            35,
+            38,
+            42,
+            45,
+            46,
+            48,
+            51,
+            54,
+            57,
+            60,
+            63,
+            66,
+            69,
+            72,
+            75,
+            78,
+            81
+          ],
+          "estimated_cycles": 4806132
+        },
+        {
+          "suite": "return_call_ref.wast",
+          "commands": [
+            2,
+            7,
+            11,
+            13,
+            14,
+            15,
+            16,
+            19,
+            22,
+            27,
+            29,
+            35,
+            38,
+            42,
+            46,
+            49,
+            52
+          ],
+          "estimated_cycles": 29273
+        },
+        {
+          "suite": "simd/simd_address.wast",
+          "commands": null,
+          "estimated_cycles": 828
+        },
+        {
+          "suite": "simd/simd_align.wast",
+          "commands": null,
+          "estimated_cycles": 236
+        },
+        {
+          "suite": "simd/simd_boolean.wast",
+          "commands": null,
+          "estimated_cycles": 11506
+        },
+        {
+          "suite": "simd/simd_conversions.wast",
+          "commands": null,
+          "estimated_cycles": 6523
+        },
+        {
+          "suite": "simd/simd_f32x4_arith.wast",
+          "commands": null,
+          "estimated_cycles": 89693
+        },
+        {
+          "suite": "simd/simd_f32x4_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 63000
+        },
+        {
+          "suite": "simd/simd_f32x4_rounding.wast",
+          "commands": null,
+          "estimated_cycles": 3920
+        },
+        {
+          "suite": "simd/simd_f64x2_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 54068
+        },
+        {
+          "suite": "simd/simd_f64x2_rounding.wast",
+          "commands": null,
+          "estimated_cycles": 3216
+        },
+        {
+          "suite": "simd/simd_i16x8_cmp.wast",
+          "commands": null,
+          "estimated_cycles": 15723
+        },
+        {
+          "suite": "simd/simd_i16x8_extadd_pairwise_i8x16.wast",
+          "commands": null,
+          "estimated_cycles": 544
+        },
+        {
+          "suite": "simd/simd_i32x4_arith.wast",
+          "commands": null,
+          "estimated_cycles": 6132
+        },
+        {
+          "suite": "simd/simd_i32x4_extadd_pairwise_i16x8.wast",
+          "commands": null,
+          "estimated_cycles": 544
+        },
+        {
+          "suite": "simd/simd_i32x4_trunc_sat_f64x2.wast",
+          "commands": null,
+          "estimated_cycles": 1884
+        },
+        {
+          "suite": "simd/simd_i64x2_extmul_i32x4.wast",
+          "commands": null,
+          "estimated_cycles": 3480
+        },
+        {
+          "suite": "simd/simd_i8x16_arith2.wast",
+          "commands": null,
+          "estimated_cycles": 7013
+        },
+        {
+          "suite": "simd/simd_load.wast",
+          "commands": null,
+          "estimated_cycles": 888
+        },
+        {
+          "suite": "simd/simd_store32_lane.wast",
+          "commands": null,
+          "estimated_cycles": 1000
+        },
+        {
+          "suite": "skip-stack-guard-page.wast",
+          "commands": null,
+          "estimated_cycles": 108596
+        },
+        {
+          "suite": "table_grow.wast",
+          "commands": null,
+          "estimated_cycles": 6176
+        },
+        {
+          "suite": "table_set.wast",
+          "commands": null,
+          "estimated_cycles": 356
+        },
+        {
+          "suite": "type-canon.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "type-equivalence.wast",
+          "commands": null,
+          "estimated_cycles": 725
+        },
+        {
+          "suite": "utf8-custom-section-id.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        },
+        {
+          "suite": "utf8-invalid-encoding.wast",
+          "commands": null,
+          "estimated_cycles": 48
+        }
+      ]
+    }
+  ]
+}

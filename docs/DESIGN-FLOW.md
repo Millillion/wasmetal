@@ -229,6 +229,32 @@ setup cycles, for 306,356,776 actual cycles. CI synthesis reproduced the local
 production netlist byte-for-byte after replacing only workspace paths in source
 annotations.
 
+The SIMD-selector revision at `2c2f527` also passes all sixteen mapped
+partitions and the complete coverage check in [CI run 41770401814](https://github.com/Millillion/wasmetal/actions/runs/41770401814).
+Its [reconciliation record](verification/ci-selector-complete.json) verifies
+all 259 suites, both native configurations, the packaged simulator and all 242
+additional build inputs. Local reaggregation reproduces the CI report after
+relocating only report paths. Local and CI netlists are identical after 97,769
+workspace-path relocations. The native reports, partition plan, all sixteen
+partition reports and aggregate are archived in
+[verification/ci-selector](verification/ci-selector), beyond GitHub's retention
+window. A [corrupted aggregate is rejected](verification/core-ci-reconcile-negative.json),
+and a failed reconciliation removes its previous success report.
+
+The complete workflow did **not** pass: the standalone physical build reached
+its three-hour limit, so dependent programmable checks were skipped. The
+standalone functional/physical separation described above addresses that CI
+dependency. It does not make the physical build pass.
+
+To independently reconcile a newly downloaded run at its matching source
+revision, save its GitHub API run/jobs/artifact metadata as `github.json` beside
+the `gh run download` artifact subdirectories, then run:
+
+```sh
+python3 tools/check_core_ci.py --directory build/ci-download \
+  --local-netlist build/core-ecp5.json --output reports/core-ci-reconciliation.json
+```
+
 CI retains native, individual worker and final aggregate JSON reports for
 30 days, and the larger simulator archive for seven days. Mapped-RAM component
 checks and UART RTL simulation

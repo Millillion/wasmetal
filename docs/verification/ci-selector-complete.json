@@ -1,0 +1,523 @@
+{
+  "status": "passed",
+  "scope": "complete official corpus on native RTL and functional mapped CPU; no physical timing claim",
+  "checked_at": "2026-11-04T08:22:18.274557+00:00",
+  "inputs": {
+    "build/ci-selector-2c2f527/verification-reports/core.json": "cffab83df389c8b411b943f2c90c2ea9a61ccd7dda0c6fdea2b5b2cf6720b841",
+    "build/ci-selector-2c2f527/verification-reports/core-stalled.json": "7e16893b41da3439356902f4b99a4472fa198d316dc3d23b91c88dff443173cd",
+    "build/ci-selector-2c2f527/mapped-complete/mapped-complete.json": "ead9095239b8204e45382f2e2166252742d812f7c834bee5be4e98450597b52d",
+    "build/ci-selector-2c2f527/mapped-simulator/mapped-plan.json": "47cc3dbb40360ffe0aa2f6d8651374a380f4b29e20232db37c9b138ac348563e",
+    "build/ci-selector-2c2f527/mapped-simulator/mapped-simulator.tar.gz": "8e13258e08a587dd3f1d3bd9acc786a484f0abd414e9808528f07a7cf545dcae",
+    "build/ci-selector-2c2f527/github.json": "f6c0517cc1bf4d22f05b51d7fba0388f357234766ea9c087bfb0d9b3da1d5048",
+    "build/ci-selector-2c2f527/mapped-build-reports/build/core-ecp5.json": "eafe037359cc62204cccac88bb8e24405c6ab5fb6e8021c05d14805f928a0906",
+    "build/ci-selector-2c2f527/mapped-build-reports/build/core-ecp5.manifest.json": "01407d4e115c14d3ac9a2dd8c3f0c25d5db4e98100dde6f600857cb92c4b40ec",
+    "build/core-selector-final-ecp5.json": "05d46d4d4d0c16e123f4e34e1d8d1a4757cd78bee7274f86ce0d40ff6c5c2b0b",
+    "build/core-selector-final-ecp5.manifest.json": "9e2b7ce85f6a552cf101f642f5c3ca837574bbc93bdc5526f5751d4990206665",
+    "build/ci-selector-2c2f527/mapped-results-00/mapped-shard-00.json": "86b0576cfb89d34e3b5aea16dc64a0abaddefd9fe37b6cd5843ddbea2a8a4e55",
+    "build/ci-selector-2c2f527/mapped-results-01/mapped-shard-01.json": "10d28695a6a6dce095ade7d15b51162bf7db178c4fae4fcab207f80c43b75ba4",
+    "build/ci-selector-2c2f527/mapped-results-02/mapped-shard-02.json": "96d2262d5dadcb5f741c3f05dcc86f16e3cc1610c1b21d88fec88fbd48b6bc4b",
+    "build/ci-selector-2c2f527/mapped-results-03/mapped-shard-03.json": "1b29d2c8df937fcae04d0fc50a5afbf59e209c4a087709cd978302699ccdd4f5",
+    "build/ci-selector-2c2f527/mapped-results-04/mapped-shard-04.json": "f5fa206bf472d1e11ed0aaa66ce746be6dbc0c5b550b6b1f4530b429ceb9f07b",
+    "build/ci-selector-2c2f527/mapped-results-05/mapped-shard-05.json": "cf34bf5f572aa090bcb2524903661cfde6c40a38afe81c58c87ea5eaaa3c5313",
+    "build/ci-selector-2c2f527/mapped-results-06/mapped-shard-06.json": "a0ed2761c8b388bdb4a8d0b36b43153b6b11c73d7c7014993c07baa7cb58d97a",
+    "build/ci-selector-2c2f527/mapped-results-07/mapped-shard-07.json": "111fc6a234bca9930c665a6f9ae54e79c9fc863cde36a291495656687315f253",
+    "build/ci-selector-2c2f527/mapped-results-08/mapped-shard-08.json": "c6d4a6bf3b330cf97ae29ea943dff9b5325cb79c678545f3f7c1fe01a3f03699",
+    "build/ci-selector-2c2f527/mapped-results-09/mapped-shard-09.json": "a886e39c697f8807a0b16b25b6b91b578561ebee2906e171b7b6844c3afa654e",
+    "build/ci-selector-2c2f527/mapped-results-10/mapped-shard-10.json": "bbf704e0825078f82148d388f64d3d5bed2a7e238b5ce24eef6809c7b57b5a82",
+    "build/ci-selector-2c2f527/mapped-results-11/mapped-shard-11.json": "f721c4114871c1cb836bfa08d6813b5447dde56b55ad13320624d153920ca784",
+    "build/ci-selector-2c2f527/mapped-results-12/mapped-shard-12.json": "a7e55fc728c4eb730439babdf08870427cab7ead38b327d3e694ac9acab590d0",
+    "build/ci-selector-2c2f527/mapped-results-13/mapped-shard-13.json": "f1a5f725fcf8ec6c2c048f0a4e5e005d14f24541ed415438285d2ed0d5297eea",
+    "build/ci-selector-2c2f527/mapped-results-14/mapped-shard-14.json": "e93d0eb7ca9e59d00149f535b7ba53cb552ab197463cc3a5cb1878f08f090705",
+    "build/ci-selector-2c2f527/mapped-results-15/mapped-shard-15.json": "eb5c30af8daaba39f0c24c007d61e00ca5ee3487e25b31097b5920b049b2aaa4",
+    "/home/lastmjs/development/wasmetal/tools/check_core_ci.py": "ce152bd119189b32dacdc1ef6ee7690de223c370edc8c2f66a984b2a14c0bcf7",
+    "/home/lastmjs/development/wasmetal/tools/spec_ci.py": "d9615b98a7dce6e41c6bf7f5ce5f936cf1ca43f8db09485c15c86e443d0580dd",
+    "/home/lastmjs/development/wasmetal/tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec"
+  },
+  "github": {
+    "run": {
+      "id": 41770401814,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41770401814",
+      "head_sha": "2c2f527ed2bd9496bc75564a2a3cbcb0a40bef3c",
+      "status": "completed",
+      "conclusion": "cancelled"
+    },
+    "jobs": [
+      {
+        "id": 126379122552,
+        "name": "Memory interface verification",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:01:04Z",
+        "completed_at": "2026-11-04T04:05:45Z"
+      },
+      {
+        "id": 126379122907,
+        "name": "core",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:01:04Z",
+        "completed_at": "2026-11-04T04:36:52Z"
+      },
+      {
+        "id": 126379123032,
+        "name": "Complete CPU with asynchronous AXI memory",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:01:06Z",
+        "completed_at": "2026-11-04T04:11:46Z"
+      },
+      {
+        "id": 126379123065,
+        "name": "Programmable 7-series resource estimate",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:01:04Z",
+        "completed_at": "2026-11-04T04:07:59Z"
+      },
+      {
+        "id": 126379123153,
+        "name": "Standalone FPGA system",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "started_at": "2026-11-04T04:01:14Z",
+        "completed_at": "2026-11-04T07:01:49Z"
+      },
+      {
+        "id": 126379123223,
+        "name": "Complete CPU with behavioral ASIC SRAM",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:01:08Z",
+        "completed_at": "2026-11-04T04:07:09Z"
+      },
+      {
+        "id": 126390845121,
+        "name": "mapped-build",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:36:55Z",
+        "completed_at": "2026-11-04T04:46:19Z"
+      },
+      {
+        "id": 126390845161,
+        "name": "Complete corpus with instruction storage codec",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:36:56Z",
+        "completed_at": "2026-11-04T04:50:46Z"
+      },
+      {
+        "id": 126393807205,
+        "name": "Mapped circuit (01)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:22Z",
+        "completed_at": "2026-11-04T07:53:57Z"
+      },
+      {
+        "id": 126393807216,
+        "name": "Mapped circuit (04)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T06:11:27Z"
+      },
+      {
+        "id": 126393807218,
+        "name": "Mapped circuit (11)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:22Z",
+        "completed_at": "2026-11-04T07:04:24Z"
+      },
+      {
+        "id": 126393807224,
+        "name": "Mapped circuit (09)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:49:43Z"
+      },
+      {
+        "id": 126393807225,
+        "name": "Mapped circuit (08)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:51:25Z"
+      },
+      {
+        "id": 126393807263,
+        "name": "Mapped circuit (14)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:15:10Z"
+      },
+      {
+        "id": 126393807266,
+        "name": "Mapped circuit (13)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:22Z",
+        "completed_at": "2026-11-04T05:14:16Z"
+      },
+      {
+        "id": 126393807287,
+        "name": "Mapped circuit (03)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:59:04Z"
+      },
+      {
+        "id": 126393807297,
+        "name": "Mapped circuit (10)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:22Z",
+        "completed_at": "2026-11-04T05:47:31Z"
+      },
+      {
+        "id": 126393807311,
+        "name": "Mapped circuit (05)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:52:08Z"
+      },
+      {
+        "id": 126393807316,
+        "name": "Mapped circuit (02)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T06:09:43Z"
+      },
+      {
+        "id": 126393807323,
+        "name": "Mapped circuit (06)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:37:40Z"
+      },
+      {
+        "id": 126393807332,
+        "name": "Mapped circuit (15)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:20:19Z"
+      },
+      {
+        "id": 126393807336,
+        "name": "Mapped circuit (07)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:59:57Z"
+      },
+      {
+        "id": 126393807353,
+        "name": "Mapped circuit (12)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:23Z",
+        "completed_at": "2026-11-04T05:20:29Z"
+      },
+      {
+        "id": 126393807364,
+        "name": "Mapped circuit (00)",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T04:46:22Z",
+        "completed_at": "2026-11-04T06:25:56Z"
+      },
+      {
+        "id": 126439076425,
+        "name": "Complete programmable circuit integration",
+        "status": "completed",
+        "conclusion": "failure",
+        "started_at": "2026-11-04T07:02:01Z",
+        "completed_at": "2026-11-04T07:02:05Z"
+      },
+      {
+        "id": 126439077746,
+        "name": "Programmable simulation build",
+        "status": "completed",
+        "conclusion": "skipped",
+        "started_at": "2026-11-04T07:01:49Z",
+        "completed_at": "2026-11-04T07:01:49Z"
+      },
+      {
+        "id": 126439077776,
+        "name": "Compiler-generated Wasm on RTL and mapped system",
+        "status": "completed",
+        "conclusion": "skipped",
+        "started_at": "2026-11-04T07:01:49Z",
+        "completed_at": "2026-11-04T07:01:49Z"
+      },
+      {
+        "id": 126439078291,
+        "name": "Programmable FPGA routing",
+        "status": "completed",
+        "conclusion": "skipped",
+        "started_at": "2026-11-04T07:01:49Z",
+        "completed_at": "2026-11-04T07:01:49Z"
+      },
+      {
+        "id": 126439078577,
+        "name": "Programmable mapped circuit (${{ matrix.shard }})",
+        "status": "completed",
+        "conclusion": "skipped",
+        "started_at": "2026-11-04T07:01:49Z",
+        "completed_at": "2026-11-04T07:01:49Z"
+      },
+      {
+        "id": 126458357130,
+        "name": "Complete mapped corpus",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-04T07:53:59Z",
+        "completed_at": "2026-11-04T07:54:32Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 13305890087,
+        "name": "mapped-results-01",
+        "digest": "sha256:b2b5b4813f14954e903554e072d1998ec90a07e4bd7bcea299587cd2e80d3953",
+        "size_in_bytes": 15398
+      },
+      {
+        "id": 13305176758,
+        "name": "mapped-complete",
+        "digest": "sha256:31518a955452cc9b46f85842d9ed09caa3d6a83476bd08f06d81e7b70a688a60",
+        "size_in_bytes": 157459
+      },
+      {
+        "id": 13301824780,
+        "name": "mapped-results-11",
+        "digest": "sha256:1d078509055594ef62e66eebd0bd1840929134386454aab2f80837b7dd1a06b0",
+        "size_in_bytes": 15739
+      },
+      {
+        "id": 13300772168,
+        "name": "mapped-results-00",
+        "digest": "sha256:861b277e4b15355bdd07eef06d237f36ad85554186f81cbf08a2d2511b05bb2e",
+        "size_in_bytes": 15404
+      },
+      {
+        "id": 13300376465,
+        "name": "mapped-results-04",
+        "digest": "sha256:1080f2245dff800e84c095397c37dd0833686a4f58a0561603c9736319041321",
+        "size_in_bytes": 15397
+      },
+      {
+        "id": 13299891869,
+        "name": "mapped-results-07",
+        "digest": "sha256:669136b851f6931adef769fbb960f7c46b1f5f8c7fadf7ad70d37139c8fa0a65",
+        "size_in_bytes": 15373
+      },
+      {
+        "id": 13299840411,
+        "name": "mapped-results-09",
+        "digest": "sha256:835cc6cbd4edbed9a87475967748f33f245e094d3a706e6cb1f3673de278ac0e",
+        "size_in_bytes": 15369
+      },
+      {
+        "id": 13299721150,
+        "name": "mapped-results-05",
+        "digest": "sha256:0963b255419803078f3f87981ad1137b9733d8ee170752f6567ae761cdf63871",
+        "size_in_bytes": 15374
+      },
+      {
+        "id": 13299415108,
+        "name": "mapped-results-06",
+        "digest": "sha256:f67c98001199dcf3572bee07143284417cacab3adfb3367979f3b433cd416bf7",
+        "size_in_bytes": 15370
+      },
+      {
+        "id": 13299391963,
+        "name": "mapped-results-08",
+        "digest": "sha256:c3f7b7ca5c8335cc8e74040c87298798e4789a3b2613029457f0135db10404d5",
+        "size_in_bytes": 15371
+      },
+      {
+        "id": 13299366677,
+        "name": "mapped-results-10",
+        "digest": "sha256:ed31b5e19ce7d9b5a0bcd8b0fd82dc578badfa7bdcfd33df804be5a31c5990c8",
+        "size_in_bytes": 16130
+      },
+      {
+        "id": 13299239980,
+        "name": "mapped-results-02",
+        "digest": "sha256:b85ec1d08328f34901788655f7c62fc1b624b355fb33df724b98403a2223a8cc",
+        "size_in_bytes": 15403
+      },
+      {
+        "id": 13299199560,
+        "name": "mapped-results-03",
+        "digest": "sha256:77fff2beb7789d94ab5b63e133260394bfc25d38f4f377a442648d42a4303a14",
+        "size_in_bytes": 15397
+      },
+      {
+        "id": 13298375897,
+        "name": "mapped-results-15",
+        "digest": "sha256:3803bf6b952bc711c87514e8253ec8c2fdbd68caaa44b2b55b761bdb71781826",
+        "size_in_bytes": 112067
+      },
+      {
+        "id": 13298291273,
+        "name": "mapped-results-12",
+        "digest": "sha256:6b98907e4c86467a43ddfb1721db7affdce6562a783e21be709c2b066c11ddd9",
+        "size_in_bytes": 158401
+      },
+      {
+        "id": 13298151506,
+        "name": "mapped-results-13",
+        "digest": "sha256:a54f92fbd3660fd23dc8d983fd25cf05a33a934763fd6cf4736c8ea66fa16c03",
+        "size_in_bytes": 79049
+      },
+      {
+        "id": 13297434120,
+        "name": "mapped-results-14",
+        "digest": "sha256:108cf33123fbce251be425a9df7ac9e52e5b50874a36b3d860a4c9e64426e2d9",
+        "size_in_bytes": 16298
+      },
+      {
+        "id": 13296372402,
+        "name": "mapped-simulator",
+        "digest": "sha256:73a9067dc57acee1ec8f3d25c971c12ff25f48f44a2aab8c32f9ee21eaac4c75",
+        "size_in_bytes": 12978563
+      },
+      {
+        "id": 13295879527,
+        "name": "mapped-build-reports",
+        "digest": "sha256:66f57a225647f5c494de54bc1fea99585bc6afd05390ecfe9f56e0fb41cf9402",
+        "size_in_bytes": 2532736
+      },
+      {
+        "id": 13295374403,
+        "name": "verification-reports",
+        "digest": "sha256:411a737fe2c00e86e501fb51ba77726cf931ade305c1245e241c0930f717865a",
+        "size_in_bytes": 309771
+      }
+    ]
+  },
+  "verified_source_inputs": {
+    "Makefile": "5a673957b5a8888e992884dd85a2dcd5b8da6b2860a5f443b614008bee1b22a1",
+    "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
+    "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
+    "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
+    "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
+    "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
+    "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+    "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+    "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+    "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
+    "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
+    "rtl/wasmetal_simd_fp_decode.sv": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
+    "rtl/wasmetal_simd_int.sv": "d64aaee7e053fae5b24e59d8e0e819c5eb065060ae6f9d426ea83404a703cf71",
+    "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
+    "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
+    "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
+    "sim/core_config.hpp": "4019302577a5afc6b18b4a18371f963cc5eee31b5feaae4ed8e2835208ab22fb",
+    "sim/fpga_ports.hpp": "cd0e55858ea472f993f78f47e428e190dfa41e9d2d48273530c8db863b6179f3",
+    "sim/fpga_remote.hpp": "1eb10beb2bee2f8d2293030c6d2852aec37fa5b8e2db9719529e783747ea0cb5",
+    "sim/main.cpp": "9a3941624dad3c44de53f204b547e9ba69416ad2a5b540142e1033d5625f8650",
+    "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
+    "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+    "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.v": "49d9a51a4e8b899df33247b778df5881ee6f9e38a98efafbbfaa7e0c1e0035f9",
+    "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+    "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+    "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "third_party/hardfloat/source/HardFloat_primitives.v": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+    "third_party/hardfloat/source/HardFloat_rawFN.v": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+    "third_party/hardfloat/source/addRecFN.v": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+    "third_party/hardfloat/source/compareRecFN.v": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+    "third_party/hardfloat/source/divSqrtRecFN_small.v": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+    "third_party/hardfloat/source/fNToRecFN.v": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+    "third_party/hardfloat/source/iNToRecFN.v": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+    "third_party/hardfloat/source/isSigNaNRecFN.v": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+    "third_party/hardfloat/source/mulAddRecFN.v": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+    "third_party/hardfloat/source/mulRecFN.v": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+    "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+    "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+    "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+    "tools/build_identity.py": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df",
+    "tools/generate_fpga_ports.py": "89b3ae960061ffaefe9d8376dfb5d7dd3c3229d6c2bd9677dd6f985db85290c9",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "build/spectest.wasm": "f80e77fd019b4d021acfd7c064378b8d7e630fda68ddf82d6fd085accd0c4e25"
+  },
+  "suite_files": 259,
+  "totals": {
+    "modules_instantiated": 2266,
+    "rtl_assertions_passed": 57711,
+    "loader_assertions_passed": 4677,
+    "rtl_cycles": 306351688,
+    "script_commands": 65353,
+    "rtl_actions_completed": 359,
+    "registrations": 80,
+    "embedding_assertions_passed": 254,
+    "module_definitions": 6
+  },
+  "shard_ids": [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"
+  ],
+  "exact_native_command_cycles": true,
+  "independent_aggregation_identical_except_report_paths": true,
+  "packaged_simulator_sha256": "a19057a6dc3615620fce97c0c5f100921c6776f359323a4e0af6c26aa0cdca30",
+  "verified_packaged_extra_inputs": 242,
+  "synthesis_comparison": {
+    "local_netlist_sha256": "05d46d4d4d0c16e123f4e34e1d8d1a4757cd78bee7274f86ce0d40ff6c5c2b0b",
+    "ci_netlist_sha256": "eafe037359cc62204cccac88bb8e24405c6ab5fb6e8021c05d14805f928a0906",
+    "identical_after_workspace_relocation": true,
+    "relocated_workspace_occurrences": 97769,
+    "same_inputs_and_options": true
+  },
+  "physical_board_tested": false,
+  "archived_reports": {
+    "docs/verification/ci-selector/verification-reports/core.json": "cffab83df389c8b411b943f2c90c2ea9a61ccd7dda0c6fdea2b5b2cf6720b841",
+    "docs/verification/ci-selector/verification-reports/core-stalled.json": "7e16893b41da3439356902f4b99a4472fa198d316dc3d23b91c88dff443173cd",
+    "docs/verification/ci-selector/mapped-complete/mapped-complete.json": "ead9095239b8204e45382f2e2166252742d812f7c834bee5be4e98450597b52d",
+    "docs/verification/ci-selector/mapped-simulator/mapped-plan.json": "47cc3dbb40360ffe0aa2f6d8651374a380f4b29e20232db37c9b138ac348563e",
+    "docs/verification/ci-selector/mapped-results-00/mapped-shard-00.json": "86b0576cfb89d34e3b5aea16dc64a0abaddefd9fe37b6cd5843ddbea2a8a4e55",
+    "docs/verification/ci-selector/mapped-results-01/mapped-shard-01.json": "10d28695a6a6dce095ade7d15b51162bf7db178c4fae4fcab207f80c43b75ba4",
+    "docs/verification/ci-selector/mapped-results-02/mapped-shard-02.json": "96d2262d5dadcb5f741c3f05dcc86f16e3cc1610c1b21d88fec88fbd48b6bc4b",
+    "docs/verification/ci-selector/mapped-results-03/mapped-shard-03.json": "1b29d2c8df937fcae04d0fc50a5afbf59e209c4a087709cd978302699ccdd4f5",
+    "docs/verification/ci-selector/mapped-results-04/mapped-shard-04.json": "f5fa206bf472d1e11ed0aaa66ce746be6dbc0c5b550b6b1f4530b429ceb9f07b",
+    "docs/verification/ci-selector/mapped-results-05/mapped-shard-05.json": "cf34bf5f572aa090bcb2524903661cfde6c40a38afe81c58c87ea5eaaa3c5313",
+    "docs/verification/ci-selector/mapped-results-06/mapped-shard-06.json": "a0ed2761c8b388bdb4a8d0b36b43153b6b11c73d7c7014993c07baa7cb58d97a",
+    "docs/verification/ci-selector/mapped-results-07/mapped-shard-07.json": "111fc6a234bca9930c665a6f9ae54e79c9fc863cde36a291495656687315f253",
+    "docs/verification/ci-selector/mapped-results-08/mapped-shard-08.json": "c6d4a6bf3b330cf97ae29ea943dff9b5325cb79c678545f3f7c1fe01a3f03699",
+    "docs/verification/ci-selector/mapped-results-09/mapped-shard-09.json": "a886e39c697f8807a0b16b25b6b91b578561ebee2906e171b7b6844c3afa654e",
+    "docs/verification/ci-selector/mapped-results-10/mapped-shard-10.json": "bbf704e0825078f82148d388f64d3d5bed2a7e238b5ce24eef6809c7b57b5a82",
+    "docs/verification/ci-selector/mapped-results-11/mapped-shard-11.json": "f721c4114871c1cb836bfa08d6813b5447dde56b55ad13320624d153920ca784",
+    "docs/verification/ci-selector/mapped-results-12/mapped-shard-12.json": "a7e55fc728c4eb730439babdf08870427cab7ead38b327d3e694ac9acab590d0",
+    "docs/verification/ci-selector/mapped-results-13/mapped-shard-13.json": "f1a5f725fcf8ec6c2c048f0a4e5e005d14f24541ed415438285d2ed0d5297eea",
+    "docs/verification/ci-selector/mapped-results-14/mapped-shard-14.json": "e93d0eb7ca9e59d00149f535b7ba53cb552ab197463cc3a5cb1878f08f090705",
+    "docs/verification/ci-selector/mapped-results-15/mapped-shard-15.json": "eb5c30af8daaba39f0c24c007d61e00ca5ee3487e25b31097b5920b049b2aaa4"
+  }
+}
