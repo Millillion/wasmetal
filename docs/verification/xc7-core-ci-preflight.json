@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "portable artifact restoration and actual mapped execution from a separate directory",
+  "archive_sha256": "7a7137a367b1b4113ab514bc9e01820bed8e2a5b8c040d550e040deb5fe83586",
+  "archive_bytes": 29414765,
+  "binary_sha256": "9189d72bd742158cae8497dc2156d6570b7fe5b97bcf1db89dd66f0e8abe0fbc",
+  "relocated_model_identity_matches": true,
+  "smoke_suites": 8,
+  "totals": {
+    "modules_instantiated": 324,
+    "rtl_assertions_passed": 6647,
+    "loader_assertions_passed": 355,
+    "rtl_cycles": 132959,
+    "script_commands": 7326
+  },
+  "exact_original_smoke_observations": true,
+  "partition_and_setup_replay_fixture_passed": true,
+  "wrong_package_backend_rejected": true,
+  "reconciliation_output_fixtures_passed": 5,
+  "workflow_lint": "actionlint 1.7.12; no findings",
+  "setup": "Required repository inputs copied; package extracted into an independent directory; pinned upstream sources, source archive and wasm-tools supplied from the verified cache.",
+  "full_xilinx_corpus_passed": false,
+  "physical_hardware_tested": false,
+  "inputs": {
+    ".github/workflows/rtl.yml": "34f0af1de509339dfedfcec7b1fd83a245a71c32d655e20c928bc2d720cda2c7",
+    "tools/check_spec_reconciliation.py": "bf08da074a1f3540b45154decfca2a27bef2b007e18e797cf753124b2562d130",
+    "tests/spec_reconciliation_test.py": "49894278ad0a7531f4104ec3ca947cbab14839490a316be7949817e5500c18a2",
+    "tools/spec_ci.py": "9306bf92bae13632ce0d7612d7fd90b4faee8b6a47fb7336d1202bf383dd554a",
+    "tools/build_xc7_core_sim.py": "2ac03d3c524d3de8c6406c816c9ee077fbc4a38ac942e34acf3f382e053fce50"
+  }
+}

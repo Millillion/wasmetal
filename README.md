@@ -176,7 +176,12 @@ pass 6,647 execution assertions and 355 validation assertions. All 132,959
 canonical cycles match native RTL, command by command. Nine deliberately
 corrupted build inputs are rejected before model generation. The complete
 259-suite Xilinx campaign is running; it has not passed yet. The family-specific
-report guards pass 18 metadata fixture tests.
+report guards pass 18 metadata fixture tests. CI now includes a separate
+Xilinx core build, sixteen official-corpus workers and a complete-coverage
+gate. Its [local deployment checks](docs/verification/xc7-core-ci-preflight.json)
+restore the package in another directory and pass the same eight suites and
+the actual command-partition fixture. Five output-protection fixtures pass.
+The new full Xilinx CI pipeline has not finished yet.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)

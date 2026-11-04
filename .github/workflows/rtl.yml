@@ -340,6 +340,7 @@ jobs:
           python3 tests/gate_compiler_test.py
           python3 tests/asic_audit_runner_test.py
           python3 tests/spec_ci_test.py
+          python3 tests/spec_reconciliation_test.py
           python3 tests/xc7_system_test.py
           python3 tests/xc7_campaign_test.py
       - name: Compile RTL and verify boundary and oracle behavior
@@ -512,6 +513,177 @@ jobs:
           name: mapped-complete
           overwrite: true
           path: reports/mapped-complete.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  xilinx-core-build:
+    name: Build the Xilinx official-suite circuit
+    needs: core
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and generate the unchanged host interface
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - name: Assign every official command to exactly one Xilinx worker
+        id: plan
+        run: python3 tools/spec_ci.py plan --reference reports/native/core-stalled.json --shards 16 --output reports/xc7-core-plan.json --github-output "$GITHUB_OUTPUT"
+      - name: Verify corrected block-RAM mapping and simulation models
+        run: |
+          python3 tools/check_xc7_memory_mapping.py
+          python3 tools/check_xc7_ram_models.py
+      - name: Synthesize the execution core at the official-suite capacities
+        run: python3 tools/synth_xc7_core.py
+      - name: Verify every used primitive and the actual core inventories
+        run: |
+          python3 tools/check_xc7_dsp.py --estimate reports/xc7-core-estimate.json --netlist build/xc7-core/mapped.json
+          python3 tools/check_xc7_luts.py --top wasmetal_core --netlist build/xc7-core/mapped.json --directory build/xc7-core-lut-check --report reports/xc7-core-luts.json
+          python3 tools/check_xc7_carry.py
+          python3 tools/check_xc7_muxes.py
+          python3 tools/check_xc7_flops.py --top wasmetal_core --netlist build/xc7-core/mapped.json
+      - name: Compile the identified portable Xilinx simulator
+        run: python3 tools/build_xc7_core_sim.py --jobs 2
+      - name: Verify command ownership and setup replay on the actual Xilinx circuit
+        env:
+          WASMETAL_TEST_SIMULATOR: build/xc7-core-sim/obj/Vwasmetal_core
+        run: python3 tests/spec_partition_runner_test.py
+      - name: Package the executable and all additional build inputs
+        run: python3 tools/spec_ci.py pack --simulator build/xc7-core-sim/obj/Vwasmetal_core --mapped-backend mapped-xc7-functional --output reports/xc7-core-simulator.tar.gz
+      - name: Share the mapped simulator and complete ownership plan
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-simulator
+          path: |
+            reports/xc7-core-simulator.tar.gz
+            reports/xc7-core-plan.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve synthesis-library notices
+        if: always()
+        run: |
+          if [ -f .cache/tools/usr/share/doc/yosys/copyright ]; then
+            mkdir -p build/xc7-core-notices
+            cp .cache/tools/usr/share/doc/yosys/copyright build/xc7-core-notices/YOSYS_COPYRIGHT
+          fi
+      - name: Preserve synthesis and primitive verification evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-build-reports
+          path: |
+            reports/xc7-*.json
+            build/xc7-core/*.log
+            build/xc7-core/*.ys
+            build/xc7-core/mapped.manifest.json
+            build/xc7-core/mapping-overlay/
+            build/xc7-core-sim/*.log
+            build/xc7-core-sim/*.ys
+            build/xc7-core-sim/*.v
+            build/xc7-core-sim/*.vlt
+            build/xc7-core-sim/obj/*.build.json
+            build/xc7-memory-mapping/
+            build/xc7-ram-models/
+            build/xc7-dsp/
+            build/xc7-core-lut-check/
+            build/xc7-carry-check/
+            build/xc7-muxes/
+            build/xc7-flops/
+            build/xc7-core-notices/
+            third_party/xilinx-unisim/
+          if-no-files-found: warn
+          retention-days: 30
+
+  xilinx-core:
+    name: Xilinx official corpus (${{ matrix.shard }})
+    needs: xilinx-core-build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.xilinx-core-build.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: xilinx-core-simulator
+          path: build/ci-artifact
+      - name: Restore and verify the exact Xilinx model
+        run: |
+          tar -xzf build/ci-artifact/xc7-core-simulator.tar.gz
+          python3 tools/build_identity.py verify build/xc7-core-sim/obj/Vwasmetal_core
+      - name: Execute assigned official commands on Xilinx primitives
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: >-
+          python3 tools/run_spec.py --simulator build/xc7-core-sim/obj/Vwasmetal_core
+          --shard-plan build/ci-artifact/xc7-core-plan.json --shard-id "$SHARD"
+          --wait-states 3 --jobs 2 --response-timeout 18000
+          --progress-report "reports/progress-$SHARD.json"
+          --report "reports/mapped-shard-$SHARD.json"
+      - name: Preserve Xilinx shard observations even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-results-${{ matrix.shard }}
+          path: reports/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  xilinx-core-complete:
+    name: Complete Xilinx mapped corpus
+    if: always()
+    needs: [core, xilinx-core-build, xilinx-core]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Require the native reference and all Xilinx workers to pass
+        env:
+          CORE_RESULT: ${{ needs.core.result }}
+          BUILD_RESULT: ${{ needs.xilinx-core-build.result }}
+          MAPPED_RESULT: ${{ needs.xilinx-core.result }}
+        run: test "$CORE_RESULT" = success && test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: xilinx-core-build-reports
+          path: build/ci-plan
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: xilinx-core-results-*
+          path: reports/shards
+      - name: Require every official command and exact native cycle counts
+        run: >-
+          python3 tools/spec_ci.py merge --reference reports/native/core-stalled.json
+          --plan build/ci-plan/reports/xc7-core-plan.json --reports reports/shards
+          --mapped-backend mapped-xc7-functional --output reports/xc7-core-complete.json
+      - name: Preserve complete Xilinx conformance evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-complete
+          path: reports/xc7-core-complete.json
           if-no-files-found: warn
           retention-days: 30
 

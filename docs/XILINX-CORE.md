@@ -104,3 +104,29 @@ cleans up worker process groups on failure, rechecks both executables and
 requires exact command coverage and native cycle counts during final merging.
 This core is an untimed host-backed simulation. Xilinx placement, routing,
 timing, bitstream generation and physical-board testing remain unverified.
+
+## CI deployment
+
+The workflow now builds this core independently of the bounded programmable
+system. It waits for the full native reference, reruns the used primitive
+checks, compiles one portable simulator and packages its executable and all
+additional inputs. Sixteen workers restore that same package and run the
+complete ownership plan. `Complete Xilinx mapped corpus` requires every
+worker and exact command-by-command agreement with the native reference.
+Failures retain partial results and build diagnostics. This new CI pipeline
+has not completed on GitHub yet.
+
+The [deployment preflight](verification/xc7-core-ci-preflight.json) restores the
+package into another directory containing the required repository inputs and
+pinned upstream tools/sources. The restored model verifies its identity,
+passes the actual command-partition/setup-replay fixture and repeats all eight
+smoke suites with identical observations. Packaging rejects the wrong FPGA
+family. Actionlint 1.7.12 reports no workflow findings. These are local
+deployment checks, separate from the still-running complete regression.
+
+`check_spec_reconciliation.py` now accepts the same explicit
+`--mapped-backend mapped-xc7-functional` selection. It protects direct and
+transitive inputs before removing stale output files. Five fixtures exercise
+that protection, including actual command-line failures with preserved
+canaries. The updated full-result reconciliation checks still need the
+completed sixteen-partition campaign before their positive result can pass.

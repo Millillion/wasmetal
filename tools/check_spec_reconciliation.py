@@ -12,6 +12,15 @@ from spec_shards import require, sha256
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def protect_outputs(inputs, outputs, root=ROOT):
+    targets = [path.resolve() for path in outputs]
+    require(len(targets) == len(set(targets)), 'reconciliation outputs overlap')
+    require(all(any(base in path.parents for base in (root/'build',root/'reports')) for path in targets),
+            'reconciliation outputs must be files within build/ or reports/')
+    require({path.resolve() for path in inputs}.isdisjoint(targets),
+            'reconciliation output would overwrite an input')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--reference', type=Path, required=True)
@@ -19,25 +28,36 @@ def main():
     parser.add_argument('--reports', type=Path, required=True)
     parser.add_argument('--native-simulator', type=Path, required=True)
     parser.add_argument('--mapped-simulator', type=Path, required=True)
+    parser.add_argument('--mapped-backend', choices=spec_ci.MAPPED_BACKENDS, default=spec_ci.MAPPED_BACKENDS[0])
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--aggregate', type=Path, required=True)
     args = parser.parse_args()
-    args.output.unlink(missing_ok=True)
-    args.aggregate.unlink(missing_ok=True)
     started = time.monotonic()
     paths = sorted(args.reports.glob('mapped-shard-*.json'))
     consumed = [args.reference, args.plan, *paths, Path(__file__).resolve(),
                 ROOT/'tools/spec_ci.py', ROOT/'tools/spec_shards.py', ROOT/'tools/build_identity.py']
+    models = {'native': args.native_simulator.resolve(), 'mapped': args.mapped_simulator.resolve()}
+    manifests = [spec_ci.build_identity.verify(path) for path in models.values()]
+    protected = [*consumed,*models.values(),*[Path(str(p)+'.build.json') for p in models.values()],
+                 *[ROOT/name for model in manifests for name in set(model['inputs'])|set(model.get('extra_inputs',{}))]]
+    directory = ROOT/'build/spec-reconciliation-controls'
+    corrupt = directory/'corrupt-simulator'
+    try:
+        protect_outputs(protected,[args.output,args.aggregate,corrupt,Path(str(corrupt)+'.build.json')])
+    except ValueError as error:
+        parser.error(str(error))
+    args.output.unlink(missing_ok=True)
+    args.aggregate.unlink(missing_ok=True)
     inputs = {str(p.resolve().relative_to(ROOT)): sha256(p) for p in consumed}
     reference = json.loads(args.reference.read_text())
     plan = json.loads(args.plan.read_text())
     reports = [json.loads(p.read_text()) for p in paths]
-    models = {'native': args.native_simulator.resolve(), 'mapped': args.mapped_simulator.resolve()}
     source_hash, entries = spec_ci.catalog()
 
-    def merge(ref, rows, partition, selected_models):
+    def merge(ref, rows, partition, selected_models, backend=args.mapped_backend):
         return spec_ci.merge_reports(partition, sha256(args.plan), ref, sha256(args.reference),
-                                     rows, source_hash, entries, execution_models=selected_models)
+                                     rows, source_hash, entries, execution_models=selected_models,
+                                     expected_backend=backend)
 
     # The default CI policy must still reject differing workspace snapshots.
     try:
@@ -94,12 +114,21 @@ def main():
     reject('unsupported-command', lambda r,s,p,m: s[0]['totals'].update(unsupported=1))
     reject('false-complete-partition', lambda r,s,p,m: s[0].update(full_core_suite_passed=True))
     reject('invalid-workspace-fingerprint', lambda r,s,p,m: s[0].update(source_sha256='not-a-sha256'))
-    directory = ROOT/'build/spec-reconciliation-controls'
     directory.mkdir(parents=True, exist_ok=True)
-    corrupt = directory/'corrupt-simulator'
     corrupt.write_bytes(b'deliberate executable corruption\n')
     Path(str(corrupt)+'.build.json').write_bytes(Path(str(models['native'])+'.build.json').read_bytes())
     reject('corrupt-executable-bytes', lambda r,s,p,m: m.update(native=corrupt))
+    for backend in [b for b in spec_ci.MAPPED_BACKENDS if b!=args.mapped_backend]+['unreviewed']:
+        try:
+            merge(reference,reports,plan,models,backend)
+        except ValueError as error:
+            expected=('unreviewed mapped backend' if backend=='unreviewed' else
+                      'shard did not execute the selected mapped CPU')
+            require(str(error)==expected,'backend fault failed at an unexpected guard: '+str(error))
+            controls.append({'name':'wrong-selected-backend-'+backend,'rejected':True,'reason':str(error)})
+            print('REJECT wrong-selected-backend-'+backend,str(error),flush=True)
+        else:
+            raise ValueError('accepted the wrong selected backend: '+backend)
     require(spec_ci.execution_identity(reference, reports, models) == identity, 'execution identity changed')
     for name, value in inputs.items():
         require(sha256(ROOT/name) == value, 'reconciliation input changed: '+name)
@@ -107,6 +136,7 @@ def main():
     args.aggregate.parent.mkdir(parents=True, exist_ok=True)
     args.aggregate.write_text(json.dumps(result, indent=2)+'\n')
     receipt = {'status': 'passed', 'scope': 'real full-corpus aggregation with exact executable/dependency reconciliation',
+               'mapped_backend': args.mapped_backend,
                'inputs': inputs, 'aggregate_sha256': sha256(args.aggregate),
                'suite_files': result['suite_files'], 'totals': result['totals'],
                'default_workspace_policy_rejected_drift': True,
