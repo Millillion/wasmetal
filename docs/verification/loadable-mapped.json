@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "scope": "all programmable integration cases; not the official host-backed corpus",
-  "netlist_sha256": "9b9a1f7425c5368066ca26339273ea1db8de3777c11d90f446cd2688ae4f258a",
+  "netlist_sha256": "ddfd50e169ffadef069c913fe23c95affce938209594845beff70a0c1260595f",
   "case_count": 35,
   "uart_and_cycles_identical": true,
   "models": {
@@ -10,7 +10,7 @@
       "inputs": {
         "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
         "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
-        "rtl/wasmetal_core.sv": "3c2e68e5e007501479522b2aa5c67a2586b0f6ed28474491c95074d31dcb1443",
+        "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
         "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
         "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
         "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
@@ -43,6 +43,8 @@
         "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
         "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
         "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+        "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+        "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
         "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
         "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
         "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
@@ -89,13 +91,13 @@
       "uart_ticks": 4,
       "clock_scale": 1,
       "upload_timeout": 4096,
-      "binary_sha256": "15894525a0a5d6c2ed42e9f4dc54bda7878f1ecc3049b31ef279c68b7b0eabc6"
+      "binary_sha256": "b0814bb6a7f020551ab0a737f596eb2460dc275273dd14918a0da5b0c213a57a"
     },
     "mapped": {
       "backend": "loadable-mapped-ecp5-functional",
       "top": "wasmetal_loadable",
       "inputs": {
-        "build/loadable-mapped/design.json": "9b9a1f7425c5368066ca26339273ea1db8de3777c11d90f446cd2688ae4f258a",
+        "build/loadable-mapped/design.json": "ddfd50e169ffadef069c913fe23c95affce938209594845beff70a0c1260595f",
         "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
         "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
         "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -104,7 +106,7 @@
         "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
         ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
         "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
-        "build/loadable-mapped/design.manifest.json": "f3cbc5c89495e47978d54eab0e29fa694a51dbaac97d57d28739a90f0a9ef9e7",
+        "build/loadable-mapped/design.manifest.json": "913533d454d5adfda686d59d87245307e5eceb21696b793fa521e67fd7542841",
         "tools/build_loadable_board.py": "57a58b47730514b09e7bd338ba7f82aab65062c6fcbddd430ca900bd9ac02053",
         "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
         "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
@@ -119,8 +121,8 @@
         "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
         "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
         "build/loadable-mapped/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
-        "build/standalone-core-ecp5.json": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
-        "build/standalone-core-ecp5.manifest.json": "6cfd713300f1133250983d0c817d7f663aa736163d70ad27e6f3c20c5ea2665e",
+        "build/standalone-selector-final-ecp5.json": "5736ace783ea05514e93dd1f00d8ae5c62432b533d063474bd505b7754fcb552",
+        "build/standalone-selector-final-ecp5.manifest.json": "72aa9d757253c0d398c6e00cba922b96312bd04d64e5ee40b3e13aa08b299858",
         "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
         "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
         "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
@@ -128,15 +130,17 @@
         "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
         "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
         "soc/loader/wasmetal_image_loader.sv": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+        "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+        "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
         "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
         "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
-        "build/loadable-gate-sim/circuit.v": "d754e683499cc4ab33ed410dcac601caa5c915c57488bac81864f45ed3bdaad3",
+        "build/loadable-gate-sim/circuit.v": "333910d2c94dd2ac1cc39f5884b5a92f410ee2a1e945f57e6f3db310a9e9e3a8",
         "build/loadable-gate-sim/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-        "build/loadable-gate-sim/lut-proof/report.json": "af481c6e959165c4dab7e41d49bdd1b88b8e1dd0b1a8534a6a989db9b773ee68",
+        "build/loadable-gate-sim/lut-proof/report.json": "abc757df965356e2e07dd4b111761ce1aa72d920401fb5aae57e38638502e34b",
         "tools/build_loadable_gate_sim.py": "5527163fbd909b210c7f23c690644d062def5fa4e58ba3dfcc99c26cacce7c5b"
       },
-      "binary_sha256": "3b80bc3cf274d176e4fd08f428c7171c090f9056caea80d03c679ea88dc953b5",
-      "netlist_sha256": "9b9a1f7425c5368066ca26339273ea1db8de3777c11d90f446cd2688ae4f258a",
+      "binary_sha256": "941b26b4d8618b7d0d83ab8840921c7574babc48f8da3235440f9e5d808e444f",
+      "netlist_sha256": "ddfd50e169ffadef069c913fe23c95affce938209594845beff70a0c1260595f",
       "ram_modes": {
         "core": 174,
         "ram18-opposite-edges": 16,
@@ -941,13 +945,13 @@
     "wrong-simulator"
   ],
   "reports": {
-    "reports/loadable-rtl.json": "564c5bc8c6e5899fe2dfb82d2e21ddb0de12a40de512bb6ec275448f0647ea11",
-    "reports/loadable-mapped-0.json": "a3d796363de002ad0a5ccb05433958ab6616023154915632e8650d33173cd3a5",
-    "reports/loadable-mapped-1.json": "39710fc6b8a90a399d936ce4af03bcdcd26618e61325036fe515922151b73eed",
-    "reports/loadable-mapped-2.json": "8a527025305baac464ba1b1fac4ab9000e94915329fc855f9fb032ac2ac4e285",
-    "reports/loadable-mapped-3.json": "7de735c42c16312b148d0bdbf5d5316a1d61f506122a6a99ba865047758e6dca",
-    "reports/loadable-mapped-4.json": "c88bf4e15600ba911192865ad74bcfe36e30a59b3d2c26f1c8217e0a39206478",
-    "reports/loadable-mapped-5.json": "ccd12be13430cd36d73d88a0c07ecdd2484dfe2084fe0a458ccc2d73c4764681"
+    "reports/selector-final-loadable-rtl.json": "55f8b839e1c2807b29189f7ef57f2e193334305c3ceeb6c707ce470e558b6fca",
+    "build/selector-final-programmable-shards/loadable-mapped-0.json": "05ade29d52de0f0d25fb9195cb514ed2f95dda3fc274b09dd97713e3f40c6ba4",
+    "build/selector-final-programmable-shards/loadable-mapped-1.json": "4f68bea116101fa577cc02888769f46522f275a4d950b7d2e942ac529d0a8c70",
+    "build/selector-final-programmable-shards/loadable-mapped-2.json": "7466e7062d8d65154c0dc3855c046db4a7d92dbd3a25028ddecb0da7b6b1a4fc",
+    "build/selector-final-programmable-shards/loadable-mapped-3.json": "3ef05c2f5429209ab8535e5eae251da76f1ec188819f0596107dee1a5ebbe8ab",
+    "build/selector-final-programmable-shards/loadable-mapped-4.json": "b83cffc07a4967bf43911c6f8df4b2873bc7294b6a7f4e84dce47d33df7fe5a8",
+    "build/selector-final-programmable-shards/loadable-mapped-5.json": "db9870cbadce76716c546102eb0ae584c083f78242da4462b7785265a917ae36"
   },
   "inputs": {
     "tools/loadable_ci.py": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52"

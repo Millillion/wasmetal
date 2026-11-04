@@ -151,6 +151,25 @@ requests; its raw HDL diagnostic is captured directly. A generic process or
 JSON parsing failure cannot stand in for either expected rejection.
 CI repeats both complete campaigns and their negative controls.
 
+The freestanding C CRC-32 workload also passes all five lengths through this
+CPU and device model, checked against Python's independent CRC implementation.
+Both the [25 MHz run](verification/sdram-c-25mhz.json) and
+[100 MHz run with delayed startup](verification/sdram-c-100mhz-5000000.json)
+perform 1,281 device reads and 42,246 writes. Their longest observed refresh
+gaps are 173 and 756 clocks, within their respective 195- and 781-clock limits.
+The delayed run records 13,873,015 startup-wait clocks across its five processes.
+Each result checker also rejects an intentionally wrong CRC. These runs use
+separate build and coverage directories so they preserve the 35-case evidence.
+
+```sh
+python3 tools/check_sdram_c_workload.py --timing 25mhz
+python3 tools/check_sdram_c_workload.py --timing 100mhz --startup-cycles 5000000
+```
+
+Clang 18 and LLD 18 compile and link the workload; their exact identities, the
+upload packets, simulator, source inputs and device observations are recorded.
+CI repeats both configurations.
+
 These system tests use one simulation clock and a behavioral device. The
 default board backend remains block RAM. A separate physical memory clock,
 clock crossing and board PHY are still required for the slow ULX3S CPU clock;

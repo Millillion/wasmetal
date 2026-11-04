@@ -13,8 +13,10 @@ native corpus passes with unchanged results and cycles, and
 [fresh synthesis](docs/verification/simd-selector-synthesis.json) removes
 1,301 LUT4 cells and one DSP from the bounded CPU, preserving its storage
 capacities. An [all-input proof and 12,288 four-state checks](docs/verification/simd-fp-selection.json)
-cover the changed block. Complete mapped regressions and programmable routing
-are running again. Both updated programmable wrapper mappings pass their
+cover the changed block. The updated programmable circuit passes all 35 mapped
+integration cases and all five compiled C cases, matching RTL exactly. The
+complete mapped CPU corpus and programmable routing are still running.
+Both updated programmable wrapper mappings pass their
 independent equivalence checks, and the updated board circuit passes its
 UART/reset structure audit. The completed mapped-corpus and routed-bitstream records
 below describe the preceding CPU revision until those new checks finish.
@@ -108,8 +110,11 @@ with [25 MHz timing](docs/verification/sdram-system-25mhz-5000.json) and
 The latter holds off memory requests for 12,178,089 startup cycles across the
 campaign. [Corrupted reads](docs/verification/sdram-system-25mhz-5000-read-corruption.json)
 and [bypassed startup gating](docs/verification/sdram-system-100mhz-5000000-startup-bypass.json)
-are rejected independently. A dedicated workflow repeats the component,
-formal and complete-CPU checks. These are simulation timing profiles, not
+are rejected independently. Compiled C also passes all five CRC-32 cases with
+[25 MHz timing](docs/verification/sdram-c-25mhz.json) and
+[100 MHz timing and delayed startup](docs/verification/sdram-c-100mhz-5000000.json),
+each exercising 1,281 SDRAM reads and 42,246 writes. A dedicated workflow repeats
+the component, formal, complete-CPU and compiled C checks. These are simulation timing profiles, not
 measured FPGA clock rates. The board PHY and physical implementation remain;
 Genesys 2 requires DDR3. The default FPGA memory backend remains block RAM.
 
@@ -126,7 +131,7 @@ serial deadlines and execution results, including replies arriving together.
 Its serial-device tests pass. The programmable system now connects UART loading
 to writable instruction and metadata stores and the complete CPU.
 [All 35 native integration checks](docs/verification/loadable-rtl.json) and
-[all 35 checks on the preceding ABC9 mapped circuit](docs/verification/loadable-mapped.json) pass,
+[all 35 checks on the current ABC9 mapped circuit](docs/verification/loadable-mapped.json) pass,
 including program replacement, rejection, timeout, UART break, rate variation
 and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
 and [three board-clock sender rates](docs/verification/loadable-board-rates.json)
@@ -208,10 +213,8 @@ a pseudo-terminal. The physical-board campaign remains to be run.
 A [freestanding C example](examples/c/README.md) now compiles through Clang to
 Wasm and uploads through the same prepared-image path. All five CRC-32 cases
 [pass in both RTL and mapped simulation](docs/verification/c-workload-mapped.json),
-on the preceding ABC9 wrapper. They match independent
+on the current ABC9 wrapper. They match independent
 Python results with identical UART output and cycle counts.
-The selector update also passes [all five cases in RTL](docs/verification/c-workload-rtl.json);
-its complete mapped integration checks are being repeated.
 The compiler-generated workload is also a required CI integration job.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
