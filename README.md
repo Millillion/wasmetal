@@ -55,8 +55,13 @@ identifies a reset net driving 4,783 pins across most of the device. The isolate
 the circuit's logic with 31 extra LUTs, limits each copy to 150 sinks and rejects
 five deliberate defects. Its completed placement has a
 [7.1% lower placer wire-length cost](docs/verification/reset-placement-comparison.json),
-with unchanged register, RAM and DSP counts. Routing this candidate is running;
-its physical benefit remains unproven. The baseline route was
+with unchanged register, RAM and DSP counts. Its router2 trial was
+[retired incomplete](docs/verification/reset-replication-router2-retired.json)
+after five worsening iterations; its best result still had 23,415 conflicting
+wires. Router1 is now testing the same placement with a two-hour limit. A real
+[timeout control](docs/verification/reset-routing-timeout.json) verifies that
+an interrupted attempt retains an incomplete receipt and emits no bitstream.
+The physical benefit remains unproven. The baseline route was
 [retired after worsening congestion](docs/verification/rounding-routing-retirement.json).
 Other whole-system integration and routed-bitstream records below retain their
 earlier source identities until their replacements are verified. **No physical board

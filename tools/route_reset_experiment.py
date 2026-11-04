@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import signal
 import subprocess
+import time
 
 import cad
 from build_standalone_board import audit
@@ -60,8 +61,13 @@ def main():
     parser.add_argument('--experiment', type=Path, default=ROOT/'build/reset-replication/experiment.json')
     parser.add_argument('--baseline', type=Path, default=ROOT/'build/loadable-ulx3s')
     parser.add_argument('--directory', type=Path, default=ROOT/'build/reset-replication-route')
+    parser.add_argument('--router', choices=['router1', 'router2'], default='router2')
+    parser.add_argument('--timeout-seconds', type=int,
+        help='stop routing after this many seconds and retain an incomplete receipt')
     parser.add_argument('--check-only', action='store_true')
     args = parser.parse_args()
+    if args.timeout_seconds is not None and args.timeout_seconds <= 0:
+        parser.error('--timeout-seconds must be positive')
     experiment_path = args.experiment.resolve(); baseline = args.baseline.resolve()
     directory = args.directory.resolve()
     if directory in (baseline, experiment_path.parent):
@@ -86,6 +92,7 @@ def main():
         inputs[name] = value
     check_inputs(inputs)
     report = {'status': 'checked' if args.check_only else 'running', 'inputs': inputs,
+        'router': args.router, 'routing_timeout_seconds': args.timeout_seconds,
         'structural_equivalence_rechecked': True, 'original_clock_inputs_unchanged': True,
         'routing_completed': False, 'timing_passed': False, 'bitstream_round_trip_passed': False,
         'physical_hardware_tested': False, 'default_board_build_changed': False}
@@ -95,19 +102,21 @@ def main():
         return
     gc.collect()
     command = ['--85k', '--package', 'CABGA381', '--speed', '6', '--seed', '1',
-        '--router', 'router2', '--lpf', str(ROOT/'soc/loader/ulx3s.lpf'), '--freq', '25',
+        '--router', args.router, '--lpf', str(ROOT/'soc/loader/ulx3s.lpf'), '--freq', '25',
         '--json', str(placement), '--write', str(directory/'routed.json'), '--no-pack', '--no-place',
-        '--textcfg', str(directory/'design.config'), '--report', str(directory/'timing.json'),
-        '--router2-heatmap', str(directory/'congestion')]
+        '--textcfg', str(directory/'design.config'), '--report', str(directory/'timing.json')]
+    if args.router == 'router2':
+        command += ['--router2-heatmap', str(directory/'congestion')]
     report['routing_command'] = command
     def interrupted(number, frame):
         raise InterruptedError('routing interrupted by signal '+str(number))
     signal.signal(signal.SIGTERM, interrupted)
+    started = time.monotonic()
     try:
         receipt.write_text(json.dumps(report, indent=2)+'\n')
         with (directory/'routing.log').open('w') as log:
             subprocess.run(cad.command('nextpnr-ecp5')+command, cwd=ROOT, env=cad.environment(),
-                stdout=log, stderr=subprocess.STDOUT, check=True)
+                stdout=log, stderr=subprocess.STDOUT, check=True, timeout=args.timeout_seconds)
         report['routing_completed'] = True
         report['timing'] = audit(directory/'timing.json'); report['timing_passed'] = True
         pending = directory/'wasmetal.pending.bit'
@@ -127,10 +136,12 @@ def main():
         pending.replace(directory/'wasmetal.bit')
         report['status'] = 'passed'
     except BaseException as error:
-        report['status'] = 'interrupted' if isinstance(error, (InterruptedError, KeyboardInterrupt)) else 'failed'
+        report['status'] = ('timed_out' if isinstance(error, subprocess.TimeoutExpired) else
+            'interrupted' if isinstance(error, (InterruptedError, KeyboardInterrupt)) else 'failed')
         report['error'] = str(error)
         raise
     finally:
+        report['elapsed_seconds'] = round(time.monotonic() - started, 3)
         receipt.write_text(json.dumps(report, indent=2)+'\n')
     print(directory/'wasmetal.bit')
 

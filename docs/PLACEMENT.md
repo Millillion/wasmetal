@@ -45,10 +45,27 @@ routing; it does not establish shorter physical routes or better timing.
 The original routing trial was [retired incomplete](verification/rounding-routing-retirement.json)
 after its best 29,956 conflicting wires increased to 32,138 over three further
 iterations. This bounded run does not establish that routing the baseline is
-impossible. Routing the new candidate is running, separately from the default
-board build. Its driver rechecks structural equivalence, unchanged clock inputs
+impossible. The reset-replicated candidate's
+[router2 trial](verification/reset-replication-router2-retired.json) reached
+23,415 conflicting wires at iteration 11, followed by five worsening iterations
+to 27,281 at iteration 16. Its [complete routing log](verification/reset-replication-router2.log)
+and input identities are preserved. That run was stopped incomplete, and router1
+is now trying the exact same placement with a two-hour wall-time limit.
+
+The routing driver rechecks structural equivalence, unchanged clock inputs
 and artifact hashes before routing. A successful final receipt additionally
 requires timing checks and an exact bitstream unpack/repack comparison.
+An [actual one-second timeout control](verification/reset-routing-timeout.json)
+stops nextpnr, retains `timed_out` with all completion gates false and emits no
+bitstream. Three invalid argument controls also preserve existing evidence.
+The alternative trial is reproducible with:
+
+```sh
+python3 tools/route_reset_experiment.py --router router1 \
+  --timeout-seconds 7200 --directory build/reset-replication-router1
+```
+
+Use a separate output directory for each trial to preserve its diagnostics.
 
 Reset distribution needs care on this device. Lattice documents a silicon
 startup problem when certain high-initialized reset or enable signals use the
