@@ -1,0 +1,14 @@
+{
+  "binary_equivalence_proven": true,
+  "negative_control_rejected": true,
+  "binary_scope": "every 16-bit or 4-bit INIT table and every binary selector",
+  "four_state_cases_passed": 70400,
+  "four_state_scope": "every selector combination for all mapped tables plus single X/Z table-bit patterns",
+  "library_sha256": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+  "netlist_sha256": "bf99c1bd0d14ac63859b9137a906d2131d6d521c5694a6aafaae324881fe16c3",
+  "top": "wasmetal_memory_bist",
+  "optimizer_source_sha256": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+  "checker_sha256": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+  "proof_sha256": "964eae24fedf9e0181e0db56830f447acc95d2ae1b12b645fa746dac304321a4",
+  "four_state_test_sha256": "050388bfdf3234ebbc0607f7c7be143b1aa40be4bad2a38e86c6ecd813241116"
+}

@@ -1,0 +1,326 @@
+{
+  "status": "passed",
+  "scope": "independent March-sequence and memory-fault simulations; no manufacturing qualification",
+  "inputs": {
+    "soc/asic/wasmetal_memory_bist.sv": "06784df3ae67cb95f75a0859fcb43a15559e59300db991f086cf982d276b6da6",
+    "tests/memory/bist.cpp": "74e1fb8cb94f61ab9920b025b2a1a3af4e2238331e58673270a155bb3fe6503d",
+    "tools/check_memory_bist.py": "a005ff6195e6f93ca96ff6cd05f2171840ce9966c3b3dfd4676ec8af3b3e757b",
+    "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0"
+  },
+  "checks": [
+    {
+      "ram_bytes": 80,
+      "response_timeout": 32,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "b3071685cb1afa82e7d996536b6a720ac4ae8dc17f4347d6f7511aa75747232e",
+          "observations": {
+            "campaigns": 37646,
+            "cycles": 14779201,
+            "requests": 3122048,
+            "reads": 1487524,
+            "writes": 1634524,
+            "resets": 40449,
+            "detected_faults": 34840,
+            "timeouts": 4,
+            "held_start_cycles": 17,
+            "trace_hash": 9576617047279583467
+          },
+          "log_sha256": "b0c6724f223d52368426ddffffb5cbbded96d073cba4f001c3e6e9a1134bd338"
+        },
+        "mapped": {
+          "binary_sha256": "760a577da4a8a3896aa1273f750063b71ad766d62185dec68eae8e13e096cad8",
+          "observations": {
+            "campaigns": 37646,
+            "cycles": 14779201,
+            "requests": 3122048,
+            "reads": 1487524,
+            "writes": 1634524,
+            "resets": 40449,
+            "detected_faults": 34840,
+            "timeouts": 4,
+            "held_start_cycles": 17,
+            "trace_hash": 9576617047279583467
+          },
+          "log_sha256": "b0c6724f223d52368426ddffffb5cbbded96d073cba4f001c3e6e9a1134bd338"
+        }
+      },
+      "mapped_primitives": {
+        "TRELLIS_FF": 350,
+        "LUT4": 1244,
+        "CCU2C": 35,
+        "L6MUX21": 171,
+        "PFUMX": 324
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_memory_bist",
+        "inputs": {
+          "build/memory-bist/80-32/mapped.json": "bf99c1bd0d14ac63859b9137a906d2131d6d521c5694a6aafaae324881fe16c3",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/bist.cpp": "74e1fb8cb94f61ab9920b025b2a1a3af4e2238331e58673270a155bb3fe6503d",
+          "build/memory-bist/80-32/mapped.manifest.json": "692928454e82945c3b3a4c9431ebbb76e0ff4ed2d431fc2ee8e753d5daeb746f",
+          "soc/asic/wasmetal_memory_bist.sv": "06784df3ae67cb95f75a0859fcb43a15559e59300db991f086cf982d276b6da6",
+          "tools/check_memory_bist.py": "a005ff6195e6f93ca96ff6cd05f2171840ce9966c3b3dfd4676ec8af3b3e757b",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-bist/80-32/mapped-model/circuit.v": "529bb1bdea60b2c60d965ce492377ba9b70bc24b91ab994562170438ceccb0af",
+          "build/memory-bist/80-32/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-bist/80-32/mapped-model/lut-proof/report.json": "8d549444fd66810eefce88a70425aec90eeabcf07738c69cbdc93def58f9bd1e"
+        },
+        "binary_sha256": "760a577da4a8a3896aa1273f750063b71ad766d62185dec68eae8e13e096cad8",
+        "netlist_sha256": "bf99c1bd0d14ac63859b9137a906d2131d6d521c5694a6aafaae324881fe16c3",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 16,
+      "response_timeout": 16,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "1cf4e3475ba716a1eea42250aa72a6833fc2d6f002b498e8c3d2bf424885dd1e",
+          "observations": {
+            "campaigns": 17483,
+            "cycles": 1098502,
+            "requests": 256280,
+            "reads": 127999,
+            "writes": 128281,
+            "resets": 18046,
+            "detected_faults": 16917,
+            "timeouts": 4,
+            "held_start_cycles": 17,
+            "trace_hash": 2524658134398273927
+          },
+          "log_sha256": "52ac04ccaa34f298398c446046e469eb636697d41dc1d014afdf7d4a6e2720e6"
+        },
+        "mapped": {
+          "binary_sha256": "3606ec8ca3253acd5a6b10657844e81c17cc34a28236e58b650a9a9485229365",
+          "observations": {
+            "campaigns": 17483,
+            "cycles": 1098502,
+            "requests": 256280,
+            "reads": 127999,
+            "writes": 128281,
+            "resets": 18046,
+            "detected_faults": 16917,
+            "timeouts": 4,
+            "held_start_cycles": 17,
+            "trace_hash": 2524658134398273927
+          },
+          "log_sha256": "52ac04ccaa34f298398c446046e469eb636697d41dc1d014afdf7d4a6e2720e6"
+        }
+      },
+      "mapped_primitives": {
+        "TRELLIS_FF": 345,
+        "LUT4": 1227,
+        "CCU2C": 32,
+        "L6MUX21": 168,
+        "PFUMX": 317
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_memory_bist",
+        "inputs": {
+          "build/memory-bist/16-16/mapped.json": "c976a5554a6633d24b185d7bec84dd249eb8b52133aefd4a9051f3255dd57556",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/bist.cpp": "74e1fb8cb94f61ab9920b025b2a1a3af4e2238331e58673270a155bb3fe6503d",
+          "build/memory-bist/16-16/mapped.manifest.json": "37c040f864fa462834e90b9046c112be7b5ab9a9356ed2023b9becd9b1221e3e",
+          "soc/asic/wasmetal_memory_bist.sv": "06784df3ae67cb95f75a0859fcb43a15559e59300db991f086cf982d276b6da6",
+          "tools/check_memory_bist.py": "a005ff6195e6f93ca96ff6cd05f2171840ce9966c3b3dfd4676ec8af3b3e757b",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-bist/16-16/mapped-model/circuit.v": "6f9575d5f5799767839e8b4a1c4b417b55645f17bce146c45f79dfc048a10171",
+          "build/memory-bist/16-16/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-bist/16-16/mapped-model/lut-proof/report.json": "d51415c00f892b1dc862647e805e3f901764ba9abb3df62e191c2023a69cd4fd"
+        },
+        "binary_sha256": "3606ec8ca3253acd5a6b10657844e81c17cc34a28236e58b650a9a9485229365",
+        "netlist_sha256": "c976a5554a6633d24b185d7bec84dd249eb8b52133aefd4a9051f3255dd57556",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 131072,
+      "response_timeout": 1024,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "af7cefc462bbf58b48dd64c4d1a24ee3dfdf475996f82eeb842f82586813287f",
+          "observations": {
+            "campaigns": 8,
+            "cycles": 17748068,
+            "requests": 3948548,
+            "reads": 1966082,
+            "writes": 1982466,
+            "resets": 11,
+            "detected_faults": 2,
+            "timeouts": 4,
+            "held_start_cycles": 17,
+            "trace_hash": 4207807519538284725
+          },
+          "log_sha256": "137da8a9b972dadb9dafacfa2effc521a96740b91d6e229b8b3b76a1b6fd838b"
+        },
+        "mapped": {
+          "binary_sha256": "e0b7762708a00bb6965f1b5ea7474c721f7ae2236717e9776872970b287147f9",
+          "observations": {
+            "campaigns": 8,
+            "cycles": 17748068,
+            "requests": 3948548,
+            "reads": 1966082,
+            "writes": 1982466,
+            "resets": 11,
+            "detected_faults": 2,
+            "timeouts": 4,
+            "held_start_cycles": 17,
+            "trace_hash": 4207807519538284725
+          },
+          "log_sha256": "137da8a9b972dadb9dafacfa2effc521a96740b91d6e229b8b3b76a1b6fd838b"
+        }
+      },
+      "mapped_primitives": {
+        "TRELLIS_FF": 375,
+        "LUT4": 1295,
+        "L6MUX21": 171,
+        "PFUMX": 325,
+        "CCU2C": 51
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_memory_bist",
+        "inputs": {
+          "build/memory-bist/131072-1024/mapped.json": "d7cc19757c99e1e0647514530e188c61f23946102d666910ac5716233fbc3a8c",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/memory/bist.cpp": "74e1fb8cb94f61ab9920b025b2a1a3af4e2238331e58673270a155bb3fe6503d",
+          "build/memory-bist/131072-1024/mapped.manifest.json": "41760b603847e6a3360db9e59443d2f5788b9bac63a8fde889573eaf2475f894",
+          "soc/asic/wasmetal_memory_bist.sv": "06784df3ae67cb95f75a0859fcb43a15559e59300db991f086cf982d276b6da6",
+          "tools/check_memory_bist.py": "a005ff6195e6f93ca96ff6cd05f2171840ce9966c3b3dfd4676ec8af3b3e757b",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-bist/131072-1024/mapped-model/circuit.v": "3ad6b6720241f8f99878255852a6267b50db7d3afa2c1b3db0a92d26829fd6ad",
+          "build/memory-bist/131072-1024/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-bist/131072-1024/mapped-model/lut-proof/report.json": "512475fc726079854bfc208979cb2ff8bfcf39aa09e0ec2cd3f5b5d28475cfca"
+        },
+        "binary_sha256": "e0b7762708a00bb6965f1b5ea7474c721f7ae2236717e9776872970b287147f9",
+        "netlist_sha256": "d7cc19757c99e1e0647514530e188c61f23946102d666910ac5716233fbc3a8c",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "wrong-background",
+      "source_sha256": "34f7cf16db5ec759155348ac4dfa447bc200482d68ea687f4f52286c6f65daa3",
+      "binary_sha256": "734c724a760be3f70bbac4cc5f1f31f6038e32735b44857c00e1a7c0ecda13ab",
+      "exit_code": 1,
+      "log_sha256": "835e07eac123cd280c994d049c42d1c0c78ee2dc438ba7af8bbb85b9b97eef94",
+      "reason": "BIST healthy variable latency: write background differs from oracle"
+    },
+    {
+      "name": "missing-read-check",
+      "source_sha256": "6f176399cb5ced4986b24ddbc53faef880355d1e4259f97b00f73c85eb4d7bcb",
+      "binary_sha256": "d3cef7aee8e7155a005b0ca84a26563f3870681ecf7e6a5d456bf44a94488733",
+      "exit_code": 1,
+      "log_sha256": "d012c0cc2334c4bad621d439be8a20b21608ebf64b9cd1739af8f5e3d5e1fc3b",
+      "reason": "BIST single bit 1 word 0 bit 0: failure detection differs from independent oracle"
+    },
+    {
+      "name": "wrong-descent",
+      "source_sha256": "155e2d0ab81668dd22ef233e2ea5b2ac85924a62f4c9f21305baec29802fecef",
+      "binary_sha256": "44eddec7cc01673ff4cb7146e976cab6b2ed63066a3098914846b2f48880dcf9",
+      "exit_code": 1,
+      "log_sha256": "c7f6ecee7b3f90b4435865dae18cbf16321326e158ac824913a68d553a559c94",
+      "reason": "BIST healthy variable latency: request sequence, direction or mask differs from March oracle"
+    },
+    {
+      "name": "timeout-withdraws-request",
+      "source_sha256": "0307833315bf1f5e17c26fedad47a4d5f8f491373182acd675809e3f64565679",
+      "binary_sha256": "bde15cf9c81698ea82b5877ccff6bc9099d4ea03f7fd16c1c637246af2af16db",
+      "exit_code": 1,
+      "log_sha256": "bcd61069c0803fd79c24d2dc355d7770e855cf8326d32ad7240445974ecf6227",
+      "reason": "BIST late timeout completion: pending request withdrawn or changed"
+    },
+    {
+      "name": "wrong-observed-data",
+      "source_sha256": "b5278f659e7954cb762e4fbb2e4fd2c1b2d01630fe603b31ebad0edf0d210979",
+      "binary_sha256": "6a50b4cfe7145204136d3ee645211ae886f38a352a67eb988b8f591a619bb39f",
+      "exit_code": 1,
+      "log_sha256": "b18fe18f8a7c9301f65714490dbd6a91e4d8091639d4e86db19140246e0caf9c",
+      "reason": "BIST single bit 1 word 0 bit 0: first-error evidence changed or is incorrect"
+    },
+    {
+      "name": "missing-diagnostic-reset",
+      "source_sha256": "82703ece52307bae2f94d1a83cc874e4c93a084203a0bce5a6d8ed934a1247f1",
+      "binary_sha256": "95f8e5dca08519f2ca3af3d21d5a7b1beffdea7d647a330eae70562451336510",
+      "exit_code": 1,
+      "log_sha256": "42c85053173e138b4d4615f190c99967cba0618c5fd2ce93c82e554a2e27814b",
+      "reason": "BIST permanent timeout and reset recovery: first-error evidence changed or is incorrect"
+    }
+  ],
+  "negative_controls_rejected": 6,
+  "physical_hardware_tested": false,
+  "default_cpu_integration": false,
+  "elapsed_seconds": 260.3989721619291,
+  "limitations": [
+    "Destructive exclusive-access component; caller must arbitrate and stop the CPU.",
+    "Binary fault models do not establish coverage of every physical, retention, linked or analog fault.",
+    "A permanent timeout retains the outstanding request; reset the test master and controller together.",
+    "Functional ECP5 mapping is not an ASIC standard-cell implementation."
+  ]
+}

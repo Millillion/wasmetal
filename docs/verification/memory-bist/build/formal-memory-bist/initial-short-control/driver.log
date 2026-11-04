@@ -1,0 +1,15 @@
+PASS unbounded BIST safety 80 32
+PASS unbounded BIST safety 16 16
+PASS unbounded BIST safety 131072 1024
+PASS unbounded BIST safety 16 1
+REJECTED wrong-background
+REJECTED extra-count
+REJECTED timeout-withdraws-request
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/prove_memory_bist.py", line 102, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/prove_memory_bist.py", line 90, in main
+    if run.returncode==0 or 'proof did fail' not in log.read_text():raise ValueError('proof did not reject '+name)
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: proof did not reject wrong-descent

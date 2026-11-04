@@ -1,0 +1,4 @@
+read_verilog -sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv
+chparam -set RAM_BYTES 131072 -set RESPONSE_TIMEOUT 1024 wasmetal_memory_bist
+synth_ecp5 -top wasmetal_memory_bist -json /tmp/wasmetal-xc7-core/build/memory-bist/131072-1024/mapped.json
+check -assert

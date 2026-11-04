@@ -1,0 +1,19 @@
+PASS exhaustive binary LUT equivalence and 70400 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-bist/80-32/mapped-model/obj/Vwasmetal_memory_bist
+PASS 80 32 rtl {'campaigns': 37646, 'cycles': 14779201, 'requests': 3122048, 'reads': 1487524, 'writes': 1634524, 'resets': 40449, 'detected_faults': 34840, 'timeouts': 4, 'held_start_cycles': 17, 'trace_hash': 9576617047279583467}
+PASS 80 32 mapped {'campaigns': 37646, 'cycles': 14779201, 'requests': 3122048, 'reads': 1487524, 'writes': 1634524, 'resets': 40449, 'detected_faults': 34840, 'timeouts': 4, 'held_start_cycles': 17, 'trace_hash': 9576617047279583467}
+PASS exhaustive binary LUT equivalence and 69888 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-bist/16-16/mapped-model/obj/Vwasmetal_memory_bist
+PASS 16 16 rtl {'campaigns': 17483, 'cycles': 1098502, 'requests': 256280, 'reads': 127999, 'writes': 128281, 'resets': 18046, 'detected_faults': 16917, 'timeouts': 4, 'held_start_cycles': 17, 'trace_hash': 2524658134398273927}
+PASS 16 16 mapped {'campaigns': 17483, 'cycles': 1098502, 'requests': 256280, 'reads': 127999, 'writes': 128281, 'resets': 18046, 'detected_faults': 16917, 'timeouts': 4, 'held_start_cycles': 17, 'trace_hash': 2524658134398273927}
+PASS exhaustive binary LUT equivalence and 68608 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-bist/131072-1024/mapped-model/obj/Vwasmetal_memory_bist
+PASS 131072 1024 rtl {'campaigns': 8, 'cycles': 17748068, 'requests': 3948548, 'reads': 1966082, 'writes': 1982466, 'resets': 11, 'detected_faults': 2, 'timeouts': 4, 'held_start_cycles': 17, 'trace_hash': 4207807519538284725}
+PASS 131072 1024 mapped {'campaigns': 8, 'cycles': 17748068, 'requests': 3948548, 'reads': 1966082, 'writes': 1982466, 'resets': 11, 'detected_faults': 2, 'timeouts': 4, 'held_start_cycles': 17, 'trace_hash': 4207807519538284725}
+REJECTED wrong-background
+REJECTED missing-read-check
+REJECTED wrong-descent
+REJECTED timeout-withdraws-request
+REJECTED wrong-observed-data
+REJECTED missing-diagnostic-reset
+PASS memory self-test campaign and six deliberately broken implementations

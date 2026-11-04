@@ -1,0 +1,6 @@
+read_verilog -formal -sv -DWASMETAL_ASSERTIONS /tmp/wasmetal-xc7-core/build/formal-memory-bist/directed-descent.sv
+chparam -set RAM_BYTES 32 -set RESPONSE_TIMEOUT 2 wasmetal_memory_bist
+prep -top wasmetal_memory_bist -flatten
+memory_map
+opt_clean
+sat -seq 32 -set-assumes -set-def-inputs -set-init-undef -enable_undef -prove-asserts -verify

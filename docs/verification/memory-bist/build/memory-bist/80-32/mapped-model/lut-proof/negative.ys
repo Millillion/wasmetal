@@ -1,0 +1,5 @@
+read_verilog -sv /tmp/wasmetal-xc7-core/build/memory-bist/80-32/mapped-model/lut-proof/negative.sv
+prep -top proof
+flatten
+opt
+sat -verify -prove mismatch 0 -show-inputs

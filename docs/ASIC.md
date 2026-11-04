@@ -99,6 +99,15 @@ scan and memory-test access. Decide how test mode controls clocks, resets,
 memory ports and I/O, and how failures can be observed. A simulation harness
 and a UART result packet are not substitutes for manufacturing-test coverage.
 
+A separate [destructive memory-test master](MEMORY-SELF-TEST.md) now implements
+eight March C- passes through the physical memory transaction boundary. It
+checks seven separating bit backgrounds and a final zero background, records
+the first error and retains ownership of a timed-out request until completion
+or joint reset. Its independent fault-injection tests cover RTL and a functional
+FPGA mapping. Integrating exclusive test access, selecting process-specific
+fault models and establishing manufacturing coverage remain separate work;
+the component is not connected to the default CPU image.
+
 ## Gates before fabrication
 
 1. Select a process, supported tools, standard cells, memory macros, I/O cells,

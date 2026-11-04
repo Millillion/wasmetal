@@ -51,7 +51,9 @@ Uninitialized SRAM data is not converted into a fabricated zero. Four-state
 simulation preserves unknown read data. The system must finish initialization
 before using those locations. Error correction, power-state sequencing,
 memory-test access and detection of electrical or macro failures need their
-own implementations.
+own implementations. The separate [memory self-test master](MEMORY-SELF-TEST.md)
+uses this transaction contract for destructive tests; it still needs exclusive
+ownership control and a connection to the chosen memory implementation.
 
 ## Verification
 

@@ -1,0 +1,10 @@
+{
+  "scope": "exploratory descending-sweep fault controls",
+  "unconstrained_12_steps": "did not expose the late fault",
+  "unconstrained_32_steps": "timed out after 180 seconds; no accepted result",
+  "directed_32_steps": "reachable fault exposed with a single reset, held start, immediate responses and expected read values",
+  "directed_source_sha256": "ffc5e3a5392fc656ebc2fc31adda901079c67c9b64007653a4921ede896b79cb",
+  "directed_log_sha256": "14ec853b5d7036613fa2b87c336dba012c1a2be060816abd9f6aa37b4b7b955a",
+  "accepted_positive_proofs": "separate unbounded induction with arbitrary binary starts, responses, data and resets",
+  "physical_hardware_tested": false
+}

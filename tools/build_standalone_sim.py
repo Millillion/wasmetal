@@ -13,7 +13,11 @@ from standalone_support import generate_parameters, parameters
 def sources():
     vendor = ROOT / 'third_party/hardfloat/source'
     return [ROOT/'rtl/vendor.vlt'] + sorted((ROOT/'rtl').glob('*.sv')) + sorted(vendor.glob('*.v')) + [
-        vendor/'RISCV/HardFloat_specialize.v', ROOT/'fpga/wasmetal_uart.sv'] + sorted((ROOT/'soc').rglob('*.sv'))
+        vendor/'RISCV/HardFloat_specialize.v', ROOT/'fpga/wasmetal_uart.sv'] + [
+            path for path in sorted((ROOT/'soc').rglob('*.sv'))
+            # The exclusive-access self-test master has its own verification
+            # target and is not instantiated by any default CPU/board top.
+            if path != ROOT/'soc/asic/wasmetal_memory_bist.sv']
 
 
 def build(board=False, lint=False):

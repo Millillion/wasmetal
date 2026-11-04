@@ -445,6 +445,20 @@ SRAM with nonzero initial contents. All 35 system cases pass at
 corrupted reads fail the independent result check. This full-system SRAM test
 also runs in CI.
 
+A separate [destructive memory-test master](docs/MEMORY-SELF-TEST.md) now passes
+[55,137 campaigns per model](docs/verification/memory-bist-mapped.json) in RTL
+and functional ECP5 mapping, with identical observations across 7,326,876
+requests and 33,625,771 clocks. It covers explicit memory-fault models, 58,506
+resets, read/write timeouts and first-error reporting; six broken
+implementations are rejected. Its [four-state checks](docs/verification/memory-bist-four-state.json)
+also pass. Four configurations pass [unbounded safety proofs](docs/verification/memory-bist-proof.json)
+for request stability, complete sequence accounting and first-error retention,
+with four additional proof fault controls. These proofs assume an initial reset
+and arbitrary binary responses; they do not prove stored SRAM data or eventual
+completion when memory never responds. [Raw evidence](docs/verification/memory-bist/index.json)
+is retained. This component requires exclusive memory access and is not connected
+to the default CPU image.
+
 ## RTL Microarchitecture Simulator
 
 The clocked SystemVerilog core runs in Verilator. The test harness converts the

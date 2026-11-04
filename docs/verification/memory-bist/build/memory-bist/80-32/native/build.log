@@ -1,0 +1,4 @@
+make: Entering directory '/tmp/wasmetal-xc7-core/build/memory-bist/80-32/native/obj'
+g++  -I.  -MMD -I/tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=80 -DTEST_TIMEOUT=32   -Os -c -o bist.o /tmp/wasmetal-xc7-core/tests/memory/bist.cpp
+g++     bist.o verilated.o verilated_threads.o Vwasmetal_memory_bist__ALL.a    -pthread -lpthread -latomic   -o Vwasmetal_memory_bist
+make: Leaving directory '/tmp/wasmetal-xc7-core/build/memory-bist/80-32/native/obj'
