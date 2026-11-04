@@ -134,6 +134,18 @@ opcode and flags any row that would lose information. Four operand layouts
 cover different combinations of indices and wide immediates without relying
 on opcode-specific assumptions. Run `python3 tools/prove_instruction_codec.py`;
 CI also requires the proof and its corrupted-opcode negative control.
+The [complete corpus audit](docs/verification/instruction-codec-corpus.json)
+passes all 259 official suites with the RTL codec interposed on the host-backed
+CPU's instruction inputs. It also checks every loaded row, including unreachable
+instructions: 81,201 rows and 501 distinct opcode values, with every assertion
+count and command cycle count matching the native reference. This does not test
+local instruction RAM. The portable builder reproduces the validated HDL and
+adapter sources byte for byte; its rebuilt simulator passes a separate smoke
+check. A dedicated CI job now repeats the complete comparison and preserves
+per-process coverage. Reproduce it with
+`python3 tools/build_instruction_codec_sim.py`, then
+`python3 tools/check_instruction_corpus.py --reference reports/core-stalled.json`
+using a complete native report from the same source revision.
 Its system integration is still isolated under execution and routing evaluation;
 the production image store remains 288 bits wide. No programmable bitstream has
 passed routing and timing checks yet. Routing and mapped

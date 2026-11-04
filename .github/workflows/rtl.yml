@@ -147,6 +147,40 @@ jobs:
             build/image-loader/*/mapped/lut-proof/*.json
           if-no-files-found: warn
           retention-days: 30
+  instruction-codec:
+    name: Complete corpus with instruction storage codec
+    needs: core
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and build the codec CPU simulator
+        run: |
+          python3 tools/bootstrap.py
+          python3 tools/generate_fpga_ports.py
+          python3 tools/build_instruction_codec_sim.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - name: Audit every loaded row and compare the entire official corpus
+        run: python3 tools/check_instruction_corpus.py --reference reports/native/core-stalled.json
+      - name: Preserve codec corpus, row coverage and simulator provenance
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: instruction-codec-verification
+          path: |
+            reports/instruction-codec*.json
+            build/instruction-codec-sim/*.log
+            build/instruction-codec-sim/*.sv
+            build/instruction-codec-sim/*.cpp
+            build/instruction-codec-sim/obj/*.build.json
+            build/instruction-codec-sim/coverage/**/*.jsonl
+          if-no-files-found: warn
+          retention-days: 30
   core:
     runs-on: ubuntu-24.04
     timeout-minutes: 90
