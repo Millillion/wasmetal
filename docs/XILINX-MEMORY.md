@@ -78,6 +78,7 @@ After tool bootstrap:
 
 ```sh
 python3 tools/check_xc7_memory_mapping.py
+python3 tools/check_xc7_ram_models.py
 python3 tools/estimate_xc7_system.py
 ```
 
@@ -85,6 +86,39 @@ The regression writes `reports/xc7-memory-mapping.json` and preserves generated
 HDL, netlists, expected traces and logs under `build/xc7-memory-mapping/`.
 Concurrent runs in that directory are rejected. CI runs the memory regression
 before the system estimate and retains both sets of artifacts.
+
+## Fast simulation models
+
+The experimental models in `tests/xc7/ram_primitives.sv` implement only the five
+configurations above. They preserve initialized data, nine-bit write masks,
+read enables, output resets and the supported port widths. Other configurations
+fail explicitly. They provide untimed RAM behavior for a later complete-system
+Verilator simulation; the original vendor sources remain the reference.
+
+The [separate regression](verification/xc7-ram-models.json) passes all 26,028
+known-data operations in both Icarus and Verilator. It also runs 25,414 four-state
+operations per model against three implementations: the generic RTL, unmodified
+vendor primitives and the fast primitives. These traces cover both initialized
+and unknown initial storage, all-X and all-Z writes, random mixtures of known
+and unknown bits, partial masks, disabled accesses and output-reset recovery.
+The software oracle preserves Z data, matching both generic RTL and vendor
+simulation. This describes digital simulation behavior, not storage of physical
+high-impedance levels in silicon.
+
+All 14 negative controls fail as intended: the original mapping defect, seven
+unsupported parameter configurations, two models that erase unknown data,
+an unsupported WRITE_FIRST collision, and three incomplete or malformed traces.
+The last three execute the actual Verilator binary. The shared bench explicitly
+drives DUT inputs from scanned temporaries and handles each simulator's EOF
+convention; it rejects missing, extra and malformed vectors. The original
+vendor-mapping regression was rerun after this portable stimulus change.
+
+The fast-model report, expected traces, generated HDL, binaries and logs are
+retained under `reports/xc7-ram-models.json` and `build/xc7-ram-models/`. CI runs
+both memory regressions before synthesis and archives their artifacts. These
+tests do not validate unknown control/address inputs, general collision modes
+or physical timing. WRITE_FIRST read/write overlap at the same address is
+rejected rather than assigned an optimistic value.
 
 ## Scope
 

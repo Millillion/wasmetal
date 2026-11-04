@@ -49,8 +49,10 @@ impossible. The reset-replicated candidate's
 [router2 trial](verification/reset-replication-router2-retired.json) reached
 23,415 conflicting wires at iteration 11, followed by five worsening iterations
 to 27,281 at iteration 16. Its [complete routing log](verification/reset-replication-router2.log)
-and input identities are preserved. That run was stopped incomplete, and router1
-is now trying the exact same placement with a two-hour wall-time limit.
+and input identities are preserved. That run was stopped incomplete. The first
+router1 comparison was also stopped: nextpnr loaded the saved `router2` setting
+from the placement despite its `--router router1` argument. Correcting that
+comparison is in progress; the attempt is not evidence of router1 behavior.
 
 The routing driver rechecks structural equivalence, unchanged clock inputs
 and artifact hashes before routing. A successful final receipt additionally

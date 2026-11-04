@@ -1,0 +1,2195 @@
+{
+  "status": "passed",
+  "inputs": {
+    "tools/check_xc7_ram_models.py": "b43163d4b66b661263ea29460fc5430bfa46c9bddc359dd16e0d9fb08231a3fc",
+    "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+    "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+    "tests/memory/xc7_mapping.sv": "934a2aaf2f691aaa603a9c23b0a8fca6bda024ae43ce784cce896da267322e82",
+    "tools/check_xc7_memory_mapping.py": "8a150ca919c09059724a58bd78eb26196d159df9fe068f41e0fe2e88c530cd9d",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "reports/xc7-memory-mapping.json": "8d7f22a77efbaff12c638910da37d65cfa33cb81b04fae32622fe5af36c00a71"
+  },
+  "tools": {
+    "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator": "4c6292ab82e57b7f34ab26dbae86ba9c494bacfb088b6ff34be93c553d1301b1",
+    "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+    "/usr/bin/x86_64-linux-gnu-g++-13": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769"
+  },
+  "scope": "Experimental untimed models for five RAM configurations; known vectors in Icarus and Verilator plus native/vendor/fast four-state data and initialization checks",
+  "reference_report_sha256": "8d7f22a77efbaff12c638910da37d65cfa33cb81b04fae32622fe5af36c00a71",
+  "checks": [
+    {
+      "width": 9,
+      "depth": 2048,
+      "known_vectors": 8268,
+      "fast_icarus": {
+        "label": "fast",
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_MEMORY vectors=8268 width=9 depth=2048",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 124220000 (1ps)"
+        ],
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_mapping",
+          "-s",
+          "glbl",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/fast.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "artifacts": {
+          "build/xc7-memory-mapping/w9-d2048/fixed.v": "ce85a976bc867baae33d0c468e9943f1c70416c7471ec074b3260cba0af15d59",
+          "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "build/xc7-ram-models/w9-d2048/fast.vvp": "30b0ae1db5b46c159ff7d85f5e240e7ae6549c092d5b1432e7548ae23a57fa45",
+          "build/xc7-ram-models/w9-d2048/fast-compile.log": "d68275fb1db1c496b9f4af403c1d0b2c4b6d5356573578872ca876cf8e9d4a0a",
+          "build/xc7-ram-models/w9-d2048/fast.log": "c5e30a8e6a2c4f662026624c787ea97dac655faf49c0c2a66918a893221c150f",
+          "build/xc7-memory-mapping/w9-d2048/vectors.txt": "47aea61541100863f5fb54553f8198f2b42adf9c067b365b750933ecaaad68bb",
+          "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+        }
+      },
+      "fast_verilator": {
+        "inputs": {
+          "build/xc7-memory-mapping/w9-d2048/fixed.v": "ce85a976bc867baae33d0c468e9943f1c70416c7471ec074b3260cba0af15d59",
+          "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "tests/memory/xc7_mapping.sv": "934a2aaf2f691aaa603a9c23b0a8fca6bda024ae43ce784cce896da267322e82",
+          "build/xc7-memory-mapping/w9-d2048/vectors.txt": "47aea61541100863f5fb54553f8198f2b42adf9c067b365b750933ecaaad68bb",
+          "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_mapping",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/obj",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "observations": [
+          "PASS XC7_MEMORY vectors=8268 width=9 depth=2048",
+          "- /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-ram-models/w9-d2048/obj/Vxc7_mapping": "1cd1a6bce1c0d9d307c38451a3664c9687da0aed2b4403e88cbf52e9ee10f012",
+          "build/xc7-ram-models/w9-d2048/verilator-build.log": "7f3f6ca8fc1e964f9b6f32d57176e1b5a377d3b2f06c7610886259c76f6279b1",
+          "build/xc7-ram-models/w9-d2048/verilator.log": "964f9eb80149cec85380785046388c88e4c9fe4db8a0ece21908db055b7cfb9a"
+        }
+      },
+      "four_state": [
+        {
+          "unknown_initial_storage": false,
+          "vectors_per_model": 4121,
+          "write_bit_counts": {
+            "x_write_bits": 21,
+            "z_write_bits": 11
+          },
+          "native": {
+            "label": "known-init-native",
+            "inputs": {
+              "build/xc7-memory-mapping/w9-d2048/fixture.sv": "794a3ce78e02c735b2a96f78dcc8df06ca70966389ae19da3d21f4d636a333c2",
+              "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w9-d2048/known-init.txt": "7dff9cab334163e8fdeb50acedf0a40b7454f0521e899149698412fc4a9d5043",
+              "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/known-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixture.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4121 width=9 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62015000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w9-d2048/known-init-native.vvp": "7063c22936d1f43db85944eac7121742c4a4f24b13b0024ef69dba11029124f3",
+              "build/xc7-ram-models/w9-d2048/known-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w9-d2048/known-init-native.log": "3312ea0c865a7f24c229560e5d55277964e2f4d2db2cd519c6b726d1b8b1e6a9"
+            }
+          },
+          "vendor": {
+            "label": "known-init-vendor",
+            "inputs": {
+              "build/xc7-memory-mapping/w9-d2048/fixed.v": "ce85a976bc867baae33d0c468e9943f1c70416c7471ec074b3260cba0af15d59",
+              "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w9-d2048/known-init.txt": "7dff9cab334163e8fdeb50acedf0a40b7454f0521e899149698412fc4a9d5043",
+              "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/known-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4121 width=9 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62015000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w9-d2048/known-init-vendor.vvp": "019ed7f097fdbcb7d58a97a0b50f371910b83f4444efe6eea1c0941f79e58de1",
+              "build/xc7-ram-models/w9-d2048/known-init-vendor-compile.log": "7b059062015c753478cdf57c2967b2cad0d5aacb824b167b2ca4f2139060f4bd",
+              "build/xc7-ram-models/w9-d2048/known-init-vendor.log": "3312ea0c865a7f24c229560e5d55277964e2f4d2db2cd519c6b726d1b8b1e6a9"
+            }
+          },
+          "fast": {
+            "label": "known-init-fast",
+            "inputs": {
+              "build/xc7-memory-mapping/w9-d2048/fixed.v": "ce85a976bc867baae33d0c468e9943f1c70416c7471ec074b3260cba0af15d59",
+              "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w9-d2048/known-init.txt": "7dff9cab334163e8fdeb50acedf0a40b7454f0521e899149698412fc4a9d5043",
+              "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/known-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4121 width=9 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62015000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w9-d2048/known-init-fast.vvp": "c693ae7086fec126b78d4fa7848d4d5e3e9dd0461a6627d4898e1e4579b42edf",
+              "build/xc7-ram-models/w9-d2048/known-init-fast-compile.log": "d68275fb1db1c496b9f4af403c1d0b2c4b6d5356573578872ca876cf8e9d4a0a",
+              "build/xc7-ram-models/w9-d2048/known-init-fast.log": "3312ea0c865a7f24c229560e5d55277964e2f4d2db2cd519c6b726d1b8b1e6a9"
+            }
+          }
+        },
+        {
+          "unknown_initial_storage": true,
+          "vectors_per_model": 4121,
+          "write_bit_counts": {
+            "x_write_bits": 21,
+            "z_write_bits": 11
+          },
+          "native": {
+            "label": "unknown-init-native",
+            "inputs": {
+              "build/xc7-ram-models/w9-d2048/native-unknown-init.sv": "a880fd314be3cf3cd13f8dd0af1845dc63805819b31b1b667e3179ebe3d0b97b",
+              "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w9-d2048/unknown-init.txt": "f68973a72d4ba26335dfe22b8c93af000b2c80054c8788831e542a3a79c37f5c",
+              "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/unknown-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/native-unknown-init.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4121 width=9 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62015000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w9-d2048/unknown-init-native.vvp": "a59883bddcc8e397ad822b6d723ad48064f1c04a564107612ae27cfb2bf5704f",
+              "build/xc7-ram-models/w9-d2048/unknown-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w9-d2048/unknown-init-native.log": "3312ea0c865a7f24c229560e5d55277964e2f4d2db2cd519c6b726d1b8b1e6a9"
+            }
+          },
+          "vendor": {
+            "label": "unknown-init-vendor",
+            "inputs": {
+              "build/xc7-ram-models/w9-d2048/unknown-init.v": "f42a8ce60eda85b5bfa7c2d516a43f77d92757c3b552611e7a8be50554da04b0",
+              "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w9-d2048/unknown-init.txt": "f68973a72d4ba26335dfe22b8c93af000b2c80054c8788831e542a3a79c37f5c",
+              "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/unknown-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4121 width=9 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62015000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w9-d2048/unknown-init-vendor.vvp": "3ca07a021857cec0a48180d0d7b966a69e128761de70753710a449f3de9fff8e",
+              "build/xc7-ram-models/w9-d2048/unknown-init-vendor-compile.log": "5c4fd7022324fdb1f5e2e1e7f4870aa795467ef956e125bbc8e115e77c9bcd3b",
+              "build/xc7-ram-models/w9-d2048/unknown-init-vendor.log": "3312ea0c865a7f24c229560e5d55277964e2f4d2db2cd519c6b726d1b8b1e6a9"
+            }
+          },
+          "fast": {
+            "label": "unknown-init-fast",
+            "inputs": {
+              "build/xc7-ram-models/w9-d2048/unknown-init.v": "f42a8ce60eda85b5bfa7c2d516a43f77d92757c3b552611e7a8be50554da04b0",
+              "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w9-d2048/unknown-init.txt": "f68973a72d4ba26335dfe22b8c93af000b2c80054c8788831e542a3a79c37f5c",
+              "build/xc7-ram-models/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/unknown-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4121 width=9 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62015000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w9-d2048/unknown-init-fast.vvp": "edac9929a466c89857bb8525bb40d654c76eb160c9adc5bb7addae152a922205",
+              "build/xc7-ram-models/w9-d2048/unknown-init-fast-compile.log": "1b9064085b004f96443babd79cf1d46d7744f701e63a23b93e1e2726e6d14017",
+              "build/xc7-ram-models/w9-d2048/unknown-init-fast.log": "3312ea0c865a7f24c229560e5d55277964e2f4d2db2cd519c6b726d1b8b1e6a9"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 18,
+      "depth": 2048,
+      "known_vectors": 8308,
+      "fast_icarus": {
+        "label": "fast",
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_MEMORY vectors=8308 width=18 depth=2048",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 124820000 (1ps)"
+        ],
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_mapping",
+          "-s",
+          "glbl",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/fast.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "artifacts": {
+          "build/xc7-memory-mapping/w18-d2048/fixed.v": "77a7d4c30e93883200ed77dd4f037fa23021fa677e94ee5de73d44babbe1c9ff",
+          "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "build/xc7-ram-models/w18-d2048/fast.vvp": "9e95fd66a8ebc90dcb958f6caad621855219135da2cc7e7d5a1e9de73e2d2039",
+          "build/xc7-ram-models/w18-d2048/fast-compile.log": "6626ed3ac4210afd86b97a2b9b4c70b6b3fde1b4dfe41bea638059b45d51484f",
+          "build/xc7-ram-models/w18-d2048/fast.log": "36aeb0ec8f86d1698efc6cccb3988606126361d3a8fbd5f51be4c5bc44bd1440",
+          "build/xc7-memory-mapping/w18-d2048/vectors.txt": "571beee05cb28e9b563fcdac0669f459a319bbbae33c7e897bf58df51e66a916",
+          "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+        }
+      },
+      "fast_verilator": {
+        "inputs": {
+          "build/xc7-memory-mapping/w18-d2048/fixed.v": "77a7d4c30e93883200ed77dd4f037fa23021fa677e94ee5de73d44babbe1c9ff",
+          "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "tests/memory/xc7_mapping.sv": "934a2aaf2f691aaa603a9c23b0a8fca6bda024ae43ce784cce896da267322e82",
+          "build/xc7-memory-mapping/w18-d2048/vectors.txt": "571beee05cb28e9b563fcdac0669f459a319bbbae33c7e897bf58df51e66a916",
+          "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_mapping",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/obj",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "observations": [
+          "PASS XC7_MEMORY vectors=8308 width=18 depth=2048",
+          "- /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-ram-models/w18-d2048/obj/Vxc7_mapping": "64c8376b79949707d673236f50515a9b13f9112ca05d04f74dfb4d08ecdf856b",
+          "build/xc7-ram-models/w18-d2048/verilator-build.log": "aec57000e219e88a066411310866949455fade15f666f297dadcb23b02dd72e7",
+          "build/xc7-ram-models/w18-d2048/verilator.log": "df30c841072884b848cf45bf02d6c6c5d28da515e59dd3302e7bdcb41945e587"
+        }
+      },
+      "four_state": [
+        {
+          "unknown_initial_storage": false,
+          "vectors_per_model": 4142,
+          "write_bit_counts": {
+            "x_write_bits": 40,
+            "z_write_bits": 24
+          },
+          "native": {
+            "label": "known-init-native",
+            "inputs": {
+              "build/xc7-memory-mapping/w18-d2048/fixture.sv": "397075fddf49445f94005c2b98b9b545d89b9f06a96c12e3e553d5819d4d207c",
+              "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w18-d2048/known-init.txt": "6e6aae957307645f5a7e19f597fd2fd944e4d11c2ce8e5c7e59d0cdc937427b0",
+              "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/known-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixture.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4142 width=18 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62330000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w18-d2048/known-init-native.vvp": "72624ce9ee7c28d0a37275cd326300b8a333916e797f464570f834d9bd784f4f",
+              "build/xc7-ram-models/w18-d2048/known-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w18-d2048/known-init-native.log": "d59cda1e4eb2c880e904962085f0d2a486d56fc2eb263e9d64cd5110e7fdbe0c"
+            }
+          },
+          "vendor": {
+            "label": "known-init-vendor",
+            "inputs": {
+              "build/xc7-memory-mapping/w18-d2048/fixed.v": "77a7d4c30e93883200ed77dd4f037fa23021fa677e94ee5de73d44babbe1c9ff",
+              "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w18-d2048/known-init.txt": "6e6aae957307645f5a7e19f597fd2fd944e4d11c2ce8e5c7e59d0cdc937427b0",
+              "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/known-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4142 width=18 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62330000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w18-d2048/known-init-vendor.vvp": "13d7d49f8dd3dedcf1c14199e7cb2634875081f1f440966f325a3d8eaac122ab",
+              "build/xc7-ram-models/w18-d2048/known-init-vendor-compile.log": "3323ab7537d948b9b8e6fd0f25a60e65c1bf09fdaf06343ed530ef0cf6c066bc",
+              "build/xc7-ram-models/w18-d2048/known-init-vendor.log": "d59cda1e4eb2c880e904962085f0d2a486d56fc2eb263e9d64cd5110e7fdbe0c"
+            }
+          },
+          "fast": {
+            "label": "known-init-fast",
+            "inputs": {
+              "build/xc7-memory-mapping/w18-d2048/fixed.v": "77a7d4c30e93883200ed77dd4f037fa23021fa677e94ee5de73d44babbe1c9ff",
+              "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w18-d2048/known-init.txt": "6e6aae957307645f5a7e19f597fd2fd944e4d11c2ce8e5c7e59d0cdc937427b0",
+              "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/known-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4142 width=18 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62330000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w18-d2048/known-init-fast.vvp": "bf3c32f52a949755d19e4c592367cf5026bef52adbeeba7dcf0a8be753ee531f",
+              "build/xc7-ram-models/w18-d2048/known-init-fast-compile.log": "6626ed3ac4210afd86b97a2b9b4c70b6b3fde1b4dfe41bea638059b45d51484f",
+              "build/xc7-ram-models/w18-d2048/known-init-fast.log": "d59cda1e4eb2c880e904962085f0d2a486d56fc2eb263e9d64cd5110e7fdbe0c"
+            }
+          }
+        },
+        {
+          "unknown_initial_storage": true,
+          "vectors_per_model": 4142,
+          "write_bit_counts": {
+            "x_write_bits": 40,
+            "z_write_bits": 24
+          },
+          "native": {
+            "label": "unknown-init-native",
+            "inputs": {
+              "build/xc7-ram-models/w18-d2048/native-unknown-init.sv": "1930df395db3fa2d125c97586e03432bd35d42d4964931a964488c7085512928",
+              "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w18-d2048/unknown-init.txt": "15de32e5ef1fcb2d481bce13aa9489780d88ffb85b0dabd46d6a5ccfb502fab4",
+              "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/unknown-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/native-unknown-init.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4142 width=18 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62330000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w18-d2048/unknown-init-native.vvp": "c9adc4ae67621fb1f24d98d3eb14ca11c6b288ca73cbd26f40dcccfcb9db3f1d",
+              "build/xc7-ram-models/w18-d2048/unknown-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w18-d2048/unknown-init-native.log": "d59cda1e4eb2c880e904962085f0d2a486d56fc2eb263e9d64cd5110e7fdbe0c"
+            }
+          },
+          "vendor": {
+            "label": "unknown-init-vendor",
+            "inputs": {
+              "build/xc7-ram-models/w18-d2048/unknown-init.v": "af76ee40bbfd9d1e1f14f4302dbe51ae80e95804a4b7859c261042dbcf447fb0",
+              "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w18-d2048/unknown-init.txt": "15de32e5ef1fcb2d481bce13aa9489780d88ffb85b0dabd46d6a5ccfb502fab4",
+              "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/unknown-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4142 width=18 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62330000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w18-d2048/unknown-init-vendor.vvp": "5f84b853d307ecc647039fc6916fc6a890ed426019729ac3e6e2c25c613358fb",
+              "build/xc7-ram-models/w18-d2048/unknown-init-vendor-compile.log": "e8d0775470a0497df519ecb8d4fe6a24108ba09fc0693d78516f9e30d98874cb",
+              "build/xc7-ram-models/w18-d2048/unknown-init-vendor.log": "d59cda1e4eb2c880e904962085f0d2a486d56fc2eb263e9d64cd5110e7fdbe0c"
+            }
+          },
+          "fast": {
+            "label": "unknown-init-fast",
+            "inputs": {
+              "build/xc7-ram-models/w18-d2048/unknown-init.v": "af76ee40bbfd9d1e1f14f4302dbe51ae80e95804a4b7859c261042dbcf447fb0",
+              "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w18-d2048/unknown-init.txt": "15de32e5ef1fcb2d481bce13aa9489780d88ffb85b0dabd46d6a5ccfb502fab4",
+              "build/xc7-ram-models/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/unknown-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w18-d2048/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=4142 width=18 depth=2048",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 62330000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w18-d2048/unknown-init-fast.vvp": "d7aa520e359c3918007f6031278118bca98442590f69e73100d5879a820e4c1b",
+              "build/xc7-ram-models/w18-d2048/unknown-init-fast-compile.log": "8f13b5466dee99100c9cb01fa23e1eb6fe4f35865bbaab86815ef3792731cf83",
+              "build/xc7-ram-models/w18-d2048/unknown-init-fast.log": "d59cda1e4eb2c880e904962085f0d2a486d56fc2eb263e9d64cd5110e7fdbe0c"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 36,
+      "depth": 1024,
+      "known_vectors": 4308,
+      "fast_icarus": {
+        "label": "fast",
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_MEMORY vectors=4308 width=36 depth=1024",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 64820000 (1ps)"
+        ],
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_mapping",
+          "-s",
+          "glbl",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/fast.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "artifacts": {
+          "build/xc7-memory-mapping/w36-d1024/fixed.v": "4b8d5a1be05a7143f756e8dfefc69040742911e5b1a7c74bf3ea3f5f3ce6d822",
+          "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "build/xc7-ram-models/w36-d1024/fast.vvp": "2dbe892e5e9545520f37044bec0b5b7b79c1369ad21374be65392a8880e50c32",
+          "build/xc7-ram-models/w36-d1024/fast-compile.log": "7d3b9ed7f06bcb5a1be54fe2301ae8ca2cd43f02922365ecae3fb995b4db6165",
+          "build/xc7-ram-models/w36-d1024/fast.log": "b0f815c146ea424b1ac6fe63fa92fecc2bc8d96a29a15a2988af0ea6bb8b433d",
+          "build/xc7-memory-mapping/w36-d1024/vectors.txt": "677618abe8de2e493cdb106066b409e7f7d63cd0c528ab055004c3749e01fed6",
+          "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+        }
+      },
+      "fast_verilator": {
+        "inputs": {
+          "build/xc7-memory-mapping/w36-d1024/fixed.v": "4b8d5a1be05a7143f756e8dfefc69040742911e5b1a7c74bf3ea3f5f3ce6d822",
+          "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "tests/memory/xc7_mapping.sv": "934a2aaf2f691aaa603a9c23b0a8fca6bda024ae43ce784cce896da267322e82",
+          "build/xc7-memory-mapping/w36-d1024/vectors.txt": "677618abe8de2e493cdb106066b409e7f7d63cd0c528ab055004c3749e01fed6",
+          "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_mapping",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/obj",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "observations": [
+          "PASS XC7_MEMORY vectors=4308 width=36 depth=1024",
+          "- /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-ram-models/w36-d1024/obj/Vxc7_mapping": "88ec697a916df776489caf5d1973ba746ad307b84caad2bfe849a83ab73ffde5",
+          "build/xc7-ram-models/w36-d1024/verilator-build.log": "e56c86cfff768a0291db86527cab52d918dc5f3c6f33431885c70f12ad15f164",
+          "build/xc7-ram-models/w36-d1024/verilator.log": "3a62778b49a6f043d16e27bd0ebd1fdded5559115a74b814b4caa27dba6cecee"
+        }
+      },
+      "four_state": [
+        {
+          "unknown_initial_storage": false,
+          "vectors_per_model": 2136,
+          "write_bit_counts": {
+            "x_write_bits": 78,
+            "z_write_bits": 49
+          },
+          "native": {
+            "label": "known-init-native",
+            "inputs": {
+              "build/xc7-memory-mapping/w36-d1024/fixture.sv": "465fb226f6c6fcaee97e02bebf23428d782bca6999b95adbe1e025219f1231ff",
+              "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d1024/known-init.txt": "50e32e449cb8b99353a4d0de0b0097214e839393f831622b350e3c6f8cb08945",
+              "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/known-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixture.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=2136 width=36 depth=1024",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 32240000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d1024/known-init-native.vvp": "9c2671cf9fde4e4748a36897e8ffbcafcd2132b5f733ce84650cc82ac18adc50",
+              "build/xc7-ram-models/w36-d1024/known-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w36-d1024/known-init-native.log": "e2d33b430bc3161d8fc620ccd41fa8ba6bdaff85a2f5c7774a2d40fba9552e9f"
+            }
+          },
+          "vendor": {
+            "label": "known-init-vendor",
+            "inputs": {
+              "build/xc7-memory-mapping/w36-d1024/fixed.v": "4b8d5a1be05a7143f756e8dfefc69040742911e5b1a7c74bf3ea3f5f3ce6d822",
+              "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d1024/known-init.txt": "50e32e449cb8b99353a4d0de0b0097214e839393f831622b350e3c6f8cb08945",
+              "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/known-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=2136 width=36 depth=1024",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 32240000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d1024/known-init-vendor.vvp": "29407b175d1d12e67ec3ac2bea10fc5e53fc90f0024251f6f555e13835c51a43",
+              "build/xc7-ram-models/w36-d1024/known-init-vendor-compile.log": "fb9759d37e5b97a4e6357669c3efd5e131df9671b28dce54eaa3480a87db7964",
+              "build/xc7-ram-models/w36-d1024/known-init-vendor.log": "e2d33b430bc3161d8fc620ccd41fa8ba6bdaff85a2f5c7774a2d40fba9552e9f"
+            }
+          },
+          "fast": {
+            "label": "known-init-fast",
+            "inputs": {
+              "build/xc7-memory-mapping/w36-d1024/fixed.v": "4b8d5a1be05a7143f756e8dfefc69040742911e5b1a7c74bf3ea3f5f3ce6d822",
+              "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d1024/known-init.txt": "50e32e449cb8b99353a4d0de0b0097214e839393f831622b350e3c6f8cb08945",
+              "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/known-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=2136 width=36 depth=1024",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 32240000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d1024/known-init-fast.vvp": "2bc5b61f7a66c22f6a6d6f8c45901883d53f5c32ed49f0a04eda7413159a5075",
+              "build/xc7-ram-models/w36-d1024/known-init-fast-compile.log": "7d3b9ed7f06bcb5a1be54fe2301ae8ca2cd43f02922365ecae3fb995b4db6165",
+              "build/xc7-ram-models/w36-d1024/known-init-fast.log": "e2d33b430bc3161d8fc620ccd41fa8ba6bdaff85a2f5c7774a2d40fba9552e9f"
+            }
+          }
+        },
+        {
+          "unknown_initial_storage": true,
+          "vectors_per_model": 2136,
+          "write_bit_counts": {
+            "x_write_bits": 78,
+            "z_write_bits": 49
+          },
+          "native": {
+            "label": "unknown-init-native",
+            "inputs": {
+              "build/xc7-ram-models/w36-d1024/native-unknown-init.sv": "8c220110db34ed2d0993ebdde90267b17b152bd96d683416db8e19c94a6a2acf",
+              "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d1024/unknown-init.txt": "ac594fcc7cc441e2ef1ffa22f398a59f4800b03b18e65ca29be9ee044f8c3f6b",
+              "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/unknown-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/native-unknown-init.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=2136 width=36 depth=1024",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 32240000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d1024/unknown-init-native.vvp": "1f22c4e99019a2f753afef49ded9790805bc22857528347f4939e937cb7e401a",
+              "build/xc7-ram-models/w36-d1024/unknown-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w36-d1024/unknown-init-native.log": "e2d33b430bc3161d8fc620ccd41fa8ba6bdaff85a2f5c7774a2d40fba9552e9f"
+            }
+          },
+          "vendor": {
+            "label": "unknown-init-vendor",
+            "inputs": {
+              "build/xc7-ram-models/w36-d1024/unknown-init.v": "d13718010763ebe8e80203e58dc2672fd72722a1b4ad9c4283857bc8db84db24",
+              "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d1024/unknown-init.txt": "ac594fcc7cc441e2ef1ffa22f398a59f4800b03b18e65ca29be9ee044f8c3f6b",
+              "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/unknown-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=2136 width=36 depth=1024",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 32240000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d1024/unknown-init-vendor.vvp": "df058bf51dcf29403019d854f727b47704c35261668ffc0f8549d55a5ebcef10",
+              "build/xc7-ram-models/w36-d1024/unknown-init-vendor-compile.log": "465ff2549d82a781bae1c37ef64e3eee388bd8f4b9820645192e93803241ea1b",
+              "build/xc7-ram-models/w36-d1024/unknown-init-vendor.log": "e2d33b430bc3161d8fc620ccd41fa8ba6bdaff85a2f5c7774a2d40fba9552e9f"
+            }
+          },
+          "fast": {
+            "label": "unknown-init-fast",
+            "inputs": {
+              "build/xc7-ram-models/w36-d1024/unknown-init.v": "d13718010763ebe8e80203e58dc2672fd72722a1b4ad9c4283857bc8db84db24",
+              "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d1024/unknown-init.txt": "ac594fcc7cc441e2ef1ffa22f398a59f4800b03b18e65ca29be9ee044f8c3f6b",
+              "build/xc7-ram-models/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/unknown-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d1024/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=2136 width=36 depth=1024",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 32240000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d1024/unknown-init-fast.vvp": "5f285f9600879d923b5419987f054049856934f22c4367f72eac55ef3f5dc6dd",
+              "build/xc7-ram-models/w36-d1024/unknown-init-fast-compile.log": "cecc3dd98a0313eef3047c1e5623821202526a0afa4458baa14b72ff76c6e5db",
+              "build/xc7-ram-models/w36-d1024/unknown-init-fast.log": "e2d33b430bc3161d8fc620ccd41fa8ba6bdaff85a2f5c7774a2d40fba9552e9f"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 36,
+      "depth": 512,
+      "known_vectors": 2260,
+      "fast_icarus": {
+        "label": "fast",
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_MEMORY vectors=2260 width=36 depth=512",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 34100000 (1ps)"
+        ],
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_mapping",
+          "-s",
+          "glbl",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/fast.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "artifacts": {
+          "build/xc7-memory-mapping/w36-d512/fixed.v": "c5a71c2e36fbe68cf9d0ae3e95107f785e60c29e6a89265feb97f75f2215dcee",
+          "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "build/xc7-ram-models/w36-d512/fast.vvp": "3e09dfc89a26611089c0805dd4e8fb871094db385d69390fa1ce9400add0a53e",
+          "build/xc7-ram-models/w36-d512/fast-compile.log": "32cb374cb0ca4fa8cc5a7e827b94820911ac0b05e4b0061de1e1a294c56030c0",
+          "build/xc7-ram-models/w36-d512/fast.log": "fe2b239ff23c6a42325666a49a406b17f98f10aac1694798fd4f64c45e90d1f7",
+          "build/xc7-memory-mapping/w36-d512/vectors.txt": "babeb7c6ea46be9416f1560f8402a230be0aa74be7fad353b35029982fa58df6",
+          "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+        }
+      },
+      "fast_verilator": {
+        "inputs": {
+          "build/xc7-memory-mapping/w36-d512/fixed.v": "c5a71c2e36fbe68cf9d0ae3e95107f785e60c29e6a89265feb97f75f2215dcee",
+          "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "tests/memory/xc7_mapping.sv": "934a2aaf2f691aaa603a9c23b0a8fca6bda024ae43ce784cce896da267322e82",
+          "build/xc7-memory-mapping/w36-d512/vectors.txt": "babeb7c6ea46be9416f1560f8402a230be0aa74be7fad353b35029982fa58df6",
+          "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_mapping",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/obj",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "observations": [
+          "PASS XC7_MEMORY vectors=2260 width=36 depth=512",
+          "- /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-ram-models/w36-d512/obj/Vxc7_mapping": "be5c2cd0ad11bd0adba611368d67cd2105cb5bbb6b2a7e31e703aace16389798",
+          "build/xc7-ram-models/w36-d512/verilator-build.log": "99365b9d9ea0627c30ef75e3256f4d21ab888e900f417111ecb555905a83079e",
+          "build/xc7-ram-models/w36-d512/verilator.log": "cfff091986c840114889e022f5d3f4950549432e41097284e0d0f666f1fe289c"
+        }
+      },
+      "four_state": [
+        {
+          "unknown_initial_storage": false,
+          "vectors_per_model": 1112,
+          "write_bit_counts": {
+            "x_write_bits": 78,
+            "z_write_bits": 46
+          },
+          "native": {
+            "label": "known-init-native",
+            "inputs": {
+              "build/xc7-memory-mapping/w36-d512/fixture.sv": "8dd0da96f154d1c7977eeaa0469121ea9afe71efa7994ec11462f70d71bf1139",
+              "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d512/known-init.txt": "58d4a6d5b8ef4b8a1428992aa4285e56b65333e370e22b820763e3f521d63237",
+              "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/known-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixture.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1112 width=36 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 16880000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d512/known-init-native.vvp": "cff77bf93a036d09d363deb20c500bd751ab25d409923ae77368de5c85b46a69",
+              "build/xc7-ram-models/w36-d512/known-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w36-d512/known-init-native.log": "8a407d5aceaba8838e7c5aa860d48b2baffda1446f7849b33f630338683281b0"
+            }
+          },
+          "vendor": {
+            "label": "known-init-vendor",
+            "inputs": {
+              "build/xc7-memory-mapping/w36-d512/fixed.v": "c5a71c2e36fbe68cf9d0ae3e95107f785e60c29e6a89265feb97f75f2215dcee",
+              "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d512/known-init.txt": "58d4a6d5b8ef4b8a1428992aa4285e56b65333e370e22b820763e3f521d63237",
+              "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/known-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1112 width=36 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 16880000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d512/known-init-vendor.vvp": "d97ed767e81e00659e435ec78575ff0997a1338f709b11a4bbbeba7767c1e116",
+              "build/xc7-ram-models/w36-d512/known-init-vendor-compile.log": "7ab84033d1a07ea5cccd63babd09974a6584fcb6aa6c50f0c6032390656e286e",
+              "build/xc7-ram-models/w36-d512/known-init-vendor.log": "8a407d5aceaba8838e7c5aa860d48b2baffda1446f7849b33f630338683281b0"
+            }
+          },
+          "fast": {
+            "label": "known-init-fast",
+            "inputs": {
+              "build/xc7-memory-mapping/w36-d512/fixed.v": "c5a71c2e36fbe68cf9d0ae3e95107f785e60c29e6a89265feb97f75f2215dcee",
+              "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d512/known-init.txt": "58d4a6d5b8ef4b8a1428992aa4285e56b65333e370e22b820763e3f521d63237",
+              "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/known-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1112 width=36 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 16880000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d512/known-init-fast.vvp": "a35000aed637741b4666aff4ccfdaa40d1a99af6ba715e9ac22cbbc634de7b3d",
+              "build/xc7-ram-models/w36-d512/known-init-fast-compile.log": "32cb374cb0ca4fa8cc5a7e827b94820911ac0b05e4b0061de1e1a294c56030c0",
+              "build/xc7-ram-models/w36-d512/known-init-fast.log": "8a407d5aceaba8838e7c5aa860d48b2baffda1446f7849b33f630338683281b0"
+            }
+          }
+        },
+        {
+          "unknown_initial_storage": true,
+          "vectors_per_model": 1112,
+          "write_bit_counts": {
+            "x_write_bits": 78,
+            "z_write_bits": 46
+          },
+          "native": {
+            "label": "unknown-init-native",
+            "inputs": {
+              "build/xc7-ram-models/w36-d512/native-unknown-init.sv": "873b74fd89c4e9b40040f2858166656a0fbd4ac3802494bbcc676682f0b5bd68",
+              "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d512/unknown-init.txt": "2fb0824ac3761a53647a61f5e99a13196dffdd2ce1663a4111cf17aa874fc40e",
+              "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/unknown-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/native-unknown-init.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1112 width=36 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 16880000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d512/unknown-init-native.vvp": "05a6cfa426a799eb96ff59a3d50ae7454b50a20dce1980cf3aed44649347c896",
+              "build/xc7-ram-models/w36-d512/unknown-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w36-d512/unknown-init-native.log": "8a407d5aceaba8838e7c5aa860d48b2baffda1446f7849b33f630338683281b0"
+            }
+          },
+          "vendor": {
+            "label": "unknown-init-vendor",
+            "inputs": {
+              "build/xc7-ram-models/w36-d512/unknown-init.v": "99f99e174342fd2030443da687f86a5541dd673ab8264798082437012cd9c941",
+              "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d512/unknown-init.txt": "2fb0824ac3761a53647a61f5e99a13196dffdd2ce1663a4111cf17aa874fc40e",
+              "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/unknown-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1112 width=36 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 16880000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d512/unknown-init-vendor.vvp": "e5eec50ab5dab5ca79cf6c2fbf78bafad2606bdf19ac825852ccc5661c2ea175",
+              "build/xc7-ram-models/w36-d512/unknown-init-vendor-compile.log": "b05ae835e3249a35ffe73b0334d559bf2785e124c3dc830c725a5330cb8532b9",
+              "build/xc7-ram-models/w36-d512/unknown-init-vendor.log": "8a407d5aceaba8838e7c5aa860d48b2baffda1446f7849b33f630338683281b0"
+            }
+          },
+          "fast": {
+            "label": "unknown-init-fast",
+            "inputs": {
+              "build/xc7-ram-models/w36-d512/unknown-init.v": "99f99e174342fd2030443da687f86a5541dd673ab8264798082437012cd9c941",
+              "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w36-d512/unknown-init.txt": "2fb0824ac3761a53647a61f5e99a13196dffdd2ce1663a4111cf17aa874fc40e",
+              "build/xc7-ram-models/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/unknown-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1112 width=36 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 16880000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w36-d512/unknown-init-fast.vvp": "c265bb79dd204081f0b96123da93f6616da8e7933d351113bb279206e623c405",
+              "build/xc7-ram-models/w36-d512/unknown-init-fast-compile.log": "91402c6455de590641ff53459705c6f741f2fb7a919512788d604e4743876ecd",
+              "build/xc7-ram-models/w36-d512/unknown-init-fast.log": "8a407d5aceaba8838e7c5aa860d48b2baffda1446f7849b33f630338683281b0"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 72,
+      "depth": 512,
+      "known_vectors": 2884,
+      "fast_icarus": {
+        "label": "fast",
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_MEMORY vectors=2884 width=72 depth=512",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 43460000 (1ps)"
+        ],
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_mapping",
+          "-s",
+          "glbl",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+          "-o",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/fast.vvp",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "artifacts": {
+          "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
+          "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "build/xc7-ram-models/w72-d512/fast.vvp": "6c857c06d7b3d6a1aa14f3574bc504142aafc6b1407eed1ceae281d262f66e8b",
+          "build/xc7-ram-models/w72-d512/fast-compile.log": "4d65823205415b4d97be69a43ed4cbcf4df441a1151b80e8aa2bb5f97836fafc",
+          "build/xc7-ram-models/w72-d512/fast.log": "5572251c798b83e2e2abf569fcf7ac91050be115f6784a95decc3cb0dd92912f",
+          "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
+          "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+        }
+      },
+      "fast_verilator": {
+        "inputs": {
+          "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
+          "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+          "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+          "tests/memory/xc7_mapping.sv": "934a2aaf2f691aaa603a9c23b0a8fca6bda024ae43ce784cce896da267322e82",
+          "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
+          "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+        },
+        "command": [
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_mapping",
+          "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+          "--Mdir",
+          "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/obj",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed.v",
+          "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+          "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+        ],
+        "observations": [
+          "PASS XC7_MEMORY vectors=2884 width=72 depth=512",
+          "- /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-ram-models/w72-d512/obj/Vxc7_mapping": "e7bf05cb3307843325ee6cb9d9390225f69807f368f127370b1aed2c158948d5",
+          "build/xc7-ram-models/w72-d512/verilator-build.log": "3e1307dada2151a39e47e8605e06db97e77aae51633ff1ba6dafc9c03a8c57c3",
+          "build/xc7-ram-models/w72-d512/verilator.log": "72dbb724806d9b230c3b3b903c9605c54fcb8701defc1c59b8f5894a7b5deed4"
+        }
+      },
+      "four_state": [
+        {
+          "unknown_initial_storage": false,
+          "vectors_per_model": 1196,
+          "write_bit_counts": {
+            "x_write_bits": 162,
+            "z_write_bits": 94
+          },
+          "native": {
+            "label": "known-init-native",
+            "inputs": {
+              "build/xc7-memory-mapping/w72-d512/fixture.sv": "48643426055352ab44e6f0ae844f40d1504ba800a560d345007bac31b2491a3b",
+              "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+              "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/known-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1196 width=72 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 18140000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w72-d512/known-init-native.vvp": "938be64ae800398b0e2b5f05f30d3bf0b27fe4710cd03447d8a51ef3d5d4c02c",
+              "build/xc7-ram-models/w72-d512/known-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w72-d512/known-init-native.log": "7c949dbe9a2be8b3f606c9844e88d6b99e1b9228bf7ca3ec377dde2443fad57c"
+            }
+          },
+          "vendor": {
+            "label": "known-init-vendor",
+            "inputs": {
+              "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
+              "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+              "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/known-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1196 width=72 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 18140000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w72-d512/known-init-vendor.vvp": "665f51318667d7194b592d151809ddc7cb3a8ac673890311000f6dedbc7d8014",
+              "build/xc7-ram-models/w72-d512/known-init-vendor-compile.log": "a08407d1585faa8f3710df765e03ba96924fb150e9ce80847dc513e8eb505fee",
+              "build/xc7-ram-models/w72-d512/known-init-vendor.log": "7c949dbe9a2be8b3f606c9844e88d6b99e1b9228bf7ca3ec377dde2443fad57c"
+            }
+          },
+          "fast": {
+            "label": "known-init-fast",
+            "inputs": {
+              "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
+              "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+              "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/known-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1196 width=72 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 18140000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w72-d512/known-init-fast.vvp": "ac164f8bd61e03fb1d97953079b45de60fd90f9dde608ead97385ec541291627",
+              "build/xc7-ram-models/w72-d512/known-init-fast-compile.log": "4d65823205415b4d97be69a43ed4cbcf4df441a1151b80e8aa2bb5f97836fafc",
+              "build/xc7-ram-models/w72-d512/known-init-fast.log": "7c949dbe9a2be8b3f606c9844e88d6b99e1b9228bf7ca3ec377dde2443fad57c"
+            }
+          }
+        },
+        {
+          "unknown_initial_storage": true,
+          "vectors_per_model": 1196,
+          "write_bit_counts": {
+            "x_write_bits": 162,
+            "z_write_bits": 94
+          },
+          "native": {
+            "label": "unknown-init-native",
+            "inputs": {
+              "build/xc7-ram-models/w72-d512/native-unknown-init.sv": "a24d201147211cb290a5af4cf142f21596c4a095170cbd264b9609abcafdfd8f",
+              "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w72-d512/unknown-init.txt": "2dca3a453728e12574c408081f718c89da08d56c5f2aad05034214541eb9b64d",
+              "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/unknown-init-native.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/native-unknown-init.sv",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1196 width=72 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 18140000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w72-d512/unknown-init-native.vvp": "eec98ef16e63e2087ab39ed5698a7f8651322c3d4872bbbccd892542eca8950d",
+              "build/xc7-ram-models/w72-d512/unknown-init-native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "build/xc7-ram-models/w72-d512/unknown-init-native.log": "7c949dbe9a2be8b3f606c9844e88d6b99e1b9228bf7ca3ec377dde2443fad57c"
+            }
+          },
+          "vendor": {
+            "label": "unknown-init-vendor",
+            "inputs": {
+              "build/xc7-ram-models/w72-d512/unknown-init.v": "b4fb9a11335cfdf36854a16918e26ced2416a8f5aaa9809717729c1658c25251",
+              "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
+              "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w72-d512/unknown-init.txt": "2dca3a453728e12574c408081f718c89da08d56c5f2aad05034214541eb9b64d",
+              "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/unknown-init-vendor.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB18E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/RAMB36E1.v",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1196 width=72 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 18140000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w72-d512/unknown-init-vendor.vvp": "62c1047aa3a4ab19b1efa351042ace93d11dcfbea505b72e1516dea69e264fe0",
+              "build/xc7-ram-models/w72-d512/unknown-init-vendor-compile.log": "1de311be5ac97a231a3d606de9b7bf476bb20889df668bf08c047832b7fd7ded",
+              "build/xc7-ram-models/w72-d512/unknown-init-vendor.log": "7c949dbe9a2be8b3f606c9844e88d6b99e1b9228bf7ca3ec377dde2443fad57c"
+            }
+          },
+          "fast": {
+            "label": "unknown-init-fast",
+            "inputs": {
+              "build/xc7-ram-models/w72-d512/unknown-init.v": "b4fb9a11335cfdf36854a16918e26ced2416a8f5aaa9809717729c1658c25251",
+              "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+              "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+              "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+              "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+              "build/xc7-ram-models/w72-d512/unknown-init.txt": "2dca3a453728e12574c408081f718c89da08d56c5f2aad05034214541eb9b64d",
+              "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+            },
+            "returncode": 0,
+            "expected_failure": null,
+            "command": [
+              "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+              "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+              "-g2012",
+              "-s",
+              "xc7_ram_four_state",
+              "-s",
+              "glbl",
+              "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+              "-o",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/unknown-init-fast.vvp",
+              "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/unknown-init.v",
+              "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+              "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+            ],
+            "observations": [
+              "PASS XC7_FOUR_STATE vectors=1196 width=72 depth=512",
+              "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:48: $finish called at 18140000 (1ps)"
+            ],
+            "artifacts": {
+              "build/xc7-ram-models/w72-d512/unknown-init-fast.vvp": "bddb8024bcc9ff3e5e33490c75dbf1f2f698833842f202a8b2df2bb82a998c8a",
+              "build/xc7-ram-models/w72-d512/unknown-init-fast-compile.log": "ce64aaeb9d72ac3cef7b2cbc00c765f83be44e7d4f5ae5d8b7790ccb28abcaec",
+              "build/xc7-ram-models/w72-d512/unknown-init-fast.log": "7c949dbe9a2be8b3f606c9844e88d6b99e1b9228bf7ca3ec377dde2443fad57c"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "negative_controls": [
+    {
+      "label": "stock-fast",
+      "returncode": 1,
+      "expected_failure": "READ_DATA_MISMATCH",
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=545 op=0 wa=0 ra=255 phase=active edge observed=000000100000000100 expected=000000000000000100",
+        "       Time: 8385000  Scope: xc7_mapping.check_value"
+      ],
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_mapping",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/stock-fast.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/stock.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/stock-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
+      ],
+      "artifacts": {
+        "build/xc7-memory-mapping/w72-d512/stock.v": "fb0966737c47b9326112d37c26a2198f0bad4cefa6d8b2612ef96d808fafec57",
+        "build/xc7-memory-mapping/w72-d512/stock-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "build/xc7-ram-models/w72-d512/stock-fast.vvp": "e4377374e066bfb08d64633f3af32455c257bafe37bc7293de757ee0dd4f643c",
+        "build/xc7-ram-models/w72-d512/stock-fast-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build/xc7-ram-models/w72-d512/stock-fast.log": "d32b47da38fd8dcb30be6fc97a5c235eff8d1d41592f1e656a1c60d82b62dc21",
+        "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      }
+    },
+    {
+      "label": "DOA_REG",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/DOA_REG.v": "4c84ec020ed1b83e1aaa220f42dd982fe74ceadbf544afb8b053306383eeb700",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_CONFIGURATION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/DOA_REG.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/DOA_REG.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:396: UNSUPPORTED_XC7_RAM_CONFIGURATION",
+        "       Time: 0  Scope: xc7_ram_four_state.dut.memory.0.0"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/DOA_REG.vvp": "5ce662f53d8ad3e53506962fa7422f9e86644fc6128f11a048f54e9e64e5e69e",
+        "build/xc7-ram-models/w72-d512/DOA_REG-compile.log": "39d3d80aaabc807f8f3fb672fb2f406d7ad893843c3ee135a8e5329078f99166",
+        "build/xc7-ram-models/w72-d512/DOA_REG.log": "4ac201b2424f64bf7a2c32981e280b8cdf04b1e8af5c31cf232d7fa3028a0b2e"
+      }
+    },
+    {
+      "label": "DOB_REG",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/DOB_REG.v": "21cd704978ddae07cda4f05f11e6e61e8fe81e2a3176b2d1618b631daccb22a0",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_CONFIGURATION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/DOB_REG.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/DOB_REG.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:396: UNSUPPORTED_XC7_RAM_CONFIGURATION",
+        "       Time: 0  Scope: xc7_ram_four_state.dut.memory.0.0"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/DOB_REG.vvp": "c4edf3fa9f2653152aa3a9b1328939e0942dfd442a2ac41fac7559a91b5d76ba",
+        "build/xc7-ram-models/w72-d512/DOB_REG-compile.log": "71b292dde3e94ccd30eb47be624121cf369bb89944fc1af7fc627f3c5e974507",
+        "build/xc7-ram-models/w72-d512/DOB_REG.log": "4ac201b2424f64bf7a2c32981e280b8cdf04b1e8af5c31cf232d7fa3028a0b2e"
+      }
+    },
+    {
+      "label": "READ_WIDTH_A",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/READ_WIDTH_A.v": "8c77cf5b419fad9de83997a4d9a3e6710348a2d36d858a65edd1e03af6d588c4",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_CONFIGURATION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/READ_WIDTH_A.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/READ_WIDTH_A.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:396: UNSUPPORTED_XC7_RAM_CONFIGURATION",
+        "       Time: 0  Scope: xc7_ram_four_state.dut.memory.0.0"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/READ_WIDTH_A.vvp": "b68da77cd39163c9b49150d4873f946e0cfbaf286769d59bc21a0face41c7067",
+        "build/xc7-ram-models/w72-d512/READ_WIDTH_A-compile.log": "ebd0b96da6322c719d6a2df33e8fd976ad525b8b6e1f7b9cca47e6c7e382dcac",
+        "build/xc7-ram-models/w72-d512/READ_WIDTH_A.log": "4ac201b2424f64bf7a2c32981e280b8cdf04b1e8af5c31cf232d7fa3028a0b2e"
+      }
+    },
+    {
+      "label": "RAM_MODE",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/RAM_MODE.v": "c338e26c61221c60d9389e541bfb8f28540beaf0133fd52a68e19c11349241c5",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_CONFIGURATION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/RAM_MODE.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/RAM_MODE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:396: UNSUPPORTED_XC7_RAM_CONFIGURATION",
+        "       Time: 0  Scope: xc7_ram_four_state.dut.memory.0.0"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/RAM_MODE.vvp": "ead9784448cc9ffd7e9a986b7e30c4ee642ff20e253d43199d43cbcd4cfbf7bc",
+        "build/xc7-ram-models/w72-d512/RAM_MODE-compile.log": "df4c2e2b5b361c4c9a6146c8dd2063dab82a76cea2c4d9c074a3e52b40d804aa",
+        "build/xc7-ram-models/w72-d512/RAM_MODE.log": "4ac201b2424f64bf7a2c32981e280b8cdf04b1e8af5c31cf232d7fa3028a0b2e"
+      }
+    },
+    {
+      "label": "IS_CLKARDCLK_INVERTED",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/IS_CLKARDCLK_INVERTED.v": "fa7d1f1c5ef861dbd35b6ba88117242f03e8af271415a9a13a69851ec478c9c2",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_CONFIGURATION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/IS_CLKARDCLK_INVERTED.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/IS_CLKARDCLK_INVERTED.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:396: UNSUPPORTED_XC7_RAM_CONFIGURATION",
+        "       Time: 0  Scope: xc7_ram_four_state.dut.memory.0.0"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/IS_CLKARDCLK_INVERTED.vvp": "b1c67f502906d8d4fcc3b346ecf08a463bdefc495e0fc7b9c9e274167a4120f2",
+        "build/xc7-ram-models/w72-d512/IS_CLKARDCLK_INVERTED-compile.log": "65fe36b278ab8c2a9f7bbb0d83fdcdf22f24270256ee403b753335b0fef6219d",
+        "build/xc7-ram-models/w72-d512/IS_CLKARDCLK_INVERTED.log": "4ac201b2424f64bf7a2c32981e280b8cdf04b1e8af5c31cf232d7fa3028a0b2e"
+      }
+    },
+    {
+      "label": "EN_ECC_READ",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/EN_ECC_READ.v": "af019458978e41c50bc19d8ac04ef97c800b08aaf5176eadbc7221cd9b772da7",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_CONFIGURATION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/EN_ECC_READ.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/EN_ECC_READ.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:396: UNSUPPORTED_XC7_RAM_CONFIGURATION",
+        "       Time: 0  Scope: xc7_ram_four_state.dut.memory.0.0"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/EN_ECC_READ.vvp": "fd795f5896da606ee639831b0204fe14842f065b8971680a6fafeca66e1af037",
+        "build/xc7-ram-models/w72-d512/EN_ECC_READ-compile.log": "7c717ccfc01f6d56e92dd6df440e78cb82c0f2f0ff2eede56647101019f52345",
+        "build/xc7-ram-models/w72-d512/EN_ECC_READ.log": "4ac201b2424f64bf7a2c32981e280b8cdf04b1e8af5c31cf232d7fa3028a0b2e"
+      }
+    },
+    {
+      "label": "RAM_EXTENSION_A",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/RAM_EXTENSION_A.v": "bc174d29acbb1e286dcc8f62bda9b0a9db7722ec7c1cacc32b449530b92ab016",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_CONFIGURATION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/RAM_EXTENSION_A.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/RAM_EXTENSION_A.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:396: UNSUPPORTED_XC7_RAM_CONFIGURATION",
+        "       Time: 0  Scope: xc7_ram_four_state.dut.memory.0.0"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/RAM_EXTENSION_A.vvp": "3fb43d611c109ff124fda47227149c817bbc8096ca24cd975cbfeaafd8eeba86",
+        "build/xc7-ram-models/w72-d512/RAM_EXTENSION_A-compile.log": "f3823c41ba7a61f782874003342362d924ec3a560bbd1384c0bba00d69cea06f",
+        "build/xc7-ram-models/w72-d512/RAM_EXTENSION_A.log": "4ac201b2424f64bf7a2c32981e280b8cdf04b1e8af5c31cf232d7fa3028a0b2e"
+      }
+    },
+    {
+      "label": "zero-unknown-init",
+      "inputs": {
+        "build/xc7-ram-models/w72-d512/unknown-init.v": "b4fb9a11335cfdf36854a16918e26ced2416a8f5aaa9809717729c1658c25251",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "build/xc7-ram-models/w72-d512/zero-unknown-init.sv": "d96942513ea5173ea3cfcbc95de4de96b913d62142d089d5f8ce55f60129aad0",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/unknown-init.txt": "2dca3a453728e12574c408081f718c89da08d56c5f2aad05034214541eb9b64d",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "READ_DATA_MISMATCH",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/zero-unknown-init.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/unknown-init.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/zero-unknown-init.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:19: READ_DATA_MISMATCH vector=0 op=0 wa=0 ra=0 phase=active edge observed=000000000000000000 expected=xxxxxxxxxxxxxxxxxx",
+        "       Time: 210000  Scope: xc7_ram_four_state.check_value"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/zero-unknown-init.vvp": "ba0b719f2ffcfc96655852fac14004eaa9c3e079116e6bff008cc4185285e89f",
+        "build/xc7-ram-models/w72-d512/zero-unknown-init-compile.log": "ce64aaeb9d72ac3cef7b2cbc00c765f83be44e7d4f5ae5d8b7790ccb28abcaec",
+        "build/xc7-ram-models/w72-d512/zero-unknown-init.log": "84898e59eeda5862cb1fbd984330034703713c1eda0b580c32f6788717bac07b"
+      }
+    },
+    {
+      "label": "zero-unknown-write",
+      "inputs": {
+        "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "build/xc7-ram-models/w72-d512/zero-unknown-write.sv": "34cce6457ca386d31c600e864921603cf8b5d50c6780d4f8dc4debbb59dea8b9",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/known-init.txt": "74531444d512b4940ed0fefeea1810ab307534935796c82374bb925804c8d6f7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "READ_DATA_MISMATCH",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/zero-unknown-write.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/zero-unknown-write.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv:19: READ_DATA_MISMATCH vector=513 op=0 wa=0 ra=256 phase=active edge observed=6af03e6e32e2ce6000 expected=6af03e6e32e2ce6Xxx",
+        "       Time: 7905000  Scope: xc7_ram_four_state.check_value"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/zero-unknown-write.vvp": "5c91017cca3ec35692a00c7212f50abdf96eb3f8bff679e78edadcc9d5846967",
+        "build/xc7-ram-models/w72-d512/zero-unknown-write-compile.log": "4d65823205415b4d97be69a43ed4cbcf4df441a1151b80e8aa2bb5f97836fafc",
+        "build/xc7-ram-models/w72-d512/zero-unknown-write.log": "0261a14cc25e66ddc8be05fcff6086cf7dd20006e7a80c66e8c5340a1e75865d"
+      }
+    },
+    {
+      "label": "collision",
+      "inputs": {
+        "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
+        "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
+        "tests/xc7/ram_primitives.sv": "92bd06f2befa89b4fe2d1422e268c365a032ff11a759a65ba9697b44f0f5b41b",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "tests/xc7/ram_four_state.sv": "9f728a3be6036ed41f62913051cf25f49244d9fc5804cd3870e3d5a0bad14425",
+        "build/xc7-ram-models/w72-d512/collision.txt": "1d2cc596698f45b4da99f08dbfe6f3305f5baf9f413dc3e17a1b66c3f8ea92b7",
+        "build/xc7-ram-models/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
+      },
+      "returncode": 1,
+      "expected_failure": "UNSUPPORTED_XC7_RAM_COLLISION",
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_ram_four_state",
+        "-s",
+        "glbl",
+        "-I/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w72-d512/collision.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixed-logic.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/glbl.v",
+        "/tmp/wasmetal-direct-rounding/tests/xc7/ram_four_state.sv"
+      ],
+      "observations": [
+        "FATAL: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:48: UNSUPPORTED_XC7_RAM_COLLISION",
+        "       Time: 220000  Scope: xc7_ram_four_state.dut.memory.0.0.memory"
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/collision.vvp": "44e18cbf0f46432744ca42575f6beaa45ed9f5596c2a5c41a9b7e8e6060c5f04",
+        "build/xc7-ram-models/w72-d512/collision-compile.log": "4d65823205415b4d97be69a43ed4cbcf4df441a1151b80e8aa2bb5f97836fafc",
+        "build/xc7-ram-models/w72-d512/collision.log": "5713b851fadc23f153d9076bc5555a169c01e5ae4eee3c175c82c5adfa9cda54"
+      }
+    },
+    {
+      "label": "missing-vector",
+      "expected_failure": "INCOMPLETE_VECTORS",
+      "returncode": -6,
+      "observations": [
+        "[43445000] %Fatal: xc7_mapping.sv:47: Assertion failed in TOP.xc7_mapping: INCOMPLETE_VECTORS",
+        "%Error: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:47: Verilog $stop",
+        "Aborting..."
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/missing-vector.txt": "eab081325b6f56973e94ae646daef2120f066a449be5f984243e508b0835930c",
+        "build/xc7-ram-models/w72-d512/obj/Vxc7_mapping": "e7bf05cb3307843325ee6cb9d9390225f69807f368f127370b1aed2c158948d5",
+        "build/xc7-ram-models/w72-d512/missing-vector.log": "f7baebb86e671ba91f408988589d0ea0c40c12f6e0e38cb1d7f9e4fd16bd1dc7"
+      }
+    },
+    {
+      "label": "extra-vector",
+      "expected_failure": "MALFORMED_VECTORS",
+      "returncode": -6,
+      "observations": [
+        "[43445000] %Fatal: xc7_mapping.sv:32: Assertion failed in TOP.xc7_mapping: MALFORMED_VECTORS",
+        "%Error: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:32: Verilog $stop",
+        "Aborting..."
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/extra-vector.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
+        "build/xc7-ram-models/w72-d512/obj/Vxc7_mapping": "e7bf05cb3307843325ee6cb9d9390225f69807f368f127370b1aed2c158948d5",
+        "build/xc7-ram-models/w72-d512/extra-vector.log": "88f58d44da12f0b284ece151e1e8dda225a4e7a8d5ff24d9894a9c7b6e709b8c"
+      }
+    },
+    {
+      "label": "malformed-vector",
+      "expected_failure": "MALFORMED_VECTORS",
+      "returncode": -6,
+      "observations": [
+        "[43460000] %Fatal: xc7_mapping.sv:32: Assertion failed in TOP.xc7_mapping: MALFORMED_VECTORS",
+        "%Error: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:32: Verilog $stop",
+        "Aborting..."
+      ],
+      "artifacts": {
+        "build/xc7-ram-models/w72-d512/malformed-vector.txt": "e5a0289085e6cc9fa5db2ba3a876ce8c4f0e63b4db6e1b5614239fad59ef78d2",
+        "build/xc7-ram-models/w72-d512/obj/Vxc7_mapping": "e7bf05cb3307843325ee6cb9d9390225f69807f368f127370b1aed2c158948d5",
+        "build/xc7-ram-models/w72-d512/malformed-vector.log": "d0fbc09dd14b8bfc4cef3f42f473f209ad5b5173141f763bbec9f63c8f571da1"
+      }
+    }
+  ],
+  "negative_controls_rejected": 14,
+  "known_vectors_per_model": 26028,
+  "four_state_vectors_per_model": 25414,
+  "whole_cpu_mapping_verified": false,
+  "physical_hardware_tested": false,
+  "limitations": [
+    "Only the five explicitly accepted configurations are supported.",
+    "No aperture, metastability, electrical timing or general collision semantics are modeled.",
+    "Unknown control/address signals are outside this regression. WRITE_FIRST collisions fail closed."
+  ],
+  "elapsed_seconds": 467.5124575960217
+}

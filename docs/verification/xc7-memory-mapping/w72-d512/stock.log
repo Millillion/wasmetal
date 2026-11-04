@@ -1,2 +1,2 @@
-FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:16: READ_DATA_MISMATCH vector=545 op=0 wa=0 ra=255 phase=active edge observed=000000100000000100 expected=000000000000000100
+FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=545 op=0 wa=0 ra=255 phase=active edge observed=000000100000000100 expected=000000000000000100
        Time: 8385000  Scope: xc7_mapping.check_value

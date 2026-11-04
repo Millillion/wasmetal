@@ -7,6 +7,9 @@ module xc7_mapping;
     reg [`LANES-1:0] wmask=0;
     wire [`WIDTH-1:0] rd;
     reg [`WIDTH-1:0] expected, previous;
+    reg [`ADDR_WIDTH-1:0] scanned_wa,scanned_ra;
+    reg [`WIDTH-1:0] scanned_wd;
+    reg [`LANES-1:0] scanned_mask;
     integer fd, scan, op, count=0, required;
     string vectors;
     ram_fixture dut(.*);
@@ -24,9 +27,12 @@ module xc7_mapping;
         if(!fd) $fatal(1,"VECTOR_FILE_UNREADABLE");
         // The unmodified vendor glbl model releases configuration GSR at 100 ns.
         #200000;
-        scan=$fscanf(fd,"%h %h %h %h %h %h\n",op,wa,ra,wd,wmask,expected);
-        while(scan!=-1) begin
+        scan=$fscanf(fd,"%h %h %h %h %h %h\n",op,scanned_wa,scanned_ra,scanned_wd,scanned_mask,expected);
+        while(scan!=-1 && !(scan==0 && $feof(fd))) begin
             if(scan!=6 || op<0 || op>5 || count>=required) $fatal(1,"MALFORMED_VECTORS");
+            // Explicit assignments schedule port updates in both event-driven
+            // and compiled simulators, including wide $fscanf destinations.
+            wa=scanned_wa; ra=scanned_ra; wd=scanned_wd; wmask=scanned_mask;
             wen=(op==1); ren=(op==0 || op==4); rst=(op==4 || op==5);
             #5000;
             if(count!=0) check_value(previous,"before edge");
@@ -35,7 +41,7 @@ module xc7_mapping;
             wclk=0; rclk=0;
             #5000; check_value(expected,"inactive edge");
             previous=expected; count=count+1;
-            scan=$fscanf(fd,"%h %h %h %h %h %h\n",op,wa,ra,wd,wmask,expected);
+            scan=$fscanf(fd,"%h %h %h %h %h %h\n",op,scanned_wa,scanned_ra,scanned_wd,scanned_mask,expected);
         end
         $fclose(fd);
         if(count!=required) $fatal(1,"INCOMPLETE_VECTORS");

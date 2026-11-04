@@ -58,7 +58,8 @@ five deliberate defects. Its completed placement has a
 with unchanged register, RAM and DSP counts. Its router2 trial was
 [retired incomplete](docs/verification/reset-replication-router2-retired.json)
 after five worsening iterations; its best result still had 23,415 conflicting
-wires. Router1 is now testing the same placement with a two-hour limit. A real
+wires. The attempted router1 comparison revealed that saved placement settings
+override the command-line router choice; correcting that comparison is in progress. A real
 [timeout control](docs/verification/reset-routing-timeout.json) verifies that
 an interrupted attempt retains an incomplete receipt and emits no bitstream.
 The physical benefit remains unproven. The baseline route was
@@ -107,7 +108,12 @@ before the resource estimate. A separate address-pin audit also passes and
 rejects 18 structural mutations. The corrected complete-system synthesis passes
 structural checks and checks all 340 unused address-pin constants across its
 28 RAMB36E1 cells. Earlier estimates remain historical size evidence with a known
-functional mapping defect. Complete Xilinx CPU simulation, placement and timing
+functional mapping defect. The new [fast RAM models](docs/verification/xc7-ram-models.json)
+pass those same 26,028 operations in both Icarus and Verilator, plus 25,414
+four-state operations compared with generic RTL and the unmodified vendor
+models. All 14 additional controls reject faulty configurations, erased unknown
+data, collisions and incomplete test input. CI repeats these component checks.
+Complete Xilinx CPU simulation, placement and timing
 remain unverified. ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 

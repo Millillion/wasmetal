@@ -5,7 +5,7 @@
     "tools/check_xc7_memory_mapping.py": "8a150ca919c09059724a58bd78eb26196d159df9fe068f41e0fe2e88c530cd9d",
     "tools/xc7_memory_mapping.py": "a554ac9ddc2123c4d818f67bc4f9118304c8dba3b7d9ba0878e507e351f02c49",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
-    "tests/memory/xc7_mapping.sv": "32977bf1bfa73cadfeb76e443453f604169b310a7b6c3e2e59d36c24914c0857",
+    "tests/memory/xc7_mapping.sv": "934a2aaf2f691aaa603a9c23b0a8fca6bda024ae43ce784cce896da267322e82",
     "third_party/xilinx-unisim/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
     "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
@@ -308,7 +308,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=8268 width=9 depth=2048",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 124220000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 124220000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -327,9 +327,9 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w9-d2048/fixture.sv": "794a3ce78e02c735b2a96f78dcc8df06ca70966389ae19da3d21f4d636a333c2",
-          "build/xc7-memory-mapping/w9-d2048/native.vvp": "45e6fe1c7f50e8b650a30f76bbd80ef76b73cb62a2150b3fac803bd4176bea03",
+          "build/xc7-memory-mapping/w9-d2048/native.vvp": "f8c89b119564bccc393deef918a1f49f6554df8ff63617eeef2bd6fec035fcef",
           "build/xc7-memory-mapping/w9-d2048/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "build/xc7-memory-mapping/w9-d2048/native.log": "f83cc052781911846dc9720e0d6a121b941d7ea9ea1899a6fa6255e4cc4abcb4",
+          "build/xc7-memory-mapping/w9-d2048/native.log": "c5e30a8e6a2c4f662026624c787ea97dac655faf49c0c2a66918a893221c150f",
           "build/xc7-memory-mapping/w9-d2048/vectors.txt": "47aea61541100863f5fb54553f8198f2b42adf9c067b365b750933ecaaad68bb",
           "build/xc7-memory-mapping/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
         }
@@ -340,7 +340,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=8268 width=9 depth=2048",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 124220000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 124220000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -365,9 +365,9 @@
           "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w9-d2048/fixed.vvp": "a2915e73ad1117420d6dd0e1d06e5174bd10d7bdc98f3ac22649252171124a9f",
+          "build/xc7-memory-mapping/w9-d2048/fixed.vvp": "175848416bd86732aaefb6f02fbad676baedc551d1a52f60209606756bfff095",
           "build/xc7-memory-mapping/w9-d2048/fixed-compile.log": "7b059062015c753478cdf57c2967b2cad0d5aacb824b167b2ca4f2139060f4bd",
-          "build/xc7-memory-mapping/w9-d2048/fixed.log": "f83cc052781911846dc9720e0d6a121b941d7ea9ea1899a6fa6255e4cc4abcb4",
+          "build/xc7-memory-mapping/w9-d2048/fixed.log": "c5e30a8e6a2c4f662026624c787ea97dac655faf49c0c2a66918a893221c150f",
           "build/xc7-memory-mapping/w9-d2048/vectors.txt": "47aea61541100863f5fb54553f8198f2b42adf9c067b365b750933ecaaad68bb",
           "build/xc7-memory-mapping/w9-d2048/fixture_parameters.svh": "d9d328fca2c336f6698603e2a72eae5bee3a4cc600f3bbe05c6cbc56e24aba35"
         }
@@ -642,7 +642,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=8308 width=18 depth=2048",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 124820000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 124820000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -661,9 +661,9 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w18-d2048/fixture.sv": "397075fddf49445f94005c2b98b9b545d89b9f06a96c12e3e553d5819d4d207c",
-          "build/xc7-memory-mapping/w18-d2048/native.vvp": "e8e8276983ba28e2ef9c64e2fed6cfa89d33ee3fa00c339d4e8f731e8beb9c87",
+          "build/xc7-memory-mapping/w18-d2048/native.vvp": "2c87e443749d7a45c3fa979aab4575ef6a626500c4eebdfe8003da570a1706b5",
           "build/xc7-memory-mapping/w18-d2048/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "build/xc7-memory-mapping/w18-d2048/native.log": "7e690b416d3cc5d5b326975bbed1cfb77ca9ea7048fada3502efd54bfac477cb",
+          "build/xc7-memory-mapping/w18-d2048/native.log": "36aeb0ec8f86d1698efc6cccb3988606126361d3a8fbd5f51be4c5bc44bd1440",
           "build/xc7-memory-mapping/w18-d2048/vectors.txt": "571beee05cb28e9b563fcdac0669f459a319bbbae33c7e897bf58df51e66a916",
           "build/xc7-memory-mapping/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
         }
@@ -674,7 +674,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=8308 width=18 depth=2048",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 124820000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 124820000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -699,9 +699,9 @@
           "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w18-d2048/fixed.vvp": "4f9299161b86d1bc79d3728d4b5c00f287c9530fe4835a24a4bd9c0ce34cfb84",
+          "build/xc7-memory-mapping/w18-d2048/fixed.vvp": "e88ea1248a69e1906218191ea0048a5760af7cc8b052ab9b795b3c289a2b0d63",
           "build/xc7-memory-mapping/w18-d2048/fixed-compile.log": "3323ab7537d948b9b8e6fd0f25a60e65c1bf09fdaf06343ed530ef0cf6c066bc",
-          "build/xc7-memory-mapping/w18-d2048/fixed.log": "7e690b416d3cc5d5b326975bbed1cfb77ca9ea7048fada3502efd54bfac477cb",
+          "build/xc7-memory-mapping/w18-d2048/fixed.log": "36aeb0ec8f86d1698efc6cccb3988606126361d3a8fbd5f51be4c5bc44bd1440",
           "build/xc7-memory-mapping/w18-d2048/vectors.txt": "571beee05cb28e9b563fcdac0669f459a319bbbae33c7e897bf58df51e66a916",
           "build/xc7-memory-mapping/w18-d2048/fixture_parameters.svh": "729678d5391e99e06790591040809c7f1cacbbede83cace042de41fdb932063a"
         }
@@ -976,7 +976,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=4308 width=36 depth=1024",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 64820000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 64820000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -995,9 +995,9 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w36-d1024/fixture.sv": "465fb226f6c6fcaee97e02bebf23428d782bca6999b95adbe1e025219f1231ff",
-          "build/xc7-memory-mapping/w36-d1024/native.vvp": "fea88e1aac98290a8a12b4215a2399c3348021cca96edd7ca328aacc37fc567b",
+          "build/xc7-memory-mapping/w36-d1024/native.vvp": "b91474452a73af0853cdccaddf56eb5ebcbe6ad03c0b71f41614131be9c98284",
           "build/xc7-memory-mapping/w36-d1024/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "build/xc7-memory-mapping/w36-d1024/native.log": "16829cbfe18b9a00739dd4b9430ae682bcc5205fb5be38ad5d1e5b76c6f5cd5b",
+          "build/xc7-memory-mapping/w36-d1024/native.log": "b0f815c146ea424b1ac6fe63fa92fecc2bc8d96a29a15a2988af0ea6bb8b433d",
           "build/xc7-memory-mapping/w36-d1024/vectors.txt": "677618abe8de2e493cdb106066b409e7f7d63cd0c528ab055004c3749e01fed6",
           "build/xc7-memory-mapping/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
         }
@@ -1008,7 +1008,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=4308 width=36 depth=1024",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 64820000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 64820000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -1033,9 +1033,9 @@
           "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w36-d1024/fixed.vvp": "b393a10638418e371e5937694f53f06f24140aaf659a7920aa3eb6919c63096d",
+          "build/xc7-memory-mapping/w36-d1024/fixed.vvp": "edd19fade2a2bfe63ae1ae18a7391de4049529390f60b21b2b361c7c8d22bd5a",
           "build/xc7-memory-mapping/w36-d1024/fixed-compile.log": "fb9759d37e5b97a4e6357669c3efd5e131df9671b28dce54eaa3480a87db7964",
-          "build/xc7-memory-mapping/w36-d1024/fixed.log": "16829cbfe18b9a00739dd4b9430ae682bcc5205fb5be38ad5d1e5b76c6f5cd5b",
+          "build/xc7-memory-mapping/w36-d1024/fixed.log": "b0f815c146ea424b1ac6fe63fa92fecc2bc8d96a29a15a2988af0ea6bb8b433d",
           "build/xc7-memory-mapping/w36-d1024/vectors.txt": "677618abe8de2e493cdb106066b409e7f7d63cd0c528ab055004c3749e01fed6",
           "build/xc7-memory-mapping/w36-d1024/fixture_parameters.svh": "b44c8f805c21576cc27a4b92ca71e5d4348ff509ef0e33c415d1dd8791f923ea"
         }
@@ -1205,7 +1205,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=2260 width=36 depth=512",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 34100000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 34100000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -1224,9 +1224,9 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w36-d512/fixture.sv": "8dd0da96f154d1c7977eeaa0469121ea9afe71efa7994ec11462f70d71bf1139",
-          "build/xc7-memory-mapping/w36-d512/native.vvp": "187db724ec5423c1c13e158b1b742353891dbc4812efc4a8eb6a6ba733a8e77d",
+          "build/xc7-memory-mapping/w36-d512/native.vvp": "a099e251e826ce41da0556e73be798ad3fde0edce9d1b80abdc32e3476b7730e",
           "build/xc7-memory-mapping/w36-d512/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "build/xc7-memory-mapping/w36-d512/native.log": "f555cf880e20aff5c997fea1bd3fd13295a3074cfc9982699d17894367a74495",
+          "build/xc7-memory-mapping/w36-d512/native.log": "fe2b239ff23c6a42325666a49a406b17f98f10aac1694798fd4f64c45e90d1f7",
           "build/xc7-memory-mapping/w36-d512/vectors.txt": "babeb7c6ea46be9416f1560f8402a230be0aa74be7fad353b35029982fa58df6",
           "build/xc7-memory-mapping/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
         }
@@ -1237,7 +1237,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=2260 width=36 depth=512",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 34100000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 34100000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -1262,9 +1262,9 @@
           "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w36-d512/fixed.vvp": "e3b7de1edf994107ab09c7a850d207fb093e1a444a207226e7913d326a952a92",
+          "build/xc7-memory-mapping/w36-d512/fixed.vvp": "43df87a416c78f30efbd6dbc088c234b553be00359933b55ab86e6395d9da2af",
           "build/xc7-memory-mapping/w36-d512/fixed-compile.log": "7ab84033d1a07ea5cccd63babd09974a6584fcb6aa6c50f0c6032390656e286e",
-          "build/xc7-memory-mapping/w36-d512/fixed.log": "f555cf880e20aff5c997fea1bd3fd13295a3074cfc9982699d17894367a74495",
+          "build/xc7-memory-mapping/w36-d512/fixed.log": "fe2b239ff23c6a42325666a49a406b17f98f10aac1694798fd4f64c45e90d1f7",
           "build/xc7-memory-mapping/w36-d512/vectors.txt": "babeb7c6ea46be9416f1560f8402a230be0aa74be7fad353b35029982fa58df6",
           "build/xc7-memory-mapping/w36-d512/fixture_parameters.svh": "71f487633e8e179f312be4b1cc7bd4205bffbc904915d6713e3cec1129e2c1ff"
         }
@@ -1714,7 +1714,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=2884 width=72 depth=512",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 43460000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 43460000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -1733,9 +1733,9 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w72-d512/fixture.sv": "48643426055352ab44e6f0ae844f40d1504ba800a560d345007bac31b2491a3b",
-          "build/xc7-memory-mapping/w72-d512/native.vvp": "3983e415d4ed692a9960d648879d6021a2fdef9b888c4420b58e3d33d2860e33",
+          "build/xc7-memory-mapping/w72-d512/native.vvp": "ac14169834f67cbcaa35f56c2ce9504c44614d44e7444de17dd2f0c23b5a806e",
           "build/xc7-memory-mapping/w72-d512/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "build/xc7-memory-mapping/w72-d512/native.log": "f10c8bbba2247af9347bfc9b9078753e498ab62de9b7f324123ffd992176d5de",
+          "build/xc7-memory-mapping/w72-d512/native.log": "5572251c798b83e2e2abf569fcf7ac91050be115f6784a95decc3cb0dd92912f",
           "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
           "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
         }
@@ -1746,7 +1746,7 @@
         "expected_failure": null,
         "observations": [
           "PASS XC7_MEMORY vectors=2884 width=72 depth=512",
-          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:43: $finish called at 43460000 (1ps)"
+          "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:49: $finish called at 43460000 (1ps)"
         ],
         "command": [
           "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
@@ -1771,9 +1771,9 @@
           "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w72-d512/fixed.vvp": "b193b40a6462e1d202d8309e400018ed09b529b10ecc5edc0e0c6671933bf49f",
+          "build/xc7-memory-mapping/w72-d512/fixed.vvp": "def9c6dd664bf75ca943857ca96ee1fff3d983ddbfb320cf2b8d895a3ceade64",
           "build/xc7-memory-mapping/w72-d512/fixed-compile.log": "a08407d1585faa8f3710df765e03ba96924fb150e9ce80847dc513e8eb505fee",
-          "build/xc7-memory-mapping/w72-d512/fixed.log": "f10c8bbba2247af9347bfc9b9078753e498ab62de9b7f324123ffd992176d5de",
+          "build/xc7-memory-mapping/w72-d512/fixed.log": "5572251c798b83e2e2abf569fcf7ac91050be115f6784a95decc3cb0dd92912f",
           "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
           "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
         }
@@ -1784,7 +1784,7 @@
           "returncode": 1,
           "expected_failure": "READ_DATA_MISMATCH",
           "observations": [
-            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:16: READ_DATA_MISMATCH vector=545 op=0 wa=0 ra=255 phase=active edge observed=000000100000000100 expected=000000000000000100",
+            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=545 op=0 wa=0 ra=255 phase=active edge observed=000000100000000100 expected=000000000000000100",
             "       Time: 8385000  Scope: xc7_mapping.check_value"
           ],
           "command": [
@@ -1810,9 +1810,9 @@
             "build/xc7-memory-mapping/w72-d512/stock-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
             "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
             "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-            "build/xc7-memory-mapping/w72-d512/stock.vvp": "ae18564a6345b1c0ac394c1106f8ba6a19beaa6a9f51a359ed10845871c95a57",
+            "build/xc7-memory-mapping/w72-d512/stock.vvp": "a026ad119d74acd614b5068e792ce9b5f3e2da0ea4530a76ce3633de5fe246ea",
             "build/xc7-memory-mapping/w72-d512/stock-compile.log": "f8e9383781d0d374a36fdcd6607b2452ecc9d8601458539a47ab055a07cf7498",
-            "build/xc7-memory-mapping/w72-d512/stock.log": "e4abc9b478b86a3e7b2cca28f945f3c0b0195bc0cda959e17f0e0cda8f7db3ef",
+            "build/xc7-memory-mapping/w72-d512/stock.log": "d32b47da38fd8dcb30be6fc97a5c235eff8d1d41592f1e656a1c60d82b62dc21",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
             "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
           }
@@ -1822,7 +1822,7 @@
           "returncode": 1,
           "expected_failure": "READ_DATA_MISMATCH",
           "observations": [
-            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:16: READ_DATA_MISMATCH vector=2337 op=0 wa=0 ra=0 phase=active edge observed=d0865e6eab00005b64 expected=05a192fba1b00df18c",
+            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=2337 op=0 wa=0 ra=0 phase=active edge observed=d0865e6eab00005b64 expected=05a192fba1b00df18c",
             "       Time: 35265000  Scope: xc7_mapping.check_value"
           ],
           "command": [
@@ -1842,9 +1842,9 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-write-enable.sv": "3beecf7a3ab41529e243d597c72eaaf6c806d518d8faa5870bdddf08395efd9a",
-            "build/xc7-memory-mapping/w72-d512/ignored-write-enable.vvp": "ab62ade9027649894a6259facb8f57c76a6f5a48f9a2c73623dc3d373b35e8b3",
+            "build/xc7-memory-mapping/w72-d512/ignored-write-enable.vvp": "bb1f2d72029edda5f061bc7ee789e15314eeee9e6aa5fb92f5cf503bd1e18d5c",
             "build/xc7-memory-mapping/w72-d512/ignored-write-enable-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "build/xc7-memory-mapping/w72-d512/ignored-write-enable.log": "8882bf39d82efd99d7074ba423b6dcd587302b95bbc32282b82bfc00d7f6ea6f",
+            "build/xc7-memory-mapping/w72-d512/ignored-write-enable.log": "0852e0edb76813f7c2a24f19998ce3baef931c84a640feb2cd20f4e8b1c92a88",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
             "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
           }
@@ -1854,7 +1854,7 @@
           "returncode": 1,
           "expected_failure": "READ_DATA_MISMATCH",
           "observations": [
-            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:16: READ_DATA_MISMATCH vector=801 op=0 wa=0 ra=511 phase=active edge observed=5e64152cbb256fb349 expected=571e8b803bd1023099",
+            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=801 op=0 wa=0 ra=511 phase=active edge observed=5e64152cbb256fb349 expected=571e8b803bd1023099",
             "       Time: 12225000  Scope: xc7_mapping.check_value"
           ],
           "command": [
@@ -1874,9 +1874,9 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.sv": "727d5de7df7e6f26e207e6320d77ee8d8130e572167533c2636ecd61143e9fc5",
-            "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.vvp": "07ef91c559d96065dda549221f381164b5a71f3608e06fe63989551e9bc54709",
+            "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.vvp": "7915d8f83e373f35a4ca4c3aa2d5d04ec5bde897d5d6736b405851282c2d1d57",
             "build/xc7-memory-mapping/w72-d512/ignored-lane-mask-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.log": "1ceb232e0fa21ca214ba3f565408aa845d8482a4b1f2f5e55bdfcb4265996dd3",
+            "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.log": "9bc568b085bb728fa960d8096291da811441a8a1de2a122efa793063580c080a",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
             "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
           }
@@ -1886,7 +1886,7 @@
           "returncode": 1,
           "expected_failure": "READ_DATA_MISMATCH",
           "observations": [
-            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:16: READ_DATA_MISMATCH vector=2338 op=2 wa=0 ra=1 phase=active edge observed=cca4ed8c6565f1a6bd expected=05a192fba1b00df18c",
+            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=2338 op=2 wa=0 ra=1 phase=active edge observed=cca4ed8c6565f1a6bd expected=05a192fba1b00df18c",
             "       Time: 35280000  Scope: xc7_mapping.check_value"
           ],
           "command": [
@@ -1906,9 +1906,9 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-read-enable.sv": "aa76c04c123fc37d3e849ac296e1f54f47ae17a0c43c104438c954a55590547e",
-            "build/xc7-memory-mapping/w72-d512/ignored-read-enable.vvp": "ba83ef9ea5dc894efb42dcf00836ade6cbc702f79c95a113fc391d2e0ecb2232",
+            "build/xc7-memory-mapping/w72-d512/ignored-read-enable.vvp": "b4243bcc892cb5ab68722394b5450b0eaf5285c4764dfa3d3072eb419f2448a6",
             "build/xc7-memory-mapping/w72-d512/ignored-read-enable-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "build/xc7-memory-mapping/w72-d512/ignored-read-enable.log": "c88902cda1f6f0d2c77380e1508a0db5e8a63e50f611926a9edb1c6ecbdee4de",
+            "build/xc7-memory-mapping/w72-d512/ignored-read-enable.log": "94a7721124364f56640cf45963facdd7410f985ff38fe7bc368c797b5ef3af4a",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
             "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
           }
@@ -1918,7 +1918,7 @@
           "returncode": 1,
           "expected_failure": "READ_DATA_MISMATCH",
           "observations": [
-            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:16: READ_DATA_MISMATCH vector=2340 op=4 wa=0 ra=0 phase=active edge observed=05a192fba1b00df18c expected=a5a5a5a5a5a5a5a5a5",
+            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=2340 op=4 wa=0 ra=0 phase=active edge observed=05a192fba1b00df18c expected=a5a5a5a5a5a5a5a5a5",
             "       Time: 35310000  Scope: xc7_mapping.check_value"
           ],
           "command": [
@@ -1938,9 +1938,9 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-output-reset.sv": "e6bc4c6260a405c9f7bb8aedc750b6c755a5b6acb1e48ef25e6bc952036b8b48",
-            "build/xc7-memory-mapping/w72-d512/ignored-output-reset.vvp": "8c57778c9083a9d0db6ca4378b470178abffcd2624774b28d9e26f3a8df7e06d",
+            "build/xc7-memory-mapping/w72-d512/ignored-output-reset.vvp": "635181f159ae000473b8c1b5451450c5e065674d4284d044441fa23f9e77b3d0",
             "build/xc7-memory-mapping/w72-d512/ignored-output-reset-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "build/xc7-memory-mapping/w72-d512/ignored-output-reset.log": "1c6ba83d94757424d7d273a3e6c608ff3b2660f8a5b2724a72185635de49aa4f",
+            "build/xc7-memory-mapping/w72-d512/ignored-output-reset.log": "32dba6188fe0b972e27b26e59fe7c532bcabbd876756442ab4f1f5f4f18ea224",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
             "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
           }
@@ -1950,7 +1950,7 @@
           "returncode": 1,
           "expected_failure": "READ_DATA_MISMATCH",
           "observations": [
-            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:16: READ_DATA_MISMATCH vector=256 op=0 wa=0 ra=256 phase=active edge observed=dcebc2927650d7adb9 expected=6af03e6e32e2ce61e2",
+            "FATAL: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:19: READ_DATA_MISMATCH vector=256 op=0 wa=0 ra=256 phase=active edge observed=dcebc2927650d7adb9 expected=6af03e6e32e2ce61e2",
             "       Time: 4050000  Scope: xc7_mapping.check_value"
           ],
           "command": [
@@ -1970,9 +1970,9 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/aliased-read-address.sv": "6653dee328829aaea4b1d8e411898ee31c672ddae9f8442d739ad8ba1f607eb5",
-            "build/xc7-memory-mapping/w72-d512/aliased-read-address.vvp": "533f20b69768810634b7d43673e2c6f0d164652365808e2f749cdd94ffe0891d",
+            "build/xc7-memory-mapping/w72-d512/aliased-read-address.vvp": "e38034641b5817c43d473625de8b99855704af8055a41b1560822c598e12d4f0",
             "build/xc7-memory-mapping/w72-d512/aliased-read-address-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "build/xc7-memory-mapping/w72-d512/aliased-read-address.log": "870243a1b22f3d996522015dc30c9b8355be7a336977c51397b7f89fbf8dc9b8",
+            "build/xc7-memory-mapping/w72-d512/aliased-read-address.log": "a8190cea3d5aa4258e391476831c435e220535a6a0bb684f633fcfb92c812815",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
             "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
           }
@@ -1989,5 +1989,5 @@
     "No collision, asynchronous-clock aperture, metastability or electrical timing claim.",
     "No DSP, complete CPU, place-and-route or board verification is implied."
   ],
-  "elapsed_seconds": 58.455960289924406
+  "elapsed_seconds": 70.90103786205873
 }

@@ -1,0 +1,24 @@
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188: warning: Port 8 (wdata) of wasmetal_xc7_ram expects 64 bits, got 32.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188:        : Padding 32 high bits of the port.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188: warning: Port 9 (wparity) of wasmetal_xc7_ram expects 8 bits, got 4.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188:        : Padding 4 high bits of the port.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188: warning: Port 10 (wmask) of wasmetal_xc7_ram expects 8 bits, got 4.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188:        : Padding 4 high bits of the port.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 1 (DOADO) of RAMB18E1 expects 16 bits, got 64.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Padding 48 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 2 (DOBDO) of RAMB18E1 expects 16 bits, got 64.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Padding 48 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 3 (DOPADOP) of RAMB18E1 expects 2 bits, got 8.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Padding 6 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 4 (DOPBDOP) of RAMB18E1 expects 2 bits, got 8.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Padding 6 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 17 (DIADI) of RAMB18E1 expects 16 bits, got 64.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Pruning 48 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 18 (DIBDI) of RAMB18E1 expects 16 bits, got 64.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Pruning 48 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 19 (DIPADIP) of RAMB18E1 expects 2 bits, got 8.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Pruning 6 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 20 (DIPBDIP) of RAMB18E1 expects 2 bits, got 8.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Pruning 6 high bits of the expression.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123: warning: Port 21 (WEA) of RAMB18E1 expects 2 bits, got 4.
+/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:123:        : Pruning 2 high bits of the expression.

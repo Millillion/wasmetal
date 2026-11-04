@@ -1,0 +1,1669 @@
+
+-- Executing script file `/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/stock.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv' to AST representation.
+Generating RTLIL representation for module `\ram_fixture'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH_XILINX pass.
+
+2.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\VCC'.
+Generating RTLIL representation for module `\GND'.
+Generating RTLIL representation for module `\IBUF'.
+Generating RTLIL representation for module `\IBUFG'.
+Generating RTLIL representation for module `\OBUF'.
+Generating RTLIL representation for module `\IOBUF'.
+Generating RTLIL representation for module `\OBUFT'.
+Generating RTLIL representation for module `\BUFG'.
+Generating RTLIL representation for module `\BUFGCTRL'.
+Generating RTLIL representation for module `\BUFHCE'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\LUT1'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\LUT3'.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\LUT5'.
+Generating RTLIL representation for module `\LUT6'.
+Generating RTLIL representation for module `\LUT6_2'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\$__ABC9_LUT8'.
+Generating RTLIL representation for module `\MUXCY'.
+Generating RTLIL representation for module `\MUXF5'.
+Generating RTLIL representation for module `\MUXF6'.
+Generating RTLIL representation for module `\MUXF7'.
+Generating RTLIL representation for module `\MUXF8'.
+Generating RTLIL representation for module `\MUXF9'.
+Generating RTLIL representation for module `\XORCY'.
+Generating RTLIL representation for module `\CARRY4'.
+Generating RTLIL representation for module `\CARRY8'.
+Generating RTLIL representation for module `\ORCY'.
+Generating RTLIL representation for module `\MULT_AND'.
+Generating RTLIL representation for module `\FDRE'.
+Generating RTLIL representation for module `\FDRE_1'.
+Generating RTLIL representation for module `\FDSE'.
+Generating RTLIL representation for module `\FDSE_1'.
+Generating RTLIL representation for module `\FDRSE'.
+Generating RTLIL representation for module `\FDRSE_1'.
+Generating RTLIL representation for module `\FDCE'.
+Generating RTLIL representation for module `\FDCE_1'.
+Generating RTLIL representation for module `\FDPE'.
+Generating RTLIL representation for module `\FDPE_1'.
+Generating RTLIL representation for module `\FDCPE'.
+Generating RTLIL representation for module `\FDCPE_1'.
+Generating RTLIL representation for module `\LDCE'.
+Generating RTLIL representation for module `\LDPE'.
+Generating RTLIL representation for module `\LDCPE'.
+Generating RTLIL representation for module `\AND2B1L'.
+Generating RTLIL representation for module `\OR2L'.
+Generating RTLIL representation for module `\RAM16X1S'.
+Generating RTLIL representation for module `\RAM16X1S_1'.
+Generating RTLIL representation for module `\RAM32X1S'.
+Generating RTLIL representation for module `\RAM32X1S_1'.
+Generating RTLIL representation for module `\RAM64X1S'.
+Generating RTLIL representation for module `\RAM64X1S_1'.
+Generating RTLIL representation for module `\RAM128X1S'.
+Generating RTLIL representation for module `\RAM128X1S_1'.
+Generating RTLIL representation for module `\RAM256X1S'.
+Generating RTLIL representation for module `\RAM512X1S'.
+Generating RTLIL representation for module `\RAM16X2S'.
+Generating RTLIL representation for module `\RAM32X2S'.
+Generating RTLIL representation for module `\RAM64X2S'.
+Generating RTLIL representation for module `\RAM16X4S'.
+Generating RTLIL representation for module `\RAM32X4S'.
+Generating RTLIL representation for module `\RAM16X8S'.
+Generating RTLIL representation for module `\RAM32X8S'.
+Generating RTLIL representation for module `\RAM16X1D'.
+Generating RTLIL representation for module `\RAM16X1D_1'.
+Generating RTLIL representation for module `\RAM32X1D'.
+Generating RTLIL representation for module `\RAM32X1D_1'.
+Generating RTLIL representation for module `\RAM64X1D'.
+Generating RTLIL representation for module `\RAM64X1D_1'.
+Generating RTLIL representation for module `\RAM128X1D'.
+Generating RTLIL representation for module `\RAM256X1D'.
+Generating RTLIL representation for module `\RAM32M'.
+Generating RTLIL representation for module `\RAM32M16'.
+Generating RTLIL representation for module `\RAM64M'.
+Generating RTLIL representation for module `\RAM64M8'.
+Generating RTLIL representation for module `\RAM32X16DR8'.
+Generating RTLIL representation for module `\RAM64X8SW'.
+Generating RTLIL representation for module `\ROM16X1'.
+Generating RTLIL representation for module `\ROM32X1'.
+Generating RTLIL representation for module `\ROM64X1'.
+Generating RTLIL representation for module `\ROM128X1'.
+Generating RTLIL representation for module `\ROM256X1'.
+Generating RTLIL representation for module `\SRL16'.
+Generating RTLIL representation for module `\SRL16E'.
+Generating RTLIL representation for module `\SRLC16'.
+Generating RTLIL representation for module `\SRLC16E'.
+Generating RTLIL representation for module `\SRLC32E'.
+Generating RTLIL representation for module `\CFGLUT5'.
+Generating RTLIL representation for module `\MULT18X18'.
+Generating RTLIL representation for module `\MULT18X18S'.
+Generating RTLIL representation for module `\MULT18X18SIO'.
+Generating RTLIL representation for module `\DSP48A'.
+Generating RTLIL representation for module `\DSP48A1'.
+Generating RTLIL representation for module `\DSP48'.
+Generating RTLIL representation for module `\DSP48E1'.
+Generating RTLIL representation for module `\RAMB18E1'.
+Generating RTLIL representation for module `\RAMB36E1'.
+Successfully finished Verilog frontend.
+
+2.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_xtra.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_xtra.v' to AST representation.
+Generating RTLIL representation for module `\RAMB4_S1'.
+Generating RTLIL representation for module `\RAMB4_S2'.
+Generating RTLIL representation for module `\RAMB4_S4'.
+Generating RTLIL representation for module `\RAMB4_S8'.
+Generating RTLIL representation for module `\RAMB4_S16'.
+Generating RTLIL representation for module `\RAMB4_S1_S1'.
+Generating RTLIL representation for module `\RAMB4_S1_S2'.
+Generating RTLIL representation for module `\RAMB4_S1_S4'.
+Generating RTLIL representation for module `\RAMB4_S1_S8'.
+Generating RTLIL representation for module `\RAMB4_S1_S16'.
+Generating RTLIL representation for module `\RAMB4_S2_S2'.
+Generating RTLIL representation for module `\RAMB4_S2_S4'.
+Generating RTLIL representation for module `\RAMB4_S2_S8'.
+Generating RTLIL representation for module `\RAMB4_S2_S16'.
+Generating RTLIL representation for module `\RAMB4_S4_S4'.
+Generating RTLIL representation for module `\RAMB4_S4_S8'.
+Generating RTLIL representation for module `\RAMB4_S4_S16'.
+Generating RTLIL representation for module `\RAMB4_S8_S8'.
+Generating RTLIL representation for module `\RAMB4_S8_S16'.
+Generating RTLIL representation for module `\RAMB4_S16_S16'.
+Generating RTLIL representation for module `\RAMB16_S1'.
+Generating RTLIL representation for module `\RAMB16_S2'.
+Generating RTLIL representation for module `\RAMB16_S4'.
+Generating RTLIL representation for module `\RAMB16_S9'.
+Generating RTLIL representation for module `\RAMB16_S18'.
+Generating RTLIL representation for module `\RAMB16_S36'.
+Generating RTLIL representation for module `\RAMB16_S1_S1'.
+Generating RTLIL representation for module `\RAMB16_S1_S2'.
+Generating RTLIL representation for module `\RAMB16_S1_S4'.
+Generating RTLIL representation for module `\RAMB16_S1_S9'.
+Generating RTLIL representation for module `\RAMB16_S1_S18'.
+Generating RTLIL representation for module `\RAMB16_S1_S36'.
+Generating RTLIL representation for module `\RAMB16_S2_S2'.
+Generating RTLIL representation for module `\RAMB16_S2_S4'.
+Generating RTLIL representation for module `\RAMB16_S2_S9'.
+Generating RTLIL representation for module `\RAMB16_S2_S18'.
+Generating RTLIL representation for module `\RAMB16_S2_S36'.
+Generating RTLIL representation for module `\RAMB16_S4_S4'.
+Generating RTLIL representation for module `\RAMB16_S4_S9'.
+Generating RTLIL representation for module `\RAMB16_S4_S18'.
+Generating RTLIL representation for module `\RAMB16_S4_S36'.
+Generating RTLIL representation for module `\RAMB16_S9_S9'.
+Generating RTLIL representation for module `\RAMB16_S9_S18'.
+Generating RTLIL representation for module `\RAMB16_S9_S36'.
+Generating RTLIL representation for module `\RAMB16_S18_S18'.
+Generating RTLIL representation for module `\RAMB16_S18_S36'.
+Generating RTLIL representation for module `\RAMB16_S36_S36'.
+Generating RTLIL representation for module `\RAMB16BWE_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36'.
+Generating RTLIL representation for module `\RAMB16BWE_S18_S9'.
+Generating RTLIL representation for module `\RAMB16BWE_S18_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S9'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S36'.
+Generating RTLIL representation for module `\RAMB16BWER'.
+Generating RTLIL representation for module `\RAMB8BWER'.
+Generating RTLIL representation for module `\FIFO16'.
+Generating RTLIL representation for module `\RAMB16'.
+Generating RTLIL representation for module `\RAMB32_S64_ECC'.
+Generating RTLIL representation for module `\FIFO18'.
+Generating RTLIL representation for module `\FIFO18_36'.
+Generating RTLIL representation for module `\FIFO36'.
+Generating RTLIL representation for module `\FIFO36_72'.
+Generating RTLIL representation for module `\RAMB18'.
+Generating RTLIL representation for module `\RAMB36'.
+Generating RTLIL representation for module `\RAMB18SDP'.
+Generating RTLIL representation for module `\RAMB36SDP'.
+Generating RTLIL representation for module `\FIFO18E1'.
+Generating RTLIL representation for module `\FIFO36E1'.
+Generating RTLIL representation for module `\FIFO18E2'.
+Generating RTLIL representation for module `\FIFO36E2'.
+Generating RTLIL representation for module `\RAMB18E2'.
+Generating RTLIL representation for module `\RAMB36E2'.
+Generating RTLIL representation for module `\URAM288'.
+Generating RTLIL representation for module `\URAM288_BASE'.
+Generating RTLIL representation for module `\DSP48E'.
+Generating RTLIL representation for module `\DSP48E2'.
+Generating RTLIL representation for module `\FDDRCPE'.
+Generating RTLIL representation for module `\FDDRRSE'.
+Generating RTLIL representation for module `\IFDDRCPE'.
+Generating RTLIL representation for module `\IFDDRRSE'.
+Generating RTLIL representation for module `\OFDDRCPE'.
+Generating RTLIL representation for module `\OFDDRRSE'.
+Generating RTLIL representation for module `\OFDDRTCPE'.
+Generating RTLIL representation for module `\OFDDRTRSE'.
+Generating RTLIL representation for module `\IDDR2'.
+Generating RTLIL representation for module `\ODDR2'.
+Generating RTLIL representation for module `\IDDR'.
+Generating RTLIL representation for module `\IDDR_2CLK'.
+Generating RTLIL representation for module `\ODDR'.
+Generating RTLIL representation for module `\IDELAYCTRL'.
+Generating RTLIL representation for module `\IDELAY'.
+Generating RTLIL representation for module `\ISERDES'.
+Generating RTLIL representation for module `\OSERDES'.
+Generating RTLIL representation for module `\IODELAY'.
+Generating RTLIL representation for module `\ISERDES_NODELAY'.
+Generating RTLIL representation for module `\IODELAYE1'.
+Generating RTLIL representation for module `\ISERDESE1'.
+Generating RTLIL representation for module `\OSERDESE1'.
+Generating RTLIL representation for module `\IDELAYE2'.
+Generating RTLIL representation for module `\ODELAYE2'.
+Generating RTLIL representation for module `\ISERDESE2'.
+Generating RTLIL representation for module `\OSERDESE2'.
+Generating RTLIL representation for module `\PHASER_IN'.
+Generating RTLIL representation for module `\PHASER_IN_PHY'.
+Generating RTLIL representation for module `\PHASER_OUT'.
+Generating RTLIL representation for module `\PHASER_OUT_PHY'.
+Generating RTLIL representation for module `\PHASER_REF'.
+Generating RTLIL representation for module `\PHY_CONTROL'.
+Generating RTLIL representation for module `\IDDRE1'.
+Generating RTLIL representation for module `\ODDRE1'.
+Generating RTLIL representation for module `\IDELAYE3'.
+Generating RTLIL representation for module `\ODELAYE3'.
+Generating RTLIL representation for module `\ISERDESE3'.
+Generating RTLIL representation for module `\OSERDESE3'.
+Generating RTLIL representation for module `\BITSLICE_CONTROL'.
+Generating RTLIL representation for module `\RIU_OR'.
+Generating RTLIL representation for module `\RX_BITSLICE'.
+Generating RTLIL representation for module `\RXTX_BITSLICE'.
+Generating RTLIL representation for module `\TX_BITSLICE'.
+Generating RTLIL representation for module `\TX_BITSLICE_TRI'.
+Generating RTLIL representation for module `\IODELAY2'.
+Generating RTLIL representation for module `\IODRP2'.
+Generating RTLIL representation for module `\IODRP2_MCB'.
+Generating RTLIL representation for module `\ISERDES2'.
+Generating RTLIL representation for module `\OSERDES2'.
+Generating RTLIL representation for module `\IBUF_DLY_ADJ'.
+Generating RTLIL representation for module `\IBUF_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUF_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUF_ANALOG'.
+Generating RTLIL representation for module `\IBUFE3'.
+Generating RTLIL representation for module `\IBUFDS'.
+Generating RTLIL representation for module `\IBUFDS_DLY_ADJ'.
+Generating RTLIL representation for module `\IBUFDS_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUFDSE3'.
+Generating RTLIL representation for module `\IBUFDS_DPHY'.
+Generating RTLIL representation for module `\IBUFGDS'.
+Generating RTLIL representation for module `\IBUFGDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IOBUF_DCIEN'.
+Generating RTLIL representation for module `\IOBUF_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFE3'.
+Generating RTLIL representation for module `\IOBUFDS'.
+Generating RTLIL representation for module `\IOBUFDS_DCIEN'.
+Generating RTLIL representation for module `\IOBUFDS_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT_DCIEN'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFDSE3'.
+Generating RTLIL representation for module `\OBUFDS'.
+Generating RTLIL representation for module `\OBUFDS_DPHY'.
+Generating RTLIL representation for module `\OBUFTDS'.
+Generating RTLIL representation for module `\KEEPER'.
+Generating RTLIL representation for module `\PULLDOWN'.
+Generating RTLIL representation for module `\PULLUP'.
+Generating RTLIL representation for module `\DCIRESET'.
+Generating RTLIL representation for module `\HPIO_VREF'.
+Generating RTLIL representation for module `\BUFGCE'.
+Generating RTLIL representation for module `\BUFGCE_1'.
+Generating RTLIL representation for module `\BUFGMUX'.
+Generating RTLIL representation for module `\BUFGMUX_1'.
+Generating RTLIL representation for module `\BUFGMUX_CTRL'.
+Generating RTLIL representation for module `\BUFGMUX_VIRTEX4'.
+Generating RTLIL representation for module `\BUFG_GT'.
+Generating RTLIL representation for module `\BUFG_GT_SYNC'.
+Generating RTLIL representation for module `\BUFG_PS'.
+Generating RTLIL representation for module `\BUFGCE_DIV'.
+Generating RTLIL representation for module `\BUFH'.
+Generating RTLIL representation for module `\BUFIO2'.
+Generating RTLIL representation for module `\BUFIO2_2CLK'.
+Generating RTLIL representation for module `\BUFIO2FB'.
+Generating RTLIL representation for module `\BUFPLL'.
+Generating RTLIL representation for module `\BUFPLL_MCB'.
+Generating RTLIL representation for module `\BUFIO'.
+Generating RTLIL representation for module `\BUFIODQS'.
+Generating RTLIL representation for module `\BUFR'.
+Generating RTLIL representation for module `\BUFMR'.
+Generating RTLIL representation for module `\BUFMRCE'.
+Generating RTLIL representation for module `\DCM'.
+Generating RTLIL representation for module `\DCM_SP'.
+Generating RTLIL representation for module `\DCM_CLKGEN'.
+Generating RTLIL representation for module `\DCM_ADV'.
+Generating RTLIL representation for module `\DCM_BASE'.
+Generating RTLIL representation for module `\DCM_PS'.
+Generating RTLIL representation for module `\PMCD'.
+Generating RTLIL representation for module `\PLL_ADV'.
+Generating RTLIL representation for module `\PLL_BASE'.
+Generating RTLIL representation for module `\MMCM_ADV'.
+Generating RTLIL representation for module `\MMCM_BASE'.
+Generating RTLIL representation for module `\MMCME2_ADV'.
+Generating RTLIL representation for module `\MMCME2_BASE'.
+Generating RTLIL representation for module `\PLLE2_ADV'.
+Generating RTLIL representation for module `\PLLE2_BASE'.
+Generating RTLIL representation for module `\MMCME3_ADV'.
+Generating RTLIL representation for module `\MMCME3_BASE'.
+Generating RTLIL representation for module `\PLLE3_ADV'.
+Generating RTLIL representation for module `\PLLE3_BASE'.
+Generating RTLIL representation for module `\MMCME4_ADV'.
+Generating RTLIL representation for module `\MMCME4_BASE'.
+Generating RTLIL representation for module `\PLLE4_ADV'.
+Generating RTLIL representation for module `\PLLE4_BASE'.
+Generating RTLIL representation for module `\BUFT'.
+Generating RTLIL representation for module `\IN_FIFO'.
+Generating RTLIL representation for module `\OUT_FIFO'.
+Generating RTLIL representation for module `\HARD_SYNC'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3E'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3A'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN6'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX4'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX5'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX6'.
+Generating RTLIL representation for module `\STARTUPE2'.
+Generating RTLIL representation for module `\STARTUPE3'.
+Generating RTLIL representation for module `\CAPTURE_SPARTAN3'.
+Generating RTLIL representation for module `\CAPTURE_SPARTAN3A'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX4'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX5'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX6'.
+Generating RTLIL representation for module `\CAPTUREE2'.
+Generating RTLIL representation for module `\ICAP_SPARTAN3A'.
+Generating RTLIL representation for module `\ICAP_SPARTAN6'.
+Generating RTLIL representation for module `\ICAP_VIRTEX4'.
+Generating RTLIL representation for module `\ICAP_VIRTEX5'.
+Generating RTLIL representation for module `\ICAP_VIRTEX6'.
+Generating RTLIL representation for module `\ICAPE2'.
+Generating RTLIL representation for module `\ICAPE3'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN3'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN3A'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN6'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX4'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX5'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX6'.
+Generating RTLIL representation for module `\BSCANE2'.
+Generating RTLIL representation for module `\DNA_PORT'.
+Generating RTLIL representation for module `\DNA_PORTE2'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX4'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX5'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX6'.
+Generating RTLIL representation for module `\FRAME_ECCE2'.
+Generating RTLIL representation for module `\FRAME_ECCE3'.
+Generating RTLIL representation for module `\FRAME_ECCE4'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX4'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX5'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX6'.
+Generating RTLIL representation for module `\USR_ACCESSE2'.
+Generating RTLIL representation for module `\POST_CRC_INTERNAL'.
+Generating RTLIL representation for module `\SUSPEND_SYNC'.
+Generating RTLIL representation for module `\KEY_CLEAR'.
+Generating RTLIL representation for module `\MASTER_JTAG'.
+Generating RTLIL representation for module `\SPI_ACCESS'.
+Generating RTLIL representation for module `\EFUSE_USR'.
+Generating RTLIL representation for module `\SYSMON'.
+Generating RTLIL representation for module `\XADC'.
+Generating RTLIL representation for module `\SYSMONE1'.
+Generating RTLIL representation for module `\SYSMONE4'.
+Generating RTLIL representation for module `\GTPA1_DUAL'.
+Generating RTLIL representation for module `\GT11_CUSTOM'.
+Generating RTLIL representation for module `\GT11_DUAL'.
+Generating RTLIL representation for module `\GT11CLK'.
+Generating RTLIL representation for module `\GT11CLK_MGT'.
+Generating RTLIL representation for module `\GTP_DUAL'.
+Generating RTLIL representation for module `\GTX_DUAL'.
+Generating RTLIL representation for module `\CRC32'.
+Generating RTLIL representation for module `\CRC64'.
+Generating RTLIL representation for module `\GTHE1_QUAD'.
+Generating RTLIL representation for module `\GTXE1'.
+Generating RTLIL representation for module `\IBUFDS_GTXE1'.
+Generating RTLIL representation for module `\IBUFDS_GTHE1'.
+Generating RTLIL representation for module `\GTHE2_CHANNEL'.
+Generating RTLIL representation for module `\GTHE2_COMMON'.
+Generating RTLIL representation for module `\GTPE2_CHANNEL'.
+Generating RTLIL representation for module `\GTPE2_COMMON'.
+Generating RTLIL representation for module `\GTXE2_CHANNEL'.
+Generating RTLIL representation for module `\GTXE2_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE2'.
+Generating RTLIL representation for module `\GTHE3_CHANNEL'.
+Generating RTLIL representation for module `\GTHE3_COMMON'.
+Generating RTLIL representation for module `\GTYE3_CHANNEL'.
+Generating RTLIL representation for module `\GTYE3_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE3'.
+Generating RTLIL representation for module `\OBUFDS_GTE3'.
+Generating RTLIL representation for module `\OBUFDS_GTE3_ADV'.
+Generating RTLIL representation for module `\GTHE4_CHANNEL'.
+Generating RTLIL representation for module `\GTHE4_COMMON'.
+Generating RTLIL representation for module `\GTYE4_CHANNEL'.
+Generating RTLIL representation for module `\GTYE4_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE4'.
+Generating RTLIL representation for module `\OBUFDS_GTE4'.
+Generating RTLIL representation for module `\OBUFDS_GTE4_ADV'.
+Generating RTLIL representation for module `\GTM_DUAL'.
+Generating RTLIL representation for module `\IBUFDS_GTM'.
+Generating RTLIL representation for module `\OBUFDS_GTM'.
+Generating RTLIL representation for module `\OBUFDS_GTM_ADV'.
+Generating RTLIL representation for module `\HSDAC'.
+Generating RTLIL representation for module `\HSADC'.
+Generating RTLIL representation for module `\RFDAC'.
+Generating RTLIL representation for module `\RFADC'.
+Generating RTLIL representation for module `\PCIE_A1'.
+Generating RTLIL representation for module `\PCIE_EP'.
+Generating RTLIL representation for module `\PCIE_2_0'.
+Generating RTLIL representation for module `\PCIE_2_1'.
+Generating RTLIL representation for module `\PCIE_3_0'.
+Generating RTLIL representation for module `\PCIE_3_1'.
+Generating RTLIL representation for module `\PCIE40E4'.
+Generating RTLIL representation for module `\PCIE4CE4'.
+Generating RTLIL representation for module `\EMAC'.
+Generating RTLIL representation for module `\TEMAC'.
+Generating RTLIL representation for module `\TEMAC_SINGLE'.
+Generating RTLIL representation for module `\CMAC'.
+Generating RTLIL representation for module `\CMACE4'.
+Generating RTLIL representation for module `\MCB'.
+Generating RTLIL representation for module `\HBM_REF_CLK'.
+Generating RTLIL representation for module `\HBM_SNGLBLI_INTF_APB'.
+Generating RTLIL representation for module `\HBM_SNGLBLI_INTF_AXI'.
+Generating RTLIL representation for module `\HBM_ONE_STACK_INTF'.
+Generating RTLIL representation for module `\HBM_TWO_STACK_INTF'.
+Generating RTLIL representation for module `\PPC405_ADV'.
+Generating RTLIL representation for module `\PPC440'.
+Generating RTLIL representation for module `\PS7'.
+Generating RTLIL representation for module `\PS8'.
+Generating RTLIL representation for module `\ILKN'.
+Generating RTLIL representation for module `\ILKNE4'.
+Generating RTLIL representation for module `\VCU'.
+Generating RTLIL representation for module `\FE'.
+Successfully finished Verilog frontend.
+
+2.3. Executing HIERARCHY pass (managing design hierarchy).
+
+2.3.1. Analyzing design hierarchy..
+Top module:  \ram_fixture
+
+2.3.2. Analyzing design hierarchy..
+Top module:  \ram_fixture
+Removed 0 unused modules.
+
+2.4. Executing PROC pass (convert processes to netlists).
+
+2.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:0$76'.
+Cleaned up 0 empty switches.
+
+2.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175 in module RAM64M.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003 in module RAM32M.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933 in module RAM128X1D.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885 in module RAM64X1D.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858 in module RAM32X1D_1.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819 in module RAM32X1D.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:815$682 in module FDPE_1.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:774$679 in module FDPE.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:736$664 in module FDCE_1.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:695$661 in module FDCE.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:592$646 in module FDSE_1.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:559$642 in module FDSE.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:527$624 in module FDRE_1.
+Marked 1 switch rules as full_case in process $proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:494$620 in module FDRE.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$68 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$60 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$52 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$44 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$36 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$28 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$20 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$12 in module ram_fixture.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:13$9 in module ram_fixture.
+Removed a total of 0 dead cases.
+
+2.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 111 assignments to connections.
+
+2.4.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\SRLC32E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2405$1380'.
+  Set init value: \r = 0
+Found init rule in `\SRLC16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2361$1373'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\SRLC16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2329$1366'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\SRL16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2292$1363'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\SRL16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2264$1356'.
+  Set init value: \r = 16'0000000000000000
+Found init rule in `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1980$1281'.
+  Set init value: \mem_d = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1979$1280'.
+  Set init value: \mem_c = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1978$1279'.
+  Set init value: \mem_b = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1977$1278'.
+  Set init value: \mem_a = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1806$1129'.
+  Set init value: \mem_d = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1805$1128'.
+  Set init value: \mem_c = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1804$1127'.
+  Set init value: \mem_b = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1803$1126'.
+  Set init value: \mem_a = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1712$970'.
+  Set init value: \mem = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1607$922'.
+  Set init value: \mem = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1561$877'.
+  Set init value: \mem = 0
+Found init rule in `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1502$850'.
+  Set init value: \mem = 0
+Found init rule in `\FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$685'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$681'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$667'.
+  Set init value: \Q = 1'0
+Found init rule in `\FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$663'.
+  Set init value: \Q = 1'0
+Found init rule in `\FDSE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$649'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDSE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$645'.
+  Set init value: \Q = 1'1
+Found init rule in `\FDRE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$627'.
+  Set init value: \Q = 1'0
+Found init rule in `\FDRE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$623'.
+  Set init value: \Q = 1'0
+
+2.4.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \PRE in `\FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:815$682'.
+Found async reset \PRE in `\FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:774$679'.
+Found async reset \CLR in `\FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:736$664'.
+Found async reset \CLR in `\FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:695$661'.
+
+2.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~31 debug messages>
+
+2.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\SRLC32E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2405$1380'.
+Creating decoders for process `\SRLC32E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2413$1379'.
+     1/1: $0\r[31:0]
+Creating decoders for process `\SRLC16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2361$1373'.
+Creating decoders for process `\SRLC16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2369$1372'.
+     1/1: $0\r[15:0]
+Creating decoders for process `\SRLC16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2329$1366'.
+Creating decoders for process `\SRLC16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2332$1365'.
+Creating decoders for process `\SRL16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2292$1363'.
+Creating decoders for process `\SRL16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2299$1362'.
+     1/1: $0\r[15:0]
+Creating decoders for process `\SRL16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2264$1356'.
+Creating decoders for process `\SRL16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2266$1355'.
+Creating decoders for process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1980$1281'.
+Creating decoders for process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1979$1280'.
+Creating decoders for process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1978$1279'.
+Creating decoders for process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1977$1278'.
+Creating decoders for process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+     1/16: $1$lookahead\mem_d$1174[63:0]$1207
+     2/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1991$1164[63:0]$1202
+     3/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1991$1163[63:0]$1201
+     4/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1991$1165[5:0]$1203
+     5/16: $1$lookahead\mem_c$1173[63:0]$1206
+     6/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1990$1161[63:0]$1199
+     7/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1990$1160[63:0]$1198
+     8/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1990$1162[5:0]$1200
+     9/16: $1$lookahead\mem_b$1172[63:0]$1205
+    10/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1989$1158[63:0]$1196
+    11/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1989$1157[63:0]$1195
+    12/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1989$1159[5:0]$1197
+    13/16: $1$lookahead\mem_a$1171[63:0]$1204
+    14/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1988$1155[63:0]$1193
+    15/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1988$1154[63:0]$1192
+    16/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1988$1156[5:0]$1194
+Creating decoders for process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1806$1129'.
+Creating decoders for process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1805$1128'.
+Creating decoders for process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1804$1127'.
+Creating decoders for process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1803$1126'.
+Creating decoders for process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+     1/16: $1$lookahead\mem_d$1002[63:0]$1035
+     2/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1817$984[63:0]$1030
+     3/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1817$983[63:0]$1029
+     4/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1817$985[31:0]$1031
+     5/16: $1$lookahead\mem_c$1001[63:0]$1034
+     6/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1816$981[63:0]$1027
+     7/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1816$980[63:0]$1026
+     8/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1816$982[31:0]$1028
+     9/16: $1$lookahead\mem_b$1000[63:0]$1033
+    10/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1815$978[63:0]$1024
+    11/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1815$977[63:0]$1023
+    12/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1815$979[31:0]$1025
+    13/16: $1$lookahead\mem_a$999[63:0]$1032
+    14/16: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1814$975[63:0]$1021
+    15/16: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1814$974[63:0]$1020
+    16/16: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1814$976[31:0]$1022
+Creating decoders for process `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1712$970'.
+Creating decoders for process `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+     1/4: $1$lookahead\mem$932[127:0]$941
+     2/4: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$927[127:0]$939
+     3/4: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$926[127:0]$938
+     4/4: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$928[6:0]$940
+Creating decoders for process `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1607$922'.
+Creating decoders for process `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+     1/4: $1$lookahead\mem$884[63:0]$893
+     2/4: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$879[63:0]$891
+     3/4: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$878[63:0]$890
+     4/4: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$880[5:0]$892
+Creating decoders for process `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1561$877'.
+Creating decoders for process `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+     1/4: $1$lookahead\mem$857[31:0]$866
+     2/4: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$852[31:0]$864
+     3/4: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$851[31:0]$863
+     4/4: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$853[4:0]$865
+Creating decoders for process `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1502$850'.
+Creating decoders for process `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+     1/4: $1$lookahead\mem$818[31:0]$827
+     2/4: $1$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$813[31:0]$825
+     3/4: $1$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$812[31:0]$824
+     4/4: $1$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$814[4:0]$826
+Creating decoders for process `\FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$685'.
+Creating decoders for process `\FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:815$682'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$681'.
+Creating decoders for process `\FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:774$679'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$667'.
+Creating decoders for process `\FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:736$664'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$663'.
+Creating decoders for process `\FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:695$661'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDSE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$649'.
+Creating decoders for process `\FDSE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:592$646'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDSE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$645'.
+Creating decoders for process `\FDSE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:559$642'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDRE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$627'.
+Creating decoders for process `\FDRE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:527$624'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\FDRE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$623'.
+Creating decoders for process `\FDRE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:494$620'.
+     1/1: $0\Q[0:0]
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$68'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$75
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_DATA[71:0]$74
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_ADDR[8:0]$73
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$60'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$67
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_DATA[71:0]$66
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_ADDR[8:0]$65
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$52'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$59
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_DATA[71:0]$58
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_ADDR[8:0]$57
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$44'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$51
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_DATA[71:0]$50
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_ADDR[8:0]$49
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$36'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$43
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_DATA[71:0]$42
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_ADDR[8:0]$41
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$28'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$35
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_DATA[71:0]$34
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_ADDR[8:0]$33
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$20'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$27
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_DATA[71:0]$26
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_ADDR[8:0]$25
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$12'.
+     1/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$19
+     2/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_DATA[71:0]$18
+     3/3: $1$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_ADDR[8:0]$17
+Creating decoders for process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:13$9'.
+     1/1: $0\rd[71:0]
+
+2.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\SRLC32E.\r' using process `\SRLC32E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2413$1379'.
+  created $dff cell `$procdff$1688' with positive edge clock.
+Creating register for signal `\SRLC16E.\r' using process `\SRLC16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2369$1372'.
+  created $dff cell `$procdff$1689' with positive edge clock.
+Creating register for signal `\SRLC16.\r' using process `\SRLC16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2332$1365'.
+  created $dff cell `$procdff$1690' with positive edge clock.
+Creating register for signal `\SRL16E.\r' using process `\SRL16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2299$1362'.
+  created $dff cell `$procdff$1691' with positive edge clock.
+Creating register for signal `\SRL16.\r' using process `\SRL16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2266$1355'.
+  created $dff cell `$procdff$1692' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_a' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1693' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_b' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1694' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_c' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1695' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_d' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1696' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1988$1154' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1697' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1988$1155' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1698' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1988$1156' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1699' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1989$1157' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1700' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1989$1158' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1701' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1989$1159' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1702' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1990$1160' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1703' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1990$1161' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1704' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1990$1162' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1705' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1991$1163' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1706' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1991$1164' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1707' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1991$1165' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1708' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_a$1171' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1709' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_b$1172' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1710' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_c$1173' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1711' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_d$1174' using process `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+  created $dff cell `$procdff$1712' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_a' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1713' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_b' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1714' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_c' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1715' with positive edge clock.
+Creating register for signal `\RAM32M.\mem_d' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1716' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1814$974' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1717' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1814$975' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1718' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1814$976' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1719' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1815$977' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1720' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1815$978' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1721' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1815$979' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1722' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1816$980' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1723' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1816$981' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1724' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1816$982' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1725' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1817$983' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1726' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1817$984' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1727' with positive edge clock.
+Creating register for signal `\RAM32M.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1817$985' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1728' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_a$999' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1729' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_b$1000' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1730' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_c$1001' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1731' with positive edge clock.
+Creating register for signal `\RAM32M.$lookahead\mem_d$1002' using process `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+  created $dff cell `$procdff$1732' with positive edge clock.
+Creating register for signal `\RAM128X1D.\mem' using process `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+  created $dff cell `$procdff$1733' with positive edge clock.
+Creating register for signal `\RAM128X1D.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$926' using process `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+  created $dff cell `$procdff$1734' with positive edge clock.
+Creating register for signal `\RAM128X1D.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$927' using process `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+  created $dff cell `$procdff$1735' with positive edge clock.
+Creating register for signal `\RAM128X1D.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$928' using process `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+  created $dff cell `$procdff$1736' with positive edge clock.
+Creating register for signal `\RAM128X1D.$lookahead\mem$932' using process `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+  created $dff cell `$procdff$1737' with positive edge clock.
+Creating register for signal `\RAM64X1D.\mem' using process `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+  created $dff cell `$procdff$1738' with positive edge clock.
+Creating register for signal `\RAM64X1D.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$878' using process `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+  created $dff cell `$procdff$1739' with positive edge clock.
+Creating register for signal `\RAM64X1D.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$879' using process `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+  created $dff cell `$procdff$1740' with positive edge clock.
+Creating register for signal `\RAM64X1D.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$880' using process `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+  created $dff cell `$procdff$1741' with positive edge clock.
+Creating register for signal `\RAM64X1D.$lookahead\mem$884' using process `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+  created $dff cell `$procdff$1742' with positive edge clock.
+Creating register for signal `\RAM32X1D_1.\mem' using process `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+  created $dff cell `$procdff$1743' with negative edge clock.
+Creating register for signal `\RAM32X1D_1.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$851' using process `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+  created $dff cell `$procdff$1744' with negative edge clock.
+Creating register for signal `\RAM32X1D_1.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$852' using process `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+  created $dff cell `$procdff$1745' with negative edge clock.
+Creating register for signal `\RAM32X1D_1.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$853' using process `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+  created $dff cell `$procdff$1746' with negative edge clock.
+Creating register for signal `\RAM32X1D_1.$lookahead\mem$857' using process `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+  created $dff cell `$procdff$1747' with negative edge clock.
+Creating register for signal `\RAM32X1D.\mem' using process `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+  created $dff cell `$procdff$1748' with positive edge clock.
+Creating register for signal `\RAM32X1D.$bitselwrite$mask$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$812' using process `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+  created $dff cell `$procdff$1749' with positive edge clock.
+Creating register for signal `\RAM32X1D.$bitselwrite$data$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$813' using process `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+  created $dff cell `$procdff$1750' with positive edge clock.
+Creating register for signal `\RAM32X1D.$bitselwrite$sel$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$814' using process `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+  created $dff cell `$procdff$1751' with positive edge clock.
+Creating register for signal `\RAM32X1D.$lookahead\mem$818' using process `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+  created $dff cell `$procdff$1752' with positive edge clock.
+Creating register for signal `\FDPE_1.\Q' using process `\FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:815$682'.
+  created $adff cell `$procdff$1753' with negative edge clock and positive level reset.
+Creating register for signal `\FDPE.\Q' using process `\FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:774$679'.
+  created $adff cell `$procdff$1754' with positive edge clock and positive level reset.
+Creating register for signal `\FDCE_1.\Q' using process `\FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:736$664'.
+  created $adff cell `$procdff$1755' with negative edge clock and positive level reset.
+Creating register for signal `\FDCE.\Q' using process `\FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:695$661'.
+  created $adff cell `$procdff$1756' with positive edge clock and positive level reset.
+Creating register for signal `\FDSE_1.\Q' using process `\FDSE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:592$646'.
+  created $dff cell `$procdff$1757' with negative edge clock.
+Creating register for signal `\FDSE.\Q' using process `\FDSE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:559$642'.
+  created $dff cell `$procdff$1758' with positive edge clock.
+Creating register for signal `\FDRE_1.\Q' using process `\FDRE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:527$624'.
+  created $dff cell `$procdff$1759' with negative edge clock.
+Creating register for signal `\FDRE.\Q' using process `\FDRE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:494$620'.
+  created $dff cell `$procdff$1760' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$68'.
+  created $dff cell `$procdff$1761' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$68'.
+  created $dff cell `$procdff$1762' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$68'.
+  created $dff cell `$procdff$1763' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$60'.
+  created $dff cell `$procdff$1764' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$60'.
+  created $dff cell `$procdff$1765' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$60'.
+  created $dff cell `$procdff$1766' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$52'.
+  created $dff cell `$procdff$1767' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$52'.
+  created $dff cell `$procdff$1768' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$52'.
+  created $dff cell `$procdff$1769' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$44'.
+  created $dff cell `$procdff$1770' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$44'.
+  created $dff cell `$procdff$1771' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$44'.
+  created $dff cell `$procdff$1772' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$36'.
+  created $dff cell `$procdff$1773' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$36'.
+  created $dff cell `$procdff$1774' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$36'.
+  created $dff cell `$procdff$1775' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$28'.
+  created $dff cell `$procdff$1776' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$28'.
+  created $dff cell `$procdff$1777' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$28'.
+  created $dff cell `$procdff$1778' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$20'.
+  created $dff cell `$procdff$1779' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$20'.
+  created $dff cell `$procdff$1780' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$20'.
+  created $dff cell `$procdff$1781' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_ADDR' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$12'.
+  created $dff cell `$procdff$1782' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_DATA' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$12'.
+  created $dff cell `$procdff$1783' with positive edge clock.
+Creating register for signal `\ram_fixture.$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$12'.
+  created $dff cell `$procdff$1784' with positive edge clock.
+Creating register for signal `\ram_fixture.\rd' using process `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:13$9'.
+  created $dff cell `$procdff$1785' with positive edge clock.
+
+2.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `SRLC32E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2405$1380'.
+Found and cleaned up 1 empty switch in `\SRLC32E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2413$1379'.
+Removing empty process `SRLC32E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2413$1379'.
+Removing empty process `SRLC16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2361$1373'.
+Found and cleaned up 1 empty switch in `\SRLC16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2369$1372'.
+Removing empty process `SRLC16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2369$1372'.
+Removing empty process `SRLC16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2329$1366'.
+Removing empty process `SRLC16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2332$1365'.
+Removing empty process `SRL16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2292$1363'.
+Found and cleaned up 1 empty switch in `\SRL16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2299$1362'.
+Removing empty process `SRL16E.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2299$1362'.
+Removing empty process `SRL16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2264$1356'.
+Removing empty process `SRL16.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:2266$1355'.
+Removing empty process `RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1980$1281'.
+Removing empty process `RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1979$1280'.
+Removing empty process `RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1978$1279'.
+Removing empty process `RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1977$1278'.
+Found and cleaned up 1 empty switch in `\RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+Removing empty process `RAM64M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1986$1175'.
+Removing empty process `RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1806$1129'.
+Removing empty process `RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1805$1128'.
+Removing empty process `RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1804$1127'.
+Removing empty process `RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1803$1126'.
+Found and cleaned up 1 empty switch in `\RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+Removing empty process `RAM32M.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1812$1003'.
+Removing empty process `RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1712$970'.
+Found and cleaned up 1 empty switch in `\RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+Removing empty process `RAM128X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1716$933'.
+Removing empty process `RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1607$922'.
+Found and cleaned up 1 empty switch in `\RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+Removing empty process `RAM64X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1611$885'.
+Removing empty process `RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1561$877'.
+Found and cleaned up 1 empty switch in `\RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+Removing empty process `RAM32X1D_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1565$858'.
+Removing empty process `RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1502$850'.
+Found and cleaned up 1 empty switch in `\RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+Removing empty process `RAM32X1D.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:1506$819'.
+Removing empty process `FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$685'.
+Found and cleaned up 1 empty switch in `\FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:815$682'.
+Removing empty process `FDPE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:815$682'.
+Removing empty process `FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$681'.
+Found and cleaned up 1 empty switch in `\FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:774$679'.
+Removing empty process `FDPE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:774$679'.
+Removing empty process `FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$667'.
+Found and cleaned up 1 empty switch in `\FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:736$664'.
+Removing empty process `FDCE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:736$664'.
+Removing empty process `FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$663'.
+Found and cleaned up 1 empty switch in `\FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:695$661'.
+Removing empty process `FDCE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:695$661'.
+Removing empty process `FDSE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$649'.
+Found and cleaned up 2 empty switches in `\FDSE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:592$646'.
+Removing empty process `FDSE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:592$646'.
+Removing empty process `FDSE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$645'.
+Found and cleaned up 2 empty switches in `\FDSE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:559$642'.
+Removing empty process `FDSE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:559$642'.
+Removing empty process `FDRE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$627'.
+Found and cleaned up 2 empty switches in `\FDRE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:527$624'.
+Removing empty process `FDRE_1.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:527$624'.
+Removing empty process `FDRE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:0$623'.
+Found and cleaned up 2 empty switches in `\FDRE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:494$620'.
+Removing empty process `FDRE.$proc$/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_sim.v:494$620'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$68'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$68'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$60'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$60'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$52'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$52'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$44'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$44'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$36'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$36'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$28'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$28'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$20'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$20'.
+Found and cleaned up 1 empty switch in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$12'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$12'.
+Found and cleaned up 2 empty switches in `\ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:13$9'.
+Removing empty process `ram_fixture.$proc$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:13$9'.
+Cleaned up 31 empty switches.
+
+2.4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.5. Executing TRIBUF pass.
+
+2.6. Executing DEMINOUT pass (demote inout ports to input or output).
+
+2.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+Removed 24 unused cells and 99 unused wires.
+<suppressed ~25 debug messages>
+
+2.9. Executing CHECK pass (checking for obvious problems).
+Checking module ram_fixture...
+Found and reported 0 problems.
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ram_fixture..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+2.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ram_fixture.
+    Consolidated identical input bits for $mux cell $procmux$1612:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'111111111000000000000000000000000000000000000000000000000000000000000000, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63]
+      New connections: { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [71:64] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [62:0] } = { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$8_EN[71:0]$71 [63] 63'000000000000000000000000000000000000000000000000000000000000000 }
+    Consolidated identical input bits for $mux cell $procmux$1621:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'000000000111111111000000000000000000000000000000000000000000000000000000, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54]
+      New connections: { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [71:55] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [53:0] } = { 9'000000000 $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63 [54] 54'000000000000000000000000000000000000000000000000000000 }
+    Consolidated identical input bits for $mux cell $procmux$1630:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'000000000000000000111111111000000000000000000000000000000000000000000000, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45]
+      New connections: { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [71:46] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [44:0] } = { 18'000000000000000000 $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55 [45] 45'000000000000000000000000000000000000000000000 }
+    Consolidated identical input bits for $mux cell $procmux$1639:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'000000000000000000000000000111111111000000000000000000000000000000000000, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36]
+      New connections: { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [71:37] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [35:0] } = { 27'000000000000000000000000000 $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47 [36] 36'000000000000000000000000000000000000 }
+    Consolidated identical input bits for $mux cell $procmux$1648:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'000000000000000000000000000000000000111111111000000000000000000000000000, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27]
+      New connections: { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [71:28] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [26:0] } = { 36'000000000000000000000000000000000000 $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39 [27] 27'000000000000000000000000000 }
+    Consolidated identical input bits for $mux cell $procmux$1657:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'000000000000000000000000000000000000000000000111111111000000000000000000, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18]
+      New connections: { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [71:19] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [17:0] } = { 45'000000000000000000000000000000000000000000000 $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31 [18] 18'000000000000000000 }
+    Consolidated identical input bits for $mux cell $procmux$1666:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'000000000000000000000000000000000000000000000000000000111111111000000000, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9]
+      New connections: { $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [71:10] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [8:0] } = { 54'000000000000000000000000000000000000000000000000000000 $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23 [9] 9'000000000 }
+    Consolidated identical input bits for $mux cell $procmux$1675:
+      Old ports: A=72'000000000000000000000000000000000000000000000000000000000000000000000000, B=72'000000000000000000000000000000000000000000000000000000000000000111111111, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0]
+      New connections: $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [71:1] = { 63'000000000000000000000000000000000000000000000000000000000000000 $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] $0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15 [0] }
+  Optimizing cells in module \ram_fixture.
+Performed a total of 8 changes.
+
+2.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ram_fixture..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+2.10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ram_fixture.
+Performed a total of 0 changes.
+
+2.10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.10.16. Finished OPT passes. (There is nothing left to do.)
+
+2.11. Executing FSM pass (extract and optimize FSM).
+
+2.11.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.11.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.11.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.11.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.11.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.11.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.11.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ram_fixture..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+2.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ram_fixture.
+Performed a total of 0 changes.
+
+2.12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.12.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1785 ($dff) from module ram_fixture (D = $procmux$1684_Y, Q = \rd).
+Adding SRST signal on $auto$ff.cc:266:slice$1794 ($dffe) from module ram_fixture (D = $memrd$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:14$10_DATA, Q = \rd, rval = 72'101001011010010110100101101001011010010110100101101001011010010110100101).
+
+2.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+2.12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.12.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ram_fixture..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~24 debug messages>
+
+2.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ram_fixture.
+Performed a total of 0 changes.
+
+2.12.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.12.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.12.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.12.16. Finished OPT passes. (There is nothing left to do.)
+
+2.13. Executing WREDUCE pass (reducing word size of cells).
+Removed top 23 address bits (of 32) from memory init port ram_fixture.$meminit$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:0$11 (memory).
+Removed top 63 bits (of 72) from wire ram_fixture.$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$1_EN[71:0]$15.
+Removed top 54 bits (of 72) from wire ram_fixture.$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$2_EN[71:0]$23.
+Removed top 45 bits (of 72) from wire ram_fixture.$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$3_EN[71:0]$31.
+Removed top 36 bits (of 72) from wire ram_fixture.$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$4_EN[71:0]$39.
+Removed top 27 bits (of 72) from wire ram_fixture.$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$5_EN[71:0]$47.
+Removed top 18 bits (of 72) from wire ram_fixture.$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$6_EN[71:0]$55.
+Removed top 9 bits (of 72) from wire ram_fixture.$0$memwr$\memory$/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/fixture.sv:11$7_EN[71:0]$63.
+
+2.14. Executing PEEPOPT pass (run peephole optimizers).
+
+2.15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+2.16. Executing PMUX2SHIFTX pass.
+
+2.17. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\memory'[0] in module `\ram_fixture': merging output FF to cell.
+
+2.18. Executing TECHMAP pass (map to technology primitives).
+
+2.18.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+2.18.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/xc7_dsp_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/xc7_dsp_map.v' to AST representation.
+Generating RTLIL representation for module `\$__MUL25X18'.
+Successfully finished Verilog frontend.
+
+2.18.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~5 debug messages>
+
+2.19. Executing OPT_EXPR pass (perform const folding).
+
+2.20. Executing WREDUCE pass (reducing word size of cells).
+
+2.21. Executing XILINX_DSP pass (pack resources into DSPs).
+
+2.22. Executing TECHMAP pass (map to technology primitives).
+
+2.22.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+2.22.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/cmp2lcu.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/cmp2lcu.v' to AST representation.
+Generating RTLIL representation for module `\_80_lcu_cmp_'.
+Generating RTLIL representation for module `\$__CMP2LCU'.
+Successfully finished Verilog frontend.
+
+2.22.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~7 debug messages>
+
+2.23. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module ram_fixture:
+  created 0 $alu and 0 $macc cells.
+
+2.24. Executing SHARE pass (SAT-based resource sharing).
+
+2.25. Executing OPT pass (performing simple optimizations).
+
+2.25.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.25.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.25.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ram_fixture..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~24 debug messages>
+
+2.25.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ram_fixture.
+Performed a total of 0 changes.
+
+2.25.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.25.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.25.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+Removed 1 unused cells and 73 unused wires.
+<suppressed ~2 debug messages>
+
+2.25.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.25.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.25.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ram_fixture..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~24 debug messages>
+
+2.25.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ram_fixture.
+Performed a total of 0 changes.
+
+2.25.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.25.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.25.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.25.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.25.16. Finished OPT passes. (There is nothing left to do.)
+
+2.26. Executing MEMORY pass.
+
+2.26.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 504 transformations.
+
+2.26.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.26.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+2.26.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.26.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.26.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.26.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating write ports of memory ram_fixture.memory by address:
+  Merging ports 0, 1 (address \wa).
+  Merging ports 0, 2 (address \wa).
+  Merging ports 0, 3 (address \wa).
+  Merging ports 0, 4 (address \wa).
+  Merging ports 0, 5 (address \wa).
+  Merging ports 0, 6 (address \wa).
+  Merging ports 0, 7 (address \wa).
+
+2.26.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.26.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~9 debug messages>
+
+2.26.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.27. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.28. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+mapping memory ram_fixture.memory via $__XILINX_BLOCKRAM_SDP_
+<suppressed ~773 debug messages>
+
+2.29. Executing TECHMAP pass (map to technology primitives).
+
+2.29.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/lutrams_xc5v_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/lutrams_xc5v_map.v' to AST representation.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_SP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_DP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_QP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_OP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_SDP_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_64X8SW_'.
+Generating RTLIL representation for module `\$__XILINX_LUTRAM_32X16DR8_'.
+Successfully finished Verilog frontend.
+
+2.29.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~9 debug messages>
+
+2.30. Executing TECHMAP pass (map to technology primitives).
+
+2.30.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/brams_xc6v_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/brams_xc6v_map.v' to AST representation.
+Generating RTLIL representation for module `\$__XILINX_BLOCKRAM_TDP_'.
+Generating RTLIL representation for module `\$__XILINX_BLOCKRAM_SDP_'.
+Successfully finished Verilog frontend.
+
+2.30.2. Continuing TECHMAP pass.
+Using template $paramod$650b6ef3f495efa93ac924fc1a2ddef6a3acb79f\$__XILINX_BLOCKRAM_SDP_ for cells of type $__XILINX_BLOCKRAM_SDP_.
+No more expansions possible.
+<suppressed ~34 debug messages>
+
+2.31. Executing OPT pass (performing simple optimizations).
+
+2.31.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+<suppressed ~16 debug messages>
+
+2.31.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.31.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.31.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+Removed 0 unused cells and 33 unused wires.
+<suppressed ~1 debug messages>
+
+2.31.5. Finished fast OPT passes.
+
+2.32. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.33. Executing OPT pass (performing simple optimizations).
+
+2.33.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.33.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.33.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ram_fixture..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.33.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ram_fixture.
+Performed a total of 0 changes.
+
+2.33.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.33.6. Executing OPT_SHARE pass.
+
+2.33.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.33.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.33.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.33.10. Finished OPT passes. (There is nothing left to do.)
+
+2.34. Executing XILINX_SRL pass (Xilinx shift register extraction).
+
+2.35. Executing TECHMAP pass (map to technology primitives).
+
+2.35.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.35.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/arith_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_xilinx_lcu'.
+Generating RTLIL representation for module `\_80_xilinx_alu'.
+Successfully finished Verilog frontend.
+
+2.35.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $logic_and.
+No more expansions possible.
+<suppressed ~81 debug messages>
+
+2.36. Executing OPT pass (performing simple optimizations).
+
+2.36.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.36.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ram_fixture'.
+Removed a total of 0 cells.
+
+2.36.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.36.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ram_fixture..
+
+2.36.5. Finished fast OPT passes.
+
+2.37. Executing TECHMAP pass (map to technology primitives).
+
+2.37.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.37.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$__SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_MUXF78'.
+Successfully finished Verilog frontend.
+
+2.37.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~76 debug messages>
+
+2.38. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+
+2.39. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ram_fixture.
+
+2.40. Executing ABC pass (technology mapping using ABC).
+
+2.40.1. Extracting gate netlist of module `\ram_fixture' to `<abc-temp-dir>/input.blif'..
+Extracted 8 gates and 17 wires to a netlist network with 9 inputs and 8 outputs.
+
+2.40.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lut <abc-temp-dir>/lutdefs.txt 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + if 
+ABC: + mfs2 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.40.1.2. Re-integrating ABC results.
+ABC RESULTS:              $lut cells:        8
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        9
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+Removed 0 unused cells and 17 unused wires.
+
+2.41. Executing TECHMAP pass (map to technology primitives).
+
+2.41.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/ff_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/ff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFFE_NP0P_'.
+Generating RTLIL representation for module `\$_DFFE_PP0P_'.
+Generating RTLIL representation for module `\$_DFFE_NP1P_'.
+Generating RTLIL representation for module `\$_DFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DFFSRE_NPPP_'.
+Generating RTLIL representation for module `\$_DFFSRE_PPPP_'.
+Generating RTLIL representation for module `\$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `\$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `\$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `\$_DLATCH_NP0_'.
+Generating RTLIL representation for module `\$_DLATCH_PP0_'.
+Generating RTLIL representation for module `\$_DLATCH_NP1_'.
+Generating RTLIL representation for module `\$_DLATCH_PP1_'.
+Generating RTLIL representation for module `\$_DLATCH_NPP_'.
+Generating RTLIL representation for module `\$_DLATCH_PPP_'.
+Successfully finished Verilog frontend.
+
+2.41.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~18 debug messages>
+
+2.42. Executing XILINX_SRL pass (Xilinx shift register extraction).
+
+2.43. Executing TECHMAP pass (map to technology primitives).
+
+2.43.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/lut_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/lut_map.v' to AST representation.
+Generating RTLIL representation for module `\$lut'.
+Successfully finished Verilog frontend.
+
+2.43.2. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_map.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/xilinx/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$__SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_SHREG_'.
+Generating RTLIL representation for module `\$__XILINX_MUXF78'.
+Successfully finished Verilog frontend.
+
+2.43.3. Continuing TECHMAP pass.
+Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+No more expansions possible.
+<suppressed ~27 debug messages>
+
+2.44. Executing XILINX_DFFOPT pass (optimize FF control signal usage).
+Optimizing FFs in ram_fixture.
+
+2.45. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in ram_fixture.
+Removed 0 unused cells and 16 unused wires.
+
+2.46. Executing HIERARCHY pass (managing design hierarchy).
+
+2.46.1. Analyzing design hierarchy..
+Top module:  \ram_fixture
+
+2.46.2. Analyzing design hierarchy..
+Top module:  \ram_fixture
+Removed 0 unused modules.
+Warning: Resizing cell port ram_fixture.memory.0.0.ADDRARDADDR from 17 bits to 16 bits.
+Warning: Resizing cell port ram_fixture.memory.0.0.ADDRBWRADDR from 17 bits to 16 bits.
+
+2.47. Printing statistics.
+
+=== ram_fixture ===
+
+   Number of wires:                 18
+   Number of wire bits:            499
+   Number of public wires:          10
+   Number of public wire bits:     175
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     LUT2                            8
+     RAMB36E1                        1
+
+   Estimated number of LCs:          4
+
+2.48. Executing CHECK pass (checking for obvious problems).
+Checking module ram_fixture...
+Found and reported 0 problems.
+
+3. Executing CHECK pass (checking for obvious problems).
+Checking module ram_fixture...
+Found and reported 0 problems.
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\ram_fixture'.
+
+5. Executing JSON backend.
