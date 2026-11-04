@@ -91,6 +91,8 @@ jobs:
         run: python3 tools/check_xc7_ram_models.py
       - name: Synthesize the complete core-clock system and check its structure
         run: python3 tools/estimate_xc7_system.py
+      - name: Check every mapped DSP configuration against vendor models and integer arithmetic
+        run: python3 tools/check_xc7_dsp.py
       - name: Preserve notices for the generated synthesis-library copies
         if: always()
         run: |
@@ -107,8 +109,10 @@ jobs:
             reports/xc7-system-estimate.json
             reports/xc7-memory-mapping.json
             reports/xc7-ram-models.json
+            reports/xc7-dsp.json
             build/xc7-memory-mapping/
             build/xc7-ram-models/
+            build/xc7-dsp/
             build/xc7-system/*.log
             build/xc7-system/*.ys
             build/xc7-system/mapping-overlay/
