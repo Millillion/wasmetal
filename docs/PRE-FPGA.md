@@ -65,8 +65,9 @@ board result and foundry signoff are separate kinds of evidence.
   round-trip checks. The current ULX3S placement uses 192 of 208 block RAMs;
   the direct-rounding baseline places 61,344 logic cells. An equivalent
   reset-distribution experiment adds 31 LUTs and reduces the placer wire-length
-  cost by 7.1%, with unchanged capacities. Both wrapper comparisons and native
-  integration checks pass; the new complete mapped comparisons are running.
+  cost by 7.1%, with unchanged capacities. Both wrapper comparisons and the
+  baseline's 35 native/mapped integration cases pass. The complete official
+  host-backed mapped regression is still running.
   [Routing remains incomplete](PLACEMENT.md).
 - [x] Measure the complete programmable system on a larger FPGA family without
   reducing configured capacities. The [7-series estimate](research/xc7-system-estimate.json)
@@ -78,7 +79,7 @@ board result and foundry signoff are separate kinds of evidence.
   The [five-geometry regression](XILINX-MEMORY.md) passes 26,028 operations per
   model and rejects six faults, including a real 72-bit RAM mapping defect in
   pinned Yosys 0.33. The estimator now applies a verified private correction;
-  the corrected complete-system synthesis is running. Earlier Xilinx estimates
+  the estimate is being refreshed with an audit of unused RAM address pins. Earlier Xilinx estimates
   remain historical resource measurements with a known functional defect.
 - [x] Complete a comparison of every original CPU logic-mapping boundary bit.
   [All 28,506 bits pass](verification/core-mapping-cones.json) for the

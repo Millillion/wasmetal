@@ -20,7 +20,10 @@ memory, register and DSP counts. The new mapped CPU passes
 [5,352 execution assertions in four scalar/SIMD floating-point suites](docs/verification/fp-round-mapped-focused.json).
 All five [compiled-C cases](docs/verification/c-workload-mapped.json) also pass
 on the new RTL and mapped programmable system, with exact UART and cycle agreement.
-Its complete mapped corpus and 35-case programmable comparison are running.
+Its [35-case programmable comparison](docs/verification/loadable-mapped.json)
+also passes, with identical UART bytes, execution results and clock counts,
+and all seven comparison fault controls rejected. The complete official
+host-backed mapped corpus is still running.
 The complete system also passes a new
 [four-state boot and upload campaign](docs/verification/loadable-four-state.json)
 at production capacities. All 1,492,992 bits in the five writable program stores
