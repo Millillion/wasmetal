@@ -1,0 +1,22 @@
+test_complete_partition_matches_native_counts_and_cycles (spec_ci_test.CompleteCoverage.test_complete_partition_matches_native_counts_and_cycles) ... ok
+test_false_success_evidence_is_rejected (spec_ci_test.CompleteCoverage.test_false_success_evidence_is_rejected) ... ok
+test_immutable_state_is_allowed (spec_ci_test.CompleteCoverage.test_immutable_state_is_allowed) ... ok
+test_missing_and_duplicate_shards_fail (spec_ci_test.CompleteCoverage.test_missing_and_duplicate_shards_fail) ... ok
+test_nonlocal_and_stateful_script_commands_are_rejected (spec_ci_test.CompleteCoverage.test_nonlocal_and_stateful_script_commands_are_rejected) ... ok
+test_plan_cannot_omit_duplicate_or_reorder_commands (spec_ci_test.CompleteCoverage.test_plan_cannot_omit_duplicate_or_reorder_commands) ... ok
+test_state_and_unknown_imports_are_rejected (spec_ci_test.CompleteCoverage.test_state_and_unknown_imports_are_rejected) ... ok
+test_immutable_state_is_allowed (spec_ci_test.PartitionSafety.test_immutable_state_is_allowed) ... ok
+test_nonlocal_and_stateful_script_commands_are_rejected (spec_ci_test.PartitionSafety.test_nonlocal_and_stateful_script_commands_are_rejected) ... ok
+test_state_and_unknown_imports_are_rejected (spec_ci_test.PartitionSafety.test_state_and_unknown_imports_are_rejected) ... ok
+test_changed_dependency_or_executable_is_rejected (spec_ci_test.WorkspaceReconciliation.test_changed_dependency_or_executable_is_rejected) ... ok
+test_cli_refuses_to_overwrite_input (spec_ci_test.WorkspaceReconciliation.test_cli_refuses_to_overwrite_input) ... ok
+test_failed_cli_merge_removes_previous_success (spec_ci_test.WorkspaceReconciliation.test_failed_cli_merge_removes_previous_success) ... ok
+test_missing_runner_dependency_is_rejected (spec_ci_test.WorkspaceReconciliation.test_missing_runner_dependency_is_rejected) ... ok
+test_new_rtl_source_is_rejected (spec_ci_test.WorkspaceReconciliation.test_new_rtl_source_is_rejected) ... ok
+test_substituted_executable_is_rejected (spec_ci_test.WorkspaceReconciliation.test_substituted_executable_is_rejected) ... ok
+test_unrelated_tools_do_not_change_execution_identity (spec_ci_test.WorkspaceReconciliation.test_unrelated_tools_do_not_change_execution_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.330s
+
+OK

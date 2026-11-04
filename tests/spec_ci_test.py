@@ -1,16 +1,21 @@
 """Missing tests, mutable state and mismatched models must never yield a CI pass."""
 from collections import Counter
 from copy import deepcopy
+from contextlib import redirect_stderr
+import io
+import json
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import run_spec
 import spec_ci
 import spec_shards
+import build_identity
 from wasm_image import Module
 
 
@@ -159,6 +164,114 @@ class CompleteCoverage(PartitionSafety):
             change(reports)
             with self.subTest(label=label), self.assertRaises(ValueError):
                 self.merge(reports)
+
+
+class WorkspaceReconciliation(unittest.TestCase):
+    """Use real files and identity verification; only the workspace is isolated."""
+    def setUp(self):
+        fixture = CompleteCoverage('test_complete_partition_matches_native_counts_and_cycles')
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        self.fixture = fixture
+        self.root = fixture.directory/'identity-fixture'
+        names = ['Makefile', 'tools/upstream.lock.json', 'tools/generate_fpga_ports.py',
+                 'tools/build_identity.py', 'tools/spec_ci.py', 'rtl/tiny.sv', 'sim/tiny.cpp',
+                 'tools/run_spec.py', 'tools/wasm_image.py', 'tools/spec_shards.py',
+                 'build/spectest.wasm', 'build/circuit.v', 'build/native', 'build/mapped']
+        for name in names:
+            path = self.root/name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text('identity-check fixture: '+name+'\n')
+        for module in (spec_ci, build_identity):
+            change = patch.object(module, 'ROOT', self.root)
+            change.start()
+            self.addCleanup(change.stop)
+        self.models = {name: self.root/'build'/name for name in ('native', 'mapped')}
+        manifests = {}
+        for name, binary in self.models.items():
+            build_identity.begin(binary, 'native')
+            snapshot = Path(str(binary)+'.inputs.json')
+            value = json.loads(snapshot.read_text())
+            if name == 'mapped':
+                value.update(backend='mapped-ecp5-functional',
+                             extra_inputs={'build/circuit.v': spec_shards.sha256(self.root/'build/circuit.v')})
+                snapshot.write_text(json.dumps(value))
+            build_identity.finish(binary)
+            manifests[name] = build_identity.verify(binary)
+        fixture.reference.update(build_manifest=manifests['native'],
+            simulator_sha256=manifests['native']['binary_sha256'], source_sha256='1'*64,
+            runner_inputs={name: spec_shards.sha256(self.root/name) for name in
+                ('tools/run_spec.py', 'tools/wasm_image.py', 'tools/spec_shards.py', 'build/spectest.wasm')})
+        for row in fixture.reports:
+            row.update(build_manifest=deepcopy(manifests['mapped']),
+                       simulator_sha256=manifests['mapped']['binary_sha256'],
+                       runner_inputs=deepcopy(fixture.reference['runner_inputs']), source_sha256='2'*64)
+
+    def merge(self):
+        f = self.fixture
+        return spec_ci.merge_reports(f.plan, 'plan', f.reference, 'reference', f.reports,
+                                     'sources', f.entries, execution_models=self.models)
+
+    def test_unrelated_tools_do_not_change_execution_identity(self):
+        with self.assertRaisesRegex(ValueError, 'source_sha256'):
+            self.fixture.merge()
+        first = self.merge()
+        (self.root/'tools/unrelated.py').write_text('unrelated tool added during simulation\n')
+        self.assertEqual(first, self.merge())
+        self.assertIsNone(first['source_sha256'])
+        snapshots = first['workspace_reconciliation']['reported_workspace_sha256']
+        self.assertEqual(snapshots['native'], '1'*64)
+        self.assertEqual(set(snapshots['mapped_shards'].values()), {'2'*64})
+
+    def test_changed_dependency_or_executable_is_rejected(self):
+        for name in ['rtl/tiny.sv', 'sim/tiny.cpp', 'tools/run_spec.py', 'tools/wasm_image.py',
+                     'build/spectest.wasm', 'build/circuit.v', 'build/native', 'build/mapped']:
+            path = self.root/name
+            original = path.read_bytes()
+            try:
+                path.write_bytes(original+b'deliberate corruption\n')
+                with self.subTest(name=name), self.assertRaises((ValueError, RuntimeError)):
+                    self.merge()
+            finally:
+                path.write_bytes(original)
+        self.assertTrue(self.merge()['full_core_suite_passed'])
+
+    def test_new_rtl_source_is_rejected(self):
+        (self.root/'rtl/new.sv').write_text('new RTL input\n')
+        with self.assertRaisesRegex(RuntimeError, 'stale'):
+            self.merge()
+
+    def test_substituted_executable_is_rejected(self):
+        self.models['native'] = self.models['mapped']
+        with self.assertRaisesRegex(ValueError, 'native executable differs'):
+            self.merge()
+
+    def test_missing_runner_dependency_is_rejected(self):
+        self.fixture.reference['runner_inputs'].pop('tools/wasm_image.py')
+        with self.assertRaisesRegex(ValueError, 'runner input inventory'):
+            self.merge()
+
+    def test_failed_cli_merge_removes_previous_success(self):
+        output = self.root/'previous.json'
+        output.write_text('{"full_core_suite_passed": true}\n')
+        argv = ['spec_ci.py', 'merge', '--reference', str(self.root/'reference.json'),
+                '--plan', str(self.root/'plan.json'), '--reports', str(self.root/'reports'),
+                '--output', str(output)]
+        with patch.object(sys, 'argv', argv), patch.object(spec_ci, 'catalog', side_effect=ValueError('catalog failed')):
+            with self.assertRaisesRegex(ValueError, 'catalog failed'):
+                spec_ci.main()
+        self.assertFalse(output.exists())
+
+    def test_cli_refuses_to_overwrite_input(self):
+        reference = self.root/'reference.json'
+        reference.write_text('verification input must survive\n')
+        argv = ['spec_ci.py', 'merge', '--reference', str(reference),
+                '--plan', str(self.root/'plan.json'), '--reports', str(self.root/'reports'),
+                '--output', str(reference)]
+        with patch.object(sys, 'argv', argv), redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                spec_ci.main()
+        self.assertEqual(reference.read_text(), 'verification input must survive\n')
 
 
 if __name__ == '__main__':

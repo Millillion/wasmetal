@@ -369,6 +369,39 @@ remain additional checks with their own scope.
 A rerun replaces a job's named artifact when it uploads reports; consult the
 latest job result. Earlier attempt logs remain available in the workflow history.
 
+The direct-rounding revision now [passes the complete local mapped corpus](verification/core-rounding-mapped.json):
+all 259 suites, 65,353 commands and every canonical command cycle agree with
+native RTL. The [original native report, partition plan and sixteen partition
+reports](verification/core-rounding-mapped) are retained byte-for-byte, along
+with the verification logs and an archive index of their hashes.
+
+During this long local run, unrelated Python tools were added and edited.
+`run_spec.py`'s broad `source_sha256` includes every tool in the workspace, so
+those snapshots differ despite identical CPU, simulator and runner inputs.
+The default CI merge still rejects differing workspace snapshots. An explicit
+local reconciliation can instead verify both actual executables and their
+complete recorded dependencies before and after aggregation:
+
+```sh
+python3 tools/spec_ci.py merge \
+  --reference reports/core-rounding-wait-3.json \
+  --plan reports/rounding-mapped-plan.json --reports build/rounding-spec-shards \
+  --native-simulator build/obj/Vwasmetal_core \
+  --mapped-simulator build/rounding-gate/obj/Vwasmetal_core \
+  --output reports/rounding-mapped-complete.json
+```
+
+This does not edit the original evidence or substitute a common workspace hash.
+The aggregate records each reported workspace fingerprint and sets its single
+`source_sha256` to `null` when no common snapshot exists. Exact build inputs,
+runner inputs, model identity, capacities, official sources, command ownership,
+counts and cycle comparisons remain mandatory. The [real-corpus regression](verification/core-rounding-reconciliation.json)
+rechecks 288 inputs and rejects 26 faults, including corrupted executable bytes,
+changed model and runner identities, omitted commands and false pass claims.
+CI's metadata fixtures additionally modify actual isolated RTL, runner, mapped
+circuit and executable files and require rejection. These checks establish
+functional simulation evidence; they do not establish physical FPGA timing.
+
 ## Progress and independent checks
 
 The progress file is replaced atomically when a suite finishes. It is a partial observation, never evidence of a full pass. The final report is authoritative and follows the end-of-run identity checks. `--verbose` additionally logs the script location before each command, identifying long invocations while they run.

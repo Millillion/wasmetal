@@ -4,6 +4,7 @@ import argparse
 from collections import Counter
 import json
 from pathlib import Path
+import re
 import tarfile
 
 import build_identity
@@ -90,11 +91,48 @@ def create_plan(reference, reference_hash, source_hash, entries, count):
     return plan
 
 
-def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_hash, entries):
+def execution_identity(reference, reports, models):
+    """Recheck actual executables when unrelated workspace snapshots differ.
+
+    The broad source_sha256 includes every Python tool, even unused tools added
+    during a long run. It is not a dependency manifest. This optional path keeps
+    those original fingerprints while requiring the complete executable and
+    runner dependency identities to match the recorded runs and current files.
+    """
+    checks.require(set(models) == {'native', 'mapped'}, 'need both execution models')
+    native = build_identity.verify(Path(models['native']))
+    mapped = build_identity.verify(Path(models['mapped']))
+    checks.require(native == reference['build_manifest'], 'native executable differs from reference')
+    checks.require(native['binary_sha256'] == reference['simulator_sha256'], 'native binary identity mismatch')
+    checks.require(all(mapped == r['build_manifest'] and mapped['binary_sha256'] == r['simulator_sha256']
+                       for r in reports), 'mapped executable differs from shard evidence')
+    expected_runner = {'tools/run_spec.py', 'tools/wasm_image.py', 'tools/spec_shards.py', 'build/spectest.wasm'}
+    checks.require(set(reference['runner_inputs']) == expected_runner, 'unreviewed runner input inventory')
+    for name, value in reference['runner_inputs'].items():
+        checks.require(checks.sha256(ROOT/name) == value, 'runner input changed: '+name)
+    snapshots = {'native': reference['source_sha256'],
+                 'mapped_shards': {r['shard_id']: r['source_sha256'] for r in reports}}
+    for value in [snapshots['native'], *snapshots['mapped_shards'].values()]:
+        checks.require(isinstance(value, str) and re.fullmatch('[0-9a-f]{64}', value) is not None,
+                       'invalid reported workspace fingerprint')
+    inputs = {**native['inputs'], **mapped['inputs'], **mapped.get('extra_inputs', {}),
+              **reference['runner_inputs']}
+    for name in ('tools/spec_ci.py', 'tools/build_identity.py'):
+        inputs[name] = checks.sha256(ROOT/name)
+    return {'policy': 'rechecked executables and exact execution dependencies; workspace snapshots retained',
+            'models': {name: {'path': str(Path(path).resolve()),
+                              'binary_sha256': checks.sha256(path),
+                              'manifest_sha256': checks.sha256(str(path)+'.build.json')}
+                       for name, path in models.items()},
+            'reported_workspace_sha256': snapshots, 'verified_inputs': inputs}
+
+
+def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_hash, entries, *, execution_models=None):
     checks.require(plan['native_reference_sha256'] == reference_hash, 'wrong native reference')
     checks.require(plan['spec'] == reference['spec'], 'plan specification mismatch')
     expected = validate_reference(reference,source_hash,entries)
     checks.validate_plan(plan,source_hash,{n:len(c) for n,(_,c) in entries.items()})
+    identity = execution_identity(reference, reports, execution_models) if execution_models is not None else None
     expected_shards = {s['id']:s for s in plan['shards']}
     checks.require(len(reports) == len(expected_shards), 'missing or extra shard reports')
     seen_shards, coverage = set(), {name:set() for name in entries}
@@ -112,8 +150,11 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
         checks.require(report['build_manifest']['binary_sha256'] == report['simulator_sha256'], 'mapped binary identity mismatch')
         checks.require(report['build_manifest']['inputs'] == reference['build_manifest']['inputs'], 'different RTL build inputs')
         for key in ['spec','official_sources_sha256','runner_inputs','rtl_build_id','capacities',
-                    'memory_wait_states','max_cycles_per_invocation','source_sha256']:
+                    'memory_wait_states','max_cycles_per_invocation']:
             checks.require(report[key] == reference[key], f'native/mapped identity mismatch: {key}')
+        if identity is None:
+            checks.require(report['source_sha256'] == reference['source_sha256'],
+                           'native/mapped identity mismatch: source_sha256')
         if first is not None:
             for key in ['simulator_sha256','build_manifest','response_timeout_seconds']:
                 checks.require(report[key] == first[key], f'mixed mapped models/settings: {key}')
@@ -165,6 +206,14 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
     result.update(full_core_suite_selected=True,full_core_suite_passed=True,suite_files=len(suites),suites=suites,
                   totals=dict(totals),shard_ids=sorted(seen_shards),native_reference_sha256=reference_hash,
                   exact_native_command_cycles=True,verification='aggregate of exhaustive disjoint CI command ownership')
+    if identity is not None:
+        checks.require(execution_identity(reference, reports, execution_models) == identity,
+                       'execution inputs changed during reconciliation')
+        # There is no single workspace snapshot when development continued.
+        snapshots = identity['reported_workspace_sha256']
+        result['source_sha256'] = (snapshots['native'] if
+            all(v == snapshots['native'] for v in snapshots['mapped_shards'].values()) else None)
+        result['workspace_reconciliation'] = identity
     return result
 
 
@@ -195,13 +244,30 @@ def main():
     merge.add_argument('--plan',type=Path,required=True)
     merge.add_argument('--reports',type=Path,required=True)
     merge.add_argument('--output',type=Path,required=True)
+    merge.add_argument('--native-simulator', type=Path,
+                       help='with --mapped-simulator, recheck exact execution inputs despite unrelated workspace changes')
+    merge.add_argument('--mapped-simulator', type=Path)
     package = commands.add_parser('pack')
     package.add_argument('--simulator',type=Path,required=True)
     package.add_argument('--output',type=Path,required=True)
     args = parser.parse_args()
+    if args.command == 'merge' and bool(args.native_simulator) != bool(args.mapped_simulator):
+        parser.error('workspace reconciliation requires both simulator paths')
     if args.command == 'pack':
         pack(args.simulator.resolve(),args.output)
         return
+    paths = sorted(args.reports.rglob('mapped-shard-*.json')) if args.command == 'merge' else []
+    protected = [args.reference, *paths]
+    if args.command == 'merge':
+        protected.append(args.plan)
+        if args.native_simulator:
+            protected += [args.native_simulator, args.mapped_simulator,
+                          Path(str(args.native_simulator)+'.build.json'),
+                          Path(str(args.mapped_simulator)+'.build.json')]
+    if args.output.resolve() in {p.resolve() for p in protected}:
+        parser.error('output must not overwrite a verification input')
+    # A failed new aggregation must not leave an older success at its output.
+    args.output.unlink(missing_ok=True)
     source_hash, entries = catalog()
     reference = json.loads(args.reference.read_text())
     if args.command == 'plan':
@@ -211,10 +277,12 @@ def main():
             with args.github_output.open('a') as stream:
                 stream.write('matrix='+json.dumps({'shard':[s['id'] for s in result['shards']]},separators=(',',':'))+'\n')
     else:
-        paths = sorted(args.reports.rglob('mapped-shard-*.json'))
         reports = [json.loads(p.read_text()) for p in paths]
         result = merge_reports(json.loads(args.plan.read_text()),checks.sha256(args.plan),reference,
-                               checks.sha256(args.reference),reports,source_hash,entries)
+                               checks.sha256(args.reference),reports,source_hash,entries,
+                               execution_models=({'native': args.native_simulator.resolve(),
+                                                  'mapped': args.mapped_simulator.resolve()}
+                                                 if args.native_simulator else None))
         result['shard_reports'] = [{'path':str(p),'sha256':checks.sha256(p)} for p in paths]
         write_json(args.output,result)
     print(json.dumps({'command':args.command,'output':str(args.output),
