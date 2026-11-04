@@ -1,0 +1,496 @@
+{
+  "status": "functional_checks_passed_routing_incomplete",
+  "captured_at_utc": "2026-11-04T01:42:45.329596+00:00",
+  "source_revision": "b79b0dbde62857bb8f8ee3fa743b886e988acb5e",
+  "run_url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874",
+  "workflow_conclusion": "cancelled",
+  "scope": "Verified downloaded artifacts and independently compared complete host-backed corpus and bounded programmable integration. The entire workflow did not pass.",
+  "downloaded_archives_match_github_digests": true,
+  "artifacts": [
+    {
+      "id": 13258077226,
+      "name": "compiled-workload",
+      "size_in_bytes": 37656,
+      "digest": "sha256:7bd155037c254af5c70d365dab72b6508beb727d7cb93e66ddb51b2f64ec82cb"
+    },
+    {
+      "id": 13249661576,
+      "name": "loadable-native",
+      "size_in_bytes": 6865,
+      "digest": "sha256:b36bb38ccb1feccfdaaa674334f0e6935f958a1f261bb9d992ebdf084504d063"
+    },
+    {
+      "id": 13261741999,
+      "name": "loadable-results-0",
+      "size_in_bytes": 3960,
+      "digest": "sha256:1eafece9e35d84378e4f748b57291fb93fdfa0854a7ef6a2b9453550957d5a3e"
+    },
+    {
+      "id": 13258525226,
+      "name": "loadable-results-1",
+      "size_in_bytes": 3667,
+      "digest": "sha256:1cf0014e6108b558a86f89cbaadc22229837c455df35bd14d3d3a59adca17266"
+    },
+    {
+      "id": 13263161739,
+      "name": "loadable-results-2",
+      "size_in_bytes": 3708,
+      "digest": "sha256:728690e380555260901c774b0f92b2e84972ba2c08b3075a473da907dc529ab3"
+    },
+    {
+      "id": 13262658215,
+      "name": "loadable-results-3",
+      "size_in_bytes": 3524,
+      "digest": "sha256:e9b5953dc6149f39bfb100440021fa6a545c99941b24ff1863ef354151173ba7"
+    },
+    {
+      "id": 13259820947,
+      "name": "loadable-results-4",
+      "size_in_bytes": 3419,
+      "digest": "sha256:70cf00f2bea2d1fc02d9d5c42f944db30f7102bbf916dcf63fc7526fed931896"
+    },
+    {
+      "id": 13260401420,
+      "name": "loadable-results-5",
+      "size_in_bytes": 3633,
+      "digest": "sha256:badf6fb0af78f4487eb6605db177073b7a7bc15f55cc70327ea4f6959f4b59a1"
+    },
+    {
+      "id": 13271029793,
+      "name": "loadable-routing",
+      "size_in_bytes": 96164,
+      "digest": "sha256:0c081050d031c2c2e1959d5a872dd7ab971ceb70edcb1f4227925dfc54f0acf2"
+    },
+    {
+      "id": 13250001177,
+      "name": "loadable-verification",
+      "size_in_bytes": 1146301,
+      "digest": "sha256:1c28d300b71d9efc22cdf8f7a733c249463805c53ef33b0bb87a6c18b6d338cf"
+    },
+    {
+      "id": 13264592117,
+      "name": "mapped-complete",
+      "size_in_bytes": 157579,
+      "digest": "sha256:a2adb42c0f358d0f0a0453defc6c0980481f9e569a6c3312ee8754af9ed22d0d"
+    },
+    {
+      "id": 13242877795,
+      "name": "standalone-verification",
+      "size_in_bytes": 765101,
+      "digest": "sha256:b82a8c986036c8984adf71cadda560cf294dae459e33a8738121031525fc1cae"
+    },
+    {
+      "id": 13241234569,
+      "name": "verification-reports",
+      "size_in_bytes": 308566,
+      "digest": "sha256:d6b1b7d3a90e20206541a51f80e636286cbe0a8b06ab75a03b5579cb03a17f78"
+    },
+    {
+      "id": 13241476258,
+      "name": "xilinx-resource-estimate",
+      "size_in_bytes": 587494,
+      "digest": "sha256:a2f58abf6fccfa130bdd7430cc18322e87c4674b97e3e428bf0ad0f473adbd25"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 125992596628,
+      "name": "Complete CPU with asynchronous AXI memory",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/125992596628",
+      "started_at": "2026-11-03T14:51:12Z",
+      "completed_at": "2026-11-03T14:59:24Z"
+    },
+    {
+      "id": 125992597075,
+      "name": "Programmable 7-series resource estimate",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/125992597075",
+      "started_at": "2026-11-03T14:51:11Z",
+      "completed_at": "2026-11-03T15:00:30Z"
+    },
+    {
+      "id": 125992597146,
+      "name": "core",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/125992597146",
+      "started_at": "2026-11-03T14:51:11Z",
+      "completed_at": "2026-11-03T15:22:28Z"
+    },
+    {
+      "id": 125992597221,
+      "name": "Complete CPU with behavioral ASIC SRAM",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/125992597221",
+      "started_at": "2026-11-03T14:51:12Z",
+      "completed_at": "2026-11-03T15:00:16Z"
+    },
+    {
+      "id": 125992597387,
+      "name": "Standalone FPGA system",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/125992597387",
+      "started_at": "2026-11-03T14:51:14Z",
+      "completed_at": "2026-11-03T15:19:51Z"
+    },
+    {
+      "id": 125992597783,
+      "name": "Memory interface verification",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/125992597783",
+      "started_at": "2026-11-03T14:51:12Z",
+      "completed_at": "2026-11-03T14:56:21Z"
+    },
+    {
+      "id": 126009962328,
+      "name": "Programmable FPGA routing",
+      "conclusion": "cancelled",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126009962328",
+      "started_at": "2026-11-03T15:29:44Z",
+      "completed_at": "2026-11-03T21:20:44Z"
+    },
+    {
+      "id": 126009962417,
+      "name": "Programmable simulation build",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126009962417",
+      "started_at": "2026-11-03T15:43:07Z",
+      "completed_at": "2026-11-03T16:26:09Z"
+    },
+    {
+      "id": 126011553564,
+      "name": "mapped-build",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126011553564",
+      "started_at": "2026-11-03T15:46:09Z",
+      "completed_at": "2026-11-03T16:00:11Z"
+    },
+    {
+      "id": 126034217171,
+      "name": "Mapped circuit (05)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217171",
+      "started_at": "2026-11-03T16:49:39Z",
+      "completed_at": "2026-11-03T19:24:12Z"
+    },
+    {
+      "id": 126034217203,
+      "name": "Mapped circuit (02)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217203",
+      "started_at": "2026-11-03T16:44:40Z",
+      "completed_at": "2026-11-03T18:12:29Z"
+    },
+    {
+      "id": 126034217251,
+      "name": "Mapped circuit (01)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217251",
+      "started_at": "2026-11-03T17:39:33Z",
+      "completed_at": "2026-11-03T19:09:29Z"
+    },
+    {
+      "id": 126034217253,
+      "name": "Mapped circuit (04)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217253",
+      "started_at": "2026-11-03T17:02:39Z",
+      "completed_at": "2026-11-03T18:28:25Z"
+    },
+    {
+      "id": 126034217324,
+      "name": "Mapped circuit (08)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217324",
+      "started_at": "2026-11-03T16:39:36Z",
+      "completed_at": "2026-11-03T17:46:33Z"
+    },
+    {
+      "id": 126034217330,
+      "name": "Mapped circuit (03)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217330",
+      "started_at": "2026-11-03T16:34:47Z",
+      "completed_at": "2026-11-03T17:57:09Z"
+    },
+    {
+      "id": 126034217417,
+      "name": "Mapped circuit (06)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217417",
+      "started_at": "2026-11-03T17:34:20Z",
+      "completed_at": "2026-11-03T18:56:44Z"
+    },
+    {
+      "id": 126034217570,
+      "name": "Mapped circuit (00)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217570",
+      "started_at": "2026-11-03T17:53:28Z",
+      "completed_at": "2026-11-03T19:22:45Z"
+    },
+    {
+      "id": 126034217584,
+      "name": "Mapped circuit (14)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217584",
+      "started_at": "2026-11-03T16:58:34Z",
+      "completed_at": "2026-11-03T17:54:02Z"
+    },
+    {
+      "id": 126034217669,
+      "name": "Mapped circuit (10)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217669",
+      "started_at": "2026-11-03T16:07:34Z",
+      "completed_at": "2026-11-03T17:11:55Z"
+    },
+    {
+      "id": 126034217758,
+      "name": "Mapped circuit (13)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217758",
+      "started_at": "2026-11-03T16:25:43Z",
+      "completed_at": "2026-11-03T17:03:08Z"
+    },
+    {
+      "id": 126034217765,
+      "name": "Mapped circuit (09)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217765",
+      "started_at": "2026-11-03T16:59:33Z",
+      "completed_at": "2026-11-03T18:08:48Z"
+    },
+    {
+      "id": 126034217785,
+      "name": "Mapped circuit (11)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217785",
+      "started_at": "2026-11-03T16:28:06Z",
+      "completed_at": "2026-11-03T18:53:16Z"
+    },
+    {
+      "id": 126034217999,
+      "name": "Mapped circuit (15)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034217999",
+      "started_at": "2026-11-03T16:07:54Z",
+      "completed_at": "2026-11-03T16:43:05Z"
+    },
+    {
+      "id": 126034218016,
+      "name": "Mapped circuit (12)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034218016",
+      "started_at": "2026-11-03T17:44:03Z",
+      "completed_at": "2026-11-03T18:20:52Z"
+    },
+    {
+      "id": 126034218641,
+      "name": "Mapped circuit (07)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126034218641",
+      "started_at": "2026-11-03T17:06:48Z",
+      "completed_at": "2026-11-03T18:13:58Z"
+    },
+    {
+      "id": 126050169633,
+      "name": "Compiler-generated Wasm on RTL and mapped system",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126050169633",
+      "started_at": "2026-11-03T18:01:21Z",
+      "completed_at": "2026-11-03T18:26:54Z"
+    },
+    {
+      "id": 126050169797,
+      "name": "Programmable mapped circuit (1)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126050169797",
+      "started_at": "2026-11-03T17:56:47Z",
+      "completed_at": "2026-11-03T18:21:09Z"
+    },
+    {
+      "id": 126050169839,
+      "name": "Programmable mapped circuit (0)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126050169839",
+      "started_at": "2026-11-03T17:54:48Z",
+      "completed_at": "2026-11-03T18:50:52Z"
+    },
+    {
+      "id": 126050169981,
+      "name": "Programmable mapped circuit (3)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126050169981",
+      "started_at": "2026-11-03T18:43:59Z",
+      "completed_at": "2026-11-03T19:09:51Z"
+    },
+    {
+      "id": 126050169993,
+      "name": "Programmable mapped circuit (4)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126050169993",
+      "started_at": "2026-11-03T18:00:55Z",
+      "completed_at": "2026-11-03T18:32:06Z"
+    },
+    {
+      "id": 126050170005,
+      "name": "Programmable mapped circuit (5)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126050170005",
+      "started_at": "2026-11-03T18:03:29Z",
+      "completed_at": "2026-11-03T18:31:40Z"
+    },
+    {
+      "id": 126050170328,
+      "name": "Programmable mapped circuit (2)",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126050170328",
+      "started_at": "2026-11-03T18:42:33Z",
+      "completed_at": "2026-11-03T19:04:58Z"
+    },
+    {
+      "id": 126150616818,
+      "name": "Complete mapped corpus",
+      "conclusion": "success",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126150616818",
+      "started_at": "2026-11-03T19:30:19Z",
+      "completed_at": "2026-11-03T19:30:55Z"
+    },
+    {
+      "id": 126213226997,
+      "name": "Complete programmable circuit integration",
+      "conclusion": "failure",
+      "url": "https://github.com/Millillion/wasmetal/actions/runs/41657501874/job/126213226997",
+      "started_at": "2026-11-03T21:30:48Z",
+      "completed_at": "2026-11-03T21:30:54Z"
+    }
+  ],
+  "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
+  "core_reports": [
+    {
+      "artifact_report": "verification-reports/core.json",
+      "report_sha256": "7492a4a6ce7face1683a6fe39838f0a08fc4ac4138379cac117a3194b000267c",
+      "suites": 259,
+      "memory_wait_states": 0,
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 283019023,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      },
+      "binary_sha256": "f8ea29b933a8069b79847bf778b92a1cf02b5b9d2e4e593aa7e2c7b3cceb256c",
+      "all_non_generated_model_inputs_match_workspace": true
+    },
+    {
+      "artifact_report": "verification-reports/core-stalled.json",
+      "report_sha256": "27ee364be414a8d24bd0bf78b225c08713267ec9db9b090306d01808cbab5d6b",
+      "suites": 259,
+      "memory_wait_states": 3,
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 306351688,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      },
+      "binary_sha256": "f8ea29b933a8069b79847bf778b92a1cf02b5b9d2e4e593aa7e2c7b3cceb256c",
+      "all_non_generated_model_inputs_match_workspace": true
+    },
+    {
+      "artifact_report": "mapped-complete/mapped-complete.json",
+      "report_sha256": "cff9f52fc54050aff6a92203a34c3673693164be56c7b618003340478b7981c8",
+      "suites": 259,
+      "memory_wait_states": 3,
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 306351688,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      },
+      "binary_sha256": "a2db2b4cfcf4633e56fb075d86718bd2e7ab9162f7959e32af389b6ac0dac8cb",
+      "all_non_generated_model_inputs_match_workspace": true
+    }
+  ],
+  "mapped_command_cycles_and_counts_independently_match_native": true,
+  "programmable": {
+    "case_count": 35,
+    "netlist_sha256": "9b2c931045c4ae76bc2af75087437be04b0988ac714085f46512daf63ea8fcf5",
+    "all_uart_bytes_results_and_cycles_match_native": true,
+    "report": "docs/verification/ci-programmable-mapped.json",
+    "report_sha256": "7e80bb6020073d4701f90d05cbc0e7177590a689a5841786680112a79c0f08ea",
+    "merge_negative_controls_rejected": [
+      "missing-shard",
+      "duplicate-shard",
+      "native-substitution",
+      "wrong-result",
+      "wrong-clock",
+      "wrong-netlist",
+      "wrong-simulator"
+    ]
+  },
+  "other_checked_reports": [
+    {
+      "artifact_report": "loadable-verification/reports/loadable-mapping-proof.json",
+      "report_sha256": "422d419bc39d9d271d3f017153ce9862599c9a8549e17c3ea68e5319a3e61ece",
+      "status": "passed"
+    },
+    {
+      "artifact_report": "loadable-verification/reports/loadable-board-rtl.json",
+      "report_sha256": "f37d611fba4cc8b7e612d68ecac8f11798fd3ee99e092ac7d3adc4b5f31548b7",
+      "status": "passed"
+    },
+    {
+      "artifact_report": "loadable-verification/reports/loadable-board-rates.json",
+      "report_sha256": "b55e0239e286ad5cbb5198c9b74fa90bcb6f023cc62fcb751584fa10364014dd",
+      "status": "passed"
+    },
+    {
+      "scope": "accelerated wrapper mapping proof",
+      "positive_log_sha256": "5e3b6619bc484da140abf59dc3c67fbceb8fd91670980218b3b96ea3094b64cb",
+      "negative_log_sha256": "2f8e0818d2fc8358e635ad83f15c0e8c266c6c7bd516a387ad2ab1e06f93d0e2",
+      "status": "passed",
+      "inverted_output_rejected": true,
+      "limitation": "Both proof invocations used the same report output path; the later board proof replaced the simulation JSON. Separate logs preserve both outcomes."
+    },
+    {
+      "artifact_report": "compiled-workload/reports/c-workload-mapped.json",
+      "report_sha256": "be94922c2231e6965307c0ff99688fd9e48821466915684b3c6864d34a738ff3",
+      "status": "passed",
+      "cases": 5
+    }
+  ],
+  "routing": {
+    "conclusion": "cancelled",
+    "configured_job_timeout_minutes": 350,
+    "log_sha256": "ce3fcee1d3a88bb26e539accadede6c70ace6a9bd44a6e2d371eeb5035f1b5df",
+    "last_iteration": {
+      "iteration": 49,
+      "wires": 1250410,
+      "overused_wires": 63861,
+      "overuse": 65495
+    },
+    "lowest_observed_overused_wires": {
+      "iteration": 17,
+      "wires": 1056695,
+      "overused_wires": 12315,
+      "overuse": 12438
+    },
+    "verified_programmable_bitstream_available": false
+  },
+  "physical_hardware_tested": false
+}

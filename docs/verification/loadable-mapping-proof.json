@@ -11,23 +11,23 @@
   "positive": {
     "state_output_bits": 5865,
     "compared_bits": 15976,
-    "log_sha256": "963f9405333009b07cb3f2bc69adc450a653df441da4b3d0eb8c46304370d641"
+    "log_sha256": "a528ec78725504c3a1f042f40a87f563e2dd786eb04a6cda69acd16a879af0d6"
   },
   "inverted_output_rejected": true,
   "negative": {
     "state_output_bits": 5865,
     "compared_bits": 15976,
-    "log_sha256": "0415b5cb26103ca6b7a744addf7d078a95ee1f1013735f7ef0fa118a9b639fe3"
+    "log_sha256": "118a8b2a11dc17af8b5212feda327c2b0d03f318a3ea006e57a4f1c09ec9bc6b"
   },
   "inputs": {
-    "tools/prove_loadable_mapping.py": "f9d8f3ac858935d775e449c411fc89e0503d4e6f8b6278a0205f5f33c30078d7",
+    "tools/prove_loadable_mapping.py": "e7820b7ca20902f69c9b227f10d4d3a5f09ea38d9114264a8112780146f32f8f",
     "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
-    "build/loadable-ulx3s-abc9-keep/design.manifest.json": "014b3649ebdd334f26b0b0e57d2cfb1ff5412ce33ce52a14b747ed07dd1d8091",
-    "build/loadable-ulx3s-abc9-keep/wrapper.json": "7422b0f5d60fd9dbd61bc952dc2407d02abe389bf3c607b4bb737ba0cc5bea07",
-    "build/loadable-ulx3s-abc9-keep/wrapper.ys": "9a5d33d52bf23c789e360d76b4a0abe4a874a66c5aa4344d2bfa3c55594c1fa7",
+    "build/loadable-ulx3s/design.manifest.json": "8f42e81e401ff943ba2e45111941596c1c3f166a8dda5ffa92f650ec3de51ef1",
+    "build/loadable-ulx3s/wrapper.json": "6ee26b754f5ab7c179f5bec82f956134f8097e34ce96d65cf5ea483c45273ab0",
+    "build/loadable-ulx3s/wrapper.ys": "72a85d9634e6f3179686f8ecb4fab85b13a352557f402712b1b5379da1e5694d",
     ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
-    "build/build_loadable_abc9_keep.py": "23a1d337ef2419e0c2781a536330d58ff2048b58a5f49ee31cc3abe06b57d985",
+    "tools/build_loadable_board.py": "57a58b47730514b09e7bd338ba7f82aab65062c6fcbddd430ca900bd9ac02053",
     "tools/build_standalone_board.py": "1f016325caa086dd7bf02c5494d5dde1faf86fb0e9992accce340a97c19f4f02",
     "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
     "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
@@ -38,7 +38,7 @@
     "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
     "soc/loader/ulx3s.lpf": "4b471dbaf16f2c0c4991581310d686882d3dad2a286780d16ef19b7307e0bd1a",
     "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
-    "build/loadable-ulx3s-abc9-keep/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
+    "build/loadable-ulx3s/core_stub.v": "272a2fee1d774b5b88fd3ef4a1d84f104967558005e0be27b989f68beccbb327",
     "build/standalone-core-ecp5.json": "c4419ac54bf016dd5c54d9103583760457739bbd5b0235d70dda4cacc40c3c2b",
     "build/standalone-core-ecp5.manifest.json": "6cfd713300f1133250983d0c817d7f663aa736163d70ad27e6f3c20c5ea2665e",
     "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
@@ -75,7 +75,7 @@
       "TRELLIS_DPR16X4": 64
     }
   },
-  "reference_sha256": "a1278ee696796d3a6fecf55127f98ec828bfa1100540d071fa0ac69bbd923ff6",
-  "candidate_sha256": "7422b0f5d60fd9dbd61bc952dc2407d02abe389bf3c607b4bb737ba0cc5bea07",
+  "reference_sha256": "6916e4510d946eee09027803ab30b5ba6414227235eb0534b2b13f5d289fa2a7",
+  "candidate_sha256": "6ee26b754f5ab7c179f5bec82f956134f8097e34ce96d65cf5ea483c45273ab0",
   "physical_hardware_tested": false
 }

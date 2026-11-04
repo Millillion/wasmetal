@@ -112,11 +112,23 @@ passes for 15,976 boundary bits and rejects a deliberately inverted output.
 The [accelerated simulation mapping](docs/verification/loadable-simulation-mapping-proof.json)
 also passes; CI requires both comparisons before the programmable execution
 shards, independently of the long physical-routing job.
+The [completed CI run at b79b0db](docs/verification/ci-programmable.json)
+passed the complete 259-suite corpus in both native configurations and the
+mapped core, plus all six programmable integration shards and five compiled C
+cases. An independent check of the downloaded artifacts confirms
+[all 35 programmable cases match RTL](docs/verification/ci-programmable-mapped.json),
+including UART bytes and cycle counts. The workflow as a whole did **not** pass:
+programmable routing hit its 350-minute job limit, and the final integration
+gate failed. CI now writes separate JSON reports for the board and accelerated
+mapping proofs; previously the later invocation replaced the earlier report,
+although both proof logs were retained.
 Programmable FPGA routing remains unresolved. The current
 [routing experiment snapshot](docs/verification/loadable-routing-status.json)
 records ABC9 placement/routing strategies and an isolated deeper-RAM experiment,
-with unchanged capacities. Earlier interrupted attempts are retained in Git
-history. No programmable bitstream has
+with unchanged capacities. All four recorded trials were stopped after
+prolonged unresolved congestion. Earlier attempts are retained in Git history.
+An isolated instruction-storage compression experiment is now under formal,
+execution and routing evaluation. No programmable bitstream has
 passed routing and timing checks yet. Routing and mapped
 execution have separate CI jobs, and both must pass the final integration check.
 The programmable CI build exposed a command error: the board-clock check was

@@ -128,6 +128,7 @@ sat -timeout 180 -verify -prove mismatch 0
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--directory',type=Path,default=ROOT/'build/loadable-ulx3s')
+    parser.add_argument('--report',type=Path,default=ROOT/'reports/loadable-mapping-proof.json')
     args=parser.parse_args();mapped=args.directory.resolve();directory=mapped/'mapping-proof';directory.mkdir(exist_ok=True)
     manifest_path=mapped/'design.manifest.json';manifest=json.loads(manifest_path.read_text());top=manifest['top']
     paths=[Path(__file__).resolve(),ROOT/'tools/build_board.py',ROOT/'tools/prepare_standalone.py',
@@ -154,7 +155,8 @@ def main():
                          'abc9':dict(Counter(c['type'] for c in candidate['cells'].values()))},
         'reference_sha256':digest(reference_path),'candidate_sha256':digest(mapped/'wrapper.json'),
         'physical_hardware_tested':False}
-    (ROOT/'reports/loadable-mapping-proof.json').write_text(json.dumps(report,indent=2)+'\n')
+    args.report.parent.mkdir(parents=True,exist_ok=True)
+    args.report.write_text(json.dumps(report,indent=2)+'\n')
     print('PASS wrapper mapping equivalence and inverted-output negative control',flush=True)
 
 

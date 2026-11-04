@@ -401,7 +401,7 @@ jobs:
       - name: Map the programmable CPU and verify its RAM modes
         run: make loadable-mapped-build
       - name: Prove the simulation wrapper mapping at every state and CPU boundary
-        run: python3 tools/prove_loadable_mapping.py --directory build/loadable-mapped
+        run: python3 tools/prove_loadable_mapping.py --directory build/loadable-mapped --report reports/loadable-simulation-mapping-proof.json
       - name: Map and audit the board wrapper before physical routing
         run: |
           python3 tools/build_loadable_board.py --map-only
