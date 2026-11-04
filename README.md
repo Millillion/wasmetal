@@ -145,6 +145,11 @@ transitions, and reject eleven faults. Each model also passes its independent
 oracle for all 1,048,576 four-state input combinations. Their X/Z behavior
 differs on 415,001 combinations; this is explicitly recorded, and no
 four-state vendor-equivalence claim is made. CI repeats these checks.
+The remaining mux/inverter logic now has binary equivalence proofs and
+complete four-state tables. All four used flip-flop types pass independent
+startup and state-transition checks in Icarus and Verilator. Their
+[unknown-state limits and vendor reset diagnostic](docs/XILINX-STATE.md)
+are explicit; CI repeats the component checks.
 The [complete Xilinx CPU simulation](docs/XILINX-SYSTEM-SIMULATION.md) now
 passes two original-library smoke cases, matching native RTL UART bytes and
 clock counts exactly. The native reference at 81 clocks per UART bit passes

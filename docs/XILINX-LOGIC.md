@@ -94,3 +94,26 @@ python3 tools/check_xc7_carry.py
 CI repeats the proof, simulation oracles and negative controls. These remain
 untimed component checks, without a physical timing or silicon claim. The
 Yosys library notice is preserved with both logic evidence archives.
+
+## Muxes and inverters
+
+The [mux/inverter receipt](verification/xc7-muxes.json) and
+[evidence archive](verification/xc7-muxes/index.json) cover `MUXF7`, `MUXF8`
+and `INV` against their unmodified, pinned Xilinx sources. All three binary
+equivalence proofs pass. Independent truth-table checks cover every binary
+input in Icarus and Verilator, and every four-state input in Icarus: 18 binary
+and 132 four-state observations per library model.
+
+For an X or Z selector, the vendor mux's procedural `if` chooses input zero.
+Yosys conditionally merges the two inputs. Each mux differs on 18 of its 64
+four-state combinations; both pass their separate Python oracles. The inverter
+agrees for all four input states. Deliberately pretending that the muxes are
+four-state equivalent is rejected. Eleven controls also cover incorrect input
+wiring, flipped outputs and truncated, extra or malformed trace data.
+
+```sh
+python3 tools/check_xc7_muxes.py
+```
+
+CI runs these checks. See [state primitives](XILINX-STATE.md) for the distinct
+clocked-model verification scope.

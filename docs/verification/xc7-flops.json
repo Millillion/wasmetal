@@ -1,0 +1,1696 @@
+{
+  "status": "passed",
+  "scope": "used untimed flip-flop models with binary clocks; startup, control priority and settled state transitions",
+  "inputs": {
+    "tools/check_xc7_flops.py": "d41cb078dabbf5a2023101c6a0e23c11bac899e25e512f866ff72080575e8f4a",
+    "tools/check_xc7_luts.py": "e004d2a631c012e367c625f7053e1dd37a8fbf22a18380f81868eb872565df7a",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    ".cache/tools/usr/share/yosys/xilinx/cells_sim.v": "10f8afc61bf708949ebf238294327dce95eaa68919bb0ab5938d40f24e39d15e",
+    "third_party/xilinx-unisim/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "third_party/xilinx-unisim/UPSTREAM.json": "a2b685dbffe02b5f95cd453268a6f604195391fe54efb30c387baa0904736e2c",
+    "build/xc7-system/mapped.json": "82ba955d81f735d5a0b3dc0b2b65e3670a6fb43f031248b5303ddac28c1a9239",
+    "build/xc7-accelerated/mapped.json": "87e96fb56883e96f48c01dc33878bd5fbe6ce309f0d1d629fe7c8159fc81f3c1",
+    "third_party/xilinx-unisim/FDRE.v": "c6fdb4feddc181a2e7ec5c3abef314fef6d5755f999fc9ccad3bf79d1b543a1c",
+    "third_party/xilinx-unisim/FDRE.UPSTREAM.json": "72b5098f29df0f56b3d89d100efcfd4e4171c601247d46e9b13b7bc708d2c1b4",
+    "third_party/xilinx-unisim/FDSE.v": "173afee3263388433ef35431935175575fea2b4592d77cf87641ea83d416de82",
+    "third_party/xilinx-unisim/FDSE.UPSTREAM.json": "46a2c548a28706b4aa5401acc88075704b176e25bbc0a149f436a8861e09601f",
+    "third_party/xilinx-unisim/FDCE.v": "55f43d08c637cf7b734ed9e64484a70697748d2b6a5ad8e4c3fd8fa6405dbef0",
+    "third_party/xilinx-unisim/FDCE.UPSTREAM.json": "8af2d833f6a993619240c52a462ff7d594f2eb352cf7f693b1cfad6f3ecd4e3e",
+    ".cache/tools/usr/bin/iverilog": "a6071e4b4a68feafca0c8ee0e6aa275eee9a43a108c62801cfd1eca6eab6d8a3",
+    ".cache/tools/usr/bin/vvp": "a10bd7d4a0850308ac8c2c98115b6a3084f9be978307610f2a521190c28f4023",
+    ".cache/tools/usr/bin/verilator": "4c6292ab82e57b7f34ab26dbae86ba9c494bacfb088b6ff34be93c553d1301b1",
+    ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/blif-s.conf": "3ce285013d51a0f632be229a513c17d4f8a314319c0e7d7fbbe53a2339580e1c",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/blif.conf": "3ce285013d51a0f632be229a513c17d4f8a314319c0e7d7fbbe53a2339580e1c",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/blif.tgt": "d0cbf2e24666d55aff2ee988ad3347db38c3270d362b45ca8e9217948e73adfe",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/cadpli.vpl": "865029a77188db6f3518fb34791f6edcbfc6ea62c508fb0bac95f1847220680e",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/ivl": "85568f74fc0cf8dd3811628203621a0cfddb59d2f6f51c1371465ecdc1282b16",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/ivlpp": "c6f1072b825e30dd79267e7056f57447f2aea8655f6e24e1e3eb243e988aa4f1",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/null-s.conf": "8a4b79342b5d58fcd576238e928403c986bf623e5e9c63fc7e199f5c5bf57fae",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/null.conf": "313ef43d707cf69cabac9b02c1cee5223b7179007aa627c0963a567691751cd0",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/null.tgt": "e2d656691ccd392c46e92cc856a16da611fc3907541b0e89a7d8dd7717f262d5",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/pcb-s.conf": "2f184346cab431bfa26ef1bf0a906a8d78469aae495f93974896ec952dee3657",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/pcb.conf": "5a84492e9e830658590cc28d5c39d8b137124ac2f6e5c111a838d91b99aa3cb9",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/pcb.tgt": "97f1983b021e61e7404c4cca31b4a74f65d217a450a0404950620ec26db3c197",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/sizer-s.conf": "03a8f24468995e87b23840915b613abd339843a6ec6d0931b57ea56720ff415d",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/sizer.conf": "03a8f24468995e87b23840915b613abd339843a6ec6d0931b57ea56720ff415d",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/sizer.tgt": "535a22b1527d979fa8af7e2d814ebccfd89ab1908ac7edde964993a568b4aa5b",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/stub-s.conf": "ca77cff51d74ad77e33efd589c82fb410823ad88a5933a5e4aca86251250b302",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/stub.conf": "03c9241decbe4502f087790fe7eaf6568fb7992788fbf56be0f69737a98c67fb",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/stub.tgt": "9813d335364d8bac054782a2c4b69f898715325bd9153cb1dfb4d4c305c325c3",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/system.vpi": "6868f58ea8946117f02081ba8d5de3ad2faa4282268f1338c6a00cbe9743aa60",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi": "262ae7cb39f33e902a20f38c8b09485e59de2bfa95df2318b8a50e6b304bb80c",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi": "70b346009b85cd201efb4c39e4160af31dd382ada1d3377ad4f4e751c5164dbf",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi": "6778d7fce72f28a66f58574de8c5349e4a6db9870957abcca4ae47624b3039e6",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vhdl-s.conf": "d9b3d7de12e25e14c86738110f4e2baf3711f60a161e34ad329104f13ccabc5d",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vhdl.conf": "7f8563bd0a386bedf111f5f23ce827b8efd6749cb3b104cf236358324ccd840a",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vhdl.tgt": "fb410b5516953774dd7235fbb8e619706c997a078735582b4e328902dacc6dfb",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi": "0704b9c10be2a9a07990fd1d319d0758329157061c2fad1bc6fe2ff093fcd659",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi": "51e22882b916f835c9666e0f0e736e09b9888671d159d6bbddfae49d7815a34f",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vhdlpp": "53241cae469ab7b6007d0ca337be73458b7f974e008cab0e70950912fc460b52",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vlog95-s.conf": "f4f09237dc90f1e4e58658b2bb14bb446e93619c911b8ead10cc0240f64cad51",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vlog95.conf": "47d4a923819bdf601c5fa62065b6787f81d2ea64cb0e6b33c33c4e9001d356c0",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vlog95.tgt": "d38913f8714e95d816715d3558386c40ec1e325e681c759ed96a17099bfecabd",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vpi_debug.vpi": "c867c851e5d38c737ba584b5fad1aad018efc453e38c575571f6ae47cd080049",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vvp-s.conf": "34cc3cf237ec8a86b3b740dd656a6953bbe3ff681da0dd0c7dde004c2d98dd84",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vvp.conf": "6013ffb100e35d3a4656d3a24836be36bb782957c174e527c1c570ffe7aa5b41",
+    ".cache/tools/usr/lib/x86_64-linux-gnu/ivl/vvp.tgt": "b8bc79e5fcaaa1b80c61b18823b16e766e636675ea6b8dc0f59e5d3bf7eabc93",
+    ".cache/tools/usr/share/verilator/include/gtkwave/fastlz.c": "35d2b3ab8ea04615cc56dee1a7017610f459b57aef51d9de69c71c24bd9ee719",
+    ".cache/tools/usr/share/verilator/include/gtkwave/fastlz.h": "4dd943f4063e0d13034a87bd66a54f689014b3ea5f92c07b9938f271ffa38a0c",
+    ".cache/tools/usr/share/verilator/include/gtkwave/fst_config.h": "d8b84770187034bb7aee6c41eeb49725e84ad9dc1d3302903dfc979b03b4d6ad",
+    ".cache/tools/usr/share/verilator/include/gtkwave/fst_win_unistd.h": "15ec1054e9c5fa8118060ca5b5dab0bbb2d4879c43b53c9457cb416fce97b19f",
+    ".cache/tools/usr/share/verilator/include/gtkwave/fstapi.c": "41101cac5bcf9dc6594388d793a58b27e2b7f237e32d96fb292cde7d0318c011",
+    ".cache/tools/usr/share/verilator/include/gtkwave/fstapi.h": "9b401991a1d433eec862a8636e2d218e9e572df7a4e62643ebccbf88fc417377",
+    ".cache/tools/usr/share/verilator/include/gtkwave/lz4.c": "cbd1ab0f75043ddada4d08480a1df36e5aa46483cf7902e330cb6b4a51840e2d",
+    ".cache/tools/usr/share/verilator/include/gtkwave/lz4.h": "cee1c5b0b553cd610a73c6823e12b286402644668f7b43037df4c86c388bb41e",
+    ".cache/tools/usr/share/verilator/include/gtkwave/wavealloca.h": "c328c316a145aba0473ac6a5201ca832da4bbb5c97374e914cb4ac400b0bb235",
+    ".cache/tools/usr/share/verilator/include/verilated.cpp": "b784038c3cf821588ff4576653b540355889c0621bc258d1b349c29a63836c35",
+    ".cache/tools/usr/share/verilator/include/verilated.h": "5dae77881c31423d9e0ed126192eaed0721b3f88dd2d7a709c57152e2a861c35",
+    ".cache/tools/usr/share/verilator/include/verilated.mk": "6627e31262da0a6fe244b7b81cdae94373f738d2745d6b377a6309740b9935a9",
+    ".cache/tools/usr/share/verilator/include/verilated.v": "9d4e3a95945eb1d446a9c6deae8e702758be970a1ed1903b1930093cab754ebf",
+    ".cache/tools/usr/share/verilator/include/verilated_config.h": "95d2fcc785c2f940a3e343d49cfaf5e1e5dfc2125495955de09e7c5e1a920f07",
+    ".cache/tools/usr/share/verilator/include/verilated_config.h.in": "536b9d8ae174d2c2c137efd7c4ee0c3b16914e0999fabd8a259973286678e742",
+    ".cache/tools/usr/share/verilator/include/verilated_cov.cpp": "891fb8fa8c14f547a2ba6f54d7d4649559777895a7c05882fb125984e6e39b3d",
+    ".cache/tools/usr/share/verilator/include/verilated_cov.h": "250013cf22c84dd79901065c7d10937a1fe48ef088f382feab8dfad74c6fd833",
+    ".cache/tools/usr/share/verilator/include/verilated_cov_key.h": "161e775d21f12cafc838ce80bd17618141342cf407791414320757c17fad853c",
+    ".cache/tools/usr/share/verilator/include/verilated_dpi.cpp": "a13d61239de4c25e1c3af900a12ee4ea08ba6701775a67eec258ee7cee57b492",
+    ".cache/tools/usr/share/verilator/include/verilated_dpi.h": "69fa17a0144e9649f40c4dff4469b4890afb65d31217ef8dc6f19a1b7b827db3",
+    ".cache/tools/usr/share/verilator/include/verilated_fst_c.cpp": "c7ac049abe738c6a447da40ea2a86e587d01c944dbcf95784e6a2cab02526643",
+    ".cache/tools/usr/share/verilator/include/verilated_fst_c.h": "ca77336b3b4708c252fac5ad31b603ae36f7ce5328da7abd92794a614bf85591",
+    ".cache/tools/usr/share/verilator/include/verilated_fst_sc.cpp": "4db20e688619bdaa82267405104a182038b5061b90ff02c43ca738050013b5e3",
+    ".cache/tools/usr/share/verilator/include/verilated_fst_sc.h": "6620d7d758b5b217b84511c1b44dda9146fc6ec0e7d348a7d9e8a4952cefaf08",
+    ".cache/tools/usr/share/verilator/include/verilated_funcs.h": "db34fde6fae46db0dbfa6ad8858d29a6005d2db97b5817e285233fa4d7c2c9d4",
+    ".cache/tools/usr/share/verilator/include/verilated_imp.h": "27b13119d9dc0a5be17a3d87e377ba8a7dc00310244ec50f943a20f6ab74c009",
+    ".cache/tools/usr/share/verilator/include/verilated_intrinsics.h": "9731d3b3dad87cdf86e1e8e3909f4e477d1251a894f6a5816df509881d545a14",
+    ".cache/tools/usr/share/verilator/include/verilated_probdist.cpp": "834dca26103672962f72c8175561ff7360fc16d814b9efbf5c9eb0551b486cd5",
+    ".cache/tools/usr/share/verilator/include/verilated_profiler.cpp": "c6c89625b8c93466d00b89cb86c9ef147d9ef613b7efbbbb3055d35d97e3af9f",
+    ".cache/tools/usr/share/verilator/include/verilated_profiler.h": "f4836c8eaeeba19ad3858a513825a0ef50530f17b4a11e083ae7e44c89608317",
+    ".cache/tools/usr/share/verilator/include/verilated_save.cpp": "0486fac12c0ffe87f220aa92bb5b4594acf4fdf954f3c409424ba892620ae6da",
+    ".cache/tools/usr/share/verilator/include/verilated_save.h": "e25098f63bd1866afa751c24846bf1962b8fc37e87fff192ee817ca0a4fe9d29",
+    ".cache/tools/usr/share/verilator/include/verilated_sc.h": "22881611a751634ecaf7eb30836199b944dba6a9e80efae7bb2da04d66a1b991",
+    ".cache/tools/usr/share/verilator/include/verilated_sc_trace.h": "5734da6f799f650435390cec5ea06cb53cea8be66abdecf47bcf9f1e1cd1a682",
+    ".cache/tools/usr/share/verilator/include/verilated_std.sv": "6f7f35a5e9ef796379b32108134ae90543c8509818286ba99a8b1de080a29824",
+    ".cache/tools/usr/share/verilator/include/verilated_sym_props.h": "a1dbc1e3a05adf95b3d8d8e849f648c02a06d309e758c1ac129ebcd62e5ff623",
+    ".cache/tools/usr/share/verilator/include/verilated_syms.h": "e6a16c7c8052e390a6fc8a28cd7f944e0054e6c3f121f2671389468bb4bfe1f1",
+    ".cache/tools/usr/share/verilator/include/verilated_threads.cpp": "c1290e944bb50e80ee5bf27ab1efdc032aac023ade148ef74d6a45db8bb6f132",
+    ".cache/tools/usr/share/verilator/include/verilated_threads.h": "2164e6b4aa0f366097d95f9e979ce0f999391e7c46183fd31a869a4f7b662b3d",
+    ".cache/tools/usr/share/verilator/include/verilated_timing.cpp": "6b0c49ac5a5a8c74562282fd4ebd2c4a46733ce85f50458da9c0c8928cbf780d",
+    ".cache/tools/usr/share/verilator/include/verilated_timing.h": "ed2d0d0c25265210f0ee7ca8cb8d834921221785762fc1c630eb52a01b107b7d",
+    ".cache/tools/usr/share/verilator/include/verilated_trace.h": "e75cfc2f3eb93f2a9680e0697501b95249679d4cf4aa1f998de4ce09bbf25fc2",
+    ".cache/tools/usr/share/verilator/include/verilated_trace_imp.h": "9512d1d986deefbe0641d4d3c523868f429e26c7195cd31b516b73bc7ee7da9e",
+    ".cache/tools/usr/share/verilator/include/verilated_types.h": "dd56d87f929e7c2a10879e245ce1a7fe30056e86d42e37f5eca5fedf4c020a48",
+    ".cache/tools/usr/share/verilator/include/verilated_vcd_c.cpp": "ac9353d13ce64c5ef1cea5279893a4c288a22a72d4be1512757ebf98bd3a5120",
+    ".cache/tools/usr/share/verilator/include/verilated_vcd_c.h": "63c6de3a22a25d13b8e802d8facb75cf0257fe47acfdf6fe21916535368ddfff",
+    ".cache/tools/usr/share/verilator/include/verilated_vcd_sc.cpp": "f8d7875cc945086238dc0db55b729ced24ed1f1d8a62b3235b277bad2dcbb0eb",
+    ".cache/tools/usr/share/verilator/include/verilated_vcd_sc.h": "1f62f52c30cdec9113598c0abd698a50cafa515c26cf9e24cd13e28cbbd8f6f8",
+    ".cache/tools/usr/share/verilator/include/verilated_vpi.cpp": "f099b4917638437fd853d49bf34a4163848de552a4379a0b34517e5386e4998e",
+    ".cache/tools/usr/share/verilator/include/verilated_vpi.h": "29d9299f6de596c1e30ae59626fad50e80b2eb18a369a0dea1332a234fe68108",
+    ".cache/tools/usr/share/verilator/include/verilatedos.h": "65774ad8f3dc4384d0d43900cb25dfe6c447229ae36ca4ce64618524c7671246",
+    ".cache/tools/usr/share/verilator/include/vltstd/sv_vpi_user.h": "efaf9987f27c9734df3dde28d457fa36c5f64504b86aa292df423bd61cab2a76",
+    ".cache/tools/usr/share/verilator/include/vltstd/svdpi.h": "bbe9cb930e7d0c16b9fab2d2744169c2eaaa8cfca797631138883a194681a1fb",
+    ".cache/tools/usr/share/verilator/include/vltstd/vpi_user.h": "6ec3e0d8d9fe696fd494b609db9d83d4f61d7d47458b5a19d3bf6de35f3b4d16"
+  },
+  "netlists": [
+    {
+      "path": "/tmp/wasmetal-direct-rounding/build/xc7-system/mapped.json",
+      "sha256": "82ba955d81f735d5a0b3dc0b2b65e3670a6fb43f031248b5303ddac28c1a9239",
+      "counts": {
+        "FDRE": 6677,
+        "FDRE_1": 192,
+        "FDSE": 76,
+        "FDCE": 6
+      }
+    },
+    {
+      "path": "/tmp/wasmetal-direct-rounding/build/xc7-accelerated/mapped.json",
+      "sha256": "87e96fb56883e96f48c01dc33878bd5fbe6ce309f0d1d629fe7c8159fc81f3c1",
+      "counts": {
+        "FDRE": 6659,
+        "FDRE_1": 192,
+        "FDSE": 76,
+        "FDCE": 6
+      }
+    }
+  ],
+  "compiler": {
+    "path": "/usr/bin/x86_64-linux-gnu-g++-13",
+    "sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+    "version": "x86_64-linux-gnu-g++-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+  },
+  "checks": [
+    {
+      "kind": "FDRE",
+      "model": "yosys",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-0-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "4a338508f9306fbee292b8996a0489e53a92a297401313362dc9bec8f98c1603",
+      "log": "build/xc7-flops/FDRE/known-init-0-yosys.log"
+    },
+    {
+      "kind": "FDRE",
+      "model": "vendor",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-0-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDRE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-0-vendor.sv"
+      ],
+      "binary_sha256": "bba0011a3d974e97ec310494ae204d30b11cecb0b06b539169f1669e1651426b",
+      "log": "build/xc7-flops/FDRE/known-init-0-vendor.log"
+    },
+    {
+      "kind": "FDRE",
+      "model": "yosys-verilator",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-0-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "b822a5de169ff81351285e14029c8e7b0cdb572fec52e1bca258a3d4fbd248d3",
+      "log": "build/xc7-flops/FDRE/known-init-0-verilator.log"
+    },
+    {
+      "kind": "FDRE",
+      "model": "yosys",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-1-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "158446066e0658138b31cd8c388f6719c79b7f9d7bd0122600b5b4132ef9cacf",
+      "log": "build/xc7-flops/FDRE/known-init-1-yosys.log"
+    },
+    {
+      "kind": "FDRE",
+      "model": "vendor",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-1-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDRE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-1-vendor.sv"
+      ],
+      "binary_sha256": "b05767a879d0fb682789c89f6f28db6c168ba14a6003a84e0b8c9b6800e8ab0c",
+      "log": "build/xc7-flops/FDRE/known-init-1-vendor.log"
+    },
+    {
+      "kind": "FDRE",
+      "model": "yosys-verilator",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-1-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "f3d129ab1ab04b3542700bbe7d29245b10f57b2e61a6bf3b9ee790672530f5cd",
+      "log": "build/xc7-flops/FDRE/known-init-1-verilator.log"
+    },
+    {
+      "kind": "FDRE",
+      "model": "yosys",
+      "initial": "x",
+      "four_state": true,
+      "observations": 9216,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/four-state-init-x-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/four-state-init-x-yosys.sv"
+      ],
+      "binary_sha256": "1c95e85ab646a1ace8f6405c6d77a46ae2c08830858a84c6af40ac96ff17550e",
+      "log": "build/xc7-flops/FDRE/four-state-init-x-yosys.log"
+    },
+    {
+      "kind": "FDRE",
+      "model": "vendor",
+      "initial": "x",
+      "four_state": true,
+      "observations": 9216,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/four-state-init-x-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDRE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE/four-state-init-x-vendor.sv"
+      ],
+      "binary_sha256": "95d64bdc25e876c74d096f834bee8c748d13777c621cc571a15afdd22ae2161e",
+      "log": "build/xc7-flops/FDRE/four-state-init-x-vendor.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "yosys",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-0-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "4c60c38023af3dec439f8e797bf9875e2c4d5275e30cce692e49aab784956c95",
+      "log": "build/xc7-flops/FDRE_1/known-init-0-yosys.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "vendor",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-0-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDRE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-0-vendor.sv"
+      ],
+      "binary_sha256": "a4725e8ca154db94d4e01e723c7aa1c1284ccd7c7fbf6a14d77ed78b25413a63",
+      "log": "build/xc7-flops/FDRE_1/known-init-0-vendor.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "yosys-verilator",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-0-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "312739ba2502cee05366a0e3ec60e3f11475b067412d4667b0fa135fd2019e27",
+      "log": "build/xc7-flops/FDRE_1/known-init-0-verilator.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "yosys",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-1-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "753ef9cd99e236d17f4045f1209821a8dcf82de119066dc794e033de88fd1f4f",
+      "log": "build/xc7-flops/FDRE_1/known-init-1-yosys.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "vendor",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-1-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDRE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-1-vendor.sv"
+      ],
+      "binary_sha256": "ef3a39cc0619ebd9c66f759d89d04ea6553442ce60863f716e92f68414323ec9",
+      "log": "build/xc7-flops/FDRE_1/known-init-1-vendor.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "yosys-verilator",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-1-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "3c014d0f16b38ef390d017c05f461438ed57d4bd9e398b8fe80d311b427654fa",
+      "log": "build/xc7-flops/FDRE_1/known-init-1-verilator.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "yosys",
+      "initial": "x",
+      "four_state": true,
+      "observations": 9216,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/four-state-init-x-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/four-state-init-x-yosys.sv"
+      ],
+      "binary_sha256": "698c3ca1ae30bd308ca9c37d54cd8eb1f0670c96c4c360b058ae16d07ef62392",
+      "log": "build/xc7-flops/FDRE_1/four-state-init-x-yosys.log"
+    },
+    {
+      "kind": "FDRE_1",
+      "model": "vendor",
+      "initial": "x",
+      "four_state": true,
+      "observations": 9216,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/four-state-init-x-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDRE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDRE_1/four-state-init-x-vendor.sv"
+      ],
+      "binary_sha256": "ac9df8ba7b099743051fa955e2a0e66f6902e91bfd90579d6d90c9765d6dfd26",
+      "log": "build/xc7-flops/FDRE_1/four-state-init-x-vendor.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "yosys",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-0-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "245584e5ea1d8822e19287db285eee6ee5dd3b4095aaa63088aee90d27180b4d",
+      "log": "build/xc7-flops/FDSE/known-init-0-yosys.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "vendor",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-0-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDSE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-0-vendor.sv"
+      ],
+      "binary_sha256": "04e98f6a58475db9e8cb248f636cf41c0f0388de256413618f6dbe13590036b4",
+      "log": "build/xc7-flops/FDSE/known-init-0-vendor.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "yosys-verilator",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-0-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "efe08df7b0e24524eedc32f5a558fa0681597e256187697b03f0a5fde4b34cc8",
+      "log": "build/xc7-flops/FDSE/known-init-0-verilator.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "yosys",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-1-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "1da31a5c4008a89843d6fb3e656d25b9018c9e82230cd7a5531a16cd97cc9614",
+      "log": "build/xc7-flops/FDSE/known-init-1-yosys.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "vendor",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-1-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDSE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-1-vendor.sv"
+      ],
+      "binary_sha256": "09b9297ad5da83a213991b7ab2dfe947ac6feea6d25872f1f3098105f69236e6",
+      "log": "build/xc7-flops/FDSE/known-init-1-vendor.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "yosys-verilator",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-1-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "b0685f58b33339b8cf26343cf401f7852bade91b2d11581e6235b297c638e111",
+      "log": "build/xc7-flops/FDSE/known-init-1-verilator.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "yosys",
+      "initial": "x",
+      "four_state": true,
+      "observations": 9216,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/four-state-init-x-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/four-state-init-x-yosys.sv"
+      ],
+      "binary_sha256": "a18eb1292eaeface5d24d4b96bf29a00bf0ee1d6c31382c86ec24ba3f4811f1b",
+      "log": "build/xc7-flops/FDSE/four-state-init-x-yosys.log"
+    },
+    {
+      "kind": "FDSE",
+      "model": "vendor",
+      "initial": "x",
+      "four_state": true,
+      "observations": 9216,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/four-state-init-x-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDSE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDSE/four-state-init-x-vendor.sv"
+      ],
+      "binary_sha256": "5353dababfb5b68df0a415b8d36cd194e5cbffde4b2a6464f51037615e2579f7",
+      "log": "build/xc7-flops/FDSE/four-state-init-x-vendor.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "yosys",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-0-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "ceece5c9164cb27f81480dc98fa0b9d787a0b06cb82ceda798e148202a6da44e",
+      "log": "build/xc7-flops/FDCE/known-init-0-yosys.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "vendor",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-0-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDCE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-0-vendor.sv"
+      ],
+      "binary_sha256": "91bc81e50698a0b32e0e3809c21d39c01d9366523e74b3bc38928682447a0f9a",
+      "log": "build/xc7-flops/FDCE/known-init-0-vendor.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "yosys-verilator",
+      "initial": "0",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-0-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-0-yosys.sv"
+      ],
+      "binary_sha256": "39c167ba10843b83f128b8995b286804253e9e5dfe8429d86a21a87cb5155a9f",
+      "log": "build/xc7-flops/FDCE/known-init-0-verilator.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "yosys",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-1-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "ce91f5603cdb36521a3167b26317f91cfe84474f75a29884d999eca186c98038",
+      "log": "build/xc7-flops/FDCE/known-init-1-yosys.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "vendor",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "known_async_clear": false,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-1-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDCE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-1-vendor.sv"
+      ],
+      "binary_sha256": "f580406f5d02a24504166b8cbcb9043bb508a89fb53a3a39ef348260d6326122",
+      "log": "build/xc7-flops/FDCE/known-init-1-vendor.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "yosys-verilator",
+      "initial": "1",
+      "four_state": false,
+      "observations": 4416,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/verilator",
+        "--binary",
+        "--timing",
+        "--assert",
+        "-j",
+        "1",
+        "-Wall",
+        "-Wno-DECLFILENAME",
+        "-Wno-UNUSEDSIGNAL",
+        "--top-module",
+        "bench",
+        "-MAKEFLAGS",
+        "CXX=/usr/bin/x86_64-linux-gnu-g++-13 LINK=/usr/bin/x86_64-linux-gnu-g++-13",
+        "--Mdir",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-1-obj",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/model.vlt",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/known-init-1-yosys.sv"
+      ],
+      "binary_sha256": "3f0a14ea953432fa1e774b70b8ffcec10fe975a7f67e36aca8ba118776e3d0d2",
+      "log": "build/xc7-flops/FDCE/known-init-1-verilator.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "yosys",
+      "initial": "x",
+      "four_state": true,
+      "observations": 9216,
+      "known_async_clear": false,
+      "vendor_oracle_defined": false,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/four-state-init-x-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/four-state-init-x-yosys.sv"
+      ],
+      "binary_sha256": "2bf4dd4bc2117bf8e42e6e04685036b234a7b2617689f0aa96b3c7c6e0fa2b61",
+      "log": "build/xc7-flops/FDCE/four-state-init-x-yosys.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "yosys",
+      "initial": "x",
+      "four_state": true,
+      "observations": 6656,
+      "known_async_clear": true,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.vvp",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/yosys.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.sv"
+      ],
+      "binary_sha256": "0878a43c262f5a995c3f05755a308e4c37cd141aa780ad0dd214fbd41ca846a2",
+      "log": "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.log"
+    },
+    {
+      "kind": "FDCE",
+      "model": "vendor",
+      "initial": "x",
+      "four_state": true,
+      "observations": 6656,
+      "known_async_clear": true,
+      "vendor_oracle_defined": true,
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+        "-B",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "bench",
+        "-s",
+        "glbl",
+        "-o",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.vvp",
+        "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDCE.v",
+        "/tmp/wasmetal-direct-rounding/build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.sv"
+      ],
+      "binary_sha256": "3e46deaa722d6ee3324587a447dcced685c48c3e6500162afedfe179fca6fa61",
+      "log": "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.log"
+    }
+  ],
+  "artifacts": {
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.log": "873cb274b76fd90b2925f74b945937353cc858460cc820231f77161b6ba926d1",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.sv": "4cb42d000c77fa8c7997187e4b3e404ad701c7fe8bb97eae334018559e916c7c",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.vvp": "3e46deaa722d6ee3324587a447dcced685c48c3e6500162afedfe179fca6fa61",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.log": "3770bc67e75561dbfe63fc199b9c4f0276c8b27b040e704a9771242650973999",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.sv": "54c1839efd82e1bb96acde5148c1f1002c3134a3e2531d3090d748c2d11376a3",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.vvp": "0878a43c262f5a995c3f05755a308e4c37cd141aa780ad0dd214fbd41ca846a2",
+    "build/xc7-flops/FDCE/four-state-init-x-known-clear.txt": "4e3ce0ebfd160ee5bcfea2de7e3040f2131a33a5a511c7e05c972ac46dc966b0",
+    "build/xc7-flops/FDCE/four-state-init-x-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDCE/four-state-init-x-yosys.log": "92ca8e2891a3e1431e7c3d2ab738f55ec3a83d58c8c8a21dc13332fcb16535c5",
+    "build/xc7-flops/FDCE/four-state-init-x-yosys.sv": "5d22046ef6dc95e1a45dce6be2de3d7c0e348859159d13c5b20c4bd857267faa",
+    "build/xc7-flops/FDCE/four-state-init-x-yosys.vvp": "2bf4dd4bc2117bf8e42e6e04685036b234a7b2617689f0aa96b3c7c6e0fa2b61",
+    "build/xc7-flops/FDCE/four-state-init-x.txt": "f8d98323d7b93594a2a3f3e4f1d266cd30b6a054ef3336b96f94ba081af92be0",
+    "build/xc7-flops/FDCE/known-init-0-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDCE/known-init-0-vendor.log": "9faef199a3179541da537a787d0be5816258e1f3211f7bbad4540290d35a060d",
+    "build/xc7-flops/FDCE/known-init-0-vendor.sv": "8d11f1d627600144b27655476ea55d99f2b11ff18361945a5f956ef348d1a4c0",
+    "build/xc7-flops/FDCE/known-init-0-vendor.vvp": "91bc81e50698a0b32e0e3809c21d39c01d9366523e74b3bc38928682447a0f9a",
+    "build/xc7-flops/FDCE/known-init-0-verilator-compile.log": "51a4684372d171cdf760c1dbb2c9b49473637d55e0ed8400da5d5a0b6930bfcf",
+    "build/xc7-flops/FDCE/known-init-0-verilator.log": "cfc60eb1fa0220a646fe1613d89c98f51b0e5f9340d9cd2f454189aac287404c",
+    "build/xc7-flops/FDCE/known-init-0-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDCE/known-init-0-yosys.log": "b90b4be9e639e47d30c06756c139727c6f92542458bddce2607acee06febd2fb",
+    "build/xc7-flops/FDCE/known-init-0-yosys.sv": "085d40422ac1433ab9bbc549601e9beffc9691c5252b1106aad87d677be45354",
+    "build/xc7-flops/FDCE/known-init-0-yosys.vvp": "ceece5c9164cb27f81480dc98fa0b9d787a0b06cb82ceda798e148202a6da44e",
+    "build/xc7-flops/FDCE/known-init-0.txt": "644374530475c6b8f7d5ba7ebdfb99a703ed71ead87526bb92020f6a75942275",
+    "build/xc7-flops/FDCE/known-init-1-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDCE/known-init-1-vendor.log": "cab2bbf191bc4912aff3c754992cb19ef6d49dbf15acbc5fcf17e4216e4a43d5",
+    "build/xc7-flops/FDCE/known-init-1-vendor.sv": "dfd9cc0aa4b0606d672cff127f7323202ad15093b68938ff0db496a522d3a6e4",
+    "build/xc7-flops/FDCE/known-init-1-vendor.vvp": "f580406f5d02a24504166b8cbcb9043bb508a89fb53a3a39ef348260d6326122",
+    "build/xc7-flops/FDCE/known-init-1-verilator-compile.log": "a283d7b065d6537d349fed1133e00f63024f0adf2cda21962d85f9750ae83819",
+    "build/xc7-flops/FDCE/known-init-1-verilator.log": "5c7089e5d34532d3a831e56d022d37d30531ceda9b6c15379cc3912c6887b1fb",
+    "build/xc7-flops/FDCE/known-init-1-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDCE/known-init-1-yosys.log": "493de4de0378b0eb963e6ec27a9b9f93ffabaa6203cbdb7cbb6a755c3f8e79e7",
+    "build/xc7-flops/FDCE/known-init-1-yosys.sv": "fa735cb644b812642466dc6263fce5aa63f96183c33deaa89eb7c649bc6222a7",
+    "build/xc7-flops/FDCE/known-init-1-yosys.vvp": "ce91f5603cdb36521a3167b26317f91cfe84474f75a29884d999eca186c98038",
+    "build/xc7-flops/FDCE/known-init-1.txt": "8916789e3a59f7a6212f0bdaea5949a6c1d4a21495045b9b418ed9ef46a6726c",
+    "build/xc7-flops/FDCE/model.vlt": "ea4fa7a5fd37abc2bf03df7510a2f671e2dc73f052f1ea8cf61c53613ec7744a",
+    "build/xc7-flops/FDCE/yosys.v": "3b2dd1520f191cd05f2618fb4f1658ff814619626db20722ec47378789bb6c27",
+    "build/xc7-flops/FDRE/four-state-init-x-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE/four-state-init-x-vendor.log": "de405f5a50d9082209e9422bdf1863c1e3e2426eb48bac83f646420e0c25826b",
+    "build/xc7-flops/FDRE/four-state-init-x-vendor.sv": "1b4dd3807b57d641dcf5ee87b932021fbfce8f4af6b2dbcd483556b1758e878a",
+    "build/xc7-flops/FDRE/four-state-init-x-vendor.vvp": "95d64bdc25e876c74d096f834bee8c748d13777c621cc571a15afdd22ae2161e",
+    "build/xc7-flops/FDRE/four-state-init-x-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE/four-state-init-x-yosys.log": "b34e9f0f43f5f7875d4c47aadf7221d0485e9dc453e83cb1f8cb4c1ca0ccf4a3",
+    "build/xc7-flops/FDRE/four-state-init-x-yosys.sv": "dfa5199bfce3c4c7afef3a76afeab6a990a24be6ff3be4fcf437e3d077793412",
+    "build/xc7-flops/FDRE/four-state-init-x-yosys.vvp": "1c95e85ab646a1ace8f6405c6d77a46ae2c08830858a84c6af40ac96ff17550e",
+    "build/xc7-flops/FDRE/four-state-init-x.txt": "6ea9cf4252848d3fd5cc729e550f7b1693c16c905e930219b1591a1284556b27",
+    "build/xc7-flops/FDRE/known-init-0-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE/known-init-0-vendor.log": "6c96e050e65e896ec772f750f18724e3cb2700b5aacf0f4f9d4ff864d4b25dd4",
+    "build/xc7-flops/FDRE/known-init-0-vendor.sv": "6795d2a99bdf2cea11d54b5f412f1b1c717646da550cc94ea76814ac2cf0c4f1",
+    "build/xc7-flops/FDRE/known-init-0-vendor.vvp": "bba0011a3d974e97ec310494ae204d30b11cecb0b06b539169f1669e1651426b",
+    "build/xc7-flops/FDRE/known-init-0-verilator-compile.log": "71a7b4171e0037d7c64569ba04df2a8a361053e9997a000cb2c081ec927a0c9c",
+    "build/xc7-flops/FDRE/known-init-0-verilator.log": "5e092abb2d723e474455f26b99cee132e347d9335de982c061b95d42353d9839",
+    "build/xc7-flops/FDRE/known-init-0-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE/known-init-0-yosys.log": "5453a9222f75344cb485901f2336c388aca88dcd485c259d7b228cc512dcfdf9",
+    "build/xc7-flops/FDRE/known-init-0-yosys.sv": "c747270adea25f7d3407e508662ca3f29a4b866b152c0503ec953cf64e3119f9",
+    "build/xc7-flops/FDRE/known-init-0-yosys.vvp": "4a338508f9306fbee292b8996a0489e53a92a297401313362dc9bec8f98c1603",
+    "build/xc7-flops/FDRE/known-init-0.txt": "b00b8b497762d7b95512036102cbd5f9ae107045e3c0cc839832b15e5e3ad036",
+    "build/xc7-flops/FDRE/known-init-1-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE/known-init-1-vendor.log": "9c3e101e647baf14fae596d35a9db3fc7a03d49d5f53b71bfa354170f687c194",
+    "build/xc7-flops/FDRE/known-init-1-vendor.sv": "ce8999864e4f198a94d5aa3cfc4044c43c3cc434b8f72aa73dcb348cb6c67357",
+    "build/xc7-flops/FDRE/known-init-1-vendor.vvp": "b05767a879d0fb682789c89f6f28db6c168ba14a6003a84e0b8c9b6800e8ab0c",
+    "build/xc7-flops/FDRE/known-init-1-verilator-compile.log": "6dac1582da8a5ec1afd1db55665c0e1276e127b8e8bebc68163c95fbf965499f",
+    "build/xc7-flops/FDRE/known-init-1-verilator.log": "ab32035eba179d07e849ff04b9bb8d5c9c594a68d6d2d3f895cfa111a993392f",
+    "build/xc7-flops/FDRE/known-init-1-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE/known-init-1-yosys.log": "b140b35568bd2c6fd6b8ed752e85b735721185903ea72698655753d31c637e5e",
+    "build/xc7-flops/FDRE/known-init-1-yosys.sv": "611ddacd8ace3095ac0c62ac7e1996280162f6ca2e2073a0fb93ab4c5e562e5a",
+    "build/xc7-flops/FDRE/known-init-1-yosys.vvp": "158446066e0658138b31cd8c388f6719c79b7f9d7bd0122600b5b4132ef9cacf",
+    "build/xc7-flops/FDRE/known-init-1.txt": "ad44ce446317c64916b70f628b7633960ac9df38c8ddccee35110602accbc5f3",
+    "build/xc7-flops/FDRE/model.vlt": "f4b349aeeb44f8ff6d72d5a10139fe7ff0627d0a38a05c1d450b8355ef953af3",
+    "build/xc7-flops/FDRE/yosys.v": "a46e6f54dab92f961433d3d06852c2a390dfa76180adaa4a5276e7ae32837769",
+    "build/xc7-flops/FDRE_1/four-state-init-x-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE_1/four-state-init-x-vendor.log": "ecc34c350cf86277f810b926012cdd9bd1f30fd5c13b7e30c58db55df1b8a7f7",
+    "build/xc7-flops/FDRE_1/four-state-init-x-vendor.sv": "2475a50c9dd51017bec668a2fc529849ba0ff3ce8af439d3ca843e252528cc63",
+    "build/xc7-flops/FDRE_1/four-state-init-x-vendor.vvp": "ac9df8ba7b099743051fa955e2a0e66f6902e91bfd90579d6d90c9765d6dfd26",
+    "build/xc7-flops/FDRE_1/four-state-init-x-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE_1/four-state-init-x-yosys.log": "fdaf013579105e916c63cfbc0d72cc77b7917262566f36640bf036edb3bb7572",
+    "build/xc7-flops/FDRE_1/four-state-init-x-yosys.sv": "95731298efc1be189eba7e13224e6673853bd7af4f54c239042c868c9a6e54f7",
+    "build/xc7-flops/FDRE_1/four-state-init-x-yosys.vvp": "698c3ca1ae30bd308ca9c37d54cd8eb1f0670c96c4c360b058ae16d07ef62392",
+    "build/xc7-flops/FDRE_1/four-state-init-x.txt": "4df383c29ac101dfde8c8eb93e5d0b51b279e6df60cec658f977b3e9bc70159f",
+    "build/xc7-flops/FDRE_1/known-init-0-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE_1/known-init-0-vendor.log": "8acbbbd29ed29eaf7c51180abafda7f78ccdc1b3f0e6ec371c251445e81fe23f",
+    "build/xc7-flops/FDRE_1/known-init-0-vendor.sv": "c8f9d83b84f9100540a95206d91b4e8d554f0d9099862765b8914b0ddfe26553",
+    "build/xc7-flops/FDRE_1/known-init-0-vendor.vvp": "a4725e8ca154db94d4e01e723c7aa1c1284ccd7c7fbf6a14d77ed78b25413a63",
+    "build/xc7-flops/FDRE_1/known-init-0-verilator-compile.log": "335a143bb06f179bd5c49f38e4fc0b8692a75f6116709d2f6aa4e863a2391b71",
+    "build/xc7-flops/FDRE_1/known-init-0-verilator.log": "a623d6f390b3228bafabea69cfe77700751eac6f453837fa69645903ce516f3e",
+    "build/xc7-flops/FDRE_1/known-init-0-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE_1/known-init-0-yosys.log": "eaead2d9eac9b46184cc73b1ee5409c4e278fe90d25d3195328170303d804be7",
+    "build/xc7-flops/FDRE_1/known-init-0-yosys.sv": "4a5599cd482ce8d7281ef2345bf4351ccbd450734efd9c7ae36e0f4497efe10c",
+    "build/xc7-flops/FDRE_1/known-init-0-yosys.vvp": "4c60c38023af3dec439f8e797bf9875e2c4d5275e30cce692e49aab784956c95",
+    "build/xc7-flops/FDRE_1/known-init-0.txt": "394dd8271bd47ed6382a19330de9ad3e5824443c6d11db0431c4c828d541589c",
+    "build/xc7-flops/FDRE_1/known-init-1-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE_1/known-init-1-vendor.log": "9bffce12aaa7c9583d41115ed515c8586fc2c3d622bee7d594fd58b56e516fe2",
+    "build/xc7-flops/FDRE_1/known-init-1-vendor.sv": "a95a6a97b47141aa18961b9e25ad16bf066b4f39f56fd3b63c492d32fcc6e8eb",
+    "build/xc7-flops/FDRE_1/known-init-1-vendor.vvp": "ef3a39cc0619ebd9c66f759d89d04ea6553442ce60863f716e92f68414323ec9",
+    "build/xc7-flops/FDRE_1/known-init-1-verilator-compile.log": "04ef9a1a86899ee0a203e2a8a34bfcecdbc6b42562d124af6d125efc0ca70559",
+    "build/xc7-flops/FDRE_1/known-init-1-verilator.log": "a2a497ba049b2ac603d00a3332bc12a5a03676ce13b719213e4b3e6ffc8c66d3",
+    "build/xc7-flops/FDRE_1/known-init-1-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDRE_1/known-init-1-yosys.log": "5e8b981d91b89c7d10c60ca635185a407891da33210611587ec48f8068a23b00",
+    "build/xc7-flops/FDRE_1/known-init-1-yosys.sv": "f1e153bf236632cba4c0db01f9211cc074bce757a274a3c3da92bc505c47fd8c",
+    "build/xc7-flops/FDRE_1/known-init-1-yosys.vvp": "753ef9cd99e236d17f4045f1209821a8dcf82de119066dc794e033de88fd1f4f",
+    "build/xc7-flops/FDRE_1/known-init-1.txt": "9de647d36b164403057ea4f15eb499a6d0837e64c4b8ea369213dec7d2d7cef9",
+    "build/xc7-flops/FDRE_1/model.vlt": "66ccd5493d80a15f7eb76fa8754e8e71750647d35e4c1fac8ff77384cc4a015c",
+    "build/xc7-flops/FDRE_1/yosys.v": "2f6b776d1e5b6425c7b43a0dc25128d2d1a6efe41a4919555759b18853fc98bb",
+    "build/xc7-flops/FDSE/four-state-init-x-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDSE/four-state-init-x-vendor.log": "4c1f26555cf982e8ca1297f7e5958ce6b357f0641213ff1e6fc36b2c2208c6e5",
+    "build/xc7-flops/FDSE/four-state-init-x-vendor.sv": "0f06242dd6cfa371b01f8eccefda19d0b3b2b5064b16c5284e620f9e1e554895",
+    "build/xc7-flops/FDSE/four-state-init-x-vendor.vvp": "5353dababfb5b68df0a415b8d36cd194e5cbffde4b2a6464f51037615e2579f7",
+    "build/xc7-flops/FDSE/four-state-init-x-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDSE/four-state-init-x-yosys.log": "87fcb76a7642ed81b17f7431f303a3d4bbfe0f0ae303bb917e6984ed26a8ab89",
+    "build/xc7-flops/FDSE/four-state-init-x-yosys.sv": "eef27fa7213f5a5ef00d84eeaaaa3265436d49c0f9bceb2cea6ef56e1b846477",
+    "build/xc7-flops/FDSE/four-state-init-x-yosys.vvp": "a18eb1292eaeface5d24d4b96bf29a00bf0ee1d6c31382c86ec24ba3f4811f1b",
+    "build/xc7-flops/FDSE/four-state-init-x.txt": "d8242ad3c62516404f89480433ebe4d175f59fb4d3befa9ed25a48778c99af1d",
+    "build/xc7-flops/FDSE/known-init-0-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDSE/known-init-0-vendor.log": "9f76816eaad7b685eadbc8811c054bd9989f8c9df1aa1e7c5dddb9e6292a9049",
+    "build/xc7-flops/FDSE/known-init-0-vendor.sv": "6dc794705c18a232d7ea358973881f276e593ebf14a92e93ac0ecaecc0f8a77e",
+    "build/xc7-flops/FDSE/known-init-0-vendor.vvp": "04e98f6a58475db9e8cb248f636cf41c0f0388de256413618f6dbe13590036b4",
+    "build/xc7-flops/FDSE/known-init-0-verilator-compile.log": "a9f37305538c2edb6bfddeaaaa5046d7ccb28d12588c37f37afe5ed15e8674a5",
+    "build/xc7-flops/FDSE/known-init-0-verilator.log": "157e3f835cee830d2da604d8434a2e7c1c7efbc4037bacc073bb41da4bca5c92",
+    "build/xc7-flops/FDSE/known-init-0-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDSE/known-init-0-yosys.log": "66e09c4780ade515d579313b1d8ae3fe21cace2dbb67024636b6c8a54d8e950e",
+    "build/xc7-flops/FDSE/known-init-0-yosys.sv": "e7eb33db80e9080aaf1ca4b28a9cd5f01c4c16fe3a14eab8858d7d660ca52b5e",
+    "build/xc7-flops/FDSE/known-init-0-yosys.vvp": "245584e5ea1d8822e19287db285eee6ee5dd3b4095aaa63088aee90d27180b4d",
+    "build/xc7-flops/FDSE/known-init-0.txt": "1ad19e1d46668641d6d19532fc25cd3df2487fe7dedf37fc90281d2ad2479fab",
+    "build/xc7-flops/FDSE/known-init-1-vendor-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDSE/known-init-1-vendor.log": "3c6dc8fced13dc58c050e5f56fe7ca57dc73cebf7e1bcac6612131d2e8406e71",
+    "build/xc7-flops/FDSE/known-init-1-vendor.sv": "d4914acec2489e130ce7679e1350007e13513ee7b865915b7d6b99b8161de0f0",
+    "build/xc7-flops/FDSE/known-init-1-vendor.vvp": "09b9297ad5da83a213991b7ab2dfe947ac6feea6d25872f1f3098105f69236e6",
+    "build/xc7-flops/FDSE/known-init-1-verilator-compile.log": "164eff2b5c40d0085caf398556fda6b9c80642a4c8ba510e3d54b29a8ead7883",
+    "build/xc7-flops/FDSE/known-init-1-verilator.log": "320fe30339f8dd56b1c1e616a61bf877915bef73a3cb27b29a0678e45c70d87f",
+    "build/xc7-flops/FDSE/known-init-1-yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/FDSE/known-init-1-yosys.log": "82be25b70af39e985386b07983d240a457ea8e75de1f388ad0e6903fb59dddf9",
+    "build/xc7-flops/FDSE/known-init-1-yosys.sv": "49b192d5042587775e1dcc2d8b466146b5b531ff86a04dce9c8bc38ddf7a2d47",
+    "build/xc7-flops/FDSE/known-init-1-yosys.vvp": "1da31a5c4008a89843d6fb3e656d25b9018c9e82230cd7a5531a16cd97cc9614",
+    "build/xc7-flops/FDSE/known-init-1.txt": "c2e93f7631cf331f0e72340bc3758fae87c721a169808cb6413b14b3f2266e5a",
+    "build/xc7-flops/FDSE/model.vlt": "f3e144e00e9fe7f202e92316edda9ce441d90f2a41df85e9ec396cb29fcc669a",
+    "build/xc7-flops/FDSE/yosys.v": "46804317a09789451ecb90ef7bd9e6233f702f741f68efd77529cd24c503cd9d",
+    "build/xc7-flops/extra-trace-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/extra-trace.log": "dedbd38b9174c547b1ba58ae26e301242fb629f7c220ce4d609835b6ff3df507",
+    "build/xc7-flops/extra-trace.sv": "424ff5b4ff76a2d566ebf5feddba06db38f779ac9999468d8a6e26c432ac8a09",
+    "build/xc7-flops/extra-trace.txt": "b7240ed3ac3c929e9d9b27423849cde7778a09bb05e2aaa968f96b0059467e2e",
+    "build/xc7-flops/extra-trace.vvp": "4791d3abde1246a91ccc755e309eaf99ba81f49534ce03297db5b8504fbef85d",
+    "build/xc7-flops/malformed-trace-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/malformed-trace.log": "9e73ae1bcb22eafde6ba5383427b328fa7f4af67d9d002a33bc0f8c8ff36e093",
+    "build/xc7-flops/malformed-trace.sv": "d59bd00b4b21c2a9103705f1a4c42a3b8e2de6110ea1869b04d41c08d8a3a26a",
+    "build/xc7-flops/malformed-trace.txt": "c760092d2abe5af2ade7436a0fc6242bedcb257006e53b2e63efd0083be33441",
+    "build/xc7-flops/malformed-trace.vvp": "5fff6f955c557d65d23f2c1f0f811aa677e9aca51f323f1533adc44483819a76",
+    "build/xc7-flops/reset-gated-by-enable-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/reset-gated-by-enable.log": "01aa9147311c08e440d979217478419d01b53d5fbbdc834ed1280a871e4fc410",
+    "build/xc7-flops/reset-gated-by-enable.v": "4bf699c6ff8aa29d7b8d6fdb6a071b58a7499beb9e1f4f0149ed4c6d0fee5f43",
+    "build/xc7-flops/reset-gated-by-enable.vvp": "e1d0987213a100c96a4f75e05f0f499958567e4535e10840aa27e10615860ac2",
+    "build/xc7-flops/synchronous-clear-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/synchronous-clear.log": "9001238edbeb6a40e73b7dc018a1dc4a1401df91675efdc06c1ffb0b72d0d050",
+    "build/xc7-flops/synchronous-clear.v": "e3f35ec7d8fad31b68b7eb547ca6c26e12aecad0ffed5d68fe07b20c130495ee",
+    "build/xc7-flops/synchronous-clear.vvp": "27b2d674fa85550fc533df13caed87a7d1e53e604ad4c2b3fce411bd616d55b6",
+    "build/xc7-flops/truncated-trace-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/truncated-trace.log": "c6b84b8c75b971d5cf5ed2d7612c2fcd1c64cc1a59b3b002464da12d40a75521",
+    "build/xc7-flops/truncated-trace.sv": "c0d38b82ed7b2742e7a65b349becc99a7c911f56c30b1ef44423c73f455cde58",
+    "build/xc7-flops/truncated-trace.txt": "6b1e04dee675173d721ee3119aed7fedc9ec3a1202670d56be7f025e46793d4e",
+    "build/xc7-flops/truncated-trace.vvp": "9fa2b0cb86e58d84fae0742a3d8d5c40397fb7640d7053ede5fd8403e552cd19",
+    "build/xc7-flops/vendor-unknown-clear-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/vendor-unknown-clear.log": "99d57c16237ea051edd482d1c6e267de4fdb93b0fa457134009f019ae669be2b",
+    "build/xc7-flops/vendor-unknown-clear.sv": "6bf811ee2a1a5e7328cea1aca7eda6cce9f1b15f704174e3851af16534ebb6df",
+    "build/xc7-flops/vendor-unknown-clear.vvp": "aa7f03e8477c51e19c1e3ec52da182a1f0815df0255283bdd840aa56b801ef4e",
+    "build/xc7-flops/wrong-clock-edge-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/wrong-clock-edge.log": "cb961e25df750f952363e22000034406ef7415f79ccf8be8a8a1ff21ea950762",
+    "build/xc7-flops/wrong-clock-edge.v": "9b383b04cc6246c09ec1211639df71849a3634a979f368d5d3e89aefc39f7cbe",
+    "build/xc7-flops/wrong-clock-edge.vvp": "5a2fd85900e6025f0f6e05a72ae7f4bea8229eb0d41328c36383b41f5f2d560a",
+    "build/xc7-flops/wrong-startup-value-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/wrong-startup-value.log": "7d4e9c2eb6c18ac095311a4324f85c5a1a4b09004524aa6c913b01db6c4fd60a",
+    "build/xc7-flops/wrong-startup-value.v": "37af54d3b4f38fa23c518ca97427b863701081c952447e2a088a599deb257155",
+    "build/xc7-flops/wrong-startup-value.vvp": "738a09c3a0aa9f5871f51b4d19866ca696367c041c32c306f802488774171017",
+    "build/xc7-flops/zero-unknown-startup-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/xc7-flops/zero-unknown-startup.log": "5c66a63f03dafae42a6c325bb22fe0822a2cf8076c0798136d78a44fb569dab4",
+    "build/xc7-flops/zero-unknown-startup.v": "641d270ac98b3c5b219e2c0c8c568cc6ead40250cf92826e4a5854f4096a7596",
+    "build/xc7-flops/zero-unknown-startup.vvp": "51c339f236b253440944330550b07379653b73a5a06188132d263aab87208847"
+  },
+  "negative_controls_rejected": 16,
+  "negative_controls": [
+    {
+      "name": "clock-inversion",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-system/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "unsupported-initial-state",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-system/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "extra-parameter",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-system/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "wrong-port-width",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-system/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "clock-inversion",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-accelerated/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "unsupported-initial-state",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-accelerated/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "extra-parameter",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-accelerated/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "wrong-port-width",
+      "netlist": "/tmp/wasmetal-direct-rounding/build/xc7-accelerated/mapped.json",
+      "rejected": true
+    },
+    {
+      "name": "wrong-clock-edge",
+      "rejected": true
+    },
+    {
+      "name": "synchronous-clear",
+      "rejected": true
+    },
+    {
+      "name": "reset-gated-by-enable",
+      "rejected": true
+    },
+    {
+      "name": "wrong-startup-value",
+      "rejected": true
+    },
+    {
+      "name": "zero-unknown-startup",
+      "rejected": true
+    },
+    {
+      "name": "truncated-trace",
+      "rejected": true
+    },
+    {
+      "name": "extra-trace",
+      "rejected": true
+    },
+    {
+      "name": "malformed-trace",
+      "rejected": true
+    }
+  ],
+  "four_state_vendor_equivalent": false,
+  "four_state_differences": [
+    {
+      "kind": "FDRE",
+      "known_async_clear": false,
+      "differing_observations": 862,
+      "examples": [
+        {
+          "old_pins": "00z1",
+          "pins": "10z1",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "10z1",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "1"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "00zx",
+          "pins": "10zx",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10zx",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "00zz",
+          "pins": "10zz",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10zz",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "0x11",
+          "pins": "1x11",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "1",
+            "0"
+          ]
+        },
+        {
+          "old_pins": "1x11",
+          "pins": "0010",
+          "old_states": [
+            "1",
+            "0"
+          ],
+          "states": [
+            "1",
+            "0"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "FDRE_1",
+      "known_async_clear": false,
+      "differing_observations": 2563,
+      "examples": [
+        {
+          "old_pins": "101z",
+          "pins": "001z",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "z",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "001z",
+          "pins": "1010",
+          "old_states": [
+            "z",
+            "x"
+          ],
+          "states": [
+            "z",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10z1",
+          "pins": "00z1",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "00z1",
+          "pins": "1010",
+          "old_states": [
+            "0",
+            "1"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "10zx",
+          "pins": "00zx",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "00zx",
+          "pins": "1010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10zz",
+          "pins": "00zz",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "00zz",
+          "pins": "1010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "FDSE",
+      "known_async_clear": false,
+      "differing_observations": 892,
+      "examples": [
+        {
+          "old_pins": "00z1",
+          "pins": "10z1",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "10z1",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "1"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "00zx",
+          "pins": "10zx",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10zx",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "00zz",
+          "pins": "10zz",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10zz",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "0xz1",
+          "pins": "1xz1",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "1xz1",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "1"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "FDCE",
+      "known_async_clear": true,
+      "differing_observations": 167,
+      "examples": [
+        {
+          "old_pins": "00z1",
+          "pins": "10z1",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "10z1",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "1"
+          ],
+          "states": [
+            "0",
+            "1"
+          ]
+        },
+        {
+          "old_pins": "00zx",
+          "pins": "10zx",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10zx",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "00zz",
+          "pins": "10zz",
+          "old_states": [
+            "0",
+            "0"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "10zz",
+          "pins": "0010",
+          "old_states": [
+            "0",
+            "x"
+          ],
+          "states": [
+            "0",
+            "x"
+          ]
+        },
+        {
+          "old_pins": "00z0",
+          "pins": "10z0",
+          "old_states": [
+            "1",
+            "1"
+          ],
+          "states": [
+            "1",
+            "0"
+          ]
+        },
+        {
+          "old_pins": "10z0",
+          "pins": "0011",
+          "old_states": [
+            "1",
+            "0"
+          ],
+          "states": [
+            "1",
+            "0"
+          ]
+        }
+      ]
+    }
+  ],
+  "vendor_unknown_async_clear_oracle_verified": false,
+  "vendor_unknown_clear_diagnostic": {
+    "command": [
+      "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+      "-B",
+      "/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+      "-g2012",
+      "-s",
+      "bench",
+      "-s",
+      "glbl",
+      "-o",
+      "/tmp/wasmetal-direct-rounding/build/xc7-flops/vendor-unknown-clear.vvp",
+      "/tmp/wasmetal-direct-rounding/third_party/xilinx-unisim/FDCE.v",
+      "/tmp/wasmetal-direct-rounding/build/xc7-flops/vendor-unknown-clear.sv"
+    ],
+    "binary_sha256": "aa7f03e8477c51e19c1e3ec52da182a1f0815df0255283bdd840aa56b801ef4e",
+    "log": "build/xc7-flops/vendor-unknown-clear.log"
+  },
+  "limitations": [
+    "No physical setup/hold or metastability model",
+    "Clock inputs stay known binary",
+    "Vendor global reset is pulsed only to establish INIT; later GSR changes are outside scope",
+    "FDCE vendor oracle keeps CLR binary; unknown CLR has delta-cycle behavior recorded separately",
+    "The full FDCE Yosys X/Z trace leaves its unused vendor expectation column undefined (X)",
+    "No sequential formal-equivalence claim; these are independent oracle simulations"
+  ],
+  "elapsed_seconds": 70.00655202101916,
+  "physical_hardware_tested": false
+}

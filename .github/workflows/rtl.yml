@@ -97,6 +97,10 @@ jobs:
         run: python3 tools/check_xc7_luts.py
       - name: Compare carry chains with vendor arithmetic and explicit four-state oracles
         run: python3 tools/check_xc7_carry.py
+      - name: Prove mux and inverter logic and characterize unknown selectors
+        run: python3 tools/check_xc7_muxes.py
+      - name: Check flip-flop clock, reset, enable and startup behavior
+        run: python3 tools/check_xc7_flops.py
       - name: Preserve notices for the generated synthesis-library copies
         if: always()
         run: |
@@ -116,11 +120,15 @@ jobs:
             reports/xc7-dsp.json
             reports/xc7-luts.json
             reports/xc7-carry.json
+            reports/xc7-muxes.json
+            reports/xc7-flops.json
             build/xc7-memory-mapping/
             build/xc7-ram-models/
             build/xc7-dsp/
             build/xc7-lut-check/
             build/xc7-carry-check/
+            build/xc7-muxes/
+            build/xc7-flops/
             build/xc7-system/*.log
             build/xc7-system/*.ys
             build/xc7-system/mapping-overlay/

@@ -1,0 +1,854 @@
+[
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-known-clear-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.log",
+    "original_sha256": "873cb274b76fd90b2925f74b945937353cc858460cc820231f77161b6ba926d1",
+    "archive_sha256": "873cb274b76fd90b2925f74b945937353cc858460cc820231f77161b6ba926d1"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-known-clear-vendor.sv",
+    "original_sha256": "4cb42d000c77fa8c7997187e4b3e404ad701c7fe8bb97eae334018559e916c7c",
+    "archive_sha256": "4cb42d000c77fa8c7997187e4b3e404ad701c7fe8bb97eae334018559e916c7c"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-known-clear-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.log",
+    "original_sha256": "3770bc67e75561dbfe63fc199b9c4f0276c8b27b040e704a9771242650973999",
+    "archive_sha256": "3770bc67e75561dbfe63fc199b9c4f0276c8b27b040e704a9771242650973999"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-known-clear-yosys.sv",
+    "original_sha256": "54c1839efd82e1bb96acde5148c1f1002c3134a3e2531d3090d748c2d11376a3",
+    "archive_sha256": "54c1839efd82e1bb96acde5148c1f1002c3134a3e2531d3090d748c2d11376a3"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-known-clear.txt",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-known-clear.txt.gz",
+    "original_sha256": "4e3ce0ebfd160ee5bcfea2de7e3040f2131a33a5a511c7e05c972ac46dc966b0",
+    "archive_sha256": "3c3293518e46d2e808024822657fb693de380ec8f4dadea4ac2d4be99f25314b"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-yosys.log",
+    "original_sha256": "92ca8e2891a3e1431e7c3d2ab738f55ec3a83d58c8c8a21dc13332fcb16535c5",
+    "archive_sha256": "92ca8e2891a3e1431e7c3d2ab738f55ec3a83d58c8c8a21dc13332fcb16535c5"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x-yosys.sv",
+    "original_sha256": "5d22046ef6dc95e1a45dce6be2de3d7c0e348859159d13c5b20c4bd857267faa",
+    "archive_sha256": "5d22046ef6dc95e1a45dce6be2de3d7c0e348859159d13c5b20c4bd857267faa"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/four-state-init-x.txt",
+    "archive_path": "docs/verification/xc7-flops/FDCE/four-state-init-x.txt.gz",
+    "original_sha256": "f8d98323d7b93594a2a3f3e4f1d266cd30b6a054ef3336b96f94ba081af92be0",
+    "archive_sha256": "c156ac00f50078df52b64668c7986a0a58a6f42f939b1d45ebcfa0c0517baadb"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-vendor.log",
+    "original_sha256": "9faef199a3179541da537a787d0be5816258e1f3211f7bbad4540290d35a060d",
+    "archive_sha256": "9faef199a3179541da537a787d0be5816258e1f3211f7bbad4540290d35a060d"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-vendor.sv",
+    "original_sha256": "8d11f1d627600144b27655476ea55d99f2b11ff18361945a5f956ef348d1a4c0",
+    "archive_sha256": "8d11f1d627600144b27655476ea55d99f2b11ff18361945a5f956ef348d1a4c0"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-verilator-compile.log",
+    "original_sha256": "51a4684372d171cdf760c1dbb2c9b49473637d55e0ed8400da5d5a0b6930bfcf",
+    "archive_sha256": "51a4684372d171cdf760c1dbb2c9b49473637d55e0ed8400da5d5a0b6930bfcf"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-verilator.log",
+    "original_sha256": "cfc60eb1fa0220a646fe1613d89c98f51b0e5f9340d9cd2f454189aac287404c",
+    "archive_sha256": "cfc60eb1fa0220a646fe1613d89c98f51b0e5f9340d9cd2f454189aac287404c"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-yosys.log",
+    "original_sha256": "b90b4be9e639e47d30c06756c139727c6f92542458bddce2607acee06febd2fb",
+    "archive_sha256": "b90b4be9e639e47d30c06756c139727c6f92542458bddce2607acee06febd2fb"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0-yosys.sv",
+    "original_sha256": "085d40422ac1433ab9bbc549601e9beffc9691c5252b1106aad87d677be45354",
+    "archive_sha256": "085d40422ac1433ab9bbc549601e9beffc9691c5252b1106aad87d677be45354"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-0.txt",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-0.txt.gz",
+    "original_sha256": "644374530475c6b8f7d5ba7ebdfb99a703ed71ead87526bb92020f6a75942275",
+    "archive_sha256": "17aef36d81b091d32fbffffe07aaefc61bb2fba241b579d1526a9787af255cf2"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-vendor.log",
+    "original_sha256": "cab2bbf191bc4912aff3c754992cb19ef6d49dbf15acbc5fcf17e4216e4a43d5",
+    "archive_sha256": "cab2bbf191bc4912aff3c754992cb19ef6d49dbf15acbc5fcf17e4216e4a43d5"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-vendor.sv",
+    "original_sha256": "dfd9cc0aa4b0606d672cff127f7323202ad15093b68938ff0db496a522d3a6e4",
+    "archive_sha256": "dfd9cc0aa4b0606d672cff127f7323202ad15093b68938ff0db496a522d3a6e4"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-verilator-compile.log",
+    "original_sha256": "a283d7b065d6537d349fed1133e00f63024f0adf2cda21962d85f9750ae83819",
+    "archive_sha256": "a283d7b065d6537d349fed1133e00f63024f0adf2cda21962d85f9750ae83819"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-verilator.log",
+    "original_sha256": "5c7089e5d34532d3a831e56d022d37d30531ceda9b6c15379cc3912c6887b1fb",
+    "archive_sha256": "5c7089e5d34532d3a831e56d022d37d30531ceda9b6c15379cc3912c6887b1fb"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-yosys.log",
+    "original_sha256": "493de4de0378b0eb963e6ec27a9b9f93ffabaa6203cbdb7cbb6a755c3f8e79e7",
+    "archive_sha256": "493de4de0378b0eb963e6ec27a9b9f93ffabaa6203cbdb7cbb6a755c3f8e79e7"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1-yosys.sv",
+    "original_sha256": "fa735cb644b812642466dc6263fce5aa63f96183c33deaa89eb7c649bc6222a7",
+    "archive_sha256": "fa735cb644b812642466dc6263fce5aa63f96183c33deaa89eb7c649bc6222a7"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/known-init-1.txt",
+    "archive_path": "docs/verification/xc7-flops/FDCE/known-init-1.txt.gz",
+    "original_sha256": "8916789e3a59f7a6212f0bdaea5949a6c1d4a21495045b9b418ed9ef46a6726c",
+    "archive_sha256": "88fa0e6e69d1cba076d8ea2eefc943cbbda36015153ff742b48d1d4f01c60920"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/model.vlt",
+    "archive_path": "docs/verification/xc7-flops/FDCE/model.vlt",
+    "original_sha256": "ea4fa7a5fd37abc2bf03df7510a2f671e2dc73f052f1ea8cf61c53613ec7744a",
+    "archive_sha256": "ea4fa7a5fd37abc2bf03df7510a2f671e2dc73f052f1ea8cf61c53613ec7744a"
+  },
+  {
+    "original_path": "build/xc7-flops/FDCE/yosys.v",
+    "archive_path": "docs/verification/xc7-flops/FDCE/yosys.v",
+    "original_sha256": "3b2dd1520f191cd05f2618fb4f1658ff814619626db20722ec47378789bb6c27",
+    "archive_sha256": "3b2dd1520f191cd05f2618fb4f1658ff814619626db20722ec47378789bb6c27"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/four-state-init-x-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/four-state-init-x-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/four-state-init-x-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/four-state-init-x-vendor.log",
+    "original_sha256": "de405f5a50d9082209e9422bdf1863c1e3e2426eb48bac83f646420e0c25826b",
+    "archive_sha256": "de405f5a50d9082209e9422bdf1863c1e3e2426eb48bac83f646420e0c25826b"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/four-state-init-x-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE/four-state-init-x-vendor.sv",
+    "original_sha256": "1b4dd3807b57d641dcf5ee87b932021fbfce8f4af6b2dbcd483556b1758e878a",
+    "archive_sha256": "1b4dd3807b57d641dcf5ee87b932021fbfce8f4af6b2dbcd483556b1758e878a"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/four-state-init-x-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/four-state-init-x-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/four-state-init-x-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/four-state-init-x-yosys.log",
+    "original_sha256": "b34e9f0f43f5f7875d4c47aadf7221d0485e9dc453e83cb1f8cb4c1ca0ccf4a3",
+    "archive_sha256": "b34e9f0f43f5f7875d4c47aadf7221d0485e9dc453e83cb1f8cb4c1ca0ccf4a3"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/four-state-init-x-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE/four-state-init-x-yosys.sv",
+    "original_sha256": "dfa5199bfce3c4c7afef3a76afeab6a990a24be6ff3be4fcf437e3d077793412",
+    "archive_sha256": "dfa5199bfce3c4c7afef3a76afeab6a990a24be6ff3be4fcf437e3d077793412"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/four-state-init-x.txt",
+    "archive_path": "docs/verification/xc7-flops/FDRE/four-state-init-x.txt.gz",
+    "original_sha256": "6ea9cf4252848d3fd5cc729e550f7b1693c16c905e930219b1591a1284556b27",
+    "archive_sha256": "d2a46821ee9a650dec7aac06ebfbd9b2cd83006aa33747d6bdbcda1cf5fe1a30"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-vendor.log",
+    "original_sha256": "6c96e050e65e896ec772f750f18724e3cb2700b5aacf0f4f9d4ff864d4b25dd4",
+    "archive_sha256": "6c96e050e65e896ec772f750f18724e3cb2700b5aacf0f4f9d4ff864d4b25dd4"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-vendor.sv",
+    "original_sha256": "6795d2a99bdf2cea11d54b5f412f1b1c717646da550cc94ea76814ac2cf0c4f1",
+    "archive_sha256": "6795d2a99bdf2cea11d54b5f412f1b1c717646da550cc94ea76814ac2cf0c4f1"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-verilator-compile.log",
+    "original_sha256": "71a7b4171e0037d7c64569ba04df2a8a361053e9997a000cb2c081ec927a0c9c",
+    "archive_sha256": "71a7b4171e0037d7c64569ba04df2a8a361053e9997a000cb2c081ec927a0c9c"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-verilator.log",
+    "original_sha256": "5e092abb2d723e474455f26b99cee132e347d9335de982c061b95d42353d9839",
+    "archive_sha256": "5e092abb2d723e474455f26b99cee132e347d9335de982c061b95d42353d9839"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-yosys.log",
+    "original_sha256": "5453a9222f75344cb485901f2336c388aca88dcd485c259d7b228cc512dcfdf9",
+    "archive_sha256": "5453a9222f75344cb485901f2336c388aca88dcd485c259d7b228cc512dcfdf9"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0-yosys.sv",
+    "original_sha256": "c747270adea25f7d3407e508662ca3f29a4b866b152c0503ec953cf64e3119f9",
+    "archive_sha256": "c747270adea25f7d3407e508662ca3f29a4b866b152c0503ec953cf64e3119f9"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-0.txt",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-0.txt.gz",
+    "original_sha256": "b00b8b497762d7b95512036102cbd5f9ae107045e3c0cc839832b15e5e3ad036",
+    "archive_sha256": "bafdeabca70cc53eb255c89b85252605e19213eb72b155734a38b41f2d61c9ab"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-vendor.log",
+    "original_sha256": "9c3e101e647baf14fae596d35a9db3fc7a03d49d5f53b71bfa354170f687c194",
+    "archive_sha256": "9c3e101e647baf14fae596d35a9db3fc7a03d49d5f53b71bfa354170f687c194"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-vendor.sv",
+    "original_sha256": "ce8999864e4f198a94d5aa3cfc4044c43c3cc434b8f72aa73dcb348cb6c67357",
+    "archive_sha256": "ce8999864e4f198a94d5aa3cfc4044c43c3cc434b8f72aa73dcb348cb6c67357"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-verilator-compile.log",
+    "original_sha256": "6dac1582da8a5ec1afd1db55665c0e1276e127b8e8bebc68163c95fbf965499f",
+    "archive_sha256": "6dac1582da8a5ec1afd1db55665c0e1276e127b8e8bebc68163c95fbf965499f"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-verilator.log",
+    "original_sha256": "ab32035eba179d07e849ff04b9bb8d5c9c594a68d6d2d3f895cfa111a993392f",
+    "archive_sha256": "ab32035eba179d07e849ff04b9bb8d5c9c594a68d6d2d3f895cfa111a993392f"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-yosys.log",
+    "original_sha256": "b140b35568bd2c6fd6b8ed752e85b735721185903ea72698655753d31c637e5e",
+    "archive_sha256": "b140b35568bd2c6fd6b8ed752e85b735721185903ea72698655753d31c637e5e"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1-yosys.sv",
+    "original_sha256": "611ddacd8ace3095ac0c62ac7e1996280162f6ca2e2073a0fb93ab4c5e562e5a",
+    "archive_sha256": "611ddacd8ace3095ac0c62ac7e1996280162f6ca2e2073a0fb93ab4c5e562e5a"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/known-init-1.txt",
+    "archive_path": "docs/verification/xc7-flops/FDRE/known-init-1.txt.gz",
+    "original_sha256": "ad44ce446317c64916b70f628b7633960ac9df38c8ddccee35110602accbc5f3",
+    "archive_sha256": "fcc62f35fc83a0dac5c6a0ea2680a8fa098e28a64b95ab2466786d8a678c4bba"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/model.vlt",
+    "archive_path": "docs/verification/xc7-flops/FDRE/model.vlt",
+    "original_sha256": "f4b349aeeb44f8ff6d72d5a10139fe7ff0627d0a38a05c1d450b8355ef953af3",
+    "archive_sha256": "f4b349aeeb44f8ff6d72d5a10139fe7ff0627d0a38a05c1d450b8355ef953af3"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE/yosys.v",
+    "archive_path": "docs/verification/xc7-flops/FDRE/yosys.v",
+    "original_sha256": "a46e6f54dab92f961433d3d06852c2a390dfa76180adaa4a5276e7ae32837769",
+    "archive_sha256": "a46e6f54dab92f961433d3d06852c2a390dfa76180adaa4a5276e7ae32837769"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/four-state-init-x-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/four-state-init-x-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/four-state-init-x-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/four-state-init-x-vendor.log",
+    "original_sha256": "ecc34c350cf86277f810b926012cdd9bd1f30fd5c13b7e30c58db55df1b8a7f7",
+    "archive_sha256": "ecc34c350cf86277f810b926012cdd9bd1f30fd5c13b7e30c58db55df1b8a7f7"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/four-state-init-x-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/four-state-init-x-vendor.sv",
+    "original_sha256": "2475a50c9dd51017bec668a2fc529849ba0ff3ce8af439d3ca843e252528cc63",
+    "archive_sha256": "2475a50c9dd51017bec668a2fc529849ba0ff3ce8af439d3ca843e252528cc63"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/four-state-init-x-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/four-state-init-x-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/four-state-init-x-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/four-state-init-x-yosys.log",
+    "original_sha256": "fdaf013579105e916c63cfbc0d72cc77b7917262566f36640bf036edb3bb7572",
+    "archive_sha256": "fdaf013579105e916c63cfbc0d72cc77b7917262566f36640bf036edb3bb7572"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/four-state-init-x-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/four-state-init-x-yosys.sv",
+    "original_sha256": "95731298efc1be189eba7e13224e6673853bd7af4f54c239042c868c9a6e54f7",
+    "archive_sha256": "95731298efc1be189eba7e13224e6673853bd7af4f54c239042c868c9a6e54f7"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/four-state-init-x.txt",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/four-state-init-x.txt.gz",
+    "original_sha256": "4df383c29ac101dfde8c8eb93e5d0b51b279e6df60cec658f977b3e9bc70159f",
+    "archive_sha256": "c013531c8431a447eb1e4b33a4eef14ca13505bc51e16b00dd48316663283d7d"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-vendor.log",
+    "original_sha256": "8acbbbd29ed29eaf7c51180abafda7f78ccdc1b3f0e6ec371c251445e81fe23f",
+    "archive_sha256": "8acbbbd29ed29eaf7c51180abafda7f78ccdc1b3f0e6ec371c251445e81fe23f"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-vendor.sv",
+    "original_sha256": "c8f9d83b84f9100540a95206d91b4e8d554f0d9099862765b8914b0ddfe26553",
+    "archive_sha256": "c8f9d83b84f9100540a95206d91b4e8d554f0d9099862765b8914b0ddfe26553"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-verilator-compile.log",
+    "original_sha256": "335a143bb06f179bd5c49f38e4fc0b8692a75f6116709d2f6aa4e863a2391b71",
+    "archive_sha256": "335a143bb06f179bd5c49f38e4fc0b8692a75f6116709d2f6aa4e863a2391b71"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-verilator.log",
+    "original_sha256": "a623d6f390b3228bafabea69cfe77700751eac6f453837fa69645903ce516f3e",
+    "archive_sha256": "a623d6f390b3228bafabea69cfe77700751eac6f453837fa69645903ce516f3e"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-yosys.log",
+    "original_sha256": "eaead2d9eac9b46184cc73b1ee5409c4e278fe90d25d3195328170303d804be7",
+    "archive_sha256": "eaead2d9eac9b46184cc73b1ee5409c4e278fe90d25d3195328170303d804be7"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0-yosys.sv",
+    "original_sha256": "4a5599cd482ce8d7281ef2345bf4351ccbd450734efd9c7ae36e0f4497efe10c",
+    "archive_sha256": "4a5599cd482ce8d7281ef2345bf4351ccbd450734efd9c7ae36e0f4497efe10c"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-0.txt",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-0.txt.gz",
+    "original_sha256": "394dd8271bd47ed6382a19330de9ad3e5824443c6d11db0431c4c828d541589c",
+    "archive_sha256": "92b7578d879d2d8e8e39ba0b4b1ba6af81fe3b0215f3a3a57516c0f646bb0b9b"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-vendor.log",
+    "original_sha256": "9bffce12aaa7c9583d41115ed515c8586fc2c3d622bee7d594fd58b56e516fe2",
+    "archive_sha256": "9bffce12aaa7c9583d41115ed515c8586fc2c3d622bee7d594fd58b56e516fe2"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-vendor.sv",
+    "original_sha256": "a95a6a97b47141aa18961b9e25ad16bf066b4f39f56fd3b63c492d32fcc6e8eb",
+    "archive_sha256": "a95a6a97b47141aa18961b9e25ad16bf066b4f39f56fd3b63c492d32fcc6e8eb"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-verilator-compile.log",
+    "original_sha256": "04ef9a1a86899ee0a203e2a8a34bfcecdbc6b42562d124af6d125efc0ca70559",
+    "archive_sha256": "04ef9a1a86899ee0a203e2a8a34bfcecdbc6b42562d124af6d125efc0ca70559"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-verilator.log",
+    "original_sha256": "a2a497ba049b2ac603d00a3332bc12a5a03676ce13b719213e4b3e6ffc8c66d3",
+    "archive_sha256": "a2a497ba049b2ac603d00a3332bc12a5a03676ce13b719213e4b3e6ffc8c66d3"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-yosys.log",
+    "original_sha256": "5e8b981d91b89c7d10c60ca635185a407891da33210611587ec48f8068a23b00",
+    "archive_sha256": "5e8b981d91b89c7d10c60ca635185a407891da33210611587ec48f8068a23b00"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1-yosys.sv",
+    "original_sha256": "f1e153bf236632cba4c0db01f9211cc074bce757a274a3c3da92bc505c47fd8c",
+    "archive_sha256": "f1e153bf236632cba4c0db01f9211cc074bce757a274a3c3da92bc505c47fd8c"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/known-init-1.txt",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/known-init-1.txt.gz",
+    "original_sha256": "9de647d36b164403057ea4f15eb499a6d0837e64c4b8ea369213dec7d2d7cef9",
+    "archive_sha256": "40b3f2a4183cf019f9f6f6e537a6fc6c0941a0ebdca5b1ca48569506b7cb979a"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/model.vlt",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/model.vlt",
+    "original_sha256": "66ccd5493d80a15f7eb76fa8754e8e71750647d35e4c1fac8ff77384cc4a015c",
+    "archive_sha256": "66ccd5493d80a15f7eb76fa8754e8e71750647d35e4c1fac8ff77384cc4a015c"
+  },
+  {
+    "original_path": "build/xc7-flops/FDRE_1/yosys.v",
+    "archive_path": "docs/verification/xc7-flops/FDRE_1/yosys.v",
+    "original_sha256": "2f6b776d1e5b6425c7b43a0dc25128d2d1a6efe41a4919555759b18853fc98bb",
+    "archive_sha256": "2f6b776d1e5b6425c7b43a0dc25128d2d1a6efe41a4919555759b18853fc98bb"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/four-state-init-x-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/four-state-init-x-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/four-state-init-x-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/four-state-init-x-vendor.log",
+    "original_sha256": "4c1f26555cf982e8ca1297f7e5958ce6b357f0641213ff1e6fc36b2c2208c6e5",
+    "archive_sha256": "4c1f26555cf982e8ca1297f7e5958ce6b357f0641213ff1e6fc36b2c2208c6e5"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/four-state-init-x-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDSE/four-state-init-x-vendor.sv",
+    "original_sha256": "0f06242dd6cfa371b01f8eccefda19d0b3b2b5064b16c5284e620f9e1e554895",
+    "archive_sha256": "0f06242dd6cfa371b01f8eccefda19d0b3b2b5064b16c5284e620f9e1e554895"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/four-state-init-x-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/four-state-init-x-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/four-state-init-x-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/four-state-init-x-yosys.log",
+    "original_sha256": "87fcb76a7642ed81b17f7431f303a3d4bbfe0f0ae303bb917e6984ed26a8ab89",
+    "archive_sha256": "87fcb76a7642ed81b17f7431f303a3d4bbfe0f0ae303bb917e6984ed26a8ab89"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/four-state-init-x-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDSE/four-state-init-x-yosys.sv",
+    "original_sha256": "eef27fa7213f5a5ef00d84eeaaaa3265436d49c0f9bceb2cea6ef56e1b846477",
+    "archive_sha256": "eef27fa7213f5a5ef00d84eeaaaa3265436d49c0f9bceb2cea6ef56e1b846477"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/four-state-init-x.txt",
+    "archive_path": "docs/verification/xc7-flops/FDSE/four-state-init-x.txt.gz",
+    "original_sha256": "d8242ad3c62516404f89480433ebe4d175f59fb4d3befa9ed25a48778c99af1d",
+    "archive_sha256": "6a7f9ff925d2614df720e8822dcf5e60a2c02f88570b95e8846ca2ce2fcd9bfe"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-vendor.log",
+    "original_sha256": "9f76816eaad7b685eadbc8811c054bd9989f8c9df1aa1e7c5dddb9e6292a9049",
+    "archive_sha256": "9f76816eaad7b685eadbc8811c054bd9989f8c9df1aa1e7c5dddb9e6292a9049"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-vendor.sv",
+    "original_sha256": "6dc794705c18a232d7ea358973881f276e593ebf14a92e93ac0ecaecc0f8a77e",
+    "archive_sha256": "6dc794705c18a232d7ea358973881f276e593ebf14a92e93ac0ecaecc0f8a77e"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-verilator-compile.log",
+    "original_sha256": "a9f37305538c2edb6bfddeaaaa5046d7ccb28d12588c37f37afe5ed15e8674a5",
+    "archive_sha256": "a9f37305538c2edb6bfddeaaaa5046d7ccb28d12588c37f37afe5ed15e8674a5"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-verilator.log",
+    "original_sha256": "157e3f835cee830d2da604d8434a2e7c1c7efbc4037bacc073bb41da4bca5c92",
+    "archive_sha256": "157e3f835cee830d2da604d8434a2e7c1c7efbc4037bacc073bb41da4bca5c92"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-yosys.log",
+    "original_sha256": "66e09c4780ade515d579313b1d8ae3fe21cace2dbb67024636b6c8a54d8e950e",
+    "archive_sha256": "66e09c4780ade515d579313b1d8ae3fe21cace2dbb67024636b6c8a54d8e950e"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0-yosys.sv",
+    "original_sha256": "e7eb33db80e9080aaf1ca4b28a9cd5f01c4c16fe3a14eab8858d7d660ca52b5e",
+    "archive_sha256": "e7eb33db80e9080aaf1ca4b28a9cd5f01c4c16fe3a14eab8858d7d660ca52b5e"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-0.txt",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-0.txt.gz",
+    "original_sha256": "1ad19e1d46668641d6d19532fc25cd3df2487fe7dedf37fc90281d2ad2479fab",
+    "archive_sha256": "c1156348e7a7fbbf0e7f91f1eb2aab1ea6b78c83f07cbe6878a56212cca1bc85"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-vendor-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-vendor-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-vendor.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-vendor.log",
+    "original_sha256": "3c6dc8fced13dc58c050e5f56fe7ca57dc73cebf7e1bcac6612131d2e8406e71",
+    "archive_sha256": "3c6dc8fced13dc58c050e5f56fe7ca57dc73cebf7e1bcac6612131d2e8406e71"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-vendor.sv",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-vendor.sv",
+    "original_sha256": "d4914acec2489e130ce7679e1350007e13513ee7b865915b7d6b99b8161de0f0",
+    "archive_sha256": "d4914acec2489e130ce7679e1350007e13513ee7b865915b7d6b99b8161de0f0"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-verilator-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-verilator-compile.log",
+    "original_sha256": "164eff2b5c40d0085caf398556fda6b9c80642a4c8ba510e3d54b29a8ead7883",
+    "archive_sha256": "164eff2b5c40d0085caf398556fda6b9c80642a4c8ba510e3d54b29a8ead7883"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-verilator.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-verilator.log",
+    "original_sha256": "320fe30339f8dd56b1c1e616a61bf877915bef73a3cb27b29a0678e45c70d87f",
+    "archive_sha256": "320fe30339f8dd56b1c1e616a61bf877915bef73a3cb27b29a0678e45c70d87f"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-yosys-compile.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-yosys-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-yosys.log",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-yosys.log",
+    "original_sha256": "82be25b70af39e985386b07983d240a457ea8e75de1f388ad0e6903fb59dddf9",
+    "archive_sha256": "82be25b70af39e985386b07983d240a457ea8e75de1f388ad0e6903fb59dddf9"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1-yosys.sv",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1-yosys.sv",
+    "original_sha256": "49b192d5042587775e1dcc2d8b466146b5b531ff86a04dce9c8bc38ddf7a2d47",
+    "archive_sha256": "49b192d5042587775e1dcc2d8b466146b5b531ff86a04dce9c8bc38ddf7a2d47"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/known-init-1.txt",
+    "archive_path": "docs/verification/xc7-flops/FDSE/known-init-1.txt.gz",
+    "original_sha256": "c2e93f7631cf331f0e72340bc3758fae87c721a169808cb6413b14b3f2266e5a",
+    "archive_sha256": "514311e2491464484810b14ca530a2c9ec09b0d4f50382de65b4fd29a2bb61ed"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/model.vlt",
+    "archive_path": "docs/verification/xc7-flops/FDSE/model.vlt",
+    "original_sha256": "f3e144e00e9fe7f202e92316edda9ce441d90f2a41df85e9ec396cb29fcc669a",
+    "archive_sha256": "f3e144e00e9fe7f202e92316edda9ce441d90f2a41df85e9ec396cb29fcc669a"
+  },
+  {
+    "original_path": "build/xc7-flops/FDSE/yosys.v",
+    "archive_path": "docs/verification/xc7-flops/FDSE/yosys.v",
+    "original_sha256": "46804317a09789451ecb90ef7bd9e6233f702f741f68efd77529cd24c503cd9d",
+    "archive_sha256": "46804317a09789451ecb90ef7bd9e6233f702f741f68efd77529cd24c503cd9d"
+  },
+  {
+    "original_path": "build/xc7-flops/extra-trace-compile.log",
+    "archive_path": "docs/verification/xc7-flops/extra-trace-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/extra-trace.log",
+    "archive_path": "docs/verification/xc7-flops/extra-trace.log",
+    "original_sha256": "dedbd38b9174c547b1ba58ae26e301242fb629f7c220ce4d609835b6ff3df507",
+    "archive_sha256": "dedbd38b9174c547b1ba58ae26e301242fb629f7c220ce4d609835b6ff3df507"
+  },
+  {
+    "original_path": "build/xc7-flops/extra-trace.sv",
+    "archive_path": "docs/verification/xc7-flops/extra-trace.sv",
+    "original_sha256": "424ff5b4ff76a2d566ebf5feddba06db38f779ac9999468d8a6e26c432ac8a09",
+    "archive_sha256": "424ff5b4ff76a2d566ebf5feddba06db38f779ac9999468d8a6e26c432ac8a09"
+  },
+  {
+    "original_path": "build/xc7-flops/extra-trace.txt",
+    "archive_path": "docs/verification/xc7-flops/extra-trace.txt.gz",
+    "original_sha256": "b7240ed3ac3c929e9d9b27423849cde7778a09bb05e2aaa968f96b0059467e2e",
+    "archive_sha256": "2999ab26425eb26f50bc45a50cb2d9d6d5c945617bb533db2b31402ffd6ab269"
+  },
+  {
+    "original_path": "build/xc7-flops/malformed-trace-compile.log",
+    "archive_path": "docs/verification/xc7-flops/malformed-trace-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/malformed-trace.log",
+    "archive_path": "docs/verification/xc7-flops/malformed-trace.log",
+    "original_sha256": "9e73ae1bcb22eafde6ba5383427b328fa7f4af67d9d002a33bc0f8c8ff36e093",
+    "archive_sha256": "9e73ae1bcb22eafde6ba5383427b328fa7f4af67d9d002a33bc0f8c8ff36e093"
+  },
+  {
+    "original_path": "build/xc7-flops/malformed-trace.sv",
+    "archive_path": "docs/verification/xc7-flops/malformed-trace.sv",
+    "original_sha256": "d59bd00b4b21c2a9103705f1a4c42a3b8e2de6110ea1869b04d41c08d8a3a26a",
+    "archive_sha256": "d59bd00b4b21c2a9103705f1a4c42a3b8e2de6110ea1869b04d41c08d8a3a26a"
+  },
+  {
+    "original_path": "build/xc7-flops/malformed-trace.txt",
+    "archive_path": "docs/verification/xc7-flops/malformed-trace.txt.gz",
+    "original_sha256": "c760092d2abe5af2ade7436a0fc6242bedcb257006e53b2e63efd0083be33441",
+    "archive_sha256": "dd40fea271f3efb36dd08543f009477e28bbc35026126a07ee96befa06a00d89"
+  },
+  {
+    "original_path": "build/xc7-flops/reset-gated-by-enable-compile.log",
+    "archive_path": "docs/verification/xc7-flops/reset-gated-by-enable-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/reset-gated-by-enable.log",
+    "archive_path": "docs/verification/xc7-flops/reset-gated-by-enable.log",
+    "original_sha256": "01aa9147311c08e440d979217478419d01b53d5fbbdc834ed1280a871e4fc410",
+    "archive_sha256": "01aa9147311c08e440d979217478419d01b53d5fbbdc834ed1280a871e4fc410"
+  },
+  {
+    "original_path": "build/xc7-flops/reset-gated-by-enable.v",
+    "archive_path": "docs/verification/xc7-flops/reset-gated-by-enable.v",
+    "original_sha256": "4bf699c6ff8aa29d7b8d6fdb6a071b58a7499beb9e1f4f0149ed4c6d0fee5f43",
+    "archive_sha256": "4bf699c6ff8aa29d7b8d6fdb6a071b58a7499beb9e1f4f0149ed4c6d0fee5f43"
+  },
+  {
+    "original_path": "build/xc7-flops/synchronous-clear-compile.log",
+    "archive_path": "docs/verification/xc7-flops/synchronous-clear-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/synchronous-clear.log",
+    "archive_path": "docs/verification/xc7-flops/synchronous-clear.log",
+    "original_sha256": "9001238edbeb6a40e73b7dc018a1dc4a1401df91675efdc06c1ffb0b72d0d050",
+    "archive_sha256": "9001238edbeb6a40e73b7dc018a1dc4a1401df91675efdc06c1ffb0b72d0d050"
+  },
+  {
+    "original_path": "build/xc7-flops/synchronous-clear.v",
+    "archive_path": "docs/verification/xc7-flops/synchronous-clear.v",
+    "original_sha256": "e3f35ec7d8fad31b68b7eb547ca6c26e12aecad0ffed5d68fe07b20c130495ee",
+    "archive_sha256": "e3f35ec7d8fad31b68b7eb547ca6c26e12aecad0ffed5d68fe07b20c130495ee"
+  },
+  {
+    "original_path": "build/xc7-flops/truncated-trace-compile.log",
+    "archive_path": "docs/verification/xc7-flops/truncated-trace-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/truncated-trace.log",
+    "archive_path": "docs/verification/xc7-flops/truncated-trace.log",
+    "original_sha256": "c6b84b8c75b971d5cf5ed2d7612c2fcd1c64cc1a59b3b002464da12d40a75521",
+    "archive_sha256": "c6b84b8c75b971d5cf5ed2d7612c2fcd1c64cc1a59b3b002464da12d40a75521"
+  },
+  {
+    "original_path": "build/xc7-flops/truncated-trace.sv",
+    "archive_path": "docs/verification/xc7-flops/truncated-trace.sv",
+    "original_sha256": "c0d38b82ed7b2742e7a65b349becc99a7c911f56c30b1ef44423c73f455cde58",
+    "archive_sha256": "c0d38b82ed7b2742e7a65b349becc99a7c911f56c30b1ef44423c73f455cde58"
+  },
+  {
+    "original_path": "build/xc7-flops/truncated-trace.txt",
+    "archive_path": "docs/verification/xc7-flops/truncated-trace.txt.gz",
+    "original_sha256": "6b1e04dee675173d721ee3119aed7fedc9ec3a1202670d56be7f025e46793d4e",
+    "archive_sha256": "373c148e6dae4d530793c38256752804269e501f4f32eb62d372fbdaa82685ad"
+  },
+  {
+    "original_path": "build/xc7-flops/vendor-unknown-clear-compile.log",
+    "archive_path": "docs/verification/xc7-flops/vendor-unknown-clear-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/vendor-unknown-clear.log",
+    "archive_path": "docs/verification/xc7-flops/vendor-unknown-clear.log",
+    "original_sha256": "99d57c16237ea051edd482d1c6e267de4fdb93b0fa457134009f019ae669be2b",
+    "archive_sha256": "99d57c16237ea051edd482d1c6e267de4fdb93b0fa457134009f019ae669be2b"
+  },
+  {
+    "original_path": "build/xc7-flops/vendor-unknown-clear.sv",
+    "archive_path": "docs/verification/xc7-flops/vendor-unknown-clear.sv",
+    "original_sha256": "6bf811ee2a1a5e7328cea1aca7eda6cce9f1b15f704174e3851af16534ebb6df",
+    "archive_sha256": "6bf811ee2a1a5e7328cea1aca7eda6cce9f1b15f704174e3851af16534ebb6df"
+  },
+  {
+    "original_path": "build/xc7-flops/wrong-clock-edge-compile.log",
+    "archive_path": "docs/verification/xc7-flops/wrong-clock-edge-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/wrong-clock-edge.log",
+    "archive_path": "docs/verification/xc7-flops/wrong-clock-edge.log",
+    "original_sha256": "cb961e25df750f952363e22000034406ef7415f79ccf8be8a8a1ff21ea950762",
+    "archive_sha256": "cb961e25df750f952363e22000034406ef7415f79ccf8be8a8a1ff21ea950762"
+  },
+  {
+    "original_path": "build/xc7-flops/wrong-clock-edge.v",
+    "archive_path": "docs/verification/xc7-flops/wrong-clock-edge.v",
+    "original_sha256": "9b383b04cc6246c09ec1211639df71849a3634a979f368d5d3e89aefc39f7cbe",
+    "archive_sha256": "9b383b04cc6246c09ec1211639df71849a3634a979f368d5d3e89aefc39f7cbe"
+  },
+  {
+    "original_path": "build/xc7-flops/wrong-startup-value-compile.log",
+    "archive_path": "docs/verification/xc7-flops/wrong-startup-value-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/wrong-startup-value.log",
+    "archive_path": "docs/verification/xc7-flops/wrong-startup-value.log",
+    "original_sha256": "7d4e9c2eb6c18ac095311a4324f85c5a1a4b09004524aa6c913b01db6c4fd60a",
+    "archive_sha256": "7d4e9c2eb6c18ac095311a4324f85c5a1a4b09004524aa6c913b01db6c4fd60a"
+  },
+  {
+    "original_path": "build/xc7-flops/wrong-startup-value.v",
+    "archive_path": "docs/verification/xc7-flops/wrong-startup-value.v",
+    "original_sha256": "37af54d3b4f38fa23c518ca97427b863701081c952447e2a088a599deb257155",
+    "archive_sha256": "37af54d3b4f38fa23c518ca97427b863701081c952447e2a088a599deb257155"
+  },
+  {
+    "original_path": "build/xc7-flops/zero-unknown-startup-compile.log",
+    "archive_path": "docs/verification/xc7-flops/zero-unknown-startup-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "original_path": "build/xc7-flops/zero-unknown-startup.log",
+    "archive_path": "docs/verification/xc7-flops/zero-unknown-startup.log",
+    "original_sha256": "5c66a63f03dafae42a6c325bb22fe0822a2cf8076c0798136d78a44fb569dab4",
+    "archive_sha256": "5c66a63f03dafae42a6c325bb22fe0822a2cf8076c0798136d78a44fb569dab4"
+  },
+  {
+    "original_path": "build/xc7-flops/zero-unknown-startup.v",
+    "archive_path": "docs/verification/xc7-flops/zero-unknown-startup.v",
+    "original_sha256": "641d270ac98b3c5b219e2c0c8c568cc6ead40250cf92826e4a5854f4096a7596",
+    "archive_sha256": "641d270ac98b3c5b219e2c0c8c568cc6ead40250cf92826e4a5854f4096a7596"
+  }
+]

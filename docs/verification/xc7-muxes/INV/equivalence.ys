@@ -1,0 +1,5 @@
+read_verilog -sv /tmp/wasmetal-direct-rounding/build/xc7-muxes/INV/equivalence.sv
+prep -top proof
+flatten
+opt
+sat -verify -prove mismatch 0 -show-inputs
