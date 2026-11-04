@@ -1,0 +1,835 @@
+[
+  {
+    "original_path": ".cache/sky130hd/ORFS_LICENSE",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd/ORFS_LICENSE",
+    "original_sha256": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    "archive_sha256": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd/SKYWATER_LICENSE",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd/SKYWATER_LICENSE",
+    "original_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "archive_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd/config.mk",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd/config.mk",
+    "original_sha256": "1ca10588eab55845dbac6af01a6721fcb88071c7de4b1223024b5e7438f0fe5c",
+    "archive_sha256": "1ca10588eab55845dbac6af01a6721fcb88071c7de4b1223024b5e7438f0fe5c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib.gz",
+    "original_sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9",
+    "archive_sha256": "73654ab447dea072a6f044c6a258a5587b0af3aa94fdc7c8b296b6646ee07eea",
+    "compressed": true
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/LICENSE",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/LICENSE",
+    "original_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "archive_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a2111oi/sky130_fd_sc_hd__a2111oi_0.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a2111oi/sky130_fd_sc_hd__a2111oi_0.functional.v",
+    "original_sha256": "320b853392fc649e6d782c2e270adf816743f517f6919a942d2ecc35f4627639",
+    "archive_sha256": "320b853392fc649e6d782c2e270adf816743f517f6919a942d2ecc35f4627639",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a211o/sky130_fd_sc_hd__a211o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a211o/sky130_fd_sc_hd__a211o_1.functional.v",
+    "original_sha256": "5cf9f1646b18f995d0e1c2314d869fcc2c9c38cfbbde800255910d55c38b950d",
+    "archive_sha256": "5cf9f1646b18f995d0e1c2314d869fcc2c9c38cfbbde800255910d55c38b950d",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a211oi/sky130_fd_sc_hd__a211oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a211oi/sky130_fd_sc_hd__a211oi_1.functional.v",
+    "original_sha256": "4dc2f332cb63fc924b0ad0e11bd4c74a075d5b2e54b1683498641c1b3a3a8756",
+    "archive_sha256": "4dc2f332cb63fc924b0ad0e11bd4c74a075d5b2e54b1683498641c1b3a3a8756",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21bo/sky130_fd_sc_hd__a21bo_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a21bo/sky130_fd_sc_hd__a21bo_1.functional.v",
+    "original_sha256": "a2ed5eee61b4c181dd404c3980c5ce9bc6bc75f0c02f8d115e977bb67ab1e235",
+    "archive_sha256": "a2ed5eee61b4c181dd404c3980c5ce9bc6bc75f0c02f8d115e977bb67ab1e235",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21boi/sky130_fd_sc_hd__a21boi_0.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a21boi/sky130_fd_sc_hd__a21boi_0.functional.v",
+    "original_sha256": "815594c7f9a411c9f10b5bb8ffba4b348c4a764c2b2dbf2993f092a305e56251",
+    "archive_sha256": "815594c7f9a411c9f10b5bb8ffba4b348c4a764c2b2dbf2993f092a305e56251",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21o/sky130_fd_sc_hd__a21o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a21o/sky130_fd_sc_hd__a21o_1.functional.v",
+    "original_sha256": "13dac9b6ba4ce2bca73acf63d881147d650ecb79a064c5729add2ba8515f7b3b",
+    "archive_sha256": "13dac9b6ba4ce2bca73acf63d881147d650ecb79a064c5729add2ba8515f7b3b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21oi/sky130_fd_sc_hd__a21oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a21oi/sky130_fd_sc_hd__a21oi_1.functional.v",
+    "original_sha256": "f34b276bb1f21cde68166ccf6b733676987e9f6daac11ea5af870b9373fcd247",
+    "archive_sha256": "f34b276bb1f21cde68166ccf6b733676987e9f6daac11ea5af870b9373fcd247",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a221o/sky130_fd_sc_hd__a221o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a221o/sky130_fd_sc_hd__a221o_1.functional.v",
+    "original_sha256": "b0f7470e5520d072f8df85ec0cbedad3c2cf9f70fdc5e2321d0508e63f9c602f",
+    "archive_sha256": "b0f7470e5520d072f8df85ec0cbedad3c2cf9f70fdc5e2321d0508e63f9c602f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a221oi/sky130_fd_sc_hd__a221oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a221oi/sky130_fd_sc_hd__a221oi_1.functional.v",
+    "original_sha256": "39cae4928be1ea5ecfd953ef2d127b284e4e9ce832e780bf6a6dff5fc1b87f69",
+    "archive_sha256": "39cae4928be1ea5ecfd953ef2d127b284e4e9ce832e780bf6a6dff5fc1b87f69",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a222oi/sky130_fd_sc_hd__a222oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a222oi/sky130_fd_sc_hd__a222oi_1.functional.v",
+    "original_sha256": "9f97481dc6e72e4b9b174259f3f0bd895df93174c1281b66372bd7599b6b16ae",
+    "archive_sha256": "9f97481dc6e72e4b9b174259f3f0bd895df93174c1281b66372bd7599b6b16ae",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a22o/sky130_fd_sc_hd__a22o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a22o/sky130_fd_sc_hd__a22o_1.functional.v",
+    "original_sha256": "fb96f155e374d9dde2f81f6ae95a3796a916f8f41ca930acb58762813c405d43",
+    "archive_sha256": "fb96f155e374d9dde2f81f6ae95a3796a916f8f41ca930acb58762813c405d43",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a22oi/sky130_fd_sc_hd__a22oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a22oi/sky130_fd_sc_hd__a22oi_1.functional.v",
+    "original_sha256": "f9e9a85417a1ec4af9f3159369432f0629592a56869d4e9f54b05722d92d993a",
+    "archive_sha256": "f9e9a85417a1ec4af9f3159369432f0629592a56869d4e9f54b05722d92d993a",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a2bb2o/sky130_fd_sc_hd__a2bb2o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a2bb2o/sky130_fd_sc_hd__a2bb2o_1.functional.v",
+    "original_sha256": "1540b1926ec827823262b382ce32b8088ef6e3c93ced6df8905317dd789f9a14",
+    "archive_sha256": "1540b1926ec827823262b382ce32b8088ef6e3c93ced6df8905317dd789f9a14",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a2bb2oi/sky130_fd_sc_hd__a2bb2oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a2bb2oi/sky130_fd_sc_hd__a2bb2oi_1.functional.v",
+    "original_sha256": "75985139ba6393d184da0f8e4c550ac2856ace0bb00b30979a93ac3e9bebe5c5",
+    "archive_sha256": "75985139ba6393d184da0f8e4c550ac2856ace0bb00b30979a93ac3e9bebe5c5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a311o/sky130_fd_sc_hd__a311o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a311o/sky130_fd_sc_hd__a311o_1.functional.v",
+    "original_sha256": "b3ccab1c64c87d09ddb297b83ad98133155eb33c6d36f74c8d0f36505f556c26",
+    "archive_sha256": "b3ccab1c64c87d09ddb297b83ad98133155eb33c6d36f74c8d0f36505f556c26",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a31o/sky130_fd_sc_hd__a31o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a31o/sky130_fd_sc_hd__a31o_1.functional.v",
+    "original_sha256": "4827d020e33715f9332d59c8660eba9e278706d45f95f28a5041105db02a8994",
+    "archive_sha256": "4827d020e33715f9332d59c8660eba9e278706d45f95f28a5041105db02a8994",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a31oi/sky130_fd_sc_hd__a31oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a31oi/sky130_fd_sc_hd__a31oi_1.functional.v",
+    "original_sha256": "d239ad05c711f654b9e24560a1af081498f5178def9d6af7e490615228fcbdef",
+    "archive_sha256": "d239ad05c711f654b9e24560a1af081498f5178def9d6af7e490615228fcbdef",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a32o/sky130_fd_sc_hd__a32o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a32o/sky130_fd_sc_hd__a32o_1.functional.v",
+    "original_sha256": "8849ae20727ed1b0e30ca3f17ea78785316d189dff698111efb6ff155b310b2c",
+    "archive_sha256": "8849ae20727ed1b0e30ca3f17ea78785316d189dff698111efb6ff155b310b2c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a32oi/sky130_fd_sc_hd__a32oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a32oi/sky130_fd_sc_hd__a32oi_1.functional.v",
+    "original_sha256": "01ae96666f4c7ebcbc245abeed3a626a891893200c4eb9c0def19ba02832b5f5",
+    "archive_sha256": "01ae96666f4c7ebcbc245abeed3a626a891893200c4eb9c0def19ba02832b5f5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a41o/sky130_fd_sc_hd__a41o_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a41o/sky130_fd_sc_hd__a41o_1.functional.v",
+    "original_sha256": "b4e2c61b78edb1178714f021bf3a63f1359a04a5198d5814b9dda45b25da6231",
+    "archive_sha256": "b4e2c61b78edb1178714f021bf3a63f1359a04a5198d5814b9dda45b25da6231",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a41oi/sky130_fd_sc_hd__a41oi_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/a41oi/sky130_fd_sc_hd__a41oi_1.functional.v",
+    "original_sha256": "5817f85af6984c93d9ae57edc3fa1a4d2d6cd25e8424b7e93a3abe9dfb945194",
+    "archive_sha256": "5817f85af6984c93d9ae57edc3fa1a4d2d6cd25e8424b7e93a3abe9dfb945194",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and2/sky130_fd_sc_hd__and2_0.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/and2/sky130_fd_sc_hd__and2_0.functional.v",
+    "original_sha256": "fdd4b40abcab6674b6463bab70c912392d079d2dd82dc8a69e18b50d181e703b",
+    "archive_sha256": "fdd4b40abcab6674b6463bab70c912392d079d2dd82dc8a69e18b50d181e703b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and3/sky130_fd_sc_hd__and3_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/and3/sky130_fd_sc_hd__and3_1.functional.v",
+    "original_sha256": "64c2205cc628ed241ca91a368b12cb13bb4ce435b4ba89efc3deaee2170d4d47",
+    "archive_sha256": "64c2205cc628ed241ca91a368b12cb13bb4ce435b4ba89efc3deaee2170d4d47",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and3b/sky130_fd_sc_hd__and3b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/and3b/sky130_fd_sc_hd__and3b_1.functional.v",
+    "original_sha256": "42d828fc158c9fd00adac58f294d3f74355cc98f845e8762e29d0aa0a2638b32",
+    "archive_sha256": "42d828fc158c9fd00adac58f294d3f74355cc98f845e8762e29d0aa0a2638b32",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and4/sky130_fd_sc_hd__and4_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/and4/sky130_fd_sc_hd__and4_1.functional.v",
+    "original_sha256": "363e2e9d23c40c43e68efceb3040d7fdd03bf67cacade07906d8cfc99f4f49c5",
+    "archive_sha256": "363e2e9d23c40c43e68efceb3040d7fdd03bf67cacade07906d8cfc99f4f49c5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and4b/sky130_fd_sc_hd__and4b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/and4b/sky130_fd_sc_hd__and4b_1.functional.v",
+    "original_sha256": "ed2ccf49f505884897630b9386ff07f42ea13b5698336d0ee898eadde1c0cde8",
+    "archive_sha256": "ed2ccf49f505884897630b9386ff07f42ea13b5698336d0ee898eadde1c0cde8",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_1.functional.v",
+    "original_sha256": "738ec0a19f8a7551c08d71e69240e902be421f9a297453ce56e5901cd8a65257",
+    "archive_sha256": "738ec0a19f8a7551c08d71e69240e902be421f9a297453ce56e5901cd8a65257",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/conb/sky130_fd_sc_hd__conb_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/conb/sky130_fd_sc_hd__conb_1.functional.v",
+    "original_sha256": "a993ca390726e493cdb6ee9217a5d1d4c30c8673486b0eea85ad158301ccf883",
+    "archive_sha256": "a993ca390726e493cdb6ee9217a5d1d4c30c8673486b0eea85ad158301ccf883",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_1.functional.v",
+    "original_sha256": "5b6275fa3191193912221bd40ebb559d5f4e5c412764d918843ce1b462f5d743",
+    "archive_sha256": "5b6275fa3191193912221bd40ebb559d5f4e5c412764d918843ce1b462f5d743",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/maj3/sky130_fd_sc_hd__maj3_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/maj3/sky130_fd_sc_hd__maj3_1.functional.v",
+    "original_sha256": "42beed5d9751d26b6fb46f40009fe368134871ee04e455a016661bcf630e0073",
+    "archive_sha256": "42beed5d9751d26b6fb46f40009fe368134871ee04e455a016661bcf630e0073",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/mux2/sky130_fd_sc_hd__mux2_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/mux2/sky130_fd_sc_hd__mux2_1.functional.v",
+    "original_sha256": "4a29a9d7f3819f722510d67fc2722c28c8fd7c5a0e3180a4503acdf32b3d537b",
+    "archive_sha256": "4a29a9d7f3819f722510d67fc2722c28c8fd7c5a0e3180a4503acdf32b3d537b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/mux2i/sky130_fd_sc_hd__mux2i_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/mux2i/sky130_fd_sc_hd__mux2i_1.functional.v",
+    "original_sha256": "c944a808956cb8869b01ea3719ddbee873799f233ff91129a4b3eaa83c783736",
+    "archive_sha256": "c944a808956cb8869b01ea3719ddbee873799f233ff91129a4b3eaa83c783736",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand2/sky130_fd_sc_hd__nand2_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nand2/sky130_fd_sc_hd__nand2_1.functional.v",
+    "original_sha256": "7e4a8911889bf309c67d8889c3d4911f7676415a794bddc15ec2154f736e62a6",
+    "archive_sha256": "7e4a8911889bf309c67d8889c3d4911f7676415a794bddc15ec2154f736e62a6",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand2b/sky130_fd_sc_hd__nand2b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nand2b/sky130_fd_sc_hd__nand2b_1.functional.v",
+    "original_sha256": "0b392aa2605f51858aff5942ac2cb0043ec7fcab305de93f6262eb1201a96cc6",
+    "archive_sha256": "0b392aa2605f51858aff5942ac2cb0043ec7fcab305de93f6262eb1201a96cc6",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand3/sky130_fd_sc_hd__nand3_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nand3/sky130_fd_sc_hd__nand3_1.functional.v",
+    "original_sha256": "6a60e7bca5e4f26014536cfef9f14358fdee960357c2161916911ff7faa471eb",
+    "archive_sha256": "6a60e7bca5e4f26014536cfef9f14358fdee960357c2161916911ff7faa471eb",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand3b/sky130_fd_sc_hd__nand3b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nand3b/sky130_fd_sc_hd__nand3b_1.functional.v",
+    "original_sha256": "7d758f99ef48c19e395897b234d5d1d2e511ccfa5ea132ecde9487430992896e",
+    "archive_sha256": "7d758f99ef48c19e395897b234d5d1d2e511ccfa5ea132ecde9487430992896e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand4/sky130_fd_sc_hd__nand4_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nand4/sky130_fd_sc_hd__nand4_1.functional.v",
+    "original_sha256": "45b91acde26122c58b4ad7b8f954a1d2b2b2cb27d3ee5d55b38285f4a199dcef",
+    "archive_sha256": "45b91acde26122c58b4ad7b8f954a1d2b2b2cb27d3ee5d55b38285f4a199dcef",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand4b/sky130_fd_sc_hd__nand4b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nand4b/sky130_fd_sc_hd__nand4b_1.functional.v",
+    "original_sha256": "2eca0cc1749937a3be3fc1f89a8f571e81feb2985c73f81558ac507452de7daf",
+    "archive_sha256": "2eca0cc1749937a3be3fc1f89a8f571e81feb2985c73f81558ac507452de7daf",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_1.functional.v",
+    "original_sha256": "3344ced4fd5ce8f38e84374497d73c42c7fbe76758f93cbebcdc59d9fad6ecab",
+    "archive_sha256": "3344ced4fd5ce8f38e84374497d73c42c7fbe76758f93cbebcdc59d9fad6ecab",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor2b/sky130_fd_sc_hd__nor2b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nor2b/sky130_fd_sc_hd__nor2b_1.functional.v",
+    "original_sha256": "9ec0b4db57ec212e282121c33d0df4c4b138a72e7ac5ddf68ae0c875d4b459ba",
+    "archive_sha256": "9ec0b4db57ec212e282121c33d0df4c4b138a72e7ac5ddf68ae0c875d4b459ba",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor3/sky130_fd_sc_hd__nor3_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nor3/sky130_fd_sc_hd__nor3_1.functional.v",
+    "original_sha256": "02f40df3efcc2ee1c322f9c4711605f9f7cf2fa863bf51851ad99c82773ae70b",
+    "archive_sha256": "02f40df3efcc2ee1c322f9c4711605f9f7cf2fa863bf51851ad99c82773ae70b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor3b/sky130_fd_sc_hd__nor3b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nor3b/sky130_fd_sc_hd__nor3b_1.functional.v",
+    "original_sha256": "66a785aeb0699fdad2988fad8866e320d82540a18d63cd215a399aafdf177186",
+    "archive_sha256": "66a785aeb0699fdad2988fad8866e320d82540a18d63cd215a399aafdf177186",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor4/sky130_fd_sc_hd__nor4_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nor4/sky130_fd_sc_hd__nor4_1.functional.v",
+    "original_sha256": "46b0548b642cd9e5199d339f10e5e8c419bc8d1d7b211b01fb0911f2f5df2ad9",
+    "archive_sha256": "46b0548b642cd9e5199d339f10e5e8c419bc8d1d7b211b01fb0911f2f5df2ad9",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor4b/sky130_fd_sc_hd__nor4b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nor4b/sky130_fd_sc_hd__nor4b_1.functional.v",
+    "original_sha256": "540d2f497af46726f3cea1b902552c099051fadc58fca40d591e62e1202c3b05",
+    "archive_sha256": "540d2f497af46726f3cea1b902552c099051fadc58fca40d591e62e1202c3b05",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor4bb/sky130_fd_sc_hd__nor4bb_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/nor4bb/sky130_fd_sc_hd__nor4bb_1.functional.v",
+    "original_sha256": "9177b1ef3d6e399911a46293180265f319b32fcd600e5fe1cc0ec17ff5aebb6e",
+    "archive_sha256": "9177b1ef3d6e399911a46293180265f319b32fcd600e5fe1cc0ec17ff5aebb6e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o2111a/sky130_fd_sc_hd__o2111a_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o2111a/sky130_fd_sc_hd__o2111a_1.functional.v",
+    "original_sha256": "17ba5c78163e2c6074c01f2926d1076e02d5aa08789bbc813c16089480b47318",
+    "archive_sha256": "17ba5c78163e2c6074c01f2926d1076e02d5aa08789bbc813c16089480b47318",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o2111ai/sky130_fd_sc_hd__o2111ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o2111ai/sky130_fd_sc_hd__o2111ai_1.functional.v",
+    "original_sha256": "c4ee9a3792fa2aa6c8f5981fe7a7ebacce40673267f8af1a278dbe6ba8d26735",
+    "archive_sha256": "c4ee9a3792fa2aa6c8f5981fe7a7ebacce40673267f8af1a278dbe6ba8d26735",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o211ai/sky130_fd_sc_hd__o211ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o211ai/sky130_fd_sc_hd__o211ai_1.functional.v",
+    "original_sha256": "b1fb53cee0980f6b244d38d7e711c49cb96e481b7077902e82a079bf51f9afaf",
+    "archive_sha256": "b1fb53cee0980f6b244d38d7e711c49cb96e481b7077902e82a079bf51f9afaf",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21a/sky130_fd_sc_hd__o21a_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o21a/sky130_fd_sc_hd__o21a_1.functional.v",
+    "original_sha256": "4bd563abbf4cd1dc8cf9d1b734a237cec73655960690753954f23bd9b97ad32f",
+    "archive_sha256": "4bd563abbf4cd1dc8cf9d1b734a237cec73655960690753954f23bd9b97ad32f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_0.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_0.functional.v",
+    "original_sha256": "eaa5ca6b5416fb7c27c0efc9883054cb0611f522d9f93eb4d69d77e15cb8974c",
+    "archive_sha256": "eaa5ca6b5416fb7c27c0efc9883054cb0611f522d9f93eb4d69d77e15cb8974c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21bai/sky130_fd_sc_hd__o21bai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o21bai/sky130_fd_sc_hd__o21bai_1.functional.v",
+    "original_sha256": "98f94020da723559af0efd153b8afa037f1996dfda5264a127fb998a79e4181c",
+    "archive_sha256": "98f94020da723559af0efd153b8afa037f1996dfda5264a127fb998a79e4181c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o221a/sky130_fd_sc_hd__o221a_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o221a/sky130_fd_sc_hd__o221a_1.functional.v",
+    "original_sha256": "f4cf528ffe70d82fcf6fc73e466c8f4d69cc7d2abebd384f4919ebe106c3233e",
+    "archive_sha256": "f4cf528ffe70d82fcf6fc73e466c8f4d69cc7d2abebd384f4919ebe106c3233e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o221ai/sky130_fd_sc_hd__o221ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o221ai/sky130_fd_sc_hd__o221ai_1.functional.v",
+    "original_sha256": "6a684eeb73c114ce2b83948622a0e264b4df80b89c7540c83e2e295ae8e9789c",
+    "archive_sha256": "6a684eeb73c114ce2b83948622a0e264b4df80b89c7540c83e2e295ae8e9789c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o22ai/sky130_fd_sc_hd__o22ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o22ai/sky130_fd_sc_hd__o22ai_1.functional.v",
+    "original_sha256": "3ac296f4b99da054227f33abff728fed96a122f93fd31470a554e62f6ecc902e",
+    "archive_sha256": "3ac296f4b99da054227f33abff728fed96a122f93fd31470a554e62f6ecc902e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o2bb2ai/sky130_fd_sc_hd__o2bb2ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o2bb2ai/sky130_fd_sc_hd__o2bb2ai_1.functional.v",
+    "original_sha256": "b50caed6270b7e1c12ae4224dd0be52c443f47cba02877167da381ee9873a03a",
+    "archive_sha256": "b50caed6270b7e1c12ae4224dd0be52c443f47cba02877167da381ee9873a03a",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o311ai/sky130_fd_sc_hd__o311ai_0.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o311ai/sky130_fd_sc_hd__o311ai_0.functional.v",
+    "original_sha256": "55de60070e42435e524d5e957a23fb77ebb07ddeace662e1c07e75a786c2c997",
+    "archive_sha256": "55de60070e42435e524d5e957a23fb77ebb07ddeace662e1c07e75a786c2c997",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o31ai/sky130_fd_sc_hd__o31ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o31ai/sky130_fd_sc_hd__o31ai_1.functional.v",
+    "original_sha256": "5c029bdc2a9a2072153ca1c0446fe55818128e8990cefe0bc5d5ac379904e513",
+    "archive_sha256": "5c029bdc2a9a2072153ca1c0446fe55818128e8990cefe0bc5d5ac379904e513",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o32ai/sky130_fd_sc_hd__o32ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o32ai/sky130_fd_sc_hd__o32ai_1.functional.v",
+    "original_sha256": "2e5b51717c63ed29b0a2f8f912231ac9706731795ec94c7b9ff7371c2e9edcd1",
+    "archive_sha256": "2e5b51717c63ed29b0a2f8f912231ac9706731795ec94c7b9ff7371c2e9edcd1",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o41ai/sky130_fd_sc_hd__o41ai_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/o41ai/sky130_fd_sc_hd__o41ai_1.functional.v",
+    "original_sha256": "d1477ce117d3e9bb874040f62eaf4452640a5c3b511ffcdb748dc67f4ecd5de0",
+    "archive_sha256": "d1477ce117d3e9bb874040f62eaf4452640a5c3b511ffcdb748dc67f4ecd5de0",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_0.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_0.functional.v",
+    "original_sha256": "00acd1f4cf585fd0e53261fc58f2b30182601c9bbc7f45ee714872b54d8464e5",
+    "archive_sha256": "00acd1f4cf585fd0e53261fc58f2b30182601c9bbc7f45ee714872b54d8464e5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or3/sky130_fd_sc_hd__or3_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/or3/sky130_fd_sc_hd__or3_1.functional.v",
+    "original_sha256": "af45b83eb4d2f81cb8fc5c925db290fc4992e66f41f5e7f817146592569b82cc",
+    "archive_sha256": "af45b83eb4d2f81cb8fc5c925db290fc4992e66f41f5e7f817146592569b82cc",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or3b/sky130_fd_sc_hd__or3b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/or3b/sky130_fd_sc_hd__or3b_1.functional.v",
+    "original_sha256": "637dfc23562139ebbf330aa9ab540e9469110c1639254856e23dd7a974086fca",
+    "archive_sha256": "637dfc23562139ebbf330aa9ab540e9469110c1639254856e23dd7a974086fca",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or4/sky130_fd_sc_hd__or4_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/or4/sky130_fd_sc_hd__or4_1.functional.v",
+    "original_sha256": "29aab6ec23e24c1691e2b187d6631839c967e4949f1ba471776e1bea1abd0046",
+    "archive_sha256": "29aab6ec23e24c1691e2b187d6631839c967e4949f1ba471776e1bea1abd0046",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or4b/sky130_fd_sc_hd__or4b_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/or4b/sky130_fd_sc_hd__or4b_1.functional.v",
+    "original_sha256": "0f5997a9c2a15864fe9df07393c6d9e480f16f7f7ad3d1f5baec2f0236158c1f",
+    "archive_sha256": "0f5997a9c2a15864fe9df07393c6d9e480f16f7f7ad3d1f5baec2f0236158c1f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/xnor2/sky130_fd_sc_hd__xnor2_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/xnor2/sky130_fd_sc_hd__xnor2_1.functional.v",
+    "original_sha256": "99de1d2b05b97a677c1eda1514d47de790cca8f551b4e560b1553509b87ca01f",
+    "archive_sha256": "99de1d2b05b97a677c1eda1514d47de790cca8f551b4e560b1553509b87ca01f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/xnor3/sky130_fd_sc_hd__xnor3_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/xnor3/sky130_fd_sc_hd__xnor3_1.functional.v",
+    "original_sha256": "0450967a002860f0a73f19ff7d3091b4834205bb03be9e2ae18d52724a79150f",
+    "archive_sha256": "0450967a002860f0a73f19ff7d3091b4834205bb03be9e2ae18d52724a79150f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/xor2/sky130_fd_sc_hd__xor2_1.functional.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/cells/xor2/sky130_fd_sc_hd__xor2_1.functional.v",
+    "original_sha256": "cff9c09973f5d52b945be949509d7471d307a4c5526e87d4bca44046e58155bf",
+    "archive_sha256": "cff9c09973f5d52b945be949509d7471d307a4c5526e87d4bca44046e58155bf",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/models/udp_dff_p/sky130_fd_sc_hd__udp_dff_p.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/models/udp_dff_p/sky130_fd_sc_hd__udp_dff_p.v",
+    "original_sha256": "04bf0d9bfe21e9f32e3d117f3924816bd5444a8db77e52730e8ace4ef4d3b76f",
+    "archive_sha256": "04bf0d9bfe21e9f32e3d117f3924816bd5444a8db77e52730e8ace4ef4d3b76f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/models/udp_mux_2to1/sky130_fd_sc_hd__udp_mux_2to1.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/models/udp_mux_2to1/sky130_fd_sc_hd__udp_mux_2to1.v",
+    "original_sha256": "4134f20855b0d1e3a5e5569d652b505d67e37b060f012eec2a5fefa0541603db",
+    "archive_sha256": "4134f20855b0d1e3a5e5569d652b505d67e37b060f012eec2a5fefa0541603db",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/models/udp_mux_2to1_n/sky130_fd_sc_hd__udp_mux_2to1_n.v",
+    "archive_path": "docs/verification/asic-cell-models/upstream/sky130hd-vendor/models/udp_mux_2to1_n/sky130_fd_sc_hd__udp_mux_2to1_n.v",
+    "original_sha256": "ede25fb32763c543075febb2876f1fa54cd4a35b7a0c4388facf9960d1515c11",
+    "archive_sha256": "ede25fb32763c543075febb2876f1fa54cd4a35b7a0c4388facf9960d1515c11",
+    "compressed": false
+  },
+  {
+    "original_path": ".github/workflows/rtl.yml",
+    "archive_path": "docs/verification/asic-cell-models/.github/workflows/rtl.yml",
+    "original_sha256": "1949269da0bfd73d28d80825182b1c5a4302c30aa2078c5f0f7547074b30d370",
+    "archive_sha256": "1949269da0bfd73d28d80825182b1c5a4302c30aa2078c5f0f7547074b30d370",
+    "compressed": false
+  },
+  {
+    "original_path": "build/archive_asic_cell_models.py",
+    "archive_path": "docs/verification/asic-cell-models/build/archive_asic_cell_models.py",
+    "original_sha256": "e79280d06fced1d4f514f48b67361bcbc59fb2b772ca2da31b752067c2cd94c4",
+    "archive_sha256": "e79280d06fced1d4f514f48b67361bcbc59fb2b772ca2da31b752067c2cd94c4",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/derived.v",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/derived.v",
+    "original_sha256": "e29c9b25c1122c20c35d8f7995d505cf3021f8a54315109e4aa27e451b2cae51",
+    "archive_sha256": "e29c9b25c1122c20c35d8f7995d505cf3021f8a54315109e4aa27e451b2cae51",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/filtered/cells.lib",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/filtered/cells.lib.gz",
+    "original_sha256": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    "archive_sha256": "05056a49b604e2359fdb95ec8a322b3add40126efdf9272d8e288f02fb59e69c",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-cell-models/filtered/filter.json",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/filtered/filter.json",
+    "original_sha256": "225ab3765762d2da427357eb890940a2ba17d7e3c64bff14cc4a1fb39a4e2c93",
+    "archive_sha256": "225ab3765762d2da427357eb890940a2ba17d7e3c64bff14cc4a1fb39a4e2c93",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/library.json",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/library.json.gz",
+    "original_sha256": "70ef13bf04d77ae5364fd7a63502dcf6f85876b74fa1afc0ec89ee78c7287436",
+    "archive_sha256": "95e70abde312ceb084676a0647c6a9a587522f03566993b7ecb83e356cc6d67e",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-cell-models/models.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/models.log",
+    "original_sha256": "d780d6ba81125732f4bcb5ed965ccd4e827791e66345417189771b760e1284a0",
+    "archive_sha256": "d780d6ba81125732f4bcb5ed965ccd4e827791e66345417189771b760e1284a0",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/models.ys",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/models.ys",
+    "original_sha256": "6bc285156efe2a5d8712247247f84426a86afdea8f5b140dc2efec44f7bd2a0f",
+    "archive_sha256": "6bc285156efe2a5d8712247247f84426a86afdea8f5b140dc2efec44f7bd2a0f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/positive-compile.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/positive-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/positive.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/positive.log",
+    "original_sha256": "5b778fcb2c60dc84821684b6f112c478f84d03537de7d9f147b57fee9f24eb89",
+    "archive_sha256": "5b778fcb2c60dc84821684b6f112c478f84d03537de7d9f147b57fee9f24eb89",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/positive.vvp",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/positive.vvp.gz",
+    "original_sha256": "338c39e7378f3ac712aa972be1071490d60a1914a10d4963f4e45bd98f35cfb9",
+    "archive_sha256": "7c8c7087a85f3daada09249d4d9384570d344136dc8444f0fa34baa25a508e27",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-cell-models/testbench.sv",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/testbench.sv",
+    "original_sha256": "fbc87ada2de6db7931f953ef8de58353e07dbb12d3063ce873830df10f97ab88",
+    "archive_sha256": "fbc87ada2de6db7931f953ef8de58353e07dbb12d3063ce873830df10f97ab88",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-and-output-compile.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-and-output-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-and-output.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-and-output.log",
+    "original_sha256": "55be70530fc7ef6e31ec62759e016716859c4d4c26c9933c1d0bcdc140bdc43a",
+    "archive_sha256": "55be70530fc7ef6e31ec62759e016716859c4d4c26c9933c1d0bcdc140bdc43a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-and-output.v",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-and-output.v",
+    "original_sha256": "b11bf341680769c6bb79763b5c78b91e1a958dc1801ad3ebe40aa9988c0e13d3",
+    "archive_sha256": "b11bf341680769c6bb79763b5c78b91e1a958dc1801ad3ebe40aa9988c0e13d3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-and-output.vvp",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-and-output.vvp.gz",
+    "original_sha256": "88d8f04cbb70d73491d99b31ca5c94326621ef91aa17924cf0337fcddf9c4579",
+    "archive_sha256": "2201f16ac7d38b0b52f4c713e65bf8c786a72be6c8cf26897bf7e07e86018e5a",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-clock-edge-compile.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-clock-edge-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-clock-edge.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-clock-edge.log",
+    "original_sha256": "56071252f4b13a594e0f02c5fd7df700e7dff97e4ede8594dd377eb8130b5ab8",
+    "archive_sha256": "56071252f4b13a594e0f02c5fd7df700e7dff97e4ede8594dd377eb8130b5ab8",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-clock-edge.v",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-clock-edge.v",
+    "original_sha256": "3f5c99c9d0bf42bf9e0c79f22eff434d3f5a4f5cabb94c7b727b64c7efb7ec8b",
+    "archive_sha256": "3f5c99c9d0bf42bf9e0c79f22eff434d3f5a4f5cabb94c7b727b64c7efb7ec8b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-clock-edge.vvp",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-clock-edge.vvp.gz",
+    "original_sha256": "4214ccc44010755668a316f16c69cfdb7cde757371a7a2e209dba4421b15e2ae",
+    "archive_sha256": "2fa19cf53b302a83c5608592939dfb2a0adc110b074e4b810a8233cf672f01e1",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-tie-high-compile.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-tie-high-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-tie-high.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-tie-high.log",
+    "original_sha256": "ddd3e5c147fef0ee9511d87693c552c658090e75d4d5e88200eed82b5cdc9439",
+    "archive_sha256": "ddd3e5c147fef0ee9511d87693c552c658090e75d4d5e88200eed82b5cdc9439",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-tie-high.v",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-tie-high.v",
+    "original_sha256": "c6371437ac045bebb81f693792a789f658f5dd4ab46090e7224d93bde896541f",
+    "archive_sha256": "c6371437ac045bebb81f693792a789f658f5dd4ab46090e7224d93bde896541f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models/wrong-tie-high.vvp",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models/wrong-tie-high.vvp.gz",
+    "original_sha256": "f62c9f1fbadd1d49bcb2a126c588381d146d92fc4fa700548a8de18eaf18beb8",
+    "archive_sha256": "d2730964ab28d50a3832302c88f5cd493864a47ab8ed5254dc35286dd4d508bf",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-cell-models-driver.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-models-driver.log",
+    "original_sha256": "44bde641cc53ce331ba8dc0b29071d6ea44a0cd567328e33e5873768fc9841c2",
+    "archive_sha256": "44bde641cc53ce331ba8dc0b29071d6ea44a0cd567328e33e5873768fc9841c2",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-notices/IVERILOG_COPYRIGHT",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-notices/IVERILOG_COPYRIGHT",
+    "original_sha256": "08a7c438f641b5dca0e234b1a18063796ee3ef8e5d902d72dc9ec799b8c17525",
+    "archive_sha256": "08a7c438f641b5dca0e234b1a18063796ee3ef8e5d902d72dc9ec799b8c17525",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-notices/YOSYS_COPYRIGHT",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-notices/YOSYS_COPYRIGHT",
+    "original_sha256": "c84b7de4e8193fb1e1dc247990d2ef3cec6c1ce82a64458a3280f7cfca856fff",
+    "archive_sha256": "c84b7de4e8193fb1e1dc247990d2ef3cec6c1ce82a64458a3280f7cfca856fff",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-source-fixtures.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-source-fixtures.log",
+    "original_sha256": "a6cb0728948845635de1de2d20e8f5a408449e5fdad3d5d27fcb6080be33ad9f",
+    "archive_sha256": "a6cb0728948845635de1de2d20e8f5a408449e5fdad3d5d27fcb6080be33ad9f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-workflow-lint.log",
+    "archive_path": "docs/verification/asic-cell-models/build/asic-cell-workflow-lint.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/sky130-startup-prototype/map.log",
+    "archive_path": "docs/verification/asic-cell-models/build/sky130-startup-prototype/map.log",
+    "original_sha256": "f41310797c7d4879971517da37ecf42e3538fd5ac10e3929bd2ca67dd200e232",
+    "archive_sha256": "f41310797c7d4879971517da37ecf42e3538fd5ac10e3929bd2ca67dd200e232",
+    "compressed": false
+  },
+  {
+    "original_path": "build/sky130-startup-prototype/map.ys",
+    "archive_path": "docs/verification/asic-cell-models/build/sky130-startup-prototype/map.ys",
+    "original_sha256": "7cf0bd415eed16228426e14bd539a417c8ec93dddd2b40532f06d6062fdbe0f5",
+    "archive_sha256": "7cf0bd415eed16228426e14bd539a417c8ec93dddd2b40532f06d6062fdbe0f5",
+    "compressed": false
+  },
+  {
+    "original_path": "build/sky130-startup-prototype/mapped.json",
+    "archive_path": "docs/verification/asic-cell-models/build/sky130-startup-prototype/mapped.json.gz",
+    "original_sha256": "d4df439f76efa0d2dd0aeddbe9e0960dae213da544789abbe6fbc6e7849066c6",
+    "archive_sha256": "43d72a7987d38354629ef8271cbed5b1f6ca4ee9a3562569217e05a63bfeec9d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/sky130-startup-prototype/mapped.v",
+    "archive_path": "docs/verification/asic-cell-models/build/sky130-startup-prototype/mapped.v.gz",
+    "original_sha256": "b079e7a15b00bed2ca13ed1efc40d68ac2a9457108122dac3706b4108185bb29",
+    "archive_sha256": "6e7e0ae2c60eaf9577e837f57c102062c90808b43fe896e0361509d6e74704d9",
+    "compressed": true
+  },
+  {
+    "original_path": "build/sky130-startup-prototype/rejected.json",
+    "archive_path": "docs/verification/asic-cell-models/build/sky130-startup-prototype/rejected.json",
+    "original_sha256": "1ae7c62d2242ec59e26d2d3bf861bd9f6c54ad2fe90286007a2cd3bf91399e15",
+    "archive_sha256": "1ae7c62d2242ec59e26d2d3bf861bd9f6c54ad2fe90286007a2cd3bf91399e15",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-cell-models-summary.json",
+    "archive_path": "docs/verification/asic-cell-models/reports/asic-cell-models-summary.json",
+    "original_sha256": "c880c77e4250992e3fdf9049f99f764e4989865c46675ae7084e8d5fc315b290",
+    "archive_sha256": "c880c77e4250992e3fdf9049f99f764e4989865c46675ae7084e8d5fc315b290",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-cell-models.json",
+    "archive_path": "docs/verification/asic-cell-models/reports/asic-cell-models.json",
+    "original_sha256": "9b884a66bca5d4b33d484a0c47f8a773b5c4aeaade0047ce2c6177bbe30eb014",
+    "archive_sha256": "9b884a66bca5d4b33d484a0c47f8a773b5c4aeaade0047ce2c6177bbe30eb014",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/asic_cell_source_test.py",
+    "archive_path": "docs/verification/asic-cell-models/tests/asic_cell_source_test.py",
+    "original_sha256": "29328aadd015d84f67c90b63a2d1f89dc390d882ad5f1f92847ea28a6a0b6458",
+    "archive_sha256": "29328aadd015d84f67c90b63a2d1f89dc390d882ad5f1f92847ea28a6a0b6458",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_cell_models.lock.json",
+    "archive_path": "docs/verification/asic-cell-models/tools/asic_cell_models.lock.json",
+    "original_sha256": "791f2370003eddec8272f1027dd0669895bf5665d52076595c036a1aa67d5707",
+    "archive_sha256": "791f2370003eddec8272f1027dd0669895bf5665d52076595c036a1aa67d5707",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_cells.lock.json",
+    "archive_path": "docs/verification/asic-cell-models/tools/asic_cells.lock.json",
+    "original_sha256": "4640e724ca783bd19751debbbd9d76822f9c893c92afd40476cf7ddd9372c79d",
+    "archive_sha256": "4640e724ca783bd19751debbbd9d76822f9c893c92afd40476cf7ddd9372c79d",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_cells.py",
+    "archive_path": "docs/verification/asic-cell-models/tools/asic_cells.py",
+    "original_sha256": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "archive_sha256": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_asic_cell_models.py",
+    "archive_path": "docs/verification/asic-cell-models/tools/check_asic_cell_models.py",
+    "original_sha256": "6228549e429c20647f592abd478360b4f755a7c42c49c15c99dd37b87e3c2ca5",
+    "archive_sha256": "6228549e429c20647f592abd478360b4f755a7c42c49c15c99dd37b87e3c2ca5",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_memory_startup.py",
+    "archive_path": "docs/verification/asic-cell-models/tools/check_memory_startup.py",
+    "original_sha256": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "archive_sha256": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/prepare_standalone.py",
+    "archive_path": "docs/verification/asic-cell-models/tools/prepare_standalone.py",
+    "original_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "archive_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/upstream.lock.json",
+    "archive_path": "docs/verification/asic-cell-models/tools/upstream.lock.json",
+    "original_sha256": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "archive_sha256": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "compressed": false
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "platform": "sky130hd",
+  "purpose": "Experimental standard-cell functional mapping; not foundry signoff",
+  "files": {
+    "library": {
+      "repository": "The-OpenROAD-Project/OpenROAD-flow-scripts",
+      "revision": "d056a2b304182bf76ff10653531165b1dd9848d4",
+      "path": "flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+      "cache_name": "sky130_fd_sc_hd__tt_025C_1v80.lib",
+      "bytes": 12800135,
+      "sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9",
+      "git_blob_sha1": "5773657fe730d984ac06726d0addfdad80395b9b"
+    },
+    "platform_policy": {
+      "repository": "The-OpenROAD-Project/OpenROAD-flow-scripts",
+      "revision": "d056a2b304182bf76ff10653531165b1dd9848d4",
+      "path": "flow/platforms/sky130hd/config.mk",
+      "cache_name": "config.mk",
+      "bytes": 5411,
+      "sha256": "1ca10588eab55845dbac6af01a6721fcb88071c7de4b1223024b5e7438f0fe5c",
+      "git_blob_sha1": "8aaa4ce0b7f10bdc220d8bc4e318218d0c8bcc14"
+    },
+    "flow_license": {
+      "repository": "The-OpenROAD-Project/OpenROAD-flow-scripts",
+      "revision": "d056a2b304182bf76ff10653531165b1dd9848d4",
+      "path": "LICENSE_BUILD_RUN_SCRIPTS",
+      "cache_name": "ORFS_LICENSE",
+      "bytes": 2030,
+      "sha256": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+      "git_blob_sha1": "3e788361459a5bd5d91f740333ff30cc6c7cda09"
+    },
+    "cell_license": {
+      "repository": "fossi-foundation/skywater-pdk-libs-sky130_fd_sc_hd",
+      "revision": "9cb2d7cb8ed4619094263614039a61b6b2d22a88",
+      "path": "LICENSE",
+      "cache_name": "SKYWATER_LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    }
+  }
+}

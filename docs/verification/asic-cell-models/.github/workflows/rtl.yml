@@ -1,0 +1,1202 @@
+name: RTL verification
+on:
+  push:
+    # Evidence and README updates must not cancel long-running RTL checks.
+    paths:
+      - '**'
+      - '!README.md'
+      - '!docs/**'
+      # These reports are executable performance-comparison fixtures.
+      - 'docs/verification/standalone-ci/**'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Let long main-branch regressions finish while subsequent work is committed.
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+jobs:
+  floating-point-rounding:
+    name: Integral floating-point rounding
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned verification tools
+        run: python3 tools/bootstrap.py
+      - name: Prove both precisions and compare native and mapped four-state behavior
+        run: python3 tools/check_fp_round.py
+      - name: Prove every integrated format output and reject incorrect mode wiring
+        run: python3 tools/prove_fp_format.py
+      - name: Preserve component proofs, observations and counterexamples
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fp-rounding
+          path: |
+            reports/fp-round-experiment.json
+            reports/fp-format-proof.json
+            build/fp-round/*.log
+            build/fp-round/*.ys
+            build/fp-round/*.sv
+            build/fp-round/*.v
+            build/fp-round/*.json
+            build/fp-round/vectors-*.txt
+          if-no-files-found: warn
+          retention-days: 30
+  mapping-proof-drivers:
+    name: Mapping proof coverage and checkpoint integrity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned proof tools
+        run: python3 tools/bootstrap.py --fpga-tools
+      - name: Check real solver fixtures and reject corrupted checkpoints
+        run: |
+          python3 tools/check_core_mapping_driver.py
+          python3 tools/check_core_mapping_classic_driver.py
+          python3 tools/check_routing_placement.py
+          python3 tests/fanout_replication_test.py
+      - name: Preserve proof-driver observations and diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapping-proof-drivers
+          path: |
+            reports/core-mapping-driver.json
+            reports/core-classic-driver.json
+            reports/routing-placement-driver.json
+            build/core-mapping-driver/
+            build/core-classic-driver/
+          if-no-files-found: warn
+          retention-days: 30
+  xilinx-resource-estimate:
+    name: Complete programmable 7-series circuit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned synthesis tools
+        run: python3 tools/bootstrap.py
+      - name: Build the preparation frontend and verify the complete RTL reference
+        run: |
+          make sim
+          python3 tools/build_loadable_sim.py
+          python3 tools/check_loadable.py --binary build/loadable-sim/Vwasmetal_loadable --report reports/loadable-rtl.json
+      - name: Verify 7-series memory mapping with original vendor models
+        run: python3 tools/check_xc7_memory_mapping.py
+      - name: Verify fast RAM models against RTL and original vendor models
+        run: python3 tools/check_xc7_ram_models.py
+      - name: Synthesize the complete core-clock system and check its structure
+        run: python3 tools/estimate_xc7_system.py
+      - name: Check every mapped DSP configuration against vendor models and integer arithmetic
+        run: python3 tools/check_xc7_dsp.py
+      - name: Synthesize the accelerated UART profile with unchanged CPU capacities
+        run: python3 tools/estimate_xc7_accelerated.py
+      - name: Prove binary LUT equivalence and check all X/Z selectors
+        run: python3 tools/check_xc7_luts.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
+      - name: Compare carry chains with vendor arithmetic and explicit four-state oracles
+        run: python3 tools/check_xc7_carry.py
+      - name: Prove mux and inverter logic and characterize unknown selectors
+        run: python3 tools/check_xc7_muxes.py
+      - name: Check flip-flop clock, reset, enable and startup behavior
+        run: python3 tools/check_xc7_flops.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
+      - name: Prove distributed RAM state and check independent memory oracles
+        run: python3 tools/check_xc7_lutram.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
+      - name: Compile the complete mapped circuit and apply proven LUT simulation models
+        run: |
+          python3 tools/build_xc7_gate_sim.py --jobs 2 --estimate reports/xc7-accelerated-estimate.json --netlist build/xc7-accelerated/mapped.json --directory build/xc7-accelerated-gate-sim
+          python3 tools/accelerate_xc7_sim.py --simulator build/xc7-accelerated-gate-sim/obj/Vwasmetal_loadable --directory build/xc7-accelerated-gate-fast --jobs 2
+      - name: Compare all 35 complete mapped-system cases with RTL and reject corrupted evidence
+        run: python3 tools/run_xc7_system.py --workers 4
+      - name: Preserve notices for the generated synthesis-library copies
+        if: always()
+        run: |
+          if [ -f .cache/tools/usr/share/doc/yosys/copyright ]; then
+            mkdir -p build/xc7-licenses
+            cp .cache/tools/usr/share/doc/yosys/copyright build/xc7-licenses/YOSYS_COPYRIGHT
+          fi
+      - name: Preserve full-system evidence and synthesis diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-system-verification
+          path: |
+            reports/xc7-system-estimate.json
+            reports/xc7-accelerated-estimate.json
+            reports/loadable-rtl.json
+            reports/xc7-system-complete.json
+            reports/xc7-system-shards/
+            reports/xc7-memory-mapping.json
+            reports/xc7-ram-models.json
+            reports/xc7-dsp.json
+            reports/xc7-luts.json
+            reports/xc7-carry.json
+            reports/xc7-muxes.json
+            reports/xc7-flops.json
+            reports/xc7-lutram.json
+            build/xc7-memory-mapping/
+            build/xc7-ram-models/
+            build/xc7-dsp/
+            build/xc7-lut-check/
+            build/xc7-carry-check/
+            build/xc7-muxes/
+            build/xc7-flops/
+            build/xc7-lutram/
+            build/xc7-system/*.log
+            build/xc7-system/*.ys
+            build/xc7-system/mapping-overlay/
+            build/xc7-accelerated/*.log
+            build/xc7-accelerated/*.ys
+            build/xc7-accelerated/mapping-overlay/
+            build/xc7-accelerated-gate-sim/*.log
+            build/xc7-accelerated-gate-sim/*.ys
+            build/xc7-accelerated-gate-sim/*.v
+            build/xc7-accelerated-gate-sim/*.vlt
+            build/xc7-accelerated-gate-sim/obj/*.build.json
+            build/xc7-accelerated-gate-fast/*.log
+            build/xc7-accelerated-gate-fast/*.v
+            build/xc7-accelerated-gate-fast/*.vlt
+            build/xc7-accelerated-gate-fast/obj/*.build.json
+            build/loadable-sim/build.log
+            build/loadable-sim/*.build.json
+            build/xc7-system-run/
+            build/xc7-licenses/
+            third_party/xilinx-unisim/
+          if-no-files-found: warn
+          retention-days: 30
+  external-memory-system:
+    name: Complete CPU with asynchronous AXI memory
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned verification tools and build the software preparation frontend
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+      - name: Verify complete execution through AXI and the clock crossing
+        run: |
+          python3 tools/check_axi_system.py --divider 1 --latency 1
+          python3 tools/check_axi_system.py --divider 3 --latency 5
+          python3 tools/check_axi_system.py --divider 1 --latency 1 --negative-control
+      - name: Preserve AXI system observations, bus coverage and failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: external-memory-system
+          path: |
+            reports/axi-system-*.json
+            build/axi-system-*/*.log
+            build/axi-system-*/coverage.jsonl
+          if-no-files-found: warn
+          retention-days: 30
+  asic-memory-system:
+    name: Complete CPU with behavioral ASIC SRAM
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned verification tools and build the software preparation frontend
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+      - name: Verify complete programmable execution at two SRAM latencies
+        run: |
+          python3 tools/check_sram_system.py --latency 1
+          python3 tools/check_sram_system.py --latency 3
+          python3 tools/check_sram_system.py --latency 1 --negative-control
+      - name: Preserve SRAM system observations and failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: asic-sram-system
+          path: |
+            reports/asic-sram-system-*.json
+            build/asic-sram-system-*/*.log
+          if-no-files-found: warn
+          retention-days: 30
+  memory-self-test:
+    name: Destructive memory self-test and safety proofs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation and proof tools
+        run: python3 tools/bootstrap.py
+      - name: Check actual RTL and mapped circuits against memory-fault oracles
+        run: python3 tools/check_memory_bist.py --mapped
+      - name: Check the self-test and SRAM adapter together at the macro pins
+        run: python3 tools/check_bist_sram.py --mapped
+      - name: Check unknown data, reset isolation and recovery
+        run: python3 tools/check_memory_bist_four_state.py
+      - name: Prove sequence accounting and protocol safety
+        run: python3 tools/prove_memory_bist.py
+      - name: Check capacity boundaries and reject undersized counters
+        run: python3 tools/check_memory_bist_widths.py
+      - name: Preserve observations, fault controls and proof diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: memory-self-test-verification
+          path: |
+            reports/memory-bist-*.json
+            reports/bist-sram-*.json
+            build/bist-sram/**/*.log
+            build/bist-sram/**/*.ys
+            build/bist-sram/**/*.sv
+            build/bist-sram/**/lut-proof/report.json
+            build/bist-sram/**/mapped.json
+            build/bist-sram/**/mapped.manifest.json
+            build/bist-sram/**/*.build.json
+            build/bist-sram/corrupt-read.log
+            build/memory-bist/**/*.log
+            build/memory-bist/**/*.ys
+            build/memory-bist/**/lut-proof/report.json
+            build/memory-bist/**/mapped.json
+            build/memory-bist/**/mapped.manifest.json
+            build/memory-bist/**/*.build.json
+            build/memory-bist-four-state/
+            build/formal-memory-bist/
+            build/memory-bist-widths/
+          if-no-files-found: warn
+          retention-days: 30
+
+  asic-cell-models:
+    name: ASIC cell models against upstream Verilog
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation tools
+        run: python3 tools/bootstrap.py
+      - name: Exhaust binary cell behavior against upstream models
+        run: python3 tools/check_asic_cell_models.py
+      - name: Reject incomplete or altered source inventories
+        run: python3 tests/asic_cell_source_test.py
+      - name: Preserve cell models and independent observations
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: asic-cell-models
+          path: |
+            reports/asic-cell-models.json
+            build/asic-cell-models/*.log
+            build/asic-cell-models/*.v
+            build/asic-cell-models/*.sv
+            build/asic-cell-models/*.ys
+          if-no-files-found: warn
+          retention-days: 30
+
+  memory-startup:
+    name: Memory startup and CPU ownership
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation and proof tools
+        run: python3 tools/bootstrap.py
+      - name: Verify startup and CPU traffic at the SRAM macro pins
+        run: python3 tools/check_memory_startup.py --mapped
+      - name: Check unknown reads and four-state CPU isolation
+        run: python3 tools/check_memory_startup_four_state.py
+      - name: Prove complete-test handoff and ownership safety
+        run: python3 tools/prove_memory_startup.py
+      - name: Preserve startup observations and proof diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: memory-startup-verification
+          path: |
+            reports/memory-startup*.json
+            build/memory-startup/**/*.log
+            build/memory-startup/**/*.ys
+            build/memory-startup/**/*.sv
+            build/memory-startup/**/lut-proof/report.json
+            build/memory-startup/**/mapped.json
+            build/memory-startup/**/mapped.manifest.json
+            build/memory-startup/**/*.build.json
+            build/memory-startup-four-state/
+            build/formal-memory-startup/
+          if-no-files-found: warn
+          retention-days: 30
+
+  memory-startup-system:
+    name: Complete CPU memory startup (${{ matrix.latency }}-cycle SRAM)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        latency: [1, 3]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation tools
+        run: python3 tools/bootstrap.py
+      - name: Run all cases without startup on this CPU revision
+        run: python3 tools/check_sram_system.py --latency ${{ matrix.latency }}
+      - name: Run all cases after the full-capacity startup test
+        run: python3 tools/check_memory_startup_system.py --latency ${{ matrix.latency }}
+      - name: Reconcile results and exact startup delays
+        run: python3 tools/check_memory_startup_reconciliation.py --latency ${{ matrix.latency }}
+      - name: Reject a corrupted SRAM read before CPU boot
+        if: matrix.latency == 3
+        run: python3 tools/check_memory_startup_system.py --latency 3 --negative-control
+      - name: Check runner cleanup after success, failure and timeout
+        if: matrix.latency == 1
+        run: python3 tests/startup_runner_test.py
+      - name: Preserve full-CPU startup evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: memory-startup-system-${{ matrix.latency }}
+          path: |
+            reports/memory-startup-system-*.json
+            reports/asic-sram-system-*.json
+            build/memory-startup-system-*/*.log
+            build/memory-startup-system-*/*.build.json
+            build/memory-startup-system-*/loadable.cpp
+            build/asic-sram-system-*/*.log
+            build/asic-sram-system-*/*.build.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  memory:
+    name: Memory interface verification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned verification tools
+        run: python3 tools/bootstrap.py
+      - name: Prove memory, AXI and CDC safety, test independent memory models
+        run: make memory-test axi-test cdc-test image-loader-test
+      - name: Verify the ASIC SRAM adapter and its macro-interface contract
+        run: |
+          python3 tools/check_sram.py --mapped
+          python3 tools/prove_sram.py
+          python3 tools/check_sram_four_state.py
+      - name: Prove the experimental lossless instruction codec
+        run: python3 tools/prove_instruction_codec.py
+      - name: Preserve memory verification evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: memory-verification
+          path: |
+            reports/memory-*.json
+            reports/masked-bram*.json
+            reports/axi*.json
+            reports/cdc*.json
+            reports/async-axi*.json
+            reports/image-loader*.json
+            reports/instruction-codec*.json
+            reports/sram-*.json
+            build/formal-memory-*/*.log
+            build/memory-bridge/*.log
+            build/masked-bram/*.log
+            build/masked-bram/mapped/*.log
+            build/masked-bram/mapped/lut-proof/*.json
+            build/formal-axi/*.log
+            build/axi-memory/*.log
+            build/axi-memory/mapped/*.log
+            build/axi-memory/mapped/lut-proof/*.json
+            build/formal-cdc/*.log
+            build/memory-cdc/*.log
+            build/memory-cdc/mapped/*.log
+            build/memory-cdc/mapped/lut-proof/*.json
+            build/async-axi-memory/*.log
+            build/async-axi-memory/mapped/*.log
+            build/async-axi-memory/mapped/lut-proof/*.json
+            build/formal-image-loader/*.log
+            build/formal-instruction-codec/*.log
+            build/formal-sram/*.log
+            build/sram-*/*.log
+            build/sram-*/mapped/*.log
+            build/sram-*/mapped/lut-proof/*.json
+            build/image-loader/*/*.log
+            build/image-loader/*/mapped/*.log
+            build/image-loader/*/mapped/lut-proof/*.json
+          if-no-files-found: warn
+          retention-days: 30
+  instruction-codec:
+    name: Complete corpus with instruction storage codec
+    needs: core
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and build the codec CPU simulator
+        run: |
+          python3 tools/bootstrap.py
+          python3 tools/generate_fpga_ports.py
+          python3 tools/build_instruction_codec_sim.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - name: Audit every loaded row and compare the entire official corpus
+        run: python3 tools/check_instruction_corpus.py --reference reports/native/core-stalled.json
+      - name: Preserve codec corpus, row coverage and simulator provenance
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: instruction-codec-verification
+          path: |
+            reports/instruction-codec*.json
+            build/instruction-codec-sim/*.log
+            build/instruction-codec-sim/*.sv
+            build/instruction-codec-sim/*.cpp
+            build/instruction-codec-sim/obj/*.build.json
+            build/instruction-codec-sim/coverage/**/*.jsonl
+          if-no-files-found: warn
+          retention-days: 30
+  core:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned local tools and upstream tests
+        run: python3 tools/bootstrap.py
+      - name: Lint and independent arithmetic verification
+        run: |
+          make lint test-divider test-simd test-popcount test-values test-descriptors test-ecp5-ram test-core-four-state test-fpu prove-masks
+          python3 tools/check_simd_fp_selection.py
+          python3 tools/prove_descriptors.py
+          python3 tests/check_timing_test.py
+          python3 tests/run_spec_runner_test.py
+          python3 tests/gate_compiler_test.py
+          python3 tests/asic_audit_runner_test.py
+          python3 tests/spec_ci_test.py
+          python3 tests/spec_reconciliation_test.py
+          python3 tests/xc7_system_test.py
+          python3 tests/xc7_campaign_test.py
+      - name: Compile RTL and verify boundary and oracle behavior
+        run: |
+          make sim
+          python3 tools/check_engine.py
+          python3 tests/spec_partition_runner_test.py
+      - name: Complete official suite
+        run: python3 tools/run_spec.py --report reports/core.json
+      - name: Complete official suite with memory stalls
+        run: python3 tools/run_spec.py --wait-states 3 --report reports/core-stalled.json
+      - name: Verify complete serial FPGA interface in simulation
+        run: make fpga-smoke
+      - name: Preserve SIMD selector proof diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: simd-selector-verification
+          path: |
+            reports/simd-fp-selection.json
+            build/simd-fp-selection/*.log
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Preserve verification reports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: verification-reports
+          overwrite: true
+          path: reports/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  mapped-build:
+    needs: core
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - name: Assign every official command to exactly one worker
+        id: plan
+        run: python3 tools/spec_ci.py plan --reference reports/native/core-stalled.json --shards 16 --output reports/mapped-plan.json --github-output "$GITHUB_OUTPUT"
+      - name: Synthesize the production ECP5 core
+        run: |
+          python3 tools/generate_fpga_ports.py
+          make fpga-core
+      - name: Compile the mapped circuit for all worker CPUs
+        run: python3 tools/build_gate_sim.py --core-netlist build/core-ecp5.json --build-directory build/gate-ci --fast-sim --fast-luts --portable --jobs 2
+      - name: Verify partition accounting on the real mapped simulator
+        env:
+          WASMETAL_TEST_SIMULATOR: build/gate-ci/obj/Vwasmetal_core
+        run: python3 tests/spec_partition_runner_test.py
+      - name: Package the simulator and its verified inputs
+        run: python3 tools/spec_ci.py pack --simulator build/gate-ci/obj/Vwasmetal_core --output reports/mapped-simulator.tar.gz
+      - name: Preserve mapped model and ownership plan
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-simulator
+          overwrite: true
+          path: |
+            reports/mapped-simulator.tar.gz
+            reports/mapped-plan.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve build diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-build-reports
+          overwrite: true
+          path: |
+            reports/mapped-plan.json
+            build/core-ecp5*.log
+            build/core-ecp5*.json
+            build/gate-ci/*.log
+            build/gate-ci/lut-proof/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  mapped:
+    name: Mapped circuit (${{ matrix.shard }})
+    needs: mapped-build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.mapped-build.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: mapped-simulator
+          path: build/ci-artifact
+      - name: Restore the same mapped simulator on every worker
+        run: |
+          tar -xzf build/ci-artifact/mapped-simulator.tar.gz
+          python3 tools/build_identity.py verify build/gate-ci/obj/Vwasmetal_core
+      - name: Run assigned official commands on the synthesized circuit
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: >-
+          python3 tools/run_spec.py --simulator build/gate-ci/obj/Vwasmetal_core
+          --shard-plan build/ci-artifact/mapped-plan.json --shard-id "$SHARD"
+          --wait-states 3 --jobs 2 --response-timeout 18000
+          --progress-report "reports/progress-$SHARD.json"
+          --report "reports/mapped-shard-$SHARD.json"
+      - name: Preserve shard results even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-results-${{ matrix.shard }}
+          overwrite: true
+          path: reports/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  mapped-complete:
+    name: Complete mapped corpus
+    if: always()
+    needs: [core, mapped-build, mapped]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Require all builds and test workers to succeed
+        env:
+          CORE_RESULT: ${{ needs.core.result }}
+          BUILD_RESULT: ${{ needs.mapped-build.result }}
+          MAPPED_RESULT: ${{ needs.mapped.result }}
+        run: test "$CORE_RESULT" = success && test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: mapped-build-reports
+          path: build/ci-plan
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: mapped-results-*
+          path: reports/shards
+      - name: Require exact corpus coverage and agreement with original RTL
+        run: >-
+          python3 tools/spec_ci.py merge --reference reports/native/core-stalled.json
+          --plan build/ci-plan/reports/mapped-plan.json --reports reports/shards
+          --output reports/mapped-complete.json
+      - name: Preserve complete mapped verification
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-complete
+          overwrite: true
+          path: reports/mapped-complete.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  xilinx-core-build:
+    name: Build the Xilinx official-suite circuit
+    needs: core
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and generate the unchanged host interface
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - name: Assign every official command to exactly one Xilinx worker
+        id: plan
+        run: python3 tools/spec_ci.py plan --reference reports/native/core-stalled.json --shards 16 --output reports/xc7-core-plan.json --github-output "$GITHUB_OUTPUT"
+      - name: Verify corrected block-RAM mapping and simulation models
+        run: |
+          python3 tools/check_xc7_memory_mapping.py
+          python3 tools/check_xc7_ram_models.py
+      - name: Synthesize the execution core at the official-suite capacities
+        run: python3 tools/synth_xc7_core.py
+      - name: Verify every used primitive and the actual core inventories
+        run: |
+          python3 tools/check_xc7_dsp.py --estimate reports/xc7-core-estimate.json --netlist build/xc7-core/mapped.json
+          python3 tools/check_xc7_luts.py --top wasmetal_core --netlist build/xc7-core/mapped.json --directory build/xc7-core-lut-check --report reports/xc7-core-luts.json
+          python3 tools/check_xc7_carry.py
+          python3 tools/check_xc7_muxes.py
+          python3 tools/check_xc7_flops.py --top wasmetal_core --netlist build/xc7-core/mapped.json
+      - name: Compile the identified portable Xilinx simulator
+        run: python3 tools/build_xc7_core_sim.py --jobs 2
+      - name: Verify command ownership and setup replay on the actual Xilinx circuit
+        env:
+          WASMETAL_TEST_SIMULATOR: build/xc7-core-sim/obj/Vwasmetal_core
+        run: python3 tests/spec_partition_runner_test.py
+      - name: Package the executable and all additional build inputs
+        run: python3 tools/spec_ci.py pack --simulator build/xc7-core-sim/obj/Vwasmetal_core --mapped-backend mapped-xc7-functional --output reports/xc7-core-simulator.tar.gz
+      - name: Share the mapped simulator and complete ownership plan
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-simulator
+          path: |
+            reports/xc7-core-simulator.tar.gz
+            reports/xc7-core-plan.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve synthesis-library notices
+        if: always()
+        run: |
+          if [ -f .cache/tools/usr/share/doc/yosys/copyright ]; then
+            mkdir -p build/xc7-core-notices
+            cp .cache/tools/usr/share/doc/yosys/copyright build/xc7-core-notices/YOSYS_COPYRIGHT
+          fi
+      - name: Preserve synthesis and primitive verification evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-build-reports
+          path: |
+            reports/xc7-*.json
+            build/xc7-core/*.log
+            build/xc7-core/*.ys
+            build/xc7-core/mapped.manifest.json
+            build/xc7-core/mapping-overlay/
+            build/xc7-core-sim/*.log
+            build/xc7-core-sim/*.ys
+            build/xc7-core-sim/*.v
+            build/xc7-core-sim/*.vlt
+            build/xc7-core-sim/obj/*.build.json
+            build/xc7-memory-mapping/
+            build/xc7-ram-models/
+            build/xc7-dsp/
+            build/xc7-core-lut-check/
+            build/xc7-carry-check/
+            build/xc7-muxes/
+            build/xc7-flops/
+            build/xc7-core-notices/
+            third_party/xilinx-unisim/
+          if-no-files-found: warn
+          retention-days: 30
+
+  xilinx-core:
+    name: Xilinx official corpus (${{ matrix.shard }})
+    needs: xilinx-core-build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.xilinx-core-build.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: xilinx-core-simulator
+          path: build/ci-artifact
+      - name: Restore and verify the exact Xilinx model
+        run: |
+          tar -xzf build/ci-artifact/xc7-core-simulator.tar.gz
+          python3 tools/build_identity.py verify build/xc7-core-sim/obj/Vwasmetal_core
+      - name: Execute assigned official commands on Xilinx primitives
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: >-
+          python3 tools/run_spec.py --simulator build/xc7-core-sim/obj/Vwasmetal_core
+          --shard-plan build/ci-artifact/xc7-core-plan.json --shard-id "$SHARD"
+          --wait-states 3 --jobs 2 --response-timeout 18000
+          --progress-report "reports/progress-$SHARD.json"
+          --report "reports/mapped-shard-$SHARD.json"
+      - name: Preserve Xilinx shard observations even on failure
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-results-${{ matrix.shard }}
+          path: reports/*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  xilinx-core-complete:
+    name: Complete Xilinx mapped corpus
+    if: always()
+    needs: [core, xilinx-core-build, xilinx-core]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Require the native reference and all Xilinx workers to pass
+        env:
+          CORE_RESULT: ${{ needs.core.result }}
+          BUILD_RESULT: ${{ needs.xilinx-core-build.result }}
+          MAPPED_RESULT: ${{ needs.xilinx-core.result }}
+        run: test "$CORE_RESULT" = success && test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and official sources
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: verification-reports
+          path: reports/native
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: xilinx-core-build-reports
+          path: build/ci-plan
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: xilinx-core-results-*
+          path: reports/shards
+      - name: Require every official command and exact native cycle counts
+        run: >-
+          python3 tools/spec_ci.py merge --reference reports/native/core-stalled.json
+          --plan build/ci-plan/reports/xc7-core-plan.json --reports reports/shards
+          --mapped-backend mapped-xc7-functional --output reports/xc7-core-complete.json
+      - name: Preserve complete Xilinx conformance evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-complete
+          path: reports/xc7-core-complete.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  standalone:
+    name: Standalone RTL and mapped system
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation and FPGA tools
+        run: python3 tools/bootstrap.py --fpga-tools
+      - name: Verify standalone RTL and synthesize the complete bounded CPU
+        run: make standalone-test standalone-image standalone-core
+      - name: Map the board circuit without waiting for physical routing
+        run: python3 tools/build_standalone_board.py --map-only
+      - name: Compare complete mapped behavior and verify the memory models
+        run: |
+          python3 tools/check_mapped_local_memory.py
+          python3 tools/check_standalone_ram.py
+          python3 tools/build_standalone_gate_sim.py
+          python3 tools/check_standalone_mapped.py
+      - name: Audit generic memories and ASIC implementation boundaries
+        run: python3 tools/audit_asic.py
+      - name: Share the complete bounded CPU mapping with programmable system verification
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: standalone-core-mapping
+          path: |
+            build/standalone-core-ecp5.json
+            build/standalone-core-ecp5.manifest.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve standalone verification evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: standalone-verification
+          overwrite: true
+          path: |
+            reports/standalone*.json
+            reports/benchmarks.json
+            reports/asic-audit.json
+            build/asic-audit/*.log
+            build/standalone-core-ecp5*.log
+            build/standalone-core-ecp5.manifest.json
+            build/standalone-ulx3s/*.log
+            build/standalone-ulx3s/timing*.json
+            build/standalone-gate-sim/*.log
+            build/standalone-gate-sim/lut-proof/report.json
+            build/standalone-ram-check/*.log
+            build/standalone-memory-production/*.log
+          if-no-files-found: warn
+          retention-days: 30
+
+  standalone-board:
+    name: Standalone FPGA routing
+    needs: standalone
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned FPGA tools and prepare the same self-test image
+        run: |
+          python3 tools/bootstrap.py --fpga-tools
+          make standalone-image
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: standalone-core-mapping
+          path: build
+      - name: Route the complete board and require timing and bitstream round trip
+        run: python3 tools/build_standalone_board.py
+      - name: Preserve placement, routing and timing diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: standalone-routing
+          path: |
+            build/standalone-ulx3s/*.log
+            build/standalone-ulx3s/timing*.json
+            build/standalone-ulx3s/design.manifest.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Preserve verified bitstream and prepared program
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: standalone-fpga
+          overwrite: true
+          path: |
+            build/standalone-ulx3s/wasmetal.bit
+            build/standalone-ulx3s/manifest.json
+            build/standalone-image/
+          if-no-files-found: error
+          retention-days: 30
+
+  standalone-complete:
+    # Preserve the existing required-check name and its physical success gate.
+    name: Standalone FPGA system
+    if: always()
+    needs: [standalone, standalone-board]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require functional verification and physical implementation
+        env:
+          FUNCTIONAL_RESULT: ${{ needs.standalone.result }}
+          ROUTING_RESULT: ${{ needs.standalone-board.result }}
+        run: test "$FUNCTIONAL_RESULT" = success && test "$ROUTING_RESULT" = success
+
+  programmable:
+    name: Programmable simulation build
+    needs: standalone
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation and FPGA tools
+        run: python3 tools/bootstrap.py --fpga-tools
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: standalone-core-mapping
+          path: build
+      - name: Verify uploads, execution, recovery and board serial timing in RTL
+        run: make loadable-test
+      - name: Audit writable memories and ASIC boot assumptions
+        run: python3 tools/audit_asic.py --loadable
+      - name: Map the programmable CPU and verify its RAM modes
+        run: make loadable-mapped-build
+      - name: Prove the simulation wrapper mapping at every state and CPU boundary
+        run: python3 tools/prove_loadable_mapping.py --directory build/loadable-mapped --report reports/loadable-simulation-mapping-proof.json
+      - name: Map and audit the board wrapper before physical routing
+        run: |
+          python3 tools/build_loadable_board.py --map-only
+          python3 tools/audit_loadable_io.py
+          python3 tools/prove_loadable_mapping.py
+      - name: Package the portable mapped simulator and all generated inputs
+        run: python3 tools/loadable_ci.py pack
+      - name: Preserve the native integration reference
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-native
+          path: reports/loadable-rtl.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Share the programmable circuit
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-simulator
+          path: reports/loadable-simulator.tar.gz
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve the prepared board acceptance campaign
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-acceptance
+          path: |
+            build/board-acceptance/
+            reports/board-acceptance-preparation.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Preserve programmable verification diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-verification
+          path: |
+            reports/loadable-*.json
+            reports/board-acceptance-*.json
+            reports/asic-loadable-audit.json
+            build/loadable-*/*.log
+            build/loadable-ulx3s/timing*.json
+            build/loadable-gate-sim/lut-proof/report.json
+            build/loadable-mapped/mapping-proof/**/*.log
+            build/loadable-ulx3s/mapping-proof/**/*.log
+            build/asic-loadable-audit/*.log
+          if-no-files-found: warn
+          retention-days: 30
+
+  programmable-board:
+    name: Programmable FPGA routing
+    needs: standalone
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned FPGA tools
+        run: python3 tools/bootstrap.py --fpga-tools
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: standalone-core-mapping
+          path: build
+      - name: Route the complete programmable board and verify timing and bitstream round trip
+        run: python3 tools/build_loadable_board.py
+      - name: Check mapped UART and reset synchronization and clock structure
+        run: python3 tools/audit_loadable_io.py
+      - name: Prove the board wrapper mapping at every state and CPU boundary
+        run: python3 tools/prove_loadable_mapping.py
+      - name: Preserve the verified programmable bitstream
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-fpga
+          path: |
+            build/loadable-ulx3s/wasmetal.bit
+            build/loadable-ulx3s/manifest.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Preserve routing and I/O diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-routing
+          path: |
+            reports/loadable-io.json
+            reports/loadable-mapping-proof.json
+            build/loadable-ulx3s/*.log
+            build/loadable-ulx3s/timing*.json
+            build/loadable-ulx3s/mapping-proof/**/*.log
+          if-no-files-found: warn
+          retention-days: 30
+
+  programmable-mapped:
+    name: Programmable mapped circuit (${{ matrix.shard }})
+    needs: programmable
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and prepare the Wasm loading front end
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: loadable-simulator
+          path: build/ci-artifact
+      - name: Restore the same mapped circuit on every worker
+        run: tar -xzf build/ci-artifact/loadable-simulator.tar.gz
+      - name: Run assigned upload and execution cases through serial pins
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: python3 tools/loadable_ci.py run --shard "$SHARD"
+      - name: Preserve mapped integration evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-results-${{ matrix.shard }}
+          path: reports/loadable-mapped-*.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  programmable-four-state:
+    name: Complete systems with uninitialized storage
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned tools and build the native comparison model
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+          python3 tools/build_loadable_sim.py
+      - name: Verify ROM boot, UART loading and warm reset in four-state RTL
+        run: python3 tools/check_loadable_four_state.py
+      - name: Preserve observations, negative controls and model identities
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: complete-system-four-state
+          path: |
+            reports/loadable-four-state.json
+            build/loadable-four-state/
+          if-no-files-found: warn
+          retention-days: 30
+
+  programmable-compiled:
+    name: Compiler-generated Wasm on RTL and mapped system
+    needs: programmable
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install LLVM 18 C and Wasm toolchain
+        run: sudo apt-get update && sudo apt-get install -y clang-18 lld-18
+      - name: Install pinned simulation tools and build software preparation
+        run: |
+          python3 tools/bootstrap.py
+          make sim
+          python3 tools/build_loadable_sim.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: loadable-simulator
+          path: build/ci-artifact
+      - name: Restore the shared mapped programmable model
+        run: tar -xzf build/ci-artifact/loadable-simulator.tar.gz
+      - name: Compile C to Wasm and require independent results and exact RTL/mapped agreement
+        run: python3 tools/check_c_workload.py --mapped
+      - name: Preserve compiled workloads and verification evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: compiled-workload
+          path: |
+            reports/c-workload-*.json
+            build/c-workload/
+          if-no-files-found: warn
+          retention-days: 30
+
+  programmable-complete:
+    name: Complete programmable circuit integration
+    if: always()
+    needs: [programmable, programmable-mapped, programmable-board, programmable-compiled, programmable-four-state]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Require all integration builds and workers to succeed
+        env:
+          BUILD_RESULT: ${{ needs.programmable.result }}
+          MAPPED_RESULT: ${{ needs.programmable-mapped.result }}
+          ROUTING_RESULT: ${{ needs.programmable-board.result }}
+          COMPILED_RESULT: ${{ needs.programmable-compiled.result }}
+          FOUR_STATE_RESULT: ${{ needs.programmable-four-state.result }}
+        run: test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success && test "$ROUTING_RESULT" = success && test "$COMPILED_RESULT" = success && test "$FOUR_STATE_RESULT" = success
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Restore pinned source and primitive-library inputs for provenance checks
+        run: python3 tools/bootstrap.py
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: loadable-native
+          path: reports/native
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: loadable-results-*
+          path: reports/shards
+      - name: Require all integration cases and exact UART and cycle agreement
+        run: python3 tools/loadable_ci.py merge --reference reports/native/loadable-rtl.json --reports reports/shards
+      - name: Preserve complete programmable verification
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadable-complete
+          path: reports/loadable-mapped.json
+          if-no-files-found: warn
+          retention-days: 30

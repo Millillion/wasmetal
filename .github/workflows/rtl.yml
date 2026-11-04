@@ -276,6 +276,34 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+  asic-cell-models:
+    name: ASIC cell models against upstream Verilog
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation tools
+        run: python3 tools/bootstrap.py
+      - name: Exhaust binary cell behavior against upstream models
+        run: python3 tools/check_asic_cell_models.py
+      - name: Reject incomplete or altered source inventories
+        run: python3 tests/asic_cell_source_test.py
+      - name: Preserve cell models and independent observations
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: asic-cell-models
+          path: |
+            reports/asic-cell-models.json
+            build/asic-cell-models/*.log
+            build/asic-cell-models/*.v
+            build/asic-cell-models/*.sv
+            build/asic-cell-models/*.ys
+          if-no-files-found: warn
+          retention-days: 30
+
   memory-startup:
     name: Memory startup and CPU ownership
     runs-on: ubuntu-24.04

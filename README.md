@@ -447,6 +447,13 @@ The programmable audit has also been repeated for direct rounding, with all
 memory and register counts preserved. The ROM audit retains its selector-revision
 record. A failed audit removes
 its previous output report, preventing stale success from appearing current.
+An [experimental standard-cell reference](docs/ASIC-STANDARD-CELLS.md) now pins
+the SKY130HD library and independently checks 67 selected cell types against
+upstream Verilog in Icarus. All 1,067 combinational input vectors, 32 binary
+flip-flop transitions and 64 seed/hold checks pass; three wrong cell models
+are rejected. Seven source-inventory fixtures also pass. CI includes these
+checks. The full startup-circuit ASIC mapping campaign is still running; this
+cell-level result does not establish physical ASIC timing or a complete CPU.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its

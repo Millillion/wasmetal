@@ -1,0 +1,12 @@
+read_liberty -lib -ignore_miss_func .cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog -sv soc/asic/wasmetal_memory_bist.sv soc/asic/wasmetal_memory_startup.sv soc/asic/wasmetal_sram_memory.sv tests/asic/wasmetal_startup_sram.sv
+chparam -set RAM_BYTES 80 -set READ_LATENCY 3 -set RESPONSE_TIMEOUT 11 wasmetal_startup_sram
+synth -top wasmetal_startup_sram -flatten -noabc
+dfflibmap -liberty .cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty .cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+hilomap -singleton -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+clean
+check -assert
+stat -liberty .cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_json build/sky130-startup-prototype/mapped.json
+write_verilog -noattr -noexpr -nodec build/sky130-startup-prototype/mapped.v

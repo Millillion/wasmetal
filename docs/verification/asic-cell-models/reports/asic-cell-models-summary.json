@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "cell_types_checked": 67,
+  "combinational_vectors": 1067,
+  "binary_flip_flop_transitions": 32,
+  "flip_flop_seed_and_hold_checks": 64,
+  "model_faults_rejected": 3,
+  "source_inventory_fixtures_passed": 7,
+  "library_cells": 428,
+  "excluded_platform_cells": 36,
+  "retained_library_cells": 392,
+  "initial_mapping_rejected": {
+    "netlist_sha256": "d4df439f76efa0d2dd0aeddbe9e0960dae213da544789abbe6fbc6e7849066c6",
+    "diagnostic": "unmapped, forbidden or unknown ASIC cell: sky130_fd_sc_hd__lpflow_inputiso1p_1"
+  },
+  "report_sha256": "9b884a66bca5d4b33d484a0c47f8a773b5c4aeaade0047ce2c6177bbe30eb014",
+  "complete_asic_startup_campaign_included": false,
+  "physical_timing_or_hardware_validated": false
+}
