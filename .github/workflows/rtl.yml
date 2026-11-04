@@ -17,6 +17,33 @@ concurrency:
   # Let long main-branch regressions finish while subsequent work is committed.
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 jobs:
+  floating-point-rounding:
+    name: Integral floating-point rounding experiment
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned verification tools
+        run: python3 tools/bootstrap.py
+      - name: Prove both precisions and compare native and mapped four-state behavior
+        run: python3 tools/check_fp_round.py
+      - name: Preserve component proofs, observations and counterexamples
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fp-rounding
+          path: |
+            reports/fp-round-experiment.json
+            build/fp-round/*.log
+            build/fp-round/*.ys
+            build/fp-round/*.sv
+            build/fp-round/*.v
+            build/fp-round/*.json
+            build/fp-round/vectors-*.txt
+          if-no-files-found: warn
+          retention-days: 30
   xilinx-resource-estimate:
     name: Programmable 7-series resource estimate
     runs-on: ubuntu-24.04

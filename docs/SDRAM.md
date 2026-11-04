@@ -170,6 +170,16 @@ Clang 18 and LLD 18 compile and link the workload; their exact identities, the
 upload packets, simulator, source inputs and device observations are recorded.
 CI repeats both configurations.
 
+All four jobs in [CI run 41788486972](https://github.com/Millillion/wasmetal/actions/runs/41788486972)
+passed. The [independent artifact comparison](verification/ci-sdram.json)
+checks all nine downloaded reports against the local records: six native/mapped
+profiles, six formal configurations, negative controls, both complete CPU
+campaigns and both C campaigns. The UART observations, execution cycles and
+device coverage match. Compiled Wasm and serialized C upload packets also
+match; image-manifest identities are retained separately because those
+manifests also identify their preparation executables.
+The CI reports are archived under [verification/ci-sdram](verification/ci-sdram).
+
 These system tests use one simulation clock and a behavioral device. The
 default board backend remains block RAM. A separate physical memory clock,
 clock crossing and board PHY are still required for the slow ULX3S CPU clock;

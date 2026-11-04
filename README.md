@@ -118,7 +118,9 @@ are rejected independently. Compiled C also passes all five CRC-32 cases with
 [25 MHz timing](docs/verification/sdram-c-25mhz.json) and
 [100 MHz timing and delayed startup](docs/verification/sdram-c-100mhz-5000000.json),
 each exercising 1,281 SDRAM reads and 42,246 writes. A dedicated workflow repeats
-the component, formal, complete-CPU and compiled C checks. These are simulation timing profiles, not
+the component, formal, complete-CPU and compiled C checks. All four jobs also
+[pass in CI](docs/verification/ci-sdram.json); the downloaded device observations,
+UART results and cycle counts match the local campaigns. These are simulation timing profiles, not
 measured FPGA clock rates. The board PHY and physical implementation remain;
 Genesys 2 requires DDR3. The default FPGA memory backend remains block RAM.
 
@@ -220,6 +222,16 @@ Wasm and uploads through the same prepared-image path. All five CRC-32 cases
 on the current ABC9 wrapper. They match independent
 Python results with identical UART output and cycle counts.
 The compiler-generated workload is also a required CI integration job.
+
+An [integral floating-point rounding experiment](docs/ROUNDING.md) replaces
+two conversions with direct IEEE-field operations. Its
+[component checks](docs/verification/fp-round-experiment.json) prove both
+precisions for every binary input, prove the actual ECP5 mappings, and pass
+173,852 independent oracle vectors in both models, including 100,124 X/Z
+cases. Ten deliberate defects are rejected. The isolated mappings use 1,113
+LUT4 cells instead of 5,017. It remains outside the default CPU while the
+current regressions finish; whole-CPU integration and timing measurements
+are next.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
 integer dot products, with independently calculated results and repeated resets.
