@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "scope": "destructive startup test and CPU transaction handoff through SRAM adapter",
+  "totals_per_model": {
+    "cycles": 59107887,
+    "macro_commands": 10718286,
+    "test_commands": 10707750,
+    "cpu_commands": 10536,
+    "cpu_responses": 11237,
+    "cpu_faults": 720,
+    "successful_boots": 2760,
+    "failed_boots": 266,
+    "resets": 5614,
+    "resets_with_pending_reads": 408,
+    "old_reads_after_reset": 408,
+    "held_valid_cycles": 36028
+  },
+  "rtl_and_mapped_observations_identical": true,
+  "configuration_count": 6,
+  "unbounded_safety_configurations": 4,
+  "dedicated_fault_controls_rejected": 15,
+  "reports": {
+    "memory-startup-mapped": "75b8603ba82b071bc5b23bd03cb8e31e15b9d2c9a590bfc686fe0722756814a9",
+    "memory-startup-proof": "af56745d2681f488ed853b9c3145c6c0503b42ee5a7f2a8e3be9eb792dd195c2",
+    "memory-startup-four-state": "e2c2df104c134c8e763c4d5c894cc1e19194c24fca17f113042ba2a7d0e6c9b6"
+  },
+  "default_cpu_source_inventory_unchanged": true,
+  "default_cpu_lint_passed": true,
+  "default_cpu_lint_command": "python3 tools/build_loadable_sim.py --lint",
+  "default_cpu_integration": false,
+  "complete_cpu_simulation_passed": false,
+  "physical_hardware_tested": false,
+  "limitations": [
+    "CPU requests in this campaign come from an independent transaction generator.",
+    "The complete-CPU startup integration is a separate ongoing experiment.",
+    "The memory bridge must stay in reset until startup grants access; its ordinary transaction timeout is not extended.",
+    "These are functional ECP5 mapping and RTL protocol results, not ASIC timing or a foundry macro test."
+  ]
+}

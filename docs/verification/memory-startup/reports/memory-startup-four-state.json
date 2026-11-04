@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "scope": "RTL four-state startup isolation, X/Z memory diagnostics and queued CPU handoff",
+  "inputs": {
+    "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "tests/memory/startup_four_state.sv": "8578c97ea138d0e03d677aa3a38887f2eacd0df6ee79ce04b0fe015aa09c0643",
+    "tools/check_memory_startup_four_state.py": "8cfb5a02503fef68652d3befc81e7c35960c86219a49763e4656e8cdfd5c52e8",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/iverilog": "a6071e4b4a68feafca0c8ee0e6aa275eee9a43a108c62801cfd1eca6eab6d8a3",
+    ".cache/tools/usr/bin/vvp": "a10bd7d4a0850308ac8c2c98115b6a3084f9be978307610f2a521190c28f4023"
+  },
+  "positive_log_sha256": "bd793f018cf5111be5dd50987dffa6f4a09aac1531fe862587aa5247b5f9273a",
+  "negative_controls": [
+    {
+      "name": "test-data-leak",
+      "source_sha256": "65f89ebdb174499e451940f935c1162fcc7775a678238f375d7c8546c377bdc8",
+      "log_sha256": "d835ec92d0ae6e080a239420657bc15255c0395786ece7b49cbccfa2bb8dca80"
+    },
+    {
+      "name": "unknown-not-diagnosed",
+      "source_sha256": "f6b07cdbe49924e160cef8a88d025af1cfcc752791fc76323c23e047926351e1",
+      "log_sha256": "33f1822803f27eb90d330668657a187b8d4d78ed433940d0d422178f500a554a"
+    },
+    {
+      "name": "reset-retains-grant",
+      "source_sha256": "4d5a44ad69ce695fb2b033a073cb79e90f873f42ca267d008a3479aea9f440f4",
+      "log_sha256": "4d3d8c071f9fda995becd21cd8277bbe97c21cfbb0ac29aac017a414d839d6e1"
+    }
+  ],
+  "negative_controls_rejected": 3,
+  "physical_hardware_tested": false,
+  "limitations": [
+    "X/Z simulation diagnostics are not an electrical metastability detector.",
+    "Binary RTL/mapped SRAM integration and unbounded protocol proofs are separate checks."
+  ]
+}

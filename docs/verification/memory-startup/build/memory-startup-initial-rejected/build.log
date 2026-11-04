@@ -1,0 +1,29 @@
+make: Entering directory '/tmp/wasmetal-xc7-core/build/memory-startup-initial/obj'
+g++  -I.  -MMD -I/tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=16 -DTEST_LATENCY=1 -DTEST_TIMEOUT=9   -Os -c -o startup_sram.o /tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp
+g++ -Os  -I.  -MMD -I/tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=16 -DTEST_LATENCY=1 -DTEST_TIMEOUT=9   -c -o verilated.o /tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/include/verilated.cpp
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp: In member function ‘void Test::tick()’:
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp:115:17: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]
+  115 |                 for(auto v:incoming)mix(v);issued_read=true;
+      |                 ^~~
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp:115:44: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+  115 |                 for(auto v:incoming)mix(v);issued_read=true;
+      |                                            ^~~~~~~~~~~
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp:123:13: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+  123 |             if(pipeline.front().epoch!=epoch)++old_reads_after_reset;pipeline.pop_front();}
+      |             ^~
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp:123:70: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  123 |             if(pipeline.front().epoch!=epoch)++old_reads_after_reset;pipeline.pop_front();}
+      |                                                                      ^~~~~~~~
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp: In member function ‘void Test::exercise()’:
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp:207:13: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]
+  207 |             for(unsigned n=0;n<age;++n)tick();begin();finish_boot();
+      |             ^~~
+/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp:207:47: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+  207 |             for(unsigned n=0;n<age;++n)tick();begin();finish_boot();
+      |                                               ^~~~~
+cc1plus: all warnings being treated as errors
+make: *** [Vwasmetal_startup_sram.mk:62: startup_sram.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: Leaving directory '/tmp/wasmetal-xc7-core/build/memory-startup-initial/obj'
+%Error: make -C /tmp/wasmetal-xc7-core/build/memory-startup-initial/obj -f Vwasmetal_startup_sram.mk -j 2 exited with 2
+%Error: Command Failed ulimit -s unlimited 2>/dev/null; exec /tmp/wasmetal-xc7-core/.cache/tools/usr/share/verilator/bin/verilator_bin -Wall -Wno-UNUSEDSIGNAL --assert -DWASMETAL_ASSERTIONS -GRAM_BYTES=16 -GREAD_LATENCY=1 -GRESPONSE_TIMEOUT=9 --top-module wasmetal_startup_sram --cc --exe --build -j 2 --Mdir /tmp/wasmetal-xc7-core/build/memory-startup-initial/obj -CFLAGS -std=c++17\ -O2\ -Wall\ -Wextra\ -Werror\ -DTEST_BYTES=16\ -DTEST_LATENCY=1\ -DTEST_TIMEOUT=9 /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv /tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv /tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp

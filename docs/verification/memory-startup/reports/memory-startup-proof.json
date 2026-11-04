@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "scope": "unbounded startup ownership, full-test accounting, stable requests and CPU isolation",
+  "environment": "initial shared reset; arbitrary binary memory responses and resets; CPU keeps each valid request stable until acknowledgement or reset",
+  "inputs": {
+    "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "build/formal-memory-startup/wasmetal_memory_startup.sv": "82103d982c1601850f1cb29d280b8904477ad7f40e485a3038a5404cd7f34001",
+    "build/formal-memory-startup/wasmetal_memory_bist.sv": "81bce65a05fe2a976c4f81ef63ed7df0e2794bafbe802d8ea2fbba1f8bf0305a",
+    "tools/prove_memory_startup.py": "192174c3a354539a20f12a047dacb412cc039fdc87df5f4da12de438be7f011d",
+    "tools/prove_memory_bist.py": "b6100bf9fa614820df40da263c7df53e2de1fab6fa7b1d682d917ded61b8bab4",
+    "tools/check_memory_bist.py": "231798734a0119d4ffa2a9d9490336cefdfb7128c04a8b379917d81c433a848a",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0"
+  },
+  "checks": [
+    {
+      "ram_bytes": 16,
+      "response_timeout": 9,
+      "status": "proven",
+      "script_sha256": "5ce454a3b6105d600b8717b526a550921411446c68cf2cf506cb665e7c42b076",
+      "log_sha256": "6619d4f47adee803331c04bf2de3baf2729a62e5c6fb701ee046b430449737ee"
+    },
+    {
+      "ram_bytes": 80,
+      "response_timeout": 11,
+      "status": "proven",
+      "script_sha256": "a6718b71e657b5dce0e3d8449d83772301dc9d352ed074681c8bc898dfec3e9d",
+      "log_sha256": "7712cbd98620a9c276cbf56ae47a4f78ff4e36e6a4aa9bbb58bdab8362be91e4"
+    },
+    {
+      "ram_bytes": 131072,
+      "response_timeout": 1024,
+      "status": "proven",
+      "script_sha256": "875afef32ed729ef9c606861d5cd2524ae005ac9f2e9969ea41b3bf5794c8cbe",
+      "log_sha256": "19240c57bbc025a171d97010086660ce0e38a67534a98a50fa66714607f8454e"
+    },
+    {
+      "ram_bytes": 16,
+      "response_timeout": 1,
+      "status": "proven",
+      "script_sha256": "ce6d336857c7a7a67fe4b6c69731559801c0658f1ff452e17cb09d3ae2ec4e26",
+      "log_sha256": "891c9062031a7a2ce3913068b12c57752cd8353b1f5981c81b052059b247f571"
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "early-handoff",
+      "source_sha256": "ab861c20592ae871f0f8617ac7dc2d9782ccf593fb337104a3b21435dec1867a",
+      "script_sha256": "4bc1b8aa7deefdc04c1317d62604bfe0152d512b351bd416e12749a05d0b1ca6",
+      "log_sha256": "090401a1de5ef05ffee99342b0694e75aefcf4f7c4396bda6a1634e500a8eaf1"
+    },
+    {
+      "name": "failure-grants-cpu",
+      "source_sha256": "4b2a0df276ab2e4cdbba715ee78c93b083e07307c995cda39c4037e535f0e9f2",
+      "script_sha256": "7fe45301c59928d8f9197870edadff5171dd5a9a7ecd0f1b75b0e63ad775e70d",
+      "log_sha256": "144d053a4550b9f6826296b3e8dbc897dc89036c09b323d85df3a80eb31512fb"
+    },
+    {
+      "name": "test-response-leak",
+      "source_sha256": "748d648c022b67462708a3a27c66b753a12fe00c1269c1548a7ec9cf7174bec2",
+      "script_sha256": "2db61ab601d640a32f85349404b120ae8fb896e94284b1a1d9b354c39b8b4993",
+      "log_sha256": "960724e0d6a6f730ffafea3eeb9614c59dc675eaef55d85a068604cd68e02a27"
+    },
+    {
+      "name": "timeout-withdraws-request",
+      "source_sha256": "db132c7df2a8ea892936f8e3bfcc79859b80524c69c66c4baf7fce1a9a3ed6d7",
+      "script_sha256": "7ad58949e62078d92971987a216ada02b94b3337787c83ba3b8838f77676db0c",
+      "log_sha256": "365d66207697f97373df2a4fede93fdd5fb0069d625daa3253f39ac23ed06b7f"
+    }
+  ],
+  "negative_controls_rejected": 4,
+  "limitations": [
+    "No fairness assumption or eventual completion proof for an unresponsive memory.",
+    "The SRAM storage and physical timing are not modeled by these protocol proofs.",
+    "The CPU transaction source is abstract; the complete CPU is not part of this proof."
+  ],
+  "physical_hardware_tested": false,
+  "elapsed_seconds": 534.3424616230186
+}

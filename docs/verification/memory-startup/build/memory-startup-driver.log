@@ -1,0 +1,32 @@
+PASS exhaustive binary LUT equivalence and 66560 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-startup/16-1-9/mapped-model/obj/Vwasmetal_startup_sram
+PASS 16 1 9 rtl {'status': 'passed', 'cycles': 246535, 'macro_commands': 51961, 'test_commands': 49600, 'cpu_commands': 2361, 'cpu_responses': 2537, 'cpu_faults': 180, 'successful_boots': 419, 'failed_boots': 40, 'resets': 820, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 7068, 'trace': 5339882688132068030}
+PASS 16 1 9 mapped {'status': 'passed', 'cycles': 246535, 'macro_commands': 51961, 'test_commands': 49600, 'cpu_commands': 2361, 'cpu_responses': 2537, 'cpu_faults': 180, 'successful_boots': 419, 'failed_boots': 40, 'resets': 820, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 7068, 'trace': 5339882688132068030}
+PASS exhaustive binary LUT equivalence and 68864 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-startup/80-3-11/mapped-model/obj/Vwasmetal_startup_sram
+PASS 80 3 11 rtl {'status': 'passed', 'cycles': 7692351, 'macro_commands': 1394693, 'test_commands': 1390480, 'cpu_commands': 4213, 'cpu_responses': 4387, 'cpu_faults': 180, 'successful_boots': 2267, 'failed_boots': 200, 'resets': 4668, 'resets_with_pending_reads': 402, 'old_reads_after_reset': 402, 'held_valid_cycles': 20004, 'trace': 11562799677380873532}
+PASS 80 3 11 mapped {'status': 'passed', 'cycles': 7692351, 'macro_commands': 1394693, 'test_commands': 1390480, 'cpu_commands': 4213, 'cpu_responses': 4387, 'cpu_faults': 180, 'successful_boots': 2267, 'failed_boots': 200, 'resets': 4668, 'resets_with_pending_reads': 402, 'old_reads_after_reset': 402, 'held_valid_cycles': 20004, 'trace': 11562799677380873532}
+PASS exhaustive binary LUT equivalence and 69376 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-startup/272-7-10/mapped-model/obj/Vwasmetal_startup_sram
+PASS 272 7 10 rtl {'status': 'passed', 'cycles': 654891, 'macro_commands': 86358, 'test_commands': 84341, 'cpu_commands': 2017, 'cpu_responses': 2188, 'cpu_faults': 180, 'successful_boots': 61, 'failed_boots': 2, 'resets': 66, 'resets_with_pending_reads': 6, 'old_reads_after_reset': 6, 'held_valid_cycles': 4646, 'trace': 14206624031996757470}
+PASS 272 7 10 mapped {'status': 'passed', 'cycles': 654891, 'macro_commands': 86358, 'test_commands': 84341, 'cpu_commands': 2017, 'cpu_responses': 2188, 'cpu_faults': 180, 'successful_boots': 61, 'failed_boots': 2, 'resets': 66, 'resets_with_pending_reads': 6, 'old_reads_after_reset': 6, 'held_valid_cycles': 4646, 'trace': 14206624031996757470}
+PASS exhaustive binary LUT equivalence and 73216 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-startup/131072-3-11/mapped-model/obj/Vwasmetal_startup_sram
+PASS 131072 3 11 rtl {'status': 'passed', 'cycles': 50513199, 'macro_commands': 9185180, 'test_commands': 9183235, 'cpu_commands': 1945, 'cpu_responses': 2125, 'cpu_faults': 180, 'successful_boots': 13, 'failed_boots': 2, 'resets': 18, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 4310, 'trace': 15639969748589277340}
+PASS 131072 3 11 mapped {'status': 'passed', 'cycles': 50513199, 'macro_commands': 9185180, 'test_commands': 9183235, 'cpu_commands': 1945, 'cpu_responses': 2125, 'cpu_faults': 180, 'successful_boots': 13, 'failed_boots': 2, 'resets': 18, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 4310, 'trace': 15639969748589277340}
+PASS exhaustive binary LUT equivalence and 68352 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-startup/80-3-5/mapped-model/obj/Vwasmetal_startup_sram
+PASS 80 3 5 rtl {'status': 'passed', 'cycles': 582, 'macro_commands': 76, 'test_commands': 76, 'cpu_commands': 0, 'cpu_responses': 0, 'cpu_faults': 0, 'successful_boots': 0, 'failed_boots': 11, 'resets': 21, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 0, 'trace': 917249009316685117}
+PASS 80 3 5 mapped {'status': 'passed', 'cycles': 582, 'macro_commands': 76, 'test_commands': 76, 'cpu_commands': 0, 'cpu_responses': 0, 'cpu_faults': 0, 'successful_boots': 0, 'failed_boots': 11, 'resets': 21, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 0, 'trace': 917249009316685117}
+PASS exhaustive binary LUT equivalence and 67328 four-state cases
+/tmp/wasmetal-xc7-core/build/memory-startup/80-3-2/mapped-model/obj/Vwasmetal_startup_sram
+PASS 80 3 2 rtl {'status': 'passed', 'cycles': 329, 'macro_commands': 18, 'test_commands': 18, 'cpu_commands': 0, 'cpu_responses': 0, 'cpu_faults': 0, 'successful_boots': 0, 'failed_boots': 11, 'resets': 21, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 0, 'trace': 9123842486033162728}
+PASS 80 3 2 mapped {'status': 'passed', 'cycles': 329, 'macro_commands': 18, 'test_commands': 18, 'cpu_commands': 0, 'cpu_responses': 0, 'cpu_faults': 0, 'successful_boots': 0, 'failed_boots': 11, 'resets': 21, 'resets_with_pending_reads': 0, 'old_reads_after_reset': 0, 'held_valid_cycles': 0, 'trace': 9123842486033162728}
+REJECTED early-handoff
+REJECTED failed-test-grants-cpu
+REJECTED restarted-test
+REJECTED test-response-leak
+REJECTED wrong-cpu-mask
+REJECTED reset-grant-retained
+REJECTED wrong-cpu-read
+PASS memory startup and eight fault controls

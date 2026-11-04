@@ -194,3 +194,8 @@ The [current archive](verification/memory-bist-counter-sized/index.json) retains
 the new reports, source snapshots, mapped circuits, proof scripts and logs,
 including three rejected early boundary-check setups. The original archives
 remain unchanged so the resource and behavior comparison can be repeated.
+
+The optional [startup controller](MEMORY-STARTUP.md) now supplies automatic test
+launch and a verified handoff to CPU transactions after success. It keeps CPU
+access blocked after failure. Its integration tests and ownership proofs are
+separate from the exclusive-access master results above.

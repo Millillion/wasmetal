@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_startup.py", line 29, in native
+    subprocess.run(command,cwd=ROOT,env=dict(os.environ,VERILATOR_ROOT=str(ROOT/'.cache/tools/usr/share/verilator')),
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/tmp/wasmetal-xc7-core/.cache/tools/usr/bin/verilator', '-Wall', '-Wno-UNUSEDSIGNAL', '--assert', '-DWASMETAL_ASSERTIONS', '-GRAM_BYTES=16', '-GREAD_LATENCY=1', '-GRESPONSE_TIMEOUT=9', '--top-module', 'wasmetal_startup_sram', '--cc', '--exe', '--build', '-j', '2', '--Mdir', '/tmp/wasmetal-xc7-core/build/memory-startup-initial/obj', '-CFLAGS', '-std=c++17 -O2 -Wall -Wextra -Werror -DTEST_BYTES=16 -DTEST_LATENCY=1 -DTEST_TIMEOUT=9', '/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv', '/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv', '/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv', '/tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv', '/tmp/wasmetal-xc7-core/tests/asic/startup_sram.cpp']' returned non-zero exit status 2.

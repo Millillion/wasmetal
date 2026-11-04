@@ -485,6 +485,17 @@ uses 331 ECP5 registers and 1,247 LUT4s, saving 44 registers and 48 LUT4s.
 Seven [capacity-boundary checks](docs/verification/memory-bist-widths.json)
 also pass and reject two undersized-counter faults. These seed the final
 transaction at each capacity; they do not simulate complete large memories.
+A separate [startup controller](docs/MEMORY-STARTUP.md) now runs that test before
+granting CPU memory access and blocks access after failure. Its
+[six RTL/mapped configurations](docs/verification/memory-startup-summary.json)
+match across 59,107,887 clocks per model, with 2,760 successful handoffs, 266
+completed failure cases and 408 old SRAM read responses delivered across reset.
+All eight simulation fault controls, three four-state controls and four formal
+controls are rejected; four configurations pass unbounded safety proofs. CI
+requires these component gates. The CPU traffic here comes from an independent
+transaction generator. Complete-CPU startup integration is running separately;
+the default CPU/board image does not yet include this controller. Every shared
+reset repeats the destructive test.
 
 ## RTL Microarchitecture Simulator
 

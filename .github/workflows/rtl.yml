@@ -276,6 +276,41 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+  memory-startup:
+    name: Memory startup and CPU ownership
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install pinned simulation and proof tools
+        run: python3 tools/bootstrap.py
+      - name: Verify startup and CPU traffic at the SRAM macro pins
+        run: python3 tools/check_memory_startup.py --mapped
+      - name: Check unknown reads and four-state CPU isolation
+        run: python3 tools/check_memory_startup_four_state.py
+      - name: Prove complete-test handoff and ownership safety
+        run: python3 tools/prove_memory_startup.py
+      - name: Preserve startup observations and proof diagnostics
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: memory-startup-verification
+          path: |
+            reports/memory-startup*.json
+            build/memory-startup/**/*.log
+            build/memory-startup/**/*.ys
+            build/memory-startup/**/*.sv
+            build/memory-startup/**/lut-proof/report.json
+            build/memory-startup/**/mapped.json
+            build/memory-startup/**/mapped.manifest.json
+            build/memory-startup/**/*.build.json
+            build/memory-startup-four-state/
+            build/formal-memory-startup/
+          if-no-files-found: warn
+          retention-days: 30
+
   memory:
     name: Memory interface verification
     runs-on: ubuntu-24.04

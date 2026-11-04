@@ -15,9 +15,10 @@ def sources():
     return [ROOT/'rtl/vendor.vlt'] + sorted((ROOT/'rtl').glob('*.sv')) + sorted(vendor.glob('*.v')) + [
         vendor/'RISCV/HardFloat_specialize.v', ROOT/'fpga/wasmetal_uart.sv'] + [
             path for path in sorted((ROOT/'soc').rglob('*.sv'))
-            # The exclusive-access self-test master has its own verification
-            # target and is not instantiated by any default CPU/board top.
-            if path != ROOT/'soc/asic/wasmetal_memory_bist.sv']
+            # Startup self-test components have their own verification targets
+            # and are not instantiated by any default CPU/board top.
+            if path not in {ROOT/'soc/asic/wasmetal_memory_bist.sv',
+                            ROOT/'soc/asic/wasmetal_memory_startup.sv'}]
 
 
 def build(board=False, lint=False):

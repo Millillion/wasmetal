@@ -1,0 +1,665 @@
+{
+  "status": "passed",
+  "scope": "startup test, CPU ownership and real SRAM adapter checked at independent macro pins",
+  "inputs": {
+    "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+    "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0"
+  },
+  "checks": [
+    {
+      "ram_bytes": 16,
+      "read_latency": 1,
+      "response_timeout": 9,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "d6a90c2bb4fb3711bcc9cadc316ce2062fc5cc53b06b2e5d8ea6f796d6858605",
+          "log_sha256": "92ef37b274f065ba7a341a372a898e3c600f7e7eb2c5e947a08397d3f454a423",
+          "observations": {
+            "status": "passed",
+            "cycles": 246535,
+            "macro_commands": 51961,
+            "test_commands": 49600,
+            "cpu_commands": 2361,
+            "cpu_responses": 2537,
+            "cpu_faults": 180,
+            "successful_boots": 419,
+            "failed_boots": 40,
+            "resets": 820,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 7068,
+            "trace": 5339882688132068030
+          }
+        },
+        "mapped": {
+          "binary_sha256": "77e2a6b71f51626d064164a742a896600f23ba19fbc1b4c9de3e7605572efd30",
+          "log_sha256": "92ef37b274f065ba7a341a372a898e3c600f7e7eb2c5e947a08397d3f454a423",
+          "observations": {
+            "status": "passed",
+            "cycles": 246535,
+            "macro_commands": 51961,
+            "test_commands": 49600,
+            "cpu_commands": 2361,
+            "cpu_responses": 2537,
+            "cpu_faults": 180,
+            "successful_boots": 419,
+            "failed_boots": 40,
+            "resets": 820,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 7068,
+            "trace": 5339882688132068030
+          }
+        }
+      },
+      "mapped_primitives": {
+        "LUT4": 1652,
+        "TRELLIS_FF": 570,
+        "PFUMX": 383,
+        "CCU2C": 35,
+        "L6MUX21": 171
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_startup_sram",
+        "inputs": {
+          "build/memory-startup/16-1-9/mapped.json": "2add15730b9b3c90d6f1f0127e75a44986d4ec5808468d42e8128d0257ba8362",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+          "build/memory-startup/16-1-9/mapped.manifest.json": "74ebdbb2645f39ae9d95e25a43c3b6dd3bf6597d9eb0635691d8228cdfd751cf",
+          "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+          "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+          "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-startup/16-1-9/mapped-model/circuit.v": "92bf95e6951cfe4df23b145952ad4804c599d17c0a6a336568605ed7db6256d5",
+          "build/memory-startup/16-1-9/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-startup/16-1-9/mapped-model/lut-proof/report.json": "d1c1e269ed5e6ea761c48abc361466c39954f3267a6676d0e7148da2698af0e0"
+        },
+        "binary_sha256": "77e2a6b71f51626d064164a742a896600f23ba19fbc1b4c9de3e7605572efd30",
+        "netlist_sha256": "2add15730b9b3c90d6f1f0127e75a44986d4ec5808468d42e8128d0257ba8362",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 3,
+      "response_timeout": 11,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "da2ff9fd60baf46c42569f70003070b630f4ed6448f2c03579c74c15c8785a57",
+          "log_sha256": "b0683f38872e634daab9852d94992b8312ad0acc7b08ec5f4f11b51c1e7ed580",
+          "observations": {
+            "status": "passed",
+            "cycles": 7692351,
+            "macro_commands": 1394693,
+            "test_commands": 1390480,
+            "cpu_commands": 4213,
+            "cpu_responses": 4387,
+            "cpu_faults": 180,
+            "successful_boots": 2267,
+            "failed_boots": 200,
+            "resets": 4668,
+            "resets_with_pending_reads": 402,
+            "old_reads_after_reset": 402,
+            "held_valid_cycles": 20004,
+            "trace": 11562799677380873532
+          }
+        },
+        "mapped": {
+          "binary_sha256": "4e13b8b5532dfdd66a10c9af4b3c0683ad9545b342f10a002afc937804f2dfa3",
+          "log_sha256": "b0683f38872e634daab9852d94992b8312ad0acc7b08ec5f4f11b51c1e7ed580",
+          "observations": {
+            "status": "passed",
+            "cycles": 7692351,
+            "macro_commands": 1394693,
+            "test_commands": 1390480,
+            "cpu_commands": 4213,
+            "cpu_responses": 4387,
+            "cpu_faults": 180,
+            "successful_boots": 2267,
+            "failed_boots": 200,
+            "resets": 4668,
+            "resets_with_pending_reads": 402,
+            "old_reads_after_reset": 402,
+            "held_valid_cycles": 20004,
+            "trace": 11562799677380873532
+          }
+        }
+      },
+      "mapped_primitives": {
+        "LUT4": 1661,
+        "TRELLIS_FF": 579,
+        "PFUMX": 384,
+        "L6MUX21": 171,
+        "CCU2C": 36
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_startup_sram",
+        "inputs": {
+          "build/memory-startup/80-3-11/mapped.json": "aee7ce66227989c487000d3d68bf8d6934872cc504b688d608d47b2096ad8eff",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+          "build/memory-startup/80-3-11/mapped.manifest.json": "85fbe3543aee9df13965134cd7319c91adacb58c1316679ed9b56e6dd039b04d",
+          "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+          "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+          "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-startup/80-3-11/mapped-model/circuit.v": "722de1f89e8d7df49b3b6bbdd6b0822230fe2c653b8b9a77ee137c1e70bd8b51",
+          "build/memory-startup/80-3-11/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-startup/80-3-11/mapped-model/lut-proof/report.json": "53518ed400b0b4b3703cbedbae61dacfa0caceef5cc76858a6f0b1da88a0052c"
+        },
+        "binary_sha256": "4e13b8b5532dfdd66a10c9af4b3c0683ad9545b342f10a002afc937804f2dfa3",
+        "netlist_sha256": "aee7ce66227989c487000d3d68bf8d6934872cc504b688d608d47b2096ad8eff",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 272,
+      "read_latency": 7,
+      "response_timeout": 10,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "c6fdc95302f1398f129f1b3ad0c1edc49d295bdf0e1eda0a716c795ae99a1bd2",
+          "log_sha256": "55fc18a33b57227c416dbc6c030df8d039450b4f254822539d52232f274e76b8",
+          "observations": {
+            "status": "passed",
+            "cycles": 654891,
+            "macro_commands": 86358,
+            "test_commands": 84341,
+            "cpu_commands": 2017,
+            "cpu_responses": 2188,
+            "cpu_faults": 180,
+            "successful_boots": 61,
+            "failed_boots": 2,
+            "resets": 66,
+            "resets_with_pending_reads": 6,
+            "old_reads_after_reset": 6,
+            "held_valid_cycles": 4646,
+            "trace": 14206624031996757470
+          }
+        },
+        "mapped": {
+          "binary_sha256": "ab77d49cdb53724051defb1fe8b65d2d5cbf39f44b1eccba865d30eac87fc5dd",
+          "log_sha256": "55fc18a33b57227c416dbc6c030df8d039450b4f254822539d52232f274e76b8",
+          "observations": {
+            "status": "passed",
+            "cycles": 654891,
+            "macro_commands": 86358,
+            "test_commands": 84341,
+            "cpu_commands": 2017,
+            "cpu_responses": 2188,
+            "cpu_faults": 180,
+            "successful_boots": 61,
+            "failed_boots": 2,
+            "resets": 66,
+            "resets_with_pending_reads": 6,
+            "old_reads_after_reset": 6,
+            "held_valid_cycles": 4646,
+            "trace": 14206624031996757470
+          }
+        }
+      },
+      "mapped_primitives": {
+        "LUT4": 1662,
+        "TRELLIS_FF": 588,
+        "PFUMX": 387,
+        "L6MUX21": 170,
+        "CCU2C": 43
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_startup_sram",
+        "inputs": {
+          "build/memory-startup/272-7-10/mapped.json": "8dbca229a11ce27a09111aa2d400345965f17710b4593e66089cb4a45d1e1f4b",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+          "build/memory-startup/272-7-10/mapped.manifest.json": "ad8303397a4702b695b794595f1c9f299dbaef233fa611d8f1a8f62e989754cb",
+          "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+          "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+          "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-startup/272-7-10/mapped-model/circuit.v": "a07c02ea815446f727cab475220564993a8c5d61bdc3bb7823d81b6a1d3d3a56",
+          "build/memory-startup/272-7-10/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-startup/272-7-10/mapped-model/lut-proof/report.json": "22d8fe88bc803f5a9a65a93451dfff145bdf4cd6f25b8d61dfad3495b6280aed"
+        },
+        "binary_sha256": "ab77d49cdb53724051defb1fe8b65d2d5cbf39f44b1eccba865d30eac87fc5dd",
+        "netlist_sha256": "8dbca229a11ce27a09111aa2d400345965f17710b4593e66089cb4a45d1e1f4b",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 131072,
+      "read_latency": 3,
+      "response_timeout": 11,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "86e14861c073b1a67c370e172be3168cc49e7bf62eedcd50a341cc41d98a08a9",
+          "log_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+          "observations": {
+            "status": "passed",
+            "cycles": 50513199,
+            "macro_commands": 9185180,
+            "test_commands": 9183235,
+            "cpu_commands": 1945,
+            "cpu_responses": 2125,
+            "cpu_faults": 180,
+            "successful_boots": 13,
+            "failed_boots": 2,
+            "resets": 18,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 4310,
+            "trace": 15639969748589277340
+          }
+        },
+        "mapped": {
+          "binary_sha256": "a2eaf6d885ea12edfd0878f9cd2fdc7a3e07004723a960ccdd7931bb48873da1",
+          "log_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+          "observations": {
+            "status": "passed",
+            "cycles": 50513199,
+            "macro_commands": 9185180,
+            "test_commands": 9183235,
+            "cpu_commands": 1945,
+            "cpu_responses": 2125,
+            "cpu_faults": 180,
+            "successful_boots": 13,
+            "failed_boots": 2,
+            "resets": 18,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 4310,
+            "trace": 15639969748589277340
+          }
+        }
+      },
+      "mapped_primitives": {
+        "LUT4": 1751,
+        "TRELLIS_FF": 620,
+        "L6MUX21": 194,
+        "PFUMX": 407,
+        "CCU2C": 55
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_startup_sram",
+        "inputs": {
+          "build/memory-startup/131072-3-11/mapped.json": "7dfd56a12a279c75e868af174d0aa7b095651c7cd5e43da031804c5e24a8528a",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+          "build/memory-startup/131072-3-11/mapped.manifest.json": "f62f5db30048a9cc7a9795259896b9540554a784a2caee6162afd4f9bcbaa57d",
+          "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+          "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+          "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-startup/131072-3-11/mapped-model/circuit.v": "692dd94d928f300d54df87c9412249ac5858278a0f347045c7d7c085fdf824ce",
+          "build/memory-startup/131072-3-11/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-startup/131072-3-11/mapped-model/lut-proof/report.json": "faef2e3a85d2e270b1e20844bc83c285f77d20bdedc2d7e1d37361508dc7326b"
+        },
+        "binary_sha256": "a2eaf6d885ea12edfd0878f9cd2fdc7a3e07004723a960ccdd7931bb48873da1",
+        "netlist_sha256": "7dfd56a12a279c75e868af174d0aa7b095651c7cd5e43da031804c5e24a8528a",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 3,
+      "response_timeout": 5,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "801e3dc3ae6cd521a56c9825fa91891e49f470fc8319174f65a5e69da94a3cec",
+          "log_sha256": "abe9a53000d9187dc56633412c631f4ba9f34eb23981201588e4a5a011681531",
+          "observations": {
+            "status": "passed",
+            "cycles": 582,
+            "macro_commands": 76,
+            "test_commands": 76,
+            "cpu_commands": 0,
+            "cpu_responses": 0,
+            "cpu_faults": 0,
+            "successful_boots": 0,
+            "failed_boots": 11,
+            "resets": 21,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 0,
+            "trace": 917249009316685117
+          }
+        },
+        "mapped": {
+          "binary_sha256": "c50a33466ed495c59ad5f003a006e070b9d7296f735970e4d0658149ccd3e6ad",
+          "log_sha256": "abe9a53000d9187dc56633412c631f4ba9f34eb23981201588e4a5a011681531",
+          "observations": {
+            "status": "passed",
+            "cycles": 582,
+            "macro_commands": 76,
+            "test_commands": 76,
+            "cpu_commands": 0,
+            "cpu_responses": 0,
+            "cpu_faults": 0,
+            "successful_boots": 0,
+            "failed_boots": 11,
+            "resets": 21,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 0,
+            "trace": 917249009316685117
+          }
+        }
+      },
+      "mapped_primitives": {
+        "LUT4": 1653,
+        "TRELLIS_FF": 578,
+        "PFUMX": 382,
+        "L6MUX21": 170,
+        "CCU2C": 36
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_startup_sram",
+        "inputs": {
+          "build/memory-startup/80-3-5/mapped.json": "e33793ae89b35e9d244d5fb84a7016d45c975c10dd9bda8f6866f884863a6d17",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+          "build/memory-startup/80-3-5/mapped.manifest.json": "411a2dee00da21eb6808b72ba61fe9c0faa4707548b04d271092044b3e877cf4",
+          "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+          "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+          "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-startup/80-3-5/mapped-model/circuit.v": "ecbf6811fe94383f2dc9b7a256cf8669eaf7492ebfe497a18d024bac75adf756",
+          "build/memory-startup/80-3-5/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-startup/80-3-5/mapped-model/lut-proof/report.json": "fb2c74433577b439951989e0977a4d8107697bbd22a11735c751757b62012689"
+        },
+        "binary_sha256": "c50a33466ed495c59ad5f003a006e070b9d7296f735970e4d0658149ccd3e6ad",
+        "netlist_sha256": "e33793ae89b35e9d244d5fb84a7016d45c975c10dd9bda8f6866f884863a6d17",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 3,
+      "response_timeout": 2,
+      "tests": {
+        "rtl": {
+          "binary_sha256": "6163a58dcc245fe95a64158afff9ee33ec912c7912bfdb462eab2efc9c458873",
+          "log_sha256": "c0affc4cc2cda24d0359ad9720763838ceea3e220257a30403d8831a7e544484",
+          "observations": {
+            "status": "passed",
+            "cycles": 329,
+            "macro_commands": 18,
+            "test_commands": 18,
+            "cpu_commands": 0,
+            "cpu_responses": 0,
+            "cpu_faults": 0,
+            "successful_boots": 0,
+            "failed_boots": 11,
+            "resets": 21,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 0,
+            "trace": 9123842486033162728
+          }
+        },
+        "mapped": {
+          "binary_sha256": "9e0d1c0fc459b1f760d6c974114e9129468eae4878877437c714f8090a912e49",
+          "log_sha256": "c0affc4cc2cda24d0359ad9720763838ceea3e220257a30403d8831a7e544484",
+          "observations": {
+            "status": "passed",
+            "cycles": 329,
+            "macro_commands": 18,
+            "test_commands": 18,
+            "cpu_commands": 0,
+            "cpu_responses": 0,
+            "cpu_faults": 0,
+            "successful_boots": 0,
+            "failed_boots": 11,
+            "resets": 21,
+            "resets_with_pending_reads": 0,
+            "old_reads_after_reset": 0,
+            "held_valid_cycles": 0,
+            "trace": 9123842486033162728
+          }
+        }
+      },
+      "mapped_primitives": {
+        "LUT4": 1650,
+        "TRELLIS_FF": 576,
+        "PFUMX": 381,
+        "L6MUX21": 172,
+        "CCU2C": 36
+      },
+      "mapped_identity": {
+        "backend": "standalone-mapped-ecp5-functional",
+        "top": "wasmetal_startup_sram",
+        "inputs": {
+          "build/memory-startup/80-3-2/mapped.json": "0d13632f36a5e3f90f8c841abab188de7e324ed3ea0551165bc05fb3dd67a8ef",
+          "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+          "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+          "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+          "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+          "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+          "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
+          ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
+          "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+          "build/memory-startup/80-3-2/mapped.manifest.json": "bb723edc07f42b3bff1a56de32859a8524efb845be670510d4d2c5022552f3c9",
+          "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+          "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+          "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+          "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+          "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+          "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+          "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+          "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+          ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+          ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+          "build/memory-startup/80-3-2/mapped-model/circuit.v": "9f654cffbfc2b95698d6a0b5d09aa015cc97c96877b370f6351b2f3001522f2b",
+          "build/memory-startup/80-3-2/mapped-model/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
+          "build/memory-startup/80-3-2/mapped-model/lut-proof/report.json": "6ea5fe4bc7fb05acf4dcf79e06b9b384dea2710748c306245cb85ecfaa2e474d"
+        },
+        "binary_sha256": "9e0d1c0fc459b1f760d6c974114e9129468eae4878877437c714f8090a912e49",
+        "netlist_sha256": "0d13632f36a5e3f90f8c841abab188de7e324ed3ea0551165bc05fb3dd67a8ef",
+        "ram_modes": {},
+        "compilation": {
+          "fast_sim": true,
+          "portable": true,
+          "compiler": "/usr/bin/clang++",
+          "compiler_sha256": "8ef402d453d1ba4902e4ee0f0f847f6cfa01400c95aa43c24e97818b9c0e3f45",
+          "compiler_version": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+          "cflags": "-std=c++17 -O3 -Wall -Wextra -Werror -Wno-unknown-warning-option -Wno-unused-parameter"
+        },
+        "physical_hardware_tested": false
+      }
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "early-handoff",
+      "source_sha256": "97154ae08a0a4d0ba125737a4eaa40db5e78b5b9a785b2f7328724119b89bd97",
+      "binary_sha256": "ec865bd8c059c47100912de1401c97b95544bc135240b34fa20941322581508e",
+      "log_sha256": "09fa28695b9913e9abcc289402de700aeb4debd63a4c8e05e1c582a5f9f6dd6d",
+      "reason": "startup enabled CPU before full test",
+      "exit_code": 1
+    },
+    {
+      "name": "failed-test-grants-cpu",
+      "source_sha256": "2d5f544d37f168d0536fe06acbfda715dc02e3ed69df3bb0c3258ea238c7049c",
+      "binary_sha256": "a2f7b8d96986e06b9b1c9807e47b9f9f4756e7dbdc670790e527fe05e064c203",
+      "log_sha256": "09fa28695b9913e9abcc289402de700aeb4debd63a4c8e05e1c582a5f9f6dd6d",
+      "reason": "startup enabled CPU before full test",
+      "exit_code": 1
+    },
+    {
+      "name": "restarted-test",
+      "source_sha256": "72d893e2e0a26a55f8d873ddb3aa3f479a2f4d7c4d95088f92128b8ba5728b21",
+      "binary_sha256": "a59ed45dbe4fb3412ed062f7ed31f07ed43478baab3c9c52f65e945b8d318956",
+      "log_sha256": "4b07df08f4d83003c68e31bd0b6af4b62b670b07f0504ae1e60fa0a2e9287cf9",
+      "reason": "startup revoked successful ownership without reset",
+      "exit_code": 1
+    },
+    {
+      "name": "test-response-leak",
+      "source_sha256": "19f474a79e5a1a6d55ab176b34c24b887a93de028474cb12721b1ff23a504f35",
+      "binary_sha256": "85c7a925fce180cb82327d4af04fefcd6e4421bdad1620f78cc64c3f63d68686",
+      "log_sha256": "fe80e4ddf01359a23129e4ee0fd7d2ae02b9dcaf231350227f4ddd1b576db942",
+      "reason": "startup exposed CPU response before handoff",
+      "exit_code": 1
+    },
+    {
+      "name": "wrong-cpu-mask",
+      "source_sha256": "d2239978cc6a8b9e48c6419b1e368fe93d69c66cd8a51df01bf7ba63a9b380ca",
+      "binary_sha256": "8062673b2ebc88393cc77a2c13a5a7a8313c266f2d3580f4f5f07cdc6a6354eb",
+      "log_sha256": "56e4f17154a74a18d3d3a012c5c90432da9e59da67a7fc0a654797039ba14ccc",
+      "reason": "startup CPU macro byte mask mismatch",
+      "exit_code": 1
+    },
+    {
+      "name": "reset-grant-retained",
+      "source_sha256": "4d5a44ad69ce695fb2b033a073cb79e90f873f42ca267d008a3479aea9f440f4",
+      "binary_sha256": "38c70b1d954f8dde115ea8af31ee2928116ed33683b983466fa905c4be0960f3",
+      "log_sha256": "3469947991f64e70e67dbe1dcc0fe6ad71ba977b70e2c748216d3428a890e1b8",
+      "reason": "startup reset did not isolate access",
+      "exit_code": 1
+    },
+    {
+      "name": "wrong-cpu-read",
+      "source_sha256": "216c0c6a0efef94ca85a84150cc4ba1abde825077440f04bea26552cc3698f99",
+      "binary_sha256": "aa7dce234b5753893ff7e92bedbaa94bfe429ea14435de498227b20430c94056",
+      "log_sha256": "cba6afa23cf65be160dfb6cbcb0a7a52b6616ab775d261df568b63442abac5f4",
+      "reason": "startup CPU response data differs from SRAM oracle",
+      "exit_code": 1
+    },
+    {
+      "name": "corrupt-read",
+      "binary_sha256": "da2ff9fd60baf46c42569f70003070b630f4ed6448f2c03579c74c15c8785a57",
+      "log_sha256": "6330e87c9f8d614e9c9fb9a8411d584aa131cdd2f66aa679898764d2c3b47115",
+      "reason": "startup healthy memory did not grant CPU",
+      "exit_code": 1
+    }
+  ],
+  "negative_controls_rejected": 8,
+  "physical_hardware_tested": false,
+  "default_cpu_integration": false,
+  "elapsed_seconds": 594.3848737350199,
+  "limitations": [
+    "CPU requests are driven by an independent transaction generator, not the complete CPU.",
+    "Every shared reset restarts the destructive test; warm-reset retention is not implemented.",
+    "The SRAM is a functional model, not a foundry macro or physical timing model.",
+    "RTL and ECP5 functional mapping do not establish ASIC standard-cell or physical-board correctness."
+  ]
+}
