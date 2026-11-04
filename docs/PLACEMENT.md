@@ -50,9 +50,23 @@ impossible. The reset-replicated candidate's
 23,415 conflicting wires at iteration 11, followed by five worsening iterations
 to 27,281 at iteration 16. Its [complete routing log](verification/reset-replication-router2.log)
 and input identities are preserved. That run was stopped incomplete. The first
-router1 comparison was also stopped: nextpnr loaded the saved `router2` setting
-from the placement despite its `--router router1` argument. Correcting that
-comparison is in progress; the attempt is not evidence of router1 behavior.
+router1 comparison was also [stopped and rejected](verification/reset-router-choice-rejection.json):
+nextpnr loaded the saved `router2` setting from the placement despite its
+`--router router1` argument. That attempt is not evidence of router1 behavior.
+The pinned [command handler](https://github.com/YosysHQ/nextpnr/blob/5e1b0f15fe6fa167af21f071f7e249b5fa3554a1/common/kernel/command.cc)
+sets options before reading the saved design; the
+[ECP5 routing entry point](https://github.com/YosysHQ/nextpnr/blob/5e1b0f15fe6fa167af21f071f7e249b5fa3554a1/ecp5/arch.cc)
+then selects the algorithm from those settings.
+
+The [corrected trial](verification/reset-router1-preflight.json) creates a copy
+of the placement with only its router setting changed. It compares every other
+JSON value, preserving the entire circuit, placed locations, clocks, timing
+target and saved random state. The original placement remains untouched. The
+live nextpnr log now confirms router1. Its result is still incomplete, with a
+two-hour limit. A final pass also requires that the log identifies the requested
+algorithm. The [driver fixture](verification/routing-placement-driver.json)
+accepts both routers and rejects 13 circuit, placement, setting and log defects;
+CI repeats it.
 
 The routing driver rechecks structural equivalence, unchanged clock inputs
 and artifact hashes before routing. A successful final receipt additionally
@@ -64,7 +78,7 @@ The alternative trial is reproducible with:
 
 ```sh
 python3 tools/route_reset_experiment.py --router router1 \
-  --timeout-seconds 7200 --directory build/reset-replication-router1
+  --timeout-seconds 7200 --directory build/reset-replication-router1-corrected
 ```
 
 Use a separate output directory for each trial to preserve its diagnostics.

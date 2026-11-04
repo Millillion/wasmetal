@@ -61,6 +61,7 @@ jobs:
         run: |
           python3 tools/check_core_mapping_driver.py
           python3 tools/check_core_mapping_classic_driver.py
+          python3 tools/check_routing_placement.py
       - name: Preserve proof-driver observations and diagnostics
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -69,6 +70,7 @@ jobs:
           path: |
             reports/core-mapping-driver.json
             reports/core-classic-driver.json
+            reports/routing-placement-driver.json
             build/core-mapping-driver/
             build/core-classic-driver/
           if-no-files-found: warn

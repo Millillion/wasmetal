@@ -58,8 +58,12 @@ five deliberate defects. Its completed placement has a
 with unchanged register, RAM and DSP counts. Its router2 trial was
 [retired incomplete](docs/verification/reset-replication-router2-retired.json)
 after five worsening iterations; its best result still had 23,415 conflicting
-wires. The attempted router1 comparison revealed that saved placement settings
-override the command-line router choice; correcting that comparison is in progress. A real
+wires. Saved placement settings initially overrode the command-line router
+choice. The [corrected trial](docs/verification/reset-router1-preflight.json)
+changes only that setting, checks every other placement value and confirms
+router1 in its live log. It is running with a two-hour limit; CI repeats
+[13 corruption controls](docs/verification/routing-placement-driver.json).
+A real
 [timeout control](docs/verification/reset-routing-timeout.json) verifies that
 an interrupted attempt retains an incomplete receipt and emits no bitstream.
 The physical benefit remains unproven. The baseline route was

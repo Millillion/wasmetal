@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "inputs": {
+    "tools/check_routing_placement.py": "01a06ef53a12ab50de5b8f73885b0d17bc3044a3346f9a0a77227d37fe7b4994",
+    "tools/route_reset_experiment.py": "8e53e89553b21253dbcdacbaab9e1456aa6e6a9f8d84a3eb20bbad8154fdc128",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c"
+  },
+  "scope": "Placement replay metadata guard and pinned router-log parser; no physical-fit claim",
+  "supported_routers": [
+    "router1",
+    "router2"
+  ],
+  "source_unchanged": true,
+  "negative_controls_rejected": 13,
+  "negative_controls": [
+    {
+      "name": "logic-value",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "placed-location",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "clock-connection",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "data-connection",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "primitive-type",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "random-state",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "timing-target",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "port-connection",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "net-attribute",
+      "diagnostic": "replay changed placement, circuitry or unrelated settings"
+    },
+    {
+      "name": "wrong-router",
+      "diagnostic": "replay does not select the requested router"
+    },
+    {
+      "name": "extra-settings-module",
+      "diagnostic": "placement must have exactly one settings module"
+    },
+    {
+      "name": "missing-saved-router",
+      "diagnostic": "placement has no recognized saved router"
+    },
+    {
+      "name": "ambiguous-router-log",
+      "diagnostic": "routing log identifies multiple algorithms"
+    }
+  ]
+}

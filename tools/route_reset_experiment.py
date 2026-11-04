@@ -25,6 +25,56 @@ def check_inputs(inputs):
             raise ValueError('routing input changed: '+name)
 
 
+def verify_routing_placement(original, replay, router):
+    """Allow exactly one metadata change; compare every other JSON value."""
+    if router not in ('router1', 'router2'):
+        raise ValueError('unsupported replay router')
+    modules = [name for name, module in original['modules'].items()
+        if 'settings' in module]
+    if len(modules) != 1:
+        raise ValueError('placement must have exactly one settings module')
+    name = modules[0]
+    before = original['modules'][name]['settings']
+    if before.get('router') not in ('router1', 'router2'):
+        raise ValueError('placement has no recognized saved router')
+    after = replay['modules'][name]['settings']
+    if after.get('router') != router:
+        raise ValueError('replay does not select the requested router')
+    after['router'] = before['router']
+    try:
+        if replay != original:
+            raise ValueError('replay changed placement, circuitry or unrelated settings')
+    finally:
+        after['router'] = router
+    return {'settings_module': name, 'saved_router': before['router'],
+        'selected_router': router, 'only_router_setting_changed': True,
+        'preserved_random_state': before.get('seed')}
+
+
+def routing_placement(placement, directory, router):
+    original = json.loads(placement.read_text())
+    replay = json.loads(placement.read_text())
+    modules = [module for module in replay['modules'].values() if 'settings' in module]
+    if len(modules) != 1:
+        raise ValueError('placement must have exactly one settings module')
+    modules[0]['settings']['router'] = router
+    proof = verify_routing_placement(original, replay, router)
+    destination = directory/'placement-for-routing.json'
+    destination.write_text(json.dumps(replay, separators=(',', ':'))+'\n')
+    if verify_routing_placement(original, json.loads(destination.read_text()), router) != proof:
+        raise ValueError('serialized replay differs from checked placement')
+    proof.update({'original_sha256': digest(placement), 'replay_sha256': digest(destination)})
+    return destination, proof
+
+
+def observed_router(text):
+    markers = {'router1': 'Info: Routing..', 'router2': 'Info: Running router2...'}
+    seen = [name for name, marker in markers.items() if marker in text.splitlines()]
+    if len(seen) > 1:
+        raise ValueError('routing log identifies multiple algorithms')
+    return seen[0] if seen else None
+
+
 def prepare(experiment_path, baseline):
     experiment = json.loads(experiment_path.read_text())
     if (experiment['status'] != 'structurally_verified' or
@@ -77,7 +127,8 @@ def main():
     for name in ('manifest.json', 'wasmetal.bit', 'wasmetal.pending.bit'):
         (directory/name).unlink(missing_ok=True)
     experiment, candidate, placement = prepare(experiment_path, baseline)
-    dependencies = [experiment_path, candidate, placement, Path(__file__).resolve(),
+    replay, replay_proof = routing_placement(placement, directory, args.router)
+    dependencies = [experiment_path, candidate, placement, replay, Path(__file__).resolve(),
         ROOT/'tools/replicate_reset.py', ROOT/'tools/build_standalone_board.py',
         ROOT/'tools/build_board.py', ROOT/'tools/check_timing.py', ROOT/'tools/standalone_support.py',
         ROOT/'tools/prepare_standalone.py', ROOT/'tools/cad.py', ROOT/'soc/loader/ulx3s.lpf',
@@ -93,6 +144,7 @@ def main():
     check_inputs(inputs)
     report = {'status': 'checked' if args.check_only else 'running', 'inputs': inputs,
         'router': args.router, 'routing_timeout_seconds': args.timeout_seconds,
+        'routing_placement': replay_proof,
         'structural_equivalence_rechecked': True, 'original_clock_inputs_unchanged': True,
         'routing_completed': False, 'timing_passed': False, 'bitstream_round_trip_passed': False,
         'physical_hardware_tested': False, 'default_board_build_changed': False}
@@ -103,7 +155,7 @@ def main():
     gc.collect()
     command = ['--85k', '--package', 'CABGA381', '--speed', '6', '--seed', '1',
         '--router', args.router, '--lpf', str(ROOT/'soc/loader/ulx3s.lpf'), '--freq', '25',
-        '--json', str(placement), '--write', str(directory/'routed.json'), '--no-pack', '--no-place',
+        '--json', str(replay), '--write', str(directory/'routed.json'), '--no-pack', '--no-place',
         '--textcfg', str(directory/'design.config'), '--report', str(directory/'timing.json')]
     if args.router == 'router2':
         command += ['--router2-heatmap', str(directory/'congestion')]
@@ -117,6 +169,8 @@ def main():
         with (directory/'routing.log').open('w') as log:
             subprocess.run(cad.command('nextpnr-ecp5')+command, cwd=ROOT, env=cad.environment(),
                 stdout=log, stderr=subprocess.STDOUT, check=True, timeout=args.timeout_seconds)
+        if observed_router((directory/'routing.log').read_text()) != args.router:
+            raise ValueError('routing log does not confirm the requested algorithm')
         report['routing_completed'] = True
         report['timing'] = audit(directory/'timing.json'); report['timing_passed'] = True
         pending = directory/'wasmetal.pending.bit'
@@ -141,6 +195,11 @@ def main():
         report['error'] = str(error)
         raise
     finally:
+        try:
+            report['observed_router'] = observed_router((directory/'routing.log').read_text())
+        except (OSError, ValueError) as error:
+            report['observed_router'] = None
+            report['router_observation_error'] = str(error)
         report['elapsed_seconds'] = round(time.monotonic() - started, 3)
         receipt.write_text(json.dumps(report, indent=2)+'\n')
     print(directory/'wasmetal.bit')

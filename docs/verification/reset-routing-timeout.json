@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "scope": "Actual nextpnr process timeout on the verified placement, plus invalid CLI controls",
+  "scope": "Actual nextpnr process timeout on a checked replay of the verified placement, plus invalid CLI controls",
   "no_bitstream_emitted": true,
   "input_identities_rechecked": true,
   "timeout_receipt": {
@@ -42,12 +42,22 @@
       "build/reset-replication/design.json": "0ab4642b98ca1d2b740df60818d3fecdbc427d32318431a8610ee51c94a8aa05",
       "build/reset-replication/placed.json": "5103194888f802f0b98515742db9c006375c6741addcbb845ae3a5a9e1be2837",
       "build/reset-replication/experiment.json": "1a9a42ec0ce7503f3423ab0dde064a03c06af49dd9875565afa8549d6b29c1fd",
-      "tools/route_reset_experiment.py": "4bbb645455080dd6fc6d16b7a7681d9c45466e2619bba97882d78953d96c3769",
+      "build/reset-route-timeout-checked/placement-for-routing.json": "16ea31f0da1c6278b5a43f18fb15beabe2ef4abaf9a241e426d7f4c69e53e703",
+      "tools/route_reset_experiment.py": "8e53e89553b21253dbcdacbaab9e1456aa6e6a9f8d84a3eb20bbad8154fdc128",
       ".cache/tools/oss-cad-suite/libexec/ecppack": "b254fa65f1a072ed7da9c209bcfd4c3cda70840cdca5af3e2ed326107a34bab6",
       ".cache/tools/oss-cad-suite/libexec/ecpunpack": "b5351f8db4b29cc35332b4dbe1d5d8c2404b68a80f82a9547f91ba8c9fc07626"
     },
     "router": "router1",
     "routing_timeout_seconds": 1,
+    "routing_placement": {
+      "settings_module": "top",
+      "saved_router": "router2",
+      "selected_router": "router1",
+      "only_router_setting_changed": true,
+      "preserved_random_state": "0000100000011111110100000010000100001110101100100101111000000000",
+      "original_sha256": "5103194888f802f0b98515742db9c006375c6741addcbb845ae3a5a9e1be2837",
+      "replay_sha256": "16ea31f0da1c6278b5a43f18fb15beabe2ef4abaf9a241e426d7f4c69e53e703"
+    },
     "structural_equivalence_rechecked": true,
     "original_clock_inputs_unchanged": true,
     "routing_completed": false,
@@ -70,18 +80,19 @@
       "--freq",
       "25",
       "--json",
-      "/tmp/wasmetal-direct-rounding/build/reset-replication/placed.json",
+      "/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/placement-for-routing.json",
       "--write",
-      "/tmp/wasmetal-direct-rounding/build/reset-route-timeout-probe/routed.json",
+      "/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/routed.json",
       "--no-pack",
       "--no-place",
       "--textcfg",
-      "/tmp/wasmetal-direct-rounding/build/reset-route-timeout-probe/design.config",
+      "/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/design.config",
       "--report",
-      "/tmp/wasmetal-direct-rounding/build/reset-route-timeout-probe/timing.json"
+      "/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/timing.json"
     ],
-    "error": "Command '['/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2', '--inhibit-cache', '--inhibit-rpath', '', '--library-path', '/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib', '/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/libexec/nextpnr-ecp5', '--85k', '--package', 'CABGA381', '--speed', '6', '--seed', '1', '--router', 'router1', '--lpf', '/tmp/wasmetal-direct-rounding/soc/loader/ulx3s.lpf', '--freq', '25', '--json', '/tmp/wasmetal-direct-rounding/build/reset-replication/placed.json', '--write', '/tmp/wasmetal-direct-rounding/build/reset-route-timeout-probe/routed.json', '--no-pack', '--no-place', '--textcfg', '/tmp/wasmetal-direct-rounding/build/reset-route-timeout-probe/design.config', '--report', '/tmp/wasmetal-direct-rounding/build/reset-route-timeout-probe/timing.json']' timed out after 0.9999758870108053 seconds",
-    "elapsed_seconds": 1.051
+    "error": "Command '['/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2', '--inhibit-cache', '--inhibit-rpath', '', '--library-path', '/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib', '/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/libexec/nextpnr-ecp5', '--85k', '--package', 'CABGA381', '--speed', '6', '--seed', '1', '--router', 'router1', '--lpf', '/tmp/wasmetal-direct-rounding/soc/loader/ulx3s.lpf', '--freq', '25', '--json', '/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/placement-for-routing.json', '--write', '/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/routed.json', '--no-pack', '--no-place', '--textcfg', '/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/design.config', '--report', '/tmp/wasmetal-direct-rounding/build/reset-route-timeout-checked/timing.json']' timed out after 0.9999763988889754 seconds",
+    "observed_router": null,
+    "elapsed_seconds": 1.03
   },
   "invalid_controls": [
     {
@@ -112,5 +123,5 @@
       "prior_receipt_preserved": true
     }
   ],
-  "driver_log_sha256": "9edf019844ba9d7802893c2a44be0406c741e43df34ac4dd07aa75664822d438"
+  "driver_log_sha256": "91e66a4c04ec3899f0eb3e0ee9a941ee3077b69b7de1c8e20a948421b2ce1c25"
 }
