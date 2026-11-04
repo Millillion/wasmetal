@@ -12,6 +12,7 @@ import run_spec
 import spec_shards as checks
 
 ROOT = Path(__file__).resolve().parent.parent
+MAPPED_BACKENDS = ('mapped-ecp5-functional','mapped-xc7-functional')
 
 
 def write_json(path, value):
@@ -127,7 +128,9 @@ def execution_identity(reference, reports, models):
             'reported_workspace_sha256': snapshots, 'verified_inputs': inputs}
 
 
-def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_hash, entries, *, execution_models=None):
+def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_hash, entries, *, execution_models=None,
+                  expected_backend='mapped-ecp5-functional'):
+    checks.require(expected_backend in MAPPED_BACKENDS, 'unreviewed mapped backend')
     checks.require(plan['native_reference_sha256'] == reference_hash, 'wrong native reference')
     checks.require(plan['spec'] == reference['spec'], 'plan specification mismatch')
     expected = validate_reference(reference,source_hash,entries)
@@ -146,7 +149,7 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
         seen_shards.add(shard_id)
         checks.require(report['shard_plan_sha256'] == plan_hash, 'shard used a different plan')
         checks.require(not report['full_core_suite_selected'] and not report['full_core_suite_passed'], 'shard claims a full pass')
-        checks.require(report['build_manifest'].get('backend') == 'mapped-ecp5-functional', 'shard did not execute the mapped CPU')
+        checks.require(report['build_manifest'].get('backend') == expected_backend, 'shard did not execute the selected mapped CPU')
         checks.require(report['build_manifest']['binary_sha256'] == report['simulator_sha256'], 'mapped binary identity mismatch')
         checks.require(report['build_manifest']['inputs'] == reference['build_manifest']['inputs'], 'different RTL build inputs')
         for key in ['spec','official_sources_sha256','runner_inputs','rtl_build_id','capacities',
@@ -217,9 +220,10 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
     return result
 
 
-def pack(binary, destination):
+def pack(binary, destination, expected_backend='mapped-ecp5-functional'):
+    checks.require(expected_backend in MAPPED_BACKENDS, 'unreviewed mapped backend')
     manifest = build_identity.verify(binary)
-    checks.require(manifest.get('backend') == 'mapped-ecp5-functional', 'expected mapped CPU')
+    checks.require(manifest.get('backend') == expected_backend, 'expected selected mapped CPU')
     checks.require(manifest['compilation'].get('portable') is True, 'shared CI simulator must use a portable CPU target')
     paths = set(manifest['extra_inputs']) | {'sim/core_config.hpp','sim/fpga_ports.hpp','fpga/core_ports.svh',str(binary.relative_to(ROOT)),
              str(binary.relative_to(ROOT))+'.build.json',str(binary.relative_to(ROOT))+'.inputs.json'}
@@ -247,14 +251,16 @@ def main():
     merge.add_argument('--native-simulator', type=Path,
                        help='with --mapped-simulator, recheck exact execution inputs despite unrelated workspace changes')
     merge.add_argument('--mapped-simulator', type=Path)
+    merge.add_argument('--mapped-backend',choices=MAPPED_BACKENDS,default=MAPPED_BACKENDS[0])
     package = commands.add_parser('pack')
     package.add_argument('--simulator',type=Path,required=True)
     package.add_argument('--output',type=Path,required=True)
+    package.add_argument('--mapped-backend',choices=MAPPED_BACKENDS,default=MAPPED_BACKENDS[0])
     args = parser.parse_args()
     if args.command == 'merge' and bool(args.native_simulator) != bool(args.mapped_simulator):
         parser.error('workspace reconciliation requires both simulator paths')
     if args.command == 'pack':
-        pack(args.simulator.resolve(),args.output)
+        pack(args.simulator.resolve(),args.output,args.mapped_backend)
         return
     paths = sorted(args.reports.rglob('mapped-shard-*.json')) if args.command == 'merge' else []
     protected = [args.reference, *paths]
@@ -282,7 +288,8 @@ def main():
                                checks.sha256(args.reference),reports,source_hash,entries,
                                execution_models=({'native': args.native_simulator.resolve(),
                                                   'mapped': args.mapped_simulator.resolve()}
-                                                 if args.native_simulator else None))
+                                                 if args.native_simulator else None),
+                               expected_backend=args.mapped_backend)
         result['shard_reports'] = [{'path':str(p),'sha256':checks.sha256(p)} for p in paths]
         write_json(args.output,result)
     print(json.dumps({'command':args.command,'output':str(args.output),

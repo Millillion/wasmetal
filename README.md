@@ -168,6 +168,12 @@ CI is now configured to build the native reference and accelerated Xilinx
 circuit, run all 35 cases through a supervised four-worker campaign, and
 require the full comparison. The new complete CI job has not finished on
 GitHub yet; the published passing campaign is local evidence.
+A separate [host-backed Xilinx core](docs/XILINX-CORE.md) now passes synthesis
+and structural checks at the official-suite capacities: 47,009 logic LUT
+primitives, 5,265 flip-flops, 29 DSPs and 49 equivalent 36-Kbit RAM blocks.
+Its simulator is being compiled for the complete official corpus; that new
+Xilinx corpus run has not passed yet. The family-specific report guards pass
+18 metadata fixture tests.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)

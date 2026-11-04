@@ -1,0 +1,32 @@
+{
+  "status": "synthesized_and_structurally_checked",
+  "parameters": {
+    "VALUE_DEPTH": 8192,
+    "CONTROL_DEPTH": 2048,
+    "CALL_DEPTH": 512,
+    "MEMORY_COUNT": 256,
+    "HEAP_SLOTS": 1048576
+  },
+  "logic_lut_primitives": 47009,
+  "flip_flops": 5265,
+  "ram36_equivalent": 49.0,
+  "cell_counts": {
+    "CARRY4": 2060,
+    "DSP48E1": 29,
+    "FDCE": 6,
+    "FDRE": 5066,
+    "FDRE_1": 192,
+    "FDSE": 1,
+    "INV": 1236,
+    "LUT1": 1287,
+    "LUT2": 12123,
+    "LUT3": 9485,
+    "LUT4": 5951,
+    "LUT5": 5143,
+    "LUT6": 13020,
+    "MUXF7": 5915,
+    "MUXF8": 1689,
+    "RAMB18E1": 60,
+    "RAMB36E1": 19
+  }
+}

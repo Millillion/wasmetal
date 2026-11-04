@@ -124,6 +124,22 @@ class CompleteCoverage(PartitionSafety):
         self.assertEqual(result['totals'],self.reference['totals'])
         self.assertEqual(result['suite_files'],2)
 
+    def test_xilinx_requires_explicit_family_and_rejects_mixed_models(self):
+        reports = deepcopy(self.reports)
+        for report in reports:report['build_manifest']['backend'] = 'mapped-xc7-functional'
+        with self.assertRaisesRegex(ValueError,'selected mapped CPU'):self.merge(reports)
+        result = spec_ci.merge_reports(self.plan,'plan',self.reference,'reference',reports,
+                                      'sources',self.entries,expected_backend='mapped-xc7-functional')
+        self.assertTrue(result['full_core_suite_passed'])
+        self.assertEqual(result['totals'],self.reference['totals'])
+        reports[-1]['build_manifest']['backend'] = 'mapped-ecp5-functional'
+        with self.assertRaisesRegex(ValueError,'selected mapped CPU'):
+            spec_ci.merge_reports(self.plan,'plan',self.reference,'reference',reports,
+                                  'sources',self.entries,expected_backend='mapped-xc7-functional')
+        with self.assertRaisesRegex(ValueError,'unreviewed mapped backend'):
+            spec_ci.merge_reports(self.plan,'plan',self.reference,'reference',reports,
+                                  'sources',self.entries,expected_backend='native')
+
     def test_missing_and_duplicate_shards_fail(self):
         for reports in [[],self.reports[:1],[self.reports[0],self.reports[0]]]:
             with self.subTest(count=len(reports)), self.assertRaises(ValueError):

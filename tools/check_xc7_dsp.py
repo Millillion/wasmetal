@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check every DSP configuration in the current 7-series system against integer arithmetic."""
+import argparse
 import collections
 import copy
 import fcntl
@@ -22,6 +23,7 @@ BENCH = ROOT/'tests/xc7/dsp.sv'
 LIBRARY = TOOLS/'share/yosys/xilinx/cells_sim.v'
 GROUPS = {('DIRECT','DIRECT',5):9, ('CASCADE','DIRECT',85):16,
           ('DIRECT','DIRECT',21):1, ('DIRECT','CASCADE',85):1, ('DIRECT','DIRECT',53):2}
+CORE_GROUPS = {**GROUPS,('DIRECT','DIRECT',5):10,('DIRECT','DIRECT',53):1}
 REGISTERS = ['ACASCREG','ADREG','ALUMODEREG','AREG','BCASCREG','BREG','CARRYINREG',
              'CARRYINSELREG','CREG','DREG','INMODEREG','MREG','OPMODEREG','PREG']
 
@@ -35,7 +37,7 @@ def verify_dsp_vendor():
         raise ValueError('DSP vendor source changed')
 
 
-def audit(module):
+def audit(module, expected_groups=GROUPS):
     cells = module['cells']
     consumed = {bit for cell in cells.values() for port, bits in cell['connections'].items()
         if cell['port_directions'][port]=='input' for bit in bits}
@@ -65,12 +67,12 @@ def audit(module):
         if group not in GROUPS:
             raise ValueError('unreviewed DSP arithmetic mode: '+name)
         groups[group] += 1
-    if groups != GROUPS:
+    if groups != expected_groups:
         raise ValueError('DSP inventory changed; review complete configuration coverage')
     return groups
 
 
-def inventory_controls(module):
+def inventory_controls(module, expected_groups=GROUPS):
     name=next(n for n,c in module['cells'].items() if c['type']=='DSP48E1')
     results=[]
     for label in ['registered-input','nonzero-carry','variable-opmode','unsupported-opmode',
@@ -88,7 +90,7 @@ def inventory_controls(module):
             cell['connections']['CARRYOUT']=[999999];cell['port_directions']['CARRYOUT']='output'
             mutant['ports']=dict(module['ports'])
             mutant['ports']['unverified']={'direction':'output','bits':[999999]}
-        try:audit(mutant)
+        try:audit(mutant,expected_groups)
         except ValueError as error:results.append({'name':label,'diagnostic':str(error)})
         else:raise ValueError('DSP inventory mutation accepted: '+label)
     return results
@@ -176,15 +178,21 @@ def simulate(directory, label, wrapper, model, trace, count, verilator=False, fa
 
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--estimate',type=Path,default=ROOT/'reports/xc7-system-estimate.json')
+    parser.add_argument('--netlist',type=Path,default=ROOT/'build/xc7-system/mapped.json')
+    args=parser.parse_args()
     started=time.monotonic(); report=ROOT/'reports/xc7-dsp.json';report.unlink(missing_ok=True)
     verify_dsp_vendor()
-    estimate=ROOT/'reports/xc7-system-estimate.json';netlist=ROOT/'build/xc7-system/mapped.json'
+    estimate=args.estimate.resolve();netlist=args.netlist.resolve()
     reference=json.loads(estimate.read_text())
     if reference['netlist_sha256']!=digest(netlist):raise ValueError('stale DSP inventory')
     for name,h in reference['inputs'].items():
         if digest(ROOT/name)!=h:raise ValueError('stale synthesis input: '+name)
     module=json.loads(netlist.read_text())['modules'][reference['top']]
-    groups=audit(module);inventory_negative=inventory_controls(module)
+    if reference['top'] not in ('wasmetal_core','wasmetal_loadable'):raise ValueError('unreviewed DSP top')
+    expected=CORE_GROUPS if reference['top']=='wasmetal_core' else GROUPS
+    groups=audit(module,expected);inventory_negative=inventory_controls(module,expected)
     compiler=Path(shutil.which('g++')).resolve()
     compiler_identity={'path':str(compiler),'sha256':digest(compiler),
         'version':subprocess.check_output([str(compiler),'--version'],text=True).splitlines()[0]}

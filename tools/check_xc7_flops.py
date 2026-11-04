@@ -145,6 +145,7 @@ endmodule
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--netlist',type=Path,action='append')
+    parser.add_argument('--top',choices=['wasmetal_loadable','wasmetal_core'],default='wasmetal_loadable')
     args = parser.parse_args(); netlists = args.netlist or [ROOT/'build/xc7-system/mapped.json']
     netlists = [p if p.is_absolute() else ROOT/p for p in netlists]
     directory = ROOT/'build/xc7-flops'; directory.mkdir(parents=True,exist_ok=True)
@@ -168,7 +169,7 @@ def main():
                          'version':subprocess.check_output([str(compiler),'--version'],text=True).splitlines()[0]}
     inventories = []; controls = []
     for path in netlists:
-        module = json.loads(path.read_text())['modules']['wasmetal_loadable']
+        module = json.loads(path.read_text())['modules'][args.top]
         inventories.append({'path':str(path),'sha256':digest(path),'counts':audit(module)})
         for name, change in (
             ('clock-inversion',lambda c:c['parameters'].update(IS_C_INVERTED='1')),

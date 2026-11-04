@@ -99,10 +99,18 @@ endmodule
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--netlist', action='append', type=Path)
+    parser.add_argument('--top', choices=['wasmetal_loadable','wasmetal_core'], default='wasmetal_loadable')
+    parser.add_argument('--directory', type=Path, default=ROOT/'build/xc7-lut-check')
+    parser.add_argument('--report', type=Path, default=ROOT/'reports/xc7-luts.json')
     args = parser.parse_args()
     netlists = args.netlist or [ROOT/'build/xc7-system/mapped.json']
-    directory = ROOT/'build/xc7-lut-check'; directory.mkdir(parents=True, exist_ok=True)
-    report = ROOT/'reports/xc7-luts.json'; report.unlink(missing_ok=True)
+    directory = args.directory.resolve();report = args.report.resolve()
+    if ROOT/'build' not in directory.parents or ROOT/'reports' not in report.parents:
+        parser.error('use a build subdirectory and a report inside reports/')
+    if any(directory in path.resolve().parents or report==path.resolve() for path in netlists):
+        parser.error('verification outputs must be separate from input netlists')
+    directory.mkdir(parents=True, exist_ok=True);report.parent.mkdir(parents=True,exist_ok=True)
+    report.unlink(missing_ok=True)
     started = time.monotonic()
     library = ROOT/'.cache/tools/usr/share/yosys/xilinx/cells_sim.v'
     yosys = ROOT/'.cache/tools/usr/bin/yosys'
@@ -120,7 +128,7 @@ def main():
                   else p.relative_to(ROOT)): digest(p) for p in dependencies}
     source = library.read_text(); models = []; tables = {n: set() for n in range(1,7)}; inventories = []
     for path in netlists:
-        cells = json.loads(path.read_text())['modules']['wasmetal_loadable']['cells']
+        cells = json.loads(path.read_text())['modules'][args.top]['cells']
         counts = {}
         for cell in cells.values():
             if re.fullmatch('LUT[1-6]', cell['type']) is None:
