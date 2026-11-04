@@ -107,6 +107,55 @@ Omitting `--suite` selects the entire official core tree. `--schedule-from` chan
 
 CI includes regression checks for timeout classification and for recompiling simulator objects when compiler flags change.
 
+## Comparing complete CPU logic cones
+
+The current CPU comparison maps identical synthesis inputs through direct LUT4
+mapping and ABC9. It requires identical configurations for corresponding
+registers, RAMs and DSP multipliers. Their outputs become shared arbitrary
+inputs, and every consumed primitive input and external output is compared.
+The RAM checker permits only specifically checked inactive or unread data pins
+to be omitted. This compares two mapped circuits; it does not prove the shared
+synthesis front end, primitive implementation or physical timing.
+
+The solver works on output groups while retaining each original logic cone.
+No combinational intermediate is replaced with an assumed input. Timeouts split
+groups into smaller groups, and every required bit must be proved exactly once.
+A timeout or counterexample cannot produce a completed proof. The full CPU
+comparison is still running; the earlier inconclusive result is not replaced
+by partial coverage.
+
+The [driver verification](verification/core-mapping-driver.json) checks real
+solver comparisons for a known circuit, reordered outputs and an inverted
+output. It also rejects 17 malformed circuits, invalid selections, corrupted
+results and checkpoint defects. Recovery independently reconstructs the queue,
+checks circuit and log hashes, and preserves inconclusive single bits.
+
+```sh
+python3 tools/check_core_mapping_driver.py
+python3 tools/synth.py --fpga --fast-share --lut4 --output-name core-lut4-reference
+python3 tools/synth.py --fpga --fast-share --abc9 --output-name core-abc9-candidate
+python3 tools/prove_core_mapping.py \
+  --reference build/core-lut4-reference.json \
+  --candidate build/core-abc9-candidate.json \
+  --directory build/core-mapping-proof \
+  --report reports/core-mapping-proof.json
+```
+
+An interrupted comparison can continue from its last recorded group without
+regenerating inputs. Run this only after the preceding process has stopped:
+
+```sh
+python3 tools/resume_core_mapping.py \
+  --directory build/core-mapping-proof \
+  --report reports/core-mapping-proof.json \
+  --work-seconds 600
+```
+
+Exit code 75 means the work interval ended with comparisons pending. Run the
+same command again to continue. Zero means the complete boundary comparison
+passed; other failures need investigation. Source changes invalidate a saved
+comparison instead of silently reusing its results.
+
 ## Checking the programmable wrapper mapping
 
 The programmable wrapper uses ABC9, as the CPU already does. The

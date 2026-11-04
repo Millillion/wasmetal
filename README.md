@@ -21,6 +21,11 @@ memory, register and DSP counts. The new mapped CPU passes
 All five [compiled-C cases](docs/verification/c-workload-mapped.json) also pass
 on the new RTL and mapped programmable system, with exact UART and cycle agreement.
 Its complete mapped corpus and 35-case programmable comparison are running.
+A new [CPU mapping comparison](docs/DESIGN-FLOW.md#comparing-complete-cpu-logic-cones)
+retains complete logic cones and resumes verified checkpoints. Its
+[driver checks](docs/verification/core-mapping-driver.json) reject an inverted
+output and 17 malformed inputs or checkpoint defects; the complete CPU proof
+is still running.
 Fresh proofs pass for the programmable
 [board wrapper](docs/verification/loadable-mapping-proof.json) and
 [simulation wrapper](docs/verification/loadable-simulation-mapping-proof.json),

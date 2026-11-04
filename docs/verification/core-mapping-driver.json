@@ -1,0 +1,165 @@
+{
+  "status": "passed",
+  "scope": "Proof-driver circuits, output selection and checkpoint integrity; not a completed CPU equivalence proof",
+  "inputs": {
+    "tools/check_core_mapping_driver.py": "fb928cbfb86c11ecd4828272ed8e0acfa0cbb10364d81c3b5011cfd6bde5c3b0",
+    "tools/prove_core_mapping.py": "75469f4f4e3c8f3f65d364132e0ec8d14b5c420e3057efffc6c1812f072ee7ad",
+    "tools/resume_core_mapping.py": "be4716bc216a1fb99ae9ff5aca28a7fd4649c728f88ff0a95427d78983e9f3f5",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    ".cache/tools/oss-cad-suite/libexec/yosys-abc": "17f424979db52516d136c941663d4f523902bfeaea0b1d759594e75876c451f3"
+  },
+  "comparisons": [
+    {
+      "status": "proven",
+      "indices": [
+        0,
+        1,
+        2
+      ],
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/libexec/yosys-abc",
+        "-c",
+        "&cec -T 5 -C 100000 /tmp/wasmetal-direct-rounding/build/core-mapping-driver/all/reference.aig /tmp/wasmetal-direct-rounding/build/core-mapping-driver/all/candidate.aig"
+      ],
+      "exit_code": 0,
+      "wall_timeout": false,
+      "elapsed_seconds": 0.1703635179437697,
+      "log_sha256": "358055c87ad30a7e1b9d15cb81545e3f0314d9549e8c215d0cf652bd7966a9eb",
+      "circuits": {
+        "build/core-mapping-driver/all/reference.aig": "ee95a2c98502a058b9d8b2d6bab4557569af26d20387b5533e3782bbc6ab372d",
+        "build/core-mapping-driver/all/candidate.aig": "ee95a2c98502a058b9d8b2d6bab4557569af26d20387b5533e3782bbc6ab372d"
+      }
+    },
+    {
+      "status": "proven",
+      "indices": [
+        2,
+        0
+      ],
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/libexec/yosys-abc",
+        "-c",
+        "&cec -T 5 -C 100000 /tmp/wasmetal-direct-rounding/build/core-mapping-driver/reordered/reference.aig /tmp/wasmetal-direct-rounding/build/core-mapping-driver/reordered/candidate.aig"
+      ],
+      "exit_code": 0,
+      "wall_timeout": false,
+      "elapsed_seconds": 0.11986854195129126,
+      "log_sha256": "629afb53a596a6b672d08daf53c6d21cbfad5b9d80a6190c33e55aafa72b3216",
+      "circuits": {
+        "build/core-mapping-driver/reordered/reference.aig": "72125e5dc7bbf9b4dffed678231ffe406fba48b02a49e11b5fab01be307eb0fd",
+        "build/core-mapping-driver/reordered/candidate.aig": "72125e5dc7bbf9b4dffed678231ffe406fba48b02a49e11b5fab01be307eb0fd"
+      }
+    },
+    {
+      "status": "counterexample",
+      "indices": [
+        0
+      ],
+      "command": [
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+        "--inhibit-cache",
+        "--inhibit-rpath",
+        "",
+        "--library-path",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib",
+        "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/libexec/yosys-abc",
+        "-c",
+        "&cec -T 5 -C 100000 /tmp/wasmetal-direct-rounding/build/core-mapping-driver/inverted/reference.aig /tmp/wasmetal-direct-rounding/build/core-mapping-driver/inverted/candidate.aig"
+      ],
+      "exit_code": 0,
+      "wall_timeout": false,
+      "elapsed_seconds": 0.17461251595523208,
+      "log_sha256": "73d1e28d7bcd635aab7a7971da4c350fd104ed371ae826cca088cc0842ee4938",
+      "circuits": {
+        "build/core-mapping-driver/inverted/reference.aig": "831efbaf7d49ea2272229d9cff214c30e47a4b07a845fb760151b32b5b4ab29a",
+        "build/core-mapping-driver/inverted/candidate.aig": "953320a140e6b63b0c22bd2209cb5817686f18a0e653b383989be4e096778e7e"
+      }
+    }
+  ],
+  "rejected_defects": [
+    {
+      "name": "cyclic gate",
+      "reason": "non-topological AIG"
+    },
+    {
+      "name": "latch",
+      "reason": "expected dense combinational AIG"
+    },
+    {
+      "name": "missing input symbol",
+      "reason": "missing or extra AIG positional symbols"
+    },
+    {
+      "name": "duplicate input symbol",
+      "reason": "duplicate AIG symbol"
+    },
+    {
+      "name": "ambiguous output names",
+      "reason": "ambiguous AIG symbols"
+    },
+    {
+      "name": "out-of-range output",
+      "reason": "invalid AIG output literal"
+    },
+    {
+      "name": "unreviewed properties",
+      "reason": "expected binary AIGER without properties"
+    },
+    {
+      "name": "duplicate observations",
+      "reason": "invalid AIG observation subset"
+    },
+    {
+      "name": "missing observations",
+      "reason": "invalid AIG observation subset"
+    },
+    {
+      "name": "invalid observation",
+      "reason": "invalid AIG observation subset"
+    },
+    {
+      "name": "duplicate checkpoint partition",
+      "reason": "checkpoint partition order or coverage differs"
+    },
+    {
+      "name": "forged coverage count",
+      "reason": "checkpoint coverage summary differs from its comparisons"
+    },
+    {
+      "name": "wrong pending count",
+      "reason": "checkpoint coverage summary differs from its comparisons"
+    },
+    {
+      "name": "hidden counterexample",
+      "reason": "cannot resume a counterexample or unknown solver result"
+    },
+    {
+      "name": "omitted inconclusive bit",
+      "reason": "checkpoint coverage summary differs from its comparisons"
+    },
+    {
+      "name": "counterexample mislabeled as proof",
+      "reason": "saved solver result does not match its log"
+    },
+    {
+      "name": "altered saved circuit",
+      "reason": "proof input changed: build/core-mapping-driver/all/candidate.aig"
+    }
+  ],
+  "partial_queue_reconstructed": true,
+  "inconclusive_singleton_preserved": true,
+  "physical_hardware_tested": false
+}
