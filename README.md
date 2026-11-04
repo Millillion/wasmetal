@@ -154,7 +154,7 @@ The [distributed-RAM model](docs/XILINX-LUTRAM.md) also passes a binary proof
 of its 256 state bits and four outputs, with checked initial state and an
 explicit write-enable specialization. Independent binary/four-state memory
 oracles and twenty local fault controls pass for the configuration used by
-all 22 mapped instances. CI repeats the base-circuit checks.
+all 22 mapped instances. CI repeats the checks for both UART profiles.
 The [complete Xilinx CPU simulation](docs/XILINX-SYSTEM-SIMULATION.md) now
 passes all **35 programmable integration cases** with accelerated UART timing,
 matching the native RTL's complete case observations, UART bytes and clock
@@ -162,6 +162,10 @@ counts exactly. All fifteen comparison faults are rejected. Two smoke cases
 also pass with the original LUT models. The native reference at 81 clocks per
 UART bit passes all 35 cases; a mapped upload at that unchanged UART timing
 is still running. Xilinx placement and timing remain unverified.
+CI is now configured to build the native reference and accelerated Xilinx
+circuit, run all 35 cases through a supervised four-worker campaign, and
+require the full comparison. The new complete CI job has not finished on
+GitHub yet; the published passing campaign is local evidence.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 

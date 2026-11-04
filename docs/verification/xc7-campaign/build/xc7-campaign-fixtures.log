@@ -1,0 +1,17 @@
+START partition 0
+START partition 1
+.START partition 0
+START partition 1
+...START partition 0
+START partition 1
+PASS partition 0
+PASS partition 1
+START partition 2
+START partition 3
+PASS partition 2
+PASS partition 3
+.
+----------------------------------------------------------------------
+Ran 5 tests in 0.912s
+
+OK

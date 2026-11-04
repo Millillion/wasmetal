@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "scope": "campaign supervision fixtures and verification-only resume of the completed Xilinx integration run",
+  "process_fixture_tests": 5,
+  "comparison_fixture_tests": 6,
+  "reused_partitions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "newly_executed_cpu_cases": 0,
+  "reconciled_cpu_cases": 35,
+  "comparison_negative_controls_rejected": 15,
+  "fresh_cpu_execution_evidence": "docs/verification/xc7-system-complete/index.json",
+  "resume_plan": "docs/verification/xc7-campaign/build/xc7-system-run/plan.json",
+  "ci_state": "configured; no completed execution of the new CI job observed",
+  "inputs": {
+    "tools/run_xc7_system.py": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "tools/check_xc7_system.py": "b47d55507d6569f8b6a35b4b866c5f6d0c8bc3b58228b63103595d707046260c",
+    "tests/xc7_campaign_test.py": "464c35fac2612308257f4715cb0b4fc72e6a0f6e083f0ab5b839969bccae57a5",
+    "tests/xc7_system_test.py": "08e6f742cb5663743d016af3251cf6e25e402ac6bedf80671b03a12bf4c3b2b9",
+    ".github/workflows/rtl.yml": "07095a9f8c756c1da90ee73c63802ad94292a067cc3ac0fd85acd6d9717f82d9"
+  },
+  "archive_index_sha256": "7ab7e3c9ff350be077c82420e19ab3d4bf6e82e294409259c263bc58ecdafa1f",
+  "physical_hardware_tested": false
+}

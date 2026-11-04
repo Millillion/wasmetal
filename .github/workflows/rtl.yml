@@ -76,15 +76,20 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
   xilinx-resource-estimate:
-    name: Programmable 7-series resource estimate
+    name: Complete programmable 7-series circuit
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
       - name: Install pinned synthesis tools
         run: python3 tools/bootstrap.py
+      - name: Build the preparation frontend and verify the complete RTL reference
+        run: |
+          make sim
+          python3 tools/build_loadable_sim.py
+          python3 tools/check_loadable.py --binary build/loadable-sim/Vwasmetal_loadable --report reports/loadable-rtl.json
       - name: Verify 7-series memory mapping with original vendor models
         run: python3 tools/check_xc7_memory_mapping.py
       - name: Verify fast RAM models against RTL and original vendor models
@@ -93,16 +98,24 @@ jobs:
         run: python3 tools/estimate_xc7_system.py
       - name: Check every mapped DSP configuration against vendor models and integer arithmetic
         run: python3 tools/check_xc7_dsp.py
+      - name: Synthesize the accelerated UART profile with unchanged CPU capacities
+        run: python3 tools/estimate_xc7_accelerated.py
       - name: Prove binary LUT equivalence and check all X/Z selectors
-        run: python3 tools/check_xc7_luts.py
+        run: python3 tools/check_xc7_luts.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
       - name: Compare carry chains with vendor arithmetic and explicit four-state oracles
         run: python3 tools/check_xc7_carry.py
       - name: Prove mux and inverter logic and characterize unknown selectors
         run: python3 tools/check_xc7_muxes.py
       - name: Check flip-flop clock, reset, enable and startup behavior
-        run: python3 tools/check_xc7_flops.py
+        run: python3 tools/check_xc7_flops.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
       - name: Prove distributed RAM state and check independent memory oracles
-        run: python3 tools/check_xc7_lutram.py
+        run: python3 tools/check_xc7_lutram.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
+      - name: Compile the complete mapped circuit and apply proven LUT simulation models
+        run: |
+          python3 tools/build_xc7_gate_sim.py --jobs 2 --estimate reports/xc7-accelerated-estimate.json --netlist build/xc7-accelerated/mapped.json --directory build/xc7-accelerated-gate-sim
+          python3 tools/accelerate_xc7_sim.py --simulator build/xc7-accelerated-gate-sim/obj/Vwasmetal_loadable --directory build/xc7-accelerated-gate-fast --jobs 2
+      - name: Compare all 35 complete mapped-system cases with RTL and reject corrupted evidence
+        run: python3 tools/run_xc7_system.py --workers 4
       - name: Preserve notices for the generated synthesis-library copies
         if: always()
         run: |
@@ -110,13 +123,17 @@ jobs:
             mkdir -p build/xc7-licenses
             cp .cache/tools/usr/share/doc/yosys/copyright build/xc7-licenses/YOSYS_COPYRIGHT
           fi
-      - name: Preserve the estimate and synthesis diagnostics
+      - name: Preserve full-system evidence and synthesis diagnostics
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: xilinx-resource-estimate
+          name: xilinx-system-verification
           path: |
             reports/xc7-system-estimate.json
+            reports/xc7-accelerated-estimate.json
+            reports/loadable-rtl.json
+            reports/xc7-system-complete.json
+            reports/xc7-system-shards/
             reports/xc7-memory-mapping.json
             reports/xc7-ram-models.json
             reports/xc7-dsp.json
@@ -136,6 +153,21 @@ jobs:
             build/xc7-system/*.log
             build/xc7-system/*.ys
             build/xc7-system/mapping-overlay/
+            build/xc7-accelerated/*.log
+            build/xc7-accelerated/*.ys
+            build/xc7-accelerated/mapping-overlay/
+            build/xc7-accelerated-gate-sim/*.log
+            build/xc7-accelerated-gate-sim/*.ys
+            build/xc7-accelerated-gate-sim/*.v
+            build/xc7-accelerated-gate-sim/*.vlt
+            build/xc7-accelerated-gate-sim/obj/*.build.json
+            build/xc7-accelerated-gate-fast/*.log
+            build/xc7-accelerated-gate-fast/*.v
+            build/xc7-accelerated-gate-fast/*.vlt
+            build/xc7-accelerated-gate-fast/obj/*.build.json
+            build/loadable-sim/build.log
+            build/loadable-sim/*.build.json
+            build/xc7-system-run/
             build/xc7-licenses/
             third_party/xilinx-unisim/
           if-no-files-found: warn
@@ -309,6 +341,7 @@ jobs:
           python3 tests/asic_audit_runner_test.py
           python3 tests/spec_ci_test.py
           python3 tests/xc7_system_test.py
+          python3 tests/xc7_campaign_test.py
       - name: Compile RTL and verify boundary and oracle behavior
         run: |
           make sim

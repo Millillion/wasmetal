@@ -114,5 +114,38 @@ every case exactly once and checks the complete observations against the RTL
 reference. Its fifteen deliberate comparison faults must also be rejected
 before a full-regression receipt can be written.
 
+```sh
+python3 tools/run_xc7_system.py --workers 4
+```
+
+The reusable runner supervises the six partitions, validates each completed
+report, then invokes the complete comparison. It locks the campaign within
+the checkout, confines artifacts to `build/` or `reports/`, rejects overlapping
+outputs and overwrites of source/generated-model inputs, and stops only its own
+worker groups and simulator descendants on failure or interruption. Plans are
+written atomically. A failed attempt removes its aggregate success receipt
+while retaining partition evidence and logs.
+
+`--resume` rechecks completed partitions against the actual executables,
+inputs and native observations, then runs missing partitions. It refuses
+unfinished or mismatched report files; use a fresh reports directory for a
+new attempt. The [runner validation receipt](verification/xc7-campaign.json)
+and [raw evidence index](verification/xc7-campaign/index.json) record a resume
+against the real completed 35-case campaign: all six partitions were reused,
+with no new CPU cases executed by that validation run.
+Five process/metadata fixture tests check concurrency limits, cleanup after
+worker and receipt failures, reuse validation and output aliases. These
+fixtures are not CPU execution evidence.
+
+The `Complete programmable 7-series circuit` CI job now builds the native
+reference, synthesizes both UART profiles, runs the component checks, builds
+the accelerated mapped simulator and runs all 35 integration cases with four
+workers. Its `xilinx-system-verification` artifact retains partition reports,
+the comparison, source/build identities and diagnostics even on failure. The
+job has a 360-minute budget, using GitHub's documented
+[job timeout setting](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idtimeout-minutes).
+This newly configured complete CI job has not yet finished on GitHub. The
+published completed system campaign remains the local run described above.
+
 Build receipts describe an untested executable at build time. Test results
 live in separate receipts; a successful run does not rewrite its build identity.

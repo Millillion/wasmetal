@@ -55,8 +55,8 @@ wrong initial state, aliased write/read addresses, ignored enables, transparent
 writes, exchanged data banks, zeroed unknown state/data, and broken trace
 framing. Four inventory controls per netlist reject unsupported clock
 inversion, nonzero initialization, unknown parameters and changed address
-widths. The local two-netlist run rejects all twenty controls; CI checks the
-base netlist and its sixteen controls.
+widths. The local two-netlist run rejects all twenty controls; CI now checks
+both netlists with those same controls.
 
 ```sh
 python3 tools/check_xc7_lutram.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json

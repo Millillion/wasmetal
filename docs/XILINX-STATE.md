@@ -65,7 +65,7 @@ replacement of asynchronous clear, enable-gated reset, wrong startup value,
 zeroed unknown startup, and truncated/extra/malformed traces. Four inventory
 controls per netlist reject unsupported inversion, unsupported initialization,
 unknown parameters and changed port widths. The local two-netlist run rejects
-all sixteen controls; CI checks the base netlist and its twelve controls.
+all sixteen controls; CI now checks both netlists with those same controls.
 
 ```sh
 python3 tools/check_xc7_flops.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
