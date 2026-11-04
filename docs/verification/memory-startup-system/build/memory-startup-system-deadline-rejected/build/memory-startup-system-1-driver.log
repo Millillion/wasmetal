@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_startup_system.py", line 112, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_startup_system.py", line 85, in main
+    run=owned_run(command,log,3600)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_startup_system.py", line 22, in owned_run
+    return subprocess.CompletedProcess(command,process.wait(timeout=timeout))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2047, in _wait
+    time.sleep(delay)
+KeyboardInterrupt

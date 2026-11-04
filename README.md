@@ -492,10 +492,19 @@ match across 59,107,887 clocks per model, with 2,760 successful handoffs, 266
 completed failure cases and 408 old SRAM read responses delivered across reset.
 All eight simulation fault controls, three four-state controls and four formal
 controls are rejected; four configurations pass unbounded safety proofs. CI
-requires these component gates. The CPU traffic here comes from an independent
-transaction generator. Complete-CPU startup integration is running separately;
-the default CPU/board image does not yet include this controller. Every shared
-reset repeats the destructive test.
+requires these component gates. The CPU traffic in those component checks comes
+from an independent transaction generator.
+The separate [complete-CPU startup checks](docs/verification/memory-startup-system-summary.json)
+now pass all 35 programmable integration cases at both one- and three-cycle SRAM
+read latencies. Fresh SRAM-only baselines share 60 unchanged inputs with each
+startup run. All UART bytes and CPU execution counts match, and every recorded
+wall-clock change matches the exact startup allowance: 2,949,121 or 3,604,481
+clocks per committed image. The CPU watchdog remains ten million clocks. A
+corrupted SRAM read blocks successful boot; 32 damaged comparison reports and
+three process-cleanup fixtures also pass their rejection/cleanup checks. CI now
+includes both complete-CPU startup configurations. These runs use RTL and a
+behavioral SRAM array; the default CPU/board image does not yet include this
+controller. Every shared reset repeats the destructive test.
 
 ## RTL Microarchitecture Simulator
 

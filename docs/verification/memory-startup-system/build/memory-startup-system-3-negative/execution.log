@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_loadable.py", line 182, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_loadable.py", line 133, in main
+    runs=execute(commands,completed)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_loadable.py", line 98, in execute
+    if on_result:on_result(run)
+                 ^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_loadable.py", line 130, in completed
+    check_expected(frames[0],case['expected'],case.get('status',0),case.get('trap',0))
+  File "/tmp/wasmetal-xc7-core/tools/check_standalone.py", line 33, in check_expected
+    raise AssertionError(f'UART result differs from independent expectation: {frame}')
+AssertionError: UART result differs from independent expectation: {'status': 5, 'trap': 0, 'cycles': 0, 'values': []}

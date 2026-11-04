@@ -1,0 +1,9 @@
+{
+  "status": "rejected_harness_deadline",
+  "three_cycle_result": "failed at watchdog case after 19 completed cases",
+  "one_cycle_result": "retired before completion because it uses the same inadequate overall deadline",
+  "original_overall_deadline": 12000000,
+  "unchanged_cpu_watchdog": 10000000,
+  "measured_three_cycle_startup_allowance": 3604481,
+  "note": "No completed full-system verification receipt was accepted from either trial."
+}

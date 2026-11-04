@@ -1,0 +1,172 @@
+{
+  "status": "passed",
+  "scope": "all bounded programmable CPU integration cases after destructive startup",
+  "check": {
+    "read_latency": 3,
+    "case_count": 35,
+    "startup_clocks_per_committed_image": 3604481,
+    "unchanged_shared_inputs": [
+      "build/standalone_parameters.svh",
+      "fpga/wasmetal_uart.sv",
+      "rtl/vendor.vlt",
+      "rtl/wasmetal_alu.sv",
+      "rtl/wasmetal_core.sv",
+      "rtl/wasmetal_descriptors.sv",
+      "rtl/wasmetal_divider.sv",
+      "rtl/wasmetal_fp_arithmetic.sv",
+      "rtl/wasmetal_fp_format.sv",
+      "rtl/wasmetal_fp_round.sv",
+      "rtl/wasmetal_fpu.sv",
+      "rtl/wasmetal_popcount.sv",
+      "rtl/wasmetal_simd_decode.sv",
+      "rtl/wasmetal_simd_fp_decode.sv",
+      "rtl/wasmetal_simd_int.sv",
+      "rtl/wasmetal_simd_lanes.sv",
+      "rtl/wasmetal_simd_serial.sv",
+      "rtl/wasmetal_values.sv",
+      "soc/asic/wasmetal_sram_memory.sv",
+      "soc/external/wasmetal_async_axi_memory.sv",
+      "soc/external/wasmetal_axi_memory.sv",
+      "soc/external/wasmetal_memory_cdc.sv",
+      "soc/loader/wasmetal_image_loader.sv",
+      "soc/loader/wasmetal_instruction_decode.sv",
+      "soc/loader/wasmetal_instruction_encode.sv",
+      "soc/loader/wasmetal_loadable.sv",
+      "soc/loader/wasmetal_loadable_ulx3s.sv",
+      "soc/memory/wasmetal_memory_bridge.sv",
+      "soc/memory/wasmetal_memory_lanes.sv",
+      "soc/profile.json",
+      "soc/sdram/wasmetal_sdram_memory.sv",
+      "soc/wasmetal_standalone.sv",
+      "soc/wasmetal_standalone_ulx3s.sv",
+      "tests/asic/wasmetal_bram.sv",
+      "tests/standalone/loadable.cpp",
+      "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi",
+      "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi",
+      "third_party/hardfloat/source/HardFloat_consts.vi",
+      "third_party/hardfloat/source/HardFloat_localFuncs.vi",
+      "third_party/hardfloat/source/HardFloat_primitives.v",
+      "third_party/hardfloat/source/HardFloat_rawFN.v",
+      "third_party/hardfloat/source/RISCV/HardFloat_specialize.v",
+      "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi",
+      "third_party/hardfloat/source/addRecFN.v",
+      "third_party/hardfloat/source/compareRecFN.v",
+      "third_party/hardfloat/source/divSqrtRecFN_small.v",
+      "third_party/hardfloat/source/fNToRecFN.v",
+      "third_party/hardfloat/source/iNToRecFN.v",
+      "third_party/hardfloat/source/isSigNaNRecFN.v",
+      "third_party/hardfloat/source/mulAddRecFN.v",
+      "third_party/hardfloat/source/mulRecFN.v",
+      "third_party/hardfloat/source/recFNToFN.v",
+      "third_party/hardfloat/source/recFNToIN.v",
+      "third_party/hardfloat/source/recFNToRecFN.v",
+      "tools/build_standalone_sim.py",
+      "tools/loadable_ci.py",
+      "tools/prepare_standalone.py",
+      "tools/program_upload.py",
+      "tools/standalone_support.py",
+      "tools/upstream.lock.json"
+    ],
+    "source_inventory_difference": {
+      "removed": [
+        "soc/wasmetal_local_memory.sv",
+        "tools/check_sram_system.py"
+      ],
+      "added": [
+        "build/memory-startup-system-3/loadable.cpp",
+        "soc/asic/wasmetal_memory_bist.sv",
+        "soc/asic/wasmetal_memory_startup.sv",
+        "tests/asic/startup/wasmetal_local_memory.sv",
+        "tools/check_memory_startup_system.py",
+        "tools/run_xc7_system.py"
+      ]
+    },
+    "same_cpu_cycles_and_uart_bytes": true,
+    "exact_wall_clock_prediction": true
+  },
+  "negative_controls": [
+    {
+      "name": "failed-receipt",
+      "diagnostic": "passed receipts required"
+    },
+    {
+      "name": "incomplete-case-list",
+      "diagnostic": "missing, repeated or extra integration case"
+    },
+    {
+      "name": "duplicate-case",
+      "diagnostic": "missing, repeated or extra integration case"
+    },
+    {
+      "name": "wrong-result",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: answer"
+    },
+    {
+      "name": "changed-cpu-cycle-count",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: answer"
+    },
+    {
+      "name": "wrong-uart-bytes",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: answer"
+    },
+    {
+      "name": "changed-commit-clock",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: answer"
+    },
+    {
+      "name": "missing-boot-delay",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: answer"
+    },
+    {
+      "name": "shifted-first-result",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: answer"
+    },
+    {
+      "name": "delayed-rejected-upload",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: crc-rejection"
+    },
+    {
+      "name": "wrong-interruption-offset",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: reset-during-result"
+    },
+    {
+      "name": "wrong-recovery-result",
+      "diagnostic": "startup result, UART bytes, CPU cycles or exact wall clocks differ: reset-during-execution"
+    },
+    {
+      "name": "different-executable",
+      "diagnostic": "executable identity mismatch"
+    },
+    {
+      "name": "weakened-watchdog-claim",
+      "diagnostic": "executable identity mismatch"
+    },
+    {
+      "name": "different-checker-inputs",
+      "diagnostic": "integration checker inputs changed"
+    },
+    {
+      "name": "wrong-observation-clock-scale",
+      "diagnostic": "incorrect observation timing/scope"
+    }
+  ],
+  "negative_controls_rejected": 16,
+  "inputs": {
+    "reports/asic-sram-system-3.json": "bea2e74aeac5f210a47d3537790f78ddd617811b9153e7efd7366b501a334952",
+    "reports/memory-startup-system-3.json": "bf8993332cb85e85f9b9744af1a09c5c11025f6f1f04577eb8972972676fe8e0",
+    "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
+    "build/memory-startup-system-3/loadable.cpp": "467b75fe6dd65f3a898126264583cfd9d421de92d2ede295a38e0e34586042f5",
+    "tools/check_memory_startup_reconciliation.py": "8d5de8b52de0b30dd2aab26df16294f886c947c285184ad6b69708b2c9c827bf",
+    "tools/loadable_ci.py": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c"
+  },
+  "startup_binary_sha256": "490f6ac562cf5d2a70207caedd3917afe53c2efa64fa2a01d76e7ce8a7b13026",
+  "physical_hardware_tested": false,
+  "foundry_macro_tested": false,
+  "limitations": [
+    "The complete CPU uses RTL simulation and a behavioral SRAM macro.",
+    "The FPGA images do not yet instantiate this optional startup binding.",
+    "The component-level mapped and formal proofs have separate evidence."
+  ]
+}

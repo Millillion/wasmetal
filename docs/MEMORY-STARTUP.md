@@ -44,9 +44,59 @@ reset, so they can run the test independently. Report `test_failed` to the boot
 controller. After a successful test, release the bridge and let its normal
 initialization and prepared-image loading proceed.
 
-The optional controller is verified below. A separate complete-CPU test binding
-with this reset sequencing is being evaluated; its execution results are not
-part of the component reports.
+The optional controller is verified below. A separate complete-CPU test binding,
+`tests/asic/startup/wasmetal_local_memory.sv`, now passes all 35 programmable
+integration cases with both one- and three-cycle SRAM reads. Its execution
+results are separate from the component reports. This binding replaces the
+local-memory implementation only in these simulations.
+
+## Complete CPU checks
+
+```sh
+python3 tools/check_sram_system.py --latency 1
+python3 tools/check_memory_startup_system.py --latency 1
+python3 tools/check_memory_startup_reconciliation.py --latency 1
+python3 tools/check_sram_system.py --latency 3
+python3 tools/check_memory_startup_system.py --latency 3
+python3 tools/check_memory_startup_reconciliation.py --latency 3
+python3 tools/check_memory_startup_system.py --latency 3 --negative-control
+python3 tests/startup_runner_test.py
+```
+
+The [full-CPU summary](verification/memory-startup-system-summary.json) records
+35 cases at each latency, including traps, address boundaries, watchdog expiry,
+rejected uploads, serial timing variation and resets during execution or result
+transmission. Each accepted image tests the complete 128 KiB backing array before
+the ordinary bridge initialization and image loading. A deliberately corrupted
+SRAM read prevents a successful boot and is rejected by the independent UART
+result oracle.
+
+Both SRAM-only baselines were rerun on the current CPU revision. Each comparison
+checks 60 identical shared inputs and an exact, enumerated difference in the
+source inventory. UART bytes, decoded values, traps and CPU execution counts
+must match. No wall-clock fields are discarded: the checker predicts the entire
+new observation by adding 2,949,121 clocks for one-cycle reads or 3,604,481 clocks
+for three-cycle reads. Rejected uploads incur no startup delay. Interrupted
+executions shift by the same allowance so that reset still targets the intended
+execution or transmission phase. Sixteen deliberately damaged reports must be
+rejected at each latency.
+
+The startup allowance is `1 + (RAM_BYTES / 16) * (320 + 40 * READ_LATENCY)`:
+one launch clock, 40 writes per word at four clocks each, and 40 reads per word
+at `READ_LATENCY + 4` clocks each. The test harness's original overall deadline
+was too short for startup followed by the legitimate ten-million-clock CPU
+watchdog case. A generated harness copy adds only this exact startup allowance;
+the CPU watchdog, original harness, expected results and UART timing remain
+unchanged. Reconciliation checks the generated harness byte for byte against
+that single replacement. Earlier failed and retired trials are retained in the
+[raw evidence](verification/memory-startup-system/index.json).
+
+The new runner cleans up its own process groups after success, failure and
+timeout. Three fixtures verify that stubborn child processes stop in each case.
+CI has separate one- and three-cycle full-CPU jobs, including fresh baselines,
+reconciliation and the corruption check. These are RTL simulations with a
+behavioral SRAM array. The default FPGA image, physical SRAM and a complete
+mapped CPU with this startup binding have not been validated by these runs.
 
 ## Verification
 

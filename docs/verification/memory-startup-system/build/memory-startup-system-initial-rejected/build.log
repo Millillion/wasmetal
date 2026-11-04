@@ -1,0 +1,7 @@
+%Warning-WIDTHEXPAND: /tmp/wasmetal-xc7-core/tests/asic/startup/wasmetal_local_memory.sv:65:91: Operator DIVS expects 64 bits on the LHS, but LHS's VARREF 'RAM_BYTES' generates 32 bits.
+                                                                                              : ... note: In instance 'wasmetal_loadable.execution.memory'
+   65 |             assert(test_done && !test_busy && !test_failed && test_count==80*64'(RAM_BYTES/16));
+      |                                                                                           ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.020
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

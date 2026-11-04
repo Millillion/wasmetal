@@ -1,0 +1,10 @@
+`verilator_config
+// Upstream HardFloat deliberately relies on Verilog expression truncation and
+// extension and places multiple parameterized modules in each source file.
+// These waivers apply only to separately licensed vendor sources. See their README.
+lint_off -rule WIDTH -file "*third_party/hardfloat/*"
+lint_off -rule DECLFILENAME -file "*third_party/hardfloat/*"
+lint_off -rule VARHIDDEN -file "*third_party/hardfloat/*"
+lint_off -rule UNUSEDSIGNAL -file "*third_party/hardfloat/*"
+lint_off -rule UNUSEDPARAM -file "*third_party/hardfloat/*"
+lint_off -rule GENUNNAMED -file "*third_party/hardfloat/*"

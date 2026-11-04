@@ -1,0 +1,919 @@
+[
+  {
+    "original_path": ".github/workflows/rtl.yml",
+    "archive_path": "docs/verification/memory-startup-system/.github/workflows/rtl.yml",
+    "original_sha256": "b38f8087848fd7aad3d7c6470ba8a7d50797e9ae908c84ef5730a9bd7b9587ad",
+    "archive_sha256": "b38f8087848fd7aad3d7c6470ba8a7d50797e9ae908c84ef5730a9bd7b9587ad",
+    "compressed": false
+  },
+  {
+    "original_path": "build/archive_memory_startup_system.py",
+    "archive_path": "docs/verification/memory-startup-system/build/archive_memory_startup_system.py",
+    "original_sha256": "fe9e91da1d4cb3d3b981f2a5ed8a05eb695205148d1a2ed3661f305e763b3ff0",
+    "archive_sha256": "fe9e91da1d4cb3d3b981f2a5ed8a05eb695205148d1a2ed3661f305e763b3ff0",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-sram-system-1/Vwasmetal_loadable.build.json",
+    "archive_path": "docs/verification/memory-startup-system/build/asic-sram-system-1/Vwasmetal_loadable.build.json",
+    "original_sha256": "ba2332347f24123dc834fdb2c6779973afc6cbd92a1ab08141a0e8423bde11e6",
+    "archive_sha256": "ba2332347f24123dc834fdb2c6779973afc6cbd92a1ab08141a0e8423bde11e6",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-sram-system-1/build.log",
+    "archive_path": "docs/verification/memory-startup-system/build/asic-sram-system-1/build.log",
+    "original_sha256": "fd7153d8ba7d55d82539e2b9afaf14d2032466bdca3b8a5fd3553528267421eb",
+    "archive_sha256": "fd7153d8ba7d55d82539e2b9afaf14d2032466bdca3b8a5fd3553528267421eb",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-sram-system-1/execution.log",
+    "archive_path": "docs/verification/memory-startup-system/build/asic-sram-system-1/execution.log",
+    "original_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "archive_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-sram-system-3/Vwasmetal_loadable.build.json",
+    "archive_path": "docs/verification/memory-startup-system/build/asic-sram-system-3/Vwasmetal_loadable.build.json",
+    "original_sha256": "ca6cdafaf89ca409ef8e13d725846557aaf915340697635e05461740f7cbdff6",
+    "archive_sha256": "ca6cdafaf89ca409ef8e13d725846557aaf915340697635e05461740f7cbdff6",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-sram-system-3/build.log",
+    "archive_path": "docs/verification/memory-startup-system/build/asic-sram-system-3/build.log",
+    "original_sha256": "bf043434c50f0d9a36dc6f8ef65e4ea9cc4aa6c9a4786e363cd53ef3e6fcb4c4",
+    "archive_sha256": "bf043434c50f0d9a36dc6f8ef65e4ea9cc4aa6c9a4786e363cd53ef3e6fcb4c4",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-sram-system-3/execution.log",
+    "archive_path": "docs/verification/memory-startup-system/build/asic-sram-system-3/execution.log",
+    "original_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "archive_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-runner-fixtures.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-runner-fixtures.log",
+    "original_sha256": "cd9155ce78427d0bac0ec7ae68d2354c52c8f0aab4b09ea03618b9053c08b9c2",
+    "archive_sha256": "cd9155ce78427d0bac0ec7ae68d2354c52c8f0aab4b09ea03618b9053c08b9c2",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-1/Vwasmetal_loadable.build.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-1/Vwasmetal_loadable.build.json",
+    "original_sha256": "4fb4a5dba518151ec8890f65c7137669092ed63e29556224c53cc3db3c3d0df5",
+    "archive_sha256": "4fb4a5dba518151ec8890f65c7137669092ed63e29556224c53cc3db3c3d0df5",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-1/build.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-1/build.log",
+    "original_sha256": "d75fce1f16b5c5cc864de0ca6a227770125649fc8ac016c3a8d7a404a3a4f9f0",
+    "archive_sha256": "d75fce1f16b5c5cc864de0ca6a227770125649fc8ac016c3a8d7a404a3a4f9f0",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-1/execution.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-1/execution.log",
+    "original_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "archive_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-1/loadable.cpp",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-1/loadable.cpp",
+    "original_sha256": "47041c2f1a20cff655cdb0e99f55ced3518b3d4e9b1f5126c10c884eb6b1ec0b",
+    "archive_sha256": "47041c2f1a20cff655cdb0e99f55ced3518b3d4e9b1f5126c10c884eb6b1ec0b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-1-driver.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-1-driver.log",
+    "original_sha256": "3801a93dfb55481ad360815cff3e2cc5337022226bdcf2761d91bde8086ee7d3",
+    "archive_sha256": "3801a93dfb55481ad360815cff3e2cc5337022226bdcf2761d91bde8086ee7d3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3/Vwasmetal_loadable.build.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3/Vwasmetal_loadable.build.json",
+    "original_sha256": "a701394c406dcd17e31a645fabc4c27cca90d32a3cd6b0fd5c02b18f725495cf",
+    "archive_sha256": "a701394c406dcd17e31a645fabc4c27cca90d32a3cd6b0fd5c02b18f725495cf",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3/build.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3/build.log",
+    "original_sha256": "07af00d3447072e5041f3bdbbfa26c7616729b5768f3064391f95b874e51ef8f",
+    "archive_sha256": "07af00d3447072e5041f3bdbbfa26c7616729b5768f3064391f95b874e51ef8f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3/execution.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3/execution.log",
+    "original_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "archive_sha256": "ae31682367dfcc03d2ccb00a06fa224294c57cf6ce148325ef2923e0a291eec7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3/loadable.cpp",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3/loadable.cpp",
+    "original_sha256": "467b75fe6dd65f3a898126264583cfd9d421de92d2ede295a38e0e34586042f5",
+    "archive_sha256": "467b75fe6dd65f3a898126264583cfd9d421de92d2ede295a38e0e34586042f5",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3-corrupt/Vwasmetal_loadable.build.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3-corrupt/Vwasmetal_loadable.build.json",
+    "original_sha256": "0ca4e30b98754d2e4691b9ed1e28aa40500f6e392aae6c8bec309643255a2cdb",
+    "archive_sha256": "0ca4e30b98754d2e4691b9ed1e28aa40500f6e392aae6c8bec309643255a2cdb",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3-corrupt/build.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3-corrupt/build.log",
+    "original_sha256": "27c118f3c9daea64b93de0274689d014af15789cd02d65b544ff1b9dc62a395f",
+    "archive_sha256": "27c118f3c9daea64b93de0274689d014af15789cd02d65b544ff1b9dc62a395f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3-corrupt/loadable.cpp",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3-corrupt/loadable.cpp",
+    "original_sha256": "467b75fe6dd65f3a898126264583cfd9d421de92d2ede295a38e0e34586042f5",
+    "archive_sha256": "467b75fe6dd65f3a898126264583cfd9d421de92d2ede295a38e0e34586042f5",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3-driver.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3-driver.log",
+    "original_sha256": "7240e17d7e16b213fd9878a8a481dc33c2f26cc131bf053d4e7a2025cccef7db",
+    "archive_sha256": "7240e17d7e16b213fd9878a8a481dc33c2f26cc131bf053d4e7a2025cccef7db",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-3-negative/execution.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-3-negative/execution.log",
+    "original_sha256": "7490db0ca51216610ee4bbf8ff961db344ea85f66ac0af05df41b11b56f14460",
+    "archive_sha256": "7490db0ca51216610ee4bbf8ff961db344ea85f66ac0af05df41b11b56f14460",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/build/memory-startup-system-1/Vwasmetal_loadable.build.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/build/memory-startup-system-1/Vwasmetal_loadable.build.json",
+    "original_sha256": "35461eddcbc880010b1adc6f01b5fbe0e70e4d8b9204d9d2665d308dbb5776c3",
+    "archive_sha256": "35461eddcbc880010b1adc6f01b5fbe0e70e4d8b9204d9d2665d308dbb5776c3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/build/memory-startup-system-1/execution.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/build/memory-startup-system-1/execution.log",
+    "original_sha256": "72bef12a0077a24e79003723a67b57aafb7717fee0aff419b3d1a62bb4ce9c8a",
+    "archive_sha256": "72bef12a0077a24e79003723a67b57aafb7717fee0aff419b3d1a62bb4ce9c8a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/build/memory-startup-system-1-driver.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/build/memory-startup-system-1-driver.log",
+    "original_sha256": "058a48d8e2ebf09bc11c5e768a247f20b91c138f49e88c5d73a1b3aa77ea1ada",
+    "archive_sha256": "058a48d8e2ebf09bc11c5e768a247f20b91c138f49e88c5d73a1b3aa77ea1ada",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/build/memory-startup-system-3/Vwasmetal_loadable.build.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/build/memory-startup-system-3/Vwasmetal_loadable.build.json",
+    "original_sha256": "6e211039ef064db35b7403f6272fbeec0855e92ad012c5d41f06379b1bc77bcd",
+    "archive_sha256": "6e211039ef064db35b7403f6272fbeec0855e92ad012c5d41f06379b1bc77bcd",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/build/memory-startup-system-3/execution.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/build/memory-startup-system-3/execution.log",
+    "original_sha256": "23d26bfb5a74c2bbf880b031c59466bac02e862e044f0c92417273db8f20d42d",
+    "archive_sha256": "23d26bfb5a74c2bbf880b031c59466bac02e862e044f0c92417273db8f20d42d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/build/memory-startup-system-3-driver.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/build/memory-startup-system-3-driver.log",
+    "original_sha256": "f96a9a9db632014af436a9443a367793449c009382f3f0c3a83d85040bc73bbc",
+    "archive_sha256": "f96a9a9db632014af436a9443a367793449c009382f3f0c3a83d85040bc73bbc",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/reports/memory-startup-system-1-observations.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/reports/memory-startup-system-1-observations.json",
+    "original_sha256": "70eff387b1a8b945a0e9b70a44def6b57da709b2d8d24da66f99a8409a436d49",
+    "archive_sha256": "70eff387b1a8b945a0e9b70a44def6b57da709b2d8d24da66f99a8409a436d49",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/reports/memory-startup-system-3-observations.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/reports/memory-startup-system-3-observations.json",
+    "original_sha256": "fb27adce140719fc88d8e0f4048cacc5d04ca8cab41fadee887e01204bdf4e45",
+    "archive_sha256": "fb27adce140719fc88d8e0f4048cacc5d04ca8cab41fadee887e01204bdf4e45",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/retirement.json",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/retirement.json",
+    "original_sha256": "098b82f77ed47b5db6d9c1925bbbdce1247df63b6bed888565a702bdaef3bf49",
+    "archive_sha256": "098b82f77ed47b5db6d9c1925bbbdce1247df63b6bed888565a702bdaef3bf49",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/tests/asic/startup/wasmetal_local_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/tests/asic/startup/wasmetal_local_memory.sv",
+    "original_sha256": "a0dacf84dea1c2c5e357a6f3e0b581a5f9b363b9866e62b53c9478c69bf55e93",
+    "archive_sha256": "a0dacf84dea1c2c5e357a6f3e0b581a5f9b363b9866e62b53c9478c69bf55e93",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/tests/standalone/loadable.cpp",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/tests/standalone/loadable.cpp",
+    "original_sha256": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
+    "archive_sha256": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-deadline-rejected/tools/check_memory_startup_system.py",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-deadline-rejected/tools/check_memory_startup_system.py",
+    "original_sha256": "6cad64004d524331dd838031a7ac31d88fc2508e59bdfaa000b45a3cd7ce4133",
+    "archive_sha256": "6cad64004d524331dd838031a7ac31d88fc2508e59bdfaa000b45a3cd7ce4133",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-initial-rejected/build.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-initial-rejected/build.log",
+    "original_sha256": "192cf549526301263525883635b371a5415805e8a1f3718548efaf20880309d9",
+    "archive_sha256": "192cf549526301263525883635b371a5415805e8a1f3718548efaf20880309d9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-initial-rejected/driver.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-initial-rejected/driver.log",
+    "original_sha256": "de372980ed77cbaedab224cbbb6bbf5d4e248a8fe1545fa269aec2aabad1bc7b",
+    "archive_sha256": "de372980ed77cbaedab224cbbb6bbf5d4e248a8fe1545fa269aec2aabad1bc7b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-initial-rejected/driver.py",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-initial-rejected/driver.py",
+    "original_sha256": "37117118fa12abad6351ef3d1a7f5ae3eaf32e79171e3bd9e0c831d1a9856ac9",
+    "archive_sha256": "37117118fa12abad6351ef3d1a7f5ae3eaf32e79171e3bd9e0c831d1a9856ac9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-initial-rejected/wasmetal_local_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-initial-rejected/wasmetal_local_memory.sv",
+    "original_sha256": "ba53e5b796197d78ef8ae3959fbd28825c9f4b10d0df29020d2580d79536a9f1",
+    "archive_sha256": "ba53e5b796197d78ef8ae3959fbd28825c9f4b10d0df29020d2580d79536a9f1",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-negative-driver.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-negative-driver.log",
+    "original_sha256": "757cf6f53a5fe90e81790e808acd67cdc84696e0de8dbe8c8560c0bb45398fd3",
+    "archive_sha256": "757cf6f53a5fe90e81790e808acd67cdc84696e0de8dbe8c8560c0bb45398fd3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/memory-startup-system-workflow-lint.log",
+    "archive_path": "docs/verification/memory-startup-system/build/memory-startup-system-workflow-lint.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/run_startup_reference.py",
+    "archive_path": "docs/verification/memory-startup-system/build/run_startup_reference.py",
+    "original_sha256": "d5200f34f5e2a2a37623d0d624936e924414357b1fc1df1e197dfb24b6356706",
+    "archive_sha256": "d5200f34f5e2a2a37623d0d624936e924414357b1fc1df1e197dfb24b6356706",
+    "compressed": false
+  },
+  {
+    "original_path": "build/standalone_parameters.svh",
+    "archive_path": "docs/verification/memory-startup-system/build/standalone_parameters.svh",
+    "original_sha256": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "archive_sha256": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/startup-reconciliation-1.log",
+    "archive_path": "docs/verification/memory-startup-system/build/startup-reconciliation-1.log",
+    "original_sha256": "ce6e000ae7c57ec13d0c025e07787fb6793691772d555f1ea69a669e5f25020a",
+    "archive_sha256": "ce6e000ae7c57ec13d0c025e07787fb6793691772d555f1ea69a669e5f25020a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/startup-reconciliation-3.log",
+    "archive_path": "docs/verification/memory-startup-system/build/startup-reconciliation-3.log",
+    "original_sha256": "9fb27232b108723895d11678c25634e7e62eb3e9a05d2ef1911c7fabfa6b86a3",
+    "archive_sha256": "9fb27232b108723895d11678c25634e7e62eb3e9a05d2ef1911c7fabfa6b86a3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/startup-reference-1.log",
+    "archive_path": "docs/verification/memory-startup-system/build/startup-reference-1.log",
+    "original_sha256": "a6dfcd1af4ffb754c6119dd9519b1b0005e9a47027c8745d2d905024127d822b",
+    "archive_sha256": "a6dfcd1af4ffb754c6119dd9519b1b0005e9a47027c8745d2d905024127d822b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/startup-reference-3.log",
+    "archive_path": "docs/verification/memory-startup-system/build/startup-reference-3.log",
+    "original_sha256": "080fefe3390d9cc24bbc868fd85a64b4bc6bc0191cee31d12bd889b1e0ce44f1",
+    "archive_sha256": "080fefe3390d9cc24bbc868fd85a64b4bc6bc0191cee31d12bd889b1e0ce44f1",
+    "compressed": false
+  },
+  {
+    "original_path": "fpga/wasmetal_uart.sv",
+    "archive_path": "docs/verification/memory-startup-system/fpga/wasmetal_uart.sv",
+    "original_sha256": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "archive_sha256": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-sram-system-1-observations.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/asic-sram-system-1-observations.json",
+    "original_sha256": "d7efc0c2f0646eabde07d2c97a4e4554fa197746ea8a1cb79cee20b1bd80ef6c",
+    "archive_sha256": "d7efc0c2f0646eabde07d2c97a4e4554fa197746ea8a1cb79cee20b1bd80ef6c",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-sram-system-1.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/asic-sram-system-1.json",
+    "original_sha256": "b555cf45a33bc3f3532ec3824d699925769b51706aa79617018b9994f3d8be22",
+    "archive_sha256": "b555cf45a33bc3f3532ec3824d699925769b51706aa79617018b9994f3d8be22",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-sram-system-3-observations.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/asic-sram-system-3-observations.json",
+    "original_sha256": "38775f6b29b7ef98d2b2ea347d72a13ba0bbb6bc946428559e3e7950633acbe3",
+    "archive_sha256": "38775f6b29b7ef98d2b2ea347d72a13ba0bbb6bc946428559e3e7950633acbe3",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-sram-system-3.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/asic-sram-system-3.json",
+    "original_sha256": "bea2e74aeac5f210a47d3537790f78ddd617811b9153e7efd7366b501a334952",
+    "archive_sha256": "bea2e74aeac5f210a47d3537790f78ddd617811b9153e7efd7366b501a334952",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-1-observations.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-1-observations.json",
+    "original_sha256": "043855998ee3dc4c7b6d2d1c8d74594db021c61c82524120c5622694947160cc",
+    "archive_sha256": "043855998ee3dc4c7b6d2d1c8d74594db021c61c82524120c5622694947160cc",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-1-reconciliation.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-1-reconciliation.json",
+    "original_sha256": "64c8d2e66bc8e07427120ea2785d0139c379a63e07882d6c7394ce1d644eb25f",
+    "archive_sha256": "64c8d2e66bc8e07427120ea2785d0139c379a63e07882d6c7394ce1d644eb25f",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-1.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-1.json",
+    "original_sha256": "3a00337f787466e7d733d769a12178208bdf8420fe1ec5d9fca2e194bdfd2802",
+    "archive_sha256": "3a00337f787466e7d733d769a12178208bdf8420fe1ec5d9fca2e194bdfd2802",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-3-negative-observations.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-3-negative-observations.json",
+    "original_sha256": "62d4a285ed8bc641c38209c70dcfb843e5b54832c20dd6d93758946a2e1364b2",
+    "archive_sha256": "62d4a285ed8bc641c38209c70dcfb843e5b54832c20dd6d93758946a2e1364b2",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-3-negative.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-3-negative.json",
+    "original_sha256": "a4fd589da9df1b12b5b26717b72319001c07285253b6f957e7bc062422626078",
+    "archive_sha256": "a4fd589da9df1b12b5b26717b72319001c07285253b6f957e7bc062422626078",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-3-observations.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-3-observations.json",
+    "original_sha256": "bb10d6439e5a11addb622c437c21aed119411ba4e2f68957533a75b927299257",
+    "archive_sha256": "bb10d6439e5a11addb622c437c21aed119411ba4e2f68957533a75b927299257",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-3-reconciliation.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-3-reconciliation.json",
+    "original_sha256": "3057d0ed4732cebd37d2540528a730917569133e46f1408ae13d45eadc48d185",
+    "archive_sha256": "3057d0ed4732cebd37d2540528a730917569133e46f1408ae13d45eadc48d185",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-3.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-3.json",
+    "original_sha256": "bf8993332cb85e85f9b9744af1a09c5c11025f6f1f04577eb8972972676fe8e0",
+    "archive_sha256": "bf8993332cb85e85f9b9744af1a09c5c11025f6f1f04577eb8972972676fe8e0",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/memory-startup-system-summary.json",
+    "archive_path": "docs/verification/memory-startup-system/reports/memory-startup-system-summary.json",
+    "original_sha256": "851dc0303688eea2be15637ba7bf331e3d4a0be37d03d8b8c2d17aada17ae2a8",
+    "archive_sha256": "851dc0303688eea2be15637ba7bf331e3d4a0be37d03d8b8c2d17aada17ae2a8",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/vendor.vlt",
+    "archive_path": "docs/verification/memory-startup-system/rtl/vendor.vlt",
+    "original_sha256": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
+    "archive_sha256": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_alu.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_alu.sv",
+    "original_sha256": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
+    "archive_sha256": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_core.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_core.sv",
+    "original_sha256": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
+    "archive_sha256": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_descriptors.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_descriptors.sv",
+    "original_sha256": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
+    "archive_sha256": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_divider.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_divider.sv",
+    "original_sha256": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
+    "archive_sha256": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_fp_arithmetic.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_fp_arithmetic.sv",
+    "original_sha256": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+    "archive_sha256": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_fp_format.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_fp_format.sv",
+    "original_sha256": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+    "archive_sha256": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_fp_round.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_fp_round.sv",
+    "original_sha256": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
+    "archive_sha256": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_fpu.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_fpu.sv",
+    "original_sha256": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+    "archive_sha256": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_popcount.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_popcount.sv",
+    "original_sha256": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
+    "archive_sha256": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_simd_decode.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_simd_decode.sv",
+    "original_sha256": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
+    "archive_sha256": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_simd_fp_decode.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_simd_fp_decode.sv",
+    "original_sha256": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
+    "archive_sha256": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_simd_int.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_simd_int.sv",
+    "original_sha256": "d64aaee7e053fae5b24e59d8e0e819c5eb065060ae6f9d426ea83404a703cf71",
+    "archive_sha256": "d64aaee7e053fae5b24e59d8e0e819c5eb065060ae6f9d426ea83404a703cf71",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_simd_lanes.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_simd_lanes.sv",
+    "original_sha256": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
+    "archive_sha256": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_simd_serial.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_simd_serial.sv",
+    "original_sha256": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
+    "archive_sha256": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
+    "compressed": false
+  },
+  {
+    "original_path": "rtl/wasmetal_values.sv",
+    "archive_path": "docs/verification/memory-startup-system/rtl/wasmetal_values.sv",
+    "original_sha256": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
+    "archive_sha256": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/asic/wasmetal_memory_bist.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/asic/wasmetal_memory_bist.sv",
+    "original_sha256": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "archive_sha256": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/asic/wasmetal_memory_startup.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/asic/wasmetal_memory_startup.sv",
+    "original_sha256": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "archive_sha256": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/asic/wasmetal_sram_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/asic/wasmetal_sram_memory.sv",
+    "original_sha256": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "archive_sha256": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/external/wasmetal_async_axi_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/external/wasmetal_async_axi_memory.sv",
+    "original_sha256": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+    "archive_sha256": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/external/wasmetal_axi_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/external/wasmetal_axi_memory.sv",
+    "original_sha256": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+    "archive_sha256": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/external/wasmetal_memory_cdc.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/external/wasmetal_memory_cdc.sv",
+    "original_sha256": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "archive_sha256": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/loader/wasmetal_image_loader.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/loader/wasmetal_image_loader.sv",
+    "original_sha256": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "archive_sha256": "9e0464142085e718822db048ab9377e1048abe71cbe645df7e64775428457e39",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/loader/wasmetal_instruction_decode.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/loader/wasmetal_instruction_decode.sv",
+    "original_sha256": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "archive_sha256": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/loader/wasmetal_instruction_encode.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/loader/wasmetal_instruction_encode.sv",
+    "original_sha256": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+    "archive_sha256": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/loader/wasmetal_loadable.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/loader/wasmetal_loadable.sv",
+    "original_sha256": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "archive_sha256": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/loader/wasmetal_loadable_ulx3s.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/loader/wasmetal_loadable_ulx3s.sv",
+    "original_sha256": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+    "archive_sha256": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/memory/wasmetal_memory_bridge.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/memory/wasmetal_memory_bridge.sv",
+    "original_sha256": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "archive_sha256": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/memory/wasmetal_memory_lanes.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/memory/wasmetal_memory_lanes.sv",
+    "original_sha256": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "archive_sha256": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/profile.json",
+    "archive_path": "docs/verification/memory-startup-system/soc/profile.json",
+    "original_sha256": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "archive_sha256": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/sdram/wasmetal_sdram_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/sdram/wasmetal_sdram_memory.sv",
+    "original_sha256": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+    "archive_sha256": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/wasmetal_local_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/wasmetal_local_memory.sv",
+    "original_sha256": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "archive_sha256": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/wasmetal_standalone.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/wasmetal_standalone.sv",
+    "original_sha256": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "archive_sha256": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/wasmetal_standalone_ulx3s.sv",
+    "archive_path": "docs/verification/memory-startup-system/soc/wasmetal_standalone_ulx3s.sv",
+    "original_sha256": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
+    "archive_sha256": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/asic/startup/wasmetal_local_memory.sv",
+    "archive_path": "docs/verification/memory-startup-system/tests/asic/startup/wasmetal_local_memory.sv",
+    "original_sha256": "a0dacf84dea1c2c5e357a6f3e0b581a5f9b363b9866e62b53c9478c69bf55e93",
+    "archive_sha256": "a0dacf84dea1c2c5e357a6f3e0b581a5f9b363b9866e62b53c9478c69bf55e93",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/asic/wasmetal_bram.sv",
+    "archive_path": "docs/verification/memory-startup-system/tests/asic/wasmetal_bram.sv",
+    "original_sha256": "ed3db9fce31f4b094f6491bb2fa22f9536f6117497468377ce006a3ec996c89d",
+    "archive_sha256": "ed3db9fce31f4b094f6491bb2fa22f9536f6117497468377ce006a3ec996c89d",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/standalone/loadable.cpp",
+    "archive_path": "docs/verification/memory-startup-system/tests/standalone/loadable.cpp",
+    "original_sha256": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
+    "archive_sha256": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/startup_runner_test.py",
+    "archive_path": "docs/verification/memory-startup-system/tests/startup_runner_test.py",
+    "original_sha256": "49d67a9dca8f11c79f8a600fb6f17e83216f7228ba681a75c24dd3e59102ae04",
+    "archive_sha256": "49d67a9dca8f11c79f8a600fb6f17e83216f7228ba681a75c24dd3e59102ae04",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/COPYING.txt",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/COPYING.txt",
+    "original_sha256": "c791a6bdcef33feddaa0cb7ab99c233fb63d93bb385f06d58f9f1b9a8182b418",
+    "archive_sha256": "c791a6bdcef33feddaa0cb7ab99c233fb63d93bb385f06d58f9f1b9a8182b418",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi",
+    "original_sha256": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+    "archive_sha256": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi",
+    "original_sha256": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+    "archive_sha256": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/HardFloat_consts.vi",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/HardFloat_consts.vi",
+    "original_sha256": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+    "archive_sha256": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/HardFloat_localFuncs.vi",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/HardFloat_localFuncs.vi",
+    "original_sha256": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "archive_sha256": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/HardFloat_primitives.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/HardFloat_primitives.v",
+    "original_sha256": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+    "archive_sha256": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/HardFloat_rawFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/HardFloat_rawFN.v",
+    "original_sha256": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+    "archive_sha256": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/RISCV/HardFloat_specialize.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/RISCV/HardFloat_specialize.v",
+    "original_sha256": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+    "archive_sha256": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/RISCV/HardFloat_specialize.vi",
+    "original_sha256": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+    "archive_sha256": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/addRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/addRecFN.v",
+    "original_sha256": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+    "archive_sha256": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/compareRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/compareRecFN.v",
+    "original_sha256": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+    "archive_sha256": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/divSqrtRecFN_small.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/divSqrtRecFN_small.v",
+    "original_sha256": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+    "archive_sha256": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/fNToRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/fNToRecFN.v",
+    "original_sha256": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+    "archive_sha256": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/iNToRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/iNToRecFN.v",
+    "original_sha256": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+    "archive_sha256": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/isSigNaNRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/isSigNaNRecFN.v",
+    "original_sha256": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+    "archive_sha256": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/mulAddRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/mulAddRecFN.v",
+    "original_sha256": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+    "archive_sha256": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/mulRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/mulRecFN.v",
+    "original_sha256": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+    "archive_sha256": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/recFNToFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/recFNToFN.v",
+    "original_sha256": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+    "archive_sha256": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/recFNToIN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/recFNToIN.v",
+    "original_sha256": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+    "archive_sha256": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+    "compressed": false
+  },
+  {
+    "original_path": "third_party/hardfloat/source/recFNToRecFN.v",
+    "archive_path": "docs/verification/memory-startup-system/third_party/hardfloat/source/recFNToRecFN.v",
+    "original_sha256": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+    "archive_sha256": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_standalone_sim.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/build_standalone_sim.py",
+    "original_sha256": "94335a4f6158d9a1b8a7afe0e158176670fbcc35d255ae833870d8a58244ed15",
+    "archive_sha256": "94335a4f6158d9a1b8a7afe0e158176670fbcc35d255ae833870d8a58244ed15",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_loadable.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/check_loadable.py",
+    "original_sha256": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "archive_sha256": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_memory_startup_reconciliation.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/check_memory_startup_reconciliation.py",
+    "original_sha256": "8d5de8b52de0b30dd2aab26df16294f886c947c285184ad6b69708b2c9c827bf",
+    "archive_sha256": "8d5de8b52de0b30dd2aab26df16294f886c947c285184ad6b69708b2c9c827bf",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_memory_startup_system.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/check_memory_startup_system.py",
+    "original_sha256": "85cf6c1c50a1c8382f4ffebd80562fa84a23890d801b430ec7280833aabc736d",
+    "archive_sha256": "85cf6c1c50a1c8382f4ffebd80562fa84a23890d801b430ec7280833aabc736d",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_sram_system.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/check_sram_system.py",
+    "original_sha256": "bad784c909a6df7a2a5e789a0eccd9ee8d475350ccffd74ab67be1cdf7e19c09",
+    "archive_sha256": "bad784c909a6df7a2a5e789a0eccd9ee8d475350ccffd74ab67be1cdf7e19c09",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_standalone.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/check_standalone.py",
+    "original_sha256": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "archive_sha256": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/loadable_ci.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/loadable_ci.py",
+    "original_sha256": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "archive_sha256": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/prepare_standalone.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/prepare_standalone.py",
+    "original_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "archive_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/program_upload.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/program_upload.py",
+    "original_sha256": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "archive_sha256": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/run_xc7_system.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/run_xc7_system.py",
+    "original_sha256": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "archive_sha256": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/standalone_support.py",
+    "archive_path": "docs/verification/memory-startup-system/tools/standalone_support.py",
+    "original_sha256": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "archive_sha256": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/upstream.lock.json",
+    "archive_path": "docs/verification/memory-startup-system/tools/upstream.lock.json",
+    "original_sha256": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "archive_sha256": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "compressed": false
+  }
+]

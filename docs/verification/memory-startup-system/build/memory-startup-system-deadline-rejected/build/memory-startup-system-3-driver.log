@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_startup_system.py", line 112, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_memory_startup_system.py", line 94, in main
+    run.check_returncode()
+  File "/usr/lib/python3.12/subprocess.py", line 502, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '/tmp/wasmetal-xc7-core/tools/check_loadable.py', '--binary', '/tmp/wasmetal-xc7-core/build/memory-startup-system-3/Vwasmetal_loadable', '--report', '/tmp/wasmetal-xc7-core/reports/memory-startup-system-3-observations.json']' returned non-zero exit status 1.

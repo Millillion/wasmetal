@@ -1,0 +1,31 @@
+PASS uploaded answer
+PASS uploaded selftest
+PASS uploaded arguments
+PASS uploaded memory64
+PASS uploaded unaligned-simd
+PASS uploaded subtype-cast
+PASS uploaded tail-reference
+PASS uploaded branches
+PASS uploaded sixteen-results
+PASS uploaded no-results
+PASS uploaded unreachable
+PASS uploaded divide-zero
+PASS uploaded memory-oob
+PASS uploaded memory64-wrap
+PASS uploaded table-oob
+PASS uploaded null-call
+PASS uploaded bad-cast
+PASS uploaded uncaught
+PASS uploaded heap-exhaustion
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_loadable.py", line 182, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_loadable.py", line 133, in main
+    runs=execute(commands,completed)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_loadable.py", line 102, in execute
+    errors.seek(0);raise RuntimeError(errors.read().decode(errors='replace'))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: uploaded program did not finish
+
