@@ -87,6 +87,13 @@ jobs:
         run: python3 tools/check_xc7_memory_mapping.py
       - name: Synthesize the complete core-clock system and check its structure
         run: python3 tools/estimate_xc7_system.py
+      - name: Preserve notices for the generated synthesis-library copies
+        if: always()
+        run: |
+          if [ -f .cache/tools/usr/share/doc/yosys/copyright ]; then
+            mkdir -p build/xc7-licenses
+            cp .cache/tools/usr/share/doc/yosys/copyright build/xc7-licenses/YOSYS_COPYRIGHT
+          fi
       - name: Preserve the estimate and synthesis diagnostics
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -99,6 +106,8 @@ jobs:
             build/xc7-system/*.log
             build/xc7-system/*.ys
             build/xc7-system/mapping-overlay/
+            build/xc7-licenses/
+            third_party/xilinx-unisim/
           if-no-files-found: warn
           retention-days: 30
   external-memory-system:

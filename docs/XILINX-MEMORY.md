@@ -24,12 +24,23 @@ Structural synthesis checks do not detect the wrong connection, which is why
 resource estimates alone could not establish functional correctness.
 
 `tools/xc7_memory_mapping.py` verifies five pinned mapping-library hashes and
-creates a private overlay with that one correction. Its commands preserve the
+creates a private overlay with that parity correction. Its commands preserve the
 other xc7 memory-mapping options from
 [Yosys 0.33](https://github.com/YosysHQ/yosys/blob/yosys-0.33/techlibs/xilinx/synth_xilinx.cc).
 The installed tools and libraries are unchanged. The system estimator uses the
 overlay and records its input and output hashes. A changed library requires
 review instead of silently applying a text substitution to unfamiliar code.
+
+The overlay also follows the RAMB36E1 address-pin guidance in
+[AMD UG473, pages 30 and 38](https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content).
+Non-cascaded RAM uses a 16-bit address connection with unused pins held high.
+The old SDP expression produced 17 bits, losing its intended high constant
+when connected to the 16-bit primitive port. Functional simulation ignores
+that unused bit, so successful data comparisons did not catch the discrepancy.
+The new expressions preserve active address bits and drive the unused pins
+high. A separate structural audit checks exact port widths and constants;
+18 deliberate pin/configuration mutations must be rejected. Cascaded RAM and
+unsupported port widths require review. This check complements simulation.
 
 ## Independent verification
 
@@ -60,6 +71,8 @@ Six negative controls must fail: the actual uncorrected mapper, ignored write
 enable, ignored lane mask, ignored read enable, ignored output reset and an
 aliased read-address bit. The original defect is reproduced by real synthesis
 and the vendor model, without modifying the reference model or its result.
+The address-pin audit passes alongside all of those data checks, and all 18
+of its structural negative controls are rejected.
 
 After tool bootstrap:
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check real 7-series memory mapping against independent traces and vendor RAM models."""
 import collections
+import copy
 import fcntl
 import hashlib
 import json
@@ -11,7 +12,7 @@ import subprocess
 import time
 
 from prepare_standalone import ROOT, digest
-from xc7_memory_mapping import LIBRARY, prepare
+from xc7_memory_mapping import LIBRARY, audit_address_pins, prepare
 
 BUILD = ROOT / 'build/xc7-memory-mapping'
 VENDOR = ROOT / 'third_party/xilinx-unisim'
@@ -152,6 +153,33 @@ def synthesize(directory, source, corrected):
     brams = [c for c in cells.values() if c['type'] in ('RAMB18E1', 'RAMB36E1')]
     if len(brams) != 1:
         raise ValueError('fixture must map to exactly one physical block RAM: ' + str(counts))
+    pin_audit = audit_address_pins({'cells': cells}) if corrected else None
+    pin_negatives = []
+    if corrected and brams[0]['type'] == 'RAMB36E1':
+        for label in ['low-A15', 'low-unused-A0', 'short-address', 'long-address',
+                      'unsupported-width', 'unsupported-cascade']:
+            bad = copy.deepcopy(cells)
+            ram = next(c for c in bad.values() if c['type'] == 'RAMB36E1')
+            address = ram['connections']['ADDRARDADDR']
+            if label == 'low-A15':
+                address[15] = '0'
+            elif label == 'low-unused-A0':
+                address[0] = '0'
+            elif label == 'short-address':
+                address.pop()
+            elif label == 'long-address':
+                address.append('1')
+            elif label == 'unsupported-width':
+                ram['parameters']['READ_WIDTH_A'] = f'{3:032b}'
+            else:
+                ram['parameters']['RAM_EXTENSION_A'] = 'LOWER'
+            try:
+                audit_address_pins({'cells': bad})
+            except ValueError as error:
+                pin_negatives.append({'mutation': label, 'rejection': str(error),
+                    'mutant_cells_sha256': hashlib.sha256(json.dumps(bad, sort_keys=True).encode()).hexdigest()})
+            else:
+                raise ValueError('RAM address-pin mutation escaped: ' + label)
     # Use the pinned tool's actual logic cells, but its empty RAM shells are
     # deliberately excluded. All block-RAM behavior comes from original Unisim.
     library = (LIBRARY / 'cells_sim.v').read_text()
@@ -166,7 +194,8 @@ def synthesize(directory, source, corrected):
     logic = directory / (prefix + '-logic.v')
     logic.write_text('\n'.join(bodies) + '\n')
     return netlist, logic, {'cell_counts': dict(counts), 'ram_parameters': brams[0]['parameters'],
-        'ram_type': brams[0]['type'], 'overlay': overlay,
+        'ram_type': brams[0]['type'], 'overlay': overlay, 'address_pin_audit': pin_audit,
+        'address_pin_negative_controls': pin_negatives,
         'artifacts': identities([source, path, log, netlist, design, logic])}
 
 
@@ -261,6 +290,7 @@ def main():
         'inputs': hashes, 'vendor_source': pins, 'checks': checks,
         'total_vectors_per_model': sum(c['vectors_per_model'] for c in checks),
         'negative_controls_rejected': sum(len(c['negative_controls']) for c in checks),
+        'address_pin_negative_controls_rejected': sum(len(c['mapping']['address_pin_negative_controls']) for c in checks),
         'whole_cpu_mapping_verified': False, 'physical_hardware_tested': False,
         'limitations': ['No collision, asynchronous-clock aperture, metastability or electrical timing claim.',
                         'No DSP, complete CPU, place-and-route or board verification is implied.'],

@@ -2,8 +2,8 @@
   "status": "passed",
   "scope": "Five initialized RAM geometries: exact public-port traces in native RTL and physically mapped primitives using unmodified vendor four-state models; read/write clock edges are separated by at least 10 ns",
   "inputs": {
-    "tools/check_xc7_memory_mapping.py": "25229b031a234c9eec896383b01c7cf4c864903f0aff15e0dfc8821b8ec21c22",
-    "tools/xc7_memory_mapping.py": "95cdc37c129ef65b5ed244db9be49592023e4b36d5ac0ec107be835d48974534",
+    "tools/check_xc7_memory_mapping.py": "8a150ca919c09059724a58bd78eb26196d159df9fe068f41e0fe2e88c530cd9d",
+    "tools/xc7_memory_mapping.py": "a554ac9ddc2123c4d818f67bc4f9118304c8dba3b7d9ba0878e507e351f02c49",
     "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
     "tests/memory/xc7_mapping.sv": "32977bf1bfa73cadfeb76e443453f604169b310a7b6c3e2e59d36c24914c0857",
     "third_party/xilinx-unisim/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
@@ -257,13 +257,21 @@
         },
         "ram_type": "RAMB18E1",
         "overlay": {
-          "scope": "Yosys 0.33 xc7 memory mapping; correct upper parity-data inputs in 72-bit SDP mode",
+          "scope": "Yosys 0.33 xc7 memory mapping; correct 72-bit SDP parity inputs and non-cascaded RAMB36E1 unused address pins",
           "upstream_fixed_source": "https://github.com/YosysHQ/yosys/blob/24471b847a1c90b6b7a0e0535f15ea48b477d5b4/techlibs/xilinx/brams_xc6v_map.v",
           "patch": {
             "before": ".DIPBDIP(PORT_W_WIDTH == 71 ? DIP[7:4] : DIP[3:0])",
             "after": ".DIPBDIP(PORT_W_WIDTH == 72 ? DIP[7:4] : DIP[3:0])",
             "replacements": 1
           },
+          "address_pin_guidance": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content",
+          "address_patches": {
+            ".ADDRARDADDR({1'b1, PORT_A_ADDR[14:0]})": ".ADDRARDADDR(PORT_A_ADDR | wasmetal_ramb36_unused(PORT_A_RD_USED ? PORT_A_RD_WIDTH : 0, PORT_A_WR_USED ? PORT_A_WR_WIDTH : 0))",
+            ".ADDRBWRADDR({1'b1, PORT_B_ADDR[14:0]})": ".ADDRBWRADDR(PORT_B_ADDR | wasmetal_ramb36_unused(PORT_B_RD_USED ? PORT_B_RD_WIDTH : 0, PORT_B_WR_USED ? PORT_B_WR_WIDTH : 0))",
+            ".ADDRARDADDR({1'b1, PORT_R_ADDR})": ".ADDRARDADDR(PORT_R_ADDR | wasmetal_ramb36_unused(PORT_R_USED ? PORT_R_WIDTH : 0, 0))",
+            ".ADDRBWRADDR({1'b1, PORT_W_ADDR})": ".ADDRBWRADDR(PORT_W_ADDR | wasmetal_ramb36_unused(0, PORT_W_USED ? PORT_W_WIDTH : 0))"
+          },
+          "address_function_insertions": 2,
           "inputs": {
             ".cache/tools/usr/share/yosys/xilinx/brams_xc6v_map.v": "678908f431dd3304aa41f2d1cb87ed6958c20adff848a0b3a6ea8903e59a1008",
             ".cache/tools/usr/share/yosys/xilinx/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55",
@@ -272,18 +280,25 @@
             ".cache/tools/usr/share/yosys/xilinx/lutrams_xc5v_map.v": "a88ef19a3318a4b45655d826bfcb80f17bd241fa4f573fca8dcd6b12c5640cff"
           },
           "outputs": {
-            "build/xc7-memory-mapping/w9-d2048/overlay/brams_xc6v_map.v": "a1afcda1610f3f3dcbc0b9bbe99c30ce2125788b7e69cbaa456f314fbfca6431",
+            "build/xc7-memory-mapping/w9-d2048/overlay/brams_xc6v_map.v": "469e7d3252c031c268f70dd5b0357f4aa94f21f20bf4bd405d7a8a39c29e291b",
             "build/xc7-memory-mapping/w9-d2048/overlay/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55"
           },
           "commands": "memory_libmap -logic-cost-rom 0.015625 -lib +/xilinx/lutrams_xc5v.txt -lib +/xilinx/brams_xc4v.txt -D HAS_SIZE_36 -D HAS_CASCADE -D HAS_CONFLICT_BUG -D HAS_MIXWIDTH_SDP -no-auto-huge\ntechmap -map +/xilinx/lutrams_xc5v_map.v\ntechmap -map \"/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/overlay/brams_xc6v_map.v\"\n",
           "installed_tools_modified": false
         },
+        "address_pin_audit": {
+          "status": "passed",
+          "ram36_cells": 0,
+          "constant_high_address_pins": 0,
+          "source": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content"
+        },
+        "address_pin_negative_controls": [],
         "artifacts": {
           "build/xc7-memory-mapping/w9-d2048/fixture.sv": "794a3ce78e02c735b2a96f78dcc8df06ca70966389ae19da3d21f4d636a333c2",
           "build/xc7-memory-mapping/w9-d2048/fixed.ys": "08acf65592be6abbd0f044d0cb4cd0aff49836ba317ac3e6535a839e8db3f12a",
           "build/xc7-memory-mapping/w9-d2048/fixed-synthesis.log": "dab8d8187808d3b041ec5819bf8e280cb381850990ad5c8944778b7da5819d51",
           "build/xc7-memory-mapping/w9-d2048/fixed.v": "ce85a976bc867baae33d0c468e9943f1c70416c7471ec074b3260cba0af15d59",
-          "build/xc7-memory-mapping/w9-d2048/fixed.json": "6bc3651d87707633036114d247943399fa6918aa68524df6883b5edaf8428b69",
+          "build/xc7-memory-mapping/w9-d2048/fixed.json": "6bfbe45f3389f2f2c6c1a066a1e114d128c5ac135d3187c831d1b62c2c62b2d3",
           "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a"
         }
       },
@@ -312,7 +327,7 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w9-d2048/fixture.sv": "794a3ce78e02c735b2a96f78dcc8df06ca70966389ae19da3d21f4d636a333c2",
-          "build/xc7-memory-mapping/w9-d2048/native.vvp": "acd4d44062e1a764482caee6de33bdcc4a32047f04298f33e8843762f1a230e1",
+          "build/xc7-memory-mapping/w9-d2048/native.vvp": "45e6fe1c7f50e8b650a30f76bbd80ef76b73cb62a2150b3fac803bd4176bea03",
           "build/xc7-memory-mapping/w9-d2048/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-memory-mapping/w9-d2048/native.log": "f83cc052781911846dc9720e0d6a121b941d7ea9ea1899a6fa6255e4cc4abcb4",
           "build/xc7-memory-mapping/w9-d2048/vectors.txt": "47aea61541100863f5fb54553f8198f2b42adf9c067b365b750933ecaaad68bb",
@@ -350,7 +365,7 @@
           "build/xc7-memory-mapping/w9-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w9-d2048/fixed.vvp": "49a007531cfac874f37e1d77e9c97495047a13d73f7931e5fcacef5b15a94005",
+          "build/xc7-memory-mapping/w9-d2048/fixed.vvp": "a2915e73ad1117420d6dd0e1d06e5174bd10d7bdc98f3ac22649252171124a9f",
           "build/xc7-memory-mapping/w9-d2048/fixed-compile.log": "7b059062015c753478cdf57c2967b2cad0d5aacb824b167b2ca4f2139060f4bd",
           "build/xc7-memory-mapping/w9-d2048/fixed.log": "f83cc052781911846dc9720e0d6a121b941d7ea9ea1899a6fa6255e4cc4abcb4",
           "build/xc7-memory-mapping/w9-d2048/vectors.txt": "47aea61541100863f5fb54553f8198f2b42adf9c067b365b750933ecaaad68bb",
@@ -545,13 +560,21 @@
         },
         "ram_type": "RAMB36E1",
         "overlay": {
-          "scope": "Yosys 0.33 xc7 memory mapping; correct upper parity-data inputs in 72-bit SDP mode",
+          "scope": "Yosys 0.33 xc7 memory mapping; correct 72-bit SDP parity inputs and non-cascaded RAMB36E1 unused address pins",
           "upstream_fixed_source": "https://github.com/YosysHQ/yosys/blob/24471b847a1c90b6b7a0e0535f15ea48b477d5b4/techlibs/xilinx/brams_xc6v_map.v",
           "patch": {
             "before": ".DIPBDIP(PORT_W_WIDTH == 71 ? DIP[7:4] : DIP[3:0])",
             "after": ".DIPBDIP(PORT_W_WIDTH == 72 ? DIP[7:4] : DIP[3:0])",
             "replacements": 1
           },
+          "address_pin_guidance": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content",
+          "address_patches": {
+            ".ADDRARDADDR({1'b1, PORT_A_ADDR[14:0]})": ".ADDRARDADDR(PORT_A_ADDR | wasmetal_ramb36_unused(PORT_A_RD_USED ? PORT_A_RD_WIDTH : 0, PORT_A_WR_USED ? PORT_A_WR_WIDTH : 0))",
+            ".ADDRBWRADDR({1'b1, PORT_B_ADDR[14:0]})": ".ADDRBWRADDR(PORT_B_ADDR | wasmetal_ramb36_unused(PORT_B_RD_USED ? PORT_B_RD_WIDTH : 0, PORT_B_WR_USED ? PORT_B_WR_WIDTH : 0))",
+            ".ADDRARDADDR({1'b1, PORT_R_ADDR})": ".ADDRARDADDR(PORT_R_ADDR | wasmetal_ramb36_unused(PORT_R_USED ? PORT_R_WIDTH : 0, 0))",
+            ".ADDRBWRADDR({1'b1, PORT_W_ADDR})": ".ADDRBWRADDR(PORT_W_ADDR | wasmetal_ramb36_unused(0, PORT_W_USED ? PORT_W_WIDTH : 0))"
+          },
+          "address_function_insertions": 2,
           "inputs": {
             ".cache/tools/usr/share/yosys/xilinx/brams_xc6v_map.v": "678908f431dd3304aa41f2d1cb87ed6958c20adff848a0b3a6ea8903e59a1008",
             ".cache/tools/usr/share/yosys/xilinx/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55",
@@ -560,18 +583,56 @@
             ".cache/tools/usr/share/yosys/xilinx/lutrams_xc5v_map.v": "a88ef19a3318a4b45655d826bfcb80f17bd241fa4f573fca8dcd6b12c5640cff"
           },
           "outputs": {
-            "build/xc7-memory-mapping/w18-d2048/overlay/brams_xc6v_map.v": "a1afcda1610f3f3dcbc0b9bbe99c30ce2125788b7e69cbaa456f314fbfca6431",
+            "build/xc7-memory-mapping/w18-d2048/overlay/brams_xc6v_map.v": "469e7d3252c031c268f70dd5b0357f4aa94f21f20bf4bd405d7a8a39c29e291b",
             "build/xc7-memory-mapping/w18-d2048/overlay/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55"
           },
           "commands": "memory_libmap -logic-cost-rom 0.015625 -lib +/xilinx/lutrams_xc5v.txt -lib +/xilinx/brams_xc4v.txt -D HAS_SIZE_36 -D HAS_CASCADE -D HAS_CONFLICT_BUG -D HAS_MIXWIDTH_SDP -no-auto-huge\ntechmap -map +/xilinx/lutrams_xc5v_map.v\ntechmap -map \"/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w18-d2048/overlay/brams_xc6v_map.v\"\n",
           "installed_tools_modified": false
         },
+        "address_pin_audit": {
+          "status": "passed",
+          "ram36_cells": 1,
+          "constant_high_address_pins": 10,
+          "source": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content"
+        },
+        "address_pin_negative_controls": [
+          {
+            "mutation": "low-A15",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "1c96f967692c77644c329bbdd0078e6dbe8eb13202e0f3183030a15e1920fdff"
+          },
+          {
+            "mutation": "low-unused-A0",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "59c7803a78444949399a0f2ca11dbcb3f571171e90293c7d3374732e717c4b2c"
+          },
+          {
+            "mutation": "short-address",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "12e88caba654cc04688fb136b557700d49977b798b941d926b34b56575cd30fe"
+          },
+          {
+            "mutation": "long-address",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "7fdd9783477319afd10d40739b0a60c6741b0fdf4546f015af887be66622c12e"
+          },
+          {
+            "mutation": "unsupported-width",
+            "rejection": "unsupported RAM port width: memory.0.0",
+            "mutant_cells_sha256": "9b28ac61a8d3ab737d4746a440fb45ee1dfa70bd7e1c11a01f091ca4c514c08c"
+          },
+          {
+            "mutation": "unsupported-cascade",
+            "rejection": "review cascaded RAM address pins: memory.0.0",
+            "mutant_cells_sha256": "dcc54506c038a68b602fecab125a41a3f50dd9fa6935f139f6bfdc928d03ddf0"
+          }
+        ],
         "artifacts": {
           "build/xc7-memory-mapping/w18-d2048/fixture.sv": "397075fddf49445f94005c2b98b9b545d89b9f06a96c12e3e553d5819d4d207c",
           "build/xc7-memory-mapping/w18-d2048/fixed.ys": "91778af07ac36f6557ca44582d3fc7d998be87673fc9eb293d027199ff0e9409",
-          "build/xc7-memory-mapping/w18-d2048/fixed-synthesis.log": "60e235326caca024669ac6e9432bbdfe41af7adbc49d2ed02df9011217e1ee7c",
-          "build/xc7-memory-mapping/w18-d2048/fixed.v": "def25c136c0d7246d5432de277f04c460283aeebbe133aa814028c21c8b29013",
-          "build/xc7-memory-mapping/w18-d2048/fixed.json": "63a10a8ab37f0ba6833893fca4ed6b38b0a07ae5971998c753b167cd89311c7e",
+          "build/xc7-memory-mapping/w18-d2048/fixed-synthesis.log": "a38037850807a2d9e3de70fa23cafc8dbe46234437378e6fe1c749c3801394ae",
+          "build/xc7-memory-mapping/w18-d2048/fixed.v": "77a7d4c30e93883200ed77dd4f037fa23021fa677e94ee5de73d44babbe1c9ff",
+          "build/xc7-memory-mapping/w18-d2048/fixed.json": "32a7a61a9c7c27174e1b018f2cab4f280d085498669550699ef62eadf4e6f6f5",
           "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a"
         }
       },
@@ -600,7 +661,7 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w18-d2048/fixture.sv": "397075fddf49445f94005c2b98b9b545d89b9f06a96c12e3e553d5819d4d207c",
-          "build/xc7-memory-mapping/w18-d2048/native.vvp": "5fcc2b1059695b34468b98d3ee1e04f783a3140a2f535f1956f8c35f49361f24",
+          "build/xc7-memory-mapping/w18-d2048/native.vvp": "e8e8276983ba28e2ef9c64e2fed6cfa89d33ee3fa00c339d4e8f731e8beb9c87",
           "build/xc7-memory-mapping/w18-d2048/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-memory-mapping/w18-d2048/native.log": "7e690b416d3cc5d5b326975bbed1cfb77ca9ea7048fada3502efd54bfac477cb",
           "build/xc7-memory-mapping/w18-d2048/vectors.txt": "571beee05cb28e9b563fcdac0669f459a319bbbae33c7e897bf58df51e66a916",
@@ -634,11 +695,11 @@
           "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
         ],
         "artifacts": {
-          "build/xc7-memory-mapping/w18-d2048/fixed.v": "def25c136c0d7246d5432de277f04c460283aeebbe133aa814028c21c8b29013",
+          "build/xc7-memory-mapping/w18-d2048/fixed.v": "77a7d4c30e93883200ed77dd4f037fa23021fa677e94ee5de73d44babbe1c9ff",
           "build/xc7-memory-mapping/w18-d2048/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w18-d2048/fixed.vvp": "b059e93d1ca0de016b361b24b1964ef0e55a0a5442bb77da8ef55826ee3d6cd6",
+          "build/xc7-memory-mapping/w18-d2048/fixed.vvp": "4f9299161b86d1bc79d3728d4b5c00f287c9530fe4835a24a4bd9c0ce34cfb84",
           "build/xc7-memory-mapping/w18-d2048/fixed-compile.log": "3323ab7537d948b9b8e6fd0f25a60e65c1bf09fdaf06343ed530ef0cf6c066bc",
           "build/xc7-memory-mapping/w18-d2048/fixed.log": "7e690b416d3cc5d5b326975bbed1cfb77ca9ea7048fada3502efd54bfac477cb",
           "build/xc7-memory-mapping/w18-d2048/vectors.txt": "571beee05cb28e9b563fcdac0669f459a319bbbae33c7e897bf58df51e66a916",
@@ -833,13 +894,21 @@
         },
         "ram_type": "RAMB36E1",
         "overlay": {
-          "scope": "Yosys 0.33 xc7 memory mapping; correct upper parity-data inputs in 72-bit SDP mode",
+          "scope": "Yosys 0.33 xc7 memory mapping; correct 72-bit SDP parity inputs and non-cascaded RAMB36E1 unused address pins",
           "upstream_fixed_source": "https://github.com/YosysHQ/yosys/blob/24471b847a1c90b6b7a0e0535f15ea48b477d5b4/techlibs/xilinx/brams_xc6v_map.v",
           "patch": {
             "before": ".DIPBDIP(PORT_W_WIDTH == 71 ? DIP[7:4] : DIP[3:0])",
             "after": ".DIPBDIP(PORT_W_WIDTH == 72 ? DIP[7:4] : DIP[3:0])",
             "replacements": 1
           },
+          "address_pin_guidance": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content",
+          "address_patches": {
+            ".ADDRARDADDR({1'b1, PORT_A_ADDR[14:0]})": ".ADDRARDADDR(PORT_A_ADDR | wasmetal_ramb36_unused(PORT_A_RD_USED ? PORT_A_RD_WIDTH : 0, PORT_A_WR_USED ? PORT_A_WR_WIDTH : 0))",
+            ".ADDRBWRADDR({1'b1, PORT_B_ADDR[14:0]})": ".ADDRBWRADDR(PORT_B_ADDR | wasmetal_ramb36_unused(PORT_B_RD_USED ? PORT_B_RD_WIDTH : 0, PORT_B_WR_USED ? PORT_B_WR_WIDTH : 0))",
+            ".ADDRARDADDR({1'b1, PORT_R_ADDR})": ".ADDRARDADDR(PORT_R_ADDR | wasmetal_ramb36_unused(PORT_R_USED ? PORT_R_WIDTH : 0, 0))",
+            ".ADDRBWRADDR({1'b1, PORT_W_ADDR})": ".ADDRBWRADDR(PORT_W_ADDR | wasmetal_ramb36_unused(0, PORT_W_USED ? PORT_W_WIDTH : 0))"
+          },
+          "address_function_insertions": 2,
           "inputs": {
             ".cache/tools/usr/share/yosys/xilinx/brams_xc6v_map.v": "678908f431dd3304aa41f2d1cb87ed6958c20adff848a0b3a6ea8903e59a1008",
             ".cache/tools/usr/share/yosys/xilinx/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55",
@@ -848,18 +917,56 @@
             ".cache/tools/usr/share/yosys/xilinx/lutrams_xc5v_map.v": "a88ef19a3318a4b45655d826bfcb80f17bd241fa4f573fca8dcd6b12c5640cff"
           },
           "outputs": {
-            "build/xc7-memory-mapping/w36-d1024/overlay/brams_xc6v_map.v": "a1afcda1610f3f3dcbc0b9bbe99c30ce2125788b7e69cbaa456f314fbfca6431",
+            "build/xc7-memory-mapping/w36-d1024/overlay/brams_xc6v_map.v": "469e7d3252c031c268f70dd5b0357f4aa94f21f20bf4bd405d7a8a39c29e291b",
             "build/xc7-memory-mapping/w36-d1024/overlay/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55"
           },
           "commands": "memory_libmap -logic-cost-rom 0.015625 -lib +/xilinx/lutrams_xc5v.txt -lib +/xilinx/brams_xc4v.txt -D HAS_SIZE_36 -D HAS_CASCADE -D HAS_CONFLICT_BUG -D HAS_MIXWIDTH_SDP -no-auto-huge\ntechmap -map +/xilinx/lutrams_xc5v_map.v\ntechmap -map \"/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d1024/overlay/brams_xc6v_map.v\"\n",
           "installed_tools_modified": false
         },
+        "address_pin_audit": {
+          "status": "passed",
+          "ram36_cells": 1,
+          "constant_high_address_pins": 12,
+          "source": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content"
+        },
+        "address_pin_negative_controls": [
+          {
+            "mutation": "low-A15",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "dd25f7c4eac2d0705d97ca4516fe96119ec8069df4c60b2a7f6cd96575fc4614"
+          },
+          {
+            "mutation": "low-unused-A0",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "a6b4faf9c6f8bd78c13187d2d0493c80c05c3442abd9e3655a7f683f5d2b0ef2"
+          },
+          {
+            "mutation": "short-address",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "9ed3212c72358ad4ba08856a82a6b178f5d007297e11690015a9a9f94b35309d"
+          },
+          {
+            "mutation": "long-address",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "e467d7390664f950075e78f207f728622892123e3d038154514291f089a0f9a3"
+          },
+          {
+            "mutation": "unsupported-width",
+            "rejection": "unsupported RAM port width: memory.0.0",
+            "mutant_cells_sha256": "edbf88d9b22a0c6e8e4ad32e8e54921a35fe9cd03fd4b2f3eb516589baf03318"
+          },
+          {
+            "mutation": "unsupported-cascade",
+            "rejection": "review cascaded RAM address pins: memory.0.0",
+            "mutant_cells_sha256": "0323d8340aec90adc327f7ddc764634b5d34cdfeee1c00eebd7ca734397b9b3b"
+          }
+        ],
         "artifacts": {
           "build/xc7-memory-mapping/w36-d1024/fixture.sv": "465fb226f6c6fcaee97e02bebf23428d782bca6999b95adbe1e025219f1231ff",
           "build/xc7-memory-mapping/w36-d1024/fixed.ys": "d300a724ae3ef4566996abee36e65c9acaf0bd19e728b217a5fad74ac546f320",
-          "build/xc7-memory-mapping/w36-d1024/fixed-synthesis.log": "855435b244f04dfe1f9582c2ee3084ab0d36a1f3505f19203cbec9937598218e",
-          "build/xc7-memory-mapping/w36-d1024/fixed.v": "18317e850a9bdc0c5de96739b6b1c4969526b36e2541f10bc7d143807cf3921e",
-          "build/xc7-memory-mapping/w36-d1024/fixed.json": "d1e131c7a83cd9eb2a3768d7f70309d0943877343ecc841eaf45a08963328d9e",
+          "build/xc7-memory-mapping/w36-d1024/fixed-synthesis.log": "ab067a3de4d8d44a30a2f750475f5e8b6dca35cccd8423857f0cc3b0fb21a7dd",
+          "build/xc7-memory-mapping/w36-d1024/fixed.v": "4b8d5a1be05a7143f756e8dfefc69040742911e5b1a7c74bf3ea3f5f3ce6d822",
+          "build/xc7-memory-mapping/w36-d1024/fixed.json": "acc01c97603b54306410b2e14ffdb5b3f37a071383c14d4972fd28cc03669f43",
           "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a"
         }
       },
@@ -888,7 +995,7 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w36-d1024/fixture.sv": "465fb226f6c6fcaee97e02bebf23428d782bca6999b95adbe1e025219f1231ff",
-          "build/xc7-memory-mapping/w36-d1024/native.vvp": "c43fca201bfa73568290bed4a4175375f2e65b46ad0516215ffeb440c29e253a",
+          "build/xc7-memory-mapping/w36-d1024/native.vvp": "fea88e1aac98290a8a12b4215a2399c3348021cca96edd7ca328aacc37fc567b",
           "build/xc7-memory-mapping/w36-d1024/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-memory-mapping/w36-d1024/native.log": "16829cbfe18b9a00739dd4b9430ae682bcc5205fb5be38ad5d1e5b76c6f5cd5b",
           "build/xc7-memory-mapping/w36-d1024/vectors.txt": "677618abe8de2e493cdb106066b409e7f7d63cd0c528ab055004c3749e01fed6",
@@ -922,11 +1029,11 @@
           "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
         ],
         "artifacts": {
-          "build/xc7-memory-mapping/w36-d1024/fixed.v": "18317e850a9bdc0c5de96739b6b1c4969526b36e2541f10bc7d143807cf3921e",
+          "build/xc7-memory-mapping/w36-d1024/fixed.v": "4b8d5a1be05a7143f756e8dfefc69040742911e5b1a7c74bf3ea3f5f3ce6d822",
           "build/xc7-memory-mapping/w36-d1024/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w36-d1024/fixed.vvp": "51954856582b2fa565187489ff1338830d46115f82f93166132396d87b022927",
+          "build/xc7-memory-mapping/w36-d1024/fixed.vvp": "b393a10638418e371e5937694f53f06f24140aaf659a7920aa3eb6919c63096d",
           "build/xc7-memory-mapping/w36-d1024/fixed-compile.log": "fb9759d37e5b97a4e6357669c3efd5e131df9671b28dce54eaa3480a87db7964",
           "build/xc7-memory-mapping/w36-d1024/fixed.log": "16829cbfe18b9a00739dd4b9430ae682bcc5205fb5be38ad5d1e5b76c6f5cd5b",
           "build/xc7-memory-mapping/w36-d1024/vectors.txt": "677618abe8de2e493cdb106066b409e7f7d63cd0c528ab055004c3749e01fed6",
@@ -1047,13 +1154,21 @@
         },
         "ram_type": "RAMB18E1",
         "overlay": {
-          "scope": "Yosys 0.33 xc7 memory mapping; correct upper parity-data inputs in 72-bit SDP mode",
+          "scope": "Yosys 0.33 xc7 memory mapping; correct 72-bit SDP parity inputs and non-cascaded RAMB36E1 unused address pins",
           "upstream_fixed_source": "https://github.com/YosysHQ/yosys/blob/24471b847a1c90b6b7a0e0535f15ea48b477d5b4/techlibs/xilinx/brams_xc6v_map.v",
           "patch": {
             "before": ".DIPBDIP(PORT_W_WIDTH == 71 ? DIP[7:4] : DIP[3:0])",
             "after": ".DIPBDIP(PORT_W_WIDTH == 72 ? DIP[7:4] : DIP[3:0])",
             "replacements": 1
           },
+          "address_pin_guidance": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content",
+          "address_patches": {
+            ".ADDRARDADDR({1'b1, PORT_A_ADDR[14:0]})": ".ADDRARDADDR(PORT_A_ADDR | wasmetal_ramb36_unused(PORT_A_RD_USED ? PORT_A_RD_WIDTH : 0, PORT_A_WR_USED ? PORT_A_WR_WIDTH : 0))",
+            ".ADDRBWRADDR({1'b1, PORT_B_ADDR[14:0]})": ".ADDRBWRADDR(PORT_B_ADDR | wasmetal_ramb36_unused(PORT_B_RD_USED ? PORT_B_RD_WIDTH : 0, PORT_B_WR_USED ? PORT_B_WR_WIDTH : 0))",
+            ".ADDRARDADDR({1'b1, PORT_R_ADDR})": ".ADDRARDADDR(PORT_R_ADDR | wasmetal_ramb36_unused(PORT_R_USED ? PORT_R_WIDTH : 0, 0))",
+            ".ADDRBWRADDR({1'b1, PORT_W_ADDR})": ".ADDRBWRADDR(PORT_W_ADDR | wasmetal_ramb36_unused(0, PORT_W_USED ? PORT_W_WIDTH : 0))"
+          },
+          "address_function_insertions": 2,
           "inputs": {
             ".cache/tools/usr/share/yosys/xilinx/brams_xc6v_map.v": "678908f431dd3304aa41f2d1cb87ed6958c20adff848a0b3a6ea8903e59a1008",
             ".cache/tools/usr/share/yosys/xilinx/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55",
@@ -1062,18 +1177,25 @@
             ".cache/tools/usr/share/yosys/xilinx/lutrams_xc5v_map.v": "a88ef19a3318a4b45655d826bfcb80f17bd241fa4f573fca8dcd6b12c5640cff"
           },
           "outputs": {
-            "build/xc7-memory-mapping/w36-d512/overlay/brams_xc6v_map.v": "a1afcda1610f3f3dcbc0b9bbe99c30ce2125788b7e69cbaa456f314fbfca6431",
+            "build/xc7-memory-mapping/w36-d512/overlay/brams_xc6v_map.v": "469e7d3252c031c268f70dd5b0357f4aa94f21f20bf4bd405d7a8a39c29e291b",
             "build/xc7-memory-mapping/w36-d512/overlay/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55"
           },
           "commands": "memory_libmap -logic-cost-rom 0.015625 -lib +/xilinx/lutrams_xc5v.txt -lib +/xilinx/brams_xc4v.txt -D HAS_SIZE_36 -D HAS_CASCADE -D HAS_CONFLICT_BUG -D HAS_MIXWIDTH_SDP -no-auto-huge\ntechmap -map +/xilinx/lutrams_xc5v_map.v\ntechmap -map \"/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w36-d512/overlay/brams_xc6v_map.v\"\n",
           "installed_tools_modified": false
         },
+        "address_pin_audit": {
+          "status": "passed",
+          "ram36_cells": 0,
+          "constant_high_address_pins": 0,
+          "source": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content"
+        },
+        "address_pin_negative_controls": [],
         "artifacts": {
           "build/xc7-memory-mapping/w36-d512/fixture.sv": "8dd0da96f154d1c7977eeaa0469121ea9afe71efa7994ec11462f70d71bf1139",
           "build/xc7-memory-mapping/w36-d512/fixed.ys": "d8f28496bb37e287606da28fca276a14c8c7ba350b7fe18c7b624100047050e9",
           "build/xc7-memory-mapping/w36-d512/fixed-synthesis.log": "2bc67a46489f1fc16e3c891090628c13775a41d0808e7e657dbfa0f5a1176346",
           "build/xc7-memory-mapping/w36-d512/fixed.v": "c5a71c2e36fbe68cf9d0ae3e95107f785e60c29e6a89265feb97f75f2215dcee",
-          "build/xc7-memory-mapping/w36-d512/fixed.json": "a905712d7c3f4059bc270dae1c0d1d478eac4cefe35d4b916116308db7f0c870",
+          "build/xc7-memory-mapping/w36-d512/fixed.json": "2c750664ee971490049ec466094193b29404559307abb6265897b94a9e448595",
           "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a"
         }
       },
@@ -1102,7 +1224,7 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w36-d512/fixture.sv": "8dd0da96f154d1c7977eeaa0469121ea9afe71efa7994ec11462f70d71bf1139",
-          "build/xc7-memory-mapping/w36-d512/native.vvp": "d6f7850bef48b233f73a426120c7e585bfbc87211d44308dc049eb9c5dfa70f8",
+          "build/xc7-memory-mapping/w36-d512/native.vvp": "187db724ec5423c1c13e158b1b742353891dbc4812efc4a8eb6a6ba733a8e77d",
           "build/xc7-memory-mapping/w36-d512/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-memory-mapping/w36-d512/native.log": "f555cf880e20aff5c997fea1bd3fd13295a3074cfc9982699d17894367a74495",
           "build/xc7-memory-mapping/w36-d512/vectors.txt": "babeb7c6ea46be9416f1560f8402a230be0aa74be7fad353b35029982fa58df6",
@@ -1140,7 +1262,7 @@
           "build/xc7-memory-mapping/w36-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w36-d512/fixed.vvp": "9f426e32d9334e059c47c317eca8d9fb79e3d0e2115bda7af195a4b162efb535",
+          "build/xc7-memory-mapping/w36-d512/fixed.vvp": "e3b7de1edf994107ab09c7a850d207fb093e1a444a207226e7913d326a952a92",
           "build/xc7-memory-mapping/w36-d512/fixed-compile.log": "7ab84033d1a07ea5cccd63babd09974a6584fcb6aa6c50f0c6032390656e286e",
           "build/xc7-memory-mapping/w36-d512/fixed.log": "f555cf880e20aff5c997fea1bd3fd13295a3074cfc9982699d17894367a74495",
           "build/xc7-memory-mapping/w36-d512/vectors.txt": "babeb7c6ea46be9416f1560f8402a230be0aa74be7fad353b35029982fa58df6",
@@ -1333,13 +1455,21 @@
         },
         "ram_type": "RAMB36E1",
         "overlay": {
-          "scope": "Yosys 0.33 xc7 memory mapping; correct upper parity-data inputs in 72-bit SDP mode",
+          "scope": "Yosys 0.33 xc7 memory mapping; correct 72-bit SDP parity inputs and non-cascaded RAMB36E1 unused address pins",
           "upstream_fixed_source": "https://github.com/YosysHQ/yosys/blob/24471b847a1c90b6b7a0e0535f15ea48b477d5b4/techlibs/xilinx/brams_xc6v_map.v",
           "patch": {
             "before": ".DIPBDIP(PORT_W_WIDTH == 71 ? DIP[7:4] : DIP[3:0])",
             "after": ".DIPBDIP(PORT_W_WIDTH == 72 ? DIP[7:4] : DIP[3:0])",
             "replacements": 1
           },
+          "address_pin_guidance": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content",
+          "address_patches": {
+            ".ADDRARDADDR({1'b1, PORT_A_ADDR[14:0]})": ".ADDRARDADDR(PORT_A_ADDR | wasmetal_ramb36_unused(PORT_A_RD_USED ? PORT_A_RD_WIDTH : 0, PORT_A_WR_USED ? PORT_A_WR_WIDTH : 0))",
+            ".ADDRBWRADDR({1'b1, PORT_B_ADDR[14:0]})": ".ADDRBWRADDR(PORT_B_ADDR | wasmetal_ramb36_unused(PORT_B_RD_USED ? PORT_B_RD_WIDTH : 0, PORT_B_WR_USED ? PORT_B_WR_WIDTH : 0))",
+            ".ADDRARDADDR({1'b1, PORT_R_ADDR})": ".ADDRARDADDR(PORT_R_ADDR | wasmetal_ramb36_unused(PORT_R_USED ? PORT_R_WIDTH : 0, 0))",
+            ".ADDRBWRADDR({1'b1, PORT_W_ADDR})": ".ADDRBWRADDR(PORT_W_ADDR | wasmetal_ramb36_unused(0, PORT_W_USED ? PORT_W_WIDTH : 0))"
+          },
+          "address_function_insertions": 2,
           "inputs": {
             ".cache/tools/usr/share/yosys/xilinx/brams_xc6v_map.v": "678908f431dd3304aa41f2d1cb87ed6958c20adff848a0b3a6ea8903e59a1008",
             ".cache/tools/usr/share/yosys/xilinx/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55",
@@ -1348,18 +1478,56 @@
             ".cache/tools/usr/share/yosys/xilinx/lutrams_xc5v_map.v": "a88ef19a3318a4b45655d826bfcb80f17bd241fa4f573fca8dcd6b12c5640cff"
           },
           "outputs": {
-            "build/xc7-memory-mapping/w72-d512/overlay/brams_xc6v_map.v": "a1afcda1610f3f3dcbc0b9bbe99c30ce2125788b7e69cbaa456f314fbfca6431",
+            "build/xc7-memory-mapping/w72-d512/overlay/brams_xc6v_map.v": "469e7d3252c031c268f70dd5b0357f4aa94f21f20bf4bd405d7a8a39c29e291b",
             "build/xc7-memory-mapping/w72-d512/overlay/brams_defs.vh": "6060e135ee7cc4a391d06547f0c6f37bf6da55878cc58be89165078526b04a55"
           },
           "commands": "memory_libmap -logic-cost-rom 0.015625 -lib +/xilinx/lutrams_xc5v.txt -lib +/xilinx/brams_xc4v.txt -D HAS_SIZE_36 -D HAS_CASCADE -D HAS_CONFLICT_BUG -D HAS_MIXWIDTH_SDP -no-auto-huge\ntechmap -map +/xilinx/lutrams_xc5v_map.v\ntechmap -map \"/tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w72-d512/overlay/brams_xc6v_map.v\"\n",
           "installed_tools_modified": false
         },
+        "address_pin_audit": {
+          "status": "passed",
+          "ram36_cells": 1,
+          "constant_high_address_pins": 14,
+          "source": "https://docs.amd.com/api/khub/documents/9gZGbqBxtlKXxBfkBt~lAg/content"
+        },
+        "address_pin_negative_controls": [
+          {
+            "mutation": "low-A15",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "0c9fc6c20035070001427e024e7f3615569a3409bad6f889a72c288c0c2a72ff"
+          },
+          {
+            "mutation": "low-unused-A0",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "47a22a646303bb95dcfd5405371c664f8549c0147a07ba2cab86308dc33519ff"
+          },
+          {
+            "mutation": "short-address",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "0473d1e6cb27d6ba352cc515f1eb02aa759480ed9bf5c7a2306cee49fdf5a5e7"
+          },
+          {
+            "mutation": "long-address",
+            "rejection": "non-cascaded RAM address-pin contract: memory.0.0.ADDRARDADDR",
+            "mutant_cells_sha256": "3686f634784325c1c7363e52db40e3c6d22b8f3835961b9c57b958eb672aaeee"
+          },
+          {
+            "mutation": "unsupported-width",
+            "rejection": "unsupported RAM port width: memory.0.0",
+            "mutant_cells_sha256": "d7d430a3076978b4c771a00638b5796e8da03a64ff0992e05b424be7a11c9c1f"
+          },
+          {
+            "mutation": "unsupported-cascade",
+            "rejection": "review cascaded RAM address pins: memory.0.0",
+            "mutant_cells_sha256": "f545ac692760086202bcd5d018db1b2727c5fe1b34cb6481e4545a2356d7f6fd"
+          }
+        ],
         "artifacts": {
           "build/xc7-memory-mapping/w72-d512/fixture.sv": "48643426055352ab44e6f0ae844f40d1504ba800a560d345007bac31b2491a3b",
           "build/xc7-memory-mapping/w72-d512/fixed.ys": "d4c0f9ce98584e42d7a3b51c33acb0097e2702a30b6f96e07bd4776999244a19",
-          "build/xc7-memory-mapping/w72-d512/fixed-synthesis.log": "09be98f58dfe5e5b46834ae883d6e1f86ed847f799e5037c853ddd9eaf076370",
-          "build/xc7-memory-mapping/w72-d512/fixed.v": "cc3898885fdcb18b8c2c2d83338652f539981092b643761b44d29130aebf6b37",
-          "build/xc7-memory-mapping/w72-d512/fixed.json": "38a97e909e1b7ae64e6d2bc2d0d6d98aaa96439b54ca20a28ac093cb43b51551",
+          "build/xc7-memory-mapping/w72-d512/fixed-synthesis.log": "b01cf4c6e3c67015f096b8916ad9d988ef443a95adeb58368f42ae327058b34c",
+          "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
+          "build/xc7-memory-mapping/w72-d512/fixed.json": "0b3dd9fa71da2a94240e1047abef8645d92ea77910ba3ce66ad6579cc1263157",
           "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a"
         },
         "stock_negative_mapping": {
@@ -1528,6 +1696,8 @@
           },
           "ram_type": "RAMB36E1",
           "overlay": null,
+          "address_pin_audit": null,
+          "address_pin_negative_controls": [],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/fixture.sv": "48643426055352ab44e6f0ae844f40d1504ba800a560d345007bac31b2491a3b",
             "build/xc7-memory-mapping/w72-d512/stock.ys": "a4ced605b8d83c19a628e3f437d2e00738d6ff6bb3c5b9c2e1154424b70baa11",
@@ -1563,7 +1733,7 @@
         ],
         "artifacts": {
           "build/xc7-memory-mapping/w72-d512/fixture.sv": "48643426055352ab44e6f0ae844f40d1504ba800a560d345007bac31b2491a3b",
-          "build/xc7-memory-mapping/w72-d512/native.vvp": "85890e4fe392275a5158ce748eb371b4518582de1d0156ba3ebe1b9cfd1c1e24",
+          "build/xc7-memory-mapping/w72-d512/native.vvp": "3983e415d4ed692a9960d648879d6021a2fdef9b888c4420b58e3d33d2860e33",
           "build/xc7-memory-mapping/w72-d512/native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "build/xc7-memory-mapping/w72-d512/native.log": "f10c8bbba2247af9347bfc9b9078753e498ab62de9b7f324123ffd992176d5de",
           "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
@@ -1597,12 +1767,12 @@
           "/tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv"
         ],
         "artifacts": {
-          "build/xc7-memory-mapping/w72-d512/fixed.v": "cc3898885fdcb18b8c2c2d83338652f539981092b643761b44d29130aebf6b37",
+          "build/xc7-memory-mapping/w72-d512/fixed.v": "3f84ade43c46e08e395691eb8bb9ac3c8b32a7e03d521826d190ef8d3c465ce5",
           "build/xc7-memory-mapping/w72-d512/fixed-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
           "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
           "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-          "build/xc7-memory-mapping/w72-d512/fixed.vvp": "2873f11b70efad3974f4e35d86baefe1df0474d17c1551d1a25a6c7b443e9bbb",
-          "build/xc7-memory-mapping/w72-d512/fixed-compile.log": "ea179ddbd203356730bfbb02b93a6c4c3977c9a50d547de7fc08994ac9bb08da",
+          "build/xc7-memory-mapping/w72-d512/fixed.vvp": "b193b40a6462e1d202d8309e400018ed09b529b10ecc5edc0e0c6671933bf49f",
+          "build/xc7-memory-mapping/w72-d512/fixed-compile.log": "a08407d1585faa8f3710df765e03ba96924fb150e9ce80847dc513e8eb505fee",
           "build/xc7-memory-mapping/w72-d512/fixed.log": "f10c8bbba2247af9347bfc9b9078753e498ab62de9b7f324123ffd992176d5de",
           "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
           "build/xc7-memory-mapping/w72-d512/fixture_parameters.svh": "4cbab8d5ec8e8a56477b088744d91accccd9058712ff6eff0a4ed9723cb3916a"
@@ -1640,7 +1810,7 @@
             "build/xc7-memory-mapping/w72-d512/stock-logic.v": "242c876bd2cbb166bce3a3e321f56d90c554449ce370b9a2012b22ba37c9bd1a",
             "third_party/xilinx-unisim/RAMB18E1.v": "f04b8980e1565e9b622723334d48d687e6dc48b93d08cb99ecb1206a0700848b",
             "third_party/xilinx-unisim/RAMB36E1.v": "b6153b595696f7eebe6840b2b8d518e32df698cb8e8b2730c8838648ceec72fb",
-            "build/xc7-memory-mapping/w72-d512/stock.vvp": "f18409c63bcb34a1555843dba1d9d4bc75f5eba95e8e93ac859e6cf837159a65",
+            "build/xc7-memory-mapping/w72-d512/stock.vvp": "ae18564a6345b1c0ac394c1106f8ba6a19beaa6a9f51a359ed10845871c95a57",
             "build/xc7-memory-mapping/w72-d512/stock-compile.log": "f8e9383781d0d374a36fdcd6607b2452ecc9d8601458539a47ab055a07cf7498",
             "build/xc7-memory-mapping/w72-d512/stock.log": "e4abc9b478b86a3e7b2cca28f945f3c0b0195bc0cda959e17f0e0cda8f7db3ef",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
@@ -1672,7 +1842,7 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-write-enable.sv": "3beecf7a3ab41529e243d597c72eaaf6c806d518d8faa5870bdddf08395efd9a",
-            "build/xc7-memory-mapping/w72-d512/ignored-write-enable.vvp": "0b49f58844cff158e497b115e0a5d970a2c145fe571f86b0d8c54eeadee18b3d",
+            "build/xc7-memory-mapping/w72-d512/ignored-write-enable.vvp": "ab62ade9027649894a6259facb8f57c76a6f5a48f9a2c73623dc3d373b35e8b3",
             "build/xc7-memory-mapping/w72-d512/ignored-write-enable-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "build/xc7-memory-mapping/w72-d512/ignored-write-enable.log": "8882bf39d82efd99d7074ba423b6dcd587302b95bbc32282b82bfc00d7f6ea6f",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
@@ -1704,7 +1874,7 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.sv": "727d5de7df7e6f26e207e6320d77ee8d8130e572167533c2636ecd61143e9fc5",
-            "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.vvp": "f78d5fa4c806eff78b8566e1a9002b4ebdc6dc0b610aeeccd53ff9d5bbb834c2",
+            "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.vvp": "07ef91c559d96065dda549221f381164b5a71f3608e06fe63989551e9bc54709",
             "build/xc7-memory-mapping/w72-d512/ignored-lane-mask-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "build/xc7-memory-mapping/w72-d512/ignored-lane-mask.log": "1ceb232e0fa21ca214ba3f565408aa845d8482a4b1f2f5e55bdfcb4265996dd3",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
@@ -1736,7 +1906,7 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-read-enable.sv": "aa76c04c123fc37d3e849ac296e1f54f47ae17a0c43c104438c954a55590547e",
-            "build/xc7-memory-mapping/w72-d512/ignored-read-enable.vvp": "14131e32b157b8042e9384aae89c9dde871e02c45b35ab20795a91094158dc59",
+            "build/xc7-memory-mapping/w72-d512/ignored-read-enable.vvp": "ba83ef9ea5dc894efb42dcf00836ade6cbc702f79c95a113fc391d2e0ecb2232",
             "build/xc7-memory-mapping/w72-d512/ignored-read-enable-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "build/xc7-memory-mapping/w72-d512/ignored-read-enable.log": "c88902cda1f6f0d2c77380e1508a0db5e8a63e50f611926a9edb1c6ecbdee4de",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
@@ -1768,7 +1938,7 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/ignored-output-reset.sv": "e6bc4c6260a405c9f7bb8aedc750b6c755a5b6acb1e48ef25e6bc952036b8b48",
-            "build/xc7-memory-mapping/w72-d512/ignored-output-reset.vvp": "f402c34621ca1a0b135c6e7101e202c23d1c762ede7b2ee524e0b089630c37ed",
+            "build/xc7-memory-mapping/w72-d512/ignored-output-reset.vvp": "8c57778c9083a9d0db6ca4378b470178abffcd2624774b28d9e26f3a8df7e06d",
             "build/xc7-memory-mapping/w72-d512/ignored-output-reset-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "build/xc7-memory-mapping/w72-d512/ignored-output-reset.log": "1c6ba83d94757424d7d273a3e6c608ff3b2660f8a5b2724a72185635de49aa4f",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
@@ -1800,7 +1970,7 @@
           ],
           "artifacts": {
             "build/xc7-memory-mapping/w72-d512/aliased-read-address.sv": "6653dee328829aaea4b1d8e411898ee31c672ddae9f8442d739ad8ba1f607eb5",
-            "build/xc7-memory-mapping/w72-d512/aliased-read-address.vvp": "b019a8f22f42dc5a91ebedf22eec43bb3f069408c598eb2562fda8515026098a",
+            "build/xc7-memory-mapping/w72-d512/aliased-read-address.vvp": "533f20b69768810634b7d43673e2c6f0d164652365808e2f749cdd94ffe0891d",
             "build/xc7-memory-mapping/w72-d512/aliased-read-address-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "build/xc7-memory-mapping/w72-d512/aliased-read-address.log": "870243a1b22f3d996522015dc30c9b8355be7a336977c51397b7f89fbf8dc9b8",
             "build/xc7-memory-mapping/w72-d512/vectors.txt": "879da0beb1fc32711ebbb452840dfbf02d61dc8b2a207c5e676655ad2b42cb6f",
@@ -1812,11 +1982,12 @@
   ],
   "total_vectors_per_model": 26028,
   "negative_controls_rejected": 6,
+  "address_pin_negative_controls_rejected": 18,
   "whole_cpu_mapping_verified": false,
   "physical_hardware_tested": false,
   "limitations": [
     "No collision, asynchronous-clock aperture, metastability or electrical timing claim.",
     "No DSP, complete CPU, place-and-route or board verification is implied."
   ],
-  "elapsed_seconds": 91.05386695696507
+  "elapsed_seconds": 58.455960289924406
 }

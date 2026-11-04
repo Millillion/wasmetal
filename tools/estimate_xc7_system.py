@@ -12,7 +12,7 @@ from build_board import yosys
 from prepare_standalone import ROOT,digest,load_profile
 from program_upload import profile_tag
 from standalone_support import parameters
-from xc7_memory_mapping import prepare as prepare_memory_mapping
+from xc7_memory_mapping import audit_address_pins, prepare as prepare_memory_mapping
 
 
 def main():
@@ -67,6 +67,7 @@ write_json {directory}/mapped.json
         if sum(bits(c) for name,c in memories if name.startswith(prefix))!=expected:
             raise ValueError('storage capacity changed before technology mapping: '+prefix)
     design=json.loads((directory/'mapped.json').read_text())['modules'][top]
+    address_pins=audit_address_pins(design)
     counts=collections.Counter(c['type'] for c in design['cells'].values())
     allowed={'CARRY4','DSP48E1','INV','MUXF7','MUXF8','RAMB18E1','RAMB36E1',
         'RAM32M','RAM64M','RAM32X1S','RAM64X1S','RAM128X1S','RAM256X1S',
@@ -89,6 +90,7 @@ write_json {directory}/mapped.json
             'yosys_sha256':digest(executable),'abc_sha256':digest(executable.with_name('yosys-abc'))},
         'script_sha256':digest(directory/'synthesis.ys'),'log_sha256':digest(directory/'synthesis.log'),
         'memory_mapping':memory_mapping,
+        'ram_address_pin_audit':address_pins,
         'generic_netlist_sha256':digest(directory/'generic.json'),'netlist_sha256':digest(directory/'mapped.json'),
         'generic_memory_count':len(memories),'generic_memory_bits':sum(bits(c) for name,c in memories),
         'cell_counts':dict(sorted(counts.items())),

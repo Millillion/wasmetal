@@ -97,9 +97,9 @@ New [vendor-model memory checks](docs/XILINX-MEMORY.md) exposed a real 72-bit
 RAM mapping defect in pinned Yosys 0.33. An isolated correction passes 26,028
 operations per model across five RAM configurations; all six negative controls,
 including the original faulty mapping, are rejected. CI now runs this check
-before the resource estimate. The complete-system estimate is being refreshed
-with an additional audit of unused RAM address pins; the earlier estimates are
-historical size evidence with a known
+before the resource estimate. A separate address-pin audit also passes and
+rejects 18 structural mutations. The corrected complete-system synthesis is
+running; the earlier estimates are historical size evidence with a known
 functional mapping defect. Complete Xilinx CPU simulation, placement and timing
 remain unverified. ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.

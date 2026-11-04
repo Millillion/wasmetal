@@ -78,8 +78,9 @@ board result and foundry signoff are separate kinds of evidence.
 - [x] Check 7-series memory mapping against original vendor simulation models.
   The [five-geometry regression](XILINX-MEMORY.md) passes 26,028 operations per
   model and rejects six faults, including a real 72-bit RAM mapping defect in
-  pinned Yosys 0.33. The estimator now applies a verified private correction;
-  the estimate is being refreshed with an audit of unused RAM address pins. Earlier Xilinx estimates
+  pinned Yosys 0.33. An address-pin audit also rejects 18 structural mutations.
+  The estimator applies the verified private corrections; complete-system
+  synthesis is running. Earlier Xilinx estimates
   remain historical resource measurements with a known functional defect.
 - [x] Complete a comparison of every original CPU logic-mapping boundary bit.
   [All 28,506 bits pass](verification/core-mapping-cones.json) for the
