@@ -150,6 +150,11 @@ complete four-state tables. All four used flip-flop types pass independent
 startup and state-transition checks in Icarus and Verilator. Their
 [unknown-state limits and vendor reset diagnostic](docs/XILINX-STATE.md)
 are explicit; CI repeats the component checks.
+The [distributed-RAM model](docs/XILINX-LUTRAM.md) also passes a binary proof
+of its 256 state bits and four outputs, with checked initial state and an
+explicit write-enable specialization. Independent binary/four-state memory
+oracles and twenty local fault controls pass for the configuration used by
+all 22 mapped instances. CI repeats the base-circuit checks.
 The [complete Xilinx CPU simulation](docs/XILINX-SYSTEM-SIMULATION.md) now
 passes all **35 programmable integration cases** with accelerated UART timing,
 matching the native RTL's complete case observations, UART bytes and clock

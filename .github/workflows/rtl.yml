@@ -101,6 +101,8 @@ jobs:
         run: python3 tools/check_xc7_muxes.py
       - name: Check flip-flop clock, reset, enable and startup behavior
         run: python3 tools/check_xc7_flops.py
+      - name: Prove distributed RAM state and check independent memory oracles
+        run: python3 tools/check_xc7_lutram.py
       - name: Preserve notices for the generated synthesis-library copies
         if: always()
         run: |
@@ -122,6 +124,7 @@ jobs:
             reports/xc7-carry.json
             reports/xc7-muxes.json
             reports/xc7-flops.json
+            reports/xc7-lutram.json
             build/xc7-memory-mapping/
             build/xc7-ram-models/
             build/xc7-dsp/
@@ -129,6 +132,7 @@ jobs:
             build/xc7-carry-check/
             build/xc7-muxes/
             build/xc7-flops/
+            build/xc7-lutram/
             build/xc7-system/*.log
             build/xc7-system/*.ys
             build/xc7-system/mapping-overlay/

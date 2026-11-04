@@ -1,0 +1,1344 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-proof.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v
+Parsing SystemVerilog input from `/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v' to AST representation.
+Generating RTLIL representation for module `\RAM64M'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v
+Parsing SystemVerilog input from `/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v' to AST representation.
+Generating RTLIL representation for module `\VENDOR_RAM64M'.
+Successfully finished Verilog frontend.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116 in module VENDOR_RAM64M.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22 in module RAM64M.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 51 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$196'.
+  Set init value: \mem_a = 64'0000000000000000000000000000000000000000000000000000000000000000
+  Set init value: \mem_b = 64'0000000000000000000000000000000000000000000000000000000000000000
+  Set init value: \mem_c = 64'0000000000000000000000000000000000000000000000000000000000000000
+  Set init value: \mem_d = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:49$98'.
+  Set init value: \mem_d = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:48$97'.
+  Set init value: \mem_c = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:47$96'.
+  Set init value: \mem_b = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:46$95'.
+  Set init value: \mem_a = 64'0000000000000000000000000000000000000000000000000000000000000000
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$196'.
+Creating decoders for process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:78$195'.
+Creating decoders for process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:76$194'.
+Creating decoders for process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:71$193'.
+Creating decoders for process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+     1/16: $1$lookahead\mem_d$115[63:0]$148
+     2/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:139$109[63:0]$143
+     3/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:139$108[63:0]$142
+     4/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:139$110[5:0]$144
+     5/16: $1$lookahead\mem_c$114[63:0]$147
+     6/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:138$106[63:0]$140
+     7/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:138$105[63:0]$139
+     8/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:138$107[5:0]$141
+     9/16: $1$lookahead\mem_b$113[63:0]$146
+    10/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:137$103[63:0]$137
+    11/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:137$102[63:0]$136
+    12/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:137$104[5:0]$138
+    13/16: $1$lookahead\mem_a$112[63:0]$145
+    14/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:136$100[63:0]$134
+    15/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:136$99[63:0]$133
+    16/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:136$101[5:0]$135
+Creating decoders for process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:49$98'.
+Creating decoders for process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:48$97'.
+Creating decoders for process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:47$96'.
+Creating decoders for process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:46$95'.
+Creating decoders for process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+     1/16: $1$lookahead\mem_d$21[63:0]$54
+     2/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:60$11[63:0]$49
+     3/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:60$10[63:0]$48
+     4/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:60$12[5:0]$50
+     5/16: $1$lookahead\mem_c$20[63:0]$53
+     6/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:59$8[63:0]$46
+     7/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:59$7[63:0]$45
+     8/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:59$9[5:0]$47
+     9/16: $1$lookahead\mem_b$19[63:0]$52
+    10/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:58$5[63:0]$43
+    11/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:58$4[63:0]$42
+    12/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:58$6[5:0]$44
+    13/16: $1$lookahead\mem_a$18[63:0]$51
+    14/16: $1$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:57$2[63:0]$40
+    15/16: $1$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:57$1[63:0]$39
+    16/16: $1$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:57$3[5:0]$41
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\VENDOR_RAM64M.\attr_err' from process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:78$195'.
+No latch inferred for signal `\VENDOR_RAM64M.\attr_test' from process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:76$194'.
+No latch inferred for signal `\VENDOR_RAM64M.\trig_attr' from process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:71$193'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\VENDOR_RAM64M.\mem_a' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$293' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.\mem_b' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$294' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.\mem_c' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$295' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.\mem_d' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$296' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:136$99' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$297' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:136$100' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$298' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:136$101' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$299' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:137$102' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$300' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:137$103' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$301' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:137$104' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$302' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:138$105' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$303' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:138$106' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$304' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:138$107' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$305' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:139$108' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$306' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:139$109' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$307' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:139$110' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$308' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$lookahead\mem_a$112' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$309' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$lookahead\mem_b$113' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$310' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$lookahead\mem_c$114' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$311' with positive edge clock.
+Creating register for signal `\VENDOR_RAM64M.$lookahead\mem_d$115' using process `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+  created $dff cell `$procdff$312' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_a' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$313' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_b' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$314' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_c' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$315' with positive edge clock.
+Creating register for signal `\RAM64M.\mem_d' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$316' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:57$1' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$317' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:57$2' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$318' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:57$3' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$319' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:58$4' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$320' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:58$5' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$321' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:58$6' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$322' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:59$7' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$323' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:59$8' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$324' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:59$9' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$325' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$mask$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:60$10' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$326' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$data$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:60$11' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$327' with positive edge clock.
+Creating register for signal `\RAM64M.$bitselwrite$sel$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:60$12' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$328' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_a$18' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$329' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_b$19' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$330' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_c$20' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$331' with positive edge clock.
+Creating register for signal `\RAM64M.$lookahead\mem_d$21' using process `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+  created $dff cell `$procdff$332' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$196'.
+Removing empty process `VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:78$195'.
+Removing empty process `VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:76$194'.
+Removing empty process `VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:71$193'.
+Found and cleaned up 1 empty switch in `\VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+Removing empty process `VENDOR_RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:134$116'.
+Removing empty process `RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:49$98'.
+Removing empty process `RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:48$97'.
+Removing empty process `RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:47$96'.
+Removing empty process `RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:46$95'.
+Found and cleaned up 1 empty switch in `\RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+Removing empty process `RAM64M.$proc$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:55$22'.
+Cleaned up 2 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module VENDOR_RAM64M.
+<suppressed ~5 debug messages>
+Optimizing module RAM64M.
+<suppressed ~5 debug messages>
+
+4. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module VENDOR_RAM64M.
+<suppressed ~8 debug messages>
+Optimizing module RAM64M.
+<suppressed ~8 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\VENDOR_RAM64M'.
+<suppressed ~102 debug messages>
+Finding identical cells in module `\RAM64M'.
+<suppressed ~102 debug messages>
+Removed a total of 68 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \VENDOR_RAM64M..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$225.
+    dead port 2/2 on $mux $procmux$225.
+    dead port 1/2 on $mux $procmux$204.
+    dead port 2/2 on $mux $procmux$204.
+    dead port 1/2 on $mux $procmux$219.
+    dead port 2/2 on $mux $procmux$219.
+    dead port 1/2 on $mux $procmux$216.
+    dead port 2/2 on $mux $procmux$216.
+    dead port 1/2 on $mux $procmux$243.
+    dead port 2/2 on $mux $procmux$243.
+    dead port 1/2 on $mux $procmux$201.
+    dead port 2/2 on $mux $procmux$201.
+    dead port 1/2 on $mux $procmux$213.
+    dead port 2/2 on $mux $procmux$213.
+    dead port 1/2 on $mux $procmux$240.
+    dead port 2/2 on $mux $procmux$240.
+    dead port 1/2 on $mux $procmux$237.
+    dead port 2/2 on $mux $procmux$237.
+    dead port 1/2 on $mux $procmux$207.
+    dead port 2/2 on $mux $procmux$207.
+    dead port 1/2 on $mux $procmux$231.
+    dead port 2/2 on $mux $procmux$231.
+    dead port 1/2 on $mux $procmux$228.
+    dead port 2/2 on $mux $procmux$228.
+Running muxtree optimizer on module \RAM64M..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$273.
+    dead port 2/2 on $mux $procmux$273.
+    dead port 1/2 on $mux $procmux$252.
+    dead port 2/2 on $mux $procmux$252.
+    dead port 1/2 on $mux $procmux$267.
+    dead port 2/2 on $mux $procmux$267.
+    dead port 1/2 on $mux $procmux$264.
+    dead port 2/2 on $mux $procmux$264.
+    dead port 1/2 on $mux $procmux$291.
+    dead port 2/2 on $mux $procmux$291.
+    dead port 1/2 on $mux $procmux$249.
+    dead port 2/2 on $mux $procmux$249.
+    dead port 1/2 on $mux $procmux$261.
+    dead port 2/2 on $mux $procmux$261.
+    dead port 1/2 on $mux $procmux$288.
+    dead port 2/2 on $mux $procmux$288.
+    dead port 1/2 on $mux $procmux$285.
+    dead port 2/2 on $mux $procmux$285.
+    dead port 1/2 on $mux $procmux$255.
+    dead port 2/2 on $mux $procmux$255.
+    dead port 1/2 on $mux $procmux$279.
+    dead port 2/2 on $mux $procmux$279.
+    dead port 1/2 on $mux $procmux$276.
+    dead port 2/2 on $mux $procmux$276.
+Removed 48 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \VENDOR_RAM64M.
+  Optimizing cells in module \RAM64M.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\VENDOR_RAM64M'.
+Finding identical cells in module `\RAM64M'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$293 ($dff) from module VENDOR_RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$158_Y, Q = \mem_a).
+Adding EN signal on $procdff$294 ($dff) from module VENDOR_RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$168_Y, Q = \mem_b).
+Adding EN signal on $procdff$295 ($dff) from module VENDOR_RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$178_Y, Q = \mem_c).
+Adding EN signal on $procdff$296 ($dff) from module VENDOR_RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$188_Y, Q = \mem_d).
+Setting constant 1-bit at position 0 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 1 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 2 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 3 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 4 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 5 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 6 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 7 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 8 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 9 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 10 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 11 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 12 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 13 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 14 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 15 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 16 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 17 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 18 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 19 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 20 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 21 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 22 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 23 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 24 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 25 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 26 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 27 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 28 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 29 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 30 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 31 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 32 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 33 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 34 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 35 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 36 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 37 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 38 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 39 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 40 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 41 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 42 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 43 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 44 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 45 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 46 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 47 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 48 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 49 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 50 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 51 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 52 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 53 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 54 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 55 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 56 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 57 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 58 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 59 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 60 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 61 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 62 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 63 on $procdff$307 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 0 on $procdff$305 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 1 on $procdff$305 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 2 on $procdff$305 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 3 on $procdff$305 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 4 on $procdff$305 ($dff) from module VENDOR_RAM64M.
+Setting constant 1-bit at position 5 on $procdff$305 ($dff) from module VENDOR_RAM64M.
+Adding EN signal on $procdff$313 ($dff) from module RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$64_Y, Q = \mem_a).
+Adding EN signal on $procdff$314 ($dff) from module RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$74_Y, Q = \mem_b).
+Adding EN signal on $procdff$315 ($dff) from module RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$84_Y, Q = \mem_c).
+Adding EN signal on $procdff$316 ($dff) from module RAM64M (D = $or$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$94_Y, Q = \mem_d).
+Setting constant 1-bit at position 0 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 1 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 2 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 3 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 4 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 5 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 6 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 7 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 8 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 9 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 10 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 11 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 12 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 13 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 14 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 15 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 16 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 17 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 18 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 19 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 20 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 21 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 22 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 23 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 24 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 25 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 26 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 27 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 28 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 29 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 30 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 31 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 32 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 33 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 34 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 35 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 36 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 37 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 38 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 39 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 40 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 41 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 42 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 43 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 44 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 45 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 46 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 47 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 48 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 49 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 50 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 51 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 52 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 53 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 54 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 55 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 56 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 57 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 58 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 59 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 60 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 61 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 62 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 63 on $procdff$327 ($dff) from module RAM64M.
+Setting constant 1-bit at position 0 on $procdff$325 ($dff) from module RAM64M.
+Setting constant 1-bit at position 1 on $procdff$325 ($dff) from module RAM64M.
+Setting constant 1-bit at position 2 on $procdff$325 ($dff) from module RAM64M.
+Setting constant 1-bit at position 3 on $procdff$325 ($dff) from module RAM64M.
+Setting constant 1-bit at position 4 on $procdff$325 ($dff) from module RAM64M.
+Setting constant 1-bit at position 5 on $procdff$325 ($dff) from module RAM64M.
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \VENDOR_RAM64M..
+Finding unused cells or wires in module \RAM64M..
+Removed 8 unused cells and 239 unused wires.
+<suppressed ~12 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RAM64M.
+Optimizing module VENDOR_RAM64M.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \RAM64M..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \VENDOR_RAM64M..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \RAM64M.
+  Optimizing cells in module \VENDOR_RAM64M.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\RAM64M'.
+Finding identical cells in module `\VENDOR_RAM64M'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \RAM64M..
+Finding unused cells or wires in module \VENDOR_RAM64M..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module RAM64M.
+Optimizing module VENDOR_RAM64M.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: ADDRA_gold (\ADDRA_gold), ADDRA_gate (\ADDRA_gate) -> ADDRA
+Presumably equivalent wires: ADDRB_gold (\ADDRB_gold), ADDRB_gate (\ADDRB_gate) -> ADDRB
+Presumably equivalent wires: ADDRC_gold (\ADDRC_gold), ADDRC_gate (\ADDRC_gate) -> ADDRC
+Presumably equivalent wires: ADDRD_gold (\ADDRD_gold), ADDRD_gate (\ADDRD_gate) -> ADDRD
+Presumably equivalent wires: DIA_gold (\DIA_gold), DIA_gate (\DIA_gate) -> DIA
+Presumably equivalent wires: DIB_gold (\DIB_gold), DIB_gate (\DIB_gate) -> DIB
+Presumably equivalent wires: DIC_gold (\DIC_gold), DIC_gate (\DIC_gate) -> DIC
+Presumably equivalent wires: DID_gold (\DID_gold), DID_gate (\DID_gate) -> DID
+Presumably equivalent wires: DOA_gold (\DOA_gold), DOA_gate (\DOA_gate) -> DOA
+Presumably equivalent wires: DOB_gold (\DOB_gold), DOB_gate (\DOB_gate) -> DOB
+Presumably equivalent wires: DOC_gold (\DOC_gold), DOC_gate (\DOC_gate) -> DOC
+Presumably equivalent wires: DOD_gold (\DOD_gold), DOD_gate (\DOD_gate) -> DOD
+Presumably equivalent wires: WCLK_gold (\WCLK_gold), WCLK_gate (\WCLK_gate) -> WCLK
+Presumably equivalent wires: WE_gold (\WE_gold), WE_gate (\WE_gate) -> WE
+Presumably equivalent wires: mem_a_gold (\mem_a_gold), mem_a_gate (\mem_a_gate) -> mem_a
+Presumably equivalent wires: mem_b_gold (\mem_b_gold), mem_b_gate (\mem_b_gate) -> mem_b
+Presumably equivalent wires: mem_c_gold (\mem_c_gold), mem_c_gate (\mem_c_gate) -> mem_c
+Presumably equivalent wires: mem_d_gold (\mem_d_gold), mem_d_gate (\mem_d_gate) -> mem_d
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$167_gate ($and): \mem_b_gate -> \mem_b
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$177_gate ($and): \mem_c_gate -> \mem_c
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$187_gate ($and): \mem_d_gate -> \mem_d
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$189_gate ($shiftx): \mem_a_gate -> \mem_a
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$190_gate ($shiftx): \mem_b_gate -> \mem_b
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$191_gate ($shiftx): \mem_c_gate -> \mem_c
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$192_gate ($shiftx): \mem_d_gate -> \mem_d
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/wrong-address-vendor.v:0$157_gate ($and): \mem_a_gate -> \mem_a
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$73_gold ($and): \mem_b_gold -> \mem_b
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$83_gold ($and): \mem_c_gold -> \mem_c
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$93_gold ($and): \mem_d_gold -> \mem_d
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$13_gold ($shiftx): \mem_a_gold -> \mem_a
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$14_gold ($shiftx): \mem_b_gold -> \mem_b
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$15_gold ($shiftx): \mem_c_gold -> \mem_c
+Changing input A of cell $shiftx$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$16_gold ($shiftx): \mem_d_gold -> \mem_d
+Changing input A of cell $and$/tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v:0$63_gold ($and): \mem_a_gold -> \mem_a
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \equiv
+
+7.2. Analyzing design hierarchy..
+Top module:  \equiv
+Removing unused module `\RAM64M'.
+Removing unused module `\VENDOR_RAM64M'.
+Removed 2 unused modules.
+
+8. Executing EQUIV_SIMPLE pass.
+Found 260 unproven $equiv cells (8 groups) in equiv:
+  Trying to prove $equiv for \DOA: success!
+  Trying to prove $equiv for \DOB: success!
+  Trying to prove $equiv for \DOC: success!
+  Trying to prove $equiv for \DOD: failed.
+ Grouping SAT models for \mem_a:
+  Trying to prove $equiv for \mem_a [0]: failed.
+  Trying to prove $equiv for \mem_a [1]: failed.
+  Trying to prove $equiv for \mem_a [2]: failed.
+  Trying to prove $equiv for \mem_a [3]: failed.
+  Trying to prove $equiv for \mem_a [4]: failed.
+  Trying to prove $equiv for \mem_a [5]: failed.
+  Trying to prove $equiv for \mem_a [6]: failed.
+  Trying to prove $equiv for \mem_a [7]: failed.
+  Trying to prove $equiv for \mem_a [8]: failed.
+  Trying to prove $equiv for \mem_a [9]: failed.
+  Trying to prove $equiv for \mem_a [10]: failed.
+  Trying to prove $equiv for \mem_a [11]: failed.
+  Trying to prove $equiv for \mem_a [12]: failed.
+  Trying to prove $equiv for \mem_a [13]: failed.
+  Trying to prove $equiv for \mem_a [14]: failed.
+  Trying to prove $equiv for \mem_a [15]: failed.
+  Trying to prove $equiv for \mem_a [16]: failed.
+  Trying to prove $equiv for \mem_a [17]: failed.
+  Trying to prove $equiv for \mem_a [18]: failed.
+  Trying to prove $equiv for \mem_a [19]: failed.
+  Trying to prove $equiv for \mem_a [20]: failed.
+  Trying to prove $equiv for \mem_a [21]: failed.
+  Trying to prove $equiv for \mem_a [22]: failed.
+  Trying to prove $equiv for \mem_a [23]: failed.
+  Trying to prove $equiv for \mem_a [24]: failed.
+  Trying to prove $equiv for \mem_a [25]: failed.
+  Trying to prove $equiv for \mem_a [26]: failed.
+  Trying to prove $equiv for \mem_a [27]: failed.
+  Trying to prove $equiv for \mem_a [28]: failed.
+  Trying to prove $equiv for \mem_a [29]: failed.
+  Trying to prove $equiv for \mem_a [30]: failed.
+  Trying to prove $equiv for \mem_a [31]: failed.
+  Trying to prove $equiv for \mem_a [32]: failed.
+  Trying to prove $equiv for \mem_a [33]: failed.
+  Trying to prove $equiv for \mem_a [34]: failed.
+  Trying to prove $equiv for \mem_a [35]: failed.
+  Trying to prove $equiv for \mem_a [36]: failed.
+  Trying to prove $equiv for \mem_a [37]: failed.
+  Trying to prove $equiv for \mem_a [38]: failed.
+  Trying to prove $equiv for \mem_a [39]: failed.
+  Trying to prove $equiv for \mem_a [40]: failed.
+  Trying to prove $equiv for \mem_a [41]: failed.
+  Trying to prove $equiv for \mem_a [42]: failed.
+  Trying to prove $equiv for \mem_a [43]: failed.
+  Trying to prove $equiv for \mem_a [44]: failed.
+  Trying to prove $equiv for \mem_a [45]: failed.
+  Trying to prove $equiv for \mem_a [46]: failed.
+  Trying to prove $equiv for \mem_a [47]: failed.
+  Trying to prove $equiv for \mem_a [48]: failed.
+  Trying to prove $equiv for \mem_a [49]: failed.
+  Trying to prove $equiv for \mem_a [50]: failed.
+  Trying to prove $equiv for \mem_a [51]: failed.
+  Trying to prove $equiv for \mem_a [52]: failed.
+  Trying to prove $equiv for \mem_a [53]: failed.
+  Trying to prove $equiv for \mem_a [54]: failed.
+  Trying to prove $equiv for \mem_a [55]: failed.
+  Trying to prove $equiv for \mem_a [56]: failed.
+  Trying to prove $equiv for \mem_a [57]: failed.
+  Trying to prove $equiv for \mem_a [58]: failed.
+  Trying to prove $equiv for \mem_a [59]: failed.
+  Trying to prove $equiv for \mem_a [60]: failed.
+  Trying to prove $equiv for \mem_a [61]: failed.
+  Trying to prove $equiv for \mem_a [62]: failed.
+  Trying to prove $equiv for \mem_a [63]: failed.
+ Grouping SAT models for \mem_b:
+  Trying to prove $equiv for \mem_b [0]: failed.
+  Trying to prove $equiv for \mem_b [1]: failed.
+  Trying to prove $equiv for \mem_b [2]: failed.
+  Trying to prove $equiv for \mem_b [3]: failed.
+  Trying to prove $equiv for \mem_b [4]: failed.
+  Trying to prove $equiv for \mem_b [5]: failed.
+  Trying to prove $equiv for \mem_b [6]: failed.
+  Trying to prove $equiv for \mem_b [7]: failed.
+  Trying to prove $equiv for \mem_b [8]: failed.
+  Trying to prove $equiv for \mem_b [9]: failed.
+  Trying to prove $equiv for \mem_b [10]: failed.
+  Trying to prove $equiv for \mem_b [11]: failed.
+  Trying to prove $equiv for \mem_b [12]: failed.
+  Trying to prove $equiv for \mem_b [13]: failed.
+  Trying to prove $equiv for \mem_b [14]: failed.
+  Trying to prove $equiv for \mem_b [15]: failed.
+  Trying to prove $equiv for \mem_b [16]: failed.
+  Trying to prove $equiv for \mem_b [17]: failed.
+  Trying to prove $equiv for \mem_b [18]: failed.
+  Trying to prove $equiv for \mem_b [19]: failed.
+  Trying to prove $equiv for \mem_b [20]: failed.
+  Trying to prove $equiv for \mem_b [21]: failed.
+  Trying to prove $equiv for \mem_b [22]: failed.
+  Trying to prove $equiv for \mem_b [23]: failed.
+  Trying to prove $equiv for \mem_b [24]: failed.
+  Trying to prove $equiv for \mem_b [25]: failed.
+  Trying to prove $equiv for \mem_b [26]: failed.
+  Trying to prove $equiv for \mem_b [27]: failed.
+  Trying to prove $equiv for \mem_b [28]: failed.
+  Trying to prove $equiv for \mem_b [29]: failed.
+  Trying to prove $equiv for \mem_b [30]: failed.
+  Trying to prove $equiv for \mem_b [31]: failed.
+  Trying to prove $equiv for \mem_b [32]: failed.
+  Trying to prove $equiv for \mem_b [33]: failed.
+  Trying to prove $equiv for \mem_b [34]: failed.
+  Trying to prove $equiv for \mem_b [35]: failed.
+  Trying to prove $equiv for \mem_b [36]: failed.
+  Trying to prove $equiv for \mem_b [37]: failed.
+  Trying to prove $equiv for \mem_b [38]: failed.
+  Trying to prove $equiv for \mem_b [39]: failed.
+  Trying to prove $equiv for \mem_b [40]: failed.
+  Trying to prove $equiv for \mem_b [41]: failed.
+  Trying to prove $equiv for \mem_b [42]: failed.
+  Trying to prove $equiv for \mem_b [43]: failed.
+  Trying to prove $equiv for \mem_b [44]: failed.
+  Trying to prove $equiv for \mem_b [45]: failed.
+  Trying to prove $equiv for \mem_b [46]: failed.
+  Trying to prove $equiv for \mem_b [47]: failed.
+  Trying to prove $equiv for \mem_b [48]: failed.
+  Trying to prove $equiv for \mem_b [49]: failed.
+  Trying to prove $equiv for \mem_b [50]: failed.
+  Trying to prove $equiv for \mem_b [51]: failed.
+  Trying to prove $equiv for \mem_b [52]: failed.
+  Trying to prove $equiv for \mem_b [53]: failed.
+  Trying to prove $equiv for \mem_b [54]: failed.
+  Trying to prove $equiv for \mem_b [55]: failed.
+  Trying to prove $equiv for \mem_b [56]: failed.
+  Trying to prove $equiv for \mem_b [57]: failed.
+  Trying to prove $equiv for \mem_b [58]: failed.
+  Trying to prove $equiv for \mem_b [59]: failed.
+  Trying to prove $equiv for \mem_b [60]: failed.
+  Trying to prove $equiv for \mem_b [61]: failed.
+  Trying to prove $equiv for \mem_b [62]: failed.
+  Trying to prove $equiv for \mem_b [63]: failed.
+ Grouping SAT models for \mem_c:
+  Trying to prove $equiv for \mem_c [0]: failed.
+  Trying to prove $equiv for \mem_c [1]: failed.
+  Trying to prove $equiv for \mem_c [2]: failed.
+  Trying to prove $equiv for \mem_c [3]: failed.
+  Trying to prove $equiv for \mem_c [4]: failed.
+  Trying to prove $equiv for \mem_c [5]: failed.
+  Trying to prove $equiv for \mem_c [6]: failed.
+  Trying to prove $equiv for \mem_c [7]: failed.
+  Trying to prove $equiv for \mem_c [8]: failed.
+  Trying to prove $equiv for \mem_c [9]: failed.
+  Trying to prove $equiv for \mem_c [10]: failed.
+  Trying to prove $equiv for \mem_c [11]: failed.
+  Trying to prove $equiv for \mem_c [12]: failed.
+  Trying to prove $equiv for \mem_c [13]: failed.
+  Trying to prove $equiv for \mem_c [14]: failed.
+  Trying to prove $equiv for \mem_c [15]: failed.
+  Trying to prove $equiv for \mem_c [16]: failed.
+  Trying to prove $equiv for \mem_c [17]: failed.
+  Trying to prove $equiv for \mem_c [18]: failed.
+  Trying to prove $equiv for \mem_c [19]: failed.
+  Trying to prove $equiv for \mem_c [20]: failed.
+  Trying to prove $equiv for \mem_c [21]: failed.
+  Trying to prove $equiv for \mem_c [22]: failed.
+  Trying to prove $equiv for \mem_c [23]: failed.
+  Trying to prove $equiv for \mem_c [24]: failed.
+  Trying to prove $equiv for \mem_c [25]: failed.
+  Trying to prove $equiv for \mem_c [26]: failed.
+  Trying to prove $equiv for \mem_c [27]: failed.
+  Trying to prove $equiv for \mem_c [28]: failed.
+  Trying to prove $equiv for \mem_c [29]: failed.
+  Trying to prove $equiv for \mem_c [30]: failed.
+  Trying to prove $equiv for \mem_c [31]: failed.
+  Trying to prove $equiv for \mem_c [32]: failed.
+  Trying to prove $equiv for \mem_c [33]: failed.
+  Trying to prove $equiv for \mem_c [34]: failed.
+  Trying to prove $equiv for \mem_c [35]: failed.
+  Trying to prove $equiv for \mem_c [36]: failed.
+  Trying to prove $equiv for \mem_c [37]: failed.
+  Trying to prove $equiv for \mem_c [38]: failed.
+  Trying to prove $equiv for \mem_c [39]: failed.
+  Trying to prove $equiv for \mem_c [40]: failed.
+  Trying to prove $equiv for \mem_c [41]: failed.
+  Trying to prove $equiv for \mem_c [42]: failed.
+  Trying to prove $equiv for \mem_c [43]: failed.
+  Trying to prove $equiv for \mem_c [44]: failed.
+  Trying to prove $equiv for \mem_c [45]: failed.
+  Trying to prove $equiv for \mem_c [46]: failed.
+  Trying to prove $equiv for \mem_c [47]: failed.
+  Trying to prove $equiv for \mem_c [48]: failed.
+  Trying to prove $equiv for \mem_c [49]: failed.
+  Trying to prove $equiv for \mem_c [50]: failed.
+  Trying to prove $equiv for \mem_c [51]: failed.
+  Trying to prove $equiv for \mem_c [52]: failed.
+  Trying to prove $equiv for \mem_c [53]: failed.
+  Trying to prove $equiv for \mem_c [54]: failed.
+  Trying to prove $equiv for \mem_c [55]: failed.
+  Trying to prove $equiv for \mem_c [56]: failed.
+  Trying to prove $equiv for \mem_c [57]: failed.
+  Trying to prove $equiv for \mem_c [58]: failed.
+  Trying to prove $equiv for \mem_c [59]: failed.
+  Trying to prove $equiv for \mem_c [60]: failed.
+  Trying to prove $equiv for \mem_c [61]: failed.
+  Trying to prove $equiv for \mem_c [62]: failed.
+  Trying to prove $equiv for \mem_c [63]: failed.
+ Grouping SAT models for \mem_d:
+  Trying to prove $equiv for \mem_d [0]: failed.
+  Trying to prove $equiv for \mem_d [1]: failed.
+  Trying to prove $equiv for \mem_d [2]: failed.
+  Trying to prove $equiv for \mem_d [3]: failed.
+  Trying to prove $equiv for \mem_d [4]: failed.
+  Trying to prove $equiv for \mem_d [5]: failed.
+  Trying to prove $equiv for \mem_d [6]: failed.
+  Trying to prove $equiv for \mem_d [7]: failed.
+  Trying to prove $equiv for \mem_d [8]: failed.
+  Trying to prove $equiv for \mem_d [9]: failed.
+  Trying to prove $equiv for \mem_d [10]: failed.
+  Trying to prove $equiv for \mem_d [11]: failed.
+  Trying to prove $equiv for \mem_d [12]: failed.
+  Trying to prove $equiv for \mem_d [13]: failed.
+  Trying to prove $equiv for \mem_d [14]: failed.
+  Trying to prove $equiv for \mem_d [15]: failed.
+  Trying to prove $equiv for \mem_d [16]: failed.
+  Trying to prove $equiv for \mem_d [17]: failed.
+  Trying to prove $equiv for \mem_d [18]: failed.
+  Trying to prove $equiv for \mem_d [19]: failed.
+  Trying to prove $equiv for \mem_d [20]: failed.
+  Trying to prove $equiv for \mem_d [21]: failed.
+  Trying to prove $equiv for \mem_d [22]: failed.
+  Trying to prove $equiv for \mem_d [23]: failed.
+  Trying to prove $equiv for \mem_d [24]: failed.
+  Trying to prove $equiv for \mem_d [25]: failed.
+  Trying to prove $equiv for \mem_d [26]: failed.
+  Trying to prove $equiv for \mem_d [27]: failed.
+  Trying to prove $equiv for \mem_d [28]: failed.
+  Trying to prove $equiv for \mem_d [29]: failed.
+  Trying to prove $equiv for \mem_d [30]: failed.
+  Trying to prove $equiv for \mem_d [31]: failed.
+  Trying to prove $equiv for \mem_d [32]: failed.
+  Trying to prove $equiv for \mem_d [33]: failed.
+  Trying to prove $equiv for \mem_d [34]: failed.
+  Trying to prove $equiv for \mem_d [35]: failed.
+  Trying to prove $equiv for \mem_d [36]: failed.
+  Trying to prove $equiv for \mem_d [37]: failed.
+  Trying to prove $equiv for \mem_d [38]: failed.
+  Trying to prove $equiv for \mem_d [39]: failed.
+  Trying to prove $equiv for \mem_d [40]: failed.
+  Trying to prove $equiv for \mem_d [41]: failed.
+  Trying to prove $equiv for \mem_d [42]: failed.
+  Trying to prove $equiv for \mem_d [43]: failed.
+  Trying to prove $equiv for \mem_d [44]: failed.
+  Trying to prove $equiv for \mem_d [45]: failed.
+  Trying to prove $equiv for \mem_d [46]: failed.
+  Trying to prove $equiv for \mem_d [47]: failed.
+  Trying to prove $equiv for \mem_d [48]: failed.
+  Trying to prove $equiv for \mem_d [49]: failed.
+  Trying to prove $equiv for \mem_d [50]: failed.
+  Trying to prove $equiv for \mem_d [51]: failed.
+  Trying to prove $equiv for \mem_d [52]: failed.
+  Trying to prove $equiv for \mem_d [53]: failed.
+  Trying to prove $equiv for \mem_d [54]: failed.
+  Trying to prove $equiv for \mem_d [55]: failed.
+  Trying to prove $equiv for \mem_d [56]: failed.
+  Trying to prove $equiv for \mem_d [57]: failed.
+  Trying to prove $equiv for \mem_d [58]: failed.
+  Trying to prove $equiv for \mem_d [59]: failed.
+  Trying to prove $equiv for \mem_d [60]: failed.
+  Trying to prove $equiv for \mem_d [61]: failed.
+  Trying to prove $equiv for \mem_d [62]: failed.
+  Trying to prove $equiv for \mem_d [63]: failed.
+Proved 3 previously unproven $equiv cells.
+
+9. Executing EQUIV_INDUCT pass.
+Found 257 unproven $equiv cells in module equiv:
+  Proving existence of base case for step 1. (57919 clauses over 21514 variables)
+  Proving induction step 1. (125565 clauses over 46100 variables)
+  Proof for induction step failed. Extending to next time step.
+  Proving existence of base case for step 2. (125566 clauses over 46100 variables)
+  Proving induction step 2. (193212 clauses over 70686 variables)
+  Proof for induction step failed. Trying to prove individual $equiv from workset.
+  Trying to prove $equiv for \mem_b [5]: failed.
+  Trying to prove $equiv for \mem_b [1]: failed.
+  Trying to prove $equiv for \mem_a [20]: failed.
+  Trying to prove $equiv for \mem_a [0]: failed.
+  Trying to prove $equiv for \mem_b [2]: failed.
+  Trying to prove $equiv for \mem_a [13]: failed.
+  Trying to prove $equiv for \mem_b [54]: failed.
+  Trying to prove $equiv for \mem_b [55]: failed.
+  Trying to prove $equiv for \mem_c [9]: failed.
+  Trying to prove $equiv for \mem_d [0]: failed.
+  Trying to prove $equiv for \mem_d [1]: failed.
+  Trying to prove $equiv for \mem_d [2]: failed.
+  Trying to prove $equiv for \mem_c [32]: failed.
+  Trying to prove $equiv for \mem_c [33]: failed.
+  Trying to prove $equiv for \mem_d [60]: failed.
+  Trying to prove $equiv for \mem_d [61]: failed.
+  Trying to prove $equiv for \mem_d [62]: failed.
+  Trying to prove $equiv for \mem_b [27]: failed.
+  Trying to prove $equiv for \mem_b [34]: failed.
+  Trying to prove $equiv for \mem_c [14]: failed.
+  Trying to prove $equiv for \mem_c [15]: failed.
+  Trying to prove $equiv for \mem_a [49]: failed.
+  Trying to prove $equiv for \mem_b [41]: failed.
+  Trying to prove $equiv for \mem_c [45]: failed.
+  Trying to prove $equiv for \mem_c [46]: failed.
+  Trying to prove $equiv for \mem_b [42]: failed.
+  Trying to prove $equiv for \mem_b [43]: failed.
+  Trying to prove $equiv for \mem_b [39]: failed.
+  Trying to prove $equiv for \mem_b [40]: failed.
+  Trying to prove $equiv for \mem_a [25]: failed.
+  Trying to prove $equiv for \mem_a [18]: failed.
+  Trying to prove $equiv for \mem_b [22]: failed.
+  Trying to prove $equiv for \mem_b [46]: failed.
+  Trying to prove $equiv for \mem_b [47]: failed.
+  Trying to prove $equiv for \mem_b [45]: failed.
+  Trying to prove $equiv for \mem_d [34]: failed.
+  Trying to prove $equiv for \mem_d [35]: failed.
+  Trying to prove $equiv for \mem_d [36]: failed.
+  Trying to prove $equiv for \mem_a [56]: failed.
+  Trying to prove $equiv for \mem_b [16]: failed.
+  Trying to prove $equiv for \mem_b [12]: failed.
+  Trying to prove $equiv for \mem_d [48]: failed.
+  Trying to prove $equiv for \mem_d [49]: failed.
+  Trying to prove $equiv for \mem_d [50]: failed.
+  Trying to prove $equiv for \mem_a [16]: failed.
+  Trying to prove $equiv for \mem_a [51]: failed.
+  Trying to prove $equiv for \mem_a [63]: failed.
+  Trying to prove $equiv for \mem_a [22]: failed.
+  Trying to prove $equiv for \mem_a [32]: failed.
+  Trying to prove $equiv for \mem_a [33]: failed.
+  Trying to prove $equiv for \mem_a [4]: failed.
+  Trying to prove $equiv for \mem_b [8]: failed.
+  Trying to prove $equiv for \mem_a [36]: failed.
+  Trying to prove $equiv for \mem_a [37]: failed.
+  Trying to prove $equiv for \mem_a [38]: failed.
+  Trying to prove $equiv for \mem_a [39]: failed.
+  Trying to prove $equiv for \mem_a [6]: failed.
+  Trying to prove $equiv for \mem_b [57]: failed.
+  Trying to prove $equiv for \mem_b [58]: failed.
+  Trying to prove $equiv for \mem_b [0]: failed.
+  Trying to prove $equiv for \mem_c [28]: failed.
+  Trying to prove $equiv for \mem_c [29]: failed.
+  Trying to prove $equiv for \mem_b [51]: failed.
+  Trying to prove $equiv for \mem_c [43]: failed.
+  Trying to prove $equiv for \mem_c [44]: failed.
+  Trying to prove $equiv for \mem_c [51]: failed.
+  Trying to prove $equiv for \mem_c [4]: failed.
+  Trying to prove $equiv for \mem_b [56]: failed.
+  Trying to prove $equiv for \mem_b [29]: failed.
+  Trying to prove $equiv for \mem_a [11]: failed.
+  Trying to prove $equiv for \mem_b [17]: failed.
+  Trying to prove $equiv for \mem_a [15]: failed.
+  Trying to prove $equiv for \mem_c [10]: failed.
+  Trying to prove $equiv for \mem_c [11]: failed.
+  Trying to prove $equiv for \mem_a [47]: failed.
+  Trying to prove $equiv for \mem_a [29]: failed.
+  Trying to prove $equiv for \mem_a [21]: failed.
+  Trying to prove $equiv for \mem_a [2]: failed.
+  Trying to prove $equiv for \mem_a [50]: failed.
+  Trying to prove $equiv for \mem_d [5]: failed.
+  Trying to prove $equiv for \mem_d [6]: failed.
+  Trying to prove $equiv for \mem_c [57]: failed.
+  Trying to prove $equiv for \mem_c [58]: failed.
+  Trying to prove $equiv for \mem_c [59]: failed.
+  Trying to prove $equiv for \mem_d [31]: failed.
+  Trying to prove $equiv for \mem_d [32]: failed.
+  Trying to prove $equiv for \mem_d [33]: failed.
+  Trying to prove $equiv for \mem_a [52]: failed.
+  Trying to prove $equiv for \mem_b [31]: failed.
+  Trying to prove $equiv for \mem_d [40]: failed.
+  Trying to prove $equiv for \mem_d [41]: failed.
+  Trying to prove $equiv for \mem_d [42]: failed.
+  Trying to prove $equiv for \mem_a [62]: failed.
+  Trying to prove $equiv for \mem_c [24]: failed.
+  Trying to prove $equiv for \mem_c [25]: failed.
+  Trying to prove $equiv for \mem_b [59]: failed.
+  Trying to prove $equiv for \mem_d [12]: failed.
+  Trying to prove $equiv for \mem_d [13]: failed.
+  Trying to prove $equiv for \mem_d [14]: failed.
+  Trying to prove $equiv for \mem_d [17]: failed.
+  Trying to prove $equiv for \mem_a [23]: failed.
+  Trying to prove $equiv for \mem_b [9]: failed.
+  Trying to prove $equiv for \mem_d [18]: failed.
+  Trying to prove $equiv for \mem_d [19]: failed.
+  Trying to prove $equiv for \mem_d [15]: failed.
+  Trying to prove $equiv for \mem_d [16]: failed.
+  Trying to prove $equiv for \mem_d [51]: failed.
+  Trying to prove $equiv for \mem_d [52]: failed.
+  Trying to prove $equiv for \mem_d [53]: failed.
+  Trying to prove $equiv for \mem_c [2]: failed.
+  Trying to prove $equiv for \mem_d [43]: failed.
+  Trying to prove $equiv for \mem_d [44]: failed.
+  Trying to prove $equiv for \mem_d [20]: failed.
+  Trying to prove $equiv for \mem_d [21]: failed.
+  Trying to prove $equiv for \mem_d [22]: failed.
+  Trying to prove $equiv for \mem_d [23]: failed.
+  Trying to prove $equiv for \mem_c [1]: failed.
+  Trying to prove $equiv for \mem_b [26]: failed.
+  Trying to prove $equiv for \mem_b [32]: failed.
+  Trying to prove $equiv for \mem_d [45]: failed.
+  Trying to prove $equiv for \mem_d [46]: failed.
+  Trying to prove $equiv for \mem_d [47]: failed.
+  Trying to prove $equiv for \mem_a [53]: failed.
+  Trying to prove $equiv for \mem_a [42]: failed.
+  Trying to prove $equiv for \mem_a [43]: failed.
+  Trying to prove $equiv for \mem_a [61]: failed.
+  Trying to prove $equiv for \mem_c [60]: failed.
+  Trying to prove $equiv for \mem_c [61]: failed.
+  Trying to prove $equiv for \mem_a [9]: failed.
+  Trying to prove $equiv for \mem_b [4]: failed.
+  Trying to prove $equiv for \mem_b [3]: failed.
+  Trying to prove $equiv for \mem_b [20]: failed.
+  Trying to prove $equiv for \mem_b [21]: failed.
+  Trying to prove $equiv for \mem_a [45]: failed.
+  Trying to prove $equiv for \mem_d [26]: failed.
+  Trying to prove $equiv for \mem_d [27]: failed.
+  Trying to prove $equiv for \mem_c [34]: failed.
+  Trying to prove $equiv for \mem_c [35]: failed.
+  Trying to prove $equiv for \mem_c [40]: failed.
+  Trying to prove $equiv for \mem_b [18]: failed.
+  Trying to prove $equiv for \mem_c [16]: failed.
+  Trying to prove $equiv for \mem_c [17]: failed.
+  Trying to prove $equiv for \mem_a [24]: failed.
+  Trying to prove $equiv for \mem_b [10]: failed.
+  Trying to prove $equiv for \mem_b [38]: failed.
+  Trying to prove $equiv for \mem_a [57]: failed.
+  Trying to prove $equiv for \mem_a [27]: failed.
+  Trying to prove $equiv for \mem_a [60]: failed.
+  Trying to prove $equiv for \mem_d [3]: failed.
+  Trying to prove $equiv for \mem_d [4]: failed.
+  Trying to prove $equiv for \mem_c [30]: failed.
+  Trying to prove $equiv for \mem_c [31]: failed.
+  Trying to prove $equiv for \mem_c [0]: failed.
+  Trying to prove $equiv for \mem_c [3]: failed.
+  Trying to prove $equiv for \mem_a [8]: failed.
+  Trying to prove $equiv for \mem_b [11]: failed.
+  Trying to prove $equiv for \mem_a [5]: failed.
+  Trying to prove $equiv for \mem_c [20]: failed.
+  Trying to prove $equiv for \mem_c [21]: failed.
+  Trying to prove $equiv for \mem_d [28]: failed.
+  Trying to prove $equiv for \mem_d [29]: failed.
+  Trying to prove $equiv for \mem_d [30]: failed.
+  Trying to prove $equiv for \mem_b [36]: failed.
+  Trying to prove $equiv for \mem_b [37]: failed.
+  Trying to prove $equiv for \mem_a [34]: failed.
+  Trying to prove $equiv for \mem_a [35]: failed.
+  Trying to prove $equiv for \mem_b [6]: failed.
+  Trying to prove $equiv for \mem_a [48]: failed.
+  Trying to prove $equiv for \mem_a [40]: failed.
+  Trying to prove $equiv for \mem_a [41]: failed.
+  Trying to prove $equiv for \mem_a [44]: failed.
+  Trying to prove $equiv for \mem_c [55]: failed.
+  Trying to prove $equiv for \mem_c [56]: failed.
+  Trying to prove $equiv for \mem_b [19]: failed.
+  Trying to prove $equiv for \mem_c [52]: failed.
+  Trying to prove $equiv for \mem_c [53]: failed.
+  Trying to prove $equiv for \mem_b [48]: failed.
+  Trying to prove $equiv for \mem_b [53]: failed.
+  Trying to prove $equiv for \mem_c [47]: failed.
+  Trying to prove $equiv for \mem_c [48]: failed.
+  Trying to prove $equiv for \mem_c [54]: failed.
+  Trying to prove $equiv for \mem_b [60]: failed.
+  Trying to prove $equiv for \mem_b [61]: failed.
+  Trying to prove $equiv for \mem_b [63]: failed.
+  Trying to prove $equiv for \mem_a [3]: failed.
+  Trying to prove $equiv for \mem_d [24]: failed.
+  Trying to prove $equiv for \mem_d [25]: failed.
+  Trying to prove $equiv for \mem_a [58]: failed.
+  Trying to prove $equiv for \mem_a [1]: failed.
+  Trying to prove $equiv for \mem_d [7]: failed.
+  Trying to prove $equiv for \mem_d [8]: failed.
+  Trying to prove $equiv for \mem_d [9]: failed.
+  Trying to prove $equiv for \mem_a [46]: failed.
+  Trying to prove $equiv for \mem_c [36]: failed.
+  Trying to prove $equiv for \mem_c [37]: failed.
+  Trying to prove $equiv for \mem_c [26]: failed.
+  Trying to prove $equiv for \mem_c [27]: failed.
+  Trying to prove $equiv for \mem_b [7]: failed.
+  Trying to prove $equiv for \mem_a [28]: failed.
+  Trying to prove $equiv for \mem_a [19]: failed.
+  Trying to prove $equiv for \mem_a [55]: failed.
+  Trying to prove $equiv for \mem_c [62]: failed.
+  Trying to prove $equiv for \mem_c [63]: failed.
+  Trying to prove $equiv for \DOD: failed.
+  Trying to prove $equiv for \mem_a [7]: failed.
+  Trying to prove $equiv for \mem_a [54]: failed.
+  Trying to prove $equiv for \mem_d [10]: failed.
+  Trying to prove $equiv for \mem_d [11]: failed.
+  Trying to prove $equiv for \mem_c [7]: failed.
+  Trying to prove $equiv for \mem_b [24]: failed.
+  Trying to prove $equiv for \mem_a [14]: failed.
+  Trying to prove $equiv for \mem_a [30]: failed.
+  Trying to prove $equiv for \mem_a [31]: failed.
+  Trying to prove $equiv for \mem_b [23]: failed.
+  Trying to prove $equiv for \mem_c [22]: failed.
+  Trying to prove $equiv for \mem_c [23]: failed.
+  Trying to prove $equiv for \mem_b [49]: failed.
+  Trying to prove $equiv for \mem_b [50]: failed.
+  Trying to prove $equiv for \mem_b [52]: failed.
+  Trying to prove $equiv for \mem_a [59]: failed.
+  Trying to prove $equiv for \mem_b [14]: failed.
+  Trying to prove $equiv for \mem_b [15]: failed.
+  Trying to prove $equiv for \mem_c [38]: failed.
+  Trying to prove $equiv for \mem_c [39]: failed.
+  Trying to prove $equiv for \mem_a [26]: failed.
+  Trying to prove $equiv for \mem_d [57]: failed.
+  Trying to prove $equiv for \mem_d [58]: failed.
+  Trying to prove $equiv for \mem_d [59]: failed.
+  Trying to prove $equiv for \mem_c [41]: failed.
+  Trying to prove $equiv for \mem_c [42]: failed.
+  Trying to prove $equiv for \mem_b [62]: failed.
+  Trying to prove $equiv for \mem_a [12]: failed.
+  Trying to prove $equiv for \mem_d [37]: failed.
+  Trying to prove $equiv for \mem_d [38]: failed.
+  Trying to prove $equiv for \mem_d [39]: failed.
+  Trying to prove $equiv for \mem_b [28]: failed.
+  Trying to prove $equiv for \mem_b [35]: failed.
+  Trying to prove $equiv for \mem_a [17]: failed.
+  Trying to prove $equiv for \mem_b [25]: failed.
+  Trying to prove $equiv for \mem_b [30]: failed.
+  Trying to prove $equiv for \mem_c [12]: failed.
+  Trying to prove $equiv for \mem_c [13]: failed.
+  Trying to prove $equiv for \mem_d [63]: failed.
+  Trying to prove $equiv for \mem_b [33]: failed.
+  Trying to prove $equiv for \mem_c [18]: failed.
+  Trying to prove $equiv for \mem_c [19]: failed.
+  Trying to prove $equiv for \mem_b [44]: failed.
+  Trying to prove $equiv for \mem_d [54]: failed.
+  Trying to prove $equiv for \mem_d [55]: failed.
+  Trying to prove $equiv for \mem_d [56]: failed.
+  Trying to prove $equiv for \mem_c [49]: failed.
+  Trying to prove $equiv for \mem_c [50]: failed.
+  Trying to prove $equiv for \mem_b [13]: failed.
+  Trying to prove $equiv for \mem_a [10]: failed.
+  Trying to prove $equiv for \mem_c [5]: failed.
+  Trying to prove $equiv for \mem_c [6]: failed.
+  Trying to prove $equiv for \mem_c [8]: failed.
+Proved 0 previously unproven $equiv cells.
+
+10. Executing EQUIV_STATUS pass.
+Found 260 $equiv cells in equiv:
+  Of those cells 3 are proven and 257 are unproven.
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$600: \mem_d_gold [63] \mem_d_gate [63]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$599: \mem_d_gold [62] \mem_d_gate [62]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$598: \mem_d_gold [61] \mem_d_gate [61]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$597: \mem_d_gold [60] \mem_d_gate [60]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$596: \mem_d_gold [59] \mem_d_gate [59]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$595: \mem_d_gold [58] \mem_d_gate [58]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$594: \mem_d_gold [57] \mem_d_gate [57]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$593: \mem_d_gold [56] \mem_d_gate [56]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$592: \mem_d_gold [55] \mem_d_gate [55]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$591: \mem_d_gold [54] \mem_d_gate [54]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$590: \mem_d_gold [53] \mem_d_gate [53]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$589: \mem_d_gold [52] \mem_d_gate [52]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$588: \mem_d_gold [51] \mem_d_gate [51]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$587: \mem_d_gold [50] \mem_d_gate [50]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$586: \mem_d_gold [49] \mem_d_gate [49]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$585: \mem_d_gold [48] \mem_d_gate [48]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$584: \mem_d_gold [47] \mem_d_gate [47]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$583: \mem_d_gold [46] \mem_d_gate [46]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$582: \mem_d_gold [45] \mem_d_gate [45]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$581: \mem_d_gold [44] \mem_d_gate [44]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$580: \mem_d_gold [43] \mem_d_gate [43]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$579: \mem_d_gold [42] \mem_d_gate [42]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$578: \mem_d_gold [41] \mem_d_gate [41]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$577: \mem_d_gold [40] \mem_d_gate [40]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$576: \mem_d_gold [39] \mem_d_gate [39]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$575: \mem_d_gold [38] \mem_d_gate [38]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$574: \mem_d_gold [37] \mem_d_gate [37]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$573: \mem_d_gold [36] \mem_d_gate [36]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$572: \mem_d_gold [35] \mem_d_gate [35]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$571: \mem_d_gold [34] \mem_d_gate [34]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$570: \mem_d_gold [33] \mem_d_gate [33]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$569: \mem_d_gold [32] \mem_d_gate [32]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$568: \mem_d_gold [31] \mem_d_gate [31]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$567: \mem_d_gold [30] \mem_d_gate [30]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$566: \mem_d_gold [29] \mem_d_gate [29]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$565: \mem_d_gold [28] \mem_d_gate [28]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$564: \mem_d_gold [27] \mem_d_gate [27]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$563: \mem_d_gold [26] \mem_d_gate [26]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$562: \mem_d_gold [25] \mem_d_gate [25]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$561: \mem_d_gold [24] \mem_d_gate [24]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$560: \mem_d_gold [23] \mem_d_gate [23]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$559: \mem_d_gold [22] \mem_d_gate [22]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$558: \mem_d_gold [21] \mem_d_gate [21]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$557: \mem_d_gold [20] \mem_d_gate [20]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$556: \mem_d_gold [19] \mem_d_gate [19]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$555: \mem_d_gold [18] \mem_d_gate [18]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$554: \mem_d_gold [17] \mem_d_gate [17]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$553: \mem_d_gold [16] \mem_d_gate [16]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$552: \mem_d_gold [15] \mem_d_gate [15]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$551: \mem_d_gold [14] \mem_d_gate [14]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$550: \mem_d_gold [13] \mem_d_gate [13]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$549: \mem_d_gold [12] \mem_d_gate [12]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$548: \mem_d_gold [11] \mem_d_gate [11]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$547: \mem_d_gold [10] \mem_d_gate [10]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$546: \mem_d_gold [9] \mem_d_gate [9]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$545: \mem_d_gold [8] \mem_d_gate [8]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$544: \mem_d_gold [7] \mem_d_gate [7]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$543: \mem_d_gold [6] \mem_d_gate [6]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$542: \mem_d_gold [5] \mem_d_gate [5]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$541: \mem_d_gold [4] \mem_d_gate [4]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$540: \mem_d_gold [3] \mem_d_gate [3]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$539: \mem_d_gold [2] \mem_d_gate [2]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$538: \mem_d_gold [1] \mem_d_gate [1]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$537: \mem_d_gold [0] \mem_d_gate [0]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$536: \mem_c_gold [63] \mem_c_gate [63]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$535: \mem_c_gold [62] \mem_c_gate [62]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$534: \mem_c_gold [61] \mem_c_gate [61]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$533: \mem_c_gold [60] \mem_c_gate [60]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$532: \mem_c_gold [59] \mem_c_gate [59]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$531: \mem_c_gold [58] \mem_c_gate [58]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$530: \mem_c_gold [57] \mem_c_gate [57]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$529: \mem_c_gold [56] \mem_c_gate [56]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$528: \mem_c_gold [55] \mem_c_gate [55]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$527: \mem_c_gold [54] \mem_c_gate [54]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$526: \mem_c_gold [53] \mem_c_gate [53]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$525: \mem_c_gold [52] \mem_c_gate [52]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$524: \mem_c_gold [51] \mem_c_gate [51]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$523: \mem_c_gold [50] \mem_c_gate [50]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$522: \mem_c_gold [49] \mem_c_gate [49]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$521: \mem_c_gold [48] \mem_c_gate [48]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$520: \mem_c_gold [47] \mem_c_gate [47]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$519: \mem_c_gold [46] \mem_c_gate [46]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$518: \mem_c_gold [45] \mem_c_gate [45]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$517: \mem_c_gold [44] \mem_c_gate [44]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$516: \mem_c_gold [43] \mem_c_gate [43]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$515: \mem_c_gold [42] \mem_c_gate [42]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$514: \mem_c_gold [41] \mem_c_gate [41]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$513: \mem_c_gold [40] \mem_c_gate [40]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$512: \mem_c_gold [39] \mem_c_gate [39]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$511: \mem_c_gold [38] \mem_c_gate [38]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$510: \mem_c_gold [37] \mem_c_gate [37]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$509: \mem_c_gold [36] \mem_c_gate [36]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$508: \mem_c_gold [35] \mem_c_gate [35]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$507: \mem_c_gold [34] \mem_c_gate [34]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$506: \mem_c_gold [33] \mem_c_gate [33]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$505: \mem_c_gold [32] \mem_c_gate [32]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$504: \mem_c_gold [31] \mem_c_gate [31]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$503: \mem_c_gold [30] \mem_c_gate [30]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$502: \mem_c_gold [29] \mem_c_gate [29]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$501: \mem_c_gold [28] \mem_c_gate [28]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$500: \mem_c_gold [27] \mem_c_gate [27]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$499: \mem_c_gold [26] \mem_c_gate [26]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$498: \mem_c_gold [25] \mem_c_gate [25]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$497: \mem_c_gold [24] \mem_c_gate [24]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$496: \mem_c_gold [23] \mem_c_gate [23]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$495: \mem_c_gold [22] \mem_c_gate [22]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$494: \mem_c_gold [21] \mem_c_gate [21]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$493: \mem_c_gold [20] \mem_c_gate [20]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$492: \mem_c_gold [19] \mem_c_gate [19]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$491: \mem_c_gold [18] \mem_c_gate [18]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$490: \mem_c_gold [17] \mem_c_gate [17]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$489: \mem_c_gold [16] \mem_c_gate [16]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$488: \mem_c_gold [15] \mem_c_gate [15]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$487: \mem_c_gold [14] \mem_c_gate [14]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$486: \mem_c_gold [13] \mem_c_gate [13]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$485: \mem_c_gold [12] \mem_c_gate [12]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$484: \mem_c_gold [11] \mem_c_gate [11]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$483: \mem_c_gold [10] \mem_c_gate [10]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$482: \mem_c_gold [9] \mem_c_gate [9]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$481: \mem_c_gold [8] \mem_c_gate [8]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$480: \mem_c_gold [7] \mem_c_gate [7]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$479: \mem_c_gold [6] \mem_c_gate [6]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$478: \mem_c_gold [5] \mem_c_gate [5]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$477: \mem_c_gold [4] \mem_c_gate [4]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$476: \mem_c_gold [3] \mem_c_gate [3]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$475: \mem_c_gold [2] \mem_c_gate [2]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$474: \mem_c_gold [1] \mem_c_gate [1]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$473: \mem_c_gold [0] \mem_c_gate [0]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$472: \mem_b_gold [63] \mem_b_gate [63]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$471: \mem_b_gold [62] \mem_b_gate [62]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$470: \mem_b_gold [61] \mem_b_gate [61]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$469: \mem_b_gold [60] \mem_b_gate [60]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$468: \mem_b_gold [59] \mem_b_gate [59]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$467: \mem_b_gold [58] \mem_b_gate [58]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$466: \mem_b_gold [57] \mem_b_gate [57]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$465: \mem_b_gold [56] \mem_b_gate [56]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$464: \mem_b_gold [55] \mem_b_gate [55]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$463: \mem_b_gold [54] \mem_b_gate [54]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$462: \mem_b_gold [53] \mem_b_gate [53]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$461: \mem_b_gold [52] \mem_b_gate [52]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$460: \mem_b_gold [51] \mem_b_gate [51]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$459: \mem_b_gold [50] \mem_b_gate [50]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$458: \mem_b_gold [49] \mem_b_gate [49]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$457: \mem_b_gold [48] \mem_b_gate [48]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$456: \mem_b_gold [47] \mem_b_gate [47]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$455: \mem_b_gold [46] \mem_b_gate [46]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$454: \mem_b_gold [45] \mem_b_gate [45]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$453: \mem_b_gold [44] \mem_b_gate [44]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$452: \mem_b_gold [43] \mem_b_gate [43]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$451: \mem_b_gold [42] \mem_b_gate [42]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$450: \mem_b_gold [41] \mem_b_gate [41]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$449: \mem_b_gold [40] \mem_b_gate [40]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$448: \mem_b_gold [39] \mem_b_gate [39]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$447: \mem_b_gold [38] \mem_b_gate [38]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$446: \mem_b_gold [37] \mem_b_gate [37]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$445: \mem_b_gold [36] \mem_b_gate [36]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$444: \mem_b_gold [35] \mem_b_gate [35]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$443: \mem_b_gold [34] \mem_b_gate [34]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$442: \mem_b_gold [33] \mem_b_gate [33]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$441: \mem_b_gold [32] \mem_b_gate [32]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$440: \mem_b_gold [31] \mem_b_gate [31]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$439: \mem_b_gold [30] \mem_b_gate [30]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$438: \mem_b_gold [29] \mem_b_gate [29]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$437: \mem_b_gold [28] \mem_b_gate [28]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$436: \mem_b_gold [27] \mem_b_gate [27]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$435: \mem_b_gold [26] \mem_b_gate [26]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$434: \mem_b_gold [25] \mem_b_gate [25]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$433: \mem_b_gold [24] \mem_b_gate [24]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$432: \mem_b_gold [23] \mem_b_gate [23]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$431: \mem_b_gold [22] \mem_b_gate [22]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$430: \mem_b_gold [21] \mem_b_gate [21]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$429: \mem_b_gold [20] \mem_b_gate [20]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$428: \mem_b_gold [19] \mem_b_gate [19]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$427: \mem_b_gold [18] \mem_b_gate [18]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$426: \mem_b_gold [17] \mem_b_gate [17]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$425: \mem_b_gold [16] \mem_b_gate [16]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$424: \mem_b_gold [15] \mem_b_gate [15]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$423: \mem_b_gold [14] \mem_b_gate [14]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$422: \mem_b_gold [13] \mem_b_gate [13]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$421: \mem_b_gold [12] \mem_b_gate [12]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$420: \mem_b_gold [11] \mem_b_gate [11]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$419: \mem_b_gold [10] \mem_b_gate [10]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$418: \mem_b_gold [9] \mem_b_gate [9]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$417: \mem_b_gold [8] \mem_b_gate [8]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$416: \mem_b_gold [7] \mem_b_gate [7]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$415: \mem_b_gold [6] \mem_b_gate [6]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$414: \mem_b_gold [5] \mem_b_gate [5]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$413: \mem_b_gold [4] \mem_b_gate [4]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$412: \mem_b_gold [3] \mem_b_gate [3]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$411: \mem_b_gold [2] \mem_b_gate [2]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$410: \mem_b_gold [1] \mem_b_gate [1]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$409: \mem_b_gold [0] \mem_b_gate [0]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$408: \mem_a_gold [63] \mem_a_gate [63]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$407: \mem_a_gold [62] \mem_a_gate [62]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$406: \mem_a_gold [61] \mem_a_gate [61]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$405: \mem_a_gold [60] \mem_a_gate [60]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$404: \mem_a_gold [59] \mem_a_gate [59]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$403: \mem_a_gold [58] \mem_a_gate [58]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$402: \mem_a_gold [57] \mem_a_gate [57]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$401: \mem_a_gold [56] \mem_a_gate [56]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$400: \mem_a_gold [55] \mem_a_gate [55]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$399: \mem_a_gold [54] \mem_a_gate [54]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$398: \mem_a_gold [53] \mem_a_gate [53]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$397: \mem_a_gold [52] \mem_a_gate [52]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$396: \mem_a_gold [51] \mem_a_gate [51]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$395: \mem_a_gold [50] \mem_a_gate [50]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$394: \mem_a_gold [49] \mem_a_gate [49]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$393: \mem_a_gold [48] \mem_a_gate [48]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$392: \mem_a_gold [47] \mem_a_gate [47]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$391: \mem_a_gold [46] \mem_a_gate [46]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$390: \mem_a_gold [45] \mem_a_gate [45]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$389: \mem_a_gold [44] \mem_a_gate [44]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$388: \mem_a_gold [43] \mem_a_gate [43]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$387: \mem_a_gold [42] \mem_a_gate [42]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$386: \mem_a_gold [41] \mem_a_gate [41]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$385: \mem_a_gold [40] \mem_a_gate [40]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$384: \mem_a_gold [39] \mem_a_gate [39]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$383: \mem_a_gold [38] \mem_a_gate [38]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$382: \mem_a_gold [37] \mem_a_gate [37]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$381: \mem_a_gold [36] \mem_a_gate [36]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$380: \mem_a_gold [35] \mem_a_gate [35]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$379: \mem_a_gold [34] \mem_a_gate [34]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$378: \mem_a_gold [33] \mem_a_gate [33]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$377: \mem_a_gold [32] \mem_a_gate [32]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$376: \mem_a_gold [31] \mem_a_gate [31]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$375: \mem_a_gold [30] \mem_a_gate [30]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$374: \mem_a_gold [29] \mem_a_gate [29]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$373: \mem_a_gold [28] \mem_a_gate [28]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$372: \mem_a_gold [27] \mem_a_gate [27]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$371: \mem_a_gold [26] \mem_a_gate [26]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$370: \mem_a_gold [25] \mem_a_gate [25]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$369: \mem_a_gold [24] \mem_a_gate [24]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$368: \mem_a_gold [23] \mem_a_gate [23]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$367: \mem_a_gold [22] \mem_a_gate [22]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$366: \mem_a_gold [21] \mem_a_gate [21]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$365: \mem_a_gold [20] \mem_a_gate [20]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$364: \mem_a_gold [19] \mem_a_gate [19]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$363: \mem_a_gold [18] \mem_a_gate [18]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$362: \mem_a_gold [17] \mem_a_gate [17]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$361: \mem_a_gold [16] \mem_a_gate [16]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$360: \mem_a_gold [15] \mem_a_gate [15]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$359: \mem_a_gold [14] \mem_a_gate [14]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$358: \mem_a_gold [13] \mem_a_gate [13]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$357: \mem_a_gold [12] \mem_a_gate [12]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$356: \mem_a_gold [11] \mem_a_gate [11]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$355: \mem_a_gold [10] \mem_a_gate [10]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$354: \mem_a_gold [9] \mem_a_gate [9]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$353: \mem_a_gold [8] \mem_a_gate [8]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$352: \mem_a_gold [7] \mem_a_gate [7]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$351: \mem_a_gold [6] \mem_a_gate [6]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$350: \mem_a_gold [5] \mem_a_gate [5]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$349: \mem_a_gold [4] \mem_a_gate [4]
+  Unproven $equiv $auto$equiv_make.cc:294:find_same_wires$348: \mem_a_gold [3] \mem_a_gate [3]
+  Unproven $equiv $auto$ERROR: Found 257 unproven $equiv cells in 'equiv_status -assert'.

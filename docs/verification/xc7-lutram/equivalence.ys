@@ -1,0 +1,10 @@
+read_verilog -sv /tmp/wasmetal-direct-rounding/build/xc7-lutram/yosys.v /tmp/wasmetal-direct-rounding/build/xc7-lutram/binary-vendor.v
+proc
+memory_map
+opt
+write_json /tmp/wasmetal-direct-rounding/build/xc7-lutram/lowered.json
+equiv_make RAM64M VENDOR_RAM64M equiv
+hierarchy -top equiv
+equiv_simple
+equiv_induct -seq 2
+equiv_status -assert
