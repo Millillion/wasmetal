@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/build_xc7_core_sim.py", line 143, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/build_xc7_core_sim.py", line 41, in main
+    raise ValueError('verified Xilinx mapping at the official-suite capacities required')
+ValueError: verified Xilinx mapping at the official-suite capacities required

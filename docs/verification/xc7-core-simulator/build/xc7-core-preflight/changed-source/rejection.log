@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/build_xc7_core_sim.py", line 143, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/build_xc7_core_sim.py", line 42, in main
+    verify_inputs(reference['inputs'])
+  File "/tmp/wasmetal-xc7-core/tools/build_xc7_core_sim.py", line 26, in verify_inputs
+    raise ValueError('mapped core input changed: '+name)
+ValueError: mapped core input changed: rtl/wasmetal_alu.sv

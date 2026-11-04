@@ -1,0 +1,169 @@
+%Warning-TIMESCALEMOD: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    3 | module ram_fixture(wclk, rclk, wen, ren, rst, wa, ra, wd, wmask, rd);
+      |        ^~~~~~~~~~~
+                       /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:3:8: ... Location of module with timescale
+    3 | module xc7_mapping;
+      |        ^~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.020
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed-logic.v:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    1 | module LUT2(output O, input I0, I1);
+      |        ^~~~
+                       /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:3:8: ... Location of module with timescale
+    3 | module xc7_mapping;
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+    3 | module wasmetal_xc7_ram #(
+      |        ^~~~~~~~~~~~~~~~
+                       /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:3:8: ... Location of module with timescale
+    3 | module xc7_mapping;
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:61:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+   61 | module RAMB18E1 #(
+      |        ^~~~~~~~
+                       /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:3:8: ... Location of module with timescale
+    3 | module xc7_mapping;
+      |        ^~~~~~~~~~~
+%Warning-TIMESCALEMOD: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:203:8: Timescale missing on this module as other modules have it (IEEE 1800-2017 3.14.2.3)
+  203 | module RAMB36E1 #(
+      |        ^~~~~~~~
+                       /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:3:8: ... Location of module with timescale
+    3 | module xc7_mapping;
+      |        ^~~~~~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:66:22: Operator VAR 'INIT_A' expects 18 bits on the Initial value, but Initial value's CONST '72'bxxxxxxxxxxxxxxxxxx' generates 72 bits.
+                                                                                    : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+   66 |     parameter [17:0] INIT_A=0,INIT_B=0,SRVAL_A=0,SRVAL_B=0,
+      |                      ^~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:66:31: Operator VAR 'INIT_B' expects 18 bits on the Initial value, but Initial value's CONST '72'bxxxxxxxxx' generates 72 bits.
+                                                                                    : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+   66 |     parameter [17:0] INIT_A=0,INIT_B=0,SRVAL_A=0,SRVAL_B=0,
+      |                               ^~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:66:40: Operator VAR 'SRVAL_A' expects 18 bits on the Initial value, but Initial value's CONST '72'bxxxxxxxxxxxxxxxxxx' generates 72 bits.
+                                                                                    : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+   66 |     parameter [17:0] INIT_A=0,INIT_B=0,SRVAL_A=0,SRVAL_B=0,
+      |                                        ^~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:66:50: Operator VAR 'SRVAL_B' expects 18 bits on the Initial value, but Initial value's CONST '72'h1a5' generates 72 bits.
+                                                                                    : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+   66 |     parameter [17:0] INIT_A=0,INIT_B=0,SRVAL_A=0,SRVAL_B=0,
+      |                                                  ^~~~~~~
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:166:21: Operator EQ expects 88 bits on the LHS, but LHS's VARREF 'WRITE_MODE_A' generates 80 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  166 |         WRITE_MODE_A=="WRITE_FIRST" && WRITE_MODE_B=="WRITE_FIRST");
+      |                     ^~
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:166:52: Operator EQ expects 88 bits on the LHS, but LHS's VARREF 'WRITE_MODE_B' generates 80 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  166 |         WRITE_MODE_A=="WRITE_FIRST" && WRITE_MODE_B=="WRITE_FIRST");
+      |                                                    ^~
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:183:31: Operator COND expects 32 bits on the Conditional False, but Conditional False's VARREF 'INIT_B' generates 18 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  183 |         .OUTPUT_INIT_DATA(SDP ? {INIT_B[15:0],INIT_A[15:0]} : INIT_B),
+      |                               ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:184:33: Operator COND expects 18 bits on the Conditional True, but Conditional True's REPLICATE generates 4 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  184 |         .OUTPUT_INIT_PARITY(SDP ? {INIT_B[17:16],INIT_A[17:16]} : INIT_B>>(8*LANES)),
+      |                                 ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:185:32: Operator COND expects 32 bits on the Conditional False, but Conditional False's VARREF 'SRVAL_B' generates 18 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  185 |         .OUTPUT_RESET_DATA(SDP ? {SRVAL_B[15:0],SRVAL_A[15:0]} : SRVAL_B),
+      |                                ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:186:34: Operator COND expects 18 bits on the Conditional True, but Conditional True's REPLICATE generates 4 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  186 |         .OUTPUT_RESET_PARITY(SDP ? {SRVAL_B[17:16],SRVAL_A[17:16]} : SRVAL_B>>(8*LANES)),
+      |                                  ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:7:22: Operator VAR 'OUTPUT_INIT_DATA' expects 64 bits on the Initial value, but Initial value's CONST '32'bxxxxxxxxx' generates 32 bits.
+                                                                                    : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0.memory'
+    7 |     parameter [63:0] OUTPUT_INIT_DATA=0, OUTPUT_RESET_DATA=0,
+      |                      ^~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:7:42: Operator VAR 'OUTPUT_RESET_DATA' expects 64 bits on the Initial value, but Initial value's CONST '32'h1a5' generates 32 bits.
+                                                                                    : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0.memory'
+    7 |     parameter [63:0] OUTPUT_INIT_DATA=0, OUTPUT_RESET_DATA=0,
+      |                                          ^~~~~~~~~~~~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:8:21: Operator VAR 'OUTPUT_INIT_PARITY' expects 8 bits on the Initial value, but Initial value's CONST '18'bx' generates 18 bits.
+                                                                                   : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0.memory'
+    8 |     parameter [7:0] OUTPUT_INIT_PARITY=0, OUTPUT_RESET_PARITY=0,
+      |                     ^~~~~~~~~~~~~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:8:43: Operator VAR 'OUTPUT_RESET_PARITY' expects 8 bits on the Initial value, but Initial value's CONST '18'h1' generates 18 bits.
+                                                                                   : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0.memory'
+    8 |     parameter [7:0] OUTPUT_INIT_PARITY=0, OUTPUT_RESET_PARITY=0,
+      |                                           ^~~~~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:194:20: Operator COND expects 64 bits on the Conditional True, but Conditional True's REPLICATE generates 32 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  194 |         .wdata(SDP ? {DIBDI,DIADI} : DIADI),.wparity(SDP ? {DIPBDIP,DIPADIP} : DIPADIP),
+      |                    ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:194:20: Operator COND expects 64 bits on the Conditional False, but Conditional False's VARREF 'DIADI' generates 16 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  194 |         .wdata(SDP ? {DIBDI,DIADI} : DIADI),.wparity(SDP ? {DIPBDIP,DIPADIP} : DIPADIP),
+      |                    ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:194:58: Operator COND expects 8 bits on the Conditional True, but Conditional True's REPLICATE generates 4 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  194 |         .wdata(SDP ? {DIBDI,DIADI} : DIADI),.wparity(SDP ? {DIPBDIP,DIPADIP} : DIPADIP),
+      |                                                          ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:194:58: Operator COND expects 8 bits on the Conditional False, but Conditional False's VARREF 'DIPADIP' generates 2 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  194 |         .wdata(SDP ? {DIBDI,DIADI} : DIADI),.wparity(SDP ? {DIPBDIP,DIPADIP} : DIPADIP),
+      |                                                          ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:195:20: Operator COND expects 8 bits on the Conditional True, but Conditional True's VARREF 'WEBWE' generates 4 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  195 |         .wmask(SDP ? WEBWE : WEA),.rdata(data),.rparity(parity)
+      |                    ^
+%Warning-WIDTHEXPAND: /tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:195:20: Operator COND expects 8 bits on the Conditional False, but Conditional False's VARREF 'WEA' generates 2 bits.
+                                                                                      : ... note: In instance 'xc7_mapping.dut.memory__02e0__02e0'
+  195 |         .wmask(SDP ? WEBWE : WEA),.rdata(data),.rparity(parity)
+      |                    ^
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:128:6: Input port connection 'DIADI' expects 16 bits on the pin connection, but pin connection's REPLICATE generates 64 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  128 |     .DIADI({ 56'h00000000000000, wd[7:0] }),
+      |      ^~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:129:6: Input port connection 'DIBDI' expects 16 bits on the pin connection, but pin connection's CONST '64'bxxxxxxxxxxxxxxxx' generates 64 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  129 |     .DIBDI(64'h000000000000xxxx),
+      |      ^~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:130:6: Input port connection 'DIPADIP' expects 2 bits on the pin connection, but pin connection's REPLICATE generates 8 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  130 |     .DIPADIP({ 7'h00, wd[8] }),
+      |      ^~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:131:6: Input port connection 'DIPBDIP' expects 2 bits on the pin connection, but pin connection's CONST '8'bxx' generates 8 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  131 |     .DIPBDIP(8'b000000xx),
+      |      ^~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:132:6: Output port connection 'DOADO' expects 16 bits on the pin connection, but pin connection's REPLICATE generates 64 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  132 |     .DOADO({ _4_[63:16], _1_[16:9], _1_[7:0] }),
+      |      ^~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:133:6: Output port connection 'DOBDO' expects 16 bits on the pin connection, but pin connection's REPLICATE generates 64 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  133 |     .DOBDO({ _5_[63:8], rd[7:0] }),
+      |      ^~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:134:6: Output port connection 'DOPADOP' expects 2 bits on the pin connection, but pin connection's REPLICATE generates 8 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  134 |     .DOPADOP({ _2_[7:2], _1_[17], _1_[8] }),
+      |      ^~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:135:6: Output port connection 'DOPBDOP' expects 2 bits on the pin connection, but pin connection's REPLICATE generates 8 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  135 |     .DOPBDOP({ _3_[7:1], rd[8] }),
+      |      ^~~~~~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:144:6: Input port connection 'WEA' expects 2 bits on the pin connection, but pin connection's REPLICATE generates 4 bits.
+                                                                                                  : ... note: In instance 'xc7_mapping.dut'
+  144 |     .WEA({ _0_[8], _0_[8], _0_[8], _0_[8] }),
+      |      ^~~
+%Warning-WIDTHTRUNC: /tmp/wasmetal-direct-rounding/tests/memory/xc7_mapping.sv:27:12: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'fd' generates 32 bits.
+                                                                                    : ... note: In instance 'xc7_mapping'
+   27 |         if(!fd) $fatal(1,"VECTOR_FILE_UNREADABLE");
+      |            ^
+%Warning-UNOPTFLAT: /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:4:14: Signal unoptimizable: Circular combinational logic: 'xc7_mapping.dut._0_'
+    4 |   wire [8:0] _0_;
+      |              ^~~
+                    /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:4:14:      Example path: xc7_mapping.dut._0_
+                    /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:147:82:      Example path: ASSIGNW
+                    /tmp/wasmetal-direct-rounding/build/xc7-memory-mapping/w9-d2048/fixed.v:4:14:      Example path: xc7_mapping.dut._0_
+make: Entering directory '/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/obj'
+g++ -Os  -I.  -MMD -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/verilated_threads.cpp
+/usr/bin/python3 /tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vxc7_mapping.cpp Vxc7_mapping___024root__DepSet_h5bd97ddb__0.cpp Vxc7_mapping___024root__DepSet_hd50bb9c2__0.cpp Vxc7_mapping__main.cpp Vxc7_mapping__ConstPool_0.cpp Vxc7_mapping___024root__Slow.cpp Vxc7_mapping___024root__DepSet_h5bd97ddb__0__Slow.cpp Vxc7_mapping___024root__DepSet_hd50bb9c2__0__Slow.cpp Vxc7_mapping__Syms.cpp > Vxc7_mapping__ALL.cpp
+g++ -Os  -I.  -MMD -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include -I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -DVL_TIME_CONTEXT   -fcoroutines -c -o Vxc7_mapping__ALL.o Vxc7_mapping__ALL.cpp
+echo "" > Vxc7_mapping__ALL.verilator_deplist.tmp
+Archive ar -rcs Vxc7_mapping__ALL.a Vxc7_mapping__ALL.o
+g++     verilated.o verilated_timing.o verilated_threads.o Vxc7_mapping__ALL.a    -pthread -lpthread -latomic   -o Vxc7_mapping
+rm Vxc7_mapping__ALL.verilator_deplist.tmp
+make: Leaving directory '/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w9-d2048/obj'

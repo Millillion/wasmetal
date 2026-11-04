@@ -1,0 +1,10 @@
+%Warning-SYNCASYNCNET: /tmp/wasmetal-xc7-core/build/xc7-core-sim/core.v:78625:9: Signal flopped as both synchronous and async: 'reset'
+                       /tmp/wasmetal-xc7-core/build/xc7-core-sim/cells.v:769:50: ... Location of async usage
+  769 |     2'b00: always @(posedge C, posedge CLR) if ( CLR) Q <= 1'b0; else if (CE) Q <= D ^ IS_D_INVERTED;
+      |                                                  ^~~
+                       /tmp/wasmetal-xc7-core/build/xc7-core-sim/cells.v:795:35: ... Location of sync usage
+  795 |     1'b0: always @(posedge C) if (R == !IS_R_INVERTED) Q <= 1'b0; else if (CE) Q <= D ^ IS_D_INVERTED;
+      |                                   ^
+                       ... For warning description see https://verilator.org/warn/SYNCASYNCNET?v=5.020
+                       ... Use "/* verilator lint_off SYNCASYNCNET */" and lint_on around source to disable this message.
+%Error: Exiting due to 1 warning(s)

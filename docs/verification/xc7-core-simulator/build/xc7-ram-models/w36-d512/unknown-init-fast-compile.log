@@ -1,0 +1,8 @@
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188: warning: Port 8 (wdata) of wasmetal_xc7_ram expects 64 bits, got 32.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188:        : Padding 32 high bits of the port.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188: warning: Port 9 (wparity) of wasmetal_xc7_ram expects 8 bits, got 4.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188:        : Padding 4 high bits of the port.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188: warning: Port 10 (wmask) of wasmetal_xc7_ram expects 8 bits, got 4.
+/tmp/wasmetal-direct-rounding/tests/xc7/ram_primitives.sv:188:        : Padding 4 high bits of the port.
+/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/unknown-init.v:142: warning: Port 21 (WEA) of RAMB18E1 expects 2 bits, got 32.
+/tmp/wasmetal-direct-rounding/build/xc7-ram-models/w36-d512/unknown-init.v:142:        : Pruning 30 high bits of the expression.

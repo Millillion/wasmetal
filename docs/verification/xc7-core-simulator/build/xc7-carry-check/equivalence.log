@@ -1,0 +1,412 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv' to AST representation.
+Warning: Yosys has only limited support for tri-state logic at the moment. (/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:89)
+Warning: Yosys has only limited support for tri-state logic at the moment. (/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:90)
+Generating RTLIL representation for module `\CARRY4'.
+Generating RTLIL representation for module `\VENDOR_CARRY4'.
+Generating RTLIL representation for module `\proof'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \proof
+Used module:     \VENDOR_CARRY4
+Used module:     \CARRY4
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \proof
+Used module:     \VENDOR_CARRY4
+Used module:     \CARRY4
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\VENDOR_CARRY4.$proc$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:79$18'.
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\VENDOR_CARRY4.\glblGSR' from process `\VENDOR_CARRY4.$proc$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:79$18'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `VENDOR_CARRY4.$proc$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:79$18'.
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+Optimizing module VENDOR_CARRY4.
+Optimizing module CARRY4.
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+Optimizing module VENDOR_CARRY4.
+Optimizing module CARRY4.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+Finding unused cells or wires in module \VENDOR_CARRY4..
+Finding unused cells or wires in module \CARRY4..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~3 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module CARRY4...
+Checking module VENDOR_CARRY4...
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [0]
+    wire \CO [0]
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [1]
+    wire \CO [0]
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [2]
+    wire \CO [0]
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [3]
+    wire \CO [0]
+Checking module proof...
+Found and reported 4 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module CARRY4.
+Optimizing module VENDOR_CARRY4.
+Optimizing module proof.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\CARRY4'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\VENDOR_CARRY4'.
+Finding identical cells in module `\proof'.
+Removed a total of 1 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \CARRY4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \VENDOR_CARRY4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \CARRY4.
+  Optimizing cells in module \VENDOR_CARRY4.
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\CARRY4'.
+Finding identical cells in module `\VENDOR_CARRY4'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \CARRY4..
+Finding unused cells or wires in module \VENDOR_CARRY4..
+Finding unused cells or wires in module \proof..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module CARRY4.
+Optimizing module VENDOR_CARRY4.
+Optimizing module proof.
+
+2.6.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.6.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \CARRY4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \VENDOR_CARRY4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+2.6.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \CARRY4.
+  Optimizing cells in module \VENDOR_CARRY4.
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+2.6.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\CARRY4'.
+Finding identical cells in module `\VENDOR_CARRY4'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.6.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \CARRY4..
+Finding unused cells or wires in module \VENDOR_CARRY4..
+Finding unused cells or wires in module \proof..
+
+2.6.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module CARRY4.
+Optimizing module VENDOR_CARRY4.
+Optimizing module proof.
+
+2.6.14. Finished OPT passes. (There is nothing left to do.)
+
+2.7. Executing WREDUCE pass (reducing word size of cells).
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \CARRY4..
+Finding unused cells or wires in module \VENDOR_CARRY4..
+Finding unused cells or wires in module \proof..
+
+2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module CARRY4.
+Optimizing module VENDOR_CARRY4.
+Optimizing module proof.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\CARRY4'.
+Finding identical cells in module `\VENDOR_CARRY4'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \CARRY4..
+Finding unused cells or wires in module \VENDOR_CARRY4..
+Finding unused cells or wires in module \proof..
+
+2.10.4. Finished fast OPT passes.
+
+2.11. Printing statistics.
+
+=== CARRY4 ===
+
+   Number of wires:                  7
+   Number of wire bits:             19
+   Number of public wires:           6
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $mux                            4
+     $or                             1
+     $xor                            1
+
+=== VENDOR_CARRY4 ===
+
+   Number of wires:                 17
+   Number of wire bits:             47
+   Number of public wires:          12
+   Number of public wire bits:      33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 10
+     $and                            2
+     $logic_and                      2
+     $logic_or                       1
+     $nex                            2
+     $not                            1
+     $or                             1
+     $xor                            1
+
+=== proof ===
+
+   Number of wires:                  5
+   Number of wire bits:             35
+   Number of public wires:           4
+   Number of public wire bits:      27
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $reduce_or                      1
+     $xor                            1
+     CARRY4                          1
+     VENDOR_CARRY4                   1
+
+=== design hierarchy ===
+
+   proof                             1
+     CARRY4                          1
+     VENDOR_CARRY4                   1
+
+   Number of wires:                 29
+   Number of wire bits:            101
+   Number of public wires:          22
+   Number of public wire bits:      78
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $and                            2
+     $logic_and                      2
+     $logic_or                       1
+     $mux                            4
+     $nex                            2
+     $not                            1
+     $or                             2
+     $reduce_or                      1
+     $xor                            3
+
+2.12. Executing CHECK pass (checking for obvious problems).
+Checking module CARRY4...
+Checking module VENDOR_CARRY4...
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [0]
+    wire \CO [0]
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [1]
+    wire \CO [0]
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [2]
+    wire \CO [0]
+Warning: found logic loop in module VENDOR_CARRY4:
+    cell $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14 ($and)
+    cell $or$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$17 ($or)
+    wire $and$/tmp/wasmetal-xc7-core/build/xc7-carry-check/equivalence.sv:99$14_Y [3]
+    wire \CO [0]
+Checking module proof...
+Found and reported 4 problems.
+
+3. Executing FLATTEN pass (flatten design).
+Deleting now unused module CARRY4.
+Deleting now unused module VENDOR_CARRY4.
+<suppressed ~2 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+
+4.9. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 18 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \pins
+
+Solving problem with 267 variables and 689 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+Warnings: 6 unique messages, 10 total
+End of script. Logfile hash: aecc88129d, CPU: user 0.04s system 0.00s, MEM: 32.30 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 28% 8x opt_expr (0 sec), 22% 6x opt_merge (0 sec), ...

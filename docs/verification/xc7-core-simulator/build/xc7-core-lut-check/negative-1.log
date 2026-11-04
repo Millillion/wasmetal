@@ -1,0 +1,854 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv' to AST representation.
+Generating RTLIL representation for module `\original1'.
+Generating RTLIL representation for module `\candidate1'.
+Generating RTLIL representation for module `\original2'.
+Generating RTLIL representation for module `\candidate2'.
+Generating RTLIL representation for module `\original3'.
+Generating RTLIL representation for module `\candidate3'.
+Generating RTLIL representation for module `\original4'.
+Generating RTLIL representation for module `\candidate4'.
+Generating RTLIL representation for module `\original5'.
+Generating RTLIL representation for module `\candidate5'.
+Generating RTLIL representation for module `\original6'.
+Generating RTLIL representation for module `\candidate6'.
+Generating RTLIL representation for module `\proof'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \proof
+Used module:     \candidate6
+Used module:     \original6
+Used module:     \candidate5
+Used module:     \original5
+Used module:     \candidate4
+Used module:     \original4
+Used module:     \candidate3
+Used module:     \original3
+Used module:     \candidate2
+Used module:     \original2
+Used module:     \candidate1
+Used module:     \original1
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \proof
+Used module:     \candidate6
+Used module:     \original6
+Used module:     \candidate5
+Used module:     \original5
+Used module:     \candidate4
+Used module:     \original4
+Used module:     \candidate3
+Used module:     \original3
+Used module:     \candidate2
+Used module:     \original2
+Used module:     \candidate1
+Used module:     \original1
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+Optimizing module candidate6.
+<suppressed ~24 debug messages>
+Optimizing module original6.
+Optimizing module candidate5.
+<suppressed ~20 debug messages>
+Optimizing module original5.
+Optimizing module candidate4.
+<suppressed ~16 debug messages>
+Optimizing module original4.
+Optimizing module candidate3.
+<suppressed ~12 debug messages>
+Optimizing module original3.
+Optimizing module candidate2.
+<suppressed ~8 debug messages>
+Optimizing module original2.
+Optimizing module candidate1.
+<suppressed ~4 debug messages>
+Optimizing module original1.
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+Optimizing module candidate6.
+Optimizing module original6.
+Optimizing module candidate5.
+Optimizing module original5.
+Optimizing module candidate4.
+Optimizing module original4.
+Optimizing module candidate3.
+Optimizing module original3.
+Optimizing module candidate2.
+Optimizing module original2.
+Optimizing module candidate1.
+Optimizing module original1.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+Finding unused cells or wires in module \candidate6..
+Finding unused cells or wires in module \original6..
+Finding unused cells or wires in module \candidate5..
+Finding unused cells or wires in module \original5..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \candidate3..
+Finding unused cells or wires in module \original3..
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \original2..
+Finding unused cells or wires in module \candidate1..
+Finding unused cells or wires in module \original1..
+Removed 0 unused cells and 127 unused wires.
+<suppressed ~13 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module candidate1...
+Checking module candidate2...
+Checking module candidate3...
+Checking module candidate4...
+Checking module candidate5...
+Checking module candidate6...
+Checking module original1...
+Checking module original2...
+Checking module original3...
+Checking module original4...
+Checking module original5...
+Checking module original6...
+Checking module proof...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module candidate1.
+Optimizing module candidate2.
+Optimizing module candidate3.
+Optimizing module candidate4.
+Optimizing module candidate5.
+Optimizing module candidate6.
+Optimizing module original1.
+Optimizing module original2.
+Optimizing module original3.
+Optimizing module original4.
+Optimizing module original5.
+Optimizing module original6.
+Optimizing module proof.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\candidate1'.
+Finding identical cells in module `\candidate2'.
+Finding identical cells in module `\candidate3'.
+Finding identical cells in module `\candidate4'.
+Finding identical cells in module `\candidate5'.
+Finding identical cells in module `\candidate6'.
+Finding identical cells in module `\original1'.
+Finding identical cells in module `\original2'.
+Finding identical cells in module `\original3'.
+Finding identical cells in module `\original4'.
+Finding identical cells in module `\original5'.
+Finding identical cells in module `\original6'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \candidate1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \candidate2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \candidate3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \candidate4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \candidate5..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \candidate6..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original5..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \original6..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \candidate1.
+  Optimizing cells in module \candidate2.
+  Optimizing cells in module \candidate3.
+  Optimizing cells in module \candidate4.
+  Optimizing cells in module \candidate5.
+  Optimizing cells in module \candidate6.
+  Optimizing cells in module \original1.
+  Optimizing cells in module \original2.
+  Optimizing cells in module \original3.
+  Optimizing cells in module \original4.
+  Optimizing cells in module \original5.
+  Optimizing cells in module \original6.
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\candidate1'.
+Finding identical cells in module `\candidate2'.
+Finding identical cells in module `\candidate3'.
+Finding identical cells in module `\candidate4'.
+Finding identical cells in module `\candidate5'.
+Finding identical cells in module `\candidate6'.
+Finding identical cells in module `\original1'.
+Finding identical cells in module `\original2'.
+Finding identical cells in module `\original3'.
+Finding identical cells in module `\original4'.
+Finding identical cells in module `\original5'.
+Finding identical cells in module `\original6'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \candidate1..
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \candidate3..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \candidate5..
+Finding unused cells or wires in module \candidate6..
+Finding unused cells or wires in module \original1..
+Finding unused cells or wires in module \original2..
+Finding unused cells or wires in module \original3..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \original5..
+Finding unused cells or wires in module \original6..
+Finding unused cells or wires in module \proof..
+
+2.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module candidate1.
+Optimizing module candidate2.
+Optimizing module candidate3.
+Optimizing module candidate4.
+Optimizing module candidate5.
+Optimizing module candidate6.
+Optimizing module original1.
+Optimizing module original2.
+Optimizing module original3.
+Optimizing module original4.
+Optimizing module original5.
+Optimizing module original6.
+Optimizing module proof.
+
+2.6.8. Finished OPT passes. (There is nothing left to do.)
+
+2.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port A of cell candidate1.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:8$9 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate1.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:8$9 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate1.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:8$9 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate1.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:8$10 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate1.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:8$10 ($gt).
+Removed top 30 bits (of 32) from wire candidate1.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:8$9_Y.
+Removed top 31 bits (of 32) from port A of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$25 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$25 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$25 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:20$33 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:20$33 ($add).
+Removed top 29 bits (of 32) from port Y of cell candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:20$33 ($add).
+Removed top 29 bits (of 32) from port A of cell candidate2.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:20$34 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate2.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:20$34 ($gt).
+Removed top 30 bits (of 32) from wire candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$25_Y.
+Removed top 29 bits (of 32) from wire candidate2.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:20$33_Y.
+Removed top 31 bits (of 32) from wire candidate2.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$24_Y.
+Removed top 31 bits (of 32) from wire candidate2.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$32_Y.
+Removed top 31 bits (of 32) from port A of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$50 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$50 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$50 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$58 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$58 ($add).
+Removed top 29 bits (of 32) from port Y of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$58 ($add).
+Removed top 29 bits (of 32) from port A of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:34$66 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:34$66 ($add).
+Removed top 28 bits (of 32) from port Y of cell candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:34$66 ($add).
+Removed top 28 bits (of 32) from port A of cell candidate3.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:34$67 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate3.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:34$67 ($gt).
+Removed top 30 bits (of 32) from wire candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$50_Y.
+Removed top 29 bits (of 32) from wire candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$58_Y.
+Removed top 28 bits (of 32) from wire candidate3.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:34$66_Y.
+Removed top 31 bits (of 32) from wire candidate3.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$49_Y.
+Removed top 31 bits (of 32) from wire candidate3.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$57_Y.
+Removed top 31 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$85 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$85 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$85 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$93 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$93 ($add).
+Removed top 29 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$93 ($add).
+Removed top 29 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$101 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$101 ($add).
+Removed top 28 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$101 ($add).
+Removed top 28 bits (of 32) from port A of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:50$109 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:50$109 ($add).
+Removed top 27 bits (of 32) from port Y of cell candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:50$109 ($add).
+Removed top 27 bits (of 32) from port A of cell candidate4.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:50$110 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate4.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:50$110 ($gt).
+Removed top 28 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$101_Y.
+Removed top 30 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$85_Y.
+Removed top 29 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$93_Y.
+Removed top 27 bits (of 32) from wire candidate4.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:50$109_Y.
+Removed top 31 bits (of 32) from wire candidate4.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$108_Y.
+Removed top 31 bits (of 32) from wire candidate4.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$92_Y.
+Removed top 31 bits (of 32) from port A of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$130 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$130 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$130 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$138 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$138 ($add).
+Removed top 29 bits (of 32) from port Y of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$138 ($add).
+Removed top 29 bits (of 32) from port A of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$146 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$146 ($add).
+Removed top 28 bits (of 32) from port Y of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$146 ($add).
+Removed top 28 bits (of 32) from port A of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$154 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$154 ($add).
+Removed top 27 bits (of 32) from port Y of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$154 ($add).
+Removed top 27 bits (of 32) from port A of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:68$162 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:68$162 ($add).
+Removed top 26 bits (of 32) from port Y of cell candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:68$162 ($add).
+Removed top 26 bits (of 32) from port A of cell candidate5.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:68$163 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate5.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:68$163 ($gt).
+Removed top 30 bits (of 32) from wire candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$130_Y.
+Removed top 29 bits (of 32) from wire candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$138_Y.
+Removed top 28 bits (of 32) from wire candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$146_Y.
+Removed top 27 bits (of 32) from wire candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$154_Y.
+Removed top 26 bits (of 32) from wire candidate5.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:68$162_Y.
+Removed top 31 bits (of 32) from wire candidate5.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$129_Y.
+Removed top 31 bits (of 32) from wire candidate5.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$137_Y.
+Removed top 31 bits (of 32) from wire candidate5.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$145_Y.
+Removed top 31 bits (of 32) from wire candidate5.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$153_Y.
+Removed top 31 bits (of 32) from port A of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$185 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$185 ($add).
+Removed top 30 bits (of 32) from port Y of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$185 ($add).
+Removed top 30 bits (of 32) from port A of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$193 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$193 ($add).
+Removed top 29 bits (of 32) from port Y of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$193 ($add).
+Removed top 29 bits (of 32) from port A of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$201 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$201 ($add).
+Removed top 28 bits (of 32) from port Y of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$201 ($add).
+Removed top 28 bits (of 32) from port A of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$209 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$209 ($add).
+Removed top 27 bits (of 32) from port Y of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$209 ($add).
+Removed top 27 bits (of 32) from port A of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$217 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$217 ($add).
+Removed top 26 bits (of 32) from port Y of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$217 ($add).
+Removed top 26 bits (of 32) from port A of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:88$225 ($add).
+Removed top 31 bits (of 32) from port B of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:88$225 ($add).
+Removed top 25 bits (of 32) from port Y of cell candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:88$225 ($add).
+Removed top 25 bits (of 32) from port A of cell candidate6.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:88$226 ($gt).
+Removed top 31 bits (of 32) from port B of cell candidate6.$gt$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:88$226 ($gt).
+Removed top 30 bits (of 32) from wire candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$185_Y.
+Removed top 29 bits (of 32) from wire candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$193_Y.
+Removed top 28 bits (of 32) from wire candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$201_Y.
+Removed top 27 bits (of 32) from wire candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$209_Y.
+Removed top 26 bits (of 32) from wire candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$217_Y.
+Removed top 25 bits (of 32) from wire candidate6.$add$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:88$225_Y.
+Removed top 31 bits (of 32) from wire candidate6.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$192_Y.
+Removed top 31 bits (of 32) from wire candidate6.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$200_Y.
+Removed top 31 bits (of 32) from wire candidate6.$logic_or$/tmp/wasmetal-xc7-core/build/xc7-core-lut-check/negative-1.sv:0$208_Y.
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \candidate1..
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \candidate3..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \candidate5..
+Finding unused cells or wires in module \candidate6..
+Finding unused cells or wires in module \original1..
+Finding unused cells or wires in module \original2..
+Finding unused cells or wires in module \original3..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \original5..
+Finding unused cells or wires in module \original6..
+Finding unused cells or wires in module \proof..
+Removed 0 unused cells and 34 unused wires.
+<suppressed ~6 debug messages>
+
+2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module candidate1.
+Optimizing module candidate2.
+Optimizing module candidate3.
+Optimizing module candidate4.
+Optimizing module candidate5.
+Optimizing module candidate6.
+Optimizing module original1.
+Optimizing module original2.
+Optimizing module original3.
+Optimizing module original4.
+Optimizing module original5.
+Optimizing module original6.
+Optimizing module proof.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\candidate1'.
+Finding identical cells in module `\candidate2'.
+Finding identical cells in module `\candidate3'.
+Finding identical cells in module `\candidate4'.
+Finding identical cells in module `\candidate5'.
+Finding identical cells in module `\candidate6'.
+Finding identical cells in module `\original1'.
+Finding identical cells in module `\original2'.
+Finding identical cells in module `\original3'.
+Finding identical cells in module `\original4'.
+Finding identical cells in module `\original5'.
+Finding identical cells in module `\original6'.
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \candidate1..
+Finding unused cells or wires in module \candidate2..
+Finding unused cells or wires in module \candidate3..
+Finding unused cells or wires in module \candidate4..
+Finding unused cells or wires in module \candidate5..
+Finding unused cells or wires in module \candidate6..
+Finding unused cells or wires in module \original1..
+Finding unused cells or wires in module \original2..
+Finding unused cells or wires in module \original3..
+Finding unused cells or wires in module \original4..
+Finding unused cells or wires in module \original5..
+Finding unused cells or wires in module \original6..
+Finding unused cells or wires in module \proof..
+
+2.10.4. Finished fast OPT passes.
+
+2.11. Printing statistics.
+
+=== candidate1 ===
+
+   Number of wires:                 11
+   Number of wire bits:             44
+   Number of public wires:           3
+   Number of public wire bits:       4
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     $add                            1
+     $eqx                            2
+     $gt                             1
+     $logic_or                       1
+     $mux                            2
+     $not                            1
+     $shiftx                         1
+
+=== candidate2 ===
+
+   Number of wires:                 16
+   Number of wire bits:             85
+   Number of public wires:           5
+   Number of public wire bits:       9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 13
+     $add                            2
+     $eqx                            4
+     $gt                             1
+     $logic_or                       2
+     $mux                            3
+     $shiftx                         1
+
+=== candidate3 ===
+
+   Number of wires:                 22
+   Number of wire bits:            132
+   Number of public wires:           7
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 18
+     $add                            3
+     $eqx                            6
+     $gt                             1
+     $logic_or                       3
+     $mux                            4
+     $shiftx                         1
+
+=== candidate4 ===
+
+   Number of wires:                 28
+   Number of wire bits:            188
+   Number of public wires:           9
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 23
+     $add                            4
+     $eqx                            8
+     $gt                             1
+     $logic_or                       4
+     $mux                            5
+     $shiftx                         1
+
+=== candidate5 ===
+
+   Number of wires:                 34
+   Number of wire bits:            261
+   Number of public wires:          11
+   Number of public wire bits:      68
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 28
+     $add                            5
+     $eqx                           10
+     $gt                             1
+     $logic_or                       5
+     $mux                            6
+     $shiftx                         1
+
+=== candidate6 ===
+
+   Number of wires:                 40
+   Number of wire bits:            367
+   Number of public wires:          13
+   Number of public wire bits:     133
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 33
+     $add                            6
+     $eqx                           12
+     $gt                             1
+     $logic_or                       6
+     $mux                            7
+     $shiftx                         1
+
+=== original1 ===
+
+   Number of wires:                  3
+   Number of wire bits:              4
+   Number of public wires:           3
+   Number of public wire bits:       4
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $mux                            1
+
+=== original2 ===
+
+   Number of wires:                  5
+   Number of wire bits:              9
+   Number of public wires:           5
+   Number of public wire bits:       9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $mux                            2
+
+=== original3 ===
+
+   Number of wires:                  7
+   Number of wire bits:             18
+   Number of public wires:           7
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $mux                            3
+
+=== original4 ===
+
+   Number of wires:                  9
+   Number of wire bits:             35
+   Number of public wires:           9
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $mux                            4
+
+=== original5 ===
+
+   Number of wires:                 11
+   Number of wire bits:             68
+   Number of public wires:          11
+   Number of public wire bits:      68
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $mux                            5
+
+=== original6 ===
+
+   Number of wires:                 13
+   Number of wire bits:            133
+   Number of public wires:          13
+   Number of public wire bits:     133
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  6
+     $mux                            6
+
+=== proof ===
+
+   Number of wires:                  6
+   Number of wire bits:             89
+   Number of public wires:           5
+   Number of public wire bits:      83
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 14
+     $reduce_or                      1
+     $xor                            1
+     candidate1                      1
+     candidate2                      1
+     candidate3                      1
+     candidate4                      1
+     candidate5                      1
+     candidate6                      1
+     original1                       1
+     original2                       1
+     original3                       1
+     original4                       1
+     original5                       1
+     original6                       1
+
+=== design hierarchy ===
+
+   proof                             1
+     candidate1                      1
+     candidate2                      1
+     candidate3                      1
+     candidate4                      1
+     candidate5                      1
+     candidate6                      1
+     original1                       1
+     original2                       1
+     original3                       1
+     original4                       1
+     original5                       1
+     original6                       1
+
+   Number of wires:                205
+   Number of wire bits:           1433
+   Number of public wires:         101
+   Number of public wire bits:     617
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                147
+     $add                           21
+     $eqx                           42
+     $gt                             6
+     $logic_or                      21
+     $mux                           48
+     $not                            1
+     $reduce_or                      1
+     $shiftx                         6
+     $xor                            1
+
+2.12. Executing CHECK pass (checking for obvious problems).
+Checking module candidate1...
+Checking module candidate2...
+Checking module candidate3...
+Checking module candidate4...
+Checking module candidate5...
+Checking module candidate6...
+Checking module original1...
+Checking module original2...
+Checking module original3...
+Checking module original4...
+Checking module original5...
+Checking module original6...
+Checking module proof...
+Found and reported 0 problems.
+
+3. Executing FLATTEN pass (flatten design).
+Deleting now unused module candidate1.
+Deleting now unused module candidate2.
+Deleting now unused module candidate3.
+Deleting now unused module candidate4.
+Deleting now unused module candidate5.
+Deleting now unused module candidate6.
+Deleting now unused module original1.
+Deleting now unused module original2.
+Deleting now unused module original3.
+Deleting now unused module original4.
+Deleting now unused module original5.
+Deleting now unused module original6.
+<suppressed ~12 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+<suppressed ~6 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+<suppressed ~135 debug messages>
+Removed a total of 45 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+<suppressed ~63 debug messages>
+Removed a total of 21 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+Removed 0 unused cells and 57 unused wires.
+<suppressed ~7 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \proof..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \proof.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\proof'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \proof..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module proof.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 75 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \pins
+Import show expression: \table_value
+
+Solving problem with 3910 variables and 10824 clauses..
+ERROR: Called with -verify and proof did fail!

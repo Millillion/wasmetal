@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/build_xc7_core_sim.py", line 143, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/build_xc7_core_sim.py", line 54, in main
+    if dict(sorted(kinds.items()))!=reference['cell_counts']:raise ValueError('mapped primitive inventory differs')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: mapped primitive inventory differs

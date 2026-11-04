@@ -171,9 +171,12 @@ GitHub yet; the published passing campaign is local evidence.
 A separate [host-backed Xilinx core](docs/XILINX-CORE.md) now passes synthesis
 and structural checks at the official-suite capacities: 47,009 logic LUT
 primitives, 5,265 flip-flops, 29 DSPs and 49 equivalent 36-Kbit RAM blocks.
-Its simulator is being compiled for the complete official corpus; that new
-Xilinx corpus run has not passed yet. The family-specific report guards pass
-18 metadata fixture tests.
+Its [identified simulator and eight-suite smoke test](docs/verification/xc7-core-simulator.json)
+pass 6,647 execution assertions and 355 validation assertions. All 132,959
+canonical cycles match native RTL, command by command. Nine deliberately
+corrupted build inputs are rejected before model generation. The complete
+259-suite Xilinx campaign is running; it has not passed yet. The family-specific
+report guards pass 18 metadata fixture tests.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)

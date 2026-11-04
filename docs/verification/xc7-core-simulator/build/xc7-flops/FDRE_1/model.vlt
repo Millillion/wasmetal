@@ -1,0 +1,3 @@
+`verilator_config
+lint_off -rule INITIALDLY -file "/tmp/wasmetal-xc7-core/build/xc7-flops/FDRE_1/yosys.v"
+lint_off -rule GENUNNAMED -file "/tmp/wasmetal-xc7-core/build/xc7-flops/FDRE_1/yosys.v"

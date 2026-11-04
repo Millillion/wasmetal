@@ -1,9 +1,9 @@
 # Host-backed Xilinx execution core
 
 The execution core has now been synthesized independently for 7-series FPGAs
-at the same capacity profile used by the official Wasm suite. Its complete
-instruction-level regression is being prepared; it has not passed the official
-corpus on this new circuit yet.
+at the same capacity profile used by the official Wasm suite. Its identified
+Verilator simulator passes an eight-suite smoke test. The complete 259-suite
+regression is running; it has not passed the full corpus on this new circuit yet.
 
 The [synthesis receipt](verification/xc7-core-estimate.json) and
 [raw evidence](verification/xc7-core-initial/index.json) identify the circuit,
@@ -53,6 +53,54 @@ its full command-ownership, executable-identity and exact native-cycle checks.
 The updated 18-test fixture regression passes; those fixtures are metadata
 checks rather than CPU execution evidence. Its log is in the initial archive.
 
-The mapped simulator and official-suite execution are the next steps. No
-Xilinx conformance completion, physical board result or ASIC readiness follows
-from this synthesis checkpoint.
+## Simulator and initial execution
+
+The [simulator report](verification/xc7-core-simulator.json) and its
+[raw evidence archive](verification/xc7-core-simulator/index.json) preserve the
+executable identities, component receipts, build logs, smoke results and nine
+builder fault controls. The smoke run executes `i32`, `i64`, `f32`, `f64`,
+`conversions`, `simd/simd_const`, `exceptions/throw_ref` and `gc/struct` with three
+memory wait states. All 6,647 execution assertions and 355 validation assertions
+pass. Its 7,326 script commands account for 132,959 canonical cycles; every
+command agrees with the complete native reference.
+
+The core's actual LUT tables pass 139,552 known-value and 9,188,056 four-state
+observations per model, six symbolic binary LUT proofs and eleven fault
+controls. All five DSP modes pass 87,040 arithmetic vectors per model, six
+arithmetic faults and eight inventory faults. The core's flip-flop inventory,
+carry chains and muxes pass the existing independent-oracle campaigns. The
+unchanged fast RAM models reuse their verified source-bound proof. There is
+no distributed RAM in this netlist. Component reports retain the documented
+vendor/Yosys differences on X/Z values and the unverified vendor oracle for an
+unknown asynchronous clear; this is not a claim of complete four-state vendor
+equivalence.
+
+To rebuild from a bootstrapped checkout:
+
+```sh
+make sim
+python3 tools/check_xc7_memory_mapping.py
+python3 tools/check_xc7_ram_models.py
+python3 tools/synth_xc7_core.py
+python3 tools/check_xc7_dsp.py --estimate reports/xc7-core-estimate.json --netlist build/xc7-core/mapped.json
+python3 tools/check_xc7_luts.py --top wasmetal_core --netlist build/xc7-core/mapped.json --directory build/xc7-core-lut-check --report reports/xc7-core-luts.json
+python3 tools/check_xc7_carry.py
+python3 tools/check_xc7_muxes.py
+python3 tools/check_xc7_flops.py --top wasmetal_core --netlist build/xc7-core/mapped.json
+python3 tools/build_xc7_core_sim.py --jobs 2
+```
+
+The builder uses the unchanged official-suite C++ host through the existing
+mapped-core adapter. It checks the exact circuit, capacities and primitive
+evidence before generating a model. It binds the generated sources, compiler
+identity, circuit and executable to the build manifest and rechecks inputs
+when compilation finishes. The shared-reset warning exception is restricted
+to the exact top-level reset signal after checking its six asynchronous
+HardFloat consumers.
+
+The ongoing full campaign uses sixteen disjoint command partitions, with
+eight simulator workers. Its archived driver records commands and inputs,
+cleans up worker process groups on failure, rechecks both executables and
+requires exact command coverage and native cycle counts during final merging.
+This core is an untimed host-backed simulation. Xilinx placement, routing,
+timing, bitstream generation and physical-board testing remain unverified.

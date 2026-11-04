@@ -1,0 +1,1127 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/xc7-core-sim/export.ys' --
+
+1. Executing JSON frontend.
+Importing module wasmetal_core from JSON tree.
+Importing module XORCY from JSON tree.
+Importing module XADC from JSON tree.
+Importing module VCU from JSON tree.
+Importing module VCC from JSON tree.
+Importing module USR_ACCESS_VIRTEX6 from JSON tree.
+Importing module USR_ACCESS_VIRTEX5 from JSON tree.
+Importing module USR_ACCESS_VIRTEX4 from JSON tree.
+Importing module USR_ACCESSE2 from JSON tree.
+Importing module URAM288_BASE from JSON tree.
+Importing module URAM288 from JSON tree.
+Importing module TX_BITSLICE_TRI from JSON tree.
+Importing module TX_BITSLICE from JSON tree.
+Importing module TEMAC_SINGLE from JSON tree.
+Importing module TEMAC from JSON tree.
+Importing module SYSMONE4 from JSON tree.
+Importing module SYSMONE1 from JSON tree.
+Importing module SYSMON from JSON tree.
+Importing module SUSPEND_SYNC from JSON tree.
+Importing module STARTUP_VIRTEX6 from JSON tree.
+Importing module STARTUP_VIRTEX5 from JSON tree.
+Importing module STARTUP_VIRTEX4 from JSON tree.
+Importing module STARTUP_SPARTAN6 from JSON tree.
+Importing module STARTUP_SPARTAN3E from JSON tree.
+Importing module STARTUP_SPARTAN3A from JSON tree.
+Importing module STARTUP_SPARTAN3 from JSON tree.
+Importing module STARTUPE3 from JSON tree.
+Importing module STARTUPE2 from JSON tree.
+Importing module SRLC32E from JSON tree.
+Importing module SRLC16E from JSON tree.
+Importing module SRLC16 from JSON tree.
+Importing module SRL16E from JSON tree.
+Importing module SRL16 from JSON tree.
+Importing module SPI_ACCESS from JSON tree.
+Importing module RX_BITSLICE from JSON tree.
+Importing module RXTX_BITSLICE from JSON tree.
+Importing module ROM64X1 from JSON tree.
+Importing module ROM32X1 from JSON tree.
+Importing module ROM256X1 from JSON tree.
+Importing module ROM16X1 from JSON tree.
+Importing module ROM128X1 from JSON tree.
+Importing module RIU_OR from JSON tree.
+Importing module RFDAC from JSON tree.
+Importing module RFADC from JSON tree.
+Importing module RAMB8BWER from JSON tree.
+Importing module RAMB4_S8_S8 from JSON tree.
+Importing module RAMB4_S8_S16 from JSON tree.
+Importing module RAMB4_S8 from JSON tree.
+Importing module RAMB4_S4_S8 from JSON tree.
+Importing module RAMB4_S4_S4 from JSON tree.
+Importing module RAMB4_S4_S16 from JSON tree.
+Importing module RAMB4_S4 from JSON tree.
+Importing module RAMB4_S2_S8 from JSON tree.
+Importing module RAMB4_S2_S4 from JSON tree.
+Importing module RAMB4_S2_S2 from JSON tree.
+Importing module RAMB4_S2_S16 from JSON tree.
+Importing module RAMB4_S2 from JSON tree.
+Importing module RAMB4_S1_S8 from JSON tree.
+Importing module RAMB4_S1_S4 from JSON tree.
+Importing module RAMB4_S1_S2 from JSON tree.
+Importing module RAMB4_S1_S16 from JSON tree.
+Importing module RAMB4_S1_S1 from JSON tree.
+Importing module RAMB4_S16_S16 from JSON tree.
+Importing module RAMB4_S16 from JSON tree.
+Importing module RAMB4_S1 from JSON tree.
+Importing module RAMB36SDP from JSON tree.
+Importing module RAMB36E2 from JSON tree.
+Importing module RAMB36E1 from JSON tree.
+Importing module RAMB36 from JSON tree.
+Importing module RAMB32_S64_ECC from JSON tree.
+Importing module RAMB18SDP from JSON tree.
+Importing module RAMB18E2 from JSON tree.
+Importing module RAMB18E1 from JSON tree.
+Importing module RAMB18 from JSON tree.
+Importing module RAMB16_S9_S9 from JSON tree.
+Importing module RAMB16_S9_S36 from JSON tree.
+Importing module RAMB16_S9_S18 from JSON tree.
+Importing module RAMB16_S9 from JSON tree.
+Importing module RAMB16_S4_S9 from JSON tree.
+Importing module RAMB16_S4_S4 from JSON tree.
+Importing module RAMB16_S4_S36 from JSON tree.
+Importing module RAMB16_S4_S18 from JSON tree.
+Importing module RAMB16_S4 from JSON tree.
+Importing module RAMB16_S36_S36 from JSON tree.
+Importing module RAMB16_S36 from JSON tree.
+Importing module RAMB16_S2_S9 from JSON tree.
+Importing module RAMB16_S2_S4 from JSON tree.
+Importing module RAMB16_S2_S36 from JSON tree.
+Importing module RAMB16_S2_S2 from JSON tree.
+Importing module RAMB16_S2_S18 from JSON tree.
+Importing module RAMB16_S2 from JSON tree.
+Importing module RAMB16_S1_S9 from JSON tree.
+Importing module RAMB16_S1_S4 from JSON tree.
+Importing module RAMB16_S1_S36 from JSON tree.
+Importing module RAMB16_S1_S2 from JSON tree.
+Importing module RAMB16_S1_S18 from JSON tree.
+Importing module RAMB16_S1_S1 from JSON tree.
+Importing module RAMB16_S18_S36 from JSON tree.
+Importing module RAMB16_S18_S18 from JSON tree.
+Importing module RAMB16_S18 from JSON tree.
+Importing module RAMB16_S1 from JSON tree.
+Importing module RAMB16BWE_S36_S9 from JSON tree.
+Importing module RAMB16BWE_S36_S36 from JSON tree.
+Importing module RAMB16BWE_S36_S18 from JSON tree.
+Importing module RAMB16BWE_S36 from JSON tree.
+Importing module RAMB16BWE_S18_S9 from JSON tree.
+Importing module RAMB16BWE_S18_S18 from JSON tree.
+Importing module RAMB16BWE_S18 from JSON tree.
+Importing module RAMB16BWER from JSON tree.
+Importing module RAMB16 from JSON tree.
+Importing module RAM64X8SW from JSON tree.
+Importing module RAM64X2S from JSON tree.
+Importing module RAM64X1S_1 from JSON tree.
+Importing module RAM64X1S from JSON tree.
+Importing module RAM64X1D_1 from JSON tree.
+Importing module RAM64X1D from JSON tree.
+Importing module RAM64M8 from JSON tree.
+Importing module RAM64M from JSON tree.
+Importing module RAM512X1S from JSON tree.
+Importing module RAM32X8S from JSON tree.
+Importing module RAM32X4S from JSON tree.
+Importing module RAM32X2S from JSON tree.
+Importing module RAM32X1S_1 from JSON tree.
+Importing module RAM32X1S from JSON tree.
+Importing module RAM32X1D_1 from JSON tree.
+Importing module RAM32X1D from JSON tree.
+Importing module RAM32X16DR8 from JSON tree.
+Importing module RAM32M16 from JSON tree.
+Importing module RAM32M from JSON tree.
+Importing module RAM256X1S from JSON tree.
+Importing module RAM256X1D from JSON tree.
+Importing module RAM16X8S from JSON tree.
+Importing module RAM16X4S from JSON tree.
+Importing module RAM16X2S from JSON tree.
+Importing module RAM16X1S_1 from JSON tree.
+Importing module RAM16X1S from JSON tree.
+Importing module RAM16X1D_1 from JSON tree.
+Importing module RAM16X1D from JSON tree.
+Importing module RAM128X1S_1 from JSON tree.
+Importing module RAM128X1S from JSON tree.
+Importing module RAM128X1D from JSON tree.
+Importing module PULLUP from JSON tree.
+Importing module PULLDOWN from JSON tree.
+Importing module PS8 from JSON tree.
+Importing module PS7 from JSON tree.
+Importing module PPC440 from JSON tree.
+Importing module PPC405_ADV from JSON tree.
+Importing module POST_CRC_INTERNAL from JSON tree.
+Importing module PMCD from JSON tree.
+Importing module PLL_BASE from JSON tree.
+Importing module PLL_ADV from JSON tree.
+Importing module PLLE4_BASE from JSON tree.
+Importing module PLLE4_ADV from JSON tree.
+Importing module PLLE3_BASE from JSON tree.
+Importing module PLLE3_ADV from JSON tree.
+Importing module PLLE2_BASE from JSON tree.
+Importing module PLLE2_ADV from JSON tree.
+Importing module PHY_CONTROL from JSON tree.
+Importing module PHASER_REF from JSON tree.
+Importing module PHASER_OUT_PHY from JSON tree.
+Importing module PHASER_OUT from JSON tree.
+Importing module PHASER_IN_PHY from JSON tree.
+Importing module PHASER_IN from JSON tree.
+Importing module PCIE_EP from JSON tree.
+Importing module PCIE_A1 from JSON tree.
+Importing module PCIE_3_1 from JSON tree.
+Importing module PCIE_3_0 from JSON tree.
+Importing module PCIE_2_1 from JSON tree.
+Importing module PCIE_2_0 from JSON tree.
+Importing module PCIE4CE4 from JSON tree.
+Importing module PCIE40E4 from JSON tree.
+Importing module OUT_FIFO from JSON tree.
+Importing module OSERDESE3 from JSON tree.
+Importing module OSERDESE2 from JSON tree.
+Importing module OSERDESE1 from JSON tree.
+Importing module OSERDES2 from JSON tree.
+Importing module OSERDES from JSON tree.
+Importing module ORCY from JSON tree.
+Importing module OR2L from JSON tree.
+Importing module OFDDRTRSE from JSON tree.
+Importing module OFDDRTCPE from JSON tree.
+Importing module OFDDRRSE from JSON tree.
+Importing module OFDDRCPE from JSON tree.
+Importing module ODELAYE3 from JSON tree.
+Importing module ODELAYE2 from JSON tree.
+Importing module ODDRE1 from JSON tree.
+Importing module ODDR2 from JSON tree.
+Importing module ODDR from JSON tree.
+Importing module OBUFTDS from JSON tree.
+Importing module OBUFT from JSON tree.
+Importing module OBUFDS_GTM_ADV from JSON tree.
+Importing module OBUFDS_GTM from JSON tree.
+Importing module OBUFDS_GTE4_ADV from JSON tree.
+Importing module OBUFDS_GTE4 from JSON tree.
+Importing module OBUFDS_GTE3_ADV from JSON tree.
+Importing module OBUFDS_GTE3 from JSON tree.
+Importing module OBUFDS_DPHY from JSON tree.
+Importing module OBUFDS from JSON tree.
+Importing module OBUF from JSON tree.
+Importing module MUXF9 from JSON tree.
+Importing module MUXF8 from JSON tree.
+Importing module MUXF7 from JSON tree.
+Importing module MUXF6 from JSON tree.
+Importing module MUXF5 from JSON tree.
+Importing module MUXCY from JSON tree.
+Importing module MULT_AND from JSON tree.
+Importing module MULT18X18SIO from JSON tree.
+Importing module MULT18X18S from JSON tree.
+Importing module MULT18X18 from JSON tree.
+Importing module MMCM_BASE from JSON tree.
+Importing module MMCM_ADV from JSON tree.
+Importing module MMCME4_BASE from JSON tree.
+Importing module MMCME4_ADV from JSON tree.
+Importing module MMCME3_BASE from JSON tree.
+Importing module MMCME3_ADV from JSON tree.
+Importing module MMCME2_BASE from JSON tree.
+Importing module MMCME2_ADV from JSON tree.
+Importing module MCB from JSON tree.
+Importing module MASTER_JTAG from JSON tree.
+Importing module LUT6_2 from JSON tree.
+Importing module LUT6 from JSON tree.
+Importing module LUT5 from JSON tree.
+Importing module LUT4 from JSON tree.
+Importing module LUT3 from JSON tree.
+Importing module LUT2 from JSON tree.
+Importing module LUT1 from JSON tree.
+Importing module LDPE from JSON tree.
+Importing module LDCPE from JSON tree.
+Importing module LDCE from JSON tree.
+Importing module KEY_CLEAR from JSON tree.
+Importing module KEEPER from JSON tree.
+Importing module ISERDES_NODELAY from JSON tree.
+Importing module ISERDESE3 from JSON tree.
+Importing module ISERDESE2 from JSON tree.
+Importing module ISERDESE1 from JSON tree.
+Importing module ISERDES2 from JSON tree.
+Importing module ISERDES from JSON tree.
+Importing module IODRP2_MCB from JSON tree.
+Importing module IODRP2 from JSON tree.
+Importing module IODELAYE1 from JSON tree.
+Importing module IODELAY2 from JSON tree.
+Importing module IODELAY from JSON tree.
+Importing module IOBUF_INTERMDISABLE from JSON tree.
+Importing module IOBUF_DCIEN from JSON tree.
+Importing module IOBUFE3 from JSON tree.
+Importing module IOBUFDS_INTERMDISABLE from JSON tree.
+Importing module IOBUFDS_DIFF_OUT_INTERMDISABLE from JSON tree.
+Importing module IOBUFDS_DIFF_OUT_DCIEN from JSON tree.
+Importing module IOBUFDS_DIFF_OUT from JSON tree.
+Importing module IOBUFDS_DCIEN from JSON tree.
+Importing module IOBUFDSE3 from JSON tree.
+Importing module IOBUFDS from JSON tree.
+Importing module IOBUF from JSON tree.
+Importing module IN_FIFO from JSON tree.
+Importing module INV from JSON tree.
+Importing module ILKNE4 from JSON tree.
+Importing module ILKN from JSON tree.
+Importing module IFDDRRSE from JSON tree.
+Importing module IFDDRCPE from JSON tree.
+Importing module IDELAYE3 from JSON tree.
+Importing module IDELAYE2 from JSON tree.
+Importing module IDELAYCTRL from JSON tree.
+Importing module IDELAY from JSON tree.
+Importing module IDDR_2CLK from JSON tree.
+Importing module IDDRE1 from JSON tree.
+Importing module IDDR2 from JSON tree.
+Importing module IDDR from JSON tree.
+Importing module ICAP_VIRTEX6 from JSON tree.
+Importing module ICAP_VIRTEX5 from JSON tree.
+Importing module ICAP_VIRTEX4 from JSON tree.
+Importing module ICAP_SPARTAN6 from JSON tree.
+Importing module ICAP_SPARTAN3A from JSON tree.
+Importing module ICAPE3 from JSON tree.
+Importing module ICAPE2 from JSON tree.
+Importing module IBUF_INTERMDISABLE from JSON tree.
+Importing module IBUF_IBUFDISABLE from JSON tree.
+Importing module IBUF_DLY_ADJ from JSON tree.
+Importing module IBUF_ANALOG from JSON tree.
+Importing module IBUFGDS_DIFF_OUT from JSON tree.
+Importing module IBUFGDS from JSON tree.
+Importing module IBUFG from JSON tree.
+Importing module IBUFE3 from JSON tree.
+Importing module IBUFDS_INTERMDISABLE from JSON tree.
+Importing module IBUFDS_IBUFDISABLE from JSON tree.
+Importing module IBUFDS_GTXE1 from JSON tree.
+Importing module IBUFDS_GTM from JSON tree.
+Importing module IBUFDS_GTHE1 from JSON tree.
+Importing module IBUFDS_GTE4 from JSON tree.
+Importing module IBUFDS_GTE3 from JSON tree.
+Importing module IBUFDS_GTE2 from JSON tree.
+Importing module IBUFDS_DPHY from JSON tree.
+Importing module IBUFDS_DLY_ADJ from JSON tree.
+Importing module IBUFDS_DIFF_OUT_INTERMDISABLE from JSON tree.
+Importing module IBUFDS_DIFF_OUT_IBUFDISABLE from JSON tree.
+Importing module IBUFDS_DIFF_OUT from JSON tree.
+Importing module IBUFDSE3 from JSON tree.
+Importing module IBUFDS from JSON tree.
+Importing module IBUF from JSON tree.
+Importing module HSDAC from JSON tree.
+Importing module HSADC from JSON tree.
+Importing module HPIO_VREF from JSON tree.
+Importing module HBM_TWO_STACK_INTF from JSON tree.
+Importing module HBM_SNGLBLI_INTF_AXI from JSON tree.
+Importing module HBM_SNGLBLI_INTF_APB from JSON tree.
+Importing module HBM_REF_CLK from JSON tree.
+Importing module HBM_ONE_STACK_INTF from JSON tree.
+Importing module HARD_SYNC from JSON tree.
+Importing module GTYE4_COMMON from JSON tree.
+Importing module GTYE4_CHANNEL from JSON tree.
+Importing module GTYE3_COMMON from JSON tree.
+Importing module GTYE3_CHANNEL from JSON tree.
+Importing module GTX_DUAL from JSON tree.
+Importing module GTXE2_COMMON from JSON tree.
+Importing module GTXE2_CHANNEL from JSON tree.
+Importing module GTXE1 from JSON tree.
+Importing module GTP_DUAL from JSON tree.
+Importing module GTPE2_COMMON from JSON tree.
+Importing module GTPE2_CHANNEL from JSON tree.
+Importing module GTPA1_DUAL from JSON tree.
+Importing module GTM_DUAL from JSON tree.
+Importing module GTHE4_COMMON from JSON tree.
+Importing module GTHE4_CHANNEL from JSON tree.
+Importing module GTHE3_COMMON from JSON tree.
+Importing module GTHE3_CHANNEL from JSON tree.
+Importing module GTHE2_COMMON from JSON tree.
+Importing module GTHE2_CHANNEL from JSON tree.
+Importing module GTHE1_QUAD from JSON tree.
+Importing module GT11_DUAL from JSON tree.
+Importing module GT11_CUSTOM from JSON tree.
+Importing module GT11CLK_MGT from JSON tree.
+Importing module GT11CLK from JSON tree.
+Importing module GND from JSON tree.
+Importing module FRAME_ECC_VIRTEX6 from JSON tree.
+Importing module FRAME_ECC_VIRTEX5 from JSON tree.
+Importing module FRAME_ECC_VIRTEX4 from JSON tree.
+Importing module FRAME_ECCE4 from JSON tree.
+Importing module FRAME_ECCE3 from JSON tree.
+Importing module FRAME_ECCE2 from JSON tree.
+Importing module FIFO36_72 from JSON tree.
+Importing module FIFO36E2 from JSON tree.
+Importing module FIFO36E1 from JSON tree.
+Importing module FIFO36 from JSON tree.
+Importing module FIFO18_36 from JSON tree.
+Importing module FIFO18E2 from JSON tree.
+Importing module FIFO18E1 from JSON tree.
+Importing module FIFO18 from JSON tree.
+Importing module FIFO16 from JSON tree.
+Importing module FE from JSON tree.
+Importing module FDSE_1 from JSON tree.
+Importing module FDSE from JSON tree.
+Importing module FDRSE_1 from JSON tree.
+Importing module FDRSE from JSON tree.
+Importing module FDRE_1 from JSON tree.
+Importing module FDRE from JSON tree.
+Importing module FDPE_1 from JSON tree.
+Importing module FDPE from JSON tree.
+Importing module FDDRRSE from JSON tree.
+Importing module FDDRCPE from JSON tree.
+Importing module FDCPE_1 from JSON tree.
+Importing module FDCPE from JSON tree.
+Importing module FDCE_1 from JSON tree.
+Importing module FDCE from JSON tree.
+Importing module EMAC from JSON tree.
+Importing module EFUSE_USR from JSON tree.
+Importing module DSP48E2 from JSON tree.
+Importing module DSP48E1 from JSON tree.
+Importing module DSP48E from JSON tree.
+Importing module DSP48A1 from JSON tree.
+Importing module DSP48A from JSON tree.
+Importing module DSP48 from JSON tree.
+Importing module DNA_PORTE2 from JSON tree.
+Importing module DNA_PORT from JSON tree.
+Importing module DCM_SP from JSON tree.
+Importing module DCM_PS from JSON tree.
+Importing module DCM_CLKGEN from JSON tree.
+Importing module DCM_BASE from JSON tree.
+Importing module DCM_ADV from JSON tree.
+Importing module DCM from JSON tree.
+Importing module DCIRESET from JSON tree.
+Importing module CRC64 from JSON tree.
+Importing module CRC32 from JSON tree.
+Importing module CMACE4 from JSON tree.
+Importing module CMAC from JSON tree.
+Importing module CFGLUT5 from JSON tree.
+Importing module CARRY8 from JSON tree.
+Importing module CARRY4 from JSON tree.
+Importing module CAPTURE_VIRTEX6 from JSON tree.
+Importing module CAPTURE_VIRTEX5 from JSON tree.
+Importing module CAPTURE_VIRTEX4 from JSON tree.
+Importing module CAPTURE_SPARTAN3A from JSON tree.
+Importing module CAPTURE_SPARTAN3 from JSON tree.
+Importing module CAPTUREE2 from JSON tree.
+Importing module BUFT from JSON tree.
+Importing module BUFR from JSON tree.
+Importing module BUFPLL_MCB from JSON tree.
+Importing module BUFPLL from JSON tree.
+Importing module BUFMRCE from JSON tree.
+Importing module BUFMR from JSON tree.
+Importing module BUFIODQS from JSON tree.
+Importing module BUFIO2_2CLK from JSON tree.
+Importing module BUFIO2FB from JSON tree.
+Importing module BUFIO2 from JSON tree.
+Importing module BUFIO from JSON tree.
+Importing module BUFHCE from JSON tree.
+Importing module BUFH from JSON tree.
+Importing module BUFG_PS from JSON tree.
+Importing module BUFG_GT_SYNC from JSON tree.
+Importing module BUFG_GT from JSON tree.
+Importing module BUFGMUX_VIRTEX4 from JSON tree.
+Importing module BUFGMUX_CTRL from JSON tree.
+Importing module BUFGMUX_1 from JSON tree.
+Importing module BUFGMUX from JSON tree.
+Importing module BUFGCTRL from JSON tree.
+Importing module BUFGCE_DIV from JSON tree.
+Importing module BUFGCE_1 from JSON tree.
+Importing module BUFGCE from JSON tree.
+Importing module BUFG from JSON tree.
+Importing module BSCAN_VIRTEX6 from JSON tree.
+Importing module BSCAN_VIRTEX5 from JSON tree.
+Importing module BSCAN_VIRTEX4 from JSON tree.
+Importing module BSCAN_SPARTAN6 from JSON tree.
+Importing module BSCAN_SPARTAN3A from JSON tree.
+Importing module BSCAN_SPARTAN3 from JSON tree.
+Importing module BSCANE2 from JSON tree.
+Importing module BITSLICE_CONTROL from JSON tree.
+Importing module AND2B1L from JSON tree.
+Importing module \$__ABC9_LUT8 from JSON tree.
+Importing module \$__ABC9_LUT7 from JSON tree.
+
+2. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v
+Parsing Verilog input from `/tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v' to AST representation.
+Replacing existing blackbox module `\VCC' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:24.1-26.10.
+Generating RTLIL representation for module `\VCC'.
+Replacing existing blackbox module `\GND' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:28.1-30.10.
+Generating RTLIL representation for module `\GND'.
+Replacing existing blackbox module `\IBUF' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:32.1-46.10.
+Generating RTLIL representation for module `\IBUF'.
+Replacing existing blackbox module `\IBUFG' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:48.1-57.10.
+Generating RTLIL representation for module `\IBUFG'.
+Replacing existing blackbox module `\OBUF' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:59.1-71.10.
+Generating RTLIL representation for module `\OBUF'.
+Replacing existing blackbox module `\IOBUF' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:73.1-90.10.
+Generating RTLIL representation for module `\IOBUF'.
+Replacing existing blackbox module `\OBUFT' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:92.1-106.10.
+Generating RTLIL representation for module `\OBUFT'.
+Replacing existing blackbox module `\BUFG' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:108.1-117.10.
+Generating RTLIL representation for module `\BUFG'.
+Replacing existing blackbox module `\BUFGCTRL' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:119.1-153.10.
+Generating RTLIL representation for module `\BUFGCTRL'.
+Replacing existing blackbox module `\BUFHCE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:155.1-168.10.
+Generating RTLIL representation for module `\BUFHCE'.
+Replacing existing blackbox module `\INV' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:178.1-187.10.
+Generating RTLIL representation for module `\INV'.
+Replacing existing blackbox module `\LUT1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:190.1-196.10.
+Generating RTLIL representation for module `\LUT1'.
+Replacing existing blackbox module `\LUT2' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:199.1-207.10.
+Generating RTLIL representation for module `\LUT2'.
+Replacing existing blackbox module `\LUT3' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:210.1-220.10.
+Generating RTLIL representation for module `\LUT3'.
+Replacing existing blackbox module `\LUT4' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:223.1-235.10.
+Generating RTLIL representation for module `\LUT4'.
+Replacing existing blackbox module `\LUT5' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:238.1-252.10.
+Generating RTLIL representation for module `\LUT5'.
+Replacing existing blackbox module `\LUT6' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:258.1-274.10.
+Generating RTLIL representation for module `\LUT6'.
+Replacing existing blackbox module `\LUT6_2' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:276.1-290.10.
+Generating RTLIL representation for module `\LUT6_2'.
+Replacing existing blackbox module `\$__ABC9_LUT7' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:295.1-308.10.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Replacing existing blackbox module `\$__ABC9_LUT8' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:313.1-327.10.
+Generating RTLIL representation for module `\$__ABC9_LUT8'.
+Replacing existing blackbox module `\MUXCY' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:329.1-331.10.
+Generating RTLIL representation for module `\MUXCY'.
+Replacing existing blackbox module `\MUXF5' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:333.1-335.10.
+Generating RTLIL representation for module `\MUXF5'.
+Replacing existing blackbox module `\MUXF6' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:337.1-339.10.
+Generating RTLIL representation for module `\MUXF6'.
+Replacing existing module `\MUXF7' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:342.1-350.10.
+Generating RTLIL representation for module `\MUXF7'.
+Replacing existing module `\MUXF8' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:353.1-361.10.
+Generating RTLIL representation for module `\MUXF8'.
+Replacing existing blackbox module `\MUXF9' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:363.1-365.10.
+Generating RTLIL representation for module `\MUXF9'.
+Replacing existing blackbox module `\XORCY' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:367.1-369.10.
+Generating RTLIL representation for module `\XORCY'.
+Replacing existing module `\CARRY4' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:372.1-441.10.
+Generating RTLIL representation for module `\CARRY4'.
+Replacing existing blackbox module `\CARRY8' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:443.1-461.10.
+Generating RTLIL representation for module `\CARRY8'.
+Replacing existing blackbox module `\ORCY' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:463.1-465.10.
+Generating RTLIL representation for module `\ORCY'.
+Replacing existing blackbox module `\MULT_AND' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:467.1-469.10.
+Generating RTLIL representation for module `\MULT_AND'.
+Replacing existing module `\FDRE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:476.1-514.10.
+Generating RTLIL representation for module `\FDRE'.
+Replacing existing module `\FDRE_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:517.1-538.10.
+Generating RTLIL representation for module `\FDRE_1'.
+Replacing existing module `\FDSE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:541.1-579.10.
+Generating RTLIL representation for module `\FDSE'.
+Replacing existing module `\FDSE_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:582.1-604.10.
+Generating RTLIL representation for module `\FDSE_1'.
+Replacing existing blackbox module `\FDRSE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:606.1-639.10.
+Generating RTLIL representation for module `\FDRSE'.
+Replacing existing blackbox module `\FDRSE_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:641.1-674.10.
+Generating RTLIL representation for module `\FDRSE_1'.
+Replacing existing module `\FDCE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:677.1-723.10.
+Generating RTLIL representation for module `\FDCE'.
+Replacing existing module `\FDCE_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:726.1-754.10.
+Generating RTLIL representation for module `\FDCE_1'.
+Replacing existing module `\FDPE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:757.1-802.10.
+Generating RTLIL representation for module `\FDPE'.
+Replacing existing module `\FDPE_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:805.1-833.10.
+Generating RTLIL representation for module `\FDPE_1'.
+Replacing existing blackbox module `\FDCPE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:835.1-878.10.
+Generating RTLIL representation for module `\FDCPE'.
+Replacing existing blackbox module `\FDCPE_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:880.1-923.10.
+Generating RTLIL representation for module `\FDCPE_1'.
+Replacing existing blackbox module `\LDCE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:925.1-945.10.
+Generating RTLIL representation for module `\LDCE'.
+Replacing existing blackbox module `\LDPE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:947.1-967.10.
+Generating RTLIL representation for module `\LDPE'.
+Replacing existing blackbox module `\LDCPE' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:969.1-998.10.
+Generating RTLIL representation for module `\LDCPE'.
+Replacing existing blackbox module `\AND2B1L' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1000.1-1008.10.
+Generating RTLIL representation for module `\AND2B1L'.
+Replacing existing blackbox module `\OR2L' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1010.1-1018.10.
+Generating RTLIL representation for module `\OR2L'.
+Replacing existing blackbox module `\RAM16X1S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1024.1-1040.10.
+Generating RTLIL representation for module `\RAM16X1S'.
+Replacing existing blackbox module `\RAM16X1S_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1042.1-1058.10.
+Generating RTLIL representation for module `\RAM16X1S_1'.
+Replacing existing blackbox module `\RAM32X1S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1060.1-1076.10.
+Generating RTLIL representation for module `\RAM32X1S'.
+Replacing existing blackbox module `\RAM32X1S_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1078.1-1094.10.
+Generating RTLIL representation for module `\RAM32X1S_1'.
+Replacing existing blackbox module `\RAM64X1S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1096.1-1112.10.
+Generating RTLIL representation for module `\RAM64X1S'.
+Replacing existing blackbox module `\RAM64X1S_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1114.1-1130.10.
+Generating RTLIL representation for module `\RAM64X1S_1'.
+Replacing existing blackbox module `\RAM128X1S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1132.1-1148.10.
+Generating RTLIL representation for module `\RAM128X1S'.
+Replacing existing blackbox module `\RAM128X1S_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1150.1-1166.10.
+Generating RTLIL representation for module `\RAM128X1S_1'.
+Replacing existing blackbox module `\RAM256X1S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1168.1-1183.10.
+Generating RTLIL representation for module `\RAM256X1S'.
+Replacing existing blackbox module `\RAM512X1S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1185.1-1200.10.
+Generating RTLIL representation for module `\RAM512X1S'.
+Replacing existing blackbox module `\RAM16X2S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1204.1-1227.10.
+Generating RTLIL representation for module `\RAM16X2S'.
+Replacing existing blackbox module `\RAM32X2S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1229.1-1252.10.
+Generating RTLIL representation for module `\RAM32X2S'.
+Replacing existing blackbox module `\RAM64X2S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1254.1-1277.10.
+Generating RTLIL representation for module `\RAM64X2S'.
+Replacing existing blackbox module `\RAM16X4S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1279.1-1310.10.
+Generating RTLIL representation for module `\RAM16X4S'.
+Replacing existing blackbox module `\RAM32X4S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1312.1-1343.10.
+Generating RTLIL representation for module `\RAM32X4S'.
+Replacing existing blackbox module `\RAM16X8S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1345.1-1392.10.
+Generating RTLIL representation for module `\RAM16X8S'.
+Replacing existing blackbox module `\RAM32X8S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1394.1-1441.10.
+Generating RTLIL representation for module `\RAM32X8S'.
+Replacing existing blackbox module `\RAM16X1D' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1445.1-1464.10.
+Generating RTLIL representation for module `\RAM16X1D'.
+Replacing existing blackbox module `\RAM16X1D_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1466.1-1485.10.
+Generating RTLIL representation for module `\RAM16X1D_1'.
+Replacing existing module `\RAM32X1D' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1488.1-1540.10.
+Generating RTLIL representation for module `\RAM32X1D'.
+Replacing existing module `\RAM32X1D_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1543.1-1590.10.
+Generating RTLIL representation for module `\RAM32X1D_1'.
+Replacing existing module `\RAM64X1D' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1593.1-1649.10.
+Generating RTLIL representation for module `\RAM64X1D'.
+Replacing existing blackbox module `\RAM64X1D_1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1651.1-1697.10.
+Generating RTLIL representation for module `\RAM64X1D_1'.
+Replacing existing module `\RAM128X1D' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1700.1-1759.10.
+Generating RTLIL representation for module `\RAM128X1D'.
+Replacing existing blackbox module `\RAM256X1D' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1761.1-1777.10.
+Generating RTLIL representation for module `\RAM256X1D'.
+Replacing existing module `\RAM32M' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1782.1-1884.10.
+Generating RTLIL representation for module `\RAM32M'.
+Replacing existing blackbox module `\RAM32M16' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1886.1-1953.10.
+Generating RTLIL representation for module `\RAM32M16'.
+Replacing existing module `\RAM64M' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:1956.1-2040.10.
+Generating RTLIL representation for module `\RAM64M'.
+Replacing existing blackbox module `\RAM64M8' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2042.1-2109.10.
+Generating RTLIL representation for module `\RAM64M8'.
+Replacing existing blackbox module `\RAM32X16DR8' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2111.1-2157.10.
+Generating RTLIL representation for module `\RAM32X16DR8'.
+Replacing existing blackbox module `\RAM64X8SW' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2159.1-2208.10.
+Generating RTLIL representation for module `\RAM64X8SW'.
+Replacing existing blackbox module `\ROM16X1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2212.1-2218.10.
+Generating RTLIL representation for module `\ROM16X1'.
+Replacing existing blackbox module `\ROM32X1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2220.1-2226.10.
+Generating RTLIL representation for module `\ROM32X1'.
+Replacing existing blackbox module `\ROM64X1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2228.1-2234.10.
+Generating RTLIL representation for module `\ROM64X1'.
+Replacing existing blackbox module `\ROM128X1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2236.1-2242.10.
+Generating RTLIL representation for module `\ROM128X1'.
+Replacing existing blackbox module `\ROM256X1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2244.1-2250.10.
+Generating RTLIL representation for module `\ROM256X1'.
+Replacing existing module `\SRL16' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2255.1-2278.10.
+Generating RTLIL representation for module `\SRL16'.
+Replacing existing module `\SRL16E' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2281.1-2316.10.
+Generating RTLIL representation for module `\SRL16E'.
+Replacing existing module `\SRLC16' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2319.1-2346.10.
+Generating RTLIL representation for module `\SRLC16'.
+Replacing existing module `\SRLC16E' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2349.1-2389.10.
+Generating RTLIL representation for module `\SRLC16E'.
+Replacing existing module `\SRLC32E' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2392.1-2434.10.
+Generating RTLIL representation for module `\SRLC32E'.
+Replacing existing blackbox module `\CFGLUT5' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2436.1-2459.10.
+Generating RTLIL representation for module `\CFGLUT5'.
+Replacing existing blackbox module `\MULT18X18' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2467.1-2475.10.
+Generating RTLIL representation for module `\MULT18X18'.
+Replacing existing blackbox module `\MULT18X18S' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2479.1-2495.10.
+Generating RTLIL representation for module `\MULT18X18S'.
+Replacing existing blackbox module `\MULT18X18SIO' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2499.1-2566.10.
+Generating RTLIL representation for module `\MULT18X18SIO'.
+Replacing existing blackbox module `\DSP48A' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2570.1-2666.10.
+Generating RTLIL representation for module `\DSP48A'.
+Replacing existing blackbox module `\DSP48A1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2670.1-2964.10.
+Generating RTLIL representation for module `\DSP48A1'.
+Replacing existing blackbox module `\DSP48' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:2966.1-3194.10.
+Generating RTLIL representation for module `\DSP48'.
+Replacing existing blackbox module `\DSP48E1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:3208.1-3951.10.
+Generating RTLIL representation for module `\DSP48E1'.
+Replacing existing blackbox module `\RAMB18E1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:3957.1-4133.10.
+Generating RTLIL representation for module `\RAMB18E1'.
+Replacing existing blackbox module `\RAMB36E1' at /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v:4135.1-4397.10.
+Generating RTLIL representation for module `\RAMB36E1'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \wasmetal_core
+
+3.2. Analyzing design hierarchy..
+Top module:  \wasmetal_core
+Removed 0 unused modules.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.0.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.0.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.0.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.0.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.0.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.0.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.1.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.1.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.1.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.1.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.1.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.1.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.2.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.2.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.2.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.2.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.2.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.2.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.3.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.3.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.3.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.3.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.3.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.3.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.4.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.4.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.4.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.4.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.4.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.4.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.5.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.5.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.5.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.5.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.5.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.5.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.6.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.6.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.6.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.6.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.6.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.6.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.7.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.7.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.7.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.7.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.7.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.7.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.8.DIADI from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.8.DIPADIP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.8.DOADO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.8.DOBDO from 64 bits to 32 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.8.DOPADOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.labels_memory.0.8.DOPBDOP from 8 bits to 4 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.0.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.0.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.0.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.0.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.0.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.0.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.0.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.1.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.1.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.1.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.1.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.1.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.1.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.1.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.10.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.10.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.10.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.10.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.10.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.10.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.10.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.11.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.11.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.11.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.11.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.11.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.11.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.11.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.12.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.12.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.12.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.12.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.12.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.12.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.12.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.13.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.13.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.13.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.13.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.13.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.13.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.13.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.14.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.14.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.14.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.14.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.14.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.14.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.2.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.2.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.2.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.2.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.2.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.2.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.2.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.3.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.3.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.3.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.3.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.3.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.3.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.3.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.4.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.4.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.4.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.4.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.4.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.4.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.4.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.5.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.5.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.5.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.5.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.5.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.5.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.5.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.6.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.6.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.6.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.6.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.6.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.6.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.6.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.7.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.7.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.7.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.7.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.7.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.7.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.7.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.8.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.8.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.8.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.8.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.8.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.8.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.8.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.9.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.9.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.9.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.9.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.9.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.9.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[0].words.0.9.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.0.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.0.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.0.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.0.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.0.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.0.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.0.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.1.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.1.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.1.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.1.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.1.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.1.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.1.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.10.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.10.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.10.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.10.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.10.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.10.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.10.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.11.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.11.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.11.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.11.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.11.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.11.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.11.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.12.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.12.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.12.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.12.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.12.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.12.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.12.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.13.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.13.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.13.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.13.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.13.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.13.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.13.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.14.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.14.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.14.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.14.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.14.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.14.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.2.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.2.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.2.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.2.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.2.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.2.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.2.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.3.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.3.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.3.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.3.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.3.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.3.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.3.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.4.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.4.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.4.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.4.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.4.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.4.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.4.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.5.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.5.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.5.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.5.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.5.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.5.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.5.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.6.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.6.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.6.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.6.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.6.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.6.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.6.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.7.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.7.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.7.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.7.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.7.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.7.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.7.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.8.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.8.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.8.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.8.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.8.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.8.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.8.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.9.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.9.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.9.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.9.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.9.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.9.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[1].words.0.9.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.0.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.0.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.0.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.0.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.0.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.0.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.0.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.1.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.1.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.1.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.1.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.1.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.1.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.1.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.10.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.10.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.10.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.10.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.10.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.10.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.10.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.11.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.11.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.11.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.11.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.11.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.11.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.11.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.12.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.12.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.12.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.12.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.12.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.12.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.12.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.13.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.13.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.13.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.13.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.13.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.13.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.13.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.14.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.14.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.14.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.14.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.14.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.14.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.2.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.2.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.2.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.2.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.2.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.2.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.2.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.3.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.3.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.3.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.3.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.3.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.3.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.3.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.4.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.4.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.4.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.4.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.4.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.4.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.4.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.5.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.5.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.5.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.5.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.5.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.5.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.5.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.6.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.6.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.6.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.6.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.6.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.6.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.6.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.7.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.7.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.7.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.7.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.7.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.7.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.7.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.8.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.8.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.8.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.8.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.8.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.8.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.8.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.9.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.9.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.9.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.9.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.9.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.9.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[2].words.0.9.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.0.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.0.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.0.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.0.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.0.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.0.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.0.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.1.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.1.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.1.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.1.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.1.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.1.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.1.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.10.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.10.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.10.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.10.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.10.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.10.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.10.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.11.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.11.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.11.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.11.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.11.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.11.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.11.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.12.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.12.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.12.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.12.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.12.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.12.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.12.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.13.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.13.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.13.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.13.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.13.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.13.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.13.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.14.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.14.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.14.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.14.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.14.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.14.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.2.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.2.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.2.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.2.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.2.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.2.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.2.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.3.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.3.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.3.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.3.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.3.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.3.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.3.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.4.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.4.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.4.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.4.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.4.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.4.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.4.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.5.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.5.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.5.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.5.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.5.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.5.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.5.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.6.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.6.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.6.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.6.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.6.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.6.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.6.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.7.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.7.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.7.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.7.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.7.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.7.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.7.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.8.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.8.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.8.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.8.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.8.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.8.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.8.WEA from 4 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.9.DIADI from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.9.DIPADIP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.9.DOADO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.9.DOBDO from 64 bits to 16 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.9.DOPADOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.9.DOPBDOP from 8 bits to 2 bits.
+Warning: Resizing cell port wasmetal_core.value_file.banks[3].words.0.9.WEA from 4 bits to 2 bits.
+
+4. Executing SPLITNETS pass (splitting up multi-bit signals).
+Removed 0 unused cells and 112287 unused wires.
+
+5. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_core...
+Found and reported 0 problems.
+
+6. Executing Verilog backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Dumping module `\wasmetal_core'.
