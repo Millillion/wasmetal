@@ -304,6 +304,34 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+  asic-physical-tools:
+    name: Pinned ASIC physical tools and platform inputs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install host runtime dependencies on the disposable runner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libbz2-1.0 libgcc-s1 libgomp1 libopengl0 libpython3.12t64 libqt5core5t64 libqt5gui5t64 libqt5widgets5t64 libreadline8t64 libstdc++6 libtcl8.6 libyaml-cpp0.8 zlib1g
+      - name: Verify private packages, executable and physical platform inputs
+        run: |
+          mkdir -p build
+          python3 tools/asic_physical_tools.py > build/asic-physical-tools.log 2>&1
+      - name: Preserve exact tool and runtime identities
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: asic-physical-tools
+          path: |
+            reports/asic-physical-tools.json
+            build/asic-physical-tools.log
+            tools/asic_physical.lock.json
+          if-no-files-found: warn
+          retention-days: 30
+
   memory-startup:
     name: Memory startup and CPU ownership
     runs-on: ubuntu-24.04

@@ -461,6 +461,10 @@ flip-flop transitions and 64 seed/hold checks pass; three wrong cell models
 are rejected. Seven source-inventory fixtures also pass. CI includes these
 checks. The full startup-circuit ASIC mapping campaign is still running; this
 cell-level result does not establish physical ASIC timing or a complete CPU.
+The [physical-tool setup](docs/ASIC-PHYSICAL.md) now verifies a pinned OpenROAD
+build, all 11,632 extracted package files and seven matching physical platform
+inputs. It also fingerprints 133 resolved shared libraries. CI includes this
+tool-input check; physical-block validation remains in progress.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its
