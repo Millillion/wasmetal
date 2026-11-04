@@ -131,6 +131,12 @@ rejected. CI now runs this check after synthesis.
 An explicit-bit form of the DSP carry bus also passes the same oracle in both
 Icarus and Verilator; it removes an artificial scheduling loop when compiling
 the complete mapped circuit.
+The [LUT model checks](docs/XILINX-LOGIC.md) prove the lookup optimization for
+every binary truth table and selector at widths one through six. Independent
+oracle regressions pass 183,664 known-input cases per model in Icarus and
+Verilator, plus 11,811,032 four-state cases per model in Icarus. All eleven
+fault controls are rejected. CI repeats the proofs and the mapped-table
+regression; faster whole-system simulation is being checked separately.
 Complete Xilinx CPU simulation, placement and timing
 remain unverified. ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
