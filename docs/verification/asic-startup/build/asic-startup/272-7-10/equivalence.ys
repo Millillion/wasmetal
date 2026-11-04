@@ -1,0 +1,19 @@
+read_verilog -sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv /tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv
+chparam -set RAM_BYTES 272 -set READ_LATENCY 7 -set RESPONSE_TIMEOUT 10 wasmetal_startup_sram
+prep -top wasmetal_startup_sram -flatten
+memory_map
+opt_clean
+rename wasmetal_startup_sram gold
+design -stash gold
+read_verilog /tmp/wasmetal-xc7-core/build/asic-startup/272-7-10/cells.v /tmp/wasmetal-xc7-core/build/asic-startup/272-7-10/proof-circuit.v
+prep -top wasmetal_startup_sram -flatten
+rename wasmetal_startup_sram gate
+design -stash gate
+design -copy-from gold -as gold gold
+design -copy-from gate -as gate gate
+equiv_make -encfile /tmp/wasmetal-xc7-core/build/asic-startup/272-7-10/fsm.enc gold gate equiv
+hierarchy -top equiv
+write_rtlil /tmp/wasmetal-xc7-core/build/asic-startup/272-7-10/equiv.il
+equiv_simple
+equiv_induct -undef -seq 12
+equiv_status -assert

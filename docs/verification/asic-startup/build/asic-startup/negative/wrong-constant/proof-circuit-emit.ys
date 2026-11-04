@@ -1,0 +1,2 @@
+read_json /tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/proof-circuit.json
+write_verilog -noattr -noexpr -nodec /tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/proof-circuit.v

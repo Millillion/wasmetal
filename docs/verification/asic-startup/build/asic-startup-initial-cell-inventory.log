@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_cell_models.py", line 272, in <module>
+    main()
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_cell_models.py", line 211, in main
+    actual_models, actual_paths = mapped_models(args.asic_report, types)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_cell_models.py", line 96, in mapped_models
+    require(selected <= set(types), 'mapped circuit uses an unverified vendor cell type')
+  File "/tmp/wasmetal-xc7-core/tools/asic_cells.py", line 17, in require
+    raise ValueError(message)
+ValueError: mapped circuit uses an unverified vendor cell type

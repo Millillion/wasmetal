@@ -1,0 +1,7 @@
+read_verilog /tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/cells.v /tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/mapped.v
+hierarchy -check -top wasmetal_startup_sram
+proc
+flatten
+opt
+scc -expect 0
+check -assert

@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "scope": "startup controller, test master and SRAM adapter; no CPU or SRAM array",
+  "backend": "mapped-sky130hd-functional",
+  "configurations": [
+    {
+      "ram_bytes": 16,
+      "read_latency": 1,
+      "response_timeout": 9,
+      "standard_cells": 3394,
+      "flip_flops": 568,
+      "cycles": 246535
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 3,
+      "response_timeout": 11,
+      "standard_cells": 3449,
+      "flip_flops": 579,
+      "cycles": 7692351
+    },
+    {
+      "ram_bytes": 272,
+      "read_latency": 7,
+      "response_timeout": 10,
+      "standard_cells": 3498,
+      "flip_flops": 588,
+      "cycles": 654891
+    },
+    {
+      "ram_bytes": 131072,
+      "read_latency": 3,
+      "response_timeout": 11,
+      "standard_cells": 3712,
+      "flip_flops": 620,
+      "cycles": 50513199
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 3,
+      "response_timeout": 5,
+      "standard_cells": 3461,
+      "flip_flops": 578,
+      "cycles": 582
+    },
+    {
+      "ram_bytes": 80,
+      "read_latency": 3,
+      "response_timeout": 2,
+      "standard_cells": 3452,
+      "flip_flops": 576,
+      "cycles": 329
+    }
+  ],
+  "totals_per_model": {
+    "cycles": 59107887,
+    "macro_commands": 10718286,
+    "test_commands": 10707750,
+    "cpu_commands": 10536,
+    "cpu_responses": 11237,
+    "cpu_faults": 720,
+    "successful_boots": 2760,
+    "failed_boots": 266,
+    "resets": 5614,
+    "resets_with_pending_reads": 408,
+    "old_reads_after_reset": 408,
+    "held_valid_cycles": 36028
+  },
+  "inductive_equivalence_checks": 6,
+  "independent_reset_pin_checks": 6,
+  "comparison_point_reset_base_checks": 6,
+  "reset_base_cycles": 12,
+  "circuit_fault_controls_rejected": 14,
+  "upstream_cell_types_checked": 69,
+  "combinational_cell_vectors": 1115,
+  "binary_flip_flop_transitions": 32,
+  "flip_flop_seed_and_hold_checks": 64,
+  "cell_model_faults_rejected": 3,
+  "source_inventory_fixtures_passed": 7,
+  "frozen_inputs_rechecked": 115,
+  "functional_report_sha256": "cc9c68bb4a80722c07ef3615a7f307af3a66a0a109653a05e94d8963f3bc44f1",
+  "independent_cell_report_sha256": "dace9bacac46f22636b6607ee6b18f260936540123f990a8b26092eb408d660d",
+  "physical_hardware_tested": false,
+  "physical_timing_or_routing_included": false,
+  "initial_incomplete_trial": "All six normal cases matched, but a negative-test build warning stopped the first attempt; its source and failure logs are retained. The complete campaign was rerun after fixing that test setup."
+}

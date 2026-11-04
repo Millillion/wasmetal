@@ -1,0 +1,404 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/acyclic.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/cells.v
+Parsing Verilog input from `/tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/cells.v' to AST representation.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a2111oi_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a211o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a211oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21bo_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21boi_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a221o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a222oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a22o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a22oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a2bb2oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a31o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a31oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a32oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a41oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and2_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and3b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkinv_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__conb_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__dfxtp_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__mux2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__mux2i_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand2b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand3b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand4b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor2b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor3b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o2111a_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o211a_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o211ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21a_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21ai_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21bai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o221a_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o221ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o22ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o2bb2ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o311ai_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o31ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or2_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or3b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__xnor2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__xnor3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__xor2_1'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/mapped.v
+Parsing Verilog input from `/tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/mapped.v' to AST representation.
+Generating RTLIL representation for module `\wasmetal_startup_sram'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     \sky130_fd_sc_hd__conb_1
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__and2_0
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__or2_0
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__o221ai_1
+Used module:     \sky130_fd_sc_hd__nand4b_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__o2bb2ai_1
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__a211oi_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__and4_1
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__and3b_1
+Used module:     \sky130_fd_sc_hd__or4_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__a21boi_0
+Used module:     \sky130_fd_sc_hd__o211a_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__nand3b_1
+Used module:     \sky130_fd_sc_hd__xnor2_1
+Used module:     \sky130_fd_sc_hd__xor2_1
+Used module:     \sky130_fd_sc_hd__a211o_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__nor3b_1
+Used module:     \sky130_fd_sc_hd__mux2i_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__a32oi_1
+Used module:     \sky130_fd_sc_hd__a21o_1
+Used module:     \sky130_fd_sc_hd__a2111oi_0
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__a31o_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__o2111a_1
+Used module:     \sky130_fd_sc_hd__o221a_1
+Used module:     \sky130_fd_sc_hd__a222oi_1
+Used module:     \sky130_fd_sc_hd__xnor3_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__a221o_1
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__a2bb2oi_1
+Used module:     \sky130_fd_sc_hd__mux2_1
+Used module:     \sky130_fd_sc_hd__or3b_1
+Used module:     \sky130_fd_sc_hd__a41oi_1
+Used module:     \sky130_fd_sc_hd__clkinv_1
+Used module:     \sky130_fd_sc_hd__a22o_1
+Used module:     \sky130_fd_sc_hd__a21bo_1
+Used module:     \sky130_fd_sc_hd__o311ai_0
+
+3.2. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     \sky130_fd_sc_hd__conb_1
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__and2_0
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__or2_0
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__o221ai_1
+Used module:     \sky130_fd_sc_hd__nand4b_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__o2bb2ai_1
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__a211oi_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__and4_1
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__and3b_1
+Used module:     \sky130_fd_sc_hd__or4_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__a21boi_0
+Used module:     \sky130_fd_sc_hd__o211a_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__nand3b_1
+Used module:     \sky130_fd_sc_hd__xnor2_1
+Used module:     \sky130_fd_sc_hd__xor2_1
+Used module:     \sky130_fd_sc_hd__a211o_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__nor3b_1
+Used module:     \sky130_fd_sc_hd__mux2i_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__a32oi_1
+Used module:     \sky130_fd_sc_hd__a21o_1
+Used module:     \sky130_fd_sc_hd__a2111oi_0
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__a31o_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__o2111a_1
+Used module:     \sky130_fd_sc_hd__o221a_1
+Used module:     \sky130_fd_sc_hd__a222oi_1
+Used module:     \sky130_fd_sc_hd__xnor3_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__a221o_1
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__a2bb2oi_1
+Used module:     \sky130_fd_sc_hd__mux2_1
+Used module:     \sky130_fd_sc_hd__or3b_1
+Used module:     \sky130_fd_sc_hd__a41oi_1
+Used module:     \sky130_fd_sc_hd__clkinv_1
+Used module:     \sky130_fd_sc_hd__a22o_1
+Used module:     \sky130_fd_sc_hd__a21bo_1
+Used module:     \sky130_fd_sc_hd__o311ai_0
+Removed 0 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sky130_fd_sc_hd__dfxtp_1.$proc$/tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/cells.v:682$190'.
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sky130_fd_sc_hd__dfxtp_1.\IQ' using process `\sky130_fd_sc_hd__dfxtp_1.$proc$/tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/cells.v:682$190'.
+  created $dff cell `$procdff$364' with positive edge clock.
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `sky130_fd_sc_hd__dfxtp_1.$proc$/tmp/wasmetal-xc7-core/build/asic-startup/80-3-2/cells.v:682$190'.
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+Optimizing module sky130_fd_sc_hd__xor2_1.
+Optimizing module sky130_fd_sc_hd__xnor3_1.
+Optimizing module sky130_fd_sc_hd__xnor2_1.
+Optimizing module sky130_fd_sc_hd__or4_1.
+Optimizing module sky130_fd_sc_hd__or3b_1.
+Optimizing module sky130_fd_sc_hd__or3_1.
+Optimizing module sky130_fd_sc_hd__or2_0.
+Optimizing module sky130_fd_sc_hd__o31ai_1.
+Optimizing module sky130_fd_sc_hd__o311ai_0.
+Optimizing module sky130_fd_sc_hd__o2bb2ai_1.
+Optimizing module sky130_fd_sc_hd__o22ai_1.
+Optimizing module sky130_fd_sc_hd__o221ai_1.
+Optimizing module sky130_fd_sc_hd__o221a_1.
+Optimizing module sky130_fd_sc_hd__o21bai_1.
+Optimizing module sky130_fd_sc_hd__o21ai_0.
+Optimizing module sky130_fd_sc_hd__o21a_1.
+Optimizing module sky130_fd_sc_hd__o211ai_1.
+Optimizing module sky130_fd_sc_hd__o211a_1.
+Optimizing module sky130_fd_sc_hd__o2111a_1.
+Optimizing module sky130_fd_sc_hd__nor4_1.
+Optimizing module sky130_fd_sc_hd__nor3b_1.
+Optimizing module sky130_fd_sc_hd__nor3_1.
+Optimizing module sky130_fd_sc_hd__nor2b_1.
+Optimizing module sky130_fd_sc_hd__nor2_1.
+Optimizing module sky130_fd_sc_hd__nand4b_1.
+Optimizing module sky130_fd_sc_hd__nand4_1.
+Optimizing module sky130_fd_sc_hd__nand3b_1.
+Optimizing module sky130_fd_sc_hd__nand3_1.
+Optimizing module sky130_fd_sc_hd__nand2b_1.
+Optimizing module sky130_fd_sc_hd__nand2_1.
+Optimizing module sky130_fd_sc_hd__mux2i_1.
+Optimizing module sky130_fd_sc_hd__mux2_1.
+Optimizing module sky130_fd_sc_hd__dfxtp_1.
+Optimizing module sky130_fd_sc_hd__conb_1.
+Optimizing module sky130_fd_sc_hd__clkinv_1.
+Optimizing module sky130_fd_sc_hd__and4_1.
+Optimizing module sky130_fd_sc_hd__and3b_1.
+Optimizing module sky130_fd_sc_hd__and3_1.
+Optimizing module sky130_fd_sc_hd__and2_0.
+Optimizing module sky130_fd_sc_hd__a41oi_1.
+Optimizing module sky130_fd_sc_hd__a32oi_1.
+Optimizing module sky130_fd_sc_hd__a31oi_1.
+Optimizing module sky130_fd_sc_hd__a31o_1.
+Optimizing module sky130_fd_sc_hd__a2bb2oi_1.
+Optimizing module sky130_fd_sc_hd__a22oi_1.
+Optimizing module sky130_fd_sc_hd__a22o_1.
+Optimizing module sky130_fd_sc_hd__a222oi_1.
+Optimizing module sky130_fd_sc_hd__a221o_1.
+Optimizing module sky130_fd_sc_hd__a21oi_1.
+Optimizing module sky130_fd_sc_hd__a21o_1.
+Optimizing module sky130_fd_sc_hd__a21boi_0.
+Optimizing module sky130_fd_sc_hd__a21bo_1.
+Optimizing module sky130_fd_sc_hd__a211oi_1.
+Optimizing module sky130_fd_sc_hd__a211o_1.
+Optimizing module sky130_fd_sc_hd__a2111oi_0.
+
+5. Executing FLATTEN pass (flatten design).
+Deleting now unused module sky130_fd_sc_hd__xor2_1.
+Deleting now unused module sky130_fd_sc_hd__xnor3_1.
+Deleting now unused module sky130_fd_sc_hd__xnor2_1.
+Deleting now unused module sky130_fd_sc_hd__or4_1.
+Deleting now unused module sky130_fd_sc_hd__or3b_1.
+Deleting now unused module sky130_fd_sc_hd__or3_1.
+Deleting now unused module sky130_fd_sc_hd__or2_0.
+Deleting now unused module sky130_fd_sc_hd__o31ai_1.
+Deleting now unused module sky130_fd_sc_hd__o311ai_0.
+Deleting now unused module sky130_fd_sc_hd__o2bb2ai_1.
+Deleting now unused module sky130_fd_sc_hd__o22ai_1.
+Deleting now unused module sky130_fd_sc_hd__o221ai_1.
+Deleting now unused module sky130_fd_sc_hd__o221a_1.
+Deleting now unused module sky130_fd_sc_hd__o21bai_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_0.
+Deleting now unused module sky130_fd_sc_hd__o21a_1.
+Deleting now unused module sky130_fd_sc_hd__o211ai_1.
+Deleting now unused module sky130_fd_sc_hd__o211a_1.
+Deleting now unused module sky130_fd_sc_hd__o2111a_1.
+Deleting now unused module sky130_fd_sc_hd__nor4_1.
+Deleting now unused module sky130_fd_sc_hd__nor3b_1.
+Deleting now unused module sky130_fd_sc_hd__nor3_1.
+Deleting now unused module sky130_fd_sc_hd__nor2b_1.
+Deleting now unused module sky130_fd_sc_hd__nor2_1.
+Deleting now unused module sky130_fd_sc_hd__nand4b_1.
+Deleting now unused module sky130_fd_sc_hd__nand4_1.
+Deleting now unused module sky130_fd_sc_hd__nand3b_1.
+Deleting now unused module sky130_fd_sc_hd__nand3_1.
+Deleting now unused module sky130_fd_sc_hd__nand2b_1.
+Deleting now unused module sky130_fd_sc_hd__nand2_1.
+Deleting now unused module sky130_fd_sc_hd__mux2i_1.
+Deleting now unused module sky130_fd_sc_hd__mux2_1.
+Deleting now unused module sky130_fd_sc_hd__dfxtp_1.
+Deleting now unused module sky130_fd_sc_hd__conb_1.
+Deleting now unused module sky130_fd_sc_hd__clkinv_1.
+Deleting now unused module sky130_fd_sc_hd__and4_1.
+Deleting now unused module sky130_fd_sc_hd__and3b_1.
+Deleting now unused module sky130_fd_sc_hd__and3_1.
+Deleting now unused module sky130_fd_sc_hd__and2_0.
+Deleting now unused module sky130_fd_sc_hd__a41oi_1.
+Deleting now unused module sky130_fd_sc_hd__a32oi_1.
+Deleting now unused module sky130_fd_sc_hd__a31oi_1.
+Deleting now unused module sky130_fd_sc_hd__a31o_1.
+Deleting now unused module sky130_fd_sc_hd__a2bb2oi_1.
+Deleting now unused module sky130_fd_sc_hd__a22oi_1.
+Deleting now unused module sky130_fd_sc_hd__a22o_1.
+Deleting now unused module sky130_fd_sc_hd__a222oi_1.
+Deleting now unused module sky130_fd_sc_hd__a221o_1.
+Deleting now unused module sky130_fd_sc_hd__a21oi_1.
+Deleting now unused module sky130_fd_sc_hd__a21o_1.
+Deleting now unused module sky130_fd_sc_hd__a21boi_0.
+Deleting now unused module sky130_fd_sc_hd__a21bo_1.
+Deleting now unused module sky130_fd_sc_hd__a211oi_1.
+Deleting now unused module sky130_fd_sc_hd__a211o_1.
+Deleting now unused module sky130_fd_sc_hd__a2111oi_0.
+<suppressed ~3452 debug messages>
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~404 debug messages>
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~15363 debug messages>
+Removed a total of 5121 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 25682 unused wires.
+<suppressed ~1 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+6.16. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module wasmetal_startup_sram.
+Found and expected 0 SCCs.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.

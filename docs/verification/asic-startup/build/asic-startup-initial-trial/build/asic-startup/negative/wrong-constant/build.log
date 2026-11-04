@@ -1,0 +1,9 @@
+%Warning-UNOPTFLAT: /tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/mapped.v:3046:17: Signal unoptimizable: Circular combinational logic: 'error_address'
+ 3046 |   output [31:0] error_address;
+      |                 ^~~~~~~~~~~~~
+                    ... For warning description see https://verilator.org/warn/UNOPTFLAT?v=5.020
+                    ... Use "/* verilator lint_off UNOPTFLAT */" and lint_on around source to disable this message.
+                    /tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/mapped.v:3046:17:      Example path: error_address
+                    /tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/cells.v:750:10:      Example path: ASSIGNW
+                    /tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/mapped.v:3046:17:      Example path: error_address
+%Error: Exiting due to 1 warning(s)

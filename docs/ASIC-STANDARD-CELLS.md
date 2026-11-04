@@ -1,9 +1,10 @@
 # Experimental ASIC standard-cell checks
 
-WasMetal now has pinned SKY130HD library inputs and a separate check of the
-binary behavior of the cell models. This establishes a reference for ASIC
-synthesis experiments. It does not select a fabrication process for the final
-CPU or provide a physical implementation.
+WasMetal's startup controller, memory self-test and SRAM adapter now pass
+functional checks after mapping to SKY130HD standard cells. Independent
+upstream Verilog also verifies the actual cell models used by the simulations.
+This is a bounded subsystem experiment. It does not select a fabrication
+process for the final CPU or establish physical timing.
 
 ## Inputs and reproducibility
 
@@ -32,17 +33,20 @@ These third-party notices do not change WasMetal's project license.
 ## Independent cell behavior
 
 ```sh
-python3 tools/check_asic_cell_models.py
+python3 tools/check_asic_startup.py
+python3 tools/check_asic_cell_models.py --asic-report reports/asic-startup.json
 python3 tests/asic_cell_source_test.py
 ```
 
-The [published result](verification/asic-cell-models.json) checks 67 cell types
-selected during the startup-controller synthesis experiments. Yosys derives one
-set of functional definitions from Liberty. Icarus compares those definitions
-against upstream Verilog gates and enabled primitive tables. The check requires
-matching scalar port inventories and rejects unsupported stateful cells.
+The [published result](verification/asic-startup-cell-models.json) checks all
+69 cell types selected across the six startup configurations. The report binds
+the generated netlists and their actual functional model files by hash. Icarus
+compares those Liberty-derived definitions against upstream Verilog gates and
+enabled primitive tables. The check requires matching scalar port inventories
+and rejects unsupported stateful cells. Omitting `--asic-report` instead checks
+fresh Liberty-derived definitions; it does not bind a circuit simulation.
 
-All 1,067 binary combinational input vectors pass. The positive-edge flip-flop
+All 1,115 binary combinational input vectors pass. The positive-edge flip-flop
 also passes all 32 combinations of a known previous output, previous binary
 data/clock levels and following binary data/clock levels. Sixty-four additional
 checks verify that seeding and pretransition data changes produce the expected
@@ -55,11 +59,56 @@ includes, altered source hashes and a moving upstream branch reference. Every
 active include must be part of the pinned file inventory. Primitive black-box
 definitions are not used.
 
-The [raw archive](verification/asic-cell-models/index.json) includes the pinned
-inputs, upstream sources, generated models, testbench, fault variants and logs.
-CI runs the model comparison and source-inventory fixtures. A separate startup
-circuit campaign is still running; this report does not claim that campaign
-has passed.
+The [initial cell-only archive](verification/asic-cell-models/index.json)
+retains its original 67-type result. The [complete startup archive](verification/asic-startup/index.json)
+adds the actual circuit models, both additional upstream definitions, testbench,
+fault variants and logs. The source-inventory gate initially rejected the final
+configuration's additional cell type; its pinned definition was added and the
+complete independent comparison was then rerun.
+
+## Complete startup circuit campaign
+
+The [summary](verification/asic-startup-summary.json) and
+[detailed report](verification/asic-startup.json) cover six parameter settings:
+
+| SRAM bytes | Read latency | Response timeout |
+| ---: | ---: | ---: |
+| 16 | 1 | 9 |
+| 80 | 3 | 11 |
+| 272 | 7 | 10 |
+| 131,072 | 3 | 11 |
+| 80 | 3 | 5 |
+| 80 | 3 | 2 |
+
+RTL and standard-cell simulations produce exactly matching observations and
+trace hashes over 59,107,887 clocks per model. The 128 KiB case accounts for
+50,513,199 clocks and maps to 3,712 cells, including 620 flip-flops. The same
+independent C++ SRAM oracle drives both simulations. Startup completion,
+expected startup failures, resets and subsequent CPU-side memory requests are
+checked; this harness does not instantiate the Wasm CPU or a physical SRAM.
+
+Each configuration also passes inductive RTL-to-cell equivalence with explicit
+FSM encoding maps. A separate 12-cycle reset proof checks the comparison points;
+another reset proof compares output pins without assuming matching internal
+state. Initial register values are undefined. Structural checks reject generic
+or excluded cells, missing inputs, undriven bits, multiple drivers, altered
+clocks and initialized state. Netlist normalization must preserve every cell
+pin connection, and the flattened bit-level graph must have no combinational
+cycle.
+
+Fourteen deliberate circuit faults exercise these checks, including a rewired
+tie cell rejected by both simulation and the independent reset proof, and a
+corrupted SRAM read rejected by the unchanged simulation oracle. The first
+attempt reached matching observations in all six configurations but stopped
+when a fault-test build exposed a vector-alias warning. After checking that the
+mutated circuit had no bit-level cycle, the waiver was restricted to that
+specific warning. The entire six-configuration campaign was rerun. Its initial
+failure and the complete successful rerun are both retained in the archive.
+
+CI has a dedicated job for all six mappings, proofs, paired simulations, fault
+controls and independent checks of the actual cell definitions. Logs and
+generated circuits are uploaded even when a job fails. The local pass described
+here does not imply that a newly queued CI run has completed.
 
 ## Limits
 

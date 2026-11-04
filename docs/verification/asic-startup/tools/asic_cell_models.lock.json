@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "repository": "fossi-foundation/skywater-pdk-libs-sky130_fd_sc_hd",
+  "revision": "9cb2d7cb8ed4619094263614039a61b6b2d22a88",
+  "cell_types": [
+    "sky130_fd_sc_hd__a2111oi_0",
+    "sky130_fd_sc_hd__a211o_1",
+    "sky130_fd_sc_hd__a211oi_1",
+    "sky130_fd_sc_hd__a21bo_1",
+    "sky130_fd_sc_hd__a21boi_0",
+    "sky130_fd_sc_hd__a21o_1",
+    "sky130_fd_sc_hd__a21oi_1",
+    "sky130_fd_sc_hd__a221o_1",
+    "sky130_fd_sc_hd__a221oi_1",
+    "sky130_fd_sc_hd__a222oi_1",
+    "sky130_fd_sc_hd__a22o_1",
+    "sky130_fd_sc_hd__a22oi_1",
+    "sky130_fd_sc_hd__a2bb2o_1",
+    "sky130_fd_sc_hd__a2bb2oi_1",
+    "sky130_fd_sc_hd__a311o_1",
+    "sky130_fd_sc_hd__a311oi_1",
+    "sky130_fd_sc_hd__a31o_1",
+    "sky130_fd_sc_hd__a31oi_1",
+    "sky130_fd_sc_hd__a32o_1",
+    "sky130_fd_sc_hd__a32oi_1",
+    "sky130_fd_sc_hd__a41o_1",
+    "sky130_fd_sc_hd__a41oi_1",
+    "sky130_fd_sc_hd__and2_0",
+    "sky130_fd_sc_hd__and3_1",
+    "sky130_fd_sc_hd__and3b_1",
+    "sky130_fd_sc_hd__and4_1",
+    "sky130_fd_sc_hd__and4b_1",
+    "sky130_fd_sc_hd__clkinv_1",
+    "sky130_fd_sc_hd__conb_1",
+    "sky130_fd_sc_hd__dfxtp_1",
+    "sky130_fd_sc_hd__maj3_1",
+    "sky130_fd_sc_hd__mux2_1",
+    "sky130_fd_sc_hd__mux2i_1",
+    "sky130_fd_sc_hd__nand2_1",
+    "sky130_fd_sc_hd__nand2b_1",
+    "sky130_fd_sc_hd__nand3_1",
+    "sky130_fd_sc_hd__nand3b_1",
+    "sky130_fd_sc_hd__nand4_1",
+    "sky130_fd_sc_hd__nand4b_1",
+    "sky130_fd_sc_hd__nor2_1",
+    "sky130_fd_sc_hd__nor2b_1",
+    "sky130_fd_sc_hd__nor3_1",
+    "sky130_fd_sc_hd__nor3b_1",
+    "sky130_fd_sc_hd__nor4_1",
+    "sky130_fd_sc_hd__nor4b_1",
+    "sky130_fd_sc_hd__nor4bb_1",
+    "sky130_fd_sc_hd__o2111a_1",
+    "sky130_fd_sc_hd__o2111ai_1",
+    "sky130_fd_sc_hd__o211a_1",
+    "sky130_fd_sc_hd__o211ai_1",
+    "sky130_fd_sc_hd__o21a_1",
+    "sky130_fd_sc_hd__o21ai_0",
+    "sky130_fd_sc_hd__o21bai_1",
+    "sky130_fd_sc_hd__o221a_1",
+    "sky130_fd_sc_hd__o221ai_1",
+    "sky130_fd_sc_hd__o22ai_1",
+    "sky130_fd_sc_hd__o2bb2ai_1",
+    "sky130_fd_sc_hd__o311ai_0",
+    "sky130_fd_sc_hd__o31ai_1",
+    "sky130_fd_sc_hd__o32ai_1",
+    "sky130_fd_sc_hd__o41ai_1",
+    "sky130_fd_sc_hd__or2_0",
+    "sky130_fd_sc_hd__or3_1",
+    "sky130_fd_sc_hd__or3b_1",
+    "sky130_fd_sc_hd__or4_1",
+    "sky130_fd_sc_hd__or4b_1",
+    "sky130_fd_sc_hd__xnor2_1",
+    "sky130_fd_sc_hd__xnor3_1",
+    "sky130_fd_sc_hd__xor2_1"
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    {
+      "path": "cells/a2111oi/sky130_fd_sc_hd__a2111oi_0.functional.v",
+      "git_blob_sha1": "4445fae03f3fbb050939ea8cc76d5aa3aaf14901",
+      "bytes": 1542,
+      "sha256": "320b853392fc649e6d782c2e270adf816743f517f6919a942d2ecc35f4627639"
+    },
+    {
+      "path": "cells/a211o/sky130_fd_sc_hd__a211o_1.functional.v",
+      "git_blob_sha1": "74f0e1923c0dc47b0d29feb0cec37891eb2f048d",
+      "bytes": 1477,
+      "sha256": "5cf9f1646b18f995d0e1c2314d869fcc2c9c38cfbbde800255910d55c38b950d"
+    },
+    {
+      "path": "cells/a211oi/sky130_fd_sc_hd__a211oi_1.functional.v",
+      "git_blob_sha1": "09b3bd7281ec795743a4f821d80906932f68de72",
+      "bytes": 1491,
+      "sha256": "4dc2f332cb63fc924b0ad0e11bd4c74a075d5b2e54b1683498641c1b3a3a8756"
+    },
+    {
+      "path": "cells/a21bo/sky130_fd_sc_hd__a21bo_1.functional.v",
+      "git_blob_sha1": "3dccf90133b4324556403277d61eedbc0a1ac258",
+      "bytes": 1512,
+      "sha256": "a2ed5eee61b4c181dd404c3980c5ce9bc6bc75f0c02f8d115e977bb67ab1e235"
+    },
+    {
+      "path": "cells/a21boi/sky130_fd_sc_hd__a21boi_0.functional.v",
+      "git_blob_sha1": "5230203ebc7fd6259e70c26476efa5a6e09f6efa",
+      "bytes": 1572,
+      "sha256": "815594c7f9a411c9f10b5bb8ffba4b348c4a764c2b2dbf2993f092a305e56251"
+    },
+    {
+      "path": "cells/a21o/sky130_fd_sc_hd__a21o_1.functional.v",
+      "git_blob_sha1": "38fdcb56fb07350a0acf30d0adbd4b4e6bef5648",
+      "bytes": 1435,
+      "sha256": "13dac9b6ba4ce2bca73acf63d881147d650ecb79a064c5729add2ba8515f7b3b"
+    },
+    {
+      "path": "cells/a21oi/sky130_fd_sc_hd__a21oi_1.functional.v",
+      "git_blob_sha1": "95cac333e46d267363be2496daee6062db6c16d3",
+      "bytes": 1449,
+      "sha256": "f34b276bb1f21cde68166ccf6b733676987e9f6daac11ea5af870b9373fcd247"
+    },
+    {
+      "path": "cells/a221o/sky130_fd_sc_hd__a221o_1.functional.v",
+      "git_blob_sha1": "5db22606055b95ff6b42a53b91d1a6f320b62d31",
+      "bytes": 1605,
+      "sha256": "b0f7470e5520d072f8df85ec0cbedad3c2cf9f70fdc5e2321d0508e63f9c602f"
+    },
+    {
+      "path": "cells/a221oi/sky130_fd_sc_hd__a221oi_1.functional.v",
+      "git_blob_sha1": "2dadc0dc0dc10ff16ee256e1df147cb451d82687",
+      "bytes": 1621,
+      "sha256": "39cae4928be1ea5ecfd953ef2d127b284e4e9ce832e780bf6a6dff5fc1b87f69"
+    },
+    {
+      "path": "cells/a222oi/sky130_fd_sc_hd__a222oi_1.functional.v",
+      "git_blob_sha1": "ef460ada6da7b633a37f5b9484773aa0debb9225",
+      "bytes": 1779,
+      "sha256": "9f97481dc6e72e4b9b174259f3f0bd895df93174c1281b66372bd7599b6b16ae"
+    },
+    {
+      "path": "cells/a22o/sky130_fd_sc_hd__a22o_1.functional.v",
+      "git_blob_sha1": "f6fefb6ab5dc71cc75ce62f0e380291cea2c4e60",
+      "bytes": 1545,
+      "sha256": "fb96f155e374d9dde2f81f6ae95a3796a916f8f41ca930acb58762813c405d43"
+    },
+    {
+      "path": "cells/a22oi/sky130_fd_sc_hd__a22oi_1.functional.v",
+      "git_blob_sha1": "b8d0d3fcc0c9ba9702aa49c2a5d4fcb726905945",
+      "bytes": 1579,
+      "sha256": "f9e9a85417a1ec4af9f3159369432f0629592a56869d4e9f54b05722d92d993a"
+    },
+    {
+      "path": "cells/a2bb2o/sky130_fd_sc_hd__a2bb2o_1.functional.v",
+      "git_blob_sha1": "61b8b66b62cb52d1e4e3f0573a1d1d8c14d68cb9",
+      "bytes": 1643,
+      "sha256": "1540b1926ec827823262b382ce32b8088ef6e3c93ced6df8905317dd789f9a14"
+    },
+    {
+      "path": "cells/a2bb2oi/sky130_fd_sc_hd__a2bb2oi_1.functional.v",
+      "git_blob_sha1": "c5937e21cf7c2d7cd9052eda99e899910a5ccef4",
+      "bytes": 1660,
+      "sha256": "75985139ba6393d184da0f8e4c550ac2856ace0bb00b30979a93ac3e9bebe5c5"
+    },
+    {
+      "path": "cells/a311o/sky130_fd_sc_hd__a311o_1.functional.v",
+      "git_blob_sha1": "d372ebcd19594878a7f2878a1e4f6a204b861ace",
+      "bytes": 1510,
+      "sha256": "b3ccab1c64c87d09ddb297b83ad98133155eb33c6d36f74c8d0f36505f556c26"
+    },
+    {
+      "path": "cells/a311oi/sky130_fd_sc_hd__a311oi_1.functional.v",
+      "git_blob_sha1": "4a8b1fb2ce5bcd813c4a43f1bea878c093d2e0b1",
+      "bytes": 1524,
+      "sha256": "791e3a40cc117d67d10b8f6264a6e2f2c72b1ef478f8195ebd6d8b989b1add8e"
+    },
+    {
+      "path": "cells/a31o/sky130_fd_sc_hd__a31o_1.functional.v",
+      "git_blob_sha1": "3094cd3d61909793c021123c8e76af7cf5ad20fc",
+      "bytes": 1468,
+      "sha256": "4827d020e33715f9332d59c8660eba9e278706d45f95f28a5041105db02a8994"
+    },
+    {
+      "path": "cells/a31oi/sky130_fd_sc_hd__a31oi_1.functional.v",
+      "git_blob_sha1": "ef7453c2f8651f73159016042e5915885f2cfe5f",
+      "bytes": 1482,
+      "sha256": "d239ad05c711f654b9e24560a1af081498f5178def9d6af7e490615228fcbdef"
+    },
+    {
+      "path": "cells/a32o/sky130_fd_sc_hd__a32o_1.functional.v",
+      "git_blob_sha1": "c781355f6896a06a679386a77b6f3e80a2fd2be2",
+      "bytes": 1619,
+      "sha256": "8849ae20727ed1b0e30ca3f17ea78785316d189dff698111efb6ff155b310b2c"
+    },
+    {
+      "path": "cells/a32oi/sky130_fd_sc_hd__a32oi_1.functional.v",
+      "git_blob_sha1": "0467ecd7ce8fbb6ae5cf07b27d71a12ed1e68cd8",
+      "bytes": 1654,
+      "sha256": "01ae96666f4c7ebcbc245abeed3a626a891893200c4eb9c0def19ba02832b5f5"
+    },
+    {
+      "path": "cells/a41o/sky130_fd_sc_hd__a41o_1.functional.v",
+      "git_blob_sha1": "331398a2610b2a0873190a4b7bcf949d8c2f9761",
+      "bytes": 1501,
+      "sha256": "b4e2c61b78edb1178714f021bf3a63f1359a04a5198d5814b9dda45b25da6231"
+    },
+    {
+      "path": "cells/a41oi/sky130_fd_sc_hd__a41oi_1.functional.v",
+      "git_blob_sha1": "e2ffac80993a794cb42a16a32cbd46433dc2e8b5",
+      "bytes": 1515,
+      "sha256": "5817f85af6984c93d9ae57edc3fa1a4d2d6cd25e8424b7e93a3abe9dfb945194"
+    },
+    {
+      "path": "cells/and2/sky130_fd_sc_hd__and2_0.functional.v",
+      "git_blob_sha1": "506968468e53cee9fdf4c04744e18af9cc6c16b6",
+      "bytes": 1278,
+      "sha256": "fdd4b40abcab6674b6463bab70c912392d079d2dd82dc8a69e18b50d181e703b"
+    },
+    {
+      "path": "cells/and3/sky130_fd_sc_hd__and3_1.functional.v",
+      "git_blob_sha1": "aeec02cf00b8cac8faeb534f8719378cd23ef50b",
+      "bytes": 1304,
+      "sha256": "64c2205cc628ed241ca91a368b12cb13bb4ce435b4ba89efc3deaee2170d4d47"
+    },
+    {
+      "path": "cells/and3b/sky130_fd_sc_hd__and3b_1.functional.v",
+      "git_blob_sha1": "a5d9a06fea44eddffa6bc5dfa1ed1b8045b31723",
+      "bytes": 1410,
+      "sha256": "42d828fc158c9fd00adac58f294d3f74355cc98f845e8762e29d0aa0a2638b32"
+    },
+    {
+      "path": "cells/and4/sky130_fd_sc_hd__and4_1.functional.v",
+      "git_blob_sha1": "ee08a88b7f061d00bd32755d031e5e0f8c4e3a56",
+      "bytes": 1330,
+      "sha256": "363e2e9d23c40c43e68efceb3040d7fdd03bf67cacade07906d8cfc99f4f49c5"
+    },
+    {
+      "path": "cells/and4b/sky130_fd_sc_hd__and4b_1.functional.v",
+      "git_blob_sha1": "7733b7b9ccb32c84607f147f2d80c76b2a41d98d",
+      "bytes": 1446,
+      "sha256": "ed2ccf49f505884897630b9386ff07f42ea13b5698336d0ee898eadde1c0cde8"
+    },
+    {
+      "path": "cells/clkinv/sky130_fd_sc_hd__clkinv_1.functional.v",
+      "git_blob_sha1": "15494444b1565e32be7727c2c7465cf1f9c78d79",
+      "bytes": 1270,
+      "sha256": "738ec0a19f8a7551c08d71e69240e902be421f9a297453ce56e5901cd8a65257"
+    },
+    {
+      "path": "cells/conb/sky130_fd_sc_hd__conb_1.functional.v",
+      "git_blob_sha1": "56e66d1936b414477e1cd501e0799cb1018365fd",
+      "bytes": 1202,
+      "sha256": "a993ca390726e493cdb6ee9217a5d1d4c30c8673486b0eea85ad158301ccf883"
+    },
+    {
+      "path": "cells/dfxtp/sky130_fd_sc_hd__dfxtp_1.functional.v",
+      "git_blob_sha1": "d4637d3de851021a630cfa8c8f425752317fa0de",
+      "bytes": 1494,
+      "sha256": "5b6275fa3191193912221bd40ebb559d5f4e5c412764d918843ce1b462f5d743"
+    },
+    {
+      "path": "cells/maj3/sky130_fd_sc_hd__maj3_1.functional.v",
+      "git_blob_sha1": "e0f3821144ec785744029a633f2fa4b0a06939ef",
+      "bytes": 1514,
+      "sha256": "42beed5d9751d26b6fb46f40009fe368134871ee04e455a016661bcf630e0073"
+    },
+    {
+      "path": "cells/mux2/sky130_fd_sc_hd__mux2_1.functional.v",
+      "git_blob_sha1": "db0aa11000a158809fafc2a8e02f7d42d7838dce",
+      "bytes": 1537,
+      "sha256": "4a29a9d7f3819f722510d67fc2722c28c8fd7c5a0e3180a4503acdf32b3d537b"
+    },
+    {
+      "path": "cells/mux2i/sky130_fd_sc_hd__mux2i_1.functional.v",
+      "git_blob_sha1": "2da94678b535a09758cb6629ec4457ffd7a8c2f0",
+      "bytes": 1587,
+      "sha256": "c944a808956cb8869b01ea3719ddbee873799f233ff91129a4b3eaa83c783736"
+    },
+    {
+      "path": "cells/nand2/sky130_fd_sc_hd__nand2_1.functional.v",
+      "git_blob_sha1": "9419b514d392915b5184cdab0577b33daaf34333",
+      "bytes": 1294,
+      "sha256": "7e4a8911889bf309c67d8889c3d4911f7676415a794bddc15ec2154f736e62a6"
+    },
+    {
+      "path": "cells/nand2b/sky130_fd_sc_hd__nand2b_1.functional.v",
+      "git_blob_sha1": "c3e32061d11c06e488c2f8e9a45d721d1bb82ccb",
+      "bytes": 1380,
+      "sha256": "0b392aa2605f51858aff5942ac2cb0043ec7fcab305de93f6262eb1201a96cc6"
+    },
+    {
+      "path": "cells/nand3/sky130_fd_sc_hd__nand3_1.functional.v",
+      "git_blob_sha1": "b82a93a563be7f8a38b19da5197abf27f864be22",
+      "bytes": 1320,
+      "sha256": "6a60e7bca5e4f26014536cfef9f14358fdee960357c2161916911ff7faa471eb"
+    },
+    {
+      "path": "cells/nand3b/sky130_fd_sc_hd__nand3b_1.functional.v",
+      "git_blob_sha1": "7efc37a0fb434d7919531055a2aa6ccf5c5aaf79",
+      "bytes": 1430,
+      "sha256": "7d758f99ef48c19e395897b234d5d1d2e511ccfa5ea132ecde9487430992896e"
+    },
+    {
+      "path": "cells/nand4/sky130_fd_sc_hd__nand4_1.functional.v",
+      "git_blob_sha1": "9944ee7e1661424472391d5d21d2e73f09d1c056",
+      "bytes": 1346,
+      "sha256": "45b91acde26122c58b4ad7b8f954a1d2b2b2cb27d3ee5d55b38285f4a199dcef"
+    },
+    {
+      "path": "cells/nand4b/sky130_fd_sc_hd__nand4b_1.functional.v",
+      "git_blob_sha1": "ef0f17d866d77afb1e7fef4f976218a432a08425",
+      "bytes": 1466,
+      "sha256": "2eca0cc1749937a3be3fc1f89a8f571e81feb2985c73f81558ac507452de7daf"
+    },
+    {
+      "path": "cells/nor2/sky130_fd_sc_hd__nor2_1.functional.v",
+      "git_blob_sha1": "c13ce22c6e1ec704907ac4c46e9c8f7dbabbbf78",
+      "bytes": 1278,
+      "sha256": "3344ced4fd5ce8f38e84374497d73c42c7fbe76758f93cbebcdc59d9fad6ecab"
+    },
+    {
+      "path": "cells/nor2b/sky130_fd_sc_hd__nor2b_1.functional.v",
+      "git_blob_sha1": "fef14733d2f6fef2b37a73a48cac6f59eb5990a6",
+      "bytes": 1417,
+      "sha256": "9ec0b4db57ec212e282121c33d0df4c4b138a72e7ac5ddf68ae0c875d4b459ba"
+    },
+    {
+      "path": "cells/nor3/sky130_fd_sc_hd__nor3_1.functional.v",
+      "git_blob_sha1": "4da515fec12bfc03ada61618f37f74b16e01c659",
+      "bytes": 1338,
+      "sha256": "02f40df3efcc2ee1c322f9c4711605f9f7cf2fa863bf51851ad99c82773ae70b"
+    },
+    {
+      "path": "cells/nor3b/sky130_fd_sc_hd__nor3b_1.functional.v",
+      "git_blob_sha1": "7604e5c4606f4dfc1511a71cf3c2c11f393b7911",
+      "bytes": 1446,
+      "sha256": "66a785aeb0699fdad2988fad8866e320d82540a18d63cd215a399aafdf177186"
+    },
+    {
+      "path": "cells/nor4/sky130_fd_sc_hd__nor4_1.functional.v",
+      "git_blob_sha1": "d7694b3c1a7b49a0bea94dff06c061066b0c5dea",
+      "bytes": 1363,
+      "sha256": "46b0548b642cd9e5199d339f10e5e8c419bc8d1d7b211b01fb0911f2f5df2ad9"
+    },
+    {
+      "path": "cells/nor4b/sky130_fd_sc_hd__nor4b_1.functional.v",
+      "git_blob_sha1": "31203406d2f4755653882084b5479f19df780716",
+      "bytes": 1448,
+      "sha256": "540d2f497af46726f3cea1b902552c099051fadc58fca40d591e62e1202c3b05"
+    },
+    {
+      "path": "cells/nor4bb/sky130_fd_sc_hd__nor4bb_1.functional.v",
+      "git_blob_sha1": "72f06b8dadb4df46f59435dbe8a779b0af02662d",
+      "bytes": 1461,
+      "sha256": "9177b1ef3d6e399911a46293180265f319b32fcd600e5fe1cc0ec17ff5aebb6e"
+    },
+    {
+      "path": "cells/o2111a/sky130_fd_sc_hd__o2111a_1.functional.v",
+      "git_blob_sha1": "c037a06d309dbcf88819b80bf4e511cb08edeac8",
+      "bytes": 1531,
+      "sha256": "17ba5c78163e2c6074c01f2926d1076e02d5aa08789bbc813c16089480b47318"
+    },
+    {
+      "path": "cells/o2111ai/sky130_fd_sc_hd__o2111ai_1.functional.v",
+      "git_blob_sha1": "626822049b3342b3904db3b871ee3e069d1ebb20",
+      "bytes": 1553,
+      "sha256": "c4ee9a3792fa2aa6c8f5981fe7a7ebacce40673267f8af1a278dbe6ba8d26735"
+    },
+    {
+      "path": "cells/o211a/sky130_fd_sc_hd__o211a_1.functional.v",
+      "bytes": 1480,
+      "sha256": "4fa4123d76baa09b8ac1945ba0e547ef2abda97ff65c02af4d8699ccd00daff0",
+      "git_blob_sha1": "b9cad96a3a7797a2e0cf4c33951b84cca8746925"
+    },
+    {
+      "path": "cells/o211ai/sky130_fd_sc_hd__o211ai_1.functional.v",
+      "git_blob_sha1": "12eb90f530bcc9f07714790a27d46deea98c260f",
+      "bytes": 1502,
+      "sha256": "b1fb53cee0980f6b244d38d7e711c49cb96e481b7077902e82a079bf51f9afaf"
+    },
+    {
+      "path": "cells/o21a/sky130_fd_sc_hd__o21a_1.functional.v",
+      "git_blob_sha1": "aa2912d903f4b582402cfc12170007a72496424d",
+      "bytes": 1441,
+      "sha256": "4bd563abbf4cd1dc8cf9d1b734a237cec73655960690753954f23bd9b97ad32f"
+    },
+    {
+      "path": "cells/o21ai/sky130_fd_sc_hd__o21ai_0.functional.v",
+      "git_blob_sha1": "00b28935eb2e002dfeb0752f7a31ca2e844ad59d",
+      "bytes": 1463,
+      "sha256": "eaa5ca6b5416fb7c27c0efc9883054cb0611f522d9f93eb4d69d77e15cb8974c"
+    },
+    {
+      "path": "cells/o21bai/sky130_fd_sc_hd__o21bai_1.functional.v",
+      "git_blob_sha1": "6028ebb06190533b2bdce2abe825b7a392843bde",
+      "bytes": 1587,
+      "sha256": "98f94020da723559af0efd153b8afa037f1996dfda5264a127fb998a79e4181c"
+    },
+    {
+      "path": "cells/o221a/sky130_fd_sc_hd__o221a_1.functional.v",
+      "git_blob_sha1": "d2fdf0323b281d21342e4e352b0486ae215a1bcf",
+      "bytes": 1605,
+      "sha256": "f4cf528ffe70d82fcf6fc73e466c8f4d69cc7d2abebd384f4919ebe106c3233e"
+    },
+    {
+      "path": "cells/o221ai/sky130_fd_sc_hd__o221ai_1.functional.v",
+      "git_blob_sha1": "3ec37a1e77e2d70dc21ee05b809e37b0c69fc5ec",
+      "bytes": 1631,
+      "sha256": "6a684eeb73c114ce2b83948622a0e264b4df80b89c7540c83e2e295ae8e9789c"
+    },
+    {
+      "path": "cells/o22ai/sky130_fd_sc_hd__o22ai_1.functional.v",
+      "git_blob_sha1": "be8b2ad230f02bfd7abf17a3e83c6b17bb6a6ff5",
+      "bytes": 1553,
+      "sha256": "3ac296f4b99da054227f33abff728fed96a122f93fd31470a554e62f6ecc902e"
+    },
+    {
+      "path": "cells/o2bb2ai/sky130_fd_sc_hd__o2bb2ai_1.functional.v",
+      "git_blob_sha1": "cf652ea19b08df995e6d6c75d345e12127b97bdf",
+      "bytes": 1612,
+      "sha256": "b50caed6270b7e1c12ae4224dd0be52c443f47cba02877167da381ee9873a03a"
+    },
+    {
+      "path": "cells/o311ai/sky130_fd_sc_hd__o311ai_0.functional.v",
+      "git_blob_sha1": "17a3b46c2415f1a77882ffd81877a3959ea6d382",
+      "bytes": 1520,
+      "sha256": "55de60070e42435e524d5e957a23fb77ebb07ddeace662e1c07e75a786c2c997"
+    },
+    {
+      "path": "cells/o31ai/sky130_fd_sc_hd__o31ai_1.functional.v",
+      "git_blob_sha1": "fb35c7cbe7f0a5e424cf775797994794267c17cc",
+      "bytes": 1481,
+      "sha256": "5c029bdc2a9a2072153ca1c0446fe55818128e8990cefe0bc5d5ac379904e513"
+    },
+    {
+      "path": "cells/o32ai/sky130_fd_sc_hd__o32ai_1.functional.v",
+      "git_blob_sha1": "638cf1e220890d4765e253b95e4f6fda6539dd49",
+      "bytes": 1586,
+      "sha256": "2e5b51717c63ed29b0a2f8f912231ac9706731795ec94c7b9ff7371c2e9edcd1"
+    },
+    {
+      "path": "cells/o41ai/sky130_fd_sc_hd__o41ai_1.functional.v",
+      "git_blob_sha1": "4283faa6cc4d05df574b3907ca21e00c50d3e329",
+      "bytes": 1514,
+      "sha256": "d1477ce117d3e9bb874040f62eaf4452640a5c3b511ffcdb748dc67f4ecd5de0"
+    },
+    {
+      "path": "cells/or2/sky130_fd_sc_hd__or2_0.functional.v",
+      "git_blob_sha1": "821902572fa9f1073721fca49205564625c41900",
+      "bytes": 1268,
+      "sha256": "00acd1f4cf585fd0e53261fc58f2b30182601c9bbc7f45ee714872b54d8464e5"
+    },
+    {
+      "path": "cells/or3/sky130_fd_sc_hd__or3_1.functional.v",
+      "git_blob_sha1": "82500790ff51f8497ed21e2db68d3965c10c4283",
+      "bytes": 1294,
+      "sha256": "af45b83eb4d2f81cb8fc5c925db290fc4992e66f41f5e7f817146592569b82cc"
+    },
+    {
+      "path": "cells/or3b/sky130_fd_sc_hd__or3b_1.functional.v",
+      "git_blob_sha1": "45c8558c6a2feaaf32532723814096354a8d6229",
+      "bytes": 1400,
+      "sha256": "637dfc23562139ebbf330aa9ab540e9469110c1639254856e23dd7a974086fca"
+    },
+    {
+      "path": "cells/or4/sky130_fd_sc_hd__or4_1.functional.v",
+      "git_blob_sha1": "0a9df26f4510ee0134be13f1e39ad166700fa18a",
+      "bytes": 1320,
+      "sha256": "29aab6ec23e24c1691e2b187d6631839c967e4949f1ba471776e1bea1abd0046"
+    },
+    {
+      "path": "cells/or4b/sky130_fd_sc_hd__or4b_1.functional.v",
+      "git_blob_sha1": "7878b0831d97956240b5929a0629e241bb2f2db3",
+      "bytes": 1436,
+      "sha256": "0f5997a9c2a15864fe9df07393c6d9e480f16f7f7ad3d1f5baec2f0236158c1f"
+    },
+    {
+      "path": "cells/xnor2/sky130_fd_sc_hd__xnor2_1.functional.v",
+      "git_blob_sha1": "fe2433f2caf4a896f82f9aa301912913ebe6e420",
+      "bytes": 1329,
+      "sha256": "99de1d2b05b97a677c1eda1514d47de790cca8f551b4e560b1553509b87ca01f"
+    },
+    {
+      "path": "cells/xnor3/sky130_fd_sc_hd__xnor3_1.functional.v",
+      "git_blob_sha1": "47dc91df37c186384b325dfd34d6fd0b4d8d885a",
+      "bytes": 1329,
+      "sha256": "0450967a002860f0a73f19ff7d3091b4834205bb03be9e2ae18d52724a79150f"
+    },
+    {
+      "path": "cells/xor2/sky130_fd_sc_hd__xor2_1.functional.v",
+      "git_blob_sha1": "0e480d04d87b67388fdf7e55186f60ff0523705e",
+      "bytes": 1309,
+      "sha256": "cff9c09973f5d52b945be949509d7471d307a4c5526e87d4bca44046e58155bf"
+    },
+    {
+      "path": "models/udp_dff_p/sky130_fd_sc_hd__udp_dff_p.v",
+      "git_blob_sha1": "1268ddc43e2d7bf3f79a7f038f1834a718e838e0",
+      "bytes": 1699,
+      "sha256": "04bf0d9bfe21e9f32e3d117f3924816bd5444a8db77e52730e8ace4ef4d3b76f"
+    },
+    {
+      "path": "models/udp_mux_2to1/sky130_fd_sc_hd__udp_mux_2to1.v",
+      "git_blob_sha1": "6afda3c3776e3a45ff85d53cfa364bd6c3fa2a48",
+      "bytes": 1473,
+      "sha256": "4134f20855b0d1e3a5e5569d652b505d67e37b060f012eec2a5fefa0541603db"
+    },
+    {
+      "path": "models/udp_mux_2to1_n/sky130_fd_sc_hd__udp_mux_2to1_n.v",
+      "git_blob_sha1": "35bb3aeda47e63431824b74bff9312e9c17dd2b7",
+      "bytes": 1507,
+      "sha256": "ede25fb32763c543075febb2876f1fa54cd4a35b7a0c4388facf9960d1515c11"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+`verilator_config
+lint_off -rule DECLFILENAME -file "/tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/cells.v"
+lint_off -rule DECLFILENAME -file "/tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/mapped.v"
+lint_off -rule PINMISSING -file "/tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/mapped.v"
+lint_off -rule UNOPTFLAT -file "/tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/mapped.v" -match "*Circular combinational logic: 'completed_operations'*"
+lint_off -rule UNOPTFLAT -file "/tmp/wasmetal-xc7-core/build/asic-startup/negative/wrong-constant/mapped.v" -match "*Circular combinational logic: 'error_address'*"

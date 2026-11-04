@@ -18,6 +18,7 @@
     "sky130_fd_sc_hd__a2bb2o_1",
     "sky130_fd_sc_hd__a2bb2oi_1",
     "sky130_fd_sc_hd__a311o_1",
+    "sky130_fd_sc_hd__a311oi_1",
     "sky130_fd_sc_hd__a31o_1",
     "sky130_fd_sc_hd__a31oi_1",
     "sky130_fd_sc_hd__a32o_1",
@@ -50,6 +51,7 @@
     "sky130_fd_sc_hd__nor4bb_1",
     "sky130_fd_sc_hd__o2111a_1",
     "sky130_fd_sc_hd__o2111ai_1",
+    "sky130_fd_sc_hd__o211a_1",
     "sky130_fd_sc_hd__o211ai_1",
     "sky130_fd_sc_hd__o21a_1",
     "sky130_fd_sc_hd__o21ai_0",
@@ -72,6 +74,12 @@
     "sky130_fd_sc_hd__xor2_1"
   ],
   "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
     {
       "path": "cells/a2111oi/sky130_fd_sc_hd__a2111oi_0.functional.v",
       "git_blob_sha1": "4445fae03f3fbb050939ea8cc76d5aa3aaf14901",
@@ -161,6 +169,12 @@
       "git_blob_sha1": "d372ebcd19594878a7f2878a1e4f6a204b861ace",
       "bytes": 1510,
       "sha256": "b3ccab1c64c87d09ddb297b83ad98133155eb33c6d36f74c8d0f36505f556c26"
+    },
+    {
+      "path": "cells/a311oi/sky130_fd_sc_hd__a311oi_1.functional.v",
+      "git_blob_sha1": "4a8b1fb2ce5bcd813c4a43f1bea878c093d2e0b1",
+      "bytes": 1524,
+      "sha256": "791e3a40cc117d67d10b8f6264a6e2f2c72b1ef478f8195ebd6d8b989b1add8e"
     },
     {
       "path": "cells/a31o/sky130_fd_sc_hd__a31o_1.functional.v",
@@ -355,6 +369,12 @@
       "sha256": "c4ee9a3792fa2aa6c8f5981fe7a7ebacce40673267f8af1a278dbe6ba8d26735"
     },
     {
+      "path": "cells/o211a/sky130_fd_sc_hd__o211a_1.functional.v",
+      "bytes": 1480,
+      "sha256": "4fa4123d76baa09b8ac1945ba0e547ef2abda97ff65c02af4d8699ccd00daff0",
+      "git_blob_sha1": "b9cad96a3a7797a2e0cf4c33951b84cca8746925"
+    },
+    {
       "path": "cells/o211ai/sky130_fd_sc_hd__o211ai_1.functional.v",
       "git_blob_sha1": "12eb90f530bcc9f07714790a27d46deea98c260f",
       "bytes": 1502,
@@ -491,12 +511,6 @@
       "git_blob_sha1": "35bb3aeda47e63431824b74bff9312e9c17dd2b7",
       "bytes": 1507,
       "sha256": "ede25fb32763c543075febb2876f1fa54cd4a35b7a0c4388facf9960d1515c11"
-    },
-    {
-      "path": "LICENSE",
-      "bytes": 11358,
-      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
-      "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
     }
   ]
 }

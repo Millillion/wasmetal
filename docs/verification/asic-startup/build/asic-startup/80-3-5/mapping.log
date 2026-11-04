@@ -1,0 +1,1843 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/mapping.ys' --
+
+1. Executing Liberty frontend: /tmp/wasmetal-xc7-core/build/asic-startup/library/cells.lib
+Imported 392 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_bist'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_sram_memory'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_startup'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_startup_sram'.
+Successfully finished Verilog frontend.
+Parameter \RAM_BYTES = 80
+Parameter \READ_LATENCY = 3
+Parameter \RESPONSE_TIMEOUT = 5
+
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_startup_sram'.
+Parameter \RAM_BYTES = 80
+Parameter \READ_LATENCY = 3
+Parameter \RESPONSE_TIMEOUT = 5
+Generating RTLIL representation for module `$paramod$01f9ac075b117f71976f22b1cccfe29d17af73be\wasmetal_startup_sram'.
+
+7. Executing SYNTH pass.
+
+7.1. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1.1. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     \wasmetal_memory_startup
+Used module:         \wasmetal_memory_bist
+Used module:     \wasmetal_sram_memory
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 1024
+
+7.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 1024
+Generating RTLIL representation for module `$paramod$4f480a37b6e59a8cff3e4491d4b01beb57c7e8aa\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 80
+Parameter \RESPONSE_TIMEOUT = 5
+
+7.1.3. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_startup'.
+Parameter \RAM_BYTES = 80
+Parameter \RESPONSE_TIMEOUT = 5
+Generating RTLIL representation for module `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup'.
+Parameter \RAM_BYTES = 80
+Parameter \READ_LATENCY = 3
+Parameter \ADDRESS_WIDTH = 3
+
+7.1.4. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_sram_memory'.
+Parameter \RAM_BYTES = 80
+Parameter \READ_LATENCY = 3
+Parameter \ADDRESS_WIDTH = 3
+Generating RTLIL representation for module `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory'.
+
+7.1.5. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup
+Used module:         \wasmetal_memory_bist
+Used module:     $paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory
+Parameter \RAM_BYTES = 80
+Parameter \RESPONSE_TIMEOUT = 5
+
+7.1.6. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 80
+Parameter \RESPONSE_TIMEOUT = 5
+Generating RTLIL representation for module `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist'.
+
+7.1.7. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup
+Used module:         $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist
+Used module:     $paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory
+
+7.1.8. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup
+Used module:         $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist
+Used module:     $paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory
+Removing unused module `$paramod$4f480a37b6e59a8cff3e4491d4b01beb57c7e8aa\wasmetal_memory_bist'.
+Removing unused module `\wasmetal_memory_startup'.
+Removing unused module `\wasmetal_sram_memory'.
+Removing unused module `\wasmetal_memory_bist'.
+Removed 4 unused modules.
+
+7.2. Executing PROC pass (convert processes to netlists).
+
+7.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173 in module $paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142 in module $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.
+Marked 10 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206 in module $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191 in module $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.
+Removed a total of 0 dead cases.
+
+7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+7.2.4. Executing PROC_INIT pass (extract init attributes).
+
+7.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~22 debug messages>
+
+7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+     1/8: $0\remaining[1:0]
+     2/8: $0\data_q[127:0]
+     3/8: $0\mask_q[15:0]
+     4/8: $0\address_q[2:0]
+     5/8: $0\write_q[0:0]
+     6/8: $0\state[2:0]
+     7/8: $0\rdata[127:0]
+     8/8: $0\fault[0:0]
+Creating decoders for process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+     1/1: $0\launched[0:0]
+Creating decoders for process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+     1/14: $0\stop_after_release[0:0]
+     2/14: $0\write_half[0:0]
+     3/14: $0\background_index[2:0]
+     4/14: $0\phase[2:0]
+     5/14: $0\waiting[2:0]
+     6/14: $0\word_index[2:0]
+     7/14: $0\state[1:0]
+     8/14: $0\operation_count[8:0]
+     9/14: $0\observed_data[127:0]
+    10/14: $0\expected_data[127:0]
+    11/14: $0\error_address[31:0]
+    12/14: $0\error_code[1:0]
+    13/14: $0\failed[0:0]
+    14/14: $0\done[0:0]
+Creating decoders for process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+     1/1: $1\background[127:0]
+
+7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\background' from process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+
+7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\fault' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$679' with positive edge clock.
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\rdata' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$680' with positive edge clock.
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\state' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$681' with positive edge clock.
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\write_q' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$682' with positive edge clock.
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\address_q' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$683' with positive edge clock.
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\mask_q' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$684' with positive edge clock.
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\data_q' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$685' with positive edge clock.
+Creating register for signal `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.\remaining' using process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$686' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.\launched' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+  created $dff cell `$procdff$687' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\done' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$688' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\failed' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$689' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\error_code' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$690' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\error_address' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$691' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\expected_data' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$692' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\observed_data' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$693' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\operation_count' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$694' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\state' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$695' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\word_index' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$696' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\waiting' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$697' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\phase' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$698' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\background_index' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$699' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\write_half' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$700' with positive edge clock.
+Creating register for signal `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.\stop_after_release' using process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$701' with positive edge clock.
+
+7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 6 empty switches in `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+Removing empty process `$paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+Found and cleaned up 1 empty switch in `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+Removing empty process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+Found and cleaned up 14 empty switches in `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+Removing empty process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+Found and cleaned up 1 empty switch in `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+Removing empty process `$paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+Cleaned up 22 empty switches.
+
+7.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+Optimizing module $paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.
+<suppressed ~11 debug messages>
+Optimizing module $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.
+Optimizing module $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.
+<suppressed ~38 debug messages>
+
+7.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$f5ca7f9cf818fc3fdbd8318b5014fd846861fc76\wasmetal_sram_memory.
+Deleting now unused module $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_startup.
+Deleting now unused module $paramod$03d3749ee9703f6c5251ce42fcc9ec65130de0bb\wasmetal_memory_bist.
+<suppressed ~3 debug messages>
+
+7.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~16 debug messages>
+
+7.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 5 unused cells and 163 unused wires.
+<suppressed ~7 debug messages>
+
+7.6. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+
+7.7. Executing OPT pass (performing simple optimizations).
+
+7.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~222 debug messages>
+Removed a total of 74 cells.
+
+7.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\startup.\test_master.$procmux$644: \startup.test_master.failed -> 1'1
+      Replacing known input bits on port B of cell $flatten\startup.\test_master.$procmux$640: \startup.test_master.failed -> 1'1
+      Replacing known input bits on port A of cell $flatten\startup.\test_master.$procmux$638: \startup.test_master.failed -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+7.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+    New ctrl vector for $pmux cell $flatten\startup.\test_master.$procmux$354: $auto$opt_reduce.cc:134:opt_pmux$703
+    New ctrl vector for $pmux cell $flatten\startup.\test_master.$procmux$405: $auto$opt_reduce.cc:134:opt_pmux$705
+    New ctrl vector for $pmux cell $flatten\startup.\test_master.$procmux$487: { $auto$opt_reduce.cc:134:opt_pmux$709 $auto$opt_reduce.cc:134:opt_pmux$707 }
+    New ctrl vector for $pmux cell $flatten\adapter.$procmux$318: { $flatten\adapter.$procmux$245_CMP $flatten\adapter.$procmux$238_CMP $auto$opt_reduce.cc:134:opt_pmux$711 }
+    New ctrl vector for $pmux cell $flatten\adapter.$procmux$333: { $flatten\adapter.$procmux$245_CMP $auto$opt_reduce.cc:134:opt_pmux$713 }
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 6 changes.
+
+7.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+7.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 77 unused wires.
+<suppressed ~1 debug messages>
+
+7.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~33 debug messages>
+
+7.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+7.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.7.16. Finished OPT passes. (There is nothing left to do.)
+
+7.8. Executing FSM pass (extract and optimize FSM).
+
+7.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register wasmetal_startup_sram.adapter.state.
+Not marking wasmetal_startup_sram.startup.test_master.error_code as FSM state register:
+    Register is connected to module port.
+    Users of register don't seem to benefit from recoding.
+Found FSM state register wasmetal_startup_sram.startup.test_master.phase.
+Found FSM state register wasmetal_startup_sram.startup.test_master.state.
+
+7.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\adapter.state' from module `\wasmetal_startup_sram'.
+  found $dff cell for state register: $flatten\adapter.$procdff$681
+  root of input selection tree: $flatten\adapter.$0\state[2:0]
+  found reset state: 3'000 (guessed from mux tree)
+  found ctrl input: \reset
+  found ctrl input: $flatten\adapter.$procmux$301_CMP
+  found ctrl input: \startup.memory_ready
+  found ctrl input: $flatten\adapter.$procmux$238_CMP
+  found ctrl input: $flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:35$169_Y
+  found ctrl input: $flatten\adapter.$procmux$245_CMP
+  found state code: 3'011
+  found ctrl input: \adapter.valid
+  found state code: 3'000
+  found state code: 3'100
+  found ctrl input: $flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:53$176_Y
+  found ctrl input: \adapter.write_q
+  found state code: 3'010
+  found ctrl input: \adapter.legal
+  found state code: 3'001
+  found ctrl output: $flatten\adapter.$procmux$301_CMP
+  found ctrl output: $flatten\adapter.$procmux$245_CMP
+  found ctrl output: $flatten\adapter.$procmux$238_CMP
+  found ctrl output: $flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:35$169_Y
+  found ctrl output: \startup.memory_ready
+  ctrl inputs: { \adapter.valid \adapter.write_q \adapter.legal $flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:53$176_Y \reset }
+  ctrl outputs: { \startup.memory_ready $flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:35$169_Y $flatten\adapter.$0\state[2:0] $flatten\adapter.$procmux$238_CMP $flatten\adapter.$procmux$245_CMP $flatten\adapter.$procmux$301_CMP }
+  transition:      3'000 5'0---0 ->      3'000 8'00000010
+  transition:      3'000 5'1-0-0 ->      3'011 8'00011010
+  transition:      3'000 5'1-1-0 ->      3'001 8'00001010
+  transition:      3'000 5'----1 ->      3'000 8'00000010
+  transition:      3'100 5'0---0 ->      3'000 8'00000001
+  transition:      3'100 5'1---0 ->      3'100 8'00100001
+  transition:      3'100 5'----1 ->      3'000 8'00000001
+  transition:      3'010 5'---00 ->      3'010 8'00010100
+  transition:      3'010 5'---10 ->      3'011 8'00011100
+  transition:      3'010 5'----1 ->      3'000 8'00000100
+  transition:      3'001 5'-0--0 ->      3'010 8'01010000
+  transition:      3'001 5'-1--0 ->      3'011 8'01011000
+  transition:      3'001 5'----1 ->      3'000 8'01000000
+  transition:      3'011 5'----0 ->      3'100 8'10100000
+  transition:      3'011 5'----1 ->      3'000 8'10000000
+Extracting FSM `\startup.test_master.phase' from module `\wasmetal_startup_sram'.
+  found $dff cell for state register: $flatten\startup.\test_master.$procdff$698
+  root of input selection tree: $flatten\startup.\test_master.$0\phase[2:0]
+  found reset state: 3'000 (guessed from mux tree)
+  found ctrl input: \reset
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192_Y
+  found ctrl input: $flatten\startup.\test_master.$procmux$375_CMP
+  found ctrl input: \startup.test_master.ready
+  found ctrl input: $flatten\startup.\test_master.$logic_or$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:80$211_Y
+  found ctrl input: $flatten\startup.\test_master.$logic_and$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$219_Y
+  found ctrl input: \startup.test_master.final_word
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$180_Y
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$179_Y
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$185_Y
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$201_Y
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$198_Y
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:99$224_Y
+  found state code: 3'000
+  found state code: 3'101
+  found state code: 3'100
+  found state code: 3'011
+  found state code: 3'010
+  found state code: 3'001
+  found ctrl input: \startup.launched
+  found ctrl output: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$180_Y
+  found ctrl output: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$185_Y
+  found ctrl output: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$198_Y
+  found ctrl output: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$201_Y
+  found ctrl output: $flatten\startup.\test_master.$ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$215_Y
+  found ctrl output: $flatten\startup.\test_master.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$216_Y
+  found ctrl output: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$179_Y
+  ctrl inputs: { \startup.launched $flatten\startup.\test_master.$procmux$375_CMP $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:99$224_Y $flatten\startup.\test_master.$logic_and$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$219_Y $flatten\startup.\test_master.$logic_or$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:80$211_Y $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192_Y \startup.test_master.final_word \startup.test_master.ready \reset }
+  ctrl outputs: { $flatten\startup.\test_master.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$216_Y $flatten\startup.\test_master.$ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$215_Y $flatten\startup.\test_master.$0\phase[2:0] $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$201_Y $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$198_Y $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$185_Y $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$180_Y $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$179_Y }
+  transition:      3'000 9'-0---0--0 ->      3'000 10'1000001000
+  transition:      3'000 9'01------0 ->      3'000 10'1000001000
+  transition:      3'000 9'11------0 ->      3'000 10'1000001000
+  transition:      3'000 9'-----1-00 ->      3'000 10'1000001000
+  transition:      3'000 9'---001010 ->      3'000 10'1000001000
+  transition:      3'000 9'---001110 ->      3'001 10'1000101000
+  transition:      3'000 9'---101-10 ->      3'000 10'1000001000
+  transition:      3'000 9'----11-10 ->      3'000 10'1000001000
+  transition:      3'000 9'--------1 ->      3'000 10'1000001000
+  transition:      3'100 9'-0---0--0 ->      3'100 10'1110000010
+  transition:      3'100 9'01------0 ->      3'000 10'1100000010
+  transition:      3'100 9'11------0 ->      3'100 10'1110000010
+  transition:      3'100 9'-----1-00 ->      3'100 10'1110000010
+  transition:      3'100 9'---001010 ->      3'100 10'1110000010
+  transition:      3'100 9'---001110 ->      3'101 10'1110100010
+  transition:      3'100 9'---101-10 ->      3'100 10'1110000010
+  transition:      3'100 9'----11-10 ->      3'100 10'1110000010
+  transition:      3'100 9'--------1 ->      3'000 10'1100000010
+  transition:      3'010 9'-0---0--0 ->      3'010 10'1101000100
+  transition:      3'010 9'01------0 ->      3'000 10'1100000100
+  transition:      3'010 9'11------0 ->      3'010 10'1101000100
+  transition:      3'010 9'-----1-00 ->      3'010 10'1101000100
+  transition:      3'010 9'---001010 ->      3'010 10'1101000100
+  transition:      3'010 9'---001110 ->      3'011 10'1101100100
+  transition:      3'010 9'---101-10 ->      3'010 10'1101000100
+  transition:      3'010 9'----11-10 ->      3'010 10'1101000100
+  transition:      3'010 9'--------1 ->      3'000 10'1100000100
+  transition:      3'001 9'-0---0--0 ->      3'001 10'1100110000
+  transition:      3'001 9'01------0 ->      3'000 10'1100010000
+  transition:      3'001 9'11------0 ->      3'001 10'1100110000
+  transition:      3'001 9'-----1-00 ->      3'001 10'1100110000
+  transition:      3'001 9'---001010 ->      3'001 10'1100110000
+  transition:      3'001 9'---001110 ->      3'010 10'1101010000
+  transition:      3'001 9'---101-10 ->      3'001 10'1100110000
+  transition:      3'001 9'----11-10 ->      3'001 10'1100110000
+  transition:      3'001 9'--------1 ->      3'000 10'1100010000
+  transition:      3'101 9'-0---0--0 ->      3'101 10'0110100000
+  transition:      3'101 9'01------0 ->      3'000 10'0100000000
+  transition:      3'101 9'11------0 ->      3'101 10'0110100000
+  transition:      3'101 9'-----1-00 ->      3'101 10'0110100000
+  transition:      3'101 9'---001010 ->      3'101 10'0110100000
+  transition:      3'101 9'--0001110 ->      3'000 10'0100000000
+  transition:      3'101 9'--1001110 ->      3'101 10'0110100000
+  transition:      3'101 9'---101-10 ->      3'101 10'0110100000
+  transition:      3'101 9'----11-10 ->      3'101 10'0110100000
+  transition:      3'101 9'--------1 ->      3'000 10'0100000000
+  transition:      3'011 9'-0---0--0 ->      3'011 10'1101100001
+  transition:      3'011 9'01------0 ->      3'000 10'1100000001
+  transition:      3'011 9'11------0 ->      3'011 10'1101100001
+  transition:      3'011 9'-----1-00 ->      3'011 10'1101100001
+  transition:      3'011 9'---001010 ->      3'011 10'1101100001
+  transition:      3'011 9'---001110 ->      3'100 10'1110000001
+  transition:      3'011 9'---101-10 ->      3'011 10'1101100001
+  transition:      3'011 9'----11-10 ->      3'011 10'1101100001
+  transition:      3'011 9'--------1 ->      3'000 10'1100000001
+Extracting FSM `\startup.test_master.state' from module `\wasmetal_startup_sram'.
+  found $dff cell for state register: $flatten\startup.\test_master.$procdff$695
+  root of input selection tree: $flatten\startup.\test_master.$0\state[1:0]
+  found reset state: 2'00 (guessed from mux tree)
+  found ctrl input: \reset
+  found ctrl input: $flatten\startup.\test_master.$procmux$515_CMP
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$193_Y
+  found ctrl input: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192_Y
+  found ctrl input: $flatten\startup.\test_master.$procmux$375_CMP
+  found ctrl input: \startup.launched
+  found state code: 2'00
+  found ctrl input: \startup.test_master.stop_after_release
+  found state code: 2'01
+  found state code: 2'11
+  found ctrl input: \startup.test_master.ready
+  found state code: 2'10
+  found ctrl output: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192_Y
+  found ctrl output: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$193_Y
+  found ctrl output: $flatten\startup.\test_master.$procmux$375_CMP
+  found ctrl output: $flatten\startup.\test_master.$procmux$515_CMP
+  ctrl inputs: { \startup.launched \startup.test_master.stop_after_release \startup.test_master.ready \reset }
+  ctrl outputs: { $flatten\startup.\test_master.$procmux$515_CMP $flatten\startup.\test_master.$procmux$375_CMP $flatten\startup.\test_master.$0\state[1:0] $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$193_Y $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192_Y }
+  transition:       2'00 4'0--0 ->       2'01 6'010100
+  transition:       2'00 4'1--0 ->       2'00 6'010000
+  transition:       2'00 4'---1 ->       2'00 6'010000
+  transition:       2'10 4'-0-0 ->       2'01 6'000110
+  transition:       2'10 4'-1-0 ->       2'11 6'001110
+  transition:       2'10 4'---1 ->       2'00 6'000010
+  transition:       2'01 4'--00 ->       2'01 6'000101
+  transition:       2'01 4'--10 ->       2'10 6'001001
+  transition:       2'01 4'---1 ->       2'00 6'000001
+  transition:       2'11 4'0--0 ->       2'11 6'101100
+  transition:       2'11 4'1--0 ->       2'00 6'100000
+  transition:       2'11 4'---1 ->       2'00 6'100000
+
+7.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\startup.test_master.state$730' from module `\wasmetal_startup_sram'.
+Optimizing FSM `$fsm$\startup.test_master.phase$721' from module `\wasmetal_startup_sram'.
+  Merging pattern 9'01------0 and 9'11------0 from group (0 0 10'1000001000).
+  Merging pattern 9'11------0 and 9'01------0 from group (0 0 10'1000001000).
+Optimizing FSM `$fsm$\adapter.state$714' from module `\wasmetal_startup_sram'.
+
+7.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 41 unused cells and 41 unused wires.
+<suppressed ~42 debug messages>
+
+7.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\adapter.state$714' from module `\wasmetal_startup_sram'.
+  Removing unused output signal $flatten\adapter.$0\state[2:0] [0].
+  Removing unused output signal $flatten\adapter.$0\state[2:0] [1].
+  Removing unused output signal $flatten\adapter.$0\state[2:0] [2].
+Optimizing FSM `$fsm$\startup.test_master.phase$721' from module `\wasmetal_startup_sram'.
+  Removing unused output signal $flatten\startup.\test_master.$0\phase[2:0] [0].
+  Removing unused output signal $flatten\startup.\test_master.$0\phase[2:0] [1].
+  Removing unused output signal $flatten\startup.\test_master.$0\phase[2:0] [2].
+Optimizing FSM `$fsm$\startup.test_master.state$730' from module `\wasmetal_startup_sram'.
+  Removing unused output signal $flatten\startup.\test_master.$0\state[1:0] [0].
+  Removing unused output signal $flatten\startup.\test_master.$0\state[1:0] [1].
+  Removing unused output signal $flatten\startup.\test_master.$procmux$515_CMP.
+
+7.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\adapter.state$714' from module `\wasmetal_startup_sram' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  000 -> ----1
+  100 -> ---1-
+  010 -> --1--
+  001 -> -1---
+  011 -> 1----
+Recoding FSM `$fsm$\startup.test_master.phase$721' from module `\wasmetal_startup_sram' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  000 -> -----1
+  100 -> ----1-
+  010 -> ---1--
+  001 -> --1---
+  101 -> -1----
+  011 -> 1-----
+Recoding FSM `$fsm$\startup.test_master.state$730' from module `\wasmetal_startup_sram' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> ---1
+  10 -> --1-
+  01 -> -1--
+  11 -> 1---
+
+7.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\adapter.state$714' from module `wasmetal_startup_sram':
+-------------------------------------
+
+  Information on FSM $fsm$\adapter.state$714 (\adapter.state):
+
+  Number of input signals:    5
+  Number of output signals:   5
+  Number of state bits:       5
+
+  Input signals:
+    0: \reset
+    1: $flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:53$176_Y
+    2: \adapter.legal
+    3: \adapter.write_q
+    4: \adapter.valid
+
+  Output signals:
+    0: $flatten\adapter.$procmux$301_CMP
+    1: $flatten\adapter.$procmux$245_CMP
+    2: $flatten\adapter.$procmux$238_CMP
+    3: $flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:35$169_Y
+    4: \startup.memory_ready
+
+  State encoding:
+    0:    5'----1  <RESET STATE>
+    1:    5'---1-
+    2:    5'--1--
+    3:    5'-1---
+    4:    5'1----
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 5'0---0   ->     0 5'00010
+      1:     0 5'----1   ->     0 5'00010
+      2:     0 5'1-1-0   ->     3 5'00010
+      3:     0 5'1-0-0   ->     4 5'00010
+      4:     1 5'0---0   ->     0 5'00001
+      5:     1 5'----1   ->     0 5'00001
+      6:     1 5'1---0   ->     1 5'00001
+      7:     2 5'----1   ->     0 5'00100
+      8:     2 5'---00   ->     2 5'00100
+      9:     2 5'---10   ->     4 5'00100
+     10:     3 5'----1   ->     0 5'01000
+     11:     3 5'-0--0   ->     2 5'01000
+     12:     3 5'-1--0   ->     4 5'01000
+     13:     4 5'----1   ->     0 5'10000
+     14:     4 5'----0   ->     1 5'10000
+
+-------------------------------------
+
+FSM `$fsm$\startup.test_master.phase$721' from module `wasmetal_startup_sram':
+-------------------------------------
+
+  Information on FSM $fsm$\startup.test_master.phase$721 (\startup.test_master.phase):
+
+  Number of input signals:    9
+  Number of output signals:   7
+  Number of state bits:       6
+
+  Input signals:
+    0: \reset
+    1: \startup.test_master.ready
+    2: \startup.test_master.final_word
+    3: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192_Y
+    4: $flatten\startup.\test_master.$logic_or$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:80$211_Y
+    5: $flatten\startup.\test_master.$logic_and$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$219_Y
+    6: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:99$224_Y
+    7: $flatten\startup.\test_master.$procmux$375_CMP
+    8: \startup.launched
+
+  Output signals:
+    0: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$179_Y
+    1: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$180_Y
+    2: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$185_Y
+    3: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:61$198_Y
+    4: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$201_Y
+    5: $flatten\startup.\test_master.$ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$215_Y
+    6: $flatten\startup.\test_master.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$216_Y
+
+  State encoding:
+    0:   6'-----1  <RESET STATE>
+    1:   6'----1-
+    2:   6'---1--
+    3:   6'--1---
+    4:   6'-1----
+    5:   6'1-----
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 9'-----1-00   ->     0 7'1001000
+      1:     0 9'---001010   ->     0 7'1001000
+      2:     0 9'---101-10   ->     0 7'1001000
+      3:     0 9'----11-10   ->     0 7'1001000
+      4:     0 9'-0---0--0   ->     0 7'1001000
+      5:     0 9'-1------0   ->     0 7'1001000
+      6:     0 9'--------1   ->     0 7'1001000
+      7:     0 9'---001110   ->     3 7'1001000
+      8:     1 9'01------0   ->     0 7'1100010
+      9:     1 9'--------1   ->     0 7'1100010
+     10:     1 9'-----1-00   ->     1 7'1100010
+     11:     1 9'---001010   ->     1 7'1100010
+     12:     1 9'---101-10   ->     1 7'1100010
+     13:     1 9'----11-10   ->     1 7'1100010
+     14:     1 9'-0---0--0   ->     1 7'1100010
+     15:     1 9'11------0   ->     1 7'1100010
+     16:     1 9'---001110   ->     4 7'1100010
+     17:     2 9'01------0   ->     0 7'1100100
+     18:     2 9'--------1   ->     0 7'1100100
+     19:     2 9'-----1-00   ->     2 7'1100100
+     20:     2 9'---001010   ->     2 7'1100100
+     21:     2 9'---101-10   ->     2 7'1100100
+     22:     2 9'----11-10   ->     2 7'1100100
+     23:     2 9'-0---0--0   ->     2 7'1100100
+     24:     2 9'11------0   ->     2 7'1100100
+     25:     2 9'---001110   ->     5 7'1100100
+     26:     3 9'01------0   ->     0 7'1110000
+     27:     3 9'--------1   ->     0 7'1110000
+     28:     3 9'---001110   ->     2 7'1110000
+     29:     3 9'-----1-00   ->     3 7'1110000
+     30:     3 9'---001010   ->     3 7'1110000
+     31:     3 9'---101-10   ->     3 7'1110000
+     32:     3 9'----11-10   ->     3 7'1110000
+     33:     3 9'-0---0--0   ->     3 7'1110000
+     34:     3 9'11------0   ->     3 7'1110000
+     35:     4 9'--0001110   ->     0 7'0100000
+     36:     4 9'01------0   ->     0 7'0100000
+     37:     4 9'--------1   ->     0 7'0100000
+     38:     4 9'-----1-00   ->     4 7'0100000
+     39:     4 9'---001010   ->     4 7'0100000
+     40:     4 9'--1001110   ->     4 7'0100000
+     41:     4 9'---101-10   ->     4 7'0100000
+     42:     4 9'----11-10   ->     4 7'0100000
+     43:     4 9'-0---0--0   ->     4 7'0100000
+     44:     4 9'11------0   ->     4 7'0100000
+     45:     5 9'01------0   ->     0 7'1100001
+     46:     5 9'--------1   ->     0 7'1100001
+     47:     5 9'---001110   ->     1 7'1100001
+     48:     5 9'-----1-00   ->     5 7'1100001
+     49:     5 9'---001010   ->     5 7'1100001
+     50:     5 9'---101-10   ->     5 7'1100001
+     51:     5 9'----11-10   ->     5 7'1100001
+     52:     5 9'-0---0--0   ->     5 7'1100001
+     53:     5 9'11------0   ->     5 7'1100001
+
+-------------------------------------
+
+FSM `$fsm$\startup.test_master.state$730' from module `wasmetal_startup_sram':
+-------------------------------------
+
+  Information on FSM $fsm$\startup.test_master.state$730 (\startup.test_master.state):
+
+  Number of input signals:    4
+  Number of output signals:   3
+  Number of state bits:       4
+
+  Input signals:
+    0: \reset
+    1: \startup.test_master.ready
+    2: \startup.test_master.stop_after_release
+    3: \startup.launched
+
+  Output signals:
+    0: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192_Y
+    1: $flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$193_Y
+    2: $flatten\startup.\test_master.$procmux$375_CMP
+
+  State encoding:
+    0:     4'---1  <RESET STATE>
+    1:     4'--1-
+    2:     4'-1--
+    3:     4'1---
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 4'1--0   ->     0 3'100
+      1:     0 4'---1   ->     0 3'100
+      2:     0 4'0--0   ->     2 3'100
+      3:     1 4'---1   ->     0 3'010
+      4:     1 4'-0-0   ->     2 3'010
+      5:     1 4'-1-0   ->     3 3'010
+      6:     2 4'---1   ->     0 3'001
+      7:     2 4'--10   ->     1 3'001
+      8:     2 4'--00   ->     2 3'001
+      9:     3 4'1--0   ->     0 3'000
+     10:     3 4'---1   ->     0 3'000
+     11:     3 4'0--0   ->     3 3'000
+
+-------------------------------------
+
+7.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\adapter.state$714' from module `\wasmetal_startup_sram'.
+Mapping FSM `$fsm$\startup.test_master.phase$721' from module `\wasmetal_startup_sram'.
+Mapping FSM `$fsm$\startup.test_master.state$730' from module `\wasmetal_startup_sram'.
+
+7.9. Executing OPT pass (performing simple optimizations).
+
+7.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~17 debug messages>
+
+7.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~105 debug messages>
+Removed a total of 35 cells.
+
+7.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+7.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+7.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$701 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$371_Y, Q = \startup.test_master.stop_after_release, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1011 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$371_Y, Q = \startup.test_master.stop_after_release).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$700 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$390_Y, Q = \startup.test_master.write_half, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1029 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$390_Y, Q = \startup.test_master.write_half).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$699 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$422_Y, Q = \startup.test_master.background_index, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$1041 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$422_Y, Q = \startup.test_master.background_index).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$697 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$472_Y, Q = \startup.test_master.waiting, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$1061 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$472_Y, Q = \startup.test_master.waiting).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$696 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$504_Y, Q = \startup.test_master.word_index, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$1073 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$504_Y, Q = \startup.test_master.word_index).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$694 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$535_Y, Q = \startup.test_master.operation_count, rval = 9'000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1089 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$535_Y, Q = \startup.test_master.operation_count).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$693 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$558_Y, Q = \startup.test_master.observed_data, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1099 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$558_Y, Q = \startup.test_master.observed_data).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$692 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$581_Y, Q = \startup.test_master.expected_data, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1115 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$581_Y, Q = \startup.test_master.expected_data).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$691 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$604_Y, Q = \startup.test_master.error_address, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$1131 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$604_Y, Q = \startup.test_master.error_address).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$690 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$627_Y, Q = \startup.test_master.error_code, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$1147 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$627_Y, Q = \startup.test_master.error_code).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$689 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$650_Y, Q = \startup.test_master.failed, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1163 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$650_Y, Q = \startup.test_master.failed).
+Adding SRST signal on $flatten\startup.\test_master.$procdff$688 ($dff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$662_Y, Q = \startup.test_master.done, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1173 ($sdff) from module wasmetal_startup_sram (D = $flatten\startup.\test_master.$procmux$662_Y, Q = \startup.test_master.done).
+Adding SRST signal on $flatten\adapter.$procdff$686 ($dff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$237_Y, Q = \adapter.remaining, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$1183 ($sdff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$237_Y, Q = \adapter.remaining).
+Adding SRST signal on $flatten\adapter.$procdff$685 ($dff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$256_Y, Q = \adapter.data_q, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1193 ($sdff) from module wasmetal_startup_sram (D = \adapter.wdata, Q = \adapter.data_q).
+Adding SRST signal on $flatten\adapter.$procdff$684 ($dff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$268_Y, Q = \adapter.mask_q, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1197 ($sdff) from module wasmetal_startup_sram (D = \adapter.mask, Q = \adapter.mask_q).
+Adding SRST signal on $flatten\adapter.$procdff$683 ($dff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$280_Y, Q = \adapter.address_q, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$1201 ($sdff) from module wasmetal_startup_sram (D = \adapter.address [6:4], Q = \adapter.address_q).
+Adding SRST signal on $flatten\adapter.$procdff$682 ($dff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$292_Y, Q = \adapter.write_q, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1205 ($sdff) from module wasmetal_startup_sram (D = \adapter.write, Q = \adapter.write_q).
+Adding SRST signal on $flatten\adapter.$procdff$680 ($dff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$318_Y, Q = \adapter.rdata, rval = 128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:266:slice$1209 ($sdff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$318_Y, Q = \adapter.rdata).
+Adding SRST signal on $flatten\adapter.$procdff$679 ($dff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$333_Y, Q = \adapter.fault, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$1219 ($sdff) from module wasmetal_startup_sram (D = $flatten\adapter.$procmux$333_Y, Q = \adapter.fault).
+
+7.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 27 unused cells and 87 unused wires.
+<suppressed ~28 debug messages>
+
+7.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~15 debug messages>
+
+7.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+7.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+7.9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~177 debug messages>
+Removed a total of 59 cells.
+
+7.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 59 unused wires.
+<suppressed ~1 debug messages>
+
+7.9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.9.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.9.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+7.9.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+7.9.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.9.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.9.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.9.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.9.23. Finished OPT passes. (There is nothing left to do.)
+
+7.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell wasmetal_startup_sram.$auto$opt_dff.cc:195:make_patterns_logic$1180 ($ne).
+Removed top 1 bits (of 7) from port B of cell wasmetal_startup_sram.$auto$opt_dff.cc:195:make_patterns_logic$1048 ($ne).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$auto$fsm_map.cc:77:implement_pattern_cache$813 ($eq).
+Removed top 1 bits (of 2) from port B of cell wasmetal_startup_sram.$flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:53$176 ($eq).
+Removed top 26 bits (of 33) from port B of cell wasmetal_startup_sram.$flatten\adapter.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$164 ($le).
+Removed top 1 bits (of 33) from port A of cell wasmetal_startup_sram.$flatten\adapter.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$163 ($add).
+Removed top 28 bits (of 33) from port B of cell wasmetal_startup_sram.$flatten\adapter.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$163 ($add).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$auto$opt_dff.cc:195:make_patterns_logic$1108 ($ne).
+Removed top 2 bits (of 4) from port B of cell wasmetal_startup_sram.$auto$opt_dff.cc:195:make_patterns_logic$1102 ($ne).
+Removed top 2 bits (of 8) from port B of cell wasmetal_startup_sram.$auto$opt_dff.cc:195:make_patterns_logic$1078 ($ne).
+Removed top 4 bits (of 7) from port B of cell wasmetal_startup_sram.$auto$opt_dff.cc:195:make_patterns_logic$1018 ($ne).
+Removed top 2 bits (of 6) from port B of cell wasmetal_startup_sram.$auto$fsm_map.cc:77:implement_pattern_cache$950 ($eq).
+Removed top 2 bits (of 6) from port B of cell wasmetal_startup_sram.$auto$fsm_map.cc:77:implement_pattern_cache$946 ($eq).
+Removed top 3 bits (of 5) from port B of cell wasmetal_startup_sram.$auto$opt_dff.cc:195:make_patterns_logic$1016 ($ne).
+Removed top 3 bits (of 7) from port B of cell wasmetal_startup_sram.$auto$fsm_map.cc:77:implement_pattern_cache$797 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$procmux$675_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$procmux$676_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$procmux$677_CMP0 ($eq).
+
+7.11. Executing PEEPOPT pass (run peephole optimizers).
+
+7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module wasmetal_startup_sram:
+  creating $macc model for $flatten\adapter.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$163 ($add).
+  creating $macc model for $flatten\adapter.$sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:54$177 ($sub).
+  creating $macc model for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:100$225 ($add).
+  creating $macc model for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:110$229 ($add).
+  creating $macc model for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:78$207 ($add).
+  creating $macc model for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$222 ($add).
+  creating $macc model for $flatten\startup.\test_master.$sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$221 ($sub).
+  creating $alu model for $macc $flatten\startup.\test_master.$sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$221.
+  creating $alu model for $macc $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$222.
+  creating $alu model for $macc $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:78$207.
+  creating $alu model for $macc $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:110$229.
+  creating $alu model for $macc $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:100$225.
+  creating $alu model for $macc $flatten\adapter.$sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:54$177.
+  creating $alu model for $macc $flatten\adapter.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$163.
+  creating $alu model for $flatten\adapter.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$164 ($le): new $alu
+  creating $alu cell for $flatten\adapter.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$164: $auto$alumacc.cc:485:replace_alu$1228
+  creating $alu cell for $flatten\adapter.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$163: $auto$alumacc.cc:485:replace_alu$1241
+  creating $alu cell for $flatten\adapter.$sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:54$177: $auto$alumacc.cc:485:replace_alu$1244
+  creating $alu cell for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:100$225: $auto$alumacc.cc:485:replace_alu$1247
+  creating $alu cell for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:110$229: $auto$alumacc.cc:485:replace_alu$1250
+  creating $alu cell for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:78$207: $auto$alumacc.cc:485:replace_alu$1253
+  creating $alu cell for $flatten\startup.\test_master.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$222: $auto$alumacc.cc:485:replace_alu$1256
+  creating $alu cell for $flatten\startup.\test_master.$sub$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$221: $auto$alumacc.cc:485:replace_alu$1259
+  created 8 $alu and 0 $macc cells.
+
+7.14. Executing SHARE pass (SAT-based resource sharing).
+
+7.15. Executing OPT pass (performing simple optimizations).
+
+7.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+7.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+7.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+7.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+7.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+7.15.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.15.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.15.16. Finished OPT passes. (There is nothing left to do.)
+
+7.16. Executing MEMORY pass.
+
+7.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+7.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.18. Executing OPT pass (performing simple optimizations).
+
+7.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~72 debug messages>
+
+7.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+7.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 55 unused wires.
+<suppressed ~1 debug messages>
+
+7.18.5. Finished fast OPT passes.
+
+7.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7.20. Executing OPT pass (performing simple optimizations).
+
+7.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~5 debug messages>
+
+7.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~21 debug messages>
+
+7.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+    New ctrl vector for $pmux cell $flatten\adapter.$procmux$318: \adapter.state [2]
+    Consolidated identical input bits for $pmux cell $flatten\startup.\test_master.$procmux$487:
+      Old ports: A=3'000, B=6'100000, Y=$flatten\startup.\test_master.$procmux$487_Y
+      New ports: A=1'0, B=2'10, Y=$flatten\startup.\test_master.$procmux$487_Y [2]
+      New connections: $flatten\startup.\test_master.$procmux$487_Y [1:0] = 2'00
+    New ctrl vector for $pmux cell $flatten\startup.\test_master.$procmux$487: $auto$opt_reduce.cc:134:opt_pmux$709
+    Consolidated identical input bits for $mux cell $flatten\startup.\test_master.$procmux$604:
+      Old ports: A=0, B={ 25'0000000000000000000000000 \startup.test_master.word_index 4'0000 }, Y=$flatten\startup.\test_master.$procmux$604_Y
+      New ports: A=3'000, B=\startup.test_master.word_index, Y=$flatten\startup.\test_master.$procmux$604_Y [6:4]
+      New connections: { $flatten\startup.\test_master.$procmux$604_Y [31:7] $flatten\startup.\test_master.$procmux$604_Y [3:0] } = 29'00000000000000000000000000000
+    Consolidated identical input bits for $pmux cell $flatten\startup.\test_master.$procmux$671:
+      Old ports: A=128'00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=896'10101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011111111000000001111111100000000111111110000000011111111000000001111111100000000111111110000000011111111000000001111111100000000111111111111111100000000000000001111111111111111000000000000000011111111111111110000000000000000111111111111111100000000000000001111111111111111111111111111111100000000000000000000000000000000111111111111111111111111111111110000000000000000000000000000000011111111111111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000000000000000000000, Y=\startup.test_master.background
+      New ports: A=127'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, B=889'1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110001111111100000000111111110000000011111111000000001111111100000000111111110000000011111111000000001111111100000000111111110000000111111111111111100000000000000001111111111111111000000000000000011111111111111110000000000000000111111111111111100000000000000011111111111111111111111111111111000000000000000000000000000000001111111111111111111111111111111100000000000000000000000000000001111111111111111111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000, Y=\startup.test_master.background [127:1]
+      New connections: \startup.test_master.background [0] = 1'0
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 5 changes.
+
+7.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.20.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $mux $flatten\startup.\test_master.$ternary$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:91$223 in front of them:
+        $auto$alumacc.cc:485:replace_alu$1259
+        $auto$alumacc.cc:485:replace_alu$1256
+
+7.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~1 debug messages>
+
+7.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~9 debug messages>
+
+7.20.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.20.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+7.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+    Consolidated identical input bits for $mux cell $auto$opt_share.cc:244:merge_operators$1265:
+      Old ports: A=3'111, B=3'001, Y=$auto$rtlil.cc:2498:Mux$1266
+      New ports: A=1'1, B=1'0, Y=$auto$rtlil.cc:2498:Mux$1266 [1]
+      New connections: { $auto$rtlil.cc:2498:Mux$1266 [2] $auto$rtlil.cc:2498:Mux$1266 [0] } = { $auto$rtlil.cc:2498:Mux$1266 [1] 1'1 }
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 1 changes.
+
+7.20.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.20.14. Executing OPT_SHARE pass.
+
+7.20.15. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 12 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 13 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 14 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 15 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 16 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 17 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 18 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 19 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 20 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 21 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 22 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 23 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 24 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 25 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 26 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 27 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 28 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 29 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 30 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+Setting constant 0-bit at position 31 on $auto$ff.cc:266:slice$1132 ($sdffe) from module wasmetal_startup_sram.
+
+7.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+7.20.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~1 debug messages>
+
+7.20.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.20.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~21 debug messages>
+
+7.20.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+7.20.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+7.20.22. Executing OPT_SHARE pass.
+
+7.20.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.20.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+7.20.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+7.20.26. Finished OPT passes. (There is nothing left to do.)
+
+7.21. Executing TECHMAP pass (map to technology primitives).
+
+7.21.1. Executing Verilog-2005 frontend: /home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+7.21.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_and.
+Using template $paramod$80777cb03295863576a2cafb187c47f3adfa2a9c\_90_alu for cells of type $alu.
+Using template $paramod$ba698a254f9a5947e85cbe7beae6b161eefc5386\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $nex.
+Using template $paramod$78e969f2586efcf3a5b0b0440bcca0db83d5cca2\_90_alu for cells of type $alu.
+Using template $paramod$53700bbee849b2010ad0b60a61ccd204a10e24ca\_90_alu for cells of type $alu.
+Using template $paramod$386356ed53d849b29629e8c42ab6899c58e6137e\_90_alu for cells of type $alu.
+Using template $paramod$d56913101d6315a0d2abe75c260a8c311b0bbbc8\_90_pmux for cells of type $pmux.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000011101 for cells of type $lcu.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000001001 for cells of type $lcu.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000100001 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1584 debug messages>
+
+7.22. Executing OPT pass (performing simple optimizations).
+
+7.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~1952 debug messages>
+
+7.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~1071 debug messages>
+Removed a total of 357 cells.
+
+7.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 106 unused cells and 1289 unused wires.
+<suppressed ~107 debug messages>
+
+7.22.5. Finished fast OPT passes.
+
+7.23. Executing HIERARCHY pass (managing design hierarchy).
+
+7.23.1. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+
+7.23.2. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Removed 0 unused modules.
+
+7.24. Printing statistics.
+
+=== wasmetal_startup_sram ===
+
+   Number of wires:                494
+   Number of wire bits:           6859
+   Number of public wires:         120
+   Number of public wire bits:    4107
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               3003
+     $_AND_                        216
+     $_DFF_P_                       16
+     $_MUX_                       1364
+     $_NOT_                        234
+     $_OR_                         439
+     $_SDFFE_PP0P_                 562
+     $_XOR_                        172
+
+7.25. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+
+8. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+8.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\wasmetal_startup_sram':
+  mapped 578 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+9. Executing ABC pass (technology mapping using ABC).
+
+9.1. Extracting gate netlist of module `\wasmetal_startup_sram' to `<abc-temp-dir>/input.blif'..
+Extracted 3549 gates and 4436 wires to a netlist network with 885 inputs and 712 outputs.
+
+9.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /tmp/wasmetal-xc7-core/build/asic-startup/library/cells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.24 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/tmp/wasmetal-xc7-core/build/asic-startup/library/cells.lib" has 305 cells (87 skipped: 62 seq; 13 tri-state; 12 no func; 0 dont_use).  Time =     0.36 sec
+ABC: Memory =   19.18 MB. Time =     0.36 sec
+ABC: Warning: Detected 9 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+9.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__o311ai_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o41ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a221o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a222oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o221a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a2111oi_0 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       85
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a32o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       39
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      194
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__or3b_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       55
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a31o_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       24
+ABC RESULTS:   sky130_fd_sc_hd__and3b_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:      402
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a211o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:      253
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      757
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:      211
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      269
+ABC RESULTS:   sky130_fd_sc_hd__nand4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__or2_0 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      271
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:      132
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:        8
+ABC RESULTS:        internal signals:     2839
+ABC RESULTS:           input signals:      885
+ABC RESULTS:          output signals:      712
+Removing temp directory.
+
+10. Executing HILOMAP pass (mapping to constant drivers).
+Removed 1 unused cells and 2546 unused wires.
+
+11. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+
+12. Executing JSON backend.
+
+13. Executing Verilog backend.
+Dumping module `\wasmetal_startup_sram'.
+
+14. Executing SPLITNETS pass (splitting up multi-bit signals).
+Removed 0 unused cells and 1530 unused wires.
+
+15. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+
+16. Printing statistics.
+
+=== wasmetal_startup_sram ===
+
+   Number of wires:               3478
+   Number of wire bits:           4398
+   Number of public wires:         730
+   Number of public wire bits:    1650
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               3461
+     sky130_fd_sc_hd__a2111oi_0      4
+     sky130_fd_sc_hd__a211o_1        2
+     sky130_fd_sc_hd__a211oi_1       4
+     sky130_fd_sc_hd__a21bo_1        1
+     sky130_fd_sc_hd__a21boi_0       4
+     sky130_fd_sc_hd__a21o_1         6
+     sky130_fd_sc_hd__a21oi_1      757
+     sky130_fd_sc_hd__a221o_1        1
+     sky130_fd_sc_hd__a222oi_1       2
+     sky130_fd_sc_hd__a22o_1         7
+     sky130_fd_sc_hd__a22oi_1        2
+     sky130_fd_sc_hd__a2bb2oi_1      2
+     sky130_fd_sc_hd__a31o_1         4
+     sky130_fd_sc_hd__a31oi_1       17
+     sky130_fd_sc_hd__a32o_1         1
+     sky130_fd_sc_hd__a32oi_1        1
+     sky130_fd_sc_hd__a41oi_1        1
+     sky130_fd_sc_hd__and2_0         8
+     sky130_fd_sc_hd__and3_1       132
+     sky130_fd_sc_hd__and3b_1        4
+     sky130_fd_sc_hd__and4_1         4
+     sky130_fd_sc_hd__clkinv_1      12
+     sky130_fd_sc_hd__conb_1         1
+     sky130_fd_sc_hd__dfxtp_1      578
+     sky130_fd_sc_hd__mux2_1         1
+     sky130_fd_sc_hd__mux2i_1       85
+     sky130_fd_sc_hd__nand2_1      269
+     sky130_fd_sc_hd__nand2b_1     253
+     sky130_fd_sc_hd__nand3_1      402
+     sky130_fd_sc_hd__nand3b_1       4
+     sky130_fd_sc_hd__nand4_1       24
+     sky130_fd_sc_hd__nand4b_1       1
+     sky130_fd_sc_hd__nor2_1       271
+     sky130_fd_sc_hd__nor2b_1       10
+     sky130_fd_sc_hd__nor3_1        39
+     sky130_fd_sc_hd__nor3b_1        4
+     sky130_fd_sc_hd__nor4_1        18
+     sky130_fd_sc_hd__nor4b_1        1
+     sky130_fd_sc_hd__o2111a_1       1
+     sky130_fd_sc_hd__o211ai_1       7
+     sky130_fd_sc_hd__o21a_1        13
+     sky130_fd_sc_hd__o21ai_0      211
+     sky130_fd_sc_hd__o21bai_1       2
+     sky130_fd_sc_hd__o221a_1        1
+     sky130_fd_sc_hd__o221ai_1       3
+     sky130_fd_sc_hd__o22ai_1        2
+     sky130_fd_sc_hd__o2bb2ai_1      3
+     sky130_fd_sc_hd__o311ai_0       1
+     sky130_fd_sc_hd__o31ai_1        1
+     sky130_fd_sc_hd__o41ai_1        1
+     sky130_fd_sc_hd__or2_0          9
+     sky130_fd_sc_hd__or3_1          4
+     sky130_fd_sc_hd__or3b_1         5
+     sky130_fd_sc_hd__or4_1          5
+     sky130_fd_sc_hd__xnor2_1      194
+     sky130_fd_sc_hd__xnor3_1        6
+     sky130_fd_sc_hd__xor2_1        55
+
+   Chip area for module '\wasmetal_startup_sram': 27709.075200
+
+17. Executing JSON backend.
+
+18. Executing Verilog backend.
+Dumping module `\wasmetal_startup_sram'.

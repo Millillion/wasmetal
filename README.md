@@ -454,13 +454,19 @@ The programmable audit has also been repeated for direct rounding, with all
 memory and register counts preserved. The ROM audit retains its selector-revision
 record. A failed audit removes
 its previous output report, preventing stale success from appearing current.
-An [experimental standard-cell reference](docs/ASIC-STANDARD-CELLS.md) now pins
-the SKY130HD library and independently checks 67 selected cell types against
-upstream Verilog in Icarus. All 1,067 combinational input vectors, 32 binary
-flip-flop transitions and 64 seed/hold checks pass; three wrong cell models
-are rejected. Seven source-inventory fixtures also pass. CI includes these
-checks. The full startup-circuit ASIC mapping campaign is still running; this
-cell-level result does not establish physical ASIC timing or a complete CPU.
+The startup controller, memory self-test and SRAM adapter now pass an
+[experimental SKY130HD standard-cell campaign](docs/ASIC-STANDARD-CELLS.md):
+six configurations match across **59,107,887 clocks per model**, with six
+inductive equivalence checks and separate reset-base proofs. All fourteen
+circuit fault controls are rejected. The [archived evidence](docs/verification/asic-startup-summary.json)
+includes the 128 KiB configuration; the SRAM array is still a behavioral model
+outside the mapped circuit. The complete CPU is not included in this mapping.
+All 69 cell types actually selected by these circuits are independently checked
+against pinned upstream Verilog in Icarus: 1,115 combinational vectors, 32 binary
+flip-flop transitions and 64 seed/hold checks pass. Three wrong cell models are
+rejected and seven source-inventory fixtures pass. CI now includes the complete
+startup campaign and these independent cell checks. These results establish
+binary functional behavior, with zero cell delays; physical timing remains open.
 The [physical-tool setup](docs/ASIC-PHYSICAL.md) now verifies a pinned OpenROAD
 build, all 11,632 extracted package files and seven matching physical platform
 inputs. It also fingerprints 133 resolved shared libraries. CI includes this

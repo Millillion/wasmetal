@@ -1,0 +1,17 @@
+read_liberty -lib -ignore_miss_func /tmp/wasmetal-xc7-core/build/asic-startup/library/cells.lib
+read_verilog -sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv /tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv
+chparam -set RAM_BYTES 80 -set READ_LATENCY 3 -set RESPONSE_TIMEOUT 5 wasmetal_startup_sram
+synth -top wasmetal_startup_sram -flatten -noabc -encfile /tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/fsm.enc
+dfflibmap -liberty /tmp/wasmetal-xc7-core/build/asic-startup/library/cells.lib
+abc -liberty /tmp/wasmetal-xc7-core/build/asic-startup/library/cells.lib
+hilomap -singleton -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+clean
+check -assert
+write_json /tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/proof-circuit.json
+write_verilog -noattr -noexpr -nodec /tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/proof-circuit.v
+splitnets
+clean -purge
+check -assert
+stat -liberty /tmp/wasmetal-xc7-core/build/asic-startup/library/cells.lib
+write_json /tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/mapped.json
+write_verilog -noattr -noexpr -nodec /tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/mapped.v

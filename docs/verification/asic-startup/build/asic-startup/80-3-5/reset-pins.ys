@@ -1,0 +1,16 @@
+read_verilog -sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv /tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv
+chparam -set RAM_BYTES 80 -set READ_LATENCY 3 -set RESPONSE_TIMEOUT 5 wasmetal_startup_sram
+prep -top wasmetal_startup_sram -flatten
+memory_map
+opt_clean
+rename wasmetal_startup_sram gold
+design -stash gold
+read_verilog /tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/cells.v /tmp/wasmetal-xc7-core/build/asic-startup/80-3-5/proof-circuit.v
+prep -top wasmetal_startup_sram -flatten
+rename wasmetal_startup_sram gate
+design -stash gate
+design -copy-from gold -as gold gold
+design -copy-from gate -as gate gate
+miter -equiv -flatten gold gate reset_pins
+hierarchy -top reset_pins
+sat -seq 12 -set-at 1 in_reset 1 -set-def-inputs -set-init-undef -enable_undef -prove-skip 1 -prove trigger 0 -verify

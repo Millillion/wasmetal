@@ -1,0 +1,3 @@
+read_verilog /tmp/wasmetal-xc7-core/build/asic-startup/negative/cycle.sv
+prep -top cycle
+scc -expect 0

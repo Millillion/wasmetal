@@ -1,0 +1,64 @@
+[
+  {
+    "name": "forbidden-power-cell",
+    "diagnostic": "unmapped, forbidden or unknown ASIC cell: sky130_fd_sc_hd__lpflow_inputiso1p_1"
+  },
+  {
+    "name": "unmapped-generic-cell",
+    "diagnostic": "unmapped, forbidden or unknown ASIC cell: $_DFF_P_"
+  },
+  {
+    "name": "missing-cell-input",
+    "diagnostic": "missing standard-cell input pin"
+  },
+  {
+    "name": "undriven-constant",
+    "diagnostic": "undriven or multiply driven ASIC signal"
+  },
+  {
+    "name": "multiple-drivers",
+    "diagnostic": "undriven or multiply driven ASIC signal"
+  },
+  {
+    "name": "wrong-flop-clock",
+    "diagnostic": "standard-cell clock changed"
+  },
+  {
+    "name": "unknown-cell-input",
+    "diagnostic": "unmapped standard-cell constant"
+  },
+  {
+    "name": "wrong-pin-width",
+    "diagnostic": "standard-cell pin width/direction mismatch"
+  },
+  {
+    "name": "power-on-initialization",
+    "diagnostic": "ASIC circuit depends on power-on initialization: $abc$10487$auto$fsm_map.cc:118:implement_pattern_cache$769"
+  },
+  {
+    "name": "normalization-rewired-input",
+    "diagnostic": "canonical cell-pin incidence differs"
+  },
+  {
+    "name": "combinational-feedback",
+    "log_sha256": "2e11306c9c4b8dffc37b57cfe13f52f874a709432296c763b16749bd289143c3"
+  },
+  {
+    "name": "wrong-tie-cell-simulation",
+    "binary_sha256": "20a51d5aa0deeba3d7f01c042f389e8254dd3d032e3e6744ec19d8d9574fbc70",
+    "netlist_sha256": "47f6003644b52e13f72a1334ec0816f269e30b40d6d1cd4c15082c511d64ca66",
+    "log_sha256": "2a7d5b585b0a0e454042971eadca68353d01c924fd2454f4f01b5d559184f788",
+    "diagnostic": "startup reset retained test status"
+  },
+  {
+    "name": "wrong-tie-cell-formal",
+    "rejected": true,
+    "log_sha256": "1b46a2bb110f3fcddd68c274ff27e6997f769769addc9bdeead01843fb420acc"
+  },
+  {
+    "name": "corrupt-sram-read",
+    "binary_sha256": "9805cd00b451f99acc78748dd7c9081ecda3d52f79739d5f99e5664dbab90876",
+    "log_sha256": "6330e87c9f8d614e9c9fb9a8411d584aa131cdd2f66aa679898764d2c3b47115",
+    "diagnostic": "startup healthy memory did not grant CPU"
+  }
+]

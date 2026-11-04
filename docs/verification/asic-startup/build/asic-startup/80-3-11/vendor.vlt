@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME -file "/tmp/wasmetal-xc7-core/build/asic-startup/80-3-11/cells.v"
+lint_off -rule DECLFILENAME -file "/tmp/wasmetal-xc7-core/build/asic-startup/80-3-11/mapped.v"
+lint_off -rule PINMISSING -file "/tmp/wasmetal-xc7-core/build/asic-startup/80-3-11/mapped.v"
+lint_off -rule UNOPTFLAT -file "/tmp/wasmetal-xc7-core/build/asic-startup/80-3-11/mapped.v" -match "*Circular combinational logic: 'completed_operations'*"

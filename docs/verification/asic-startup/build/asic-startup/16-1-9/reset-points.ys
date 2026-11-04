@@ -1,0 +1,6 @@
+read_rtlil /tmp/wasmetal-xc7-core/build/asic-startup/16-1-9/equiv.il
+equiv_miter -assert -undef reset_points
+hierarchy -top reset_points
+flatten
+opt_clean
+sat -seq 12 -set-at 1 reset 1 -set-def-inputs -set-init-undef -enable_undef -prove-skip 1 -prove-asserts -verify
