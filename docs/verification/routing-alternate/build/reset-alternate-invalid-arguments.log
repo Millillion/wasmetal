@@ -1,0 +1,7 @@
+usage: route_reset_experiment.py [-h] [--experiment EXPERIMENT]
+                                 [--baseline BASELINE] [--directory DIRECTORY]
+                                 [--router {router1,router2}]
+                                 [--alternate-weights]
+                                 [--timeout-seconds TIMEOUT_SECONDS]
+                                 [--check-only]
+route_reset_experiment.py: error: --alternate-weights requires --router router2

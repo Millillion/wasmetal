@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-direct-rounding/tools/route_reset_experiment.py", line 241, in <module>
+    main()
+  File "/tmp/wasmetal-direct-rounding/tools/route_reset_experiment.py", line 196, in main
+    subprocess.run(cad.command('nextpnr-ecp5')+command, cwd=ROOT, env=cad.environment(),
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2141, in _communicate
+    self.wait(timeout=self._remaining_time(endtime))
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2', '--inhibit-cache', '--inhibit-rpath', '', '--library-path', '/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib', '/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/libexec/nextpnr-ecp5', '--85k', '--package', 'CABGA381', '--speed', '6', '--seed', '1', '--router', 'router2', '--lpf', '/tmp/wasmetal-direct-rounding/soc/loader/ulx3s.lpf', '--freq', '25', '--json', '/tmp/wasmetal-direct-rounding/build/reset-alternate-timeout/placement-for-routing.json', '--write', '/tmp/wasmetal-direct-rounding/build/reset-alternate-timeout/routed.json', '--no-pack', '--no-place', '--textcfg', '/tmp/wasmetal-direct-rounding/build/reset-alternate-timeout/design.config', '--report', '/tmp/wasmetal-direct-rounding/build/reset-alternate-timeout/timing.json', '--router2-heatmap', '/tmp/wasmetal-direct-rounding/build/reset-alternate-timeout/congestion']' timed out after 0.9999874279601499 seconds

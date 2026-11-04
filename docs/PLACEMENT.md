@@ -88,6 +88,36 @@ python3 tools/route_reset_experiment.py --router router1 \
 
 Use a separate output directory for each trial to preserve its diagnostics.
 
+The new [alternate-weight preflight](verification/routing-alternate.json)
+and [raw checks](verification/routing-alternate/index.json) extend that guard
+to nextpnr's documented alternative router2 profile. The pinned
+[Router2Cfg implementation](https://github.com/YosysHQ/nextpnr/blob/5e1b0f15fe6fa167af21f071f7e249b5fa3554a1/common/route/router2.cc#L1847)
+uses an initial congestion weight of 5, historical weight of 0.5, no per-iteration
+increase in current congestion weight, and an A* estimate weight of 1. The
+default profile starts at 0.5, adds 2 per iteration, and uses historical weight
+1 and estimate weight 1.25. These are search heuristics, not changes to the
+circuit or timing constraints; the alternative has no demonstrated benefit for
+WasMetal yet.
+
+The replay stores those four numbers and the profile flag explicitly, while
+preserving all other JSON values. Twenty-one fixture mutations are rejected.
+An actual nextpnr import/export confirms that it receives the selected values
+and preserves the saved random state, timing target and device. A one-second
+process timeout retains an incomplete receipt, checks all inputs again and
+emits no bitstream; this control can expire while loading the placement and
+does not claim that the routing loop has run. An incompatible router/weight
+argument is rejected before changing existing evidence.
+
+```sh
+python3 tools/route_reset_experiment.py --router router2 --alternate-weights \
+  --timeout-seconds 7200 --directory build/reset-replication-router2-alternate
+```
+
+That bounded trial is running. Its result remains separate from the passed
+metadata checks. The original circuit, capacities and placement are unchanged.
+The driver now rechecks frozen inputs on cancellation and failure as well as
+success. CI repeats the expanded metadata guard; the long trial is local.
+
 A separate [standalone ROM-board CI attempt](verification/ci-standalone-routing-41846026922.json)
 at commit `fdc25535e3ae6f2584f7d90dff6f1983f9f5faf2` was cancelled after
 approximately three hours, with a configured 180-minute job budget. Router2

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "actual pinned nextpnr import/export of selected routing settings; no routing or physical-fit claim",
+  "command": [
+    "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2",
+    "--inhibit-cache",
+    "--inhibit-rpath",
+    "",
+    "--library-path",
+    "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/lib",
+    "/tmp/wasmetal-direct-rounding/.cache/tools/oss-cad-suite/libexec/nextpnr-ecp5",
+    "--85k",
+    "--package",
+    "CABGA381",
+    "--speed",
+    "6",
+    "--json",
+    "/tmp/wasmetal-direct-rounding/build/reset-alternate-preflight/placement-for-routing.json",
+    "--no-pack",
+    "--no-place",
+    "--no-route",
+    "--write",
+    "/tmp/wasmetal-direct-rounding/build/reset-alternate-preflight/native-roundtrip.json"
+  ],
+  "settings": {
+    "router": "router2",
+    "router2/alt-weights": "00000000000000000000000000000001",
+    "router2/initCurrCongWeight": "5.000000",
+    "router2/histCongWeight": "0.500000",
+    "router2/currCongWeightMult": "0.000000",
+    "router2/estimateWeight": "1.000000"
+  },
+  "preserved_settings": {
+    "seed": "0000100000011111110100000010000100001110101100100101111000000000",
+    "target_freq": "25000000.000000",
+    "timing_driven": "00000000000000000000000000000001",
+    "arch.type": "lfe5u_85f",
+    "arch.speed": "6",
+    "arch.package": "CABGA381"
+  },
+  "inputs": {
+    "build/reset-alternate-preflight/placement-for-routing.json": "cf82bb64ebd1419f70b519c0457f311a1e5303d7c6a642b7a69f7274cc03b139",
+    "build/probe_alternate_weights.py": "cb388820f7e8ff9a6ee263567dd74d114dd61b1e6d4462926f5d366c72be8e8a",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/route_reset_experiment.py": "2b5ec88dbc66ef22f5b601c8bd48ef03c1b09c4b41038d0b8ff4533a42d9d0d0",
+    ".cache/tools/oss-cad-suite/libexec/nextpnr-ecp5": "7cf4c43cbc671241e1cdae23545bd479184f3c5c362132ac98cc5ee97f9d2d90"
+  },
+  "output_sha256": "8cd5976bcbc0a122702f902184a89821a014b69fce58d080591f7e63b6a2c864",
+  "log_sha256": "6fdb5cb18e92560350f7aabfda51532e845c133b15e90fd83fa129c825653be7"
+}

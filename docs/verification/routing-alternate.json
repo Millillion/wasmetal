@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "routing metadata guard, real placement preflight, native settings import/export and bounded cancellation; no completed routing claim",
+  "negative_controls_rejected": 21,
+  "native_settings_roundtrip_passed": true,
+  "timeout_control_seconds": 1,
+  "invalid_argument_controls_rejected": 1,
+  "inputs": {
+    "tools/route_reset_experiment.py": "2b5ec88dbc66ef22f5b601c8bd48ef03c1b09c4b41038d0b8ff4533a42d9d0d0",
+    "tools/check_routing_placement.py": "4a1a58efdbcc340f7ed11acde177f38f925c80b4fd3e7a85cbce270e1e4ac09b",
+    "build/probe_alternate_weights.py": "cb388820f7e8ff9a6ee263567dd74d114dd61b1e6d4462926f5d366c72be8e8a"
+  },
+  "archive_index_sha256": "819364f99bec6ce279cecfbfd26b1f3f6ae45b3c2b9bb084973028010d7fe07a",
+  "trial_state": "two-hour alternate-weight trial started separately; outcome pending",
+  "routing_completed": false,
+  "timing_passed": false,
+  "physical_hardware_tested": false
+}

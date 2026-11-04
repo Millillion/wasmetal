@@ -18,6 +18,16 @@ from build_standalone_board import audit
 from prepare_standalone import ROOT, digest
 from replicate_reset import verify
 
+# Pinned nextpnr Router2Cfg defaults for --router2-alt-weights. Store every
+# value explicitly in the replay so saved settings cannot override the trial.
+ALTERNATE_WEIGHTS = {
+    'router2/alt-weights': '00000000000000000000000000000001',
+    'router2/initCurrCongWeight': '5.000000',
+    'router2/histCongWeight': '0.500000',
+    'router2/currCongWeightMult': '0.000000',
+    'router2/estimateWeight': '1.000000',
+}
+
 
 def check_inputs(inputs):
     for name, expected in inputs.items():
@@ -25,10 +35,12 @@ def check_inputs(inputs):
             raise ValueError('routing input changed: '+name)
 
 
-def verify_routing_placement(original, replay, router):
-    """Allow exactly one metadata change; compare every other JSON value."""
+def verify_routing_placement(original, replay, router, alternate_weights=False):
+    """Allow exactly the selected routing settings; compare every other value."""
     if router not in ('router1', 'router2'):
         raise ValueError('unsupported replay router')
+    if alternate_weights and router != 'router2':
+        raise ValueError('alternate weights require router2')
     modules = [name for name, module in original['modules'].items()
         if 'settings' in module]
     if len(modules) != 1:
@@ -38,30 +50,36 @@ def verify_routing_placement(original, replay, router):
     if before.get('router') not in ('router1', 'router2'):
         raise ValueError('placement has no recognized saved router')
     after = replay['modules'][name]['settings']
-    if after.get('router') != router:
-        raise ValueError('replay does not select the requested router')
-    after['router'] = before['router']
+    selected = {'router': router, **(ALTERNATE_WEIGHTS if alternate_weights else {})}
+    for key,value in selected.items():
+        if after.get(key) != value:
+            raise ValueError('replay does not select the requested routing setting: '+key)
+    for key in selected:
+        if key in before:after[key] = before[key]
+        else:after.pop(key)
     try:
         if replay != original:
             raise ValueError('replay changed placement, circuitry or unrelated settings')
     finally:
-        after['router'] = router
+        after.update(selected)
     return {'settings_module': name, 'saved_router': before['router'],
-        'selected_router': router, 'only_router_setting_changed': True,
+        'selected_router': router, 'only_router_setting_changed': not alternate_weights,
+        'only_selected_routing_settings_changed': True, 'selected_settings': selected,
         'preserved_random_state': before.get('seed')}
 
 
-def routing_placement(placement, directory, router):
+def routing_placement(placement, directory, router, alternate_weights=False):
     original = json.loads(placement.read_text())
     replay = json.loads(placement.read_text())
     modules = [module for module in replay['modules'].values() if 'settings' in module]
     if len(modules) != 1:
         raise ValueError('placement must have exactly one settings module')
     modules[0]['settings']['router'] = router
-    proof = verify_routing_placement(original, replay, router)
+    if alternate_weights:modules[0]['settings'].update(ALTERNATE_WEIGHTS)
+    proof = verify_routing_placement(original, replay, router, alternate_weights)
     destination = directory/'placement-for-routing.json'
     destination.write_text(json.dumps(replay, separators=(',', ':'))+'\n')
-    if verify_routing_placement(original, json.loads(destination.read_text()), router) != proof:
+    if verify_routing_placement(original, json.loads(destination.read_text()), router, alternate_weights) != proof:
         raise ValueError('serialized replay differs from checked placement')
     proof.update({'original_sha256': digest(placement), 'replay_sha256': digest(destination)})
     return destination, proof
@@ -112,12 +130,16 @@ def main():
     parser.add_argument('--baseline', type=Path, default=ROOT/'build/loadable-ulx3s')
     parser.add_argument('--directory', type=Path, default=ROOT/'build/reset-replication-route')
     parser.add_argument('--router', choices=['router1', 'router2'], default='router2')
+    parser.add_argument('--alternate-weights', action='store_true',
+        help='use the pinned router2 alternative congestion weights without changing placement or circuitry')
     parser.add_argument('--timeout-seconds', type=int,
         help='stop routing after this many seconds and retain an incomplete receipt')
     parser.add_argument('--check-only', action='store_true')
     args = parser.parse_args()
     if args.timeout_seconds is not None and args.timeout_seconds <= 0:
         parser.error('--timeout-seconds must be positive')
+    if args.alternate_weights and args.router != 'router2':
+        parser.error('--alternate-weights requires --router router2')
     experiment_path = args.experiment.resolve(); baseline = args.baseline.resolve()
     directory = args.directory.resolve()
     if directory in (baseline, experiment_path.parent):
@@ -127,7 +149,7 @@ def main():
     for name in ('manifest.json', 'wasmetal.bit', 'wasmetal.pending.bit'):
         (directory/name).unlink(missing_ok=True)
     experiment, candidate, placement = prepare(experiment_path, baseline)
-    replay, replay_proof = routing_placement(placement, directory, args.router)
+    replay, replay_proof = routing_placement(placement, directory, args.router, args.alternate_weights)
     dependencies = [experiment_path, candidate, placement, replay, Path(__file__).resolve(),
         ROOT/'tools/replicate_reset.py', ROOT/'tools/build_standalone_board.py',
         ROOT/'tools/build_board.py', ROOT/'tools/check_timing.py', ROOT/'tools/standalone_support.py',
@@ -144,12 +166,16 @@ def main():
     check_inputs(inputs)
     report = {'status': 'checked' if args.check_only else 'running', 'inputs': inputs,
         'router': args.router, 'routing_timeout_seconds': args.timeout_seconds,
+        'alternate_weights': args.alternate_weights,
         'routing_placement': replay_proof,
         'structural_equivalence_rechecked': True, 'original_clock_inputs_unchanged': True,
         'routing_completed': False, 'timing_passed': False, 'bitstream_round_trip_passed': False,
+        'final_input_checks_passed': False,
         'physical_hardware_tested': False, 'default_board_build_changed': False}
     receipt.write_text(json.dumps(report, indent=2)+'\n')
     if args.check_only:
+        check_inputs(inputs);report['final_input_checks_passed'] = True
+        receipt.write_text(json.dumps(report, indent=2)+'\n')
         print('PASS structural equivalence, unchanged clock inputs and artifact identities')
         return
     gc.collect()
@@ -201,7 +227,13 @@ def main():
             report['observed_router'] = None
             report['router_observation_error'] = str(error)
         report['elapsed_seconds'] = round(time.monotonic() - started, 3)
-        receipt.write_text(json.dumps(report, indent=2)+'\n')
+        try:
+            check_inputs(inputs);report['final_input_checks_passed'] = True
+        except BaseException as error:
+            report.update(status='failed',final_input_checks_passed=False,input_check_error=str(error))
+            (directory/'wasmetal.bit').unlink(missing_ok=True)
+            raise
+        finally:receipt.write_text(json.dumps(report, indent=2)+'\n')
     print(directory/'wasmetal.bit')
 
 

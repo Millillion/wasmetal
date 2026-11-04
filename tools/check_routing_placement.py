@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 
 from prepare_standalone import ROOT, digest
-from route_reset_experiment import observed_router, routing_placement, verify_routing_placement
+from route_reset_experiment import ALTERNATE_WEIGHTS, observed_router, routing_placement, verify_routing_placement
 
 
 def main():
@@ -67,6 +67,25 @@ def main():
                 negatives.append({'name': name, 'diagnostic': str(error)})
             else:
                 raise AssertionError('invalid source accepted: '+name)
+        path, proof = routing_placement(source, directory, 'router2', True)
+        alternate = json.loads(path.read_text())
+        assert proof['only_selected_routing_settings_changed'] and not proof['only_router_setting_changed']
+        assert proof['selected_settings'] == {'router':'router2',**ALTERNATE_WEIGHTS}
+        for key in ALTERNATE_WEIGHTS:
+            mutant = copy.deepcopy(alternate);mutant['modules']['top']['settings'][key] = 'wrong'
+            try:verify_routing_placement(original,mutant,'router2',True)
+            except ValueError as error:negatives.append({'name':'alternate-'+key,'diagnostic':str(error)})
+            else:raise AssertionError('wrong alternate weight accepted: '+key)
+        for name in ['alternate-clock-change','unreviewed-routing-setting']:
+            mutant = copy.deepcopy(alternate)
+            if name == 'alternate-clock-change':mutant['modules']['top']['cells']['ff']['connections']['CLK'] = [9]
+            else:mutant['modules']['top']['settings']['router2/bbMargin/x'] = '999'
+            try:verify_routing_placement(original,mutant,'router2',True)
+            except ValueError as error:negatives.append({'name':name,'diagnostic':str(error)})
+            else:raise AssertionError('alternate profile accepted '+name)
+        try:routing_placement(source,directory,'router1',True)
+        except ValueError as error:negatives.append({'name':'alternate-with-router1','diagnostic':str(error)})
+        else:raise AssertionError('alternate weights accepted with router1')
         assert digest(source) == source_digest
     assert observed_router('Info: Routing..\nInfo: Routing 123 arcs.\n') == 'router1'
     assert observed_router('Info: Running router2...\n') == 'router2'
@@ -77,15 +96,16 @@ def main():
         negatives.append({'name': 'ambiguous-router-log', 'diagnostic': str(error)})
     else:
         raise AssertionError('ambiguous router log accepted')
-    assert len(negatives) == 13
+    assert len(negatives) == 21
     assert all(digest(ROOT/name) == value for name, value in inputs.items())
     report = ROOT/'reports/routing-placement-driver.json'
     report.parent.mkdir(exist_ok=True)
     report.write_text(json.dumps({'status': 'passed', 'inputs': inputs,
         'scope': 'Placement replay metadata guard and pinned router-log parser; no physical-fit claim',
-        'supported_routers': ['router1', 'router2'], 'source_unchanged': True,
+        'supported_routers': ['router1', 'router2'], 'alternate_router2_weights': ALTERNATE_WEIGHTS,
+        'source_unchanged': True,
         'negative_controls_rejected': len(negatives), 'negative_controls': negatives}, indent=2)+'\n')
-    print('PASS placement replay: both routers and 13 rejected changes or ambiguous logs')
+    print('PASS placement replay: both routers, alternate congestion weights and 21 rejected defects')
 
 
 if __name__ == '__main__':

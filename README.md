@@ -173,6 +173,10 @@ still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)
 was cancelled after about three hours. Its best 1,705 conflicting wires grew
 to 25,771 before cancellation; no routed timing or bitstream result follows.
+A separate two-hour trial now uses nextpnr's alternative congestion weights on
+the verified programmable placement. Its [preflight checks](docs/verification/routing-alternate.json)
+pass, including native settings import/export, 21 rejected defects and an
+actual timeout control. The routing outcome is pending.
 
 ## GUI Microarchitecture Simulator
 
