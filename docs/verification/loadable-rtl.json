@@ -10,7 +10,8 @@
       "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
       "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
       "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
-      "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+      "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+      "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
       "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
       "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
       "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
@@ -46,6 +47,7 @@
       "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
       "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
       "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+      "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
       "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
       "soc/wasmetal_standalone.sv": "3395f9ddf715cde033e14343dd5f03f25abe9f44a7d9b23e013999f919e835ee",
       "soc/wasmetal_standalone_ulx3s.sv": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
@@ -87,7 +89,7 @@
     "uart_ticks": 4,
     "clock_scale": 1,
     "upload_timeout": 4096,
-    "binary_sha256": "b0814bb6a7f020551ab0a737f596eb2460dc275273dd14918a0da5b0c213a57a"
+    "binary_sha256": "680a09d82705003235549bc164c78bba3618cc8e5e1aa2853cd499a08399f980"
   },
   "clock_scale": 1,
   "uart_ticks": 4,
@@ -846,6 +848,6 @@
     "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
     "tests/standalone/loadable.cpp": "ff9345754ef8d5bb48eb15bd24a51209589bf13beb61cec8bd30b2d1b0de67ba"
   },
-  "elapsed_seconds": 469.41960905096494,
+  "elapsed_seconds": 364.7203207779676,
   "physical_hardware_tested": false
 }

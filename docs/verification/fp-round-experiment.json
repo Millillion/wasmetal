@@ -1,11 +1,11 @@
 {
   "status": "passed",
-  "scope": "isolated experimental rounding component; not integrated into CPU",
+  "scope": "integral rounding component; complete CPU verification is separate",
   "inputs": {
-    "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+    "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
     "tests/rtl/wasmetal_fp_round_reference.sv": "905f845e1f1cc1a29a8eb691bfe329c7a39f2b7466131d4e981da7e3a2f16510",
     "tests/rtl/fp_round_four_state.sv": "ae9b4130f4368c4463182144deaa557efad282caef75330b1f60d44eed78047b",
-    "tools/check_fp_round.py": "4167e9bf0cfaccdf89ea0e8e7b188aeb89fbe42ad295f8689975a6fcb2c43312",
+    "tools/check_fp_round.py": "d15b1164840c0154e19021e102740a2673cac534720b56cc7317390731efc281",
     "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
     "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
     "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.v": "49d9a51a4e8b899df33247b778df5881ee6f9e38a98efafbbfaa7e0c1e0035f9",
@@ -41,92 +41,92 @@
       "bits": 32,
       "reference_origin_sha256": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
       "binary_equivalence": {
-        "log_sha256": "beb090c0c2203c4c7e80eeeb901273694d95f03b72b949aebe416546408647e2",
-        "script_sha256": "98b074ba95e4492fe75b2eb72089fc52a79720abe68ed191ade18748a18b2e83",
+        "log_sha256": "c51a1ac1e03ac15adecb0ab0da0df0f4f27ff324dd63f27fc305378a6bc2f259",
+        "script_sha256": "c3385e041d23d848afb97ee5e0d6958ace1e1eaec559102daef0dbba07945eb9",
         "inputs": {
-          "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
           "build/fp-round/equivalence-32.sv": "40dafe33a6623f61bbd008551c63951d60937c5da2e96cc339044e628343af22"
         }
       },
       "negative_controls": {
         "ties-away": {
-          "log_sha256": "1c6fdc937a30180b3005474627bdf3227f0569e89e3ed2c8a6bbe624b75c14e2",
-          "script_sha256": "3c0cf3fb0dcef8bd8a692d5d4ec0cb6f2f47b9b70e2e06dc3d608856ec266f4e",
+          "log_sha256": "3eee8cf255f8ed5ff325eb1f02fa2c05529250c3b7f5a9cb53cb050bd87248eb",
+          "script_sha256": "e43b5b9b7367a3eda267cd9d2448dfd7f882cc7647a1f826e8666c48b83d1c05",
           "inputs": {
-            "build/fp-round/ties-away.sv": "de487bc89d94fa1af9bf01d3eb8ab089f66ba4178578d144d8c8c32f5b30e70a",
+            "build/fp-round/ties-away.sv": "30cf68df2f0856c0539152ac5e04d7035101aa52e2a7120f7bc74dd00ca6ab9e",
             "build/fp-round/ties-away-32.sv": "40dafe33a6623f61bbd008551c63951d60937c5da2e96cc339044e628343af22"
           }
         },
         "lost-negative-zero": {
-          "log_sha256": "d75a1a7523309d10c749b0cb3de986a833364af35002a0efb9682c47422e1407",
-          "script_sha256": "872640a873b9d891240d3ba06e10455449941308252f271c7f627752b146e3dc",
+          "log_sha256": "d6f36e921feda45f485a1affee6ef4b6f6d4df8f9456be6ccb7c6abf69577645",
+          "script_sha256": "984b484713b2fb63aecbd1a929e569580be3eb9b7327ccaa7332b66fdcf439a1",
           "inputs": {
-            "build/fp-round/lost-negative-zero.sv": "583b38b9f3e69afad589f6b58d924b3841be60be9a8a0099bce3d46d9e1b2b70",
+            "build/fp-round/lost-negative-zero.sv": "be43ed98a280d5308826bd1a801de2eb9ec9647f0fffee32be860b45d4a31f54",
             "build/fp-round/lost-negative-zero-32.sv": "40dafe33a6623f61bbd008551c63951d60937c5da2e96cc339044e628343af22"
           }
         },
         "mapped-bit-inversion": {
-          "log_sha256": "2bc4d534ec43bc698db8579f2aee25668fc969d0e8e109a6eea196fe147790c0",
-          "script_sha256": "c18e4e0416ef1cac65e181f10d0978cc14c6d88c0333ea15ebf010c26c202703",
+          "log_sha256": "d40e29d9a3095101f9400a934073168b33368006750adcb5c922b55b5b4de0f7",
+          "script_sha256": "4a788814a4a2081a143afa7505d5f74c129fc650fde59dec62e744261d4fdc6c",
           "inputs": {
-            "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+            "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
             "build/fp-round/mapped-bit-inversion-32.sv": "e6829a29932461ff0b8a6fa1a50495caf8457c03697221f05ea71a37abee3d08",
             "build/fp-round/candidate-32-mapped.v": "0abd23bf9f99e8c8616dc1da8159bed041fc2af5e463eb789f0e2a633faf20cd"
           }
         },
         "unknown-mode-as-false": {
-          "log_sha256": "fc4a6cf6d7c46a65001c85fbeb00d45255758e9fd79b6e9bb23d716f205dc7bc",
-          "executable_sha256": "6b5ee21ebbeb392a71a8c0f58fcebf56e3b27921f8e670e50cf120fb22c22ca0",
+          "log_sha256": "77ec5e389525f912918849a91953ff4293531f4a1e9c5a75881fd7800957cf78",
+          "executable_sha256": "bc0b3627a84ab7faeba09d79a3df04dab49e6239ca6c1c94ac53927f185dcf0d",
           "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "command": [
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
-            "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+            "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
             "-g2012",
             "-Wall",
             "-s",
             "fp_round_four_state",
-            "-I/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5",
+            "-I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5",
             "-Pfp_round_four_state.EXP=8",
             "-Pfp_round_four_state.SIG=24",
             "-o",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-mode-as-false-32.vvp",
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-mode-as-false.sv",
-            "/home/lastmjs/development/wasmetal/build/fp-round/candidate-32-mapped.v",
-            "/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv"
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-mode-as-false-32.vvp",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-mode-as-false.sv",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/candidate-32-mapped.v",
+            "/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv"
           ],
-          "output": "FATAL: /home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 0 bit 23\n       Time: 1  Scope: fp_round_four_state",
+          "output": "FATAL: /tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 0 bit 23\n       Time: 1  Scope: fp_round_four_state",
           "inputs": {
-            "build/fp-round/unknown-mode-as-false.sv": "6687f6d18afb5d50342d20a30fa74ae4267a11921c0a07bc82b0729d4c9eb660",
+            "build/fp-round/unknown-mode-as-false.sv": "61855f7f9cc1e825a1deeb018a7b4693f7e0726764bad995d3a513489b12de0b",
             "build/fp-round/candidate-32-mapped.v": "0abd23bf9f99e8c8616dc1da8159bed041fc2af5e463eb789f0e2a633faf20cd",
             "build/fp-round/vectors-32.txt": "ba7ddbcedfee421dded2b2c406fa1e5ac78ab883ed5528578dc7f182d32defb8",
             "tests/rtl/fp_round_four_state.sv": "ae9b4130f4368c4463182144deaa557efad282caef75330b1f60d44eed78047b"
           }
         },
         "unknown-nan-as-false": {
-          "log_sha256": "8913071346950073cd05f30f0f5738950a6e9f7a71529a85424e681abb777357",
-          "executable_sha256": "700930560c45be5ada003ddbf741ac1d276757c57bbe09ec8d7265049bd0f271",
+          "log_sha256": "386b067464f35d836348334f293cbe53694659dc8bb47e1ca092b2a77ec48f69",
+          "executable_sha256": "97a0dc236e7c2103752a19a82e2330467330ba4d8a01dc15787f1962d9f83b0a",
           "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "command": [
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
-            "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+            "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
             "-g2012",
             "-Wall",
             "-s",
             "fp_round_four_state",
-            "-I/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5",
+            "-I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5",
             "-Pfp_round_four_state.EXP=8",
             "-Pfp_round_four_state.SIG=24",
             "-o",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-nan-as-false-32.vvp",
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-nan-as-false.sv",
-            "/home/lastmjs/development/wasmetal/build/fp-round/candidate-32-mapped.v",
-            "/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv"
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-nan-as-false-32.vvp",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-nan-as-false.sv",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/candidate-32-mapped.v",
+            "/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv"
           ],
-          "output": "FATAL: /home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 1 bit 22\n       Time: 2  Scope: fp_round_four_state",
+          "output": "FATAL: /tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 1 bit 22\n       Time: 2  Scope: fp_round_four_state",
           "inputs": {
-            "build/fp-round/unknown-nan-as-false.sv": "d5b3ba06cc4878d4d10111d2d593d82381f99ded9aef97fa9e2d1538b867de65",
+            "build/fp-round/unknown-nan-as-false.sv": "456b3a12bc8dd5d2ead8ddc6e3ec91023099f056ffa76565e463bf58086118af",
             "build/fp-round/candidate-32-mapped.v": "0abd23bf9f99e8c8616dc1da8159bed041fc2af5e463eb789f0e2a633faf20cd",
             "build/fp-round/vectors-32.txt": "ba7ddbcedfee421dded2b2c406fa1e5ac78ab883ed5528578dc7f182d32defb8",
             "tests/rtl/fp_round_four_state.sv": "ae9b4130f4368c4463182144deaa557efad282caef75330b1f60d44eed78047b"
@@ -134,34 +134,34 @@
         }
       },
       "reference_mapping": {
-        "log_sha256": "bdb04e722738eaca2c5a993adee1a05875a0b38ad83530ca3fe35f7f94083f09",
-        "script_sha256": "f287b628f7cdffebb901dc6e6ae21e2c45382a107d69caf3a3a3b9d33f0dcc01",
+        "log_sha256": "9649bff71a009f48da4c02a47710a334cb820e43aff47f7923a713d82469d054",
+        "script_sha256": "5015e491c0a20eaf000921772f02f93e95a4f8410e41f5628d5022a81b3ab05e",
         "cells": {
           "L6MUX21": 333,
           "PFUMX": 667,
           "LUT4": 1867,
           "CCU2C": 121
         },
-        "netlist_sha256": "7d8361cdacce7eaee4559b121d8984d64b190c891dc1e4ed31edcfa0567fbe84",
+        "netlist_sha256": "94ac55bb5bb8f4e2f149072349b03e493a62f9d51601ad3ba55cd7d43012d5f2",
         "verilog_sha256": "3b6280cc8a5d792c32a3b223e64817d6e5983abb1d2388005a9aaa7907f2fc0b"
       },
       "candidate_mapping": {
-        "log_sha256": "7533304267c1abfceb121f046ee0c57103210f74705844062d690bab137edfc8",
-        "script_sha256": "b786cbdcbeea579a70e22c3b0752451202f7b7b1856ded438faf427b5eeb0ef2",
+        "log_sha256": "f4c2c44229d07c11cf26f19ffe24dd7fc4198e04561843248ae7c9e973875789",
+        "script_sha256": "fc874bbb436dae570542950dbce42b3cd1e4db195e35e2f54f7a284ca703e589",
         "cells": {
           "L6MUX21": 41,
           "PFUMX": 117,
           "LUT4": 374,
           "CCU2C": 44
         },
-        "netlist_sha256": "37e179bde700065a1548edebe750506bc107f494ef474ada5929af512856fce6",
+        "netlist_sha256": "dcb8c271d8012a72177400726d133c0222d0732b2f714c5e5b4834b827ba6124",
         "verilog_sha256": "0abd23bf9f99e8c8616dc1da8159bed041fc2af5e463eb789f0e2a633faf20cd"
       },
       "mapped_equivalence": {
-        "log_sha256": "6515fce9b6db605998d304714217a30d1fde855640a95d94b5329b2ea5aba658",
-        "script_sha256": "223d0542d8a58f0cea591e4713bb43aa5639bd26dc7ffda6ad10796aad0b1552",
+        "log_sha256": "096b3921f8f71e8040c715292d11fac4ddc018c9dd0593cbef3191048f83fb36",
+        "script_sha256": "c665fe7cef380c31bb30f1d3809d5dff66f26cb060b64a60309c1a8ead53a237",
         "inputs": {
-          "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
           "build/fp-round/mapped-equivalence-32.sv": "95dfb03c412123bc92531b7bddbabe3fccad2a6872b4bc41697f72c969d5179f",
           "build/fp-round/candidate-32-mapped.v": "0abd23bf9f99e8c8616dc1da8159bed041fc2af5e463eb789f0e2a633faf20cd"
         }
@@ -174,29 +174,29 @@
         "oracle": "exact Python Fraction arithmetic; all completions of up to two X/Z bits"
       },
       "four_state": {
-        "log_sha256": "89b5dcf1c42c8740abbf95a960a169ed03617fd43d1c23e207782cf3d5d5a80e",
-        "executable_sha256": "0208298eaa1ceb1aedbbc5a35f022ccc966c3de646a01e5dce47fd15e96c8caf",
+        "log_sha256": "4f9632402ec3ac9484d74e0c6d8ca8557138c284e1044bd6466c4538b9e8bc2b",
+        "executable_sha256": "153e2626c9073857cde680b837f3e15f54bd6f5ad425fe5ca4d06da9ad8c0168",
         "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
-          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
           "-g2012",
           "-Wall",
           "-s",
           "fp_round_four_state",
-          "-I/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5",
+          "-I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5",
           "-Pfp_round_four_state.EXP=8",
           "-Pfp_round_four_state.SIG=24",
           "-o",
-          "/home/lastmjs/development/wasmetal/build/fp-round/four-state-32.vvp",
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
-          "/home/lastmjs/development/wasmetal/experiments/rounding/wasmetal_fp_round.sv",
-          "/home/lastmjs/development/wasmetal/build/fp-round/candidate-32-mapped.v",
-          "/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv"
+          "/tmp/wasmetal-direct-rounding/build/fp-round/four-state-32.vvp",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
+          "/tmp/wasmetal-direct-rounding/rtl/wasmetal_fp_round.sv",
+          "/tmp/wasmetal-direct-rounding/build/fp-round/candidate-32-mapped.v",
+          "/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv"
         ],
-        "output": "PASS 42894 rounding vectors; 8192 binary\n/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv:44: $finish called at 42894 (1s)",
+        "output": "PASS 42894 rounding vectors; 8192 binary\n/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv:44: $finish called at 42894 (1s)",
         "inputs": {
-          "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
           "build/fp-round/candidate-32-mapped.v": "0abd23bf9f99e8c8616dc1da8159bed041fc2af5e463eb789f0e2a633faf20cd",
           "build/fp-round/vectors-32.txt": "ba7ddbcedfee421dded2b2c406fa1e5ac78ab883ed5528578dc7f182d32defb8",
           "tests/rtl/fp_round_four_state.sv": "ae9b4130f4368c4463182144deaa557efad282caef75330b1f60d44eed78047b"
@@ -207,92 +207,92 @@
       "bits": 64,
       "reference_origin_sha256": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
       "binary_equivalence": {
-        "log_sha256": "e4eb593d450d5157bcbc1d460cd29909b0d51e61e98311cf6b89b125ca9021ef",
-        "script_sha256": "4433d4e5d0da58ef2698875565fd3d261c9bfde5cddbe485002e176b701c0ae0",
+        "log_sha256": "94227c74c670a0f8cac5c416815461d74cc97c5d77423f75eff0002811f6dd13",
+        "script_sha256": "51b2dc7ba922bd482b55ef06f63b356d5a5601fa5b56874e306317e2668bdaf6",
         "inputs": {
-          "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
           "build/fp-round/equivalence-64.sv": "a4a295840c63a9fdacf86d602b6ab4c8bbcb4f543942e3bb5edd87c6353bada4"
         }
       },
       "negative_controls": {
         "ties-away": {
-          "log_sha256": "afaa9a421951c65ea2d9b33c6ffe83fe978bd340a631e0e8c88b7e53966e4cf5",
-          "script_sha256": "163f43dc74d46ce3079fe7bc960f7b143f95bb1077452ee37819d48a019661e7",
+          "log_sha256": "3f12321578dd8e0c304e71040b4ca40ea9d3c15796f48f949d5d155964d38f18",
+          "script_sha256": "496102c4d090788755af255ddfeeb70740d3e86f643602b0f13feadc47f02dfc",
           "inputs": {
-            "build/fp-round/ties-away.sv": "de487bc89d94fa1af9bf01d3eb8ab089f66ba4178578d144d8c8c32f5b30e70a",
+            "build/fp-round/ties-away.sv": "30cf68df2f0856c0539152ac5e04d7035101aa52e2a7120f7bc74dd00ca6ab9e",
             "build/fp-round/ties-away-64.sv": "a4a295840c63a9fdacf86d602b6ab4c8bbcb4f543942e3bb5edd87c6353bada4"
           }
         },
         "lost-negative-zero": {
-          "log_sha256": "f710caaf4aa6528772a7f59356cc2010d0b75087b658a0785971cc1e7f60e7f2",
-          "script_sha256": "0cb574de04f70981cd2cd68734f35fb4f8ae08857081f1b4be65c96507e0ae0b",
+          "log_sha256": "639f974baa0fe5acc7a4242ba4ce68c55404eee37cfcb06a884b460e6e3be574",
+          "script_sha256": "f728a2c3ccdfb38b938936aa6de3157220ab81c9067ce833a8813555730c087d",
           "inputs": {
-            "build/fp-round/lost-negative-zero.sv": "583b38b9f3e69afad589f6b58d924b3841be60be9a8a0099bce3d46d9e1b2b70",
+            "build/fp-round/lost-negative-zero.sv": "be43ed98a280d5308826bd1a801de2eb9ec9647f0fffee32be860b45d4a31f54",
             "build/fp-round/lost-negative-zero-64.sv": "a4a295840c63a9fdacf86d602b6ab4c8bbcb4f543942e3bb5edd87c6353bada4"
           }
         },
         "mapped-bit-inversion": {
-          "log_sha256": "af78cf21be75ccc3a3b56af9140eabc626923178f8e05a3c05708bedfbeb2e12",
-          "script_sha256": "7cf3df7ec2f45b09ef44985d9b14c0be90e993fb45cf0dc8ba7b4f469e1e8d6a",
+          "log_sha256": "7014407af1959bac543cf203241e118caccf04295bb064d3727f9928dfff56eb",
+          "script_sha256": "1a0a5da9c2fd6c92ffe5959b335bb5b39fb17f323e3e70edeb90ec70d8b7dc88",
           "inputs": {
-            "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+            "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
             "build/fp-round/mapped-bit-inversion-64.sv": "55ae42c0eb1bb63943735331170033d7c854cec0732a258f5c048f4ffd644586",
             "build/fp-round/candidate-64-mapped.v": "fbe3eddcc0f8bbd1266a10cf26b576b8d56ec46d88a276aca58b3f4fb86d0cec"
           }
         },
         "unknown-mode-as-false": {
-          "log_sha256": "4fac995222282045044652f3064ae0c6747f1dc68fded7b1f892a6c1b58ed319",
-          "executable_sha256": "f4429a51d6a4e69b20e376e22276a7edfd717bd5be4e68dc553094e3b8cefe1f",
+          "log_sha256": "889497d770824e075e57db2682a9ebd61808c226fc877c8370d30f220d5cce18",
+          "executable_sha256": "eb2c663f3e5e2223d4d15e757ec813b17752979554f4b8df8be581d74d329398",
           "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "command": [
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
-            "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+            "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
             "-g2012",
             "-Wall",
             "-s",
             "fp_round_four_state",
-            "-I/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5",
+            "-I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5",
             "-Pfp_round_four_state.EXP=11",
             "-Pfp_round_four_state.SIG=53",
             "-o",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-mode-as-false-64.vvp",
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-mode-as-false.sv",
-            "/home/lastmjs/development/wasmetal/build/fp-round/candidate-64-mapped.v",
-            "/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv"
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-mode-as-false-64.vvp",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-mode-as-false.sv",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/candidate-64-mapped.v",
+            "/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv"
           ],
-          "output": "FATAL: /home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 0 bit 52\n       Time: 1  Scope: fp_round_four_state",
+          "output": "FATAL: /tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 0 bit 52\n       Time: 1  Scope: fp_round_four_state",
           "inputs": {
-            "build/fp-round/unknown-mode-as-false.sv": "6687f6d18afb5d50342d20a30fa74ae4267a11921c0a07bc82b0729d4c9eb660",
+            "build/fp-round/unknown-mode-as-false.sv": "61855f7f9cc1e825a1deeb018a7b4693f7e0726764bad995d3a513489b12de0b",
             "build/fp-round/candidate-64-mapped.v": "fbe3eddcc0f8bbd1266a10cf26b576b8d56ec46d88a276aca58b3f4fb86d0cec",
             "build/fp-round/vectors-64.txt": "b2ccb760d821d65ffb2d6ee4867faf60b5b43b8147e06b81ab0282e33a2d4167",
             "tests/rtl/fp_round_four_state.sv": "ae9b4130f4368c4463182144deaa557efad282caef75330b1f60d44eed78047b"
           }
         },
         "unknown-nan-as-false": {
-          "log_sha256": "c1602a4c2577619a0f8d5811961c9a6a71d34ca061ad0367651d66c842af491c",
-          "executable_sha256": "099d3de9d76c21d551b87368cf370e5448a1317aa157eac730503b6dda784279",
+          "log_sha256": "66038355074e4d9ab920b958291582c6b6e00f83d08b20021db5f15dd8682c47",
+          "executable_sha256": "34f81e44363d808e385c7f702d9957ae031aac2a8e2fc2ff8cebd86f92ce94bf",
           "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "command": [
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
-            "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+            "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
             "-g2012",
             "-Wall",
             "-s",
             "fp_round_four_state",
-            "-I/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5",
+            "-I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5",
             "-Pfp_round_four_state.EXP=11",
             "-Pfp_round_four_state.SIG=53",
             "-o",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-nan-as-false-64.vvp",
-            "/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
-            "/home/lastmjs/development/wasmetal/build/fp-round/unknown-nan-as-false.sv",
-            "/home/lastmjs/development/wasmetal/build/fp-round/candidate-64-mapped.v",
-            "/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv"
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-nan-as-false-64.vvp",
+            "/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/unknown-nan-as-false.sv",
+            "/tmp/wasmetal-direct-rounding/build/fp-round/candidate-64-mapped.v",
+            "/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv"
           ],
-          "output": "FATAL: /home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 1 bit 51\n       Time: 2  Scope: fp_round_four_state",
+          "output": "FATAL: /tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv:32: optimistic native rounded bit at vector 1 bit 51\n       Time: 2  Scope: fp_round_four_state",
           "inputs": {
-            "build/fp-round/unknown-nan-as-false.sv": "d5b3ba06cc4878d4d10111d2d593d82381f99ded9aef97fa9e2d1538b867de65",
+            "build/fp-round/unknown-nan-as-false.sv": "456b3a12bc8dd5d2ead8ddc6e3ec91023099f056ffa76565e463bf58086118af",
             "build/fp-round/candidate-64-mapped.v": "fbe3eddcc0f8bbd1266a10cf26b576b8d56ec46d88a276aca58b3f4fb86d0cec",
             "build/fp-round/vectors-64.txt": "b2ccb760d821d65ffb2d6ee4867faf60b5b43b8147e06b81ab0282e33a2d4167",
             "tests/rtl/fp_round_four_state.sv": "ae9b4130f4368c4463182144deaa557efad282caef75330b1f60d44eed78047b"
@@ -300,34 +300,34 @@
         }
       },
       "reference_mapping": {
-        "log_sha256": "e119db422c341974fd9994f551db51e79539c5aad47b0152ccce3b83dc506d42",
-        "script_sha256": "44b5f6779f94bc435acda76d14fb755df2d23d31a7eb45e2aeed1a3491718290",
+        "log_sha256": "ac0b43c3e8a78f12e6cec276be6f76e2acc06be42ae8e93d7d7d7fe6b9bea049",
+        "script_sha256": "aa2eb76b3bfa3bafbc037d75d0163ea127d4caf736c841542b84c5ad7d082a22",
         "cells": {
           "LUT4": 3150,
           "L6MUX21": 530,
           "PFUMX": 1185,
           "CCU2C": 139
         },
-        "netlist_sha256": "9dde7e28c46a679a49eb51620074884630fe4ab9cd4c64a9f86a4ad81ebfa385",
+        "netlist_sha256": "38084d9ecd7765f6cbae91ad5aa6b4ac02a4b2f98d38480c9798ae5bd25a76e7",
         "verilog_sha256": "2e5fdb13e648c71faaf9bd3bb589b31255112d77da1c653cf9528f5273e17070"
       },
       "candidate_mapping": {
-        "log_sha256": "95c1811015e7ac138922548745a526e94903dd6a59193f12290c170073487adc",
-        "script_sha256": "b95859973db9b7c2d443fdf1a647c1427507a9caee0e26e75dd50c530cfbc06d",
+        "log_sha256": "57af98e14ac173f8966cdda79ee588a22494fd3f6d33a8d95150bdd544de13dc",
+        "script_sha256": "7b65ab59fd28583f4726fb814a7a7733c49d2dd3693bacd59019a078b3507ae5",
         "cells": {
           "L6MUX21": 81,
           "PFUMX": 184,
           "LUT4": 739,
           "CCU2C": 63
         },
-        "netlist_sha256": "74b53f2d71a8f4b532424307bc21bf71362473ff561549ff903609b77a49ea74",
+        "netlist_sha256": "284a2ed2675d5d7d226a11aff70ac60b03c189c1a8011bf48ab648b5312424ff",
         "verilog_sha256": "fbe3eddcc0f8bbd1266a10cf26b576b8d56ec46d88a276aca58b3f4fb86d0cec"
       },
       "mapped_equivalence": {
-        "log_sha256": "015d4200837d14c13403707e53d3be9cd0e789052600fe418055158569c5bfb2",
-        "script_sha256": "5bc04898da7f5de6b090983f70ec32a827855b8fdf2c9e42e104eeda344b3a4d",
+        "log_sha256": "0e2c6140a2cf7623ca6fbb27f72c308986a619850aca9451a2dd06bf0cbc164d",
+        "script_sha256": "8bb99978b5e0616439b15bb30e55817dfa703ea345ddbb4ba6ffcd290646359a",
         "inputs": {
-          "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
           "build/fp-round/mapped-equivalence-64.sv": "4e338dd5fc526d8bac56fcb24cdf74247d99cfcbd5092dcce879f84aacab2e4c",
           "build/fp-round/candidate-64-mapped.v": "fbe3eddcc0f8bbd1266a10cf26b576b8d56ec46d88a276aca58b3f4fb86d0cec"
         }
@@ -340,29 +340,29 @@
         "oracle": "exact Python Fraction arithmetic; all completions of up to two X/Z bits"
       },
       "four_state": {
-        "log_sha256": "9192f50e113723491ecc87e6377d6e3273d0b2bebd5052fd5b3d212c793c3753",
-        "executable_sha256": "b3732f7eebfb88e49f86e317384f9604a0b6296c952f65cec3b1349b3cba7560",
+        "log_sha256": "87cb0e4e2306588398d6f9a947a421b656f49803275bf01d25ef55d5bd707381",
+        "executable_sha256": "f4458441af7859322533afe10c6f7bac4ff5c9a1e3ea937350fbd2772618841b",
         "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "command": [
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
-          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/bin/iverilog",
+          "-B/tmp/wasmetal-direct-rounding/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
           "-g2012",
           "-Wall",
           "-s",
           "fp_round_four_state",
-          "-I/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5",
+          "-I/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5",
           "-Pfp_round_four_state.EXP=11",
           "-Pfp_round_four_state.SIG=53",
           "-o",
-          "/home/lastmjs/development/wasmetal/build/fp-round/four-state-64.vvp",
-          "/home/lastmjs/development/wasmetal/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
-          "/home/lastmjs/development/wasmetal/experiments/rounding/wasmetal_fp_round.sv",
-          "/home/lastmjs/development/wasmetal/build/fp-round/candidate-64-mapped.v",
-          "/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv"
+          "/tmp/wasmetal-direct-rounding/build/fp-round/four-state-64.vvp",
+          "/tmp/wasmetal-direct-rounding/.cache/tools/usr/share/yosys/ecp5/cells_sim.v",
+          "/tmp/wasmetal-direct-rounding/rtl/wasmetal_fp_round.sv",
+          "/tmp/wasmetal-direct-rounding/build/fp-round/candidate-64-mapped.v",
+          "/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv"
         ],
-        "output": "PASS 130958 rounding vectors; 65536 binary\n/home/lastmjs/development/wasmetal/tests/rtl/fp_round_four_state.sv:44: $finish called at 130958 (1s)",
+        "output": "PASS 130958 rounding vectors; 65536 binary\n/tmp/wasmetal-direct-rounding/tests/rtl/fp_round_four_state.sv:44: $finish called at 130958 (1s)",
         "inputs": {
-          "experiments/rounding/wasmetal_fp_round.sv": "7257085b48dd9fec89e37d24fd465a204bfefb1fa88b5aaa055d9cd52e3593be",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
           "build/fp-round/candidate-64-mapped.v": "fbe3eddcc0f8bbd1266a10cf26b576b8d56ec46d88a276aca58b3f4fb86d0cec",
           "build/fp-round/vectors-64.txt": "b2ccb760d821d65ffb2d6ee4867faf60b5b43b8147e06b81ab0282e33a2d4167",
           "tests/rtl/fp_round_four_state.sv": "ae9b4130f4368c4463182144deaa557efad282caef75330b1f60d44eed78047b"
@@ -371,7 +371,7 @@
     }
   ],
   "python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
-  "elapsed_seconds": 148.8063529819483,
+  "elapsed_seconds": 148.42241465300322,
   "physical_hardware_tested": false,
   "whole_cpu_area_or_timing_measured": false
 }

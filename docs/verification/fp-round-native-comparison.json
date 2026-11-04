@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "scope": "complete native corpus with zero and three memory wait states, before and after direct integral rounding",
+  "comparisons": [
+    {
+      "memory_wait_states": 0,
+      "suite_files": 259,
+      "canonical_commands": 65353,
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 283019023,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      },
+      "baseline_report_sha256": "cffab83df389c8b411b943f2c90c2ea9a61ccd7dda0c6fdea2b5b2cf6720b841",
+      "current_report_sha256": "6a67d8f1d562cf8f5d26e2378d51853331127def7be690ad9dbba20d7a37bb32",
+      "every_suite_count_and_command_cycle_matches": true,
+      "current_source_sha256": "60b01c41b11f5dfc3e4091ff9f82368a9a1f43d0fbe3541320bcb65aa78d19c9",
+      "baseline_source_sha256": "8f411eb05cd5ead75452556f7148996ed3878a8d8da3e94c099556ad039ae946"
+    },
+    {
+      "memory_wait_states": 3,
+      "suite_files": 259,
+      "canonical_commands": 65353,
+      "totals": {
+        "modules_instantiated": 2266,
+        "rtl_assertions_passed": 57711,
+        "loader_assertions_passed": 4677,
+        "rtl_cycles": 306351688,
+        "script_commands": 65353,
+        "rtl_actions_completed": 359,
+        "registrations": 80,
+        "embedding_assertions_passed": 254,
+        "module_definitions": 6
+      },
+      "baseline_report_sha256": "7e16893b41da3439356902f4b99a4472fa198d316dc3d23b91c88dff443173cd",
+      "current_report_sha256": "5c9ced3f7a650a24e762ba2ecf100a06e8774553cb20e0533f7921ba87d394bc",
+      "every_suite_count_and_command_cycle_matches": true,
+      "current_source_sha256": "60b01c41b11f5dfc3e4091ff9f82368a9a1f43d0fbe3541320bcb65aa78d19c9",
+      "baseline_source_sha256": "8f411eb05cd5ead75452556f7148996ed3878a8d8da3e94c099556ad039ae946"
+    }
+  ],
+  "physical_board_tested": false
+}

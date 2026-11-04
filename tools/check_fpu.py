@@ -23,7 +23,7 @@ def main():
     reference_format = ROOT / 'tests/rtl/wasmetal_fp_format_reference.sv'
     benches = {
         'fp_shared': [arithmetic, reference_format],
-        'fpu_shared': [arithmetic, ROOT / 'rtl/wasmetal_fp_format.sv', ROOT / 'rtl/wasmetal_fpu.sv',
+        'fpu_shared': [arithmetic, ROOT / 'rtl/wasmetal_fp_round.sv', ROOT / 'rtl/wasmetal_fp_format.sv', ROOT / 'rtl/wasmetal_fpu.sv',
                        reference_format, ROOT / 'tests/rtl/wasmetal_fpu_reference.sv'],
     }
     paths = set(vendor + include_files + [ROOT / 'rtl/vendor.vlt', Path(__file__).resolve(), ROOT / 'tools/upstream.lock.json'])

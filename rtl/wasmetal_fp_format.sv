@@ -20,14 +20,10 @@ module wasmetal_fp_format #(
     output logic is_nan
 );
     localparam logic [N-1:0] QNAN={1'b0,{EXP{1'b1}},1'b1,{(SIG-2){1'b0}}};
-    localparam integer ROUND_THRESHOLD=(1 << (EXP-1))-1+SIG-1;
-    wire [N:0] rec_integer, rec_round;
-    wire [N-1:0] round_result;
-    wire [63:0] round_integer;
-    wire [4:0] unused_compare_flags, unused_integer_flags, unused_round_flags;
-    wire [2:0] unused_round_integer_flags;
+    wire [N:0] rec_integer;
+    wire [N-1:0] rounded_integral;
+    wire [4:0] unused_compare_flags, unused_integer_flags;
     wire lt, eq, gt, unused_unordered;
-    logic [2:0] round_mode;
     wire b_nan = (&b[N-2:SIG-1]) && (|b[SIG-2:0]);
     assign is_nan = (&a[N-2:SIG-1]) && (|a[SIG-2:0]);
     fNToRecFN #(EXP,SIG) decode_a(a,rec_a);
@@ -39,28 +35,15 @@ module wasmetal_fp_format #(
     recFNToIN #(EXP,SIG,64) convert_i64(1'b1,rec_a,3'b001,result_signed,int64_result,int64_flags);
     iNToRecFN #(64,EXP,SIG) convert_integer(1'b1,integer_signed,integer_input,3'b000,rec_integer,unused_integer_flags);
     recFNToFN #(EXP,SIG) encode_integer(rec_integer,integer_float);
-    recFNToIN #(EXP,SIG,64) round_to_integer(1'b1,rec_a,round_mode,1'b1,round_integer,unused_round_integer_flags);
-    iNToRecFN #(64,EXP,SIG) round_to_float(1'b1,1'b1,round_integer,3'b000,rec_round,unused_round_flags);
-    recFNToFN #(EXP,SIG) encode_round(rec_round,round_result);
-    always_comb begin
-        case (operation)
-            2: round_mode = 3'b011; // ceil, toward +infinity
-            3: round_mode = 3'b010; // floor, toward -infinity
-            4: round_mode = 3'b001; // truncate, toward zero
-            default: round_mode = 3'b000; // nearest, ties even
-        endcase
-    end
+    // Operations 2..5 are ceil, floor, trunc and nearest-even respectively.
+    wasmetal_fp_round #(.EXP(EXP),.SIG(SIG)) integral_round(
+        .a(a),.mode(operation[1:0]-2'd2),.result(rounded_integral));
     always_comb begin
         result = 0;
         case (operation)
             0: result = {1'b0,a[N-2:0]};
             1: result = {!a[N-1],a[N-2:0]};
-            2,3,4,5: begin
-                if (is_nan) result = QNAN;
-                else if (a[N-2:SIG-1] >= EXP'(ROUND_THRESHOLD)) result = a;
-                else if (round_result[N-2:0] == 0) result = {a[N-1],{(N-1){1'b0}}};
-                else result = round_result;
-            end
+            2,3,4,5: result = rounded_integral;
             7,8,9: result = arithmetic_result;
             11: begin
                 if (is_nan || b_nan) result = QNAN;

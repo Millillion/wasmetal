@@ -5,7 +5,8 @@
 The implementation target is **the complete WebAssembly Core 3.0 ISA**, pinned to
 `WebAssembly/spec` commit `6057acdb1a213f85369c64454c078a15f11ac4b1` (2026-10-28).
 The earlier i32-only roadmap proposal is superseded as a compatibility target.
-All 259 official core test files passed with the current SIMD selector: 57,711
+All 259 official core test files pass with direct integral rounding and the
+SIMD selector, with both zero and three memory wait states: 57,711
 execution assertions, 4,677 loader-validation assertions, and 254 embedding
 assertions, with zero failures, unsupported cases, or blocked commands. The
 [recorded report](verification/core-3.0-current.json) identifies source and
@@ -16,15 +17,17 @@ FPGA deployment has a
 separate [board build and verification process](FPGA.md). Unsupported behavior
 fails verification.
 
-The verified configuration shares floating-point arithmetic and uses 8,192
-value slots. The report above covers the committed configuration, including
-the descriptor RAM changes, SIMD selector and matching generated interface headers.
-The matching ECP5 mapping now [passes the complete corpus in CI](verification/ci-selector-complete.json),
-including all sixteen partitions and exact command-cycle agreement with native
-RTL. The packaged simulator and all 242 additional build inputs have been
-checked against their recorded hashes. The local and CI circuits are identical
-after workspace-path relocation. Routed reports still identify an earlier CPU
-revision; simulation does not establish current physical timing.
+The verified native configuration shares floating-point arithmetic, uses
+8,192 value slots and includes the descriptor RAM changes, SIMD selector and
+direct integral rounding. Both native configurations preserve every command's
+cycle count from the preceding revision. The new mapped CPU passes four
+focused floating-point suites; its complete mapped regression is running.
+
+The preceding selector revision [passed the complete mapped corpus in CI](verification/ci-selector-complete.json),
+including exact command-cycle agreement, packaged executable/input checks and
+local/CI circuit agreement. That receipt remains bound to the preceding sources.
+Routed reports identify earlier CPU revisions; simulation does not establish
+current physical timing.
 
 The official **core** tests cover the ISA and module semantics. Browser DOM and
 JavaScript embedding API tests are not processor ISA tests. Proposals not merged
@@ -52,6 +55,13 @@ an intermediate rounding. Integer conversions and format-specific bit operations
 retain their separate precision implementations. Differential verification against
 the earlier separate units covers 1,734,368 cases; this is not a formal arithmetic
 proof. See the [floating-point report](verification/floating-point.json).
+
+Ceiling, floor, truncation and nearest-even now use
+[direct IEEE-field rounding](ROUNDING.md), preserving signed zero and canonical
+NaNs. Both precisions have all-input component and mapped equivalence proofs.
+A separate integration proof compares every format-unit output, including
+non-rounding operations and flags, against the frozen prior implementation.
+This change adds no state or latency.
 
 Floating-point SIMD operands use explicit 32-bit or 64-bit lane selection.
 The narrow result is zero-extended, and every out-of-range lane returns zero.

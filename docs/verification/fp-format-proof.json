@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "scope": "all format-unit outputs for every binary input, including all 64 operation encodings",
+  "reference_origin_sha256": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+  "inputs": {
+    "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+    "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
+    "tests/rtl/wasmetal_fp_round_reference.sv": "905f845e1f1cc1a29a8eb691bfe329c7a39f2b7466131d4e981da7e3a2f16510",
+    "tools/prove_fp_format.py": "6998771441d02d702a8ba8eb2c41ef64bf5bb6d7ec0f18ffe8597c0730d513fd",
+    "tools/check_fp_round.py": "d15b1164840c0154e19021e102740a2673cac534720b56cc7317390731efc281",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.v": "5978254ad3781165833345616e4c1c3447cac4a1d8fb73689c2def15f71f52e3",
+    "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.v": "49d9a51a4e8b899df33247b778df5881ee6f9e38a98efafbbfaa7e0c1e0035f9",
+    "third_party/hardfloat/source/HardFloat_primitives.v": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+    "third_party/hardfloat/source/HardFloat_rawFN.v": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+    "third_party/hardfloat/source/addRecFN.v": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+    "third_party/hardfloat/source/compareRecFN.v": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+    "third_party/hardfloat/source/divSqrtRecFN_small.v": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+    "third_party/hardfloat/source/fNToRecFN.v": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+    "third_party/hardfloat/source/iNToRecFN.v": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+    "third_party/hardfloat/source/isSigNaNRecFN.v": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+    "third_party/hardfloat/source/mulAddRecFN.v": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+    "third_party/hardfloat/source/mulRecFN.v": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+    "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+    "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+    "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+    "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+    "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+    "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+    "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c"
+  },
+  "results": [
+    {
+      "precision_bits": 32,
+      "equivalence": {
+        "log_sha256": "44781a77a504058a6c350ba375c7bec32f126eec66e53f798a0a985ccf0ef22f",
+        "script_sha256": "0af911d06ad93e9bdbb76837965ba40339ce7ca5335337cf772738f0de1608ed",
+        "inputs": {
+          "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+          "build/fp-round/format-32.sv": "98a2f3d179cbe0e5ef27ad5486ebd86e8e5afea12a15f04633e0a9ba868d734e",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951"
+        },
+        "compared_output_bits": 266
+      },
+      "incorrect_mode_mapping_rejected": {
+        "log_sha256": "e864383bac4ea60abbfb62e968b14778514ca4f8891845aaf660a1170cc30d57",
+        "script_sha256": "d4b4934cf20a095e149821a4bb1ae6b00c34bb328e27f6eb6f4a5f58922365e5",
+        "inputs": {
+          "build/fp-round/format-32-wrong-mode-source.sv": "c0e5184289ee34ff21a9bf7bf9baabe9e084ccf3d9189a34482e9205ba1ad002",
+          "build/fp-round/format-32-wrong-mode.sv": "98a2f3d179cbe0e5ef27ad5486ebd86e8e5afea12a15f04633e0a9ba868d734e",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951"
+        },
+        "compared_output_bits": 266
+      }
+    },
+    {
+      "precision_bits": 64,
+      "equivalence": {
+        "log_sha256": "60ee4940d439a40678c6f796ce476ff0ee82ed4e9e473927513e71724704cf53",
+        "script_sha256": "2c18fab849c5f8b18bc0a84107199dab7535d2cdfdf8dcae16173e23c6f757d1",
+        "inputs": {
+          "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+          "build/fp-round/format-64.sv": "aeec059ec662a605b45b9baec8ba3851331748ced6d94208e5a6b1516dcfea78",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951"
+        },
+        "compared_output_bits": 426
+      },
+      "incorrect_mode_mapping_rejected": {
+        "log_sha256": "5211cb4dbd47f447777e0bf5a9ba5e40e858ef419bd23ff54e187118be15fb7c",
+        "script_sha256": "b4ec0d25320e4e23dd70e13def5a4532b7b6db7fc73e3f1cc002dc639e4e5380",
+        "inputs": {
+          "build/fp-round/format-64-wrong-mode-source.sv": "c0e5184289ee34ff21a9bf7bf9baabe9e084ccf3d9189a34482e9205ba1ad002",
+          "build/fp-round/format-64-wrong-mode.sv": "aeec059ec662a605b45b9baec8ba3851331748ced6d94208e5a6b1516dcfea78",
+          "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951"
+        },
+        "compared_output_bits": 426
+      }
+    }
+  ],
+  "elapsed_seconds": 23.59059929009527,
+  "physical_hardware_tested": false
+}

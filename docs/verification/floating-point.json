@@ -2,7 +2,8 @@
   "inputs": {
     "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
     "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
-    "rtl/wasmetal_fp_format.sv": "499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe",
+    "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+    "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
     "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
     "tests/rtl/fp_shared.cpp": "ccf0c198737bc299b3923c5b2bf2be55e9298ff762288178f8592d4375675bab",
     "tests/rtl/fp_shared_tb.sv": "bf45b12fa6db3fe32cda38ef60238c953d496b231193fd49546d750776bea70e",
@@ -29,7 +30,7 @@
     "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
     "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
     "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
-    "tools/check_fpu.py": "2fc21880f1653081316a0c9d44ab25c51119da04ea9faefa02b4dda1237c4355",
+    "tools/check_fpu.py": "2ab45be6a696d3465802f5914efd4c7b5a7f2452af5a25171c6924a13343ca1d",
     "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
   },
   "results": [
@@ -37,17 +38,16 @@
       "bench": "fp_shared",
       "comparisons": 1005760,
       "negative_controls": 0,
-      "binary_sha256": "4ce940d7a5c894a3705ed06be509db860b1a1cf942ac4fae07d0cd9c56099d97"
+      "binary_sha256": "487ad55063e1a630a0290c10dc99adbb5b84d9e9621f5361f67e32d6af795f44"
     },
     {
       "bench": "fpu_shared",
       "comparisons": 728608,
       "negative_controls": 2,
-      "binary_sha256": "d434b16ead08c70a7eb53b47cdfd2e612bd4eac7dff73c04c831ebb0631248f0"
+      "binary_sha256": "33cd2ddf7cc6b391eca8181e43b09b77beb2f54e01fedaedea001d1ab96a7985"
     }
   ],
-  "elapsed_seconds": 163.37285317998612,
+  "elapsed_seconds": 80.90662013890687,
   "reference": "Separate precision RTL from f926690; both designs use pinned HardFloat.",
-  "scope": "Deterministic edge and random differential checks, including reset interruption; not a formal arithmetic proof.",
-  "verification_context": "Isolated prototype using the same floating-point RTL and test sources committed with this report."
+  "scope": "Deterministic edge and random differential checks, including reset interruption; not a formal arithmetic proof."
 }

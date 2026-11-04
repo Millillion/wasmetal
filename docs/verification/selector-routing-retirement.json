@@ -1,0 +1,408 @@
+{
+  "status": "retired unresolved routing trials",
+  "retired_at": "2026-11-04T08:58:45.389229+00:00",
+  "reason": "persistent increasing congestion; superseded by separately placed direct-rounding CPU trial",
+  "physical_implementation_passed": false,
+  "trials": [
+    {
+      "directory": "build/loadable-ulx3s",
+      "artifacts": {
+        "design.json": "699bacecd973fcf948022ad51d8364a17e5853f1fc6de53bd79070c666245b09",
+        "design.manifest.json": "96a231dfd710051bc886daf3830b10fd99b9825726e4fa65c0f091e328ef51e1",
+        "placed.json": "cc61d7cffa67e602d092cf388167324de94f43737ef39dfcc5017b4d469ffd11",
+        "placement.log": "a725039d71efd680ff93fa7a46ccb5baddd4c4f61510f08fed55c1307dc93fb0",
+        "routing.log": "d2c8536a303d78efedb4cdd1005fd4f0c07cc4941445bf2c53a8de7f874643a8"
+      },
+      "routing_iterations": [
+        {
+          "iteration": 1,
+          "wires": 905724,
+          "overused": 94092,
+          "overuse": 116002
+        },
+        {
+          "iteration": 2,
+          "wires": 942464,
+          "overused": 68240,
+          "overuse": 75973
+        },
+        {
+          "iteration": 3,
+          "wires": 962317,
+          "overused": 52235,
+          "overuse": 55826
+        },
+        {
+          "iteration": 4,
+          "wires": 977783,
+          "overused": 42194,
+          "overuse": 44423
+        },
+        {
+          "iteration": 5,
+          "wires": 989694,
+          "overused": 34848,
+          "overuse": 36392
+        },
+        {
+          "iteration": 6,
+          "wires": 998274,
+          "overused": 30092,
+          "overuse": 31254
+        },
+        {
+          "iteration": 7,
+          "wires": 1004423,
+          "overused": 27303,
+          "overuse": 28217
+        },
+        {
+          "iteration": 8,
+          "wires": 1012551,
+          "overused": 25054,
+          "overuse": 25707
+        },
+        {
+          "iteration": 9,
+          "wires": 1019449,
+          "overused": 23595,
+          "overuse": 24178
+        },
+        {
+          "iteration": 10,
+          "wires": 1025208,
+          "overused": 22120,
+          "overuse": 22575
+        },
+        {
+          "iteration": 11,
+          "wires": 1030191,
+          "overused": 21325,
+          "overuse": 21764
+        },
+        {
+          "iteration": 12,
+          "wires": 1035199,
+          "overused": 20781,
+          "overuse": 21163
+        },
+        {
+          "iteration": 13,
+          "wires": 1040748,
+          "overused": 20908,
+          "overuse": 21296
+        },
+        {
+          "iteration": 14,
+          "wires": 1046007,
+          "overused": 20592,
+          "overuse": 20935
+        },
+        {
+          "iteration": 15,
+          "wires": 1051017,
+          "overused": 21507,
+          "overuse": 21872
+        },
+        {
+          "iteration": 16,
+          "wires": 1057058,
+          "overused": 21755,
+          "overuse": 22124
+        },
+        {
+          "iteration": 17,
+          "wires": 1062650,
+          "overused": 22369,
+          "overuse": 22742
+        },
+        {
+          "iteration": 18,
+          "wires": 1068950,
+          "overused": 22738,
+          "overuse": 23124
+        },
+        {
+          "iteration": 19,
+          "wires": 1074095,
+          "overused": 23524,
+          "overuse": 23943
+        },
+        {
+          "iteration": 20,
+          "wires": 1081750,
+          "overused": 25156,
+          "overuse": 25672
+        },
+        {
+          "iteration": 21,
+          "wires": 1087378,
+          "overused": 26188,
+          "overuse": 26720
+        },
+        {
+          "iteration": 22,
+          "wires": 1092486,
+          "overused": 27029,
+          "overuse": 27626
+        },
+        {
+          "iteration": 23,
+          "wires": 1100065,
+          "overused": 28847,
+          "overuse": 29475
+        },
+        {
+          "iteration": 24,
+          "wires": 1106231,
+          "overused": 30556,
+          "overuse": 31240
+        },
+        {
+          "iteration": 25,
+          "wires": 1113601,
+          "overused": 31650,
+          "overuse": 32367
+        },
+        {
+          "iteration": 26,
+          "wires": 1120535,
+          "overused": 33791,
+          "overuse": 34564
+        },
+        {
+          "iteration": 27,
+          "wires": 1129388,
+          "overused": 36399,
+          "overuse": 37227
+        },
+        {
+          "iteration": 28,
+          "wires": 1136045,
+          "overused": 37876,
+          "overuse": 38852
+        },
+        {
+          "iteration": 29,
+          "wires": 1141509,
+          "overused": 39714,
+          "overuse": 40731
+        }
+      ],
+      "placed_logic_cells": 61653,
+      "routed_json_exists": false,
+      "bitstream_exists": false
+    },
+    {
+      "directory": "build/lane-loadable-ulx3s",
+      "artifacts": {
+        "design.json": "cf370eb57bf663db23bc8e3327579c5ff3ae28d98c14ea6160d8ced3ecef694d",
+        "design.manifest.json": "42b4b3c26538919dcc9240deec53f21e66c3eba4a558c4cf2cc49a9d86de1856",
+        "placed.json": "f6456c6f044f4512d978427f3cced90f842b607f91dcd3c242978fbb54fa19b8",
+        "placement.log": "d45ace98dd646a34bb3fea7895e038c560a0d409f3b2c7a2c82603d8d3ee24c4",
+        "routing.log": "6c3b53ffb01c49215531ab6ed272437fbeaeb1b7bf5e9cc2e470576b0172dae8"
+      },
+      "routing_iterations": [
+        {
+          "iteration": 1,
+          "wires": 905724,
+          "overused": 94092,
+          "overuse": 116002
+        },
+        {
+          "iteration": 2,
+          "wires": 942464,
+          "overused": 68240,
+          "overuse": 75973
+        },
+        {
+          "iteration": 3,
+          "wires": 962317,
+          "overused": 52235,
+          "overuse": 55826
+        },
+        {
+          "iteration": 4,
+          "wires": 977783,
+          "overused": 42194,
+          "overuse": 44423
+        },
+        {
+          "iteration": 5,
+          "wires": 989694,
+          "overused": 34848,
+          "overuse": 36392
+        },
+        {
+          "iteration": 6,
+          "wires": 998274,
+          "overused": 30092,
+          "overuse": 31254
+        },
+        {
+          "iteration": 7,
+          "wires": 1004423,
+          "overused": 27303,
+          "overuse": 28217
+        },
+        {
+          "iteration": 8,
+          "wires": 1012551,
+          "overused": 25054,
+          "overuse": 25707
+        },
+        {
+          "iteration": 9,
+          "wires": 1019449,
+          "overused": 23595,
+          "overuse": 24178
+        },
+        {
+          "iteration": 10,
+          "wires": 1025208,
+          "overused": 22120,
+          "overuse": 22575
+        },
+        {
+          "iteration": 11,
+          "wires": 1030191,
+          "overused": 21325,
+          "overuse": 21764
+        },
+        {
+          "iteration": 12,
+          "wires": 1035199,
+          "overused": 20781,
+          "overuse": 21163
+        },
+        {
+          "iteration": 13,
+          "wires": 1040748,
+          "overused": 20908,
+          "overuse": 21296
+        },
+        {
+          "iteration": 14,
+          "wires": 1046007,
+          "overused": 20592,
+          "overuse": 20935
+        },
+        {
+          "iteration": 15,
+          "wires": 1051017,
+          "overused": 21507,
+          "overuse": 21872
+        },
+        {
+          "iteration": 16,
+          "wires": 1057058,
+          "overused": 21755,
+          "overuse": 22124
+        },
+        {
+          "iteration": 17,
+          "wires": 1062650,
+          "overused": 22369,
+          "overuse": 22742
+        },
+        {
+          "iteration": 18,
+          "wires": 1068950,
+          "overused": 22738,
+          "overuse": 23124
+        },
+        {
+          "iteration": 19,
+          "wires": 1074095,
+          "overused": 23524,
+          "overuse": 23943
+        },
+        {
+          "iteration": 20,
+          "wires": 1081750,
+          "overused": 25156,
+          "overuse": 25672
+        },
+        {
+          "iteration": 21,
+          "wires": 1087378,
+          "overused": 26188,
+          "overuse": 26720
+        },
+        {
+          "iteration": 22,
+          "wires": 1092486,
+          "overused": 27029,
+          "overuse": 27626
+        },
+        {
+          "iteration": 23,
+          "wires": 1100065,
+          "overused": 28847,
+          "overuse": 29475
+        },
+        {
+          "iteration": 24,
+          "wires": 1106231,
+          "overused": 30556,
+          "overuse": 31240
+        },
+        {
+          "iteration": 25,
+          "wires": 1113601,
+          "overused": 31650,
+          "overuse": 32367
+        },
+        {
+          "iteration": 26,
+          "wires": 1120535,
+          "overused": 33791,
+          "overuse": 34564
+        },
+        {
+          "iteration": 27,
+          "wires": 1129388,
+          "overused": 36399,
+          "overuse": 37227
+        },
+        {
+          "iteration": 28,
+          "wires": 1136045,
+          "overused": 37876,
+          "overuse": 38852
+        },
+        {
+          "iteration": 29,
+          "wires": 1141509,
+          "overused": 39714,
+          "overuse": 40731
+        },
+        {
+          "iteration": 30,
+          "wires": 1149948,
+          "overused": 41614,
+          "overuse": 42704
+        },
+        {
+          "iteration": 31,
+          "wires": 1157451,
+          "overused": 44085,
+          "overuse": 45272
+        }
+      ],
+      "placed_logic_cells": 61653,
+      "routed_json_exists": false,
+      "bitstream_exists": false
+    }
+  ],
+  "stopped_processes": [
+    {
+      "pid": 3657671,
+      "directory": "lane-loadable-ulx3s"
+    },
+    {
+      "pid": 3750831,
+      "directory": "loadable-ulx3s"
+    }
+  ]
+}

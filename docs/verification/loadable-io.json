@@ -8,7 +8,7 @@
         "reset_sync_TRELLIS_FF_Q"
       ],
       "clock": [
-        69745
+        69279
       ],
       "asynchronous_assertion": true
     },
@@ -18,7 +18,7 @@
         "system.serial.rx_sync_TRELLIS_FF_Q"
       ],
       "clock": [
-        69745
+        69279
       ],
       "asynchronous_assertion": false
     }
@@ -36,9 +36,9 @@
   ],
   "inputs": {
     "tools/audit_loadable_io.py": "b9586cdae010eb9a0c9376879efbf32b5efd175993f715e54fafcc53b29b3e4b",
-    "build/loadable-ulx3s/design.json": "699bacecd973fcf948022ad51d8364a17e5853f1fc6de53bd79070c666245b09",
-    "build/loadable-ulx3s/design.manifest.json": "96a231dfd710051bc886daf3830b10fd99b9825726e4fa65c0f091e328ef51e1"
+    "build/loadable-ulx3s/design.json": "5085cbc6f05cf8d5815bb07f6d206d3ca1a2a9ccaa2f3e5dfc9b525d427c56a5",
+    "build/loadable-ulx3s/design.manifest.json": "ebbce46c7f0c17b90e4e2284da9102afc9970db9e89d73a728615627a75ed96b"
   },
-  "netlist_sha256": "699bacecd973fcf948022ad51d8364a17e5853f1fc6de53bd79070c666245b09",
+  "netlist_sha256": "5085cbc6f05cf8d5815bb07f6d206d3ca1a2a9ccaa2f3e5dfc9b525d427c56a5",
   "physical_hardware_tested": false
 }

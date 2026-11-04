@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Integral rounding directly in the IEEE encoding. Experimental until integrated.
+// Wasm integral rounding directly in the IEEE encoding, preserving signed zero.
 module wasmetal_fp_round #(parameter integer EXP=8,SIG=24,N=EXP+SIG) (
     input wire [N-1:0] a,
     input wire [1:0] mode, // ceil, floor, trunc, nearest-even

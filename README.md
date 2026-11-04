@@ -8,31 +8,40 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
-The SIMD floating-point selector now uses explicit lane selection. The complete
-native corpus passes with unchanged results and cycles, and
-[fresh synthesis](docs/verification/simd-selector-synthesis.json) removes
-1,301 LUT4 cells and one DSP from the bounded CPU, preserving its storage
-capacities. An [all-input proof and 12,288 four-state checks](docs/verification/simd-fp-selection.json)
-cover the changed block. The updated programmable circuit passes all 35 mapped
-integration cases and all five compiled C cases, matching RTL exactly. The
-complete mapped CPU corpus also [passes in CI](docs/verification/ci-selector-complete.json):
-all 259 suites agree with native RTL for every command's cycle count.
-Programmable FPGA routing remains unresolved.
-Both updated programmable wrapper mappings pass their
-independent equivalence checks, and the updated board circuit passes its
-UART/reset structure audit. The routed-bitstream records below describe the preceding CPU revision;
-new physical implementation remains to be completed.
+The CPU now implements integral floating-point rounding directly in the IEEE
+encoding. All 259 official suites pass [without memory stalls](docs/verification/core-rounding-native-zero.json)
+and [with three wait states](docs/verification/core-3.0-current.json), with
+[every command cycle unchanged](docs/verification/fp-round-native-comparison.json).
+The component proofs, complete format-interface proofs, 1,734,368 FPU
+comparisons and all 35 programmable RTL cases pass.
+[Fresh CPU synthesis](docs/verification/fp-round-synthesis.json) saves 399 LUT4
+cells in the bounded profile and 559 in the host-backed profile, with unchanged
+memory, register and DSP counts. The new mapped CPU passes
+[5,352 execution assertions in four scalar/SIMD floating-point suites](docs/verification/fp-round-mapped-focused.json).
+Its complete corpus, complete programmable comparison and compiled C comparison
+are running. The new board design has placed; routing remains incomplete.
+Other whole-system integration and routed-bitstream records below retain their
+earlier source identities until their replacements are verified. **No physical board
+has been tested.**
+
+The preceding SIMD-selector revision [passed the entire mapped corpus in CI](docs/verification/ci-selector-complete.json),
+all 35 programmable mapped cases and all five compiled C cases. Its
+[all-input selector proof](docs/verification/simd-fp-selection.json) and
+[measured synthesis savings](docs/verification/simd-selector-synthesis.json)
+remain documented. Two older programmable routing trials were
+[retired with unresolved, increasing congestion](docs/verification/selector-routing-retirement.json).
+Their iteration records are preserved; neither produced a completed bitstream.
 The latest standalone board build [hit its three-hour CI limit](https://github.com/Millillion/wasmetal/actions/runs/41770401814/job/126379123153)
 during physical implementation, which also skipped dependent system checks.
 CI now separates mapped simulation from standalone placement/routing so those
 functional checks can finish independently. Both remain required.
 
 - **Standalone boot:** prepared images execute using local instruction, function, type and backing memory, with autonomous initialization and UART results. [29 RTL cases](docs/verification/standalone-rtl.json) and [nine board-clock cases](docs/verification/standalone-board-rtl.json) passed. The [complete synthesized system](docs/verification/standalone-mapped.json) matches every UART byte and completion clock across four boot/reset scenarios. The production memory controller passes [4,837 oracle-checked transactions in both models](docs/verification/standalone-memory-mapped.json), with separately checked [four-state RAM models](docs/verification/standalone-ram-model.json). The [routed ULX3S bitstream](docs/verification/standalone-routing.json) uses 63,656/83,640 logic cells and 171/208 block RAMs, meets its 781.25 kHz clock and passes unpack/repack verification. These are bounded integration tests, separate from the full host-backed corpus below. **No physical board has been tested.** See the [standalone guide](docs/STANDALONE.md).
-- **Conformance:** the current committed RTL passes all 259 pinned official suites with three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. The [recorded result](docs/verification/core-3.0-current.json) identifies the exact sources, simulator and capacities; this run completed 306,351,688 simulated cycles. [CI also passed](https://github.com/Millillion/wasmetal/actions/runs/41770401814/job/126379122907) the complete corpus both with and without memory stalls, arithmetic and boundary checks, and the UART simulation.
+- **Conformance:** the direct-rounding RTL passes all 259 pinned official suites with zero and three memory wait states: 57,711 RTL execution assertions, 4,677 validation assertions and 254 embedding assertions in each run, with zero failures or unsupported cases. The [stalled result](docs/verification/core-3.0-current.json) identifies the sources, simulator and capacities and completes 306,351,688 cycles. [Both runs preserve every command cycle](docs/verification/fp-round-native-comparison.json) from the preceding revision. New CI verification remains to finish.
 - **Floating point:** arithmetic shares one raw datapath and rounds directly to either precision. [1,734,368 additional comparisons](docs/verification/floating-point.json) cover arithmetic, conversions, traps and reset interruption, with separate negative controls.
 - **Storage:** the native and FPGA defaults both use 8,192 value slots, 2,048 labels, 512 call frames, 256 descriptors per class and 1,048,576 external heap slots. Generated host and FPGA interface headers advertise the matching capacities and build identity. These remain finite resource limits.
-- **Mapped circuit:** the current SIMD-selector revision passes **all 259 pinned official suites** in CI on the ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-selector/mapped-complete/mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-selector-complete.json) preserves source, model and report identities, checks the packaged executable and independently reaggregates all sixteen partitions. CI and local netlists are identical after relocating workspace paths. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
-- **FPGA:** the current configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [last verified host-backed bitstream](docs/verification/fpga-routing.json), before the selector change, uses 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. Its rebuild reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
+- **Mapped baseline:** the preceding SIMD-selector revision passes **all 259 pinned official suites** in CI on the ABC9 ECP5 mapping with three memory wait states. The [full CI report](docs/verification/ci-selector/mapped-complete/mapped-complete.json) records 57,711 execution assertions, 4,677 validation assertions and 254 embedding assertions, with zero failures or unsupported cases. Every suite's counts and every command's canonical cycle count match native RTL. All sixteen partitions and the final coverage check passed; the [verification record](docs/verification/ci-selector-complete.json) preserves source, model and report identities, checks the packaged executable and independently reaggregates all sixteen partitions. CI and local netlists are identical after relocating workspace paths. The [earlier local run](docs/verification/ecp5-full.json) also passed the intact corpus in 8 hours 14 minutes. Optional `--fast-sim --fast-luts` builds preserve the circuit; the lookup models pass [binary equivalence and 287,232 four-state checks](docs/verification/ecp5-lut-model.json). See the [verification flow](docs/DESIGN-FLOW.md). Whole-circuit formal equivalence remains [inconclusive](docs/verification/mapping-equivalence.json).
+- **FPGA:** the preceding configuration passed fourteen whole-board UART checks in simulation; see the [interface report](docs/verification/fpga-uart.json). The [last verified host-backed bitstream](docs/verification/fpga-routing.json), before the selector change, uses 58,892 of 83,640 logic cells (70.4%), with the core meeting 1 MHz at a reported 3.24 MHz maximum. Its rebuild reproduced the bitstream exactly and passed its unpack/repack check. **No physical board has been tested.**
 
 See the [RTL architecture](docs/RTL.md) and [FPGA guide](docs/FPGA.md) for the execution boundary and reproducible verification commands. The host-backed conformance system supplies the instruction image, metadata and backing memory from the computer. The standalone prototype supplies these locally for bounded prepared images. Programmable prepared-image loading passes RTL and mapped integration checks; its FPGA routing remains incomplete. External RAM and reclaiming garbage collection remain future work.
 
@@ -139,7 +148,7 @@ serial deadlines and execution results, including replies arriving together.
 Its serial-device tests pass. The programmable system now connects UART loading
 to writable instruction and metadata stores and the complete CPU.
 [All 35 native integration checks](docs/verification/loadable-rtl.json) and
-[all 35 checks on the current ABC9 mapped circuit](docs/verification/loadable-mapped.json) pass,
+[all 35 checks on the preceding ABC9 mapped circuit](docs/verification/loadable-mapped.json) pass,
 including program replacement, rejection, timeout, UART break, rate variation
 and reset recovery. [Two complete board-clock uploads](docs/verification/loadable-board-rtl.json)
 and [three board-clock sender rates](docs/verification/loadable-board-rates.json)
@@ -221,19 +230,22 @@ a pseudo-terminal. The physical-board campaign remains to be run.
 A [freestanding C example](examples/c/README.md) now compiles through Clang to
 Wasm and uploads through the same prepared-image path. All five CRC-32 cases
 [pass in both RTL and mapped simulation](docs/verification/c-workload-mapped.json),
-on the current ABC9 wrapper. They match independent
+on the preceding ABC9 wrapper. They match independent
 Python results with identical UART output and cycle counts.
 The compiler-generated workload is also a required CI integration job.
 
-An [integral floating-point rounding experiment](docs/ROUNDING.md) replaces
-two conversions with direct IEEE-field operations. Its
+The [integral floating-point rounding circuit](docs/ROUNDING.md) now replaces
+two conversions with direct IEEE-field operations in both FPU formats. Its
 [component checks](docs/verification/fp-round-experiment.json) prove both
 precisions for every binary input, prove the actual ECP5 mappings, and pass
 173,852 independent oracle vectors in both models, including 100,124 X/Z
 cases. Ten deliberate defects are rejected. The isolated mappings use 1,113
-LUT4 cells instead of 5,017. It remains outside the default CPU while the
-current regressions finish; whole-CPU integration and timing measurements
-are next.
+LUT4 cells instead of 5,017. The [integration proof](docs/verification/fp-format-proof.json)
+also covers every format-unit output for every binary input and all 64
+operation encodings; it rejects incorrect mode wiring in both precisions.
+Both complete native CPU runs and all 35 programmable RTL cases pass.
+The complete mapped checks and physical implementation are underway;
+new physical timing measurements remain to be established.
 
 [Reproducible workloads](docs/BENCHMARKS.md) now measure CRC-32 and scalar/SIMD
 integer dot products, with independently calculated results and repeated resets.
@@ -250,7 +262,9 @@ checks all five writable program stores: 444,416 bits with no preset contents,
 loaded before execution. That system retains the same memory capacity and
 uses 7,125 generic register bits; it still needs real SRAM macros and physical
 clock, reset and test implementations.
-Both audits were rerun for the selector change. A failed audit now removes
+The programmable audit has also been repeated for direct rounding, with all
+memory and register counts preserved. The ROM audit retains its selector-revision
+record. A failed audit removes
 its previous output report, preventing stale success from appearing current.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including

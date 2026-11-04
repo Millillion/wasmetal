@@ -15,7 +15,7 @@ import time
 
 ROOT=Path(__file__).resolve().parent.parent
 BUILD=ROOT/'build/fp-round'
-CANDIDATE=ROOT/'experiments/rounding/wasmetal_fp_round.sv'
+CANDIDATE=ROOT/'rtl/wasmetal_fp_round.sv'
 REFERENCE=ROOT/'tests/rtl/wasmetal_fp_round_reference.sv'
 BENCH=ROOT/'tests/rtl/fp_round_four_state.sv'
 ORIGINAL_SHA256='499d39b768aa21aedeb707cb479f673f24d2d8932820382eb7f3c635413198fe'
@@ -241,7 +241,7 @@ def main():
         results.append(item)
         print(f'PASS binary{n}: all binary inputs, mapped equivalence, {item["vectors"]["vectors"]} oracle vectors and five rejected mutations',flush=True)
     if any(digest(ROOT/name)!=value for name,value in inputs.items()):raise ValueError('rounding verification inputs changed')
-    report={'status':'passed','scope':'isolated experimental rounding component; not integrated into CPU',
+    report={'status':'passed','scope':'integral rounding component; complete CPU verification is separate',
         'inputs':inputs,'reference_origin':'rtl/wasmetal_fp_format.sv at 2ffd29d; frozen copy differs only in module name',
         'results':results,'python_version':sys.version,'elapsed_seconds':time.monotonic()-started,
         'physical_hardware_tested':False,'whole_cpu_area_or_timing_measured':False}
