@@ -27,6 +27,9 @@ Fresh proofs pass for the programmable
 covering 15,976 and 15,892 boundary bits respectively. Both reject an inverted
 output; their CPU and stored-state outputs are shared arbitrary inputs, so
 these are wrapper proofs. The new board design has placed; routing remains incomplete.
+The [placement analysis](docs/PLACEMENT.md) records 61,344 logic cells and
+identifies a reset net driving 4,783 pins across most of the device. A local
+reset-distribution experiment is being prepared; its routing benefit is unproven.
 Other whole-system integration and routed-bitstream records below retain their
 earlier source identities until their replacements are verified. **No physical board
 has been tested.**
