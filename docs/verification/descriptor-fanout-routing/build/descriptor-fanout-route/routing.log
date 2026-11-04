@@ -1,0 +1,109 @@
+Info: constraining clock net 'clk_25mhz' to 25.00 MHz
+Info: constraining clock net 'core_clock' to 0.78 MHz
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:       6/    365     1%
+Info: 	                DCCA:       2/     56     3%
+Info: 	              DP16KD:     192/    208    92%
+Info: 	          MULT18X18D:      26/    156    16%
+Info: 	              ALU54B:       0/     78     0%
+Info: 	             EHXPLLL:       0/      4     0%
+Info: 	             EXTREFB:       0/      2     0%
+Info: 	                DCUA:       0/      2     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    224     0%
+Info: 	            SIOLOGIC:       0/    141     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/     14     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:    6958/  83640     8%
+Info: 	        TRELLIS_COMB:   61405/  83640    73%
+Info: 	        TRELLIS_RAMW:      64/  10455     0%
+
+Info: Routing globals...
+Info:     routing clock net core_clock using global 0
+Info:     routing clock net $glbnet$clk_25mhz$TRELLIS_IO_IN using global 1
+Info: Running router2...
+Info: Setting up routing resources...
+Info: Running main router loop...
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_1.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_1.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_1.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_1.csv.
+Info:     iter=1 wires=910629 overused=94522 overuse=118303 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_2.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_2.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_2.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_2.csv.
+Info:     iter=2 wires=950246 overused=69193 overuse=77288 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_3.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_3.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_3.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_3.csv.
+Info:     iter=3 wires=969605 overused=52933 overuse=56743 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_4.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_4.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_4.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_4.csv.
+Info:     iter=4 wires=984821 overused=42033 overuse=44333 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_5.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_5.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_5.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_5.csv.
+Info:     iter=5 wires=996223 overused=35522 overuse=37152 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_6.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_6.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_6.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_6.csv.
+Info:     iter=6 wires=1006646 overused=31288 overuse=32519 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_7.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_7.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_7.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_7.csv.
+Info:     iter=7 wires=1015731 overused=28184 overuse=29218 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_8.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_8.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_8.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_8.csv.
+Info:     iter=8 wires=1023617 overused=26696 overuse=27628 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_9.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_9.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_9.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_9.csv.
+Info:     iter=9 wires=1030881 overused=25330 overuse=26086 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_10.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_10.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_10.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_10.csv.
+Info:     iter=10 wires=1036872 overused=24561 overuse=25302 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_11.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_11.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_11.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_11.csv.
+Info:     iter=11 wires=1043832 overused=24088 overuse=24708 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_12.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_12.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_12.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_12.csv.
+Info:     iter=12 wires=1049157 overused=24274 overuse=24880 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_13.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_13.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_13.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_13.csv.
+Info:     iter=13 wires=1054236 overused=24372 overuse=24966 archfail=NA
+Info:         wrote congestion-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_wiretype_14.csv.
+Info:         wrote utilisation-by-wiretype heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_utilisation_by_wiretype_14.csv.
+Info:         wrote congestion-by-coordinate heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_coordinate_14.csv.
+Info:         wrote congestion-by-net heatmap to /tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion_congestion_by_net_14.csv.
+Info:     iter=14 wires=1061384 overused=24904 overuse=25495 archfail=NA

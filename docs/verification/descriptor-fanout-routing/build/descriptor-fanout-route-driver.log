@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/route_reset_experiment.py", line 248, in <module>
+    main()
+  File "/tmp/wasmetal-xc7-core/tools/route_reset_experiment.py", line 203, in main
+    subprocess.run(cad.command('nextpnr-ecp5')+command, cwd=ROOT, env=cad.environment(),
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2141, in _communicate
+    self.wait(timeout=self._remaining_time(endtime))
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/tmp/wasmetal-xc7-core/.cache/tools/oss-cad-suite/lib/ld-linux-x86-64.so.2', '--inhibit-cache', '--inhibit-rpath', '', '--library-path', '/tmp/wasmetal-xc7-core/.cache/tools/oss-cad-suite/lib', '/tmp/wasmetal-xc7-core/.cache/tools/oss-cad-suite/libexec/nextpnr-ecp5', '--85k', '--package', 'CABGA381', '--speed', '6', '--seed', '1', '--router', 'router2', '--lpf', '/tmp/wasmetal-xc7-core/soc/loader/ulx3s.lpf', '--freq', '25', '--json', '/tmp/wasmetal-xc7-core/build/descriptor-fanout-route/placement-for-routing.json', '--write', '/tmp/wasmetal-xc7-core/build/descriptor-fanout-route/routed.json', '--no-pack', '--no-place', '--textcfg', '/tmp/wasmetal-xc7-core/build/descriptor-fanout-route/design.config', '--report', '/tmp/wasmetal-xc7-core/build/descriptor-fanout-route/timing.json', '--router2-heatmap', '/tmp/wasmetal-xc7-core/build/descriptor-fanout-route/congestion']' timed out after 7199.999978334061 seconds

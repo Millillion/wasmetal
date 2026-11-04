@@ -1,0 +1,282 @@
+{
+  "status": "timed_out",
+  "routing_timeout_seconds": 7200,
+  "elapsed_seconds": 7200.194,
+  "router": "router2",
+  "iterations": [
+    {
+      "iteration": 1,
+      "wires": 910629,
+      "conflicting_wires": 94522,
+      "overuse": 118303
+    },
+    {
+      "iteration": 2,
+      "wires": 950246,
+      "conflicting_wires": 69193,
+      "overuse": 77288
+    },
+    {
+      "iteration": 3,
+      "wires": 969605,
+      "conflicting_wires": 52933,
+      "overuse": 56743
+    },
+    {
+      "iteration": 4,
+      "wires": 984821,
+      "conflicting_wires": 42033,
+      "overuse": 44333
+    },
+    {
+      "iteration": 5,
+      "wires": 996223,
+      "conflicting_wires": 35522,
+      "overuse": 37152
+    },
+    {
+      "iteration": 6,
+      "wires": 1006646,
+      "conflicting_wires": 31288,
+      "overuse": 32519
+    },
+    {
+      "iteration": 7,
+      "wires": 1015731,
+      "conflicting_wires": 28184,
+      "overuse": 29218
+    },
+    {
+      "iteration": 8,
+      "wires": 1023617,
+      "conflicting_wires": 26696,
+      "overuse": 27628
+    },
+    {
+      "iteration": 9,
+      "wires": 1030881,
+      "conflicting_wires": 25330,
+      "overuse": 26086
+    },
+    {
+      "iteration": 10,
+      "wires": 1036872,
+      "conflicting_wires": 24561,
+      "overuse": 25302
+    },
+    {
+      "iteration": 11,
+      "wires": 1043832,
+      "conflicting_wires": 24088,
+      "overuse": 24708
+    },
+    {
+      "iteration": 12,
+      "wires": 1049157,
+      "conflicting_wires": 24274,
+      "overuse": 24880
+    },
+    {
+      "iteration": 13,
+      "wires": 1054236,
+      "conflicting_wires": 24372,
+      "overuse": 24966
+    },
+    {
+      "iteration": 14,
+      "wires": 1061384,
+      "conflicting_wires": 24904,
+      "overuse": 25495
+    }
+  ],
+  "best": {
+    "iteration": 11,
+    "wires": 1043832,
+    "conflicting_wires": 24088,
+    "overuse": 24708
+  },
+  "last": {
+    "iteration": 14,
+    "wires": 1061384,
+    "conflicting_wires": 24904,
+    "overuse": 25495
+  },
+  "most_conflicted_nets": {
+    "11": [
+      {
+        "net": "system.execution.core.sp[0]",
+        "conflicting_wires": 180
+      },
+      {
+        "net": "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$101015.A[2]",
+        "conflicting_wires": 159
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409755$abc$1400924$lut\\top[31].A[0]",
+        "conflicting_wires": 140
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409666$abc$1400924$lut$aiger1400923$28047.A[3]",
+        "conflicting_wires": 123
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409721$abc$1400924$lut$aiger1400923$28190.A[3]",
+        "conflicting_wires": 123
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409693$abc$1400924$lut$aiger1400923$28117.A[2]",
+        "conflicting_wires": 119
+      },
+      {
+        "net": "system.execution.core.sp[1]",
+        "conflicting_wires": 118
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409748$abc$1400924$lut$aiger1400923$28260.A[3]",
+        "conflicting_wires": 111
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1410456$abc$1400924$lut\\below[5].A[1]",
+        "conflicting_wires": 111
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409693$abc$1400924$lut$aiger1400923$28117.A[3]",
+        "conflicting_wires": 103
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409755$abc$1400924$lut\\top[31].A[1]",
+        "conflicting_wires": 100
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409666$abc$1400924$lut$aiger1400923$28047.A[2]",
+        "conflicting_wires": 99
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409784$abc$1400924$lut$aiger1400923$38318.A[1]",
+        "conflicting_wires": 97
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409721$abc$1400924$lut$aiger1400923$28190.A[2]",
+        "conflicting_wires": 93
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409748$abc$1400924$lut$aiger1400923$28260.A[2]",
+        "conflicting_wires": 91
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1415624$auto$abc9_ops.cc:1550:reintegrate$1402881.A[0]",
+        "conflicting_wires": 84
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1415628$abc$1400924$lut$aiger1400923$41988.A[2]",
+        "conflicting_wires": 81
+      },
+      {
+        "net": "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$43013.A[0]",
+        "conflicting_wires": 78
+      },
+      {
+        "net": "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$103173.A[0]",
+        "conflicting_wires": 77
+      },
+      {
+        "net": "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41290.A[0]",
+        "conflicting_wires": 77
+      }
+    ],
+    "14": [
+      {
+        "net": "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$101015.A[2]",
+        "conflicting_wires": 167
+      },
+      {
+        "net": "system.execution.core.sp[0]",
+        "conflicting_wires": 140
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409755$abc$1400924$lut\\top[31].A[0]",
+        "conflicting_wires": 129
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409721$abc$1400924$lut$aiger1400923$28190.A[3]",
+        "conflicting_wires": 122
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409666$abc$1400924$lut$aiger1400923$28047.A[3]",
+        "conflicting_wires": 116
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409693$abc$1400924$lut$aiger1400923$28117.A[3]",
+        "conflicting_wires": 113
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1410456$abc$1400924$lut\\below[5].A[1]",
+        "conflicting_wires": 106
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409721$abc$1400924$lut$aiger1400923$28190.A[2]",
+        "conflicting_wires": 105
+      },
+      {
+        "net": "system.execution.core.sp[1]",
+        "conflicting_wires": 102
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409755$abc$1400924$lut\\top[31].A[1]",
+        "conflicting_wires": 101
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409666$abc$1400924$lut$aiger1400923$28047.A[2]",
+        "conflicting_wires": 98
+      },
+      {
+        "net": "system.execution.core.simd_integer.byte_index[0]",
+        "conflicting_wires": 98
+      },
+      {
+        "net": "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$41290.A[4]",
+        "conflicting_wires": 85
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409748$abc$1400924$lut$aiger1400923$28260.A[3]",
+        "conflicting_wires": 83
+      },
+      {
+        "net": "wasmetal_reset_replica_014_out",
+        "conflicting_wires": 83
+      },
+      {
+        "net": "$flatten\\system.execution.core.$abc$1400924$lut$aiger1400923$103173.A[0]",
+        "conflicting_wires": 80
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1409784$abc$1400924$lut$aiger1400923$38318.A[1]",
+        "conflicting_wires": 80
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1415624$auto$abc9_ops.cc:1550:reintegrate$1402881.A[0]",
+        "conflicting_wires": 79
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1415628$abc$1400924$lut$aiger1400923$41988.A[2]",
+        "conflicting_wires": 78
+      },
+      {
+        "net": "$flatten\\system.execution.core.$techmap1415624$auto$abc9_ops.cc:1550:reintegrate$1402881.A[1]",
+        "conflicting_wires": 77
+      }
+    ]
+  },
+  "frozen_inputs_rechecked": 47,
+  "structural_equivalence_rechecked": true,
+  "original_clock_inputs_unchanged": true,
+  "placement_and_routing_settings_rechecked": true,
+  "candidate_sha256": "0a87a02b41cff80373f0b88e4f7ab2a0deb86c3ff0eddc78d9cb6ca568bca2d0",
+  "placement_sha256": "e93c594eac5ba5eed1943a5e2436c7dc0ffb533c643a23cd5a424fbd8dd0eaa9",
+  "receipt_sha256": "93785a6513e71b9ad97b67fdffef4d69141a563087a0c6a3a1dcae5ccaeb1276",
+  "routing_completed": false,
+  "timing_passed": false,
+  "bitstream_round_trip_passed": false,
+  "physical_hardware_tested": false,
+  "comparison_limit": "Different placements and routing heuristics are experiments, not an isolated benefit measurement."
+}

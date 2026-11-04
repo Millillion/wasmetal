@@ -129,6 +129,19 @@ circuit from the programmable reset-replication trials; their conflict counts
 are not a controlled comparison. The cancelled run produced no accepted routed
 timing or bitstream evidence. Its final CI gate correctly remained failed.
 
+The subsequent descriptor-address experiment also reached its two-hour limit
+without routing. Its [completed timeout record](verification/descriptor-fanout-routing-summary.json)
+contains all 14 iterations: the best had 24,088 conflicting wires, and the last
+had 24,904. This is worse than the earlier reset-only router2 trial's best
+23,415; the extra copies are not a demonstrated physical improvement.
+The circuit substitutions, unchanged clocks and every frozen input were
+rechecked after the timeout and again before archiving. The
+[raw archive](verification/descriptor-fanout-routing/index.json) retains all
+56 emitted congestion maps and the exact placement supplied to the router.
+Stack-pointer bits and operand-selection nets remain among the most conflicted
+nets. These diagnostics guide further experiments; no route, accepted timing
+report or bitstream was produced.
+
 Reset distribution needs care on this device. Lattice documents a silicon
 startup problem when certain high-initialized reset or enable signals use the
 primary low-skew clock network, along with avoidance and startup-workaround

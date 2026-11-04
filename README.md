@@ -206,7 +206,14 @@ Fresh placement completed with 61,405 logic cells, but its wirelength cost
 rose from 539,773 to 578,698. This is a placer estimate, not routed wirelength.
 The [archived circuits and checks](docs/verification/descriptor-fanout/index.json)
 include a successful routing preflight and 21 rejected routing corruptions.
-A separate two-hour routing trial is running; no routing improvement is claimed.
+The [two-hour routing trial](docs/verification/descriptor-fanout-routing-summary.json)
+finished without a route: its best result was 24,088 conflicting wires at
+iteration 11, and its last result was 24,904 at iteration 14. This does not
+beat the earlier reset-only router2 trial's best 23,415. All frozen inputs,
+the circuit substitutions and unchanged clock connections were rechecked.
+The [raw archive](docs/verification/descriptor-fanout-routing/index.json)
+retains every emitted congestion map. No routing, timing or bitstream pass
+is claimed; the remaining conflicts include stack-pointer and operand-selection nets.
 
 ## GUI Microarchitecture Simulator
 
