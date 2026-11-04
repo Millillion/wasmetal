@@ -19,7 +19,12 @@ cells in the bounded profile and 559 in the host-backed profile, with unchanged
 memory, register and DSP counts. The new mapped CPU passes
 [5,352 execution assertions in four scalar/SIMD floating-point suites](docs/verification/fp-round-mapped-focused.json).
 Its complete corpus, complete programmable comparison and compiled C comparison
-are running. The new board design has placed; routing remains incomplete.
+are running. Fresh proofs pass for the programmable
+[board wrapper](docs/verification/loadable-mapping-proof.json) and
+[simulation wrapper](docs/verification/loadable-simulation-mapping-proof.json),
+covering 15,976 and 15,892 boundary bits respectively. Both reject an inverted
+output; their CPU and stored-state outputs are shared arbitrary inputs, so
+these are wrapper proofs. The new board design has placed; routing remains incomplete.
 Other whole-system integration and routed-bitstream records below retain their
 earlier source identities until their replacements are verified. **No physical board
 has been tested.**
@@ -165,7 +170,8 @@ identical stored state and CPU outputs, an
 [independent binary-equivalence proof](docs/verification/loadable-mapping-proof.json)
 passes for 15,976 boundary bits and rejects a deliberately inverted output.
 The [accelerated simulation mapping](docs/verification/loadable-simulation-mapping-proof.json)
-also passes; CI requires both comparisons before the programmable execution
+passes for 15,892 boundary bits. Both proofs have been rerun for the current
+direct-rounding build; CI requires both comparisons before the programmable execution
 shards, independently of the long physical-routing job.
 The [completed CI run at b79b0db](docs/verification/ci-programmable.json)
 passed the complete 259-suite corpus in both native configurations and the
