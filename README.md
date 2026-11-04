@@ -151,11 +151,12 @@ startup and state-transition checks in Icarus and Verilator. Their
 [unknown-state limits and vendor reset diagnostic](docs/XILINX-STATE.md)
 are explicit; CI repeats the component checks.
 The [complete Xilinx CPU simulation](docs/XILINX-SYSTEM-SIMULATION.md) now
-passes two original-library smoke cases, matching native RTL UART bytes and
-clock counts exactly. The native reference at 81 clocks per UART bit passes
-all 35 integration cases. The full accelerated mapped regression and a mapped
-upload at that unchanged UART timing are still running; neither is recorded
-as a complete pass. Xilinx placement and timing remain unverified.
+passes all **35 programmable integration cases** with accelerated UART timing,
+matching the native RTL's complete case observations, UART bytes and clock
+counts exactly. All fifteen comparison faults are rejected. Two smoke cases
+also pass with the original LUT models. The native reference at 81 clocks per
+UART bit passes all 35 cases; a mapped upload at that unchanged UART timing
+is still running. Xilinx placement and timing remain unverified.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 

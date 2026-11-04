@@ -14,13 +14,21 @@ preserves these completed runs and the simulator identities:
 | --- | --- |
 | Native RTL, 81 clocks per UART bit, upload timeout 2,000,000 | All 35 programmable integration cases pass. |
 | Xilinx mapped circuit, 4 clocks per bit, timeout 4,096, original LUT models | `answer` and `program-address-boundaries` pass. UART bytes, every recorded clock count, prepared image hashes and CPU results match the corresponding RTL cases exactly. Eight comparison faults are rejected. |
-| Xilinx mapped circuit, 4 clocks per bit, proven faster LUT models | The 35-case regression is running; no full-regression pass is claimed yet. |
+| Xilinx mapped circuit, 4 clocks per bit, proven faster LUT models | All 35 integration cases pass. Every complete case observation matches native RTL exactly, and all fifteen comparison faults are rejected. |
 | Xilinx mapped circuit, 81 clocks per bit, proven faster LUT models | One complete upload/execution is running against the finished board-rate RTL reference. |
 
 The original-library `answer` test takes 2,259,198 core clocks, including
 upload and response. Its CPU invocation returns 42 in 53 CPU cycles. The
 clock comparison includes commit and first-result timing, rather than only
 checking the final answer.
+
+The [complete campaign archive](verification/xc7-system-complete/index.json)
+retains all six mapped partitions, their logs, the original native reference,
+the original campaign driver/plan and the
+[final comparison](verification/xc7-system-complete/reports/xc7-system-complete.json).
+It includes reset/recovery scenarios, memory and program boundaries, and the
+watchdog. All 48 shared model inputs agree. The comparison rechecked both
+actual simulator executables and all recorded inputs before accepting the run.
 
 These are **bounded programmable integration tests**, distinct from the
 259-suite official Wasm corpus run against the host-backed RTL and ECP5
