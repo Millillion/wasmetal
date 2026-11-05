@@ -1,0 +1,7 @@
+read_json /tmp/wasmetal-xc7-core/build/xc7-core/mapped.json
+read_verilog -lib -overwrite /tmp/wasmetal-xc7-core/.cache/tools/usr/share/yosys/xilinx/cells_sim.v
+hierarchy -check -top wasmetal_core
+splitnets
+clean -purge
+check -assert
+write_verilog -noattr /tmp/wasmetal-xc7-core/build/xc7-core-sim/core.v

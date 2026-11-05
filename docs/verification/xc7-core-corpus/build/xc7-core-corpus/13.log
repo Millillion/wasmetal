@@ -1,0 +1,86 @@
+memory64/memory_copy64.wast {"loader_assertions_passed": 64, "modules_instantiated": 33, "rtl_actions_completed": 15, "rtl_assertions_passed": 4338, "rtl_cycles": 9688163, "script_commands": 4450}
+return_call_indirect.wast {"loader_assertions_passed": 9, "modules_instantiated": 1, "rtl_assertions_passed": 16, "rtl_cycles": 5073741, "script_commands": 26}
+memory64/table_copy64.wast {"modules_instantiated": 52, "registrations": 1, "rtl_actions_completed": 26, "rtl_assertions_passed": 1649, "rtl_cycles": 40444, "script_commands": 1728}
+left-to-right.wast {"modules_instantiated": 1, "rtl_assertions_passed": 95, "rtl_cycles": 23155, "script_commands": 96}
+memory64/table_init64.wast {"loader_assertions_passed": 67, "modules_instantiated": 44, "registrations": 1, "rtl_actions_completed": 21, "rtl_assertions_passed": 755, "rtl_cycles": 21388, "script_commands": 888}
+simd/simd_f32x4.wast {"loader_assertions_passed": 16, "modules_instantiated": 2, "rtl_assertions_passed": 772, "rtl_cycles": 18576, "script_commands": 790}
+fac.wast {"modules_instantiated": 1, "rtl_assertions_passed": 7, "rtl_cycles": 16230, "script_commands": 8}
+simd/simd_i32x4_cmp.wast {"loader_assertions_passed": 40, "modules_instantiated": 2, "rtl_assertions_passed": 433, "rtl_cycles": 15723, "script_commands": 475}
+i64.wast {"loader_assertions_passed": 31, "modules_instantiated": 1, "rtl_assertions_passed": 384, "rtl_cycles": 10060, "script_commands": 416}
+memory64/endianness64.wast {"modules_instantiated": 1, "rtl_assertions_passed": 68, "rtl_cycles": 8816, "script_commands": 69}
+simd/simd_bit_shift.wast {"loader_assertions_passed": 39, "modules_instantiated": 2, "rtl_assertions_passed": 211, "rtl_cycles": 7803, "script_commands": 252}
+simd/simd_i16x8_sat_arith.wast {"loader_assertions_passed": 16, "modules_instantiated": 2, "rtl_assertions_passed": 204, "rtl_cycles": 6940, "script_commands": 222}
+simd/simd_i8x16_sat_arith.wast {"loader_assertions_passed": 24, "modules_instantiated": 2, "rtl_assertions_passed": 188, "rtl_cycles": 6412, "script_commands": 214}
+simd/simd_bitwise.wast {"loader_assertions_passed": 28, "modules_instantiated": 2, "rtl_assertions_passed": 139, "rtl_cycles": 6159, "script_commands": 169}
+f32_bitwise.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_assertions_passed": 360, "rtl_cycles": 6096, "script_commands": 364}
+simd/simd_i16x8_arith2.wast {"loader_assertions_passed": 19, "modules_instantiated": 2, "rtl_assertions_passed": 151, "rtl_cycles": 5723, "script_commands": 172}
+return_call_ref.wast {"loader_assertions_passed": 4, "modules_instantiated": 3, "rtl_assertions_passed": 10, "rtl_cycles": 4904, "script_commands": 17}
+simd/simd_i32x4_arith2.wast {"loader_assertions_passed": 26, "modules_instantiated": 2, "rtl_assertions_passed": 121, "rtl_cycles": 4506, "script_commands": 149}
+memory64/align64.wast {"loader_assertions_passed": 83, "modules_instantiated": 26, "rtl_assertions_passed": 48, "rtl_cycles": 4193, "script_commands": 157}
+memory64/address64.wast {"modules_instantiated": 4, "rtl_assertions_passed": 238, "rtl_cycles": 4028, "script_commands": 242}
+simd/simd_const.wast {"loader_assertions_passed": 181, "modules_instantiated": 312, "rtl_assertions_passed": 265, "rtl_cycles": 3639, "script_commands": 758}
+simd/simd_i16x8_extmul_i8x16.wast {"loader_assertions_passed": 12, "modules_instantiated": 1, "rtl_assertions_passed": 104, "rtl_cycles": 3480, "script_commands": 117}
+simd/simd_i64x2_cmp.wast {"loader_assertions_passed": 10, "modules_instantiated": 1, "rtl_assertions_passed": 102, "rtl_cycles": 3414, "script_commands": 113}
+memory64/memory_init64.wast {"loader_assertions_passed": 67, "modules_instantiated": 29, "rtl_actions_completed": 12, "rtl_assertions_passed": 142, "rtl_cycles": 3217, "script_commands": 250}
+stack.wast {"modules_instantiated": 2, "rtl_assertions_passed": 5, "rtl_cycles": 2668, "script_commands": 7}
+linking.wast {"embedding_assertions_passed": 50, "modules_instantiated": 21, "registrations": 9, "rtl_assertions_passed": 83, "rtl_cycles": 2246, "script_commands": 163}
+nop.wast {"loader_assertions_passed": 4, "modules_instantiated": 1, "rtl_assertions_passed": 83, "rtl_cycles": 2083, "script_commands": 88}
+return_call.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_assertions_passed": 8, "rtl_cycles": 2034, "script_commands": 12}
+global.wast {"loader_assertions_passed": 47, "modules_instantiated": 9, "registrations": 1, "rtl_assertions_passed": 67, "rtl_cycles": 1945, "script_commands": 124}
+memory_trap.wast {"modules_instantiated": 2, "rtl_assertions_passed": 180, "rtl_cycles": 1808, "script_commands": 182}
+gc/i31.wast {"modules_instantiated": 7, "registrations": 1, "rtl_actions_completed": 8, "rtl_assertions_passed": 57, "rtl_cycles": 1688, "script_commands": 73}
+simd/simd_load_extend.wast {"loader_assertions_passed": 18, "modules_instantiated": 2, "rtl_assertions_passed": 84, "rtl_cycles": 1668, "script_commands": 104}
+memory.wast {"loader_assertions_passed": 25, "module_definitions": 1, "modules_instantiated": 11, "rtl_assertions_passed": 53, "rtl_cycles": 1631, "script_commands": 90}
+multi-memory/address0.wast {"modules_instantiated": 1, "rtl_assertions_passed": 91, "rtl_cycles": 1511, "script_commands": 92}
+multi-memory/memory_trap1.wast {"modules_instantiated": 1, "rtl_assertions_passed": 167, "rtl_cycles": 1462, "script_commands": 168}
+float_literals.wast {"loader_assertions_passed": 78, "modules_instantiated": 2, "rtl_assertions_passed": 99, "rtl_cycles": 1392, "script_commands": 179}
+switch.wast {"loader_assertions_passed": 1, "modules_instantiated": 1, "rtl_assertions_passed": 26, "rtl_cycles": 1358, "script_commands": 28}
+data.wast {"embedding_assertions_passed": 14, "loader_assertions_passed": 20, "modules_instantiated": 32, "rtl_actions_completed": 1, "rtl_assertions_passed": 1, "rtl_cycles": 1140, "script_commands": 68}
+load.wast {"loader_assertions_passed": 59, "modules_instantiated": 1, "rtl_assertions_passed": 37, "rtl_cycles": 1049, "script_commands": 97}
+unwind.wast {"modules_instantiated": 1, "rtl_assertions_passed": 49, "rtl_cycles": 1026, "script_commands": 50}
+return.wast {"loader_assertions_passed": 20, "modules_instantiated": 1, "rtl_assertions_passed": 63, "rtl_cycles": 981, "script_commands": 84}
+simd/simd_i16x8_q15mulr_sat_s.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_assertions_passed": 26, "rtl_cycles": 906, "script_commands": 30}
+multi-memory/memory_copy0.wast {"modules_instantiated": 1, "rtl_actions_completed": 7, "rtl_assertions_passed": 21, "rtl_cycles": 894, "script_commands": 29}
+gc/array_new_elem.wast {"modules_instantiated": 5, "rtl_assertions_passed": 19, "rtl_cycles": 833, "script_commands": 24}
+ref_null.wast {"modules_instantiated": 2, "rtl_assertions_passed": 32, "rtl_cycles": 816, "script_commands": 34}
+multi-memory/store2.wast {"modules_instantiated": 2, "registrations": 1, "rtl_actions_completed": 2, "rtl_assertions_passed": 20, "rtl_cycles": 728, "script_commands": 25}
+simd/simd_load16_lane.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_assertions_passed": 32, "rtl_cycles": 700, "script_commands": 36}
+unreachable.wast {"modules_instantiated": 1, "rtl_assertions_passed": 63, "rtl_cycles": 653, "script_commands": 64}
+memory64/table_size64.wast {"modules_instantiated": 1, "rtl_assertions_passed": 36, "rtl_cycles": 642, "script_commands": 37}
+simd/simd_store64_lane.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_assertions_passed": 12, "rtl_cycles": 624, "script_commands": 16}
+simd/simd_load_zero.wast {"loader_assertions_passed": 10, "modules_instantiated": 2, "rtl_assertions_passed": 27, "rtl_cycles": 594, "script_commands": 39}
+multi-memory/float_memory0.wast {"modules_instantiated": 2, "rtl_actions_completed": 8, "rtl_assertions_passed": 20, "rtl_cycles": 576, "script_commands": 30}
+gc/array_new_data.wast {"modules_instantiated": 6, "rtl_assertions_passed": 24, "rtl_cycles": 529, "script_commands": 30}
+simd/simd_store.wast {"loader_assertions_passed": 9, "modules_instantiated": 2, "rtl_assertions_passed": 17, "rtl_cycles": 485, "script_commands": 28}
+local_get.wast {"loader_assertions_passed": 16, "modules_instantiated": 1, "rtl_assertions_passed": 19, "rtl_cycles": 476, "script_commands": 36}
+simd/simd_load32_lane.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_assertions_passed": 20, "rtl_cycles": 460, "script_commands": 24}
+memory64/memory_redundancy64.wast {"modules_instantiated": 1, "rtl_actions_completed": 3, "rtl_assertions_passed": 4, "rtl_cycles": 393, "script_commands": 8}
+memory64/table_set64.wast {"modules_instantiated": 1, "rtl_assertions_passed": 18, "rtl_cycles": 356, "script_commands": 19}
+br_on_non_null.wast {"loader_assertions_passed": 1, "modules_instantiated": 3, "rtl_assertions_passed": 8, "rtl_cycles": 354, "script_commands": 12}
+traps.wast {"modules_instantiated": 4, "rtl_assertions_passed": 32, "rtl_cycles": 310, "script_commands": 36}
+simd/simd_load64_lane.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_assertions_passed": 12, "rtl_cycles": 300, "script_commands": 16}
+exports.wast {"loader_assertions_passed": 32, "modules_instantiated": 56, "rtl_assertions_passed": 9, "rtl_cycles": 264, "script_commands": 97}
+multi-memory/memory_init0.wast {"modules_instantiated": 1, "rtl_actions_completed": 4, "rtl_assertions_passed": 8, "rtl_cycles": 257, "script_commands": 13}
+multi-memory/linking1.wast {"embedding_assertions_passed": 2, "modules_instantiated": 4, "registrations": 1, "rtl_assertions_passed": 7, "rtl_cycles": 246, "script_commands": 14}
+table.wast {"loader_assertions_passed": 22, "module_definitions": 1, "modules_instantiated": 17, "registrations": 1, "rtl_assertions_passed": 5, "rtl_cycles": 242, "script_commands": 46}
+multi-memory/data1.wast {"embedding_assertions_passed": 14, "rtl_cycles": 220, "script_commands": 14}
+exceptions/cast.wast {"modules_instantiated": 1, "rtl_assertions_passed": 4, "rtl_cycles": 208, "script_commands": 5}
+multi-memory/store1.wast {"modules_instantiated": 3, "registrations": 2, "rtl_actions_completed": 4, "rtl_assertions_passed": 4, "rtl_cycles": 192, "script_commands": 13}
+multi-memory/memory-multi.wast {"modules_instantiated": 2, "rtl_assertions_passed": 4, "rtl_cycles": 184, "script_commands": 6}
+relaxed-simd/i16x8_relaxed_q15mulr_s.wast {"modules_instantiated": 1, "rtl_assertions_passed": 2, "rtl_cycles": 156, "script_commands": 3}
+simd/simd_select.wast {"modules_instantiated": 1, "rtl_assertions_passed": 6, "rtl_cycles": 156, "script_commands": 7}
+multi-memory/memory_size0.wast {"modules_instantiated": 1, "rtl_assertions_passed": 7, "rtl_cycles": 138, "script_commands": 8}
+multi-memory/imports1.wast {"modules_instantiated": 1, "rtl_assertions_passed": 4, "rtl_cycles": 121, "script_commands": 5}
+token.wast {"loader_assertions_passed": 26, "modules_instantiated": 35, "rtl_cycles": 108, "script_commands": 61}
+multi-memory/memory_size_import.wast {"modules_instantiated": 2, "registrations": 1, "rtl_assertions_passed": 4, "rtl_cycles": 96, "script_commands": 7}
+multi-memory/imports0.wast {"embedding_assertions_passed": 6, "modules_instantiated": 1, "registrations": 1, "rtl_cycles": 84, "script_commands": 8}
+simd/simd_linking.wast {"modules_instantiated": 2, "registrations": 1, "rtl_cycles": 72, "script_commands": 3}
+bulk-memory/table-sub.wast {"loader_assertions_passed": 2, "modules_instantiated": 1, "rtl_cycles": 48, "script_commands": 3}
+gc/binary-gc.wast {"loader_assertions_passed": 1, "rtl_cycles": 48, "script_commands": 1}
+memory64/binary_leb128_64.wast {"loader_assertions_passed": 1, "modules_instantiated": 1, "rtl_cycles": 48, "script_commands": 2}
+memory64/table_copy_mixed.wast {"loader_assertions_passed": 3, "modules_instantiated": 1, "rtl_cycles": 48, "script_commands": 4}
+obsolete-keywords.wast {"loader_assertions_passed": 11, "rtl_cycles": 48, "script_commands": 11}
+simd/simd_memory-multi.wast {"modules_instantiated": 1, "rtl_cycles": 48, "script_commands": 1}
+unreached-invalid.wast {"loader_assertions_passed": 121, "rtl_cycles": 48, "script_commands": 121}
+utf8-import-module.wast {"loader_assertions_passed": 176, "rtl_cycles": 48, "script_commands": 176}
+TOTAL {"embedding_assertions_passed": 86, "loader_assertions_passed": 1460, "module_definitions": 2, "modules_instantiated": 794, "registrations": 21, "rtl_actions_completed": 111, "rtl_assertions_passed": 12479, "rtl_cycles": 15029257, "script_commands": 14953}

@@ -1,0 +1,104 @@
+{
+  "status": "finished; consult final report",
+  "spec": {
+    "version": "WebAssembly Core 3.0",
+    "revision": "6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "url": "https://codeload.github.com/WebAssembly/spec/tar.gz/6057acdb1a213f85369c64454c078a15f11ac4b1",
+    "sha256": "73b6b10278038f75d478fdcd0ed8cc4852224b379c5307056003717f403ce2e0"
+  },
+  "selected_suites": 1,
+  "completed_suites": 1,
+  "full_core_suite_passed": false,
+  "elapsed_seconds": 8784.48696064949,
+  "simulator_sha256": "9189d72bd742158cae8497dc2156d6570b7fe5b97bcf1db89dd66f0e8abe0fbc",
+  "source_sha256": "ced6c88ce5e7227162b6a5b77925a64408cd309f8adef8708d27284727c2f0f8",
+  "runner_inputs": {
+    "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "build/spectest.wasm": "f80e77fd019b4d021acfd7c064378b8d7e630fda68ddf82d6fd085accd0c4e25"
+  },
+  "totals": {
+    "rtl_assertions_passed": 1,
+    "rtl_cycles": 18000023,
+    "script_commands": 1
+  },
+  "suites": [
+    {
+      "suite": "return_call.wast",
+      "counts": {
+        "rtl_assertions_passed": 1,
+        "rtl_cycles": 18000023,
+        "script_commands": 1
+      },
+      "failures": [],
+      "elapsed_seconds": 8783.491198961041,
+      "command_count": 51,
+      "command_cycles": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        18000023,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "executed_commands": [
+        19
+      ],
+      "replayed_setup_commands": [
+        0,
+        40,
+        41
+      ],
+      "fixture_cycles": 48,
+      "replayed_setup_cycles": 48,
+      "total_simulated_cycles": 18000071
+    }
+  ],
+  "note": "Partial observation only; final report and end-of-run identity checks are authoritative."
+}

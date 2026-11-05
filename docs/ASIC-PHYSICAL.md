@@ -125,8 +125,9 @@ The first detailed-routing trial stopped at its 1,200-second limit. Completed
 iterations reported 6,132, 3,724 and 3,689 violations; the next iteration was
 still running. No final routed database was produced. The logs and exact
 scripts are retained, including earlier command-compatibility failures.
-A separate bounded diagnostic is running to save a completed routing snapshot
-and its remaining violation markers for investigation.
+A separate bounded diagnostic has saved a completed routing snapshot and its
+remaining violation markers. Those failures are being checked before publishing
+the diagnostic; it has not established an accepted detailed route.
 
 Global routing supplies coarse paths and estimated parasitics. Detailed routing,
 extracted timing, setup/hold closure across appropriate process corners,

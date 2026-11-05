@@ -2,8 +2,9 @@
 
 The execution core has now been synthesized independently for 7-series FPGAs
 at the same capacity profile used by the official Wasm suite. Its identified
-Verilator simulator passes an eight-suite smoke test. The complete 259-suite
-regression is running; it has not passed the full corpus on this new circuit yet.
+Verilator simulator now passes the complete 259-suite regression locally,
+with exact native RTL results and command cycle counts. FPGA placement,
+routing and physical-board operation remain unverified.
 
 The [synthesis receipt](verification/xc7-core-estimate.json) and
 [raw evidence](verification/xc7-core-initial/index.json) identify the circuit,
@@ -98,10 +99,47 @@ when compilation finishes. The shared-reset warning exception is restricted
 to the exact top-level reset signal after checking its six asynchronous
 HardFloat consumers.
 
-The ongoing full campaign uses sixteen disjoint command partitions, with
-eight simulator workers. Its archived driver records commands and inputs,
-cleans up worker process groups on failure, rechecks both executables and
-requires exact command coverage and native cycle counts during final merging.
+## Complete official corpus
+
+The [completed campaign](verification/xc7-core-corpus-summary.json) uses sixteen
+disjoint command partitions and eight simulator workers. It finished in
+19,799 seconds. All 259 suites pass: 57,711 RTL execution assertions, 4,677
+front-end validation assertions and 254 embedding assertions. Every one of
+the 65,353 script commands agrees with native RTL. The 306,351,688 canonical
+cycles exclude the duplicate setup replay needed by partitioned workers.
+
+The [reconciliation check](verification/xc7-core-reconciliation.json) rechecks
+both executable identities and 452 exact execution dependencies. All 28
+deliberate identity and coverage defects are rejected. Changes to unrelated
+ASIC tools during the campaign produced different broad workspace hashes;
+the original hashes remain recorded, and no single workspace hash is invented.
+The [archive](verification/xc7-core-corpus/index.json) includes all original
+partition reports, logs, the native reference, both aggregate reports, model
+manifests, generated sources and the supervising driver. Its 460 frozen
+campaign inputs were checked again before publication.
+
+The original conversion cache verified each WAST source and converter version
+stamp, but did not hash every generated JSON and module payload before execution.
+An [independent post-run replay](verification/spec-conversion.json) now verifies
+the installed converter against its checksum-pinned release archive, regenerates
+all 259 scripts into a separate directory and checks every command, expected
+value and all 7,216 generated payloads against the unchanged cache. All thirteen
+deliberate corruptions are rejected. Only the informational absolute source
+directory prefix may differ; the pinned revision and suite suffix must match.
+Both text and binary representations of invalid modules are included.
+This establishes current input consistency; it does not retroactively create
+a before-execution input attestation. The archived conversion inputs and
+fresh JSON/logs are in `xc7-core-corpus/conversion-inputs.tar.gz`, with an
+entry-by-entry SHA-256 manifest beside it. To repeat this audit after populating
+the official-suite cache in a bootstrapped checkout:
+
+```sh
+python3 tools/check_spec_conversion.py
+```
+
+The supervising driver records commands and inputs, cleans up worker process
+groups on failure, rechecks both executables and requires exact command
+coverage and native cycle counts during final merging.
 This core is an untimed host-backed simulation. Xilinx placement, routing,
 timing, bitstream generation and physical-board testing remain unverified.
 
@@ -122,11 +160,12 @@ pinned upstream tools/sources. The restored model verifies its identity,
 passes the actual command-partition/setup-replay fixture and repeats all eight
 smoke suites with identical observations. Packaging rejects the wrong FPGA
 family. Actionlint 1.7.12 reports no workflow findings. These are local
-deployment checks, separate from the still-running complete regression.
+deployment checks, separate from the completed local corpus and the pending
+complete CI result.
 
 `check_spec_reconciliation.py` now accepts the same explicit
 `--mapped-backend mapped-xc7-functional` selection. It protects direct and
 transitive inputs before removing stale output files. Five fixtures exercise
 that protection, including actual command-line failures with preserved
-canaries. The updated full-result reconciliation checks still need the
-completed sixteen-partition campaign before their positive result can pass.
+canaries. The full-result reconciliation now passes against the completed
+sixteen-partition campaign, including its 28 identity and coverage controls.

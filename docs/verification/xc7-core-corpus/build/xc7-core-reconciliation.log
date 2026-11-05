@@ -1,0 +1,29 @@
+REJECT native-binary-identity native binary identity mismatch
+REJECT native-rtl-input native executable differs from reference
+REJECT mapped-rtl-input mapped executable differs from shard evidence
+REJECT mapped-model-input mapped executable differs from shard evidence
+REJECT mapped-compiler-identity mapped executable differs from shard evidence
+REJECT mapped-binary-identity mapped executable differs from shard evidence
+REJECT native-executable-substitution native executable differs from reference
+REJECT mapped-executable-substitution mapped executable differs from shard evidence
+REJECT native-runner-input runner input changed: tools/run_spec.py
+REJECT missing-runner-input unreviewed runner input inventory
+REJECT mapped-runner-input native/mapped identity mismatch: runner_inputs
+REJECT build-id native/mapped identity mismatch: rtl_build_id
+REJECT capacity native/mapped identity mismatch: capacities
+REJECT memory-wait-states native/mapped identity mismatch: memory_wait_states
+REJECT invocation-cycle-budget native/mapped identity mismatch: max_cycles_per_invocation
+REJECT official-source-identity native/mapped identity mismatch: official_sources_sha256
+REJECT missing-partition missing or extra shard reports
+REJECT duplicate-partition unknown or duplicate shard report
+REJECT wrong-plan-identity shard used a different plan
+REJECT missing-command missing or reordered command execution: return_call_ref.wast
+REJECT command-cycle-count command cycle mismatch: return_call_ref.wast:26
+REJECT failed-assertion report contains errors
+REJECT unsupported-command report contains errors
+REJECT false-complete-partition shard claims a full pass
+REJECT invalid-workspace-fingerprint invalid reported workspace fingerprint
+REJECT corrupt-executable-bytes simulator binary does not match its build identity
+REJECT wrong-selected-backend-mapped-ecp5-functional shard did not execute the selected mapped CPU
+REJECT wrong-selected-backend-unreviewed unreviewed mapped backend
+PASS complete official corpus and 28 reconciliation fault controls

@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "scope": "complete local official corpus on the host-backed Xilinx functional core",
+  "suite_files": 259,
+  "partitions": 16,
+  "worker_limit": 8,
+  "elapsed_seconds": 19799.10203911597,
+  "totals": {
+    "modules_instantiated": 2266,
+    "rtl_assertions_passed": 57711,
+    "loader_assertions_passed": 4677,
+    "rtl_cycles": 306351688,
+    "script_commands": 65353,
+    "rtl_actions_completed": 359,
+    "registrations": 80,
+    "embedding_assertions_passed": 254,
+    "module_definitions": 6
+  },
+  "exact_native_command_cycles": true,
+  "memory_wait_states": 3,
+  "native_simulator_sha256": "b3484e08b9a94cb25f36b8760d1ab9425faae0daa2c8478e81d9de04a50b2bea",
+  "mapped_simulator_sha256": "9189d72bd742158cae8497dc2156d6570b7fe5b97bcf1db89dd66f0e8abe0fbc",
+  "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
+  "reconciliation_faults_rejected": 28,
+  "campaign_inputs_rechecked": 460,
+  "execution_dependencies_rechecked": 452,
+  "all_bound_inputs_rechecked": 8474,
+  "post_run_conversion_audit": {
+    "report_sha256": "6703b22590936c9ef73fd65d097f5f292f709490e16b2fcefcecc2b9784cb8c6",
+    "suite_files": 259,
+    "payload_files": 7216,
+    "fault_controls_rejected": 13,
+    "existing_cache_unchanged": true,
+    "historical_execution_input_attestation": false
+  },
+  "original_aggregate_sha256": "b4a00ba0e6c91a00f034fe5d550c6d8a4278cc39e3608fce9b197c59f4c50d38",
+  "reconciled_aggregate_sha256": "e14427e77c711505d0c65b6b4b5ea0e892b2c06b290d0a7fe446ac519f381e64",
+  "reconciliation_report_sha256": "8685db6294b4d1c08b1374e5b29c52457d604fdb56d53779b33d39f9e41481db",
+  "archive_files": 484,
+  "conversion_archive_entries": 8511,
+  "conversion_archive_sha256": "786a7dc6313521f448f87cb119a9b1fbe9a48318b5e97fb00c9e7d448fd19d53",
+  "physical_hardware_tested": false,
+  "xilinx_routing_or_timing_accepted": false,
+  "limitations": [
+    "Execution uses host-backed memory/runtime services, not the bounded board-system storage.",
+    "Validation and embedding assertions are counted separately from RTL execution assertions.",
+    "Canonical cycles exclude duplicated setup replay in partitioned workers.",
+    "The post-run conversion replay establishes current input consistency; the original runner did not hash every generated input before execution.",
+    "Untimed functional primitive models retain the documented X/Z limitations; no physical implementation or exhaustive semantic proof is claimed."
+  ]
+}

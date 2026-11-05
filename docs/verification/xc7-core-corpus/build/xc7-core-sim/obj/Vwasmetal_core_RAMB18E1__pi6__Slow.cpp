@@ -1,0 +1,27 @@
+#pragma GCC diagnostic ignored "-Wint-in-bool-context"
+#pragma GCC diagnostic ignored "-Wbool-operation"
+#pragma GCC diagnostic ignored "-Wbitwise-instead-of-logical"
+// Verilated -*- C++ -*-
+// DESCRIPTION: Verilator output: Design implementation internals
+// See Vwasmetal_core.h for the primary calling header
+
+#include "Vwasmetal_core__pch.h"
+#include "Vwasmetal_core_RAMB18E1__pi6.h"
+#include "Vwasmetal_core__Syms.h"
+
+void Vwasmetal_core_RAMB18E1__pi6___ctor_var_reset(Vwasmetal_core_RAMB18E1__pi6* vlSelf);
+
+Vwasmetal_core_RAMB18E1__pi6::Vwasmetal_core_RAMB18E1__pi6(Vwasmetal_core__Syms* symsp, const char* v__name)
+    : VerilatedModule{v__name}
+    , vlSymsp{symsp}
+ {
+    // Reset structure values
+    Vwasmetal_core_RAMB18E1__pi6___ctor_var_reset(this);
+}
+
+void Vwasmetal_core_RAMB18E1__pi6::__Vconfigure(bool first) {
+    if (false && first) {}  // Prevent unused
+}
+
+Vwasmetal_core_RAMB18E1__pi6::~Vwasmetal_core_RAMB18E1__pi6() {
+}

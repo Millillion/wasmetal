@@ -30,6 +30,11 @@ rechecks both executable identities and 288 execution/verification inputs,
 preserves the differing workspace fingerprints caused by ongoing tool work,
 and rejects all 26 deliberate identity and coverage defects. Original partition
 reports and logs are [archived](docs/verification/core-rounding-mapped).
+The separately synthesized [Xilinx core also passes all 259 official suites](docs/verification/xc7-core-corpus-summary.json),
+including 57,711 RTL execution assertions. Every command and its canonical
+cycle count matches native RTL. Its [input and coverage checks](docs/XILINX-CORE.md#complete-official-corpus)
+include an independent post-run replay of every script conversion. These are
+host-backed, untimed simulations; physical FPGA routing remains open.
 The complete system also passes a new
 [four-state boot and upload campaign](docs/verification/loadable-four-state.json)
 at production capacities. All 1,492,992 bits in the five writable program stores
@@ -171,11 +176,17 @@ GitHub yet; the published passing campaign is local evidence.
 A separate [host-backed Xilinx core](docs/XILINX-CORE.md) now passes synthesis
 and structural checks at the official-suite capacities: 47,009 logic LUT
 primitives, 5,265 flip-flops, 29 DSPs and 49 equivalent 36-Kbit RAM blocks.
-Its [identified simulator and eight-suite smoke test](docs/verification/xc7-core-simulator.json)
-pass 6,647 execution assertions and 355 validation assertions. All 132,959
-canonical cycles match native RTL, command by command. Nine deliberately
-corrupted build inputs are rejected before model generation. The complete
-259-suite Xilinx campaign is running; it has not passed yet. The family-specific
+Its [complete 259-suite campaign](docs/verification/xc7-core-corpus-summary.json)
+passes 57,711 RTL execution assertions, 4,677 front-end validation assertions
+and 254 embedding assertions. All 65,353 commands and 306,351,688 canonical
+cycles match native RTL. The [reconciliation check](docs/verification/xc7-core-reconciliation.json)
+rechecks 452 execution dependencies and rejects all 28 identity and coverage
+faults. An [independent conversion replay](docs/verification/spec-conversion.json)
+also passes all 259 scripts and 7,216 generated payloads, rejecting thirteen
+corruptions. That audit happened after execution; generated-file hashes were
+not captured before the original run. The [raw archive](docs/verification/xc7-core-corpus/index.json)
+retains that distinction and the original reports. Nine deliberately
+corrupted build inputs were rejected before model generation. The family-specific
 report guards pass 18 metadata fixture tests. CI now includes a separate
 Xilinx core build, sixteen official-corpus workers and a complete-coverage
 gate. Its [local deployment checks](docs/verification/xc7-core-ci-preflight.json)
@@ -478,8 +489,8 @@ and an independent reset base. All fifteen circuit fault controls are rejected.
 The 98 actual cell types pass independent upstream-model checks, including all
 three flip-flop strengths. CI includes this functional flow. Detailed routing
 remains open: the first 20-minute trial timed out with 3,689 violations in its
-last completed iteration. A bounded diagnostic is running to retain routing
-failure details. No physical ASIC timing or complete CPU layout is accepted.
+last completed iteration. A separate bounded diagnostic has completed and its
+routing failures are being checked. No physical ASIC timing or complete CPU layout is accepted.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its

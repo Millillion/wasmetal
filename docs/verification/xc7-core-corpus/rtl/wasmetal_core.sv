@@ -1,0 +1,1053 @@
+// SPDX-License-Identifier: MIT
+// Clocked Wasm execution engine. The image loader supplies decoded immediates
+// and branch metadata; it never supplies instruction results.
+module wasmetal_core #(
+    parameter integer VALUE_DEPTH = 8192,
+    parameter integer CONTROL_DEPTH = 2048,
+    parameter integer CALL_DEPTH = 512,
+    parameter integer MEMORY_COUNT = 256,
+    parameter integer HEAP_SLOTS = 1048576
+) (
+    input logic clk, reset,
+    input logic cmd_valid,
+    input logic [3:0] cmd_kind,
+    input logic [31:0] cmd_index,
+    input logic [127:0] cmd_data,
+    input logic [63:0] cmd_aux,
+    output logic busy, done,
+    output logic [7:0] trap,
+    output logic [31:0] result_count,
+    input logic [31:0] result_index,
+    output logic [127:0] result_data,
+
+    output logic [31:0] pc,
+    input logic [31:0] insn_op, insn_x, insn_y, insn_z, insn_w,
+    input logic [127:0] insn_imm,
+    input logic insn_valid,
+
+    output logic [31:0] function_index,
+    input logic [31:0] function_entry, function_params, function_locals,
+    input logic [31:0] function_results, function_type,
+    input logic function_valid,
+    output logic [31:0] type_actual, type_expected,
+    input logic type_matches,
+
+    output logic mem_valid, mem_write,
+    output logic [2:0] mem_kind,
+    output logic [31:0] mem_index,
+    output logic [63:0] mem_address,
+    output logic [4:0] mem_bytes,
+    output logic [127:0] mem_wdata,
+    input logic mem_ready, mem_fault,
+    input logic [127:0] mem_rdata
+);
+    localparam logic [7:0] T_UNREACHABLE=1, T_BOUNDS=4,
+        T_EXHAUSTION=9, T_IMAGE=254, T_UNSUPPORTED=255;
+    typedef enum logic [4:0] {
+        IDLE, EXECUTE, CALL_SETUP, ENTER, INIT_LOCALS, BRANCH,
+        BR_TABLE, COPY_VALUES, RETURN_SETUP, RETURN_RESTORE,
+        DIV_WAIT, MEMORY_WAIT, INDIRECT_WAIT, FP_WAIT, SIMD_FP_START, SIMD_FP_WAIT,
+        BULK_STEP, BULK_READ_WAIT, BULK_WRITE_WAIT, GC_NEW_STEP, GC_NEW_WAIT,
+        EXN_SEARCH, EXN_CHECK, EXN_PAYLOAD, EXN_LOAD_WAIT, SIMD_INT_WAIT, FETCH_FIFTH, PREPARE, CMD_QUERY
+    } state_t;
+    state_t state, copy_next;
+    logic query_table;
+    logic [31:0] query_index;
+    logic value_write;
+    logic [31:0] value_write_index,value_aux_index;
+    logic [127:0] value_write_data;
+    logic value_auxiliary,fifth_ready;
+    wire [511:0] value_banks;
+    wire [127:0] value_aux=value_banks[value_aux_index[1:0]*128+:128];
+    (* ram_style="block" *) logic [160:0] labels_memory [0:CONTROL_DEPTH-1];
+    (* ram_style="block" *) logic [127:0] frames_memory [0:CALL_DEPTH-1];
+    logic [160:0] label_read;
+    logic [127:0] frame_read;
+    wire [31:0] label_height,label_pc,label_arity,label_handlers,label_handler_pc;
+    wire label_loop;
+    wire [31:0] frame_pc,frame_fp,frame_control,frame_results;
+    assign {label_handler_pc,label_handlers,label_loop,label_arity,label_pc,label_height}=label_read;
+    assign {frame_results,frame_control,frame_fp,frame_pc}=frame_read;
+    logic [5:0] descriptor_write;
+    logic [31:0] descriptor_index,descriptor_read_a,descriptor_read_b;
+    logic [128:0] descriptor_data;
+    wire [63:0] memory_pages_a,memory_pages_b,table_size_a,table_size_b,data_size_b,element_size_b;
+    wire [64:0] memory_limits,table_limits;
+    wire [64:0] unused_memory_limits,unused_table_limits;
+    wire [63:0] unused_data_size,unused_element_size;
+    wire memory_wide_a=memory_limits[64],table_wide_a=table_limits[64];
+    wire [63:0] memory_max_a=memory_limits[63:0],table_max_a=table_limits[63:0];
+    logic [63:0] bulk_left, bulk_source, bulk_destination;
+    logic [31:0] bulk_source_index, bulk_destination_index;
+    logic [2:0] bulk_source_kind, bulk_destination_kind;
+    logic bulk_backwards, bulk_fill, bulk_table;
+    logic [127:0] bulk_fill_value;
+    logic [4:0] bulk_step_size;
+    logic [4:0] bulk_source_unit, bulk_destination_unit, bulk_source_step, bulk_destination_step;
+    logic decoded_table, decoded_init, decoded_fill;
+    logic [31:0] decoded_destination, decoded_source;
+    logic [65:0] bulk_destination_limit, bulk_source_limit, bulk_destination_end, bulk_source_end;
+    logic [64:0] grown_table;
+    logic [31:0] heap_next, gc_count, gc_position, gc_source, gc_result_slot;
+    logic gc_fill;
+    logic [127:0] gc_fill_value, gc_reference;
+    logic [7:0] load_width;
+    logic [31:0] new_count, new_pop, new_tag;
+    logic [32:0] new_heap_end;
+    logic [65:0] gc_segment_end;
+    logic [2:0] gc_byte_shift;
+    logic [127:0] fourth, fifth;
+    logic [31:0] cast_heap_type;
+    logic cast_nullable, cast_matches;
+    logic gc_throw, catch_reference;
+    logic [127:0] exception_reference;
+    logic [31:0] catch_left, catch_values, catch_position;
+    logic check_type;
+    logic [31:0] expected_type;
+    logic [31:0] sp, fp, control_sp, control_base, call_depth, result_arity;
+    logic [31:0] init_left, callee_base, pending_branch;
+    logic [1:0] call_kind;
+    logic [31:0] copy_src, copy_dst, copy_len, copy_pos;
+    logic [31:0] load_op, load_dst;
+    logic [127:0] top, below, third;
+    logic [63:0] alu_a, alu_result;
+    logic alu_unary, alu_supported, unary_input;
+    logic div_start, div_done, div_wide, div_signed, div_rem;
+    logic [63:0] div_result;
+    logic [7:0] div_trap;
+    logic fp_supported, fp_unary, fp_done, fp_start;
+    logic [63:0] fp_result;
+    logic [7:0] fp_trap;
+    logic simd_int_supported,simd_int_done;
+    logic [2:0] simd_int_arity;
+    logic [127:0] simd_int_result;
+    logic simd_fp_supported, simd_source_wide, simd_result_wide, simd_phase, simd_active;
+    logic [31:0] simd_scalar_op, fp_operation;
+    logic [2:0] simd_lanes, simd_arity, simd_mode, simd_lane;
+    logic [127:0] simd_accum, simd_assembled, simd_a, simd_b;
+    logic [63:0] simd_product, simd_a_lane, simd_b_lane, simd_c_lane, simd_result_lane;
+    logic [63:0] fp_a, fp_b;
+    logic [4:0] access_size;
+    logic access_store;
+    logic access_simd, access_lane;
+    logic [127:0] load_vector, loaded_value;
+    logic [31:0] load_lane;
+    logic [63:0] access_base;
+    logic [65:0] access_end, memory_limit;
+    logic [64:0] effective_address, grown_pages;
+    logic [31:0] label_index;
+
+    // Share descriptor read ports across mutually exclusive instructions.
+    always_comb begin
+        descriptor_read_a=insn_x;
+        if(state==IDLE) descriptor_read_a=cmd_index;
+        else if(state==CMD_QUERY) descriptor_read_a=query_index;
+        else if(insn_op=='h11 || insn_op=='h13) descriptor_read_a=insn_y;
+        else if(insn_op=='hfc0008 || insn_op=='hfc000a || insn_op=='hfc000b ||
+                insn_op=='hfc000c || insn_op=='hfc000e || insn_op=='hfc0011)
+            descriptor_read_a=decoded_destination;
+        descriptor_read_b=insn_op[31:16]=='hfb ? insn_y:decoded_source;
+    end
+    wasmetal_descriptors #(MEMORY_COUNT,64) memory_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[0]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_b),.read_data_a(memory_pages_a),.read_data_b(memory_pages_b));
+    wasmetal_descriptors #(MEMORY_COUNT,65) memory_bounds(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[1]),.write_index(descriptor_index),.write_data(descriptor_data[128:64]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_a),.read_data_a(memory_limits),.read_data_b(unused_memory_limits));
+    wasmetal_descriptors #(MEMORY_COUNT,64) table_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[2]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_b),.read_data_a(table_size_a),.read_data_b(table_size_b));
+    wasmetal_descriptors #(MEMORY_COUNT,65) table_bounds(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[3]),.write_index(descriptor_index),.write_data(descriptor_data[128:64]),
+        .read_index_a(descriptor_read_a),.read_index_b(descriptor_read_a),.read_data_a(table_limits),.read_data_b(unused_table_limits));
+    wasmetal_descriptors #(MEMORY_COUNT,64) data_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[4]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_b),.read_index_b(descriptor_read_b),.read_data_a(data_size_b),.read_data_b(unused_data_size));
+    wasmetal_descriptors #(MEMORY_COUNT,64) element_sizes(.clk(clk),.reset(reset),
+        .pending_write(descriptor_write[5]),.write_index(descriptor_index),.write_data(descriptor_data[63:0]),
+        .read_index_a(descriptor_read_b),.read_index_b(descriptor_read_b),.read_data_a(element_size_b),.read_data_b(unused_element_size));
+
+    assign busy = state != IDLE;
+    always_comb begin
+        value_auxiliary=1; value_aux_index=result_index;
+        case(state)
+            IDLE: value_aux_index=result_index;
+            COPY_VALUES: value_aux_index=copy_src+copy_pos;
+            GC_NEW_STEP: value_aux_index=gc_source+gc_position;
+            FETCH_FIFTH: value_aux_index=sp-5;
+            EXECUTE: begin value_auxiliary=insn_op=='h20; value_aux_index=fp+insn_x; end
+            default: value_auxiliary=0;
+        endcase
+    end
+    wasmetal_values #(VALUE_DEPTH) value_file(.clk(clk),.pending_write(value_write),
+        .write_index(value_write_index),.write_data(value_write_data),
+        .auxiliary(value_auxiliary),.auxiliary_index(value_aux_index),.window_top(sp-32'd1),.bank_words(value_banks));
+    // Results are valid while idle; the read port serves execution while busy.
+    assign result_data = state==IDLE && result_index<VALUE_DEPTH ? value_aux:128'b0;
+    assign top = (sp>0 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-1))*128+:128]:128'b0;
+    assign below = (sp>1 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-2))*128+:128]:128'b0;
+    assign third = (sp>2 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-3))*128+:128]:128'b0;
+    assign fourth = (sp>3 && sp<=VALUE_DEPTH) ? value_banks[(2'(sp-4))*128+:128]:128'b0;
+    assign cast_heap_type = insn_op == 'hfb0018 || insn_op == 'hfb0019 ? insn_z : insn_x;
+    assign cast_nullable = insn_op == 'hfb0015 || insn_op == 'hfb0017 ||
+        ((insn_op == 'hfb0018 || insn_op == 'hfb0019) && insn_w[1]);
+    assign type_actual = state == CALL_SETUP ? function_type : top[95:64];
+    assign type_expected = state == CALL_SETUP ? expected_type : cast_heap_type;
+    always_comb begin
+        cast_matches=0;
+        if (top == 0) cast_matches=cast_nullable;
+        else if (!cast_heap_type[31]) cast_matches=(top[127:96]>=1 && top[127:96]<=3) && type_matches;
+        else case (cast_heap_type)
+            -32'd16: cast_matches=top[127:96]==1;
+            -32'd17: cast_matches=top[127:96]==5 || top[104];
+            -32'd18: cast_matches=(top[127:96]>=2 && top[127:96]<=4) || top[127:96]==7;
+            -32'd19: cast_matches=top[127:96]>=2 && top[127:96]<=4;
+            -32'd20: cast_matches=top[127:96]==4;
+            -32'd21: cast_matches=top[127:96]==2;
+            -32'd22: cast_matches=top[127:96]==3;
+            -32'd23: cast_matches=top[127:96]==6;
+            default: cast_matches=0;
+        endcase
+    end
+    always_comb begin
+        new_count=top[31:0]; new_pop=2; new_tag=3;
+        if (insn_op == 8) begin new_count=insn_y; new_pop=insn_y; new_tag=6; end
+        else if (insn_op == 'hfb0000 || insn_op == 'hfb0001) begin
+            new_count=insn_y; new_pop=insn_op == 'hfb0001 ? 0 : insn_y; new_tag=2;
+        end else if (insn_op == 'hfb0007) new_pop=1;
+        else if (insn_op == 'hfb0008) begin new_count=insn_y; new_pop=insn_y; end
+        new_heap_end={1'b0,heap_next}+{1'b0,(new_count == 0 ? 32'd1 : new_count)};
+        // Valid packed/numeric array element widths are 8,16,32,64,128 bits.
+        // Keep the widened bound calculation without synthesizing a general
+        // 32-by-32 multiply for this power-of-two scale factor.
+        gc_byte_shift=0;
+        if(insn_op=='hfb0009 || insn_op=='hfb0012) case(insn_z[7:0])
+            16: gc_byte_shift=1;
+            32: gc_byte_shift=2;
+            64: gc_byte_shift=3;
+            128: gc_byte_shift=4;
+            default: gc_byte_shift=0;
+        endcase
+        gc_segment_end={34'b0,below[31:0]}+({34'b0,top[31:0]} << gc_byte_shift);
+    end
+    assign unary_input = insn_op == 'h45 || insn_op == 'h50 ||
+        (insn_op >= 'h67 && insn_op <= 'h69) ||
+        (insn_op >= 'h79 && insn_op <= 'h7b) ||
+        (insn_op >= 'ha7 && insn_op <= 'hc4);
+    assign alu_a = unary_input ? top[63:0] : below[63:0];
+    wasmetal_alu alu(.op(insn_op),.a(alu_a),.b(top[63:0]),
+        .result(alu_result),.unary_op(alu_unary),.supported(alu_supported));
+    assign div_start = state == EXECUTE && insn_valid &&
+        ((insn_op >= 'h6d && insn_op <= 'h70) || (insn_op >= 'h7f && insn_op <= 'h82));
+    assign div_wide = insn_op >= 'h7f;
+    assign div_signed = insn_op == 'h6d || insn_op == 'h6f || insn_op == 'h7f || insn_op == 'h81;
+    assign div_rem = insn_op == 'h6f || insn_op == 'h70 || insn_op == 'h81 || insn_op == 'h82;
+    wasmetal_divider divider(.clk(clk),.reset(reset),.start(div_start),
+        .wide(div_wide),.signed_op(div_signed),.remainder_op(div_rem),
+        .a(below[63:0]),.b(top[63:0]),.done(div_done),.result(div_result),.trap(div_trap));
+    assign simd_active = state == SIMD_FP_START || state == SIMD_FP_WAIT;
+    assign fp_start = (state == EXECUTE && insn_valid && fp_supported) || state == SIMD_FP_START;
+    assign fp_operation = simd_active ? (simd_phase ? (simd_result_wide ? 32'ha0 : 32'h92) : simd_scalar_op) : insn_op;
+    assign fp_a = simd_active ? (simd_phase ? (simd_mode == 5 ? simd_product ^ (simd_result_wide ? 64'h8000000000000000 : 64'h80000000) : simd_product) : simd_a_lane) : (fp_supported ? (fp_unary ? top[63:0] : below[63:0]) : 64'b0);
+    assign fp_b = simd_active ? (simd_phase ? simd_c_lane : simd_b_lane) : (fp_supported ? top[63:0] : 64'b0);
+    wasmetal_fpu fpu(.clk(clk),.reset(reset),.start(fp_start),.op(fp_operation),
+        .a(fp_a),.b(fp_b),.supported(fp_supported),
+        .unary_op(fp_unary),.done(fp_done),.result(fp_result),.trap(fp_trap));
+    wasmetal_simd_serial simd_integer(.clk(clk),.reset(reset),
+        .start(state==EXECUTE && insn_valid && simd_int_supported),.done(simd_int_done),
+        .op(insn_op),.lane(insn_x),.immediate(insn_imm),
+        .a(insn_op[31:16]=='hfd ? (simd_int_arity == 1 ? top : simd_int_arity == 2 ? below : third) : 128'b0),
+        .b(insn_op[31:16]=='hfd ? (simd_int_arity == 3 ? below : top) : 128'b0),.c(insn_op[31:16]=='hfd ? top : 128'b0),
+        .supported(simd_int_supported),.arity(simd_int_arity),.result(simd_int_result));
+    wasmetal_simd_fp_decode simd_float_decode(.op(insn_op),.supported(simd_fp_supported),
+        .source_wide(simd_source_wide),.result_wide(simd_result_wide),.scalar_op(simd_scalar_op),
+        .lanes(simd_lanes),.arity(simd_arity),.mode(simd_mode));
+    function automatic [63:0] extract_simd_fp_lane(
+        input logic [127:0] value,input logic [2:0] lane,input logic wide
+    );
+        extract_simd_fp_lane=wide ?
+            ((|lane[2:1]) ? 64'b0 : (lane[0] ? value[127:64] : value[63:0])) :
+            (lane[2] ? 64'b0 : {32'b0,32'(value >> {lane[1:0],5'b0})});
+    endfunction
+    always_comb begin
+        simd_a = simd_arity == 1 ? top : simd_arity == 2 ? below : third;
+        simd_b = simd_arity == 3 ? below : top;
+        simd_a_lane = extract_simd_fp_lane(simd_a,simd_lane,simd_source_wide);
+        simd_b_lane = extract_simd_fp_lane(simd_b,simd_lane,simd_source_wide);
+        simd_c_lane = extract_simd_fp_lane(top,simd_lane,simd_source_wide);
+        simd_result_lane = fp_result;
+        if (simd_mode == 1) simd_result_lane = {64{fp_result[0]}};
+        else if (simd_mode == 2 || simd_mode == 3) simd_result_lane = fp_result[0] ? simd_b_lane : simd_a_lane;
+        simd_assembled = simd_accum;
+        if (simd_result_wide) simd_assembled[simd_lane*64+:64] = simd_result_lane;
+        else simd_assembled[simd_lane*32+:32] = simd_result_lane[31:0];
+    end
+
+    always_comb begin
+        decoded_table = insn_op >= 'hfc000c;
+        decoded_init = insn_op == 'hfc0008 || insn_op == 'hfc000c;
+        decoded_fill = insn_op == 'hfc000b || insn_op == 'hfc0011;
+        decoded_destination = decoded_init ? insn_y : insn_x;
+        decoded_source = decoded_init ? insn_x : insn_y;
+    end
+    always_comb begin
+        bulk_destination_limit = 0; bulk_source_limit = 0;
+        if (decoded_destination < MEMORY_COUNT) bulk_destination_limit = decoded_table ?
+            {2'b0,table_size_a} : {2'b0,memory_pages_a} << 16;
+        if (decoded_source < MEMORY_COUNT) begin
+            if (decoded_init) bulk_source_limit = decoded_table ? {2'b0,element_size_b} : {2'b0,data_size_b};
+            else bulk_source_limit = decoded_table ? {2'b0,table_size_b} : {2'b0,memory_pages_b} << 16;
+        end
+        bulk_destination_end = {2'b0,third[63:0]}+{2'b0,top[63:0]};
+        bulk_source_end = {2'b0,below[63:0]}+{2'b0,top[63:0]};
+        bulk_step_size = bulk_table ? 5'd1 : (bulk_left >= 16 ? 5'd16 : bulk_left[4:0]);
+        bulk_source_step = bulk_table ? bulk_source_unit : bulk_step_size;
+        bulk_destination_step = bulk_table ? bulk_destination_unit : bulk_step_size;
+        grown_table = 0;
+        if (insn_x < MEMORY_COUNT) grown_table = {1'b0,table_size_a}+{1'b0,top[63:0]};
+    end
+
+    always_comb begin
+        access_store = insn_op >= 'h36 && insn_op <= 'h3e;
+        access_simd = (insn_op >= 'hfd0000 && insn_op <= 'hfd000b) || (insn_op >= 'hfd0054 && insn_op <= 'hfd005d);
+        access_lane = insn_op >= 'hfd0054 && insn_op <= 'hfd005b;
+        access_size = 4;
+        case (insn_op)
+            'h29, 'h2b, 'h37, 'h39: access_size = 8;
+            'h2c, 'h2d, 'h30, 'h31, 'h3a, 'h3c: access_size = 1;
+            'h2e, 'h2f, 'h32, 'h33, 'h3b, 'h3d: access_size = 2;
+            default: access_size = 4;
+        endcase
+        if (access_simd) begin
+            access_store = insn_op == 'hfd000b || (insn_op >= 'hfd0058 && insn_op <= 'hfd005b);
+            case (insn_op)
+                'hfd0000,'hfd000b: access_size=16;
+                'hfd0007,'hfd0054,'hfd0058: access_size=1;
+                'hfd0008,'hfd0055,'hfd0059: access_size=2;
+                'hfd0009,'hfd0056,'hfd005a,'hfd005c: access_size=4;
+                default: access_size=8;
+            endcase
+        end
+        access_base = access_store || access_lane ? below[63:0] : top[63:0];
+        memory_limit = 0; grown_pages = 0;
+        if (insn_x < MEMORY_COUNT) begin
+            if (!memory_wide_a) access_base[63:32] = 0;
+            memory_limit = {2'b0,memory_pages_a} << 16;
+            grown_pages = {1'b0,memory_pages_a} +
+                (memory_wide_a ? {1'b0,top[63:0]} : {33'b0,top[31:0]});
+        end
+        effective_address = {1'b0,access_base} + {1'b0,insn_imm[63:0]};
+        access_end = {1'b0,effective_address} + {61'b0,access_size};
+        label_index = control_sp-1-pending_branch;
+    end
+
+    integer v;
+    always_comb begin
+        loaded_value=mem_rdata; v=0;
+        case (load_op)
+            'h2c: loaded_value={96'b0,{24{mem_rdata[7]}},mem_rdata[7:0]};
+            'h2e: loaded_value={96'b0,{16{mem_rdata[15]}},mem_rdata[15:0]};
+            'h30: loaded_value={64'b0,{56{mem_rdata[7]}},mem_rdata[7:0]};
+            'h32: loaded_value={64'b0,{48{mem_rdata[15]}},mem_rdata[15:0]};
+            'h34: loaded_value={64'b0,{32{mem_rdata[31]}},mem_rdata[31:0]};
+            'hfd0001,'hfd0002: for(v=0;v<8;v=v+1) loaded_value[v*16+:16]={{8{load_op=='hfd0001 && mem_rdata[v*8+7]}},mem_rdata[v*8+:8]};
+            'hfd0003,'hfd0004: for(v=0;v<4;v=v+1) loaded_value[v*32+:32]={{16{load_op=='hfd0003 && mem_rdata[v*16+15]}},mem_rdata[v*16+:16]};
+            'hfd0005,'hfd0006: for(v=0;v<2;v=v+1) loaded_value[v*64+:64]={{32{load_op=='hfd0005 && mem_rdata[v*32+31]}},mem_rdata[v*32+:32]};
+            'hfd0007: loaded_value={16{mem_rdata[7:0]}};
+            'hfd0008: loaded_value={8{mem_rdata[15:0]}};
+            'hfd0009: loaded_value={4{mem_rdata[31:0]}};
+            'hfd000a: loaded_value={2{mem_rdata[63:0]}};
+            'hfd0054: begin loaded_value=load_vector; loaded_value[load_lane*8+:8]=mem_rdata[7:0]; end
+            'hfd0055: begin loaded_value=load_vector; loaded_value[load_lane*16+:16]=mem_rdata[15:0]; end
+            'hfd0056: begin loaded_value=load_vector; loaded_value[load_lane*32+:32]=mem_rdata[31:0]; end
+            'hfd0057: begin loaded_value=load_vector; loaded_value[load_lane*64+:64]=mem_rdata[63:0]; end
+            default: loaded_value=mem_rdata;
+        endcase
+        if (load_op == 'hfb0003 || load_op == 'hfb000c) begin
+            if(load_width==8) loaded_value={96'b0,{24{mem_rdata[7]}},mem_rdata[7:0]};
+            else if(load_width==16) loaded_value={96'b0,{16{mem_rdata[15]}},mem_rdata[15:0]};
+        end else if (load_op == 'hfb0004 || load_op == 'hfb000d) begin
+            if(load_width==8) loaded_value={120'b0,mem_rdata[7:0]};
+            else if(load_width==16) loaded_value={112'b0,mem_rdata[15:0]};
+        end
+    end
+
+    task automatic fail(input logic [7:0] code);
+        begin trap <= code; done <= 1; state <= IDLE; mem_valid <= 0; result_count <= 0; end
+    endtask
+
+    task automatic write_descriptor(input logic [5:0] mask,input logic [31:0] index,input logic [128:0] value);
+        begin descriptor_write<=mask; descriptor_index<=index; descriptor_data<=value; end
+    endtask
+
+    task automatic write_value(input logic [31:0] index,input logic [127:0] value);
+        begin value_write<=1; value_write_index<=index; value_write_data<=value; end
+    endtask
+
+    // Control-stack addresses depend only on rising-edge state registers.
+    // Read on the falling edge so synchronous block RAM supplies the next
+    // rising edge without an extra instruction cycle. Both half-cycle paths
+    // must meet timing; the board clock leaves ample time on each edge.
+    wire [31:0] label_read_index=state==BRANCH ? label_index : control_sp-1;
+    always_ff @(negedge clk) begin
+        label_read <= labels_memory[label_read_index];
+        frame_read <= frames_memory[call_depth-1];
+    end
+
+    always_ff @(posedge clk) begin
+        if (reset) begin
+            descriptor_write<=0; descriptor_index<=0; descriptor_data<=0; query_index<=0; query_table<=0;
+            value_write<=0; value_write_index<=0; value_write_data<=0; fifth<=0; fifth_ready<=0;
+            state <= IDLE; copy_next <= IDLE; done <= 0; trap <= 0; result_count <= 0;
+            pc <= 0; function_index <= 0;
+            sp <= 0; fp <= 0; control_sp <= 0; control_base <= 0; call_depth <= 0; result_arity <= 0;
+            init_left <= 0; callee_base <= 0; pending_branch <= 0; call_kind <= 0;
+            copy_src <= 0; copy_dst <= 0; copy_len <= 0; copy_pos <= 0;
+            load_op <= 0; load_dst <= 0; check_type <= 0; expected_type <= 0;
+            load_vector <= 0; load_lane <= 0;
+            simd_accum <= 0; simd_product <= 0; simd_lane <= 0; simd_phase <= 0;
+            bulk_left <= 0; bulk_source <= 0; bulk_destination <= 0;
+            bulk_source_index <= 0; bulk_destination_index <= 0;
+            bulk_source_kind <= 0; bulk_destination_kind <= 0;
+            bulk_backwards <= 0; bulk_fill <= 0; bulk_table <= 0; bulk_fill_value <= 0;
+            bulk_source_unit <= 1; bulk_destination_unit <= 1;
+            heap_next <= 0; gc_count <= 0; gc_position <= 0; gc_source <= 0; gc_result_slot <= 0;
+            gc_fill <= 0; gc_fill_value <= 0; gc_reference <= 0; load_width <= 0;
+            gc_throw <= 0; catch_reference <= 0; exception_reference <= 0;
+            catch_left <= 0; catch_values <= 0; catch_position <= 0;
+            mem_valid <= 0; mem_write <= 0; mem_kind <= 0; mem_index <= 0;
+            mem_address <= 0; mem_bytes <= 0; mem_wdata <= 0;
+        end else begin
+            descriptor_write<=0;
+            value_write<=0; fifth_ready<=0;
+            case (state)
+                IDLE: if (cmd_valid) begin
+                    case (cmd_kind)
+                        0: begin
+                            if (cmd_aux > 64'(VALUE_DEPTH)) fail(T_EXHAUSTION);
+                            else begin
+                                done <= 0; trap <= 0; result_count <= 0;
+                                sp <= cmd_aux[31:0]; fp <= 0; control_sp <= 0; control_base <= 0; call_depth <= 0;
+                                function_index <= cmd_index; call_kind <= 0; check_type <= 0; state <= CALL_SETUP;
+                            end
+                        end
+                        1: if (cmd_index < VALUE_DEPTH) write_value(cmd_index,cmd_data);
+                        2: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b000011,cmd_index,{cmd_aux[0],cmd_data});
+                        3: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b001100,cmd_index,{cmd_aux[0],cmd_data});
+                        4: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b010000,cmd_index,{65'b0,cmd_data[63:0]});
+                        5: if(cmd_index<MEMORY_COUNT) write_descriptor(6'b100000,cmd_index,{65'b0,cmd_data[63:0]});
+                        6,7: if (cmd_index < MEMORY_COUNT) begin
+                            query_index<=cmd_index; query_table<=cmd_kind==7; state<=CMD_QUERY;
+                        end
+                        default: fail(T_IMAGE);
+                    endcase
+                end
+                CMD_QUERY: begin
+                    write_value(0,{64'b0,(query_table ? table_size_a : memory_pages_a)}); state<=IDLE;
+                end
+                PREPARE: state<=EXECUTE;
+                CALL_SETUP: begin
+                    if (!function_valid || function_params > sp || (call_kind == 0 && function_params != sp)) fail(T_IMAGE);
+                    else if (check_type && !type_matches) fail(7);
+                    else if (call_kind == 1 && call_depth >= CALL_DEPTH) fail(T_EXHAUSTION);
+                    else if (function_params > VALUE_DEPTH || function_locals > VALUE_DEPTH-function_params ||
+                        (call_kind == 2 ? fp : sp-function_params) > VALUE_DEPTH - (function_params + function_locals)) fail(T_EXHAUSTION);
+                    else begin
+                        if (call_kind == 1) begin
+                            frames_memory[call_depth] <= {result_arity,control_base,fp,pc+32'd1};
+                            call_depth <= call_depth+1;
+                            callee_base <= sp-function_params;
+                            state <= ENTER;
+                        end else if (call_kind == 2) begin
+                            copy_src <= sp-function_params; copy_dst <= fp;
+                            copy_len <= function_params; copy_pos <= 0;
+                            callee_base <= fp; control_sp <= control_base;
+                            copy_next <= ENTER; state <= COPY_VALUES;
+                        end else begin callee_base <= 0; state <= ENTER; end
+                    end
+                end
+                ENTER: begin
+                    fp <= callee_base; sp <= callee_base+function_params;
+                    result_arity <= function_results; control_base <= control_sp;
+                    pc <= function_entry; init_left <= function_locals;
+                    state <= function_locals == 0 ? PREPARE : INIT_LOCALS;
+                end
+                INIT_LOCALS: begin
+                    write_value(sp,0); sp <= sp+1; init_left <= init_left-1;
+                    if (init_left == 1) state <= PREPARE;
+                end
+                EXECUTE: begin
+                    state<=PREPARE;
+                    if (!insn_valid) fail(T_IMAGE);
+                    else if (sp > VALUE_DEPTH || (sp == VALUE_DEPTH &&
+                        (insn_op=='h20 || insn_op=='h23 || insn_op=='h3f ||
+                         (insn_op>='h41 && insn_op<='h44) || insn_op=='hd0 || insn_op=='hd2 ||
+                         insn_op=='hfc0010 || insn_op=='hfd000c || insn_op=='hfb0001 ||
+                         (insn_op=='hfb0000 && insn_y==0) || (insn_op=='hfb0008 && insn_y==0)))) fail(T_EXHAUSTION);
+                    else if (alu_supported) begin
+                        write_value(sp-(alu_unary ? 1 : 2),{64'b0,alu_result});
+                        if (!alu_unary) sp <= sp-1;
+                        pc <= pc+1;
+                    end else if (div_start) state <= DIV_WAIT;
+                    else if (fp_supported) state <= FP_WAIT;
+                    else if (simd_int_supported) state<=SIMD_INT_WAIT;
+                    else if (simd_fp_supported) begin
+                        simd_accum <= 0; simd_lane <= 0; simd_phase <= 0; state <= SIMD_FP_START;
+                    end
+                    else if ((insn_op >= 'h28 && insn_op <= 'h3e) || access_simd) begin
+                        if (insn_x >= MEMORY_COUNT || effective_address[64] || access_end > memory_limit) fail(T_BOUNDS);
+                        else begin
+                            mem_valid <= 1; mem_write <= access_store; mem_kind <= 0;
+                            mem_index <= insn_x; mem_address <= effective_address[63:0]; mem_bytes <= access_size;
+                            mem_wdata <= access_lane ? top >> (insn_y*{27'b0,access_size}*8) : top;
+                            load_vector <= top; load_lane <= insn_y;
+                            load_op <= insn_op; load_dst <= access_lane ? sp-2 : sp-1;
+                            if (access_store) sp <= sp-2;
+                            else if (access_lane) sp <= sp-1;
+                            state <= MEMORY_WAIT;
+                        end
+                    end else case (insn_op)
+                        'h00: fail(T_UNREACHABLE);
+                        'h01: pc <= pc+1;
+                        'h02, 'h03, 'h04, 'h1f: begin
+                            if (control_sp >= CONTROL_DEPTH) fail(T_EXHAUSTION);
+                            else begin
+                                labels_memory[control_sp] <= {insn_imm[31:0],
+                                    (insn_op == 'h1f ? insn_w : 32'b0), (insn_op == 'h03),
+                                    (insn_op == 'h03 ? insn_x : insn_y),
+                                    (insn_op == 'h03 ? pc+32'd1 : insn_z+32'd1),
+                                    (sp-insn_x-(insn_op == 'h04 ? 32'd1 : 32'd0))};
+                                control_sp <= control_sp+1;
+                                if (insn_op == 'h04) begin
+                                    sp <= sp-1;
+                                    pc <= top[31:0] == 0 ? insn_w : pc+1;
+                                end else pc <= pc+1;
+                            end
+                        end
+                        'h05: begin pending_branch <= 0; state <= BRANCH; end
+                        'h0b: begin
+                            if (control_sp == control_base) state <= RETURN_SETUP;
+                            else begin control_sp <= control_sp-1; pc <= pc+1; end
+                        end
+                        'h0c: begin pending_branch <= insn_x; state <= BRANCH; end
+                        'h0d: begin
+                            sp <= sp-1;
+                            if (top[31:0] != 0) begin pending_branch <= insn_x; state <= BRANCH; end
+                            else pc <= pc+1;
+                        end
+                        'h0e: begin
+                            sp <= sp-1; pc <= insn_x+(top[31:0] < insn_y ? top[31:0] : insn_y);
+                            state <= BR_TABLE;
+                        end
+                        'h0f: state <= RETURN_SETUP;
+                        'h08: begin
+                            if(new_heap_end > 33'(HEAP_SLOTS)) fail(12);
+                            else begin
+                                gc_reference <= {32'd6,insn_x,insn_y,heap_next}; heap_next <= new_heap_end[31:0];
+                                gc_count <= insn_y; gc_position <= 0; gc_source <= sp-insn_y;
+                                gc_fill <= 0; gc_throw <= 1; state <= GC_NEW_STEP;
+                            end
+                        end
+                        'h0a: begin
+                            if(top==0) fail(6);
+                            else begin exception_reference <= top; sp <= sp-1; state <= EXN_SEARCH; end
+                        end
+                        'h10, 'h12: begin
+                            function_index <= insn_x; call_kind <= insn_op == 'h12 ? 2 : 1; check_type <= 0; state <= CALL_SETUP;
+                        end
+                        'h11, 'h13: begin
+                            if (insn_y >= MEMORY_COUNT || top[63:0] >= table_size_a) fail(5);
+                            else begin
+                                mem_valid <= 1; mem_write <= 0; mem_kind <= 2; mem_index <= insn_y;
+                                mem_address <= top[63:0]; mem_bytes <= 16;
+                                expected_type <= insn_x; check_type <= 1;
+                                call_kind <= insn_op == 'h13 ? 2 : 1;
+                                sp <= sp-1; state <= INDIRECT_WAIT;
+                            end
+                        end
+                        'h14, 'h15: begin
+                            if (top == 0) fail(6);
+                            else begin
+                                function_index <= top[31:0]-1; expected_type <= insn_x; check_type <= 1;
+                                call_kind <= insn_op == 'h15 ? 2 : 1; sp <= sp-1; state <= CALL_SETUP;
+                            end
+                        end
+                        'h1a: begin sp <= sp-1; pc <= pc+1; end
+                        'h1b, 'h1c: begin write_value(sp-3,top[31:0] != 0 ? third : below); sp <= sp-2; pc <= pc+1; end
+                        'h20: begin
+                            if (fp+insn_x >= VALUE_DEPTH) fail(T_IMAGE);
+                            else begin write_value(sp,value_aux); sp <= sp+1; pc <= pc+1; end
+                        end
+                        'h21, 'h22: begin
+                            if (fp+insn_x >= VALUE_DEPTH) fail(T_IMAGE);
+                            else begin write_value(fp+insn_x,top); if (insn_op == 'h21) sp <= sp-1; pc <= pc+1; end
+                        end
+                        'h23, 'h24: begin
+                            mem_valid <= 1; mem_write <= insn_op == 'h24; mem_kind <= 1;
+                            mem_index <= insn_x; mem_address <= 0; mem_bytes <= 16; mem_wdata <= top;
+                            load_op <= insn_op; load_dst <= sp;
+                            sp <= insn_op == 'h24 ? sp-1 : sp+1; state <= MEMORY_WAIT;
+                        end
+                        'h25, 'h26: begin
+                            if (insn_x >= MEMORY_COUNT ||
+                                (insn_op == 'h26 ? below[63:0] : top[63:0]) >= table_size_a) fail(5);
+                            else begin
+                                mem_valid <= 1; mem_write <= insn_op == 'h26; mem_kind <= 2;
+                                mem_index <= insn_x; mem_address <= insn_op == 'h26 ? below[63:0] : top[63:0];
+                                mem_bytes <= 16; mem_wdata <= top; load_op <= insn_op; load_dst <= sp-1;
+                                if (insn_op == 'h26) sp <= sp-2;
+                                state <= MEMORY_WAIT;
+                            end
+                        end
+                        'hfc0010: begin
+                            if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
+                            else begin write_value(sp,{64'b0,table_size_a}); sp <= sp+1; pc <= pc+1; end
+                        end
+                        'hfc0009, 'hfc000d: begin
+                            if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
+                            else begin
+                                write_descriptor(insn_op=='hfc0009 ? 6'b010000:6'b100000,insn_x,0);
+                                pc <= pc+1;
+                            end
+                        end
+                        'hfc000f: begin
+                            if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
+                            else if (grown_table[64] || grown_table > {1'b0,table_max_a}) begin
+                                write_value(sp-2,table_wide_a ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
+                                sp <= sp-1; pc <= pc+1;
+                            end else begin
+                                write_value(sp-2,{64'b0,table_size_a}); sp <= sp-1;
+                                write_descriptor(6'b000100,insn_x,{65'b0,grown_table[63:0]});
+                                bulk_table <= 1; bulk_fill <= 1; bulk_fill_value <= below;
+                                bulk_source_unit <= 1; bulk_destination_unit <= 1;
+                                bulk_left <= top[63:0]; bulk_destination <= table_size_a;
+                                bulk_destination_index <= insn_x; bulk_destination_kind <= 2;
+                                bulk_backwards <= 0; state <= BULK_STEP;
+                            end
+                        end
+                        'hfc0008,'hfc000a,'hfc000b,'hfc000c,'hfc000e,'hfc0011: begin
+                            if (decoded_destination >= MEMORY_COUNT || (!decoded_fill && decoded_source >= MEMORY_COUNT)) fail(T_IMAGE);
+                            else if (bulk_destination_end > bulk_destination_limit ||
+                                (!decoded_fill && bulk_source_end > bulk_source_limit)) fail(decoded_table ? 8'd5 : T_BOUNDS);
+                            else begin
+                                sp <= sp-3; bulk_left <= top[63:0]; bulk_fill <= decoded_fill;
+                                bulk_source_unit <= 1; bulk_destination_unit <= 1;
+                                bulk_table <= decoded_table; bulk_fill_value <= decoded_table ? below : {16{below[7:0]}};
+                                bulk_source_index <= decoded_source; bulk_destination_index <= decoded_destination;
+                                bulk_source_kind <= decoded_init ? (decoded_table ? 3'd4 : 3'd3) : (decoded_table ? 3'd2 : 3'd0);
+                                bulk_destination_kind <= decoded_table ? 3'd2 : 3'd0;
+                                if (!decoded_init && !decoded_fill && decoded_source == decoded_destination &&
+                                    third[63:0] > below[63:0] && {2'b0,third[63:0]} < bulk_source_end) begin
+                                    bulk_backwards <= 1;
+                                    bulk_source <= bulk_source_end[63:0]; bulk_destination <= bulk_destination_end[63:0];
+                                end else begin
+                                    bulk_backwards <= 0; bulk_source <= below[63:0]; bulk_destination <= third[63:0];
+                                end
+                                state <= BULK_STEP;
+                            end
+                        end
+                        'h3f: begin
+                            if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
+                            else begin write_value(sp,{64'b0,memory_pages_a}); sp <= sp+1; pc <= pc+1; end
+                        end
+                        'h40: begin
+                            if (insn_x >= MEMORY_COUNT) fail(T_IMAGE);
+                            else if (grown_pages[64] || grown_pages > {1'b0,memory_max_a}) begin
+                                write_value(sp-1,memory_wide_a ? {64'b0,64'hffffffffffffffff} : {96'b0,32'hffffffff});
+                                pc <= pc+1;
+                            end else begin
+                                write_value(sp-1,{64'b0,memory_pages_a});
+                                write_descriptor(6'b000001,insn_x,{65'b0,grown_pages[63:0]});
+                                // The configured backing capacity is zeroed at
+                                // instantiation. Bounds checks prevent accessing
+                                // the reserved tail before growth exposes it.
+                                pc <= pc+1;
+                            end
+                        end
+                        'h41, 'h42, 'h43, 'h44, 'h00fd000c: begin write_value(sp,insn_imm); sp <= sp+1; pc <= pc+1; end
+                        'hd0: begin write_value(sp,0); sp <= sp+1; pc <= pc+1; end
+                        'hd1: begin write_value(sp-1,{127'b0,top == 0}); pc <= pc+1; end
+                        'hd2: begin write_value(sp,{32'd1,insn_y,32'b0,insn_x+32'd1}); sp <= sp+1; pc <= pc+1; end
+                        'hd3: begin write_value(sp-2,{127'b0,top == below}); sp <= sp-1; pc <= pc+1; end
+                        'hd4: begin if (top == 0) fail(6); else pc <= pc+1; end
+                        'hd5: begin
+                            if (top == 0) begin sp <= sp-1; pending_branch <= insn_x; state <= BRANCH; end
+                            else pc <= pc+1;
+                        end
+                        'hd6: begin
+                            if (top != 0) begin pending_branch <= insn_x; state <= BRANCH; end
+                            else begin sp <= sp-1; pc <= pc+1; end
+                        end
+                        'hfb001c: begin write_value(sp-1,{32'd4,64'b0,1'b0,top[30:0]}); pc <= pc+1; end
+                        'hfb001d,'hfb001e: begin
+                            if(top==0) fail(6);
+                            else begin write_value(sp-1,{96'b0,(insn_op=='hfb001d && top[30]),top[30:0]}); pc <= pc+1; end
+                        end
+                        'hfb001a: begin
+                            if (top[127:96]==5) write_value(sp-1,{32'd7,top[95:0]});
+                            else if (top!=0) write_value(sp-1,{top[127:105],1'b0,top[103:0]});
+                            pc <= pc+1;
+                        end
+                        'hfb001b: begin
+                            if (top[127:96]==7) write_value(sp-1,{32'd5,top[95:0]});
+                            else if (top!=0) write_value(sp-1,{top[127:105],1'b1,top[103:0]});
+                            pc <= pc+1;
+                        end
+                        'hfb0014,'hfb0015: begin write_value(sp-1,{127'b0,cast_matches}); pc <= pc+1; end
+                        'hfb0016,'hfb0017: begin if(!cast_matches) fail(10); else pc <= pc+1; end
+                        'hfb0018,'hfb0019: begin
+                            if(cast_matches != (insn_op=='hfb0019)) begin pending_branch <= insn_x; state <= BRANCH; end
+                            else pc <= pc+1;
+                        end
+                        'hfb0000,'hfb0001,'hfb0006,'hfb0007,'hfb0008: begin
+                            if(new_heap_end > 33'(HEAP_SLOTS)) fail(12);
+                            else begin
+                                gc_reference <= {new_tag,insn_x,new_count,heap_next};
+                                gc_throw <= 0;
+                                heap_next <= new_heap_end[31:0]; gc_count <= new_count; gc_position <= 0;
+                                gc_result_slot <= sp-new_pop; gc_source <= sp-new_pop;
+                                gc_fill <= insn_op=='hfb0001 || insn_op=='hfb0006 || insn_op=='hfb0007;
+                                gc_fill_value <= insn_op=='hfb0006 ? below : 128'b0;
+                                state <= GC_NEW_STEP;
+                            end
+                        end
+                        'hfb0002,'hfb0003,'hfb0004: begin
+                            if(top==0) fail(6);
+                            else begin
+                                mem_valid <= 1; mem_write <= 0; mem_kind <= 5; mem_index <= 0;
+                                mem_address <= {32'b0,top[31:0]}+{32'b0,insn_y}; mem_bytes <= 16;
+                                load_op <= insn_op; load_width <= insn_z[7:0]; load_dst <= sp-1; state <= MEMORY_WAIT;
+                            end
+                        end
+                        'hfb0005: begin
+                            if(below==0) fail(6);
+                            else begin
+                                mem_valid <= 1; mem_write <= 1; mem_kind <= 5; mem_index <= 0;
+                                mem_address <= {32'b0,below[31:0]}+{32'b0,insn_y}; mem_bytes <= 16;
+                                mem_wdata <= top; sp <= sp-2; state <= MEMORY_WAIT;
+                            end
+                        end
+                        'hfb000b,'hfb000c,'hfb000d: begin
+                            if(below==0) fail(6);
+                            else if(top[31:0]>=below[63:32]) fail(11);
+                            else begin
+                                mem_valid <= 1; mem_write <= 0; mem_kind <= 5; mem_index <= 0;
+                                mem_address <= {32'b0,below[31:0]}+{32'b0,top[31:0]}; mem_bytes <= 16;
+                                load_op <= insn_op; load_width <= insn_z[7:0]; load_dst <= sp-2; sp <= sp-1; state <= MEMORY_WAIT;
+                            end
+                        end
+                        'hfb000e: begin
+                            if(third==0) fail(6);
+                            else if(below[31:0]>=third[63:32]) fail(11);
+                            else begin
+                                mem_valid <= 1; mem_write <= 1; mem_kind <= 5; mem_index <= 0;
+                                mem_address <= {32'b0,third[31:0]}+{32'b0,below[31:0]}; mem_bytes <= 16;
+                                mem_wdata <= top; sp <= sp-3; state <= MEMORY_WAIT;
+                            end
+                        end
+                        'hfb000f: begin
+                            if(top==0) fail(6);
+                            else begin write_value(sp-1,{96'b0,top[63:32]}); pc <= pc+1; end
+                        end
+                        'hfb0009,'hfb000a: begin
+                            if(insn_y >= MEMORY_COUNT) fail(T_IMAGE);
+                            else if(gc_segment_end > (insn_op=='hfb0009 ? {2'b0,data_size_b} : {2'b0,element_size_b}))
+                                fail(insn_op=='hfb0009 ? T_BOUNDS : 8'd5);
+                            else if(new_heap_end > 33'(HEAP_SLOTS)) fail(12);
+                            else begin
+                                write_value(sp-2,{32'd3,insn_x,new_count,heap_next}); sp <= sp-1;
+                                heap_next <= new_heap_end[31:0];
+                                bulk_table <= 1; bulk_fill <= 0; bulk_backwards <= 0; bulk_left <= {32'b0,new_count};
+                                bulk_source <= {32'b0,below[31:0]}; bulk_destination <= {32'b0,heap_next};
+                                bulk_source_kind <= insn_op=='hfb0009 ? 3'd3 : 3'd4; bulk_destination_kind <= 5;
+                                bulk_source_index <= insn_y; bulk_destination_index <= 0;
+                                bulk_source_unit <= insn_op=='hfb0009 ? insn_z[7:3] : 5'd1; bulk_destination_unit <= 1;
+                                state <= BULK_STEP;
+                            end
+                        end
+                        'hfb0010: begin
+                            if(fourth==0) fail(6);
+                            else if({32'b0,third[31:0]}+{32'b0,top[31:0]} > {32'b0,fourth[63:32]}) fail(11);
+                            else begin
+                                sp <= sp-4; bulk_table <= 1; bulk_fill <= 1; bulk_backwards <= 0;
+                                bulk_left <= {32'b0,top[31:0]}; bulk_fill_value <= below;
+                                bulk_destination <= {32'b0,fourth[31:0]}+{32'b0,third[31:0]};
+                                bulk_destination_kind <= 5; bulk_destination_index <= 0;
+                                bulk_source_unit <= 1; bulk_destination_unit <= 1; state <= BULK_STEP;
+                            end
+                        end
+                        'hfb0011: begin
+                            if(!fifth_ready) state<=FETCH_FIFTH;
+                            else if(fifth==0 || third==0) fail(6);
+                            else if({32'b0,fourth[31:0]}+{32'b0,top[31:0]} > {32'b0,fifth[63:32]} ||
+                                {32'b0,below[31:0]}+{32'b0,top[31:0]} > {32'b0,third[63:32]}) fail(11);
+                            else begin
+                                sp <= sp-5; bulk_table <= 1; bulk_fill <= 0; bulk_left <= {32'b0,top[31:0]};
+                                bulk_source_kind <= 5; bulk_destination_kind <= 5; bulk_source_index <= 0; bulk_destination_index <= 0;
+                                bulk_source_unit <= 1; bulk_destination_unit <= 1;
+                                if(fifth[31:0]==third[31:0] && fourth[31:0]>below[31:0] &&
+                                    {32'b0,fourth[31:0]} < {32'b0,below[31:0]}+{32'b0,top[31:0]}) begin
+                                    bulk_backwards <= 1;
+                                    bulk_source <= {32'b0,third[31:0]}+{32'b0,below[31:0]}+{32'b0,top[31:0]};
+                                    bulk_destination <= {32'b0,fifth[31:0]}+{32'b0,fourth[31:0]}+{32'b0,top[31:0]};
+                                end else begin
+                                    bulk_backwards <= 0;
+                                    bulk_source <= {32'b0,third[31:0]}+{32'b0,below[31:0]};
+                                    bulk_destination <= {32'b0,fifth[31:0]}+{32'b0,fourth[31:0]};
+                                end
+                                state <= BULK_STEP;
+                            end
+                        end
+                        'hfb0012,'hfb0013: begin
+                            if(fourth==0) fail(6);
+                            else if(insn_y >= MEMORY_COUNT) fail(T_IMAGE);
+                            else if({32'b0,third[31:0]}+{32'b0,top[31:0]} > {32'b0,fourth[63:32]}) fail(11);
+                            else if(gc_segment_end >
+                                (insn_op=='hfb0012 ? {2'b0,data_size_b} : {2'b0,element_size_b}))
+                                fail(insn_op=='hfb0012 ? T_BOUNDS : 8'd5);
+                            else begin
+                                sp <= sp-4; bulk_table <= 1; bulk_fill <= 0; bulk_backwards <= 0;
+                                bulk_left <= {32'b0,top[31:0]}; bulk_source <= {32'b0,below[31:0]};
+                                bulk_destination <= {32'b0,fourth[31:0]}+{32'b0,third[31:0]};
+                                bulk_source_kind <= insn_op=='hfb0012 ? 3'd3 : 3'd4; bulk_destination_kind <= 5;
+                                bulk_source_index <= insn_y; bulk_destination_index <= 0;
+                                bulk_source_unit <= insn_op=='hfb0012 ? insn_z[7:3] : 5'd1; bulk_destination_unit <= 1;
+                                state <= BULK_STEP;
+                            end
+                        end
+                        default: fail(T_UNSUPPORTED);
+                    endcase
+                end
+                // This state also restores the four-word window on the falling edge.
+                // Resume the same instruction immediately while fifth_ready is set.
+                FETCH_FIFTH: begin fifth<=value_aux; fifth_ready<=1; state<=EXECUTE; end
+                BR_TABLE: begin
+                    if (!insn_valid) fail(T_IMAGE);
+                    else begin pending_branch <= insn_x; state <= BRANCH; end
+                end
+                BRANCH: begin
+                    if (pending_branch > control_sp-control_base) fail(T_IMAGE);
+                    else if (pending_branch == control_sp-control_base) state <= RETURN_SETUP;
+                    else begin
+                        copy_src <= sp-label_arity; copy_dst <= label_height;
+                        copy_len <= label_arity; copy_pos <= 0;
+                        control_sp <= label_index+(label_loop ? 1 : 0);
+                        pc <= label_pc; copy_next <= PREPARE; state <= COPY_VALUES;
+                    end
+                end
+                COPY_VALUES: begin
+                    if (copy_pos < copy_len) begin
+                        if (copy_dst+copy_pos >= VALUE_DEPTH || copy_src+copy_pos >= VALUE_DEPTH) fail(T_EXHAUSTION);
+                        else begin write_value(copy_dst+copy_pos,value_aux); copy_pos <= copy_pos+1; end
+                    end else begin sp <= copy_dst+copy_len; state <= copy_next; end
+                end
+                RETURN_SETUP: begin
+                    copy_src <= sp-result_arity; copy_dst <= fp; copy_len <= result_arity; copy_pos <= 0;
+                    control_sp <= control_base; copy_next <= RETURN_RESTORE; state <= COPY_VALUES;
+                end
+                RETURN_RESTORE: begin
+                    if (call_depth == 0) begin result_count <= result_arity; done <= 1; state <= IDLE; end
+                    else begin
+                        pc <= frame_pc; fp <= frame_fp;
+                        control_base <= frame_control; result_arity <= frame_results;
+                        call_depth <= call_depth-1; state <= PREPARE;
+                    end
+                end
+                DIV_WAIT: if (div_done) begin
+                    if (div_trap != 0) fail(div_trap);
+                    else begin write_value(sp-2,{64'b0,div_result}); sp <= sp-1; pc <= pc+1; state <= PREPARE; end
+                end
+                FP_WAIT: if (fp_done) begin
+                    if (fp_trap != 0) fail(fp_trap);
+                    else begin
+                        write_value(sp-(fp_unary ? 1 : 2),{64'b0,fp_result});
+                        if (!fp_unary) sp <= sp-1;
+                        pc <= pc+1; state <= PREPARE;
+                    end
+                end
+                SIMD_INT_WAIT: if(simd_int_done) begin
+                    write_value(sp-{29'b0,simd_int_arity},simd_int_result);
+                    sp <= sp-{29'b0,simd_int_arity}+1; pc <= pc+1; state<=PREPARE;
+                end
+                SIMD_FP_START: state <= SIMD_FP_WAIT;
+                SIMD_FP_WAIT: if (fp_done) begin
+                    if (fp_trap != 0) fail(fp_trap);
+                    else if ((simd_mode == 4 || simd_mode == 5) && !simd_phase) begin
+                        simd_product <= fp_result; simd_phase <= 1; state <= SIMD_FP_START;
+                    end else if (simd_lane+1 == simd_lanes) begin
+                        write_value(sp-{29'b0,simd_arity},simd_assembled);
+                        sp <= sp-{29'b0,simd_arity}+1; pc <= pc+1; state <= PREPARE;
+                    end else begin
+                        simd_accum <= simd_assembled; simd_lane <= simd_lane+1; simd_phase <= 0; state <= SIMD_FP_START;
+                    end
+                end
+                INDIRECT_WAIT: if (mem_ready) begin
+                    mem_valid <= 0;
+                    if (mem_fault) fail(5);
+                    else if (mem_rdata == 0) fail(6);
+                    else begin function_index <= mem_rdata[31:0]-1; state <= CALL_SETUP; end
+                end
+                BULK_STEP: begin
+                    if (bulk_left == 0) begin pc <= pc+1; state <= PREPARE; end
+                    else begin
+                        mem_valid <= 1; mem_write <= bulk_fill;
+                        mem_kind <= bulk_fill ? bulk_destination_kind : bulk_source_kind;
+                        mem_index <= bulk_fill ? bulk_destination_index : bulk_source_index;
+                        mem_address <= (bulk_fill ? bulk_destination : bulk_source) -
+                            (bulk_backwards ? {59'b0,(bulk_fill ? bulk_destination_step : bulk_source_step)} : 64'b0);
+                        mem_bytes <= bulk_table ? ((!bulk_fill && bulk_source_kind==3) ? bulk_source_unit : 5'd16) : bulk_step_size;
+                        mem_wdata <= bulk_fill_value;
+                        state <= bulk_fill ? BULK_WRITE_WAIT : BULK_READ_WAIT;
+                    end
+                end
+                GC_NEW_STEP: begin
+                    if(gc_position==gc_count) begin
+                        if(gc_throw) begin exception_reference <= gc_reference; sp <= gc_source; state <= EXN_SEARCH; end
+                        else begin write_value(gc_result_slot,gc_reference); sp <= gc_result_slot+1; pc <= pc+1; state <= PREPARE; end
+                    end else begin
+                        mem_valid <= 1; mem_write <= 1; mem_kind <= 5; mem_index <= 0;
+                        mem_address <= {32'b0,gc_reference[31:0]}+{32'b0,gc_position}; mem_bytes <= 16;
+                        mem_wdata <= gc_fill ? gc_fill_value : value_aux; state <= GC_NEW_WAIT;
+                    end
+                end
+                GC_NEW_WAIT: if(mem_ready) begin
+                    mem_valid <= 0;
+                    if(mem_fault) fail(T_IMAGE);
+                    else begin gc_position <= gc_position+1; state <= GC_NEW_STEP; end
+                end
+                EXN_SEARCH: begin
+                    if(control_sp > control_base) begin
+                        control_sp <= control_sp-1;
+                        if(label_handlers!=0) begin
+                            sp <= label_height;
+                            pc <= label_handler_pc; catch_left <= label_handlers; state <= EXN_CHECK;
+                        end
+                    end else if(call_depth!=0) begin
+                        sp <= fp; fp <= frame_fp;
+                        control_base <= frame_control; result_arity <= frame_results;
+                        call_depth <= call_depth-1;
+                    end else fail(13);
+                end
+                EXN_CHECK: begin
+                    if(!insn_valid || insn_op!='hfffd) fail(T_IMAGE);
+                    else if(insn_x>=2 || insn_y==exception_reference[95:64]) begin
+                        catch_reference <= insn_x[0]; catch_values <= insn_x<2 ? exception_reference[63:32] : 32'b0;
+                        catch_position <= 0; pending_branch <= insn_z; state <= EXN_PAYLOAD;
+                    end else if(catch_left>1) begin catch_left <= catch_left-1; pc <= pc+1; end
+                    else state <= EXN_SEARCH;
+                end
+                EXN_PAYLOAD: begin
+                    if(sp==VALUE_DEPTH && (catch_position!=catch_values || catch_reference)) fail(T_EXHAUSTION);
+                    else if(catch_position==catch_values) begin
+                        if(catch_reference) begin write_value(sp,exception_reference); sp <= sp+1; end
+                        state <= BRANCH;
+                    end else begin
+                        mem_valid <= 1; mem_write <= 0; mem_kind <= 5; mem_index <= 0; mem_bytes <= 16;
+                        mem_address <= {32'b0,exception_reference[31:0]}+{32'b0,catch_position}; state <= EXN_LOAD_WAIT;
+                    end
+                end
+                EXN_LOAD_WAIT: if(mem_ready) begin
+                    mem_valid <= 0;
+                    if(mem_fault) fail(T_IMAGE);
+                    else begin write_value(sp,mem_rdata); sp <= sp+1; catch_position <= catch_position+1; state <= EXN_PAYLOAD; end
+                end
+                BULK_READ_WAIT: if (mem_ready) begin
+                    if (mem_fault) fail(bulk_table ? 8'd5 : T_BOUNDS);
+                    else begin
+                        mem_wdata <= mem_rdata; mem_write <= 1;
+                        mem_kind <= bulk_destination_kind; mem_index <= bulk_destination_index;
+                        mem_address <= bulk_destination-(bulk_backwards ? {59'b0,bulk_destination_step} : 64'b0);
+                        mem_bytes <= bulk_table ? 5'd16 : bulk_step_size;
+                        state <= BULK_WRITE_WAIT;
+                    end
+                end
+                BULK_WRITE_WAIT: if (mem_ready) begin
+                    mem_valid <= 0;
+                    if (mem_fault) fail(bulk_table ? 8'd5 : T_BOUNDS);
+                    else begin
+                        bulk_left <= bulk_left-{59'b0,bulk_step_size};
+                        bulk_source <= bulk_backwards ? bulk_source-{59'b0,bulk_source_step} : bulk_source+{59'b0,bulk_source_step};
+                        bulk_destination <= bulk_backwards ? bulk_destination-{59'b0,bulk_destination_step} : bulk_destination+{59'b0,bulk_destination_step};
+                        state <= BULK_STEP;
+                    end
+                end
+                MEMORY_WAIT: if (mem_ready) begin
+                    mem_valid <= 0;
+                    if (mem_fault) fail(T_BOUNDS);
+                    else begin
+                        if (!mem_write) begin
+                            write_value(load_dst,loaded_value);
+                        end
+                        pc <= pc+1; state <= PREPARE;
+                    end
+                end
+                default: fail(T_IMAGE);
+            endcase
+        end
+    end
+
+`ifdef WASMETAL_ASSERTIONS
+    // Check the addresses and data actually consumed after operand preparation.
+    // The reference accesses the stored words directly, independently of the
+    // registered read pipeline and its forwarding muxes.
+    wire [31:0] checked_window_top=sp-1;
+    wire checked_value_read=state==EXECUTE || state==FETCH_FIFTH ||
+        (state==COPY_VALUES && copy_pos<copy_len) ||
+        (state==GC_NEW_STEP && !gc_fill && gc_position<gc_count);
+    genvar checked_bank;
+    generate for(checked_bank=0;checked_bank<4;checked_bank=checked_bank+1) begin: checked_values
+        localparam [1:0] BANK=2'(checked_bank);
+        localparam integer ROW_BITS=(VALUE_DEPTH+3)/4>1 ? $clog2((VALUE_DEPTH+3)/4):1;
+        wire [31:0] index=value_auxiliary ? {value_aux_index[31:2],BANK} :
+            checked_window_top-(({30'b0,checked_window_top[1:0]}-{30'b0,BANK})&32'd3);
+        wire [29:0] row=index[31:2];
+        always_ff @(posedge clk) if(!reset && checked_value_read && index<VALUE_DEPTH &&
+            (value_auxiliary ? value_aux_index[1:0]==BANK : index<sp)) begin
+            assert(value_file.banks[checked_bank].read_row==row);
+            assert(value_banks[checked_bank*128+:128]==
+                (value_write && value_write_index==index ? value_write_data :
+                 value_file.banks[checked_bank].words[ROW_BITS'(row)]));
+        end
+    end endgenerate
+    always_ff @(posedge clk) if(!reset && (state==EXECUTE || state==CMD_QUERY)) begin
+        assert(memory_sizes.index_a==descriptor_read_a);
+        assert(memory_sizes.index_b==descriptor_read_b);
+        assert(memory_bounds.index_a==descriptor_read_a);
+        assert(table_sizes.index_a==descriptor_read_a);
+        assert(table_sizes.index_b==descriptor_read_b);
+        assert(table_bounds.index_a==descriptor_read_a);
+        assert(data_sizes.index_a==descriptor_read_b);
+        assert(element_sizes.index_a==descriptor_read_b);
+    end
+    logic memory_stalled;
+    logic [232:0] held_memory_request;
+    always_ff @(posedge clk) begin
+        if (reset) memory_stalled <= 0;
+        else begin
+            if (memory_stalled) begin
+                assert (mem_valid);
+                assert ({mem_write,mem_kind,mem_index,mem_address,mem_bytes,mem_wdata} == held_memory_request);
+            end
+            memory_stalled <= mem_valid && !mem_ready;
+            held_memory_request <= {mem_write,mem_kind,mem_index,mem_address,mem_bytes,mem_wdata};
+        end
+    end
+    always_ff @(posedge clk) if (!reset && busy) begin
+        assert (sp <= VALUE_DEPTH);
+        assert (control_sp <= CONTROL_DEPTH);
+        assert (call_depth <= CALL_DEPTH);
+        assert (control_base <= control_sp);
+        if(value_write) assert(value_write_index<VALUE_DEPTH);
+        if (mem_valid) assert (mem_bytes > 0 && mem_bytes <= 16);
+        // Compare each consumed registered read with the underlying storage.
+        // This catches a wrong edge or stale address independently of results.
+        if (state == BRANCH && pending_branch < control_sp-control_base)
+            assert (label_read == labels_memory[label_index]);
+        if (state == EXN_SEARCH && control_sp > control_base)
+            assert (label_read == labels_memory[control_sp-1]);
+        if (call_depth != 0 && (state == RETURN_RESTORE ||
+            (state == EXN_SEARCH && control_sp == control_base)))
+            assert (frame_read == frames_memory[call_depth-1]);
+    end
+`endif
+endmodule
