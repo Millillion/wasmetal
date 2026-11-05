@@ -143,8 +143,9 @@ remain. No additional RTL simulation or timing pass is inferred from it.
 
 A separate attempt now permits sixteen as the final routing iteration, with
 four threads and an 80-minute limit. It starts from the same global-route
-database and retains its own results. It has not finished; no improvement or
-accepted physical implementation is claimed.
+database and retains its own results. It has now finished. Its extracted
+timing and antenna findings are being checked before publication; no accepted
+physical implementation is claimed.
 
 Global routing supplies coarse paths and estimated parasitics. Detailed routing,
 extracted timing, setup/hold closure across appropriate process corners,

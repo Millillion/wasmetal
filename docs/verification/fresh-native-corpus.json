@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "scope": "complete native RTL corpus with fresh test input records",
+  "suite_files": 259,
+  "totals": {
+    "modules_instantiated": 2266,
+    "rtl_assertions_passed": 57711,
+    "loader_assertions_passed": 4677,
+    "rtl_cycles": 306351688,
+    "script_commands": 65353,
+    "rtl_actions_completed": 359,
+    "registrations": 80,
+    "embedding_assertions_passed": 254,
+    "module_definitions": 6
+  },
+  "memory_wait_states": 3,
+  "elapsed_seconds": 1394.3766520023346,
+  "exact_previous_command_observations": true,
+  "generated_payload_files": 7216,
+  "inputs_verified_before_and_after_execution": true,
+  "publication_replay_passed": true,
+  "report_sha256": "e857154be5fb23b8656253c64bac59e03b8bd2e82b04f258746b166ae6a517e9",
+  "simulator_sha256": "b3484e08b9a94cb25f36b8760d1ab9425faae0daa2c8478e81d9de04a50b2bea",
+  "official_sources_sha256": "72f7d08ee0b5b46b570a3bb3932ea525c46a0af5fcb41daf63f4ddaa9d350267",
+  "artifact_files": 17,
+  "execution_input_archive_entries": 7999,
+  "execution_input_archive_sha256": "235d6121af8d5b5df52fa60df459f72ab978d83c15c804b5dae714abe3785ecc",
+  "bound_inputs": {
+    "tools/run_spec.py": "d95397191a72fc6b490532b752f34121ff9d83318fe8918d88fd465bccc6fb56",
+    "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "tools/spec_inputs.py": "01a44cdb0f7082dfc92cc521b16a400e651e94ba3445881dea8bda47af6f1084",
+    "tools/check_spec_conversion.py": "52b843f7e5c64876396d2a6acdb71dcac155f97fd74e439ee4145403a1a2f20c",
+    "build/spectest.wasm": "f80e77fd019b4d021acfd7c064378b8d7e630fda68ddf82d6fd085accd0c4e25",
+    "reports/spec-inputs-native-complete.json": "e857154be5fb23b8656253c64bac59e03b8bd2e82b04f258746b166ae6a517e9",
+    "reports/core-rounding-wait-3.json": "5c9ced3f7a650a24e762ba2ecf100a06e8774553cb20e0533f7921ba87d394bc",
+    "build/archive_fresh_native_corpus.py": "f36647d290e4ddb2161dd1b3e2acaee5e545cdc4c24c32039570b92c48d00e8a",
+    "tools/spec_ci.py": "b2f34ead4d09e24e03eb44355c7e65017859190183ab5d9f567357365f7fa8e7"
+  },
+  "fresh_complete_xilinx_rerun_status": "running",
+  "physical_hardware_tested": false
+}

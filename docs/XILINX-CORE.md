@@ -176,9 +176,18 @@ binary representations of invalid modules and converter substitution. The
 nineteen CI fixture tests include 24 native/mapped evidence corruptions.
 Existing timeout, partition and reconciliation fixtures also pass.
 The [archive](verification/spec-input-integrity/index.json) retains the three
-reports, code, test logs and 2,093 actual input files. The complete native
-corpus is being rerun with this stronger evidence; complete mapped reruns
-with these new records have not yet passed.
+reports, code, test logs and 2,093 actual input files.
+
+The [complete native rerun](verification/fresh-native-corpus.json) now passes
+all 259 suites in 1,394 seconds with three memory wait states. All 57,711 RTL
+execution assertions, 4,677 validation assertions and 254 embedding assertions
+pass. Every command observation and the 306,351,688 canonical cycles agree
+with the earlier native reference. Its 7,216 generated payloads passed the
+before/after checks, and another fresh conversion checked their identities
+before publication. The [archive](verification/fresh-native-corpus/index.json)
+preserves 7,999 source, generated and derived input files plus the full report
+and execution log. The complete sixteen-partition Xilinx rerun with these
+new input records is running; it has not passed yet.
 
 ## CI deployment
 

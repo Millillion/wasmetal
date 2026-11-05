@@ -41,8 +41,11 @@ after execution. The [input-integrity regression](docs/verification/spec-input-i
 passes eight suites on native RTL, ECP5 and Xilinx, with identical results
 and cycle counts. Fifteen input-integrity tests pass; CI aggregation rejects
 24 deliberate input-evidence defects. CI retains the actual generated inputs.
-A complete native rerun is underway; earlier complete-corpus results retain
-their original runner identities.
+The [complete native rerun now passes all 259 suites](docs/verification/fresh-native-corpus.json),
+with every observation and cycle count unchanged. Its 7,216 generated payloads
+were verified around execution and independently regenerated before publication.
+The complete Xilinx rerun with these stronger records is running; earlier
+mapped results retain their original runner identities.
 The complete system also passes a new
 [four-state boot and upload campaign](docs/verification/loadable-four-state.json)
 at production capacities. All 1,492,992 bits in the five writable program stores
@@ -501,8 +504,9 @@ remains open: the first 20-minute trial timed out with 3,689 violations in its
 last completed iteration. A [completed four-iteration diagnostic](docs/verification/asic-routing-diagnostic-summary.json)
 retains 1,493 violations, including 1,080 shorts. Its logical netlist preserves
 all 4,183 functional cells and their exact pin connectivity, but the physical
-violations still prevent accepting the layout. A longer routing attempt is
-running. No physical ASIC timing or complete CPU layout is accepted.
+violations still prevent accepting that layout. The longer routing attempt
+has completed; its extracted timing and antenna findings are being checked.
+No physical ASIC timing or complete CPU layout is accepted.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its
