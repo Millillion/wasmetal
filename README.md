@@ -489,8 +489,11 @@ and an independent reset base. All fifteen circuit fault controls are rejected.
 The 98 actual cell types pass independent upstream-model checks, including all
 three flip-flop strengths. CI includes this functional flow. Detailed routing
 remains open: the first 20-minute trial timed out with 3,689 violations in its
-last completed iteration. A separate bounded diagnostic has completed and its
-routing failures are being checked. No physical ASIC timing or complete CPU layout is accepted.
+last completed iteration. A [completed four-iteration diagnostic](docs/verification/asic-routing-diagnostic-summary.json)
+retains 1,493 violations, including 1,080 shorts. Its logical netlist preserves
+all 4,183 functional cells and their exact pin connectivity, but the physical
+violations still prevent accepting the layout. A longer routing attempt is
+running. No physical ASIC timing or complete CPU layout is accepted.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its

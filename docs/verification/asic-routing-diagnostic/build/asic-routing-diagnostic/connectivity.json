@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "logical pin incidence only; router DRC violations remain",
+  "normalization": {
+    "physical_taps_removed": 1070,
+    "removed_cell_connections_empty": true,
+    "functional_cells": 4183,
+    "surviving_cell_connections_unchanged": true,
+    "top_ports_unchanged": true
+  },
+  "exact_pre_route_connectivity": true,
+  "inputs": {
+    "build/asic-routing-diagnostic/routed.v": "6dbd7c4f895f9935f62d487a06e24fbccb5db2c5136a6d4347d0ffa2713af1f4",
+    "build/asic-routing-diagnostic/routed-raw.json": "e0aff993ccea67ea68ba3c3bd44a62ceb6c8783399dd4f7185f9e021bd975500",
+    "build/asic-routing-diagnostic/routed-functional.json": "391689a2397ac17dae2f7debe466b5e61fd04cb83e28aff3985692bd7e4c9be9",
+    "build/asic-physical-startup/functional/mapped.json": "659fef89220ebca2ca57ed3dd8d83b2d36217a281f275c38321fd6a0d76c4537",
+    "build/asic-physical-startup/cells.lib": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    "tools/asic_cells.py": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "tools/check_asic_physical_startup.py": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+    "tools/check_asic_startup.py": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f"
+  }
+}

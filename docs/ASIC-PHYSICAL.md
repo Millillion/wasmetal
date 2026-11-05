@@ -125,9 +125,26 @@ The first detailed-routing trial stopped at its 1,200-second limit. Completed
 iterations reported 6,132, 3,724 and 3,689 violations; the next iteration was
 still running. No final routed database was produced. The logs and exact
 scripts are retained, including earlier command-compatibility failures.
-A separate bounded diagnostic has saved a completed routing snapshot and its
-remaining violation markers. Those failures are being checked before publishing
-the diagnostic; it has not established an accepted detailed route.
+A [completed bounded diagnostic](verification/asic-routing-diagnostic-summary.json)
+ran iterations zero through three in 1,133 seconds. Its completed iteration
+counts were 6,076, 4,021, 3,574 and 1,493 violations. The final marker file
+contains 1,080 shorts, 402 metal-spacing violations, nine cut-spacing
+violations, one minimum-hole violation and one cut short. The route command
+returned success despite these violations, so its exit status alone cannot
+establish an acceptable layout.
+
+The [archive](verification/asic-routing-diagnostic/index.json) retains the
+routed database, DEF, Verilog, constraints, violation markers, input identities
+and logs. The Verilog preserves all 4,183 functional cells and exact canonical
+pin incidence relative to the verified global-route circuit. Only the 1,070
+physical tap cells with no digital connections are removed for that comparison.
+Logical netlist equality cannot establish physical connectivity while shorts
+remain. No additional RTL simulation or timing pass is inferred from it.
+
+A separate attempt now permits sixteen as the final routing iteration, with
+four threads and an 80-minute limit. It starts from the same global-route
+database and retains its own results. It has not finished; no improvement or
+accepted physical implementation is claimed.
 
 Global routing supplies coarse paths and estimated parasitics. Detailed routing,
 extracted timing, setup/hold closure across appropriate process corners,

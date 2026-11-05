@@ -1,0 +1,38 @@
+{
+  "status": "violations-remain",
+  "scope": "completed bounded startup-block routing diagnostic, not an accepted physical implementation",
+  "completed_iteration_violations": [
+    6076,
+    4021,
+    3574,
+    1493
+  ],
+  "drc_report_markers": 1493,
+  "violations_by_type": {
+    "Cut Spacing": 9,
+    "Metal Spacing": 402,
+    "Short": 1080,
+    "Min Hole": 1,
+    "Cut Short": 1
+  },
+  "violations_by_layer": {
+    "mcon": 9,
+    "met1": 1033,
+    "met2": 347,
+    "met3": 77,
+    "met4": 9,
+    "met5": 17,
+    "via4": 1
+  },
+  "elapsed_seconds": 1132.702469909098,
+  "input_hashes_rechecked": true,
+  "logical_pin_incidence_unchanged": true,
+  "functional_cells": 4183,
+  "physical_taps": 1070,
+  "routing_accepted": false,
+  "physical_timing_accepted": false,
+  "physical_hardware_tested": false,
+  "status_sha256": "18cc3d480ccee1de44f53705378a7a6d2384ef9f5137d9b4521633ad9055361a",
+  "connectivity_report_sha256": "40da9ed97eef46d4665048735ae42652d7103c87f0bd9410b6ccab3349cbcd7b",
+  "limitation": "Logical netlist equality cannot establish physical connectivity where shorts and spacing violations remain."
+}
