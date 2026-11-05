@@ -35,6 +35,14 @@ including 57,711 RTL execution assertions. Every command and its canonical
 cycle count matches native RTL. Its [input and coverage checks](docs/XILINX-CORE.md#complete-official-corpus)
 include an independent post-run replay of every script conversion. These are
 host-backed, untimed simulations; physical FPGA routing remains open.
+New official-suite runs now regenerate scripts in isolated directories using
+the checksum-verified converter and check all generated inputs before and
+after execution. The [input-integrity regression](docs/verification/spec-input-integrity.json)
+passes eight suites on native RTL, ECP5 and Xilinx, with identical results
+and cycle counts. Fifteen input-integrity tests pass; CI aggregation rejects
+24 deliberate input-evidence defects. CI retains the actual generated inputs.
+A complete native rerun is underway; earlier complete-corpus results retain
+their original runner identities.
 The complete system also passes a new
 [four-state boot and upload campaign](docs/verification/loadable-four-state.json)
 at production capacities. All 1,492,992 bits in the five writable program stores
@@ -184,7 +192,8 @@ rechecks 452 execution dependencies and rejects all 28 identity and coverage
 faults. An [independent conversion replay](docs/verification/spec-conversion.json)
 also passes all 259 scripts and 7,216 generated payloads, rejecting thirteen
 corruptions. That audit happened after execution; generated-file hashes were
-not captured before the original run. The [raw archive](docs/verification/xc7-core-corpus/index.json)
+not captured before the original run. New runs use the stricter input checks
+described above. The [raw archive](docs/verification/xc7-core-corpus/index.json)
 retains that distinction and the original reports. Nine deliberately
 corrupted build inputs were rejected before model generation. The family-specific
 report guards pass 18 metadata fixture tests. CI now includes a separate

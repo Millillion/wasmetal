@@ -1,0 +1,9 @@
+exceptions/throw_ref.wast {"loader_assertions_passed": 2, "modules_instantiated": 1, "rtl_assertions_passed": 12, "rtl_cycles": 499, "script_commands": 15}
+conversions.wast {"loader_assertions_passed": 25, "modules_instantiated": 1, "rtl_assertions_passed": 593, "rtl_cycles": 8396, "script_commands": 619}
+f32.wast {"loader_assertions_passed": 13, "modules_instantiated": 1, "rtl_assertions_passed": 2500, "rtl_cycles": 50751, "script_commands": 2514}
+gc/struct.wast {"loader_assertions_passed": 5, "modules_instantiated": 6, "rtl_assertions_passed": 19, "rtl_cycles": 926, "script_commands": 30}
+f64.wast {"loader_assertions_passed": 13, "modules_instantiated": 1, "rtl_assertions_passed": 2500, "rtl_cycles": 50752, "script_commands": 2514}
+i32.wast {"loader_assertions_passed": 85, "modules_instantiated": 1, "rtl_assertions_passed": 374, "rtl_cycles": 7936, "script_commands": 460}
+i64.wast {"loader_assertions_passed": 31, "modules_instantiated": 1, "rtl_assertions_passed": 384, "rtl_cycles": 10060, "script_commands": 416}
+simd/simd_const.wast {"loader_assertions_passed": 181, "modules_instantiated": 312, "rtl_assertions_passed": 265, "rtl_cycles": 3639, "script_commands": 758}
+TOTAL {"loader_assertions_passed": 355, "modules_instantiated": 324, "rtl_assertions_passed": 6647, "rtl_cycles": 132959, "script_commands": 7326}

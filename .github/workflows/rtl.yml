@@ -582,6 +582,7 @@ jobs:
           python3 tools/prove_descriptors.py
           python3 tests/check_timing_test.py
           python3 tests/run_spec_runner_test.py
+          python3 tests/spec_inputs_test.py
           python3 tests/gate_compiler_test.py
           python3 tests/asic_audit_runner_test.py
           python3 tests/spec_ci_test.py
@@ -618,6 +619,15 @@ jobs:
           path: reports/*.json
           if-no-files-found: warn
           retention-days: 30
+
+      - name: Preserve fresh official execution inputs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: native-script-inputs
+          path: build/spec-inputs/
+          if-no-files-found: warn
+          retention-days: 7
 
   mapped-build:
     needs: core
@@ -715,6 +725,15 @@ jobs:
           path: reports/*.json
           if-no-files-found: warn
           retention-days: 30
+
+      - name: Preserve fresh ECP5 worker inputs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: mapped-inputs-${{ matrix.shard }}
+          path: build/spec-inputs/
+          if-no-files-found: warn
+          retention-days: 7
 
   mapped-complete:
     name: Complete mapped corpus
@@ -887,6 +906,15 @@ jobs:
           path: reports/*.json
           if-no-files-found: warn
           retention-days: 30
+
+      - name: Preserve fresh Xilinx worker inputs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: xilinx-core-inputs-${{ matrix.shard }}
+          path: build/spec-inputs/
+          if-no-files-found: warn
+          retention-days: 7
 
   xilinx-core-complete:
     name: Complete Xilinx mapped corpus

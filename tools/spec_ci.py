@@ -29,7 +29,12 @@ def catalog():
         checks.require(not error, f'cannot convert official script: {source}: {error}')
         commands = json.loads(target.read_text())['commands']
         entries[str(source.relative_to(run_spec.SPEC/'test/core'))] = (target, commands)
+    run_spec.conversion_session().verify_all()
     return source_hash, entries
+
+
+def expected_conversion(name, target):
+    return run_spec.conversion_session().verify(run_spec.SPEC/'test/core'/name, target)['identity']
 
 
 def validate_reference(reference, source_hash, entries):
@@ -42,8 +47,11 @@ def validate_reference(reference, source_hash, entries):
     checks.require('backend' not in reference['build_manifest'], 'reference must execute original RTL')
     suites = {s['suite']:s for s in reference['suites']}
     checks.require(set(suites) == set(entries), 'native reference omits official suites')
-    for name, (_, commands) in entries.items():
+    for name, (target, commands) in entries.items():
         suite = suites[name]
+        expected_inputs = expected_conversion(name, target)
+        run_spec.spec_inputs.checked_evidence(suite, expected_inputs)
+        checks.require(reference.get('converter_identity') == expected_inputs['converter'], 'native converter identity mismatch')
         checks.require(suite['command_count'] == len(commands) and suite['executed_commands'] == list(range(len(commands))),
                        f'incomplete native command trace: {name}')
         cycles = suite['command_cycles']
@@ -107,7 +115,7 @@ def execution_identity(reference, reports, models):
     checks.require(native['binary_sha256'] == reference['simulator_sha256'], 'native binary identity mismatch')
     checks.require(all(mapped == r['build_manifest'] and mapped['binary_sha256'] == r['simulator_sha256']
                        for r in reports), 'mapped executable differs from shard evidence')
-    expected_runner = {'tools/run_spec.py', 'tools/wasm_image.py', 'tools/spec_shards.py', 'build/spectest.wasm'}
+    expected_runner = set(run_spec.RUNNER_INPUTS)
     checks.require(set(reference['runner_inputs']) == expected_runner, 'unreviewed runner input inventory')
     for name, value in reference['runner_inputs'].items():
         checks.require(checks.sha256(ROOT/name) == value, 'runner input changed: '+name)
@@ -141,6 +149,7 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
     seen_shards, coverage = set(), {name:set() for name in entries}
     combined = {name:Counter() for name in entries}
     command_cycles = {name:[None]*len(c) for name,(_,c) in entries.items()}
+    conversion_evidence = {name:[] for name in entries}
     first = None
     for report in reports:
         checks.clean_report(report)
@@ -152,7 +161,7 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
         checks.require(report['build_manifest'].get('backend') == expected_backend, 'shard did not execute the selected mapped CPU')
         checks.require(report['build_manifest']['binary_sha256'] == report['simulator_sha256'], 'mapped binary identity mismatch')
         checks.require(report['build_manifest']['inputs'] == reference['build_manifest']['inputs'], 'different RTL build inputs')
-        for key in ['spec','official_sources_sha256','runner_inputs','rtl_build_id','capacities',
+        for key in ['spec','official_sources_sha256','runner_inputs','converter_identity','rtl_build_id','capacities',
                     'memory_wait_states','max_cycles_per_invocation']:
             checks.require(report[key] == reference[key], f'native/mapped identity mismatch: {key}')
         if identity is None:
@@ -167,6 +176,8 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
         shard_totals = Counter()
         for suite in report['suites']:
             name = suite['suite']
+            evidence = run_spec.spec_inputs.checked_evidence(suite, expected[name]['test_inputs']['identity'])
+            conversion_evidence[name].append({'shard_id':shard_id, **evidence})
             commands = entries[name][1]
             selected = owned[name]['commands']
             selected = list(range(len(commands))) if selected is None else selected
@@ -203,12 +214,14 @@ def merge_reports(plan, plan_hash, reference, reference_hash, reports, source_ha
         suites.append({'suite':name,'counts':dict(combined[name]),'failures':[],
                        'command_count':len(command_cycles[name]),'command_cycles':command_cycles[name],
                        'executed_commands':sorted(coverage[name]),'replayed_setup_commands':[],
-                       'fixture_cycles':expected[name]['fixture_cycles']})
+                       'fixture_cycles':expected[name]['fixture_cycles'],
+                       'conversion_evidence':conversion_evidence[name]})
     checks.require(dict(totals) == reference['totals'], 'full corpus totals differ')
     result = {k:v for k,v in first.items() if k not in {'suites','totals','elapsed_seconds','shard_id'}}
     result.update(full_core_suite_selected=True,full_core_suite_passed=True,suite_files=len(suites),suites=suites,
                   totals=dict(totals),shard_ids=sorted(seen_shards),native_reference_sha256=reference_hash,
                   exact_native_command_cycles=True,verification='aggregate of exhaustive disjoint CI command ownership')
+    result['conversion_input_verification'] = 'Every original shard checked against fresh pinned-source conversions; original input evidence retained per suite.'
     if identity is not None:
         checks.require(execution_identity(reference, reports, execution_models) == identity,
                        'execution inputs changed during reconciliation')

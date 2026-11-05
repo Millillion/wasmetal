@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "scope": "fresh official input generation, integrity failures and eight-suite three-model regression",
+  "models": {
+    "native": {
+      "report_sha256": "6ce5f7da4fc09619cd3fa25a59e5865ca4fc3ef549852d6b33ee568c2f2af4a9",
+      "simulator_sha256": "b3484e08b9a94cb25f36b8760d1ab9425faae0daa2c8478e81d9de04a50b2bea",
+      "totals": {
+        "modules_instantiated": 324,
+        "rtl_assertions_passed": 6647,
+        "loader_assertions_passed": 355,
+        "rtl_cycles": 132959,
+        "script_commands": 7326
+      },
+      "exact_previous_native_observations": true,
+      "fresh_inputs_rechecked": true
+    },
+    "ecp5": {
+      "report_sha256": "37edb6a00387c9b7eb163152b979062e5fb518137a9b286bbb2dd10f6e637341",
+      "simulator_sha256": "0dad9690c8f65fb9f167482b46935259b67ab5a32138b84564774ec75f914837",
+      "totals": {
+        "modules_instantiated": 324,
+        "rtl_assertions_passed": 6647,
+        "loader_assertions_passed": 355,
+        "rtl_cycles": 132959,
+        "script_commands": 7326
+      },
+      "exact_previous_native_observations": true,
+      "fresh_inputs_rechecked": true
+    },
+    "xc7": {
+      "report_sha256": "5c4e954d9ea9c338213c45c2b07eb9d7b577063e6e2a191157b17205fbdb66a4",
+      "simulator_sha256": "9189d72bd742158cae8497dc2156d6570b7fe5b97bcf1db89dd66f0e8abe0fbc",
+      "totals": {
+        "modules_instantiated": 324,
+        "rtl_assertions_passed": 6647,
+        "loader_assertions_passed": 355,
+        "rtl_cycles": 132959,
+        "script_commands": 7326
+      },
+      "exact_previous_native_observations": true,
+      "fresh_inputs_rechecked": true
+    }
+  },
+  "suites_per_model": 8,
+  "canonical_cycles_per_model": 132959,
+  "rtl_assertions_per_model": 6647,
+  "validation_assertions_per_model": 355,
+  "script_commands_per_model": 7326,
+  "fixture_test_counts": {
+    "faults": 15,
+    "ci-fixtures": 19,
+    "reconciliation-fixtures": 5,
+    "runner-fixtures": 2,
+    "partition-fixtures": 1
+  },
+  "ci_input_evidence_corruptions_rejected": 24,
+  "converter": {
+    "archive_sha256": "21c036c1740a0552124c79c6e2170cb61c5b016005671a6d5bc06cf642165431",
+    "executable_sha256": "694cb37dcda84a5d557334c1db882b986e43061abdb0af976b41b1614ee4530b",
+    "archive_member": "wasm-tools-1.263.0-x86_64-linux/wasm-tools",
+    "version": "1.263.0"
+  },
+  "shared_conversion_cache_reused": false,
+  "generated_inputs_verified_before_and_after_execution": true,
+  "artifact_files": 34,
+  "execution_input_archive_entries": 2093,
+  "execution_input_archive_sha256": "54ccec8ab286b66a6afc66c8abebd324d3ad397e93c52a78883cc8ec708deb00",
+  "bound_inputs": {
+    "tools/run_spec.py": "d95397191a72fc6b490532b752f34121ff9d83318fe8918d88fd465bccc6fb56",
+    "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "tools/spec_inputs.py": "01a44cdb0f7082dfc92cc521b16a400e651e94ba3445881dea8bda47af6f1084",
+    "tools/check_spec_conversion.py": "52b843f7e5c64876396d2a6acdb71dcac155f97fd74e439ee4145403a1a2f20c",
+    "build/spectest.wasm": "f80e77fd019b4d021acfd7c064378b8d7e630fda68ddf82d6fd085accd0c4e25",
+    "tests/spec_inputs_test.py": "d0b22f4c9b09a008f96edab18c6e140ed00d3900d9fb19224b775cde904a071f",
+    "tests/spec_ci_test.py": "bd5339bcc3c35b2a01cc2d91293145d4058e3ca0f6a2004430bbfdd43ab1c083",
+    "tests/spec_reconciliation_test.py": "49894278ad0a7531f4104ec3ca947cbab14839490a316be7949817e5500c18a2",
+    "tests/run_spec_runner_test.py": "4d50c7aa0ad3565678b29d695e7f5db3cfacde0c08b430672bf2c8cb624e3dd9",
+    "tests/spec_partition_runner_test.py": "0fccb4342ab4f14f9196fd4e300302ffcb1b25d3062f0797b4189bf01ff25889",
+    "tools/spec_ci.py": "b2f34ead4d09e24e03eb44355c7e65017859190183ab5d9f567357365f7fa8e7",
+    ".github/workflows/rtl.yml": "606bc104345e63a1d8c7dd0ec14cdb192af29d0b21c9cd80a75b5c38d8a443fe",
+    "build/spec-inputs-workflow-lint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "complete_native_rerun_status": "running",
+  "complete_mapped_rerun_with_new_input_evidence_passed": false,
+  "physical_hardware_tested": false,
+  "limitations": [
+    "This receipt covers eight suites on each model. Earlier complete-corpus results retain their original runner identities.",
+    "The complete native corpus is being rerun; fresh complete mapped campaigns have not yet passed.",
+    "Input integrity and regression tests do not establish physical FPGA or ASIC timing."
+  ]
+}

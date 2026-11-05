@@ -17,14 +17,30 @@ import select
 import tarfile
 import sys
 import time
+from threading import Lock
 
 from wasm_image import Module, Unsupported, ImageError, Instruction, relocated
 import spec_shards
+import spec_inputs
 
 ROOT = Path(__file__).resolve().parent.parent
 LOCK = json.loads((ROOT / "tools/upstream.lock.json").read_text())
 SPEC = ROOT / ".cache/upstream" / ("spec-" + LOCK["spec"]["revision"])
 WASM_TOOLS = Path(os.environ.get("WASM_TOOLS", str(ROOT / ".cache/tools/wasm-tools-1.263.0-x86_64-linux/wasm-tools")))
+_conversion_session = None
+_conversion_lock = Lock()
+_spectest_bytes = None
+_spectest_lock = Lock()
+RUNNER_INPUTS = ('tools/run_spec.py', 'tools/wasm_image.py', 'tools/spec_shards.py',
+                 'tools/spec_inputs.py', 'tools/check_spec_conversion.py', 'build/spectest.wasm')
+
+
+def conversion_session():
+    global _conversion_session
+    with _conversion_lock:
+        if _conversion_session is None:
+            _conversion_session = spec_inputs.ConversionSession(ROOT, LOCK, WASM_TOOLS)
+        return _conversion_session
 TRAPS = {1: "unreachable", 2: "integer divide by zero", 3: "integer overflow",
          4: "out of bounds memory access", 5: "out of bounds table access",
          6: "null reference", 7: "indirect call type mismatch", 8: "invalid conversion to integer",
@@ -125,9 +141,15 @@ class Instance:
 
 
 def prepare_spectest():
+    global _spectest_bytes
     path = ROOT / "build/spectest.wasm"
     path.parent.mkdir(parents=True, exist_ok=True)
-    if not path.exists():
+    with _spectest_lock:
+        if _spectest_bytes is not None:
+            if not path.is_file() or path.read_bytes() != _spectest_bytes:
+                raise ExecutionError('spectest fixture changed after trusted conversion')
+            return path
+        spec_inputs.converter_identity(ROOT/'.cache/packages/wasm-tools.tar.gz', WASM_TOOLS, LOCK['wasm_tools'])
         wat = '''(module
           (func (export "print"))
           (func (export "print_i32") (param i32))
@@ -143,7 +165,18 @@ def prepare_spectest():
           (table (export "table") 10 20 funcref)
           (table (export "table64") i64 10 20 funcref)
           (memory (export "memory") 1 2))'''
-        subprocess.run([str(WASM_TOOLS), "parse", "-o", str(path)], input=wat, text=True, check=True)
+        generated = subprocess.run([str(WASM_TOOLS), "parse"], input=wat.encode(), capture_output=True, check=True).stdout
+        if not generated.startswith(b'\x00asm\x01\x00\x00\x00'):
+            raise ExecutionError('spectest converter did not emit a Wasm binary')
+        if path.exists():
+            if path.read_bytes() != generated:
+                raise ExecutionError('cached spectest fixture differs from trusted conversion')
+        else:
+            import tempfile
+            with tempfile.NamedTemporaryFile(dir=path.parent, prefix='spectest-', delete=False) as temporary:
+                temporary.write(generated)
+            Path(temporary.name).replace(path)
+        _spectest_bytes = generated
     return path
 
 
@@ -501,19 +534,10 @@ def verify_official_sources():
 
 
 def convert(source):
-    relative = source.relative_to(SPEC / "test/core").with_suffix("")
-    directory = ROOT / "build/spec" / relative
-    directory.mkdir(parents=True, exist_ok=True)
-    target = directory / "test.json"
-    stamp = directory / "source.sha256"
-    digest = hashlib.sha256(source.read_bytes()).hexdigest() + ":" + LOCK["wasm_tools"]["version"]
-    if not target.exists() or not stamp.exists() or stamp.read_text() != digest:
-        proc = subprocess.run([str(WASM_TOOLS), "json-from-wast", str(source),
-            "--wasm-dir", str(directory), "-o", str(target)], capture_output=True, text=True)
-        if proc.returncode:
-            return source, None, proc.stderr
-        stamp.write_text(digest)
-    return source, target, None
+    try:
+        return source, conversion_session().convert(source), None
+    except (ValueError, OSError, subprocess.SubprocessError) as error:
+        return source, None, str(error)
 
 
 def run_file(source, target, args):
@@ -683,6 +707,17 @@ def run_file(source, target, args):
             "replayed_setup_cycles":replayed_cycles, "total_simulated_cycles":rtl.rtl_cycles}
 
 
+def run_with_verified_inputs(source, target, args):
+    conversions = conversion_session()
+    before = conversions.verify(source, target)
+    result = run_file(source, target, args)
+    after = conversions.verify(source, target)
+    if before != after:
+        raise ExecutionError('conversion evidence changed during execution')
+    result['test_inputs'] = dict(after, verified_before_execution=True, verified_after_execution=True)
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", action="append", help="exact relative suite path without .wast; repeatable")
@@ -707,9 +742,10 @@ def main():
         parser.error('use --shard-plan and --shard-id together, without --suite')
     import build_identity
     build_manifest=build_identity.verify(args.simulator)
+    conversions = conversion_session()
     prepare_spectest()
     runner_inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
-                   for p in (ROOT/"tools/run_spec.py",ROOT/"tools/wasm_image.py",ROOT/"tools/spec_shards.py",ROOT/'build/spectest.wasm')}
+                   for p in (ROOT/name for name in RUNNER_INPUTS)}
     official_source_hash = verify_official_sources()
     sources = sorted((SPEC / "test/core").rglob("*.wast"))
     args.command_partitions = {}
@@ -787,7 +823,7 @@ def main():
             return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": {"conversion_errors": 1},
                     "failures": [{"kind": "conversion", "reason": error}]}
         try:
-            return run_file(source, target, args)
+            return run_with_verified_inputs(source, target, args)
         except Exception as error:
             return {"suite": str(source.relative_to(SPEC / "test/core")), "counts": {"runner_errors": 1},
                     "failures": [{"kind": "runner", "reason": f"{type(error).__name__}: {error}"}]}
@@ -808,12 +844,14 @@ def main():
     identity_error=None
     try:
         build_identity.verify(args.simulator)
+        conversions.verify_all()
+        prepare_spectest()
         for name,digest in runner_inputs.items():
             if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:
                 raise RuntimeError("test runner changed during execution")
         if args.shard_plan and hashlib.sha256(args.shard_plan.read_bytes()).hexdigest() != plan_hash:
             raise RuntimeError('shard plan changed during execution')
-    except RuntimeError as error:
+    except (RuntimeError, ValueError, OSError, ExecutionError) as error:
         identity_error=str(error); errors=True
     whole = not args.suite and not args.shard_plan
     complete = whole and len(reports) == len(sources) and not errors
@@ -823,6 +861,7 @@ def main():
               "shard_id":args.shard_id, "shard_plan_sha256":plan_hash,
               "source_sha256": source_hash.hexdigest(), "simulator_sha256": binary_hash,
               "build_manifest":build_manifest,"runner_inputs":runner_inputs,
+              "converter_identity":conversions.converter,
               "rtl_build_id":rtl_build_id,"capacities":capacities,"identity_error":identity_error,
               "max_cycles_per_invocation": args.max_cycles, "memory_wait_states": args.wait_states,
               "response_timeout_seconds": args.response_timeout, "jobs": args.jobs,

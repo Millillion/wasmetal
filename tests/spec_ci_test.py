@@ -70,6 +70,14 @@ class CompleteCoverage(PartitionSafety):
         self.per_command = {'return_call.wast':[{'modules_instantiated':1},{'rtl_assertions_passed':1},
                                                {'modules_instantiated':1},{'rtl_assertions_passed':1}],
                             'i32.wast':[{'modules_instantiated':1},{'rtl_assertions_passed':1}]}
+        self.converter = {'archive_sha256':'a'*64, 'executable_sha256':'b'*64,
+                          'archive_member':'wasm-tools', 'version':run_spec.LOCK['wasm_tools']['version']}
+        self.input_identities = {name:{'source_sha256':'c'*64, 'converter':deepcopy(self.converter),
+                                      'json_semantic_sha256':'d'*64, 'payloads':{'module.wasm':'e'*64}}
+                                 for name in self.entries}
+        conversion = patch.object(spec_ci, 'expected_conversion', side_effect=lambda name,target: deepcopy(self.input_identities[name]))
+        conversion.start()
+        self.addCleanup(conversion.stop)
         suites = []
         totals = Counter()
         for name,cycles in [('return_call.wast',[50,100,3,200]),('i32.wast',[50,22])]:
@@ -79,13 +87,19 @@ class CompleteCoverage(PartitionSafety):
             totals.update(counts)
             suites.append({'suite':name,'counts':dict(counts),'command_count':len(cycles),'command_cycles':cycles,
                            'executed_commands':list(range(len(cycles))),'replayed_setup_commands':[],
-                           'fixture_cycles':48,'replayed_setup_cycles':0,'total_simulated_cycles':sum(cycles),'failures':[]})
+                           'fixture_cycles':48,'replayed_setup_cycles':0,'total_simulated_cycles':sum(cycles),'failures':[],
+                           'test_inputs':{'schema':1,'identity':deepcopy(self.input_identities[name]),
+                                          'json_sha256':'f'*64,'conversion_log_sha256':'0'*64,
+                                          'directory':'build/spec-inputs/fixture/'+name,
+                                          'conversion_log':'build/spec-inputs/fixture/'+name+'.json',
+                                          'verified_before_execution':True,'verified_after_execution':True}})
         self.reference = {'spec':run_spec.LOCK['spec'],'official_sources_sha256':'sources','runner_inputs':{'runner':'hash'},
                           'rtl_build_id':'rtl','capacities':{'value':8192},'memory_wait_states':3,
                           'max_cycles_per_invocation':300000000,'source_sha256':'tree','identity_error':None,
                           'simulator_sha256':'native','build_manifest':{'inputs':{'rtl':'hash'},'binary_sha256':'native'},
                           'full_core_suite_selected':True,'full_core_suite_passed':True,'suite_files':2,
-                          'totals':dict(totals),'suites':suites,'response_timeout_seconds':3600}
+                          'totals':dict(totals),'suites':suites,'response_timeout_seconds':3600,
+                          'converter_identity':deepcopy(self.converter)}
         self.plan = spec_ci.create_plan(self.reference,'reference','sources',self.entries,2)
         self.reports = []
         native = {s['suite']:s for s in suites}
@@ -182,6 +196,29 @@ class CompleteCoverage(PartitionSafety):
                 self.merge(reports)
 
 
+    def test_conversion_faults_cannot_yield_a_complete_pass(self):
+        changes = {
+            'missing':lambda s:s.pop('test_inputs'),
+            'before':lambda s:s['test_inputs'].update(verified_before_execution=False),
+            'after':lambda s:s['test_inputs'].update(verified_after_execution=False),
+            'schema':lambda s:s['test_inputs'].update(schema=True),
+            'source':lambda s:s['test_inputs']['identity'].update(source_sha256='0'*64),
+            'converter':lambda s:s['test_inputs']['identity']['converter'].update(executable_sha256='0'*64),
+            'expected-values':lambda s:s['test_inputs']['identity'].update(json_semantic_sha256='0'*64),
+            'payload':lambda s:s['test_inputs']['identity']['payloads'].update({'module.wasm':'0'*64}),
+            'missing-payload':lambda s:s['test_inputs']['identity'].update(payloads={}),
+            'json-hash':lambda s:s['test_inputs'].update(json_sha256='invalid'),
+            'log-hash':lambda s:s['test_inputs'].update(conversion_log_sha256='invalid'),
+            'path':lambda s:s['test_inputs'].update(directory='build/spec-inputs/../../outside'),
+        }
+        for target in ('native','mapped'):
+            for label, change in changes.items():
+                reference, reports = deepcopy((self.reference, self.reports))
+                change(reference['suites'][0] if target=='native' else reports[0]['suites'][0])
+                with self.subTest(target=target, fault=label), self.assertRaises(ValueError):
+                    spec_ci.merge_reports(self.plan,'plan',reference,'reference',reports,'sources',self.entries)
+
+
 class WorkspaceReconciliation(unittest.TestCase):
     """Use real files and identity verification; only the workspace is isolated."""
     def setUp(self):
@@ -193,6 +230,7 @@ class WorkspaceReconciliation(unittest.TestCase):
         names = ['Makefile', 'tools/upstream.lock.json', 'tools/generate_fpga_ports.py',
                  'tools/build_identity.py', 'tools/spec_ci.py', 'rtl/tiny.sv', 'sim/tiny.cpp',
                  'tools/run_spec.py', 'tools/wasm_image.py', 'tools/spec_shards.py',
+                 'tools/spec_inputs.py', 'tools/check_spec_conversion.py',
                  'build/spectest.wasm', 'build/circuit.v', 'build/native', 'build/mapped']
         for name in names:
             path = self.root/name
@@ -217,7 +255,7 @@ class WorkspaceReconciliation(unittest.TestCase):
         fixture.reference.update(build_manifest=manifests['native'],
             simulator_sha256=manifests['native']['binary_sha256'], source_sha256='1'*64,
             runner_inputs={name: spec_shards.sha256(self.root/name) for name in
-                ('tools/run_spec.py', 'tools/wasm_image.py', 'tools/spec_shards.py', 'build/spectest.wasm')})
+                run_spec.RUNNER_INPUTS})
         for row in fixture.reports:
             row.update(build_manifest=deepcopy(manifests['mapped']),
                        simulator_sha256=manifests['mapped']['binary_sha256'],

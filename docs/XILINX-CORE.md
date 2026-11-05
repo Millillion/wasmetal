@@ -130,8 +130,9 @@ Both text and binary representations of invalid modules are included.
 This establishes current input consistency; it does not retroactively create
 a before-execution input attestation. The archived conversion inputs and
 fresh JSON/logs are in `xc7-core-corpus/conversion-inputs.tar.gz`, with an
-entry-by-entry SHA-256 manifest beside it. To repeat this audit after populating
-the official-suite cache in a bootstrapped checkout:
+entry-by-entry SHA-256 manifest beside it. The standalone replay tool audits
+an existing legacy `build/spec` cache, such as the cache preserved in that
+archive. New runner versions use the isolated inputs described below:
 
 ```sh
 python3 tools/check_spec_conversion.py
@@ -142,6 +143,42 @@ groups on failure, rechecks both executables and requires exact command
 coverage and native cycle counts during final merging.
 This core is an untimed host-backed simulation. Xilinx placement, routing,
 timing, bitstream generation and physical-board testing remain unverified.
+
+## Fresh inputs for new runs
+
+`run_spec.py` now generates each script afresh in a unique directory for its
+process. It verifies the installed `wasm-tools` bytes against the pinned release
+archive and verifies every WAST against the pinned specification archive.
+It never reuses another process's conversion cache. Repeated use within the
+same process requires the original generated hashes to match.
+
+Before and after each script executes, the runner checks the exact JSON,
+every referenced text/binary payload, its source and its conversion-command
+receipt. It checks the converter, complete official source inventory and all
+generated inputs again before accepting the final report. The shared
+`spectest` fixture must also match a fresh trusted conversion. Original
+source-directory prefixes are retained in raw hashes; only the informational
+prefix is normalized for comparisons between workers.
+
+The CI planner and merger independently generate their own inputs and compare
+each native and mapped suite's semantic JSON, source and payload identities.
+Missing before/after checks or changed input identities prevent a complete
+pass. Merged reports preserve every partition's input evidence. Separate CI
+artifacts retain native, ECP5-worker and Xilinx-worker input directories without
+changing the existing report artifact paths.
+
+The [three-model regression](verification/spec-input-integrity.json) passes
+eight suites per model: 6,647 RTL execution assertions, 355 validation
+assertions and 132,959 canonical cycles each. Complete observations agree
+with the prior native reference. Fifteen integrity tests include real pinned
+conversions, stale-cache isolation, payload changes before/during execution,
+binary representations of invalid modules and converter substitution. The
+nineteen CI fixture tests include 24 native/mapped evidence corruptions.
+Existing timeout, partition and reconciliation fixtures also pass.
+The [archive](verification/spec-input-integrity/index.json) retains the three
+reports, code, test logs and 2,093 actual input files. The complete native
+corpus is being rerun with this stronger evidence; complete mapped reruns
+with these new records have not yet passed.
 
 ## CI deployment
 
