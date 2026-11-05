@@ -504,9 +504,12 @@ remains open: the first 20-minute trial timed out with 3,689 violations in its
 last completed iteration. A [completed four-iteration diagnostic](docs/verification/asic-routing-diagnostic-summary.json)
 retains 1,493 violations, including 1,080 shorts. Its logical netlist preserves
 all 4,183 functional cells and their exact pin connectivity, but the physical
-violations still prevent accepting that layout. The longer routing attempt
-has completed; its extracted timing and antenna findings are being checked.
-No physical ASIC timing or complete CPU layout is accepted.
+violations still prevent accepting that layout. The [longer attempt now finishes
+with zero routing-rule markers](docs/verification/asic-route-extraction-summary.json)
+and unchanged logical connectivity. Extracted timing at the trial's nominal
+corner passes setup, but misses hold by 8.133 ps; antenna checks still flag
+139 nets and 148 pins. Those physical checks remain open. No chip timing
+signoff or complete CPU layout is accepted.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/build/run_asic_route_extraction.py", line 17, in <module>
+    exe,env,tools=provision();assert tools==status['tools'],'physical tool/runtime identity changed'
+                                     ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: physical tool/runtime identity changed

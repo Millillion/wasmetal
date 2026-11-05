@@ -1,0 +1,24 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 2 thread(s).
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /tmp/wasmetal-xc7-core/.cache/sky130hd-extraction/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation wasmetal_startup_sram (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 19590 rc segments
+[INFO RCX-0439] Coupling Cap extraction wasmetal_startup_sram ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 53% of 43954 wires extracted
+[INFO RCX-0442] 100% of 43954 wires extracted
+[INFO RCX-0045] Extract 4419 nets, 24009 rsegs, 24009 caps, 53034 ccs
+[INFO RCX-0443] 4419 nets finished
+WASMETAL extracted setup slack
+worst slack max 75.045525
+WASMETAL extracted hold slack
+worst slack min -0.008133
+tns max 0.000000
+[INFO ANT-0002] Found 139 net violations.
+[INFO ANT-0001] Found 148 pin violations.
+FINISHED routed parasitic extraction and nominal timing diagnostics

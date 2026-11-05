@@ -117,9 +117,9 @@ and simulation inputs are unchanged by that proof strategy.
 
 ## Routing and timing remain open
 
-The accepted result above covers binary functionality with zero cell delays
-after placement, clock trees and global-routing repair. It does not include
-a completed detailed route or extracted timing.
+The functional result above covers binary behavior with zero cell delays
+after placement, clock trees and global-routing repair. The separate detailed
+route and extracted diagnostics below retain their own evidence and limitations.
 
 The first detailed-routing trial stopped at its 1,200-second limit. Completed
 iterations reported 6,132, 3,724 and 3,689 violations; the next iteration was
@@ -143,9 +143,38 @@ remain. No additional RTL simulation or timing pass is inferred from it.
 
 A separate attempt now permits sixteen as the final routing iteration, with
 four threads and an 80-minute limit. It starts from the same global-route
-database and retains its own results. It has now finished. Its extracted
-timing and antenna findings are being checked before publication; no accepted
-physical implementation is claimed.
+database and retains its own results. It now [finishes with zero OpenROAD
+routing-rule markers](verification/asic-route-extraction-summary.json) after
+1,340 seconds. Completed iteration counts were 6,076, 4,021, 3,574, 1,493,
+487, 225, 168, 97, 47, 47, 15, 3, 3 and 0. The final Verilog still has exactly
+the same 4,183 functional cells and canonical pin connections as the verified
+global-route circuit. No additional functional simulation is inferred from
+that structural equality.
+
+OpenRCX extracted 4,419 nets, 24,009 resistance segments, 24,009 ground
+capacitances and 53,034 coupling capacitances. The extraction rules are pinned
+to the same ORFS revision; its SKY130HD path resolves to the SKY130HS rules
+file, and both that symlink identity and the resolved content are recorded.
+At the SKY130HD TT, 1.8 V, 25 C cell corner with the trial's 100 ns clock and
+block-interface constraints, setup slack is **+75.045525 ns** and hold slack
+is **−0.008133 ns**. The selected slew, capacitance, fanout, pulse-width and
+period report is empty. The antenna checker still reports **139 net and 148
+pin violations**. Hold and antenna checks therefore remain open.
+
+The [raw archive](verification/asic-route-extraction/index.json) preserves
+73 artifacts, including the routed/extracted databases, SPEF, timing paths,
+antenna reports, exact commands, source snapshots and licenses. All 47 bound
+inputs were rechecked. The first extraction driver rejected a difference in
+its broad Python-import snapshot caused by the new Wasm input code. The
+revised check retains both snapshots and permits only those unexecuted test
+functions to differ. Physical executable, package trees, resolved libraries,
+launcher code and platform data match; four deliberate substitutions are
+rejected. The initial rejection is retained too.
+
+Zero router markers are separate from antenna checks, extracted timing and
+signoff DRC/LVS. These results concern the startup/BIST/SRAM-adapter block;
+they contain neither the full CPU nor a physical SRAM array. There is no
+chip timing or fabrication-readiness claim.
 
 Global routing supplies coarse paths and estimated parasitics. Detailed routing,
 extracted timing, setup/hold closure across appropriate process corners,

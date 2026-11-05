@@ -1,0 +1,513 @@
+[
+  {
+    "original_path": ".cache/sky130hd/ORFS_LICENSE",
+    "archive_path": "docs/verification/asic-route-extraction/.cache/sky130hd/ORFS_LICENSE",
+    "original_sha256": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    "archive_sha256": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd/SKYWATER_LICENSE",
+    "archive_path": "docs/verification/asic-route-extraction/.cache/sky130hd/SKYWATER_LICENSE",
+    "original_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "archive_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-extraction/rcx_patterns.rules",
+    "archive_path": "docs/verification/asic-route-extraction/.cache/sky130hd-extraction/rcx_patterns.rules",
+    "original_sha256": "d5bd9b1077ceac9929416abca272a6d52e51cd9a575453a31d129817bb286476",
+    "archive_sha256": "d5bd9b1077ceac9929416abca272a6d52e51cd9a575453a31d129817bb286476",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/fastroute.tcl",
+    "archive_path": "docs/verification/asic-route-extraction/.cache/sky130hd-physical/fastroute.tcl",
+    "original_sha256": "a84110f70e0ff1540f4cfed6730d56b3011c6c06a6c897a4bd600522bb175dd3",
+    "archive_sha256": "a84110f70e0ff1540f4cfed6730d56b3011c6c06a6c897a4bd600522bb175dd3",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/setRC.tcl",
+    "archive_path": "docs/verification/asic-route-extraction/.cache/sky130hd-physical/setRC.tcl",
+    "original_sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a",
+    "archive_sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/archive_asic_route_extraction.py",
+    "archive_path": "docs/verification/asic-route-extraction/build/archive_asic_route_extraction.py",
+    "original_sha256": "eefcfd02593a41bdda2dcdd37f4bb36284573bd13e2c8117e04daa03ce5e150a",
+    "archive_sha256": "eefcfd02593a41bdda2dcdd37f4bb36284573bd13e2c8117e04daa03ce5e150a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/cells.lib",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-physical-startup/cells.lib.gz",
+    "original_sha256": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    "archive_sha256": "05056a49b604e2359fdb95ec8a322b3add40126efdf9272d8e288f02fb59e69c",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/mapped.json",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-physical-startup/functional/mapped.json.gz",
+    "original_sha256": "659fef89220ebca2ca57ed3dd8d83b2d36217a281f275c38321fd6a0d76c4537",
+    "archive_sha256": "b681e5acbcf4a80f66b4ebb652b8ab62a8961b98e6cf237f75664599d76f07eb",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-routed.odb",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-physical-startup/global-routed.odb.gz",
+    "original_sha256": "d97565c79f190ca882923645f49cb318be3767639a604bee8593932d219787c5",
+    "archive_sha256": "88d90da5c04cd12d4dea6cb3f75ba4086f8a5b8136e8be2a6d52536d373ea0b9",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-routed.sdc",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-physical-startup/global-routed.sdc.gz",
+    "original_sha256": "a2862e7f6887a15056c2b30fae74c8f33f8973a50686781a7e9ec8d6f54b7868",
+    "archive_sha256": "bb2844a2bdf1b63a42555fd32c83fb6366f1e5f1569fbde8344bd8537b5d725d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-routed.v",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-physical-startup/global-routed.v.gz",
+    "original_sha256": "6dbd7c4f895f9935f62d487a06e24fbccb5db2c5136a6d4347d0ffa2713af1f4",
+    "archive_sha256": "f129e1aca9fe1faecb05fe92c38a7177ad275850d7cee46541026817f9d49692",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/route.guide",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-physical-startup/route.guide.gz",
+    "original_sha256": "d185aac48dc864e8902e449c6d22627ce5d78bcc030598bf29616f7c65cdbcb4",
+    "archive_sha256": "0c67aa1b34479d2c7c29cfaff0dad498fb6d99a6e469c88e752fdfa04bd359a4",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extended/connectivity.json",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/connectivity.json",
+    "original_sha256": "e5f476e93beaf82df807efad0cd6f4d4dfd7c36fd635e3955d996595931543c3",
+    "archive_sha256": "e5f476e93beaf82df807efad0cd6f4d4dfd7c36fd635e3955d996595931543c3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended/drc.rpt",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/drc.rpt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended/guide-coverage.csv",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/guide-coverage.csv",
+    "original_sha256": "b70847d4e4d0b4c0a37c7a7521eaf2f94ac497eeb06989fcec7aaede059bcd39",
+    "archive_sha256": "b70847d4e4d0b4c0a37c7a7521eaf2f94ac497eeb06989fcec7aaede059bcd39",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended/route.log",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/route.log",
+    "original_sha256": "695640104950d61242ba2ac27470222b0c96a352f5647d068c2a5b5a3e85f36a",
+    "archive_sha256": "695640104950d61242ba2ac27470222b0c96a352f5647d068c2a5b5a3e85f36a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended/route.tcl",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/route.tcl",
+    "original_sha256": "f7352c980d60eb68eb97fd36c11cba6ef3b3bb426429d90f9bd83ff7d26dae16",
+    "archive_sha256": "f7352c980d60eb68eb97fd36c11cba6ef3b3bb426429d90f9bd83ff7d26dae16",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed-connectivity.log",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed-connectivity.log",
+    "original_sha256": "c4fd2033c76ec517e37f0e601e9fd50e34a7b4821e6f42807c059b654b99a269",
+    "archive_sha256": "c4fd2033c76ec517e37f0e601e9fd50e34a7b4821e6f42807c059b654b99a269",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed-connectivity.ys",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed-connectivity.ys",
+    "original_sha256": "d4ff3a431e9c99439943052b55fbf55fb61d1893e77bf3d0fab38709b9b24cfe",
+    "archive_sha256": "d4ff3a431e9c99439943052b55fbf55fb61d1893e77bf3d0fab38709b9b24cfe",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed-functional.json",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed-functional.json.gz",
+    "original_sha256": "dcae5e592f6e03ee67ef1ba4131f9540c053a4e785e0316260e2409557c32b5a",
+    "archive_sha256": "53f8078370bff6bbdc0b811402544d8ddc4c18dec111304a5c4f1c1e67063d6c",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed-raw.json",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed-raw.json.gz",
+    "original_sha256": "923bd6f755fceafb070e78adf15305627618a4425358de38e066d9f236cc655c",
+    "archive_sha256": "7d1bf3bcca623f812808f52ae6a1a678c1f2a46c6ae58b76b01ff68f4be7d01e",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed.def",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed.def.gz",
+    "original_sha256": "ad34ad85b5637562d6886762d5753a4258c07401a53e75f42cb177d6dd7d00ca",
+    "archive_sha256": "8e1e864f604e9f92f03f177d4ca6c8b987107bbfc9203acde6192b1388cbf2ae",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed.odb",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed.odb.gz",
+    "original_sha256": "4445f7cd30cd721512aadd2ab4506105e9c72acca29c5057af2ed4a17a98e87f",
+    "archive_sha256": "34078139646c57fcc8909a6583664c48e4de2bdfa122b916917a2d3bc8d86e8d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed.sdc",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed.sdc.gz",
+    "original_sha256": "29fe8051abfe116d4d83fcbe84321a139084dcbe4fdfc5e4aaf2a31353f9ecc4",
+    "archive_sha256": "aba6b217a8dd812afed2d5e9807cc31c7aea16e4ae0f2dd4613e422ec303fd80",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extended/routed.v",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/routed.v.gz",
+    "original_sha256": "6dbd7c4f895f9935f62d487a06e24fbccb5db2c5136a6d4347d0ffa2713af1f4",
+    "archive_sha256": "f129e1aca9fe1faecb05fe92c38a7177ad275850d7cee46541026817f9d49692",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extended/status.json",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended/status.json",
+    "original_sha256": "159982baf17b5d1ee0af30bdd741b83db656522039cf62a93f5af9bf865d1c7c",
+    "archive_sha256": "159982baf17b5d1ee0af30bdd741b83db656522039cf62a93f5af9bf865d1c7c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extended-driver.log",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extended-driver.log",
+    "original_sha256": "a71b6a3d02a545d41b36810b92ae4ca04a233dd64c7da2eda11af31ed928af31",
+    "archive_sha256": "a71b6a3d02a545d41b36810b92ae4ca04a233dd64c7da2eda11af31ed928af31",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/antennas.rpt",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/antennas.rpt.gz",
+    "original_sha256": "99fb4c4cc3f72f804a1fa1b3c2be537b2b24a7c4bc5f771090d7b7a2d15e7cf3",
+    "archive_sha256": "1fc485f7aa530d0a850b4ecc4bc3796af31f20cef126b515c1c9ca86fc9c6642",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extraction/current-tools.json",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/current-tools.json",
+    "original_sha256": "daf2f8f5b88c68354c469e3de0f971b31594a33fa23f81879b0a217904c32e0f",
+    "archive_sha256": "daf2f8f5b88c68354c469e3de0f971b31594a33fa23f81879b0a217904c32e0f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/electrical.rpt",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/electrical.rpt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/extract.log",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/extract.log",
+    "original_sha256": "5c60cdc0fdcc87aaff68327270f72befa554a42eaf1cc2ab3f69198c2846dedc",
+    "archive_sha256": "5c60cdc0fdcc87aaff68327270f72befa554a42eaf1cc2ab3f69198c2846dedc",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/extract.tcl",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/extract.tcl",
+    "original_sha256": "3f80aca3bc9fd3d9b511aa3bcb93bf279e323057645ca513551b91248d02d4a2",
+    "archive_sha256": "3f80aca3bc9fd3d9b511aa3bcb93bf279e323057645ca513551b91248d02d4a2",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/extracted.odb",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/extracted.odb.gz",
+    "original_sha256": "d6551976cbe2a9c5ade847e21c487b85de6026504a857b69bf924f835c7ab822",
+    "archive_sha256": "44b89d858553993c5e52f65ca48fcaef90a5799954bc7219ca28febd908d2cf0",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extraction/help.log",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/help.log",
+    "original_sha256": "2b980c616de103624411f1a74b6f4522a411882cc0cabb1d3b98dde51a8a4c79",
+    "archive_sha256": "2b980c616de103624411f1a74b6f4522a411882cc0cabb1d3b98dde51a8a4c79",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/help.tcl",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/help.tcl",
+    "original_sha256": "1561116fb2db8c17abbe5548c1ab26190bcad2deb56df520b34e0d0360fe1d3f",
+    "archive_sha256": "1561116fb2db8c17abbe5548c1ab26190bcad2deb56df520b34e0d0360fe1d3f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/initial-driver.py",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/initial-driver.py",
+    "original_sha256": "9938928d494b3c65ce4b86fe00aa09c682a2455f855cef46c3b1ee647a82af38",
+    "archive_sha256": "9938928d494b3c65ce4b86fe00aa09c682a2455f855cef46c3b1ee647a82af38",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/initial-rejection.log",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/initial-rejection.log",
+    "original_sha256": "3b085322e30aa51d01dafb942455fc6ff6005984ec6e50b26fb37ffea9640671",
+    "archive_sha256": "3b085322e30aa51d01dafb942455fc6ff6005984ec6e50b26fb37ffea9640671",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/routed.spef",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/routed.spef.gz",
+    "original_sha256": "6f2ec7343ba0ed87c83336e39d9e6278f6284809d046ed553321bb89234427b7",
+    "archive_sha256": "d6fd7a931f15c41d6f91744910c316fc65f5987cf846907412eadf6841b9c06c",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-routing-extraction/status.json",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/status.json",
+    "original_sha256": "7a7252cad097e474f5e1964ebfe45f6e1fb240029632208cc75f3c474bca748f",
+    "archive_sha256": "7a7252cad097e474f5e1964ebfe45f6e1fb240029632208cc75f3c474bca748f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction/timing-paths.rpt",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction/timing-paths.rpt",
+    "original_sha256": "92dba96ec2dcfb2781df324bb628c7703c7c9e8d46f20ddbdb8c824c253e610d",
+    "archive_sha256": "92dba96ec2dcfb2781df324bb628c7703c7c9e8d46f20ddbdb8c824c253e610d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-routing-extraction-driver.log",
+    "archive_path": "docs/verification/asic-route-extraction/build/asic-routing-extraction-driver.log",
+    "original_sha256": "f986696c6209100f35e11a4d2253ebe170b6f689d082b2ebc9f50edbe694a654",
+    "archive_sha256": "f986696c6209100f35e11a4d2253ebe170b6f689d082b2ebc9f50edbe694a654",
+    "compressed": false
+  },
+  {
+    "original_path": "build/run_asic_route_extension.py",
+    "archive_path": "docs/verification/asic-route-extraction/build/run_asic_route_extension.py",
+    "original_sha256": "92a03c271cf8b4cecd224209141372d86fa21bdfa554502a6605e634057702f0",
+    "archive_sha256": "92a03c271cf8b4cecd224209141372d86fa21bdfa554502a6605e634057702f0",
+    "compressed": false
+  },
+  {
+    "original_path": "build/run_asic_route_extraction.py",
+    "archive_path": "docs/verification/asic-route-extraction/build/run_asic_route_extraction.py",
+    "original_sha256": "1e08b7b7c06f92784d1656fd3cc849a1b0ae8ddfccddac826550651ef703221f",
+    "archive_sha256": "1e08b7b7c06f92784d1656fd3cc849a1b0ae8ddfccddac826550651ef703221f",
+    "compressed": false
+  },
+  {
+    "original_path": "docs/verification/xc7-core-corpus/tools/run_spec.py",
+    "archive_path": "docs/verification/asic-route-extraction/docs/verification/xc7-core-corpus/tools/run_spec.py",
+    "original_sha256": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "archive_sha256": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-route-extraction-summary.json",
+    "archive_path": "docs/verification/asic-route-extraction/reports/asic-route-extraction-summary.json",
+    "original_sha256": "57f21224fc0ff04b1f8b61e27eeae1c500616b84b0eb7223a5d7bb7923bfb7af",
+    "archive_sha256": "57f21224fc0ff04b1f8b61e27eeae1c500616b84b0eb7223a5d7bb7923bfb7af",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_cells.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/asic_cells.py",
+    "original_sha256": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "archive_sha256": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_physical.lock.json",
+    "archive_path": "docs/verification/asic-route-extraction/tools/asic_physical.lock.json",
+    "original_sha256": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+    "archive_sha256": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_physical_tools.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/asic_physical_tools.py",
+    "original_sha256": "75c3632ecf96d1d869535acca60664a3a72c835a7ea1986c8f3b0b0765a50eb8",
+    "archive_sha256": "75c3632ecf96d1d869535acca60664a3a72c835a7ea1986c8f3b0b0765a50eb8",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_board.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/build_board.py",
+    "original_sha256": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "archive_sha256": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_gate_sim.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/build_gate_sim.py",
+    "original_sha256": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+    "archive_sha256": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_identity.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/build_identity.py",
+    "original_sha256": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df",
+    "archive_sha256": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_standalone_gate_sim.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/build_standalone_gate_sim.py",
+    "original_sha256": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "archive_sha256": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/cad.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/cad.py",
+    "original_sha256": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "archive_sha256": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_asic_physical_startup.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_asic_physical_startup.py",
+    "original_sha256": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+    "archive_sha256": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_asic_startup.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_asic_startup.py",
+    "original_sha256": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f",
+    "archive_sha256": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_loadable.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_loadable.py",
+    "original_sha256": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "archive_sha256": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_memory_startup.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_memory_startup.py",
+    "original_sha256": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "archive_sha256": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_spec_conversion.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_spec_conversion.py",
+    "original_sha256": "52b843f7e5c64876396d2a6acdb71dcac155f97fd74e439ee4145403a1a2f20c",
+    "archive_sha256": "52b843f7e5c64876396d2a6acdb71dcac155f97fd74e439ee4145403a1a2f20c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_standalone.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_standalone.py",
+    "original_sha256": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "archive_sha256": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_timing.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_timing.py",
+    "original_sha256": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "archive_sha256": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_xc7_system.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/check_xc7_system.py",
+    "original_sha256": "b47d55507d6569f8b6a35b4b866c5f6d0c8bc3b58228b63103595d707046260c",
+    "archive_sha256": "b47d55507d6569f8b6a35b4b866c5f6d0c8bc3b58228b63103595d707046260c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/ecp5_loadable_ram.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/ecp5_loadable_ram.py",
+    "original_sha256": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+    "archive_sha256": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/ecp5_ram.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/ecp5_ram.py",
+    "original_sha256": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+    "archive_sha256": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/ecp5_standalone_ram.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/ecp5_standalone_ram.py",
+    "original_sha256": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+    "archive_sha256": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/loadable_ci.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/loadable_ci.py",
+    "original_sha256": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "archive_sha256": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/prepare_standalone.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/prepare_standalone.py",
+    "original_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "archive_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/program_upload.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/program_upload.py",
+    "original_sha256": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "archive_sha256": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/run_spec.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/run_spec.py",
+    "original_sha256": "d95397191a72fc6b490532b752f34121ff9d83318fe8918d88fd465bccc6fb56",
+    "archive_sha256": "d95397191a72fc6b490532b752f34121ff9d83318fe8918d88fd465bccc6fb56",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/run_xc7_system.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/run_xc7_system.py",
+    "original_sha256": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "archive_sha256": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/spec_inputs.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/spec_inputs.py",
+    "original_sha256": "01a44cdb0f7082dfc92cc521b16a400e651e94ba3445881dea8bda47af6f1084",
+    "archive_sha256": "01a44cdb0f7082dfc92cc521b16a400e651e94ba3445881dea8bda47af6f1084",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/spec_shards.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/spec_shards.py",
+    "original_sha256": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "archive_sha256": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/standalone_support.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/standalone_support.py",
+    "original_sha256": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "archive_sha256": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/wasm_image.py",
+    "archive_path": "docs/verification/asic-route-extraction/tools/wasm_image.py",
+    "original_sha256": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "archive_sha256": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "compressed": false
+  }
+]

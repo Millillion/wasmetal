@@ -1,0 +1,75 @@
+{
+  "status": "routed-with-open-physical-checks",
+  "scope": "startup/BIST/SRAM-adapter block; no CPU or SRAM array",
+  "functional_cells": 4183,
+  "physical_taps": 1070,
+  "exact_pre_route_logical_connectivity": true,
+  "completed_iteration_violations": [
+    6076,
+    4021,
+    3574,
+    1493,
+    487,
+    225,
+    168,
+    97,
+    47,
+    47,
+    15,
+    3,
+    3,
+    0
+  ],
+  "router_drc_markers": 0,
+  "routing_seconds": 1340.1608447290491,
+  "extracted_nets": 4419,
+  "resistance_segments": 24009,
+  "ground_capacitances": 24009,
+  "coupling_capacitances": 53034,
+  "clock_period_ns": 100,
+  "library_corner": "SKY130HD TT 1.8V 25C",
+  "setup_slack_ns": 75.045525,
+  "hold_slack_ns": -0.008133,
+  "selected_electrical_report_empty": true,
+  "antenna_net_violations": 139,
+  "antenna_pin_violations": 148,
+  "setup_passes_at_trial_corner": true,
+  "hold_passes_at_trial_corner": false,
+  "antenna_check_passed": false,
+  "physical_timing_accepted": false,
+  "signoff_drc_lvs_passed": false,
+  "physical_hardware_tested": false,
+  "route_report_sha256": "159982baf17b5d1ee0af30bdd741b83db656522039cf62a93f5af9bf865d1c7c",
+  "extraction_report_sha256": "7a7252cad097e474f5e1964ebfe45f6e1fb240029632208cc75f3c474bca748f",
+  "bound_inputs_rechecked": 47,
+  "physical_tool_reconciliation_faults_rejected": 4,
+  "unexecuted_python_snapshot_drift": {
+    "tools/spec_inputs.py": {
+      "before": null,
+      "after": "01a44cdb0f7082dfc92cc521b16a400e651e94ba3445881dea8bda47af6f1084"
+    },
+    "tools/check_spec_conversion.py": {
+      "before": null,
+      "after": "52b843f7e5c64876396d2a6acdb71dcac155f97fd74e439ee4145403a1a2f20c"
+    },
+    "tools/run_spec.py": {
+      "before": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+      "after": "d95397191a72fc6b490532b752f34121ff9d83318fe8918d88fd465bccc6fb56"
+    }
+  },
+  "extraction_rules": {
+    "repository": "The-OpenROAD-Project/OpenROAD-flow-scripts",
+    "revision": "d056a2b304182bf76ff10653531165b1dd9848d4",
+    "requested_path": "flow/platforms/sky130hd/rcx_patterns.rules",
+    "symlink_git_blob": "7f7fe1ca664a2950c2ba447eaf2b8d39431b89cb",
+    "resolved_path": "flow/platforms/sky130hs/rcx_patterns.rules",
+    "content_git_blob": "af5cfffd6f7d0699510bfba58f352d8feb71fadf",
+    "sha256": "d5bd9b1077ceac9929416abca272a6d52e51cd9a575453a31d129817bb286476"
+  },
+  "limitations": [
+    "Zero OpenROAD routing markers does not establish signoff DRC/LVS or an antenna pass.",
+    "Timing uses one nominal cell corner and the trial block-interface constraints, without a physical SRAM or pad implementation.",
+    "The original broad Python-import snapshot changed only in unexecuted Wasm input code; physical binaries, package trees, runtime libraries, launcher code and platform data match.",
+    "The initial extraction driver rejected that snapshot difference; its source and rejection are retained."
+  ]
+}
