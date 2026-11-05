@@ -1,0 +1,463 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 2 thread(s).
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      4145
+    final |     +4.5% |      28 |      65 |            28 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 29 slew violations.
+[INFO RSZ-0036] Found 11 capacitance violations.
+[INFO RSZ-0039] Resized 28 instances.
+[INFO RSZ-0038] Inserted 65 buffers in 28 nets.
+[INFO DPL-0006] Core area: 82241.38 um^2, Instances area: 32009.45 um^2, Utilization: 38.9%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                    3839
+Diamond Move Success:           3839 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement        523.8 u
+average displacement        0.1 u
+max displacement            6.5 u
+original HPWL          196820.1 u
+legalized HPWL         197111.4 u
+delta HPWL                    0 %
+
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_4
+                    sky130_fd_sc_hd__clkbuf_8
+                    sky130_fd_sc_hd__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "clk" found for clock "core_clk".
+[INFO CTS-0010]  Clock net "clk" has 620 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 3 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 620.
+[INFO CTS-0029]  Register sinks will be clustered in groups of up to 20 and with maximum cluster diameter of 50.0 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 20 and clustering diameter of 50.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 79.
+[INFO CTS-0024]  Normalized sink region: [(1.26315, 1.46088), (20.9224, 20.9009)].
+[INFO CTS-0025]     Width:  19.6593.
+[INFO CTS-0026]     Height: 19.4400.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 40
+    Sub-region size: 9.8296 X 19.4400
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 20
+    Sub-region size: 9.8296 X 9.7200
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 10
+    Sub-region size: 4.9148 X 9.7200
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 79.
+[INFO CTS-0018]     Created 84 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 84 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:4, 3:4, 5:8, 6:9, 7:4, 8:12, 9:7, 10:11, 11:10, 12:10, 13:3, 15:1..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 692
+[INFO CTS-0100]  Leaf buffers 75
+[INFO CTS-0101]  Average sink wire length 414.80 um
+[INFO CTS-0102]  Path depth 2 - 3
+[INFO CTS-0207]  Dummy loads inserted 72
+[INFO DPL-0006] Core area: 82241.38 um^2, Instances area: 35101.16 um^2, Utilization: 42.7%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                    3995
+Diamond Move Success:           3995 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement       1095.2 u
+average displacement        0.2 u
+max displacement            6.9 u
+original HPWL          202113.6 u
+legalized HPWL         202741.3 u
+delta HPWL                    0 %
+
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0046] Found 68 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -0.030 |  -0.714 | _6056_/D
+    final |       0 |      67 |            0 |    +1.9% |   0.000 |   0.000 | _6574_/D
+--------------------------------------------------------------------------------------
+[INFO RSZ-0032] Inserted 67 hold buffers.
+[INFO DPL-0006] Core area: 82241.38 um^2, Instances area: 35771.81 um^2, Utilization: 43.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                    4062
+Diamond Move Success:           4062 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement        288.0 u
+average displacement        0.1 u
+max displacement            6.4 u
+original HPWL          203131.2 u
+legalized HPWL         203219.2 u
+delta HPWL                    0 %
+
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0040] All shapes on net VSS are connected.
+Design area 35772 um^2 43% utilization.
+Startpoint: _6574_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _6574_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.69    0.69   clock network delay (propagated)
+   0.00    0.69 ^ _6574_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.34    1.03 v _6574_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.07    1.09 ^ _5523_/Y (sky130_fd_sc_hd__nand2_1)
+   0.05    1.14 v _5525_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.00    1.14 v _6574_/D (sky130_fd_sc_hd__dfxtp_1)
+           1.14   data arrival time
+
+   0.00    0.00   clock core_clk (rise edge)
+   0.69    0.69   clock network delay (propagated)
+   0.50    1.19   clock uncertainty
+   0.00    1.19   clock reconvergence pessimism
+           1.19 ^ _6574_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.05    1.14   library hold time
+           1.14   data required time
+---------------------------------------------------------
+           1.14   data required time
+          -1.14   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
+Startpoint: _6350_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _6350_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.67    0.67   clock network delay (propagated)
+   0.00    0.67 ^ _6350_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.34    1.01 v _6350_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.07    1.07 ^ _4642_/Y (sky130_fd_sc_hd__nand2_1)
+   0.05    1.12 v _4644_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.00    1.12 v _6350_/D (sky130_fd_sc_hd__dfxtp_1)
+           1.12   data arrival time
+
+   0.00    0.00   clock core_clk (rise edge)
+   0.67    0.67   clock network delay (propagated)
+   0.50    1.17   clock uncertainty
+   0.00    1.17   clock reconvergence pessimism
+           1.17 ^ _6350_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.05    1.12   library hold time
+           1.12   data required time
+---------------------------------------------------------
+           1.12   data required time
+          -1.12   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
+Startpoint: _6527_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _6527_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.69    0.69   clock network delay (propagated)
+   0.00    0.69 ^ _6527_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.34    1.02 v _6527_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.06    1.09 ^ _5382_/Y (sky130_fd_sc_hd__nand2_1)
+   0.05    1.14 v _5384_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.00    1.14 v _6527_/D (sky130_fd_sc_hd__dfxtp_1)
+           1.14   data arrival time
+
+   0.00    0.00   clock core_clk (rise edge)
+   0.69    0.69   clock network delay (propagated)
+   0.50    1.19   clock uncertainty
+   0.00    1.19   clock reconvergence pessimism
+           1.19 ^ _6527_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.05    1.14   library hold time
+           1.14   data required time
+---------------------------------------------------------
+           1.14   data required time
+          -1.14   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
+Startpoint: _6059_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _6059_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.66    0.66   clock network delay (propagated)
+   0.00    0.66 ^ _6059_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.33    0.99 ^ _6059_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.07    1.05 v _2980_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.07    1.13 ^ _2981_/Y (sky130_fd_sc_hd__nor2_1)
+   0.00    1.13 ^ _6059_/D (sky130_fd_sc_hd__dfxtp_1)
+           1.13   data arrival time
+
+   0.00    0.00   clock core_clk (rise edge)
+   0.66    0.66   clock network delay (propagated)
+   0.50    1.16   clock uncertainty
+   0.00    1.16   clock reconvergence pessimism
+           1.16 ^ _6059_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.03    1.13   library hold time
+           1.13   data required time
+---------------------------------------------------------
+           1.13   data required time
+          -1.13   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
+Startpoint: _6580_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _6580_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.68    0.68   clock network delay (propagated)
+   0.00    0.68 ^ _6580_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.33    1.01 v _6580_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.07    1.08 ^ _5541_/Y (sky130_fd_sc_hd__nand2_1)
+   0.05    1.13 v _5543_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.00    1.13 v _6580_/D (sky130_fd_sc_hd__dfxtp_1)
+           1.13   data arrival time
+
+   0.00    0.00   clock core_clk (rise edge)
+   0.68    0.68   clock network delay (propagated)
+   0.50    1.18   clock uncertainty
+   0.00    1.18   clock reconvergence pessimism
+           1.18 ^ _6580_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.05    1.13   library hold time
+           1.13   data required time
+---------------------------------------------------------
+           1.13   data required time
+          -1.13   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
+Startpoint: reset (input port clocked by core_clk)
+Endpoint: cpu_fault (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (propagated)
+  10.00   10.00 v input external delay
+   0.22   10.22 v reset (in)
+   0.33   10.55 v max_cap127/X (sky130_fd_sc_hd__buf_16)
+   0.27   10.82 v load_slew123/X (sky130_fd_sc_hd__buf_16)
+   0.74   11.55 ^ _2969_/Y (sky130_fd_sc_hd__nor2_4)
+   0.28   11.84 ^ wire116/X (sky130_fd_sc_hd__buf_12)
+   0.17   12.01 v _2970_/Y (sky130_fd_sc_hd__nand2_2)
+   0.53   12.54 ^ _2971_/Y (sky130_fd_sc_hd__inv_8)
+   0.20   12.75 v _2972_/Y (sky130_fd_sc_hd__nand2_1)
+   0.70   13.44 ^ _5917_/Y (sky130_fd_sc_hd__nor2_1)
+   0.78   14.22 ^ _5918_/X (sky130_fd_sc_hd__and2_0)
+   0.01   14.24 ^ cpu_fault (out)
+          14.24   data arrival time
+
+ 100.00  100.00   clock core_clk (rise edge)
+   0.00  100.00   clock network delay (propagated)
+  -0.50   99.50   clock uncertainty
+   0.00   99.50   clock reconvergence pessimism
+ -10.00   89.50   output external delay
+          89.50   data required time
+---------------------------------------------------------
+          89.50   data required time
+         -14.24   data arrival time
+---------------------------------------------------------
+          75.26   slack (MET)
+
+
+Startpoint: reset (input port clocked by core_clk)
+Endpoint: cpu_ready (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (propagated)
+  10.00   10.00 v input external delay
+   0.22   10.22 v reset (in)
+   0.33   10.55 v max_cap127/X (sky130_fd_sc_hd__buf_16)
+   0.27   10.82 v load_slew123/X (sky130_fd_sc_hd__buf_16)
+   0.74   11.55 ^ _2969_/Y (sky130_fd_sc_hd__nor2_4)
+   0.28   11.84 ^ wire116/X (sky130_fd_sc_hd__buf_12)
+   0.17   12.01 v _2970_/Y (sky130_fd_sc_hd__nand2_2)
+   0.53   12.54 ^ _2971_/Y (sky130_fd_sc_hd__inv_8)
+   0.20   12.75 v _2972_/Y (sky130_fd_sc_hd__nand2_1)
+   0.70   13.44 ^ _5917_/Y (sky130_fd_sc_hd__nor2_1)
+   0.01   13.45 ^ cpu_ready (out)
+          13.45   data arrival time
+
+ 100.00  100.00   clock core_clk (rise edge)
+   0.00  100.00   clock network delay (propagated)
+  -0.50   99.50   clock uncertainty
+   0.00   99.50   clock reconvergence pessimism
+ -10.00   89.50   output external delay
+          89.50   data required time
+---------------------------------------------------------
+          89.50   data required time
+         -13.45   data arrival time
+---------------------------------------------------------
+          76.05   slack (MET)
+
+
+Startpoint: reset (input port clocked by core_clk)
+Endpoint: cpu_rdata[123] (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (propagated)
+  10.00   10.00 v input external delay
+   0.22   10.22 v reset (in)
+   0.33   10.55 v max_cap127/X (sky130_fd_sc_hd__buf_16)
+   0.27   10.82 v load_slew123/X (sky130_fd_sc_hd__buf_16)
+   0.74   11.55 ^ _2969_/Y (sky130_fd_sc_hd__nor2_4)
+   0.28   11.84 ^ wire116/X (sky130_fd_sc_hd__buf_12)
+   0.17   12.01 v _2970_/Y (sky130_fd_sc_hd__nand2_2)
+   0.22   12.23 v load_slew100/X (sky130_fd_sc_hd__buf_12)
+   0.40   12.63 ^ _6042_/Y (sky130_fd_sc_hd__nor2_1)
+   0.00   12.64 ^ cpu_rdata[123] (out)
+          12.64   data arrival time
+
+ 100.00  100.00   clock core_clk (rise edge)
+   0.00  100.00   clock network delay (propagated)
+  -0.50   99.50   clock uncertainty
+   0.00   99.50   clock reconvergence pessimism
+ -10.00   89.50   output external delay
+          89.50   data required time
+---------------------------------------------------------
+          89.50   data required time
+         -12.64   data arrival time
+---------------------------------------------------------
+          76.86   slack (MET)
+
+
+Startpoint: reset (input port clocked by core_clk)
+Endpoint: cpu_enabled (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (propagated)
+  10.00   10.00 v input external delay
+   0.22   10.22 v reset (in)
+   0.33   10.55 v max_cap127/X (sky130_fd_sc_hd__buf_16)
+   0.27   10.82 v load_slew123/X (sky130_fd_sc_hd__buf_16)
+   0.74   11.55 ^ _2969_/Y (sky130_fd_sc_hd__nor2_4)
+   0.28   11.84 ^ wire116/X (sky130_fd_sc_hd__buf_12)
+   0.17   12.01 v _2970_/Y (sky130_fd_sc_hd__nand2_2)
+   0.53   12.54 ^ _2971_/Y (sky130_fd_sc_hd__inv_8)
+   0.07   12.61 ^ cpu_enabled (out)
+          12.61   data arrival time
+
+ 100.00  100.00   clock core_clk (rise edge)
+   0.00  100.00   clock network delay (propagated)
+  -0.50   99.50   clock uncertainty
+   0.00   99.50   clock reconvergence pessimism
+ -10.00   89.50   output external delay
+          89.50   data required time
+---------------------------------------------------------
+          89.50   data required time
+         -12.61   data arrival time
+---------------------------------------------------------
+          76.89   slack (MET)
+
+
+Startpoint: reset (input port clocked by core_clk)
+Endpoint: cpu_rdata[72] (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (propagated)
+  10.00   10.00 v input external delay
+   0.22   10.22 v reset (in)
+   0.33   10.55 v max_cap127/X (sky130_fd_sc_hd__buf_16)
+   0.27   10.82 v load_slew123/X (sky130_fd_sc_hd__buf_16)
+   0.74   11.55 ^ _2969_/Y (sky130_fd_sc_hd__nor2_4)
+   0.28   11.84 ^ wire116/X (sky130_fd_sc_hd__buf_12)
+   0.23   12.07 ^ load_slew115/X (sky130_fd_sc_hd__buf_16)
+   0.27   12.33 ^ _5991_/X (sky130_fd_sc_hd__and3_1)
+   0.00   12.34 ^ cpu_rdata[72] (out)
+          12.34   data arrival time
+
+ 100.00  100.00   clock core_clk (rise edge)
+   0.00  100.00   clock network delay (propagated)
+  -0.50   99.50   clock uncertainty
+   0.00   99.50   clock reconvergence pessimism
+ -10.00   89.50   output external delay
+          89.50   data required time
+---------------------------------------------------------
+          89.50   data required time
+         -12.34   data arrival time
+---------------------------------------------------------
+          77.16   slack (MET)
+
+
+PASS experimental startup clock-tree and legality checks

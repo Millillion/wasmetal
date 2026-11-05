@@ -1,4 +1,4 @@
-# Experimental ASIC physical tools
+# Experimental ASIC physical preparation
 
 WasMetal has a reproducible tool-input check for an experimental SKY130HD
 physical flow. It verifies the inputs needed for placement, clock trees and
@@ -43,7 +43,92 @@ assumed identical across computers. The tool-input CI job is separate from
 functional and physical circuit verification.
 
 These platform inputs do not select the final CPU's fabrication process.
-A physical block still needs constrained timing, routing checks, functional
-equivalence after physical changes and appropriate process-corner analysis.
 SRAM macros, pads, manufacturing test, full-chip verification and foundry
 signoff remain further work.
+
+## Startup functionality after physical changes
+
+```sh
+python3 tools/check_asic_startup.py
+python3 tools/check_asic_cell_models.py --asic-report reports/asic-startup.json
+python3 tools/check_asic_physical_startup.py
+python3 tests/asic_cell_source_test.py --cell-lock tools/asic_physical_cell_models.lock.json
+```
+
+The [published summary](verification/asic-physical-startup-summary.json) and
+[complete report](verification/asic-physical-startup.json) cover the startup
+controller, memory self-test and SRAM adapter with 128 KiB, a three-cycle read
+latency and an eleven-cycle response timeout. This subsystem contains neither
+the Wasm CPU nor a physical SRAM array.
+
+The flow verifies the preceding six-configuration startup report and its
+inputs, binaries and observations. It re-emits the reference circuit from its
+hash-bound JSON, imports both Verilog representations, and requires identical
+cell types, parameters and complete pin connectivity. Wire aliases may differ;
+a deliberately rewired reference must fail this comparison.
+
+OpenROAD places the cells, builds the clock tree, repairs signal and hold
+paths, and performs global routing with estimated parasitics. The initial
+floorplan uses 35% utilization. The experimental clock constraint is 100 ns,
+with explicit input/output delays, driver strength, output loads, clock
+transition and uncertainty. These are experiment assumptions, not measured
+performance or a closed chip timing specification.
+
+The resulting circuit has 4,183 functional cells and 620 flip-flops. Its 1,070
+physical tap cells have no digital connections; only those empty instances
+are removed from the functional model. Every surviving cell pin and top port
+must remain unchanged. Structural checks cover all cell inputs and drivers,
+and the flattened bit-level graph must have no combinational cycle.
+
+All 620 state-instance names are preserved. Every clock path must lead back to
+the original primary clock through approved non-inverting clock buffers. The
+observed paths contain two or three buffers. Nine faults exercise this audit,
+including wrong clocks on each flip-flop strength, inversion, feedback,
+multiple drivers, missing or wide clock pins, and changed state identities.
+Clock wiring is checked explicitly before synchronous equivalence; that proof
+alone is not evidence of a correct clock tree.
+
+All 1,267 state/output comparison points pass one-step induction between the
+encoded circuits, followed by an independent twelve-cycle reset base with
+undefined initial state. A separate reset proof compares current RTL and the
+modified circuit's output pins without assuming matching internal state. The
+preceding RTL-to-standard-cell proofs provide the other part of the equivalence
+chain. The unchanged C++ SRAM oracle then produces exactly matching observations
+and trace hashes over **50,513,199 clocks**. Fifteen circuit fault controls pass,
+including rejection of an observable wrong tie-cell connection and a corrupted
+SRAM read.
+
+The [independent cell report](verification/asic-physical-startup-cells.json)
+binds the exact 98 functional cell definitions used by this simulator. All
+1,035 combinational input vectors, 96 binary flip-flop transitions and 192
+seed/hold checks pass against pinned upstream Verilog. Wrong clock polarity is
+tested separately for each of the three flip-flop strengths; all five model
+faults are rejected. The source-inventory fixtures pass for both the original
+and expanded cell inventories.
+
+CI runs this flow after the complete startup mapping campaign and preserves
+circuits, proofs, physical databases and observations even on failure. The
+[raw archive](verification/asic-physical-startup/index.json) retains the local
+evidence and earlier incomplete attempts. A direct RTL/FSM-map comparison
+crashed Yosys during construction; comparing every shared internal wire then
+exceeded its 600-second limit. The accepted proof preserves every state Q and
+output port as a comparison point, with a separate reset base. Its circuit
+and simulation inputs are unchanged by that proof strategy.
+
+## Routing and timing remain open
+
+The accepted result above covers binary functionality with zero cell delays
+after placement, clock trees and global-routing repair. It does not include
+a completed detailed route or extracted timing.
+
+The first detailed-routing trial stopped at its 1,200-second limit. Completed
+iterations reported 6,132, 3,724 and 3,689 violations; the next iteration was
+still running. No final routed database was produced. The logs and exact
+scripts are retained, including earlier command-compatibility failures.
+A separate bounded diagnostic is running to save a completed routing snapshot
+and its remaining violation markers for investigation.
+
+Global routing supplies coarse paths and estimated parasitics. Detailed routing,
+extracted timing, setup/hold closure across appropriate process corners,
+antenna checks, signoff DRC/LVS, power integrity and a real memory/pad strategy
+remain necessary. No physical hardware has been tested.

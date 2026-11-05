@@ -1,0 +1,8 @@
+read_liberty -lib -ignore_miss_func /tmp/wasmetal-xc7-core/build/asic-physical-startup/cells.lib
+read_verilog /tmp/wasmetal-xc7-core/build/asic-physical-startup/global-routed.v
+write_json /tmp/wasmetal-xc7-core/build/asic-physical-startup/functional/raw.json
+delete t:sky130_fd_sc_hd__tapvpwrvgnd_1
+hierarchy -check -top wasmetal_startup_sram
+check -assert
+write_json /tmp/wasmetal-xc7-core/build/asic-physical-startup/functional/mapped.json
+write_verilog -noattr -noexpr -nodec /tmp/wasmetal-xc7-core/build/asic-physical-startup/functional/mapped.v

@@ -1,0 +1,72 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 2 thread(s).
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |      4433
+    final |     +0.2% |       8 |       4 |             6 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 9 slew violations.
+[INFO RSZ-0036] Found 3 capacitance violations.
+[INFO RSZ-0039] Resized 8 instances.
+[INFO RSZ-0038] Inserted 4 buffers in 6 nets.
+[INFO DPL-0006] Core area: 82241.38 um^2, Instances area: 35835.62 um^2, Utilization: 43.6%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                    4066
+Diamond Move Success:           4066 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement         19.6 u
+average displacement        0.0 u
+max displacement            4.6 u
+original HPWL          203401.1 u
+legalized HPWL         203411.1 u
+delta HPWL                    0 %
+
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0046] Found 117 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |   0.003 |   0.000 | _6574_/D
+    final |       0 |     117 |            0 |    +3.3% |   0.052 |   0.000 | _6490_/D
+--------------------------------------------------------------------------------------
+[INFO RSZ-0032] Inserted 117 hold buffers.
+[INFO DPL-0006] Core area: 82241.38 um^2, Instances area: 37006.74 um^2, Utilization: 45.0%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1101] Legalizing using diamond search.
+Movements Summary
+---------------------------------------
+Total cells:                    4183
+Diamond Move Success:           4183 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement        459.3 u
+average displacement        0.1 u
+max displacement            7.3 u
+original HPWL          204062.6 u
+legalized HPWL         204287.7 u
+delta HPWL                    0 %
+
+[ERROR ODB-0269] Unable to open  to write markers
+Error: route.tcl, 19 ODB-0269
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/lastmjs/development/wasmetal/.cache/asic-tools/openroad-26Q2-1164/usr/bin/openroad', '-no_init', '-no_settings', '-exit', '-threads', '2', 'build/asic-startup-physical/route.tcl']' returned non-zero exit status 1.

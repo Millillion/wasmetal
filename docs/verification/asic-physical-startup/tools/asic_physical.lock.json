@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "host": "Ubuntu 24.04 amd64",
+  "source_repository": "Precision-Innovations/OpenROAD",
+  "source_revision": "08f67ee5ecd14db5a42be8c610bbfd1ccf079299",
+  "executable_sha256": "fcd7dcfc37d329bd43a7ede75805319a2e70e6879da11d42b4fd1c2e50e645c3",
+  "packages": [
+    {
+      "name": "openroad",
+      "version": "26Q2-1164-g08f67ee5ec",
+      "directory": "openroad-26Q2-1164",
+      "archive": "openroad_26Q2-1164-g08f67ee5ec_amd64-ubuntu-24.04.deb",
+      "url": "https://vaultlink.precisioninno.com/api/releases/26Q2-1164-g08f67ee5ec/openroad_26Q2-1164-g08f67ee5ec_amd64-ubuntu-24.04.deb/download",
+      "bytes": 63800256,
+      "sha256": "f3f1eeaa18f327503f72cc45dcef5b1514ec2e89726ec53b4553bf4f951168a3"
+    },
+    {
+      "name": "libqt5charts5",
+      "version": "5.15.13-1",
+      "directory": "qtcharts-5.15.13-1",
+      "archive": "libqt5charts5_5.15.13-1_amd64.deb",
+      "url": "https://us.archive.ubuntu.com/ubuntu/pool/universe/q/qtcharts-opensource-src/libqt5charts5_5.15.13-1_amd64.deb",
+      "bytes": 482186,
+      "sha256": "ecbe66ccf9ad309f0874c12c0cb15a888b4de61933ea175543753a03b5209fd5"
+    },
+    {
+      "name": "tcl-tclreadline",
+      "version": "2.3.8-2build2",
+      "directory": "tclreadline-2.3.8-2build2",
+      "archive": "tcl-tclreadline_2.3.8-2build2_amd64.deb",
+      "url": "https://us.archive.ubuntu.com/ubuntu/pool/universe/t/tclreadline/tcl-tclreadline_2.3.8-2build2_amd64.deb",
+      "bytes": 51300,
+      "sha256": "7f61dca1a7f55c445babfd2c718ff5359de8a61288125089c1c8a9e788c11f00"
+    }
+  ],
+  "platform_repository": "The-OpenROAD-Project/OpenROAD-flow-scripts",
+  "platform_revision": "d056a2b304182bf76ff10653531165b1dd9848d4",
+  "platform_files": [
+    {
+      "path": "flow/platforms/sky130hd/lef/sky130_fd_sc_hd.tlef",
+      "git_blob_sha1": "4e232ac725752c5dbadc407fab334c2344f2647a",
+      "bytes": 18031,
+      "sha256": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e",
+      "cache_name": "lef/sky130_fd_sc_hd.tlef"
+    },
+    {
+      "path": "flow/platforms/sky130hd/make_tracks.tcl",
+      "git_blob_sha1": "39a0ffbab03a6f498fcbedbc6b909eacffa70b0f",
+      "bytes": 449,
+      "sha256": "b4b280f0d5f3d52007e2531d2abd74d7f4aa600ceb9fffdf3041c781fe82ad8c",
+      "cache_name": "make_tracks.tcl"
+    },
+    {
+      "path": "flow/platforms/sky130hd/setRC.tcl",
+      "git_blob_sha1": "669ce0b35183bb1edfa422b2e302568e82ef27cf",
+      "bytes": 732,
+      "sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a",
+      "cache_name": "setRC.tcl"
+    },
+    {
+      "path": "flow/platforms/sky130hd/tapcell.tcl",
+      "git_blob_sha1": "1eb8880d89a8dd462c88eb732b113a6a8482f2b2",
+      "bytes": 69,
+      "sha256": "7f25277b66bcbc7d7cb9f0984d4df759f3f8d7cf59badbb07ce742a265507fcf",
+      "cache_name": "tapcell.tcl"
+    },
+    {
+      "path": "flow/platforms/sky130hd/fastroute.tcl",
+      "git_blob_sha1": "76f9321967a81b4eba6cd5665baf05bd0101c0f1",
+      "bytes": 254,
+      "sha256": "a84110f70e0ff1540f4cfed6730d56b3011c6c06a6c897a4bd600522bb175dd3",
+      "cache_name": "fastroute.tcl"
+    },
+    {
+      "path": "flow/platforms/sky130hd/pdn.tcl",
+      "git_blob_sha1": "748c17ddda20dafaffa6734d2ee8c1379c0d3e9b",
+      "bytes": 2200,
+      "sha256": "d2244586d860af05157a2555a49602a5dfff178f636a797a7c892e8d395b74a8",
+      "cache_name": "pdn.tcl"
+    },
+    {
+      "path": "flow/platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef",
+      "git_blob_sha1": "3392420376d0dcab61b6eb7d5ae4519af8b3a98f",
+      "bytes": 2258431,
+      "sha256": "44180aaa0068b1fcb0789f128b090304c01ad48f511d3f7afa66c90b3e176ec5",
+      "cache_name": "lef/sky130_fd_sc_hd_merged.lef"
+    }
+  ],
+  "package_authentication": "OpenROAD was downloaded over HTTPS from the service linked by its official installation documentation; its first observed SHA256 is pinned. Ubuntu dependency hashes come from APT metadata. This is not an independent binary reproducibility or vendor-signature attestation."
+}

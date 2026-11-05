@@ -1,0 +1,41 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 2 thread(s).
+[INFO ODB-0227] LEF file: /tmp/wasmetal-xc7-core/.cache/sky130hd-physical/lef/sky130_fd_sc_hd.tlef, created 13 layers, 25 vias
+[INFO ODB-0227] LEF file: /tmp/wasmetal-xc7-core/.cache/sky130hd-physical/lef/sky130_fd_sc_hd_merged.lef, created 441 library cells
+ time 1ns
+ capacitance 1pF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+[INFO IFP-0107] Defining die area using utilization: 35.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.120, 10.880).
+[INFO IFP-0001] Added 105 rows of 626 site unithd.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 308.140 308.140 ) um
+[INFO IFP-0101] Core BBox: ( 10.120 10.880 ) ( 298.080 296.480 ) um
+[INFO IFP-0102] Core area:                        82241.376 um^2
+[INFO IFP-0103] Total instances area:             29059.120 um^2
+[INFO IFP-0104] Effective utilization:                0.353
+[INFO IFP-0105] Number of instances:                   3712
+[INFO RSZ-0042] Inserted 63 tie sky130_fd_sc_hd__conb_1 instances.
+[INFO TAP-0005] Inserted 1070 tapcells.
+[INFO PDN-0001] Inserting grid: grid
+[WARNING PPL-0113] -random and -random_seed are obsolete. Skipping random pin placement.
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 10.120 10.880 ) ( 298.080 296.480 ) um
+[INFO GPL-0036] Movable instances area:      29291.843 um^2
+[INFO GPL-0037] Total instances area:        30630.627 um^2
+[INFO GPL-0035] Pin density area adjust:      4015.392 um^2
+[ERROR GPL-0326] sram_address[0] toplevel port is not placed.
+Error: floorplan.tcl, 29 GPL-0326
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/lastmjs/development/wasmetal/.cache/asic-tools/openroad-26Q2-1164/usr/bin/openroad', '-no_init', '-no_settings', '-exit', '-threads', '2', 'build/asic-startup-physical/floorplan.tcl']' returned non-zero exit status 1.

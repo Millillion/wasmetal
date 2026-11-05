@@ -470,7 +470,16 @@ binary functional behavior, with zero cell delays; physical timing remains open.
 The [physical-tool setup](docs/ASIC-PHYSICAL.md) now verifies a pinned OpenROAD
 build, all 11,632 extracted package files and seven matching physical platform
 inputs. It also fingerprints 133 resolved shared libraries. CI includes this
-tool-input check; physical-block validation remains in progress.
+tool-input check. The startup block also passes a
+[repeatable check after placement, clock-tree construction and buffering](docs/verification/asic-physical-startup-summary.json):
+**50,513,199 clocks** match the RTL reference, all 620 state registers retain
+audited clock paths, and 1,267 state/output comparison points pass induction
+and an independent reset base. All fifteen circuit fault controls are rejected.
+The 98 actual cell types pass independent upstream-model checks, including all
+three flip-flop strengths. CI includes this functional flow. Detailed routing
+remains open: the first 20-minute trial timed out with 3,689 violations in its
+last completed iteration. A bounded diagnostic is running to retain routing
+failure details. No physical ASIC timing or complete CPU layout is accepted.
 The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 [719,924 transactions per model](docs/verification/sram-mapped.json), including
 every byte mask, five capacity/latency configurations and 90 resets. Its

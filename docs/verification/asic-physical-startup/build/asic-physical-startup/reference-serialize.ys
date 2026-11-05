@@ -1,0 +1,2 @@
+read_json /tmp/wasmetal-xc7-core/build/asic-startup/131072-3-11/mapped.json
+write_verilog -noattr -noexpr -nodec /tmp/wasmetal-xc7-core/build/asic-physical-startup/baseline-from-json.v

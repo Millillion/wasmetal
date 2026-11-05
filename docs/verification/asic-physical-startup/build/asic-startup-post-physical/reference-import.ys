@@ -1,0 +1,4 @@
+read_liberty -lib -ignore_miss_func /tmp/wasmetal-xc7-core/build/asic-startup-physical/cells.lib
+read_verilog /tmp/wasmetal-xc7-core/build/asic-startup-physical/mapped.v
+hierarchy -check -top wasmetal_startup_sram
+write_json /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/reference.json

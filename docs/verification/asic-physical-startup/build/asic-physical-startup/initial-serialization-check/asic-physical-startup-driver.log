@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_physical_startup.py", line 262, in <module>
+    main()
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_physical_startup.py", line 159, in main
+    require((BASE / 'baseline.v').read_bytes() == (original / 'mapped.v').read_bytes(),
+  File "/tmp/wasmetal-xc7-core/tools/asic_cells.py", line 17, in require
+    raise ValueError(message)
+ValueError: reference JSON and simulated Verilog serialization differ

@@ -1,0 +1,1062 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/equivalence.ys' --
+
+1. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_bist'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_sram_memory'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_memory_startup'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv
+Parsing SystemVerilog input from `/tmp/wasmetal-xc7-core/tests/asic/wasmetal_startup_sram.sv' to AST representation.
+Generating RTLIL representation for module `\wasmetal_startup_sram'.
+Successfully finished Verilog frontend.
+Parameter \RAM_BYTES = 131072
+Parameter \READ_LATENCY = 3
+Parameter \RESPONSE_TIMEOUT = 11
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_startup_sram'.
+Parameter \RAM_BYTES = 131072
+Parameter \READ_LATENCY = 3
+Parameter \RESPONSE_TIMEOUT = 11
+Generating RTLIL representation for module `$paramod$ba8cddb7a012359b6b549685c96adece30ed89c5\wasmetal_startup_sram'.
+
+6. Executing PREP pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     \wasmetal_memory_startup
+Used module:         \wasmetal_memory_bist
+Used module:     \wasmetal_sram_memory
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 1024
+
+6.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 1024
+Generating RTLIL representation for module `$paramod$4f480a37b6e59a8cff3e4491d4b01beb57c7e8aa\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 11
+
+6.1.3. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_startup'.
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 11
+Generating RTLIL representation for module `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup'.
+Parameter \RAM_BYTES = 131072
+Parameter \READ_LATENCY = 3
+Parameter \ADDRESS_WIDTH = 13
+
+6.1.4. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_sram_memory'.
+Parameter \RAM_BYTES = 131072
+Parameter \READ_LATENCY = 3
+Parameter \ADDRESS_WIDTH = 13
+Generating RTLIL representation for module `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory'.
+
+6.1.5. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup
+Used module:         \wasmetal_memory_bist
+Used module:     $paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 11
+
+6.1.6. Executing AST frontend in derive mode using pre-parsed AST for module `\wasmetal_memory_bist'.
+Parameter \RAM_BYTES = 131072
+Parameter \RESPONSE_TIMEOUT = 11
+Generating RTLIL representation for module `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist'.
+
+6.1.7. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup
+Used module:         $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist
+Used module:     $paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory
+
+6.1.8. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup
+Used module:         $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist
+Used module:     $paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory
+Removing unused module `$paramod$4f480a37b6e59a8cff3e4491d4b01beb57c7e8aa\wasmetal_memory_bist'.
+Removing unused module `\wasmetal_memory_startup'.
+Removing unused module `\wasmetal_sram_memory'.
+Removing unused module `\wasmetal_memory_bist'.
+Removed 4 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173 in module $paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142 in module $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.
+Marked 10 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206 in module $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.
+Marked 1 switch rules as full_case in process $proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191 in module $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.
+Removed a total of 0 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~22 debug messages>
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+     1/8: $0\remaining[1:0]
+     2/8: $0\data_q[127:0]
+     3/8: $0\mask_q[15:0]
+     4/8: $0\address_q[12:0]
+     5/8: $0\write_q[0:0]
+     6/8: $0\state[2:0]
+     7/8: $0\rdata[127:0]
+     8/8: $0\fault[0:0]
+Creating decoders for process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+     1/1: $0\launched[0:0]
+Creating decoders for process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+     1/14: $0\stop_after_release[0:0]
+     2/14: $0\write_half[0:0]
+     3/14: $0\background_index[2:0]
+     4/14: $0\phase[2:0]
+     5/14: $0\waiting[3:0]
+     6/14: $0\word_index[12:0]
+     7/14: $0\state[1:0]
+     8/14: $0\operation_count[19:0]
+     9/14: $0\observed_data[127:0]
+    10/14: $0\expected_data[127:0]
+    11/14: $0\error_address[31:0]
+    12/14: $0\error_code[1:0]
+    13/14: $0\failed[0:0]
+    14/14: $0\done[0:0]
+Creating decoders for process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+     1/1: $1\background[127:0]
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\background' from process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\fault' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$679' with positive edge clock.
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\rdata' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$680' with positive edge clock.
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\state' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$681' with positive edge clock.
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\write_q' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$682' with positive edge clock.
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\address_q' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$683' with positive edge clock.
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\mask_q' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$684' with positive edge clock.
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\data_q' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$685' with positive edge clock.
+Creating register for signal `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.\remaining' using process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+  created $dff cell `$procdff$686' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.\launched' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+  created $dff cell `$procdff$687' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\done' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$688' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\failed' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$689' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\error_code' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$690' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\error_address' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$691' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\expected_data' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$692' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\observed_data' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$693' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\operation_count' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$694' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\state' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$695' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\word_index' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$696' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\waiting' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$697' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\phase' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$698' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\background_index' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$699' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\write_half' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$700' with positive edge clock.
+Creating register for signal `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.\stop_after_release' using process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+  created $dff cell `$procdff$701' with positive edge clock.
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 6 empty switches in `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+Removing empty process `$paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:41$173'.
+Found and cleaned up 1 empty switch in `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+Removing empty process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_startup.sv:32$142'.
+Found and cleaned up 14 empty switches in `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+Removing empty process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:66$206'.
+Found and cleaned up 1 empty switch in `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+Removing empty process `$paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.$proc$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:0$191'.
+Cleaned up 22 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+Optimizing module $paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.
+<suppressed ~11 debug messages>
+Optimizing module $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.
+Optimizing module $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.
+<suppressed ~38 debug messages>
+
+6.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$5706d7094f65cd6d82edb7855da1886143f5fecd\wasmetal_sram_memory.
+Deleting now unused module $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_startup.
+Deleting now unused module $paramod$65c5cd8f1487647d14257a798f194f8cb8081ccf\wasmetal_memory_bist.
+<suppressed ~3 debug messages>
+
+6.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~16 debug messages>
+
+6.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 5 unused cells and 163 unused wires.
+<suppressed ~7 debug messages>
+
+6.6. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+
+6.7. Executing OPT pass (performing simple optimizations).
+
+6.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+6.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~222 debug messages>
+Removed a total of 74 cells.
+
+6.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $flatten\startup.\test_master.$procmux$644: \startup.test_master.failed -> 1'1
+      Replacing known input bits on port B of cell $flatten\startup.\test_master.$procmux$640: \startup.test_master.failed -> 1'1
+      Replacing known input bits on port A of cell $flatten\startup.\test_master.$procmux$638: \startup.test_master.failed -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+    New ctrl vector for $pmux cell $flatten\startup.\test_master.$procmux$354: $auto$opt_reduce.cc:134:opt_pmux$703
+    New ctrl vector for $pmux cell $flatten\startup.\test_master.$procmux$405: $auto$opt_reduce.cc:134:opt_pmux$705
+    New ctrl vector for $pmux cell $flatten\startup.\test_master.$procmux$487: { $auto$opt_reduce.cc:134:opt_pmux$709 $auto$opt_reduce.cc:134:opt_pmux$707 }
+    New ctrl vector for $pmux cell $flatten\adapter.$procmux$318: { $flatten\adapter.$procmux$245_CMP $flatten\adapter.$procmux$238_CMP $auto$opt_reduce.cc:134:opt_pmux$711 }
+    New ctrl vector for $pmux cell $flatten\adapter.$procmux$333: { $flatten\adapter.$procmux$245_CMP $auto$opt_reduce.cc:134:opt_pmux$713 }
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 6 changes.
+
+6.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+6.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 77 unused wires.
+<suppressed ~1 debug messages>
+
+6.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+6.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~33 debug messages>
+
+6.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+6.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+6.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+6.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+6.7.14. Finished OPT passes. (There is nothing left to do.)
+
+6.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 3) from mux cell wasmetal_startup_sram.$flatten\adapter.$procmux$308 ($mux).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\adapter.$procmux$238_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell wasmetal_startup_sram.$flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:53$176 ($eq).
+Removed top 1 bits (of 3) from mux cell wasmetal_startup_sram.$flatten\adapter.$ternary$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:49$175 ($mux).
+Removed top 2 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:35$169 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\adapter.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:34$168 ($eq).
+Removed top 15 bits (of 33) from port B of cell wasmetal_startup_sram.$flatten\adapter.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$164 ($le).
+Removed top 1 bits (of 33) from port A of cell wasmetal_startup_sram.$flatten\adapter.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$163 ($add).
+Removed top 28 bits (of 33) from port B of cell wasmetal_startup_sram.$flatten\adapter.$add$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:33$163 ($add).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:44$185 ($eq).
+Removed top 1 bits (of 2) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:59$192 ($eq).
+Removed top 2 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:64$201 ($eq).
+Removed top 31 bits (of 32) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$ge$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$215 ($ge).
+Removed top 29 bits (of 32) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$le$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:87$216 ($le).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$procmux$675_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$procmux$676_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$procmux$677_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell wasmetal_startup_sram.$flatten\startup.\test_master.$eq$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_memory_bist.sv:42$179 ($eq).
+Removed top 2 bits (of 3) from wire wasmetal_startup_sram.$flatten\adapter.$procmux$308_Y.
+Removed top 1 bits (of 3) from wire wasmetal_startup_sram.$flatten\adapter.$ternary$/tmp/wasmetal-xc7-core/soc/asic/wasmetal_sram_memory.sv:49$175_Y.
+
+6.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+6.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.11. Executing OPT pass (performing simple optimizations).
+
+6.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+6.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+6.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+6.11.4. Finished fast OPT passes.
+
+6.12. Printing statistics.
+
+=== wasmetal_startup_sram ===
+
+   Number of wires:                317
+   Number of wire bits:           8218
+   Number of public wires:         120
+   Number of public wire bits:    4152
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                243
+     $add                            5
+     $dff                           23
+     $eq                            21
+     $ge                             1
+     $le                             2
+     $logic_and                     16
+     $logic_not                     12
+     $logic_or                       7
+     $mux                          125
+     $nex                            1
+     $not                            1
+     $pmux                          21
+     $reduce_bool                    1
+     $reduce_or                      5
+     $sub                            2
+
+6.13. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Renaming module \wasmetal_startup_sram to \gold.
+
+9. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v
+Parsing Verilog input from `/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v' to AST representation.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a2111oi_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a211o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a211oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a211oi_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21bo_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21boi_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a21oi_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a221o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a221oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a222oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a22o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a22oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a2bb2oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a311oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a31o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a31oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a32oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a41o_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__a41oi_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and2_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and2_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and3_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and3b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__and4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__buf_12'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__buf_16'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__buf_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__buf_6'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__buf_8'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__bufinv_16'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkbuf_16'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkbuf_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkbuf_8'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkinv_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkinv_16'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkinv_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkinv_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkinv_8'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__clkinvlp_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__conb_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__dfxtp_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__dfxtp_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__dfxtp_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__dlygate4sd3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__inv_12'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__inv_16'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__inv_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__inv_6'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__inv_8'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__maj3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__mux2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__mux2i_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand2_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand2b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand3_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand3b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nand4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor2_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor2_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor2b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor3_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor3b_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor4_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor4b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__nor4bb_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o2111a_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o211ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21a_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21ai_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21ai_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o21bai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o221a_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o221ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o22ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o2bb2ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o311ai_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__o31ai_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or2_0'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or2_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or2_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or3_4'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or3b_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__or4_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__xnor2_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__xnor2_2'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__xnor3_1'.
+Generating RTLIL representation for module `\sky130_fd_sc_hd__xor2_1'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/proof-circuit.v
+Parsing Verilog input from `/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/proof-circuit.v' to AST representation.
+Generating RTLIL representation for module `\wasmetal_startup_sram'.
+Successfully finished Verilog frontend.
+
+11. Executing PREP pass.
+
+11.1. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1.1. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__buf_16
+Used module:     \sky130_fd_sc_hd__buf_12
+Used module:     \sky130_fd_sc_hd__clkbuf_8
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__conb_1
+Used module:     \sky130_fd_sc_hd__buf_8
+Used module:     \sky130_fd_sc_hd__clkbuf_4
+Used module:     \sky130_fd_sc_hd__dlygate4sd3_1
+Used module:     \sky130_fd_sc_hd__bufinv_16
+Used module:     \sky130_fd_sc_hd__clkinv_4
+Used module:     \sky130_fd_sc_hd__inv_8
+Used module:     \sky130_fd_sc_hd__inv_6
+Used module:     \sky130_fd_sc_hd__inv_12
+Used module:     \sky130_fd_sc_hd__clkinv_2
+Used module:     \sky130_fd_sc_hd__clkbuf_16
+Used module:     \sky130_fd_sc_hd__clkinvlp_4
+Used module:     \sky130_fd_sc_hd__clkinv_16
+Used module:     \sky130_fd_sc_hd__inv_16
+Used module:     \sky130_fd_sc_hd__clkinv_8
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__dfxtp_2
+Used module:     \sky130_fd_sc_hd__dfxtp_4
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__and2_0
+Used module:     \sky130_fd_sc_hd__or2_0
+Used module:     \sky130_fd_sc_hd__a22o_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__nor4b_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__a31o_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__o2bb2ai_1
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__a21o_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__clkinv_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__a21boi_0
+Used module:     \sky130_fd_sc_hd__a211oi_1
+Used module:     \sky130_fd_sc_hd__a41oi_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__xor2_1
+Used module:     \sky130_fd_sc_hd__mux2i_1
+Used module:     \sky130_fd_sc_hd__a311oi_1
+Used module:     \sky130_fd_sc_hd__xnor2_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__maj3_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__a211o_1
+Used module:     \sky130_fd_sc_hd__a211oi_2
+Used module:     \sky130_fd_sc_hd__a2111oi_0
+Used module:     \sky130_fd_sc_hd__and4_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__o21ai_2
+Used module:     \sky130_fd_sc_hd__a32oi_1
+Used module:     \sky130_fd_sc_hd__a221oi_1
+Used module:     \sky130_fd_sc_hd__a41o_1
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__nor2_2
+Used module:     \sky130_fd_sc_hd__or3_4
+Used module:     \sky130_fd_sc_hd__nor3_2
+Used module:     \sky130_fd_sc_hd__nor4bb_1
+Used module:     \sky130_fd_sc_hd__or4_1
+Used module:     \sky130_fd_sc_hd__o2111a_1
+Used module:     \sky130_fd_sc_hd__o221a_1
+Used module:     \sky130_fd_sc_hd__a222oi_1
+Used module:     \sky130_fd_sc_hd__o221ai_1
+Used module:     \sky130_fd_sc_hd__xnor3_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__a221o_1
+Used module:     \sky130_fd_sc_hd__a2bb2oi_1
+Used module:     \sky130_fd_sc_hd__mux2_1
+Used module:     \sky130_fd_sc_hd__or3b_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__or2_2
+Used module:     \sky130_fd_sc_hd__nor2_4
+Used module:     \sky130_fd_sc_hd__and3_4
+Used module:     \sky130_fd_sc_hd__and3b_1
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__nand3_4
+Used module:     \sky130_fd_sc_hd__or2_1
+Used module:     \sky130_fd_sc_hd__nor4_2
+Used module:     \sky130_fd_sc_hd__a21bo_1
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__nand3b_1
+Used module:     \sky130_fd_sc_hd__nor3b_2
+Used module:     \sky130_fd_sc_hd__xnor2_2
+Used module:     \sky130_fd_sc_hd__or2_4
+Used module:     \sky130_fd_sc_hd__nand2_2
+Used module:     \sky130_fd_sc_hd__and2_4
+Used module:     \sky130_fd_sc_hd__o311ai_0
+Used module:     \sky130_fd_sc_hd__inv_4
+
+11.1.2. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__buf_16
+Used module:     \sky130_fd_sc_hd__buf_12
+Used module:     \sky130_fd_sc_hd__clkbuf_8
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__conb_1
+Used module:     \sky130_fd_sc_hd__buf_8
+Used module:     \sky130_fd_sc_hd__clkbuf_4
+Used module:     \sky130_fd_sc_hd__dlygate4sd3_1
+Used module:     \sky130_fd_sc_hd__bufinv_16
+Used module:     \sky130_fd_sc_hd__clkinv_4
+Used module:     \sky130_fd_sc_hd__inv_8
+Used module:     \sky130_fd_sc_hd__inv_6
+Used module:     \sky130_fd_sc_hd__inv_12
+Used module:     \sky130_fd_sc_hd__clkinv_2
+Used module:     \sky130_fd_sc_hd__clkbuf_16
+Used module:     \sky130_fd_sc_hd__clkinvlp_4
+Used module:     \sky130_fd_sc_hd__clkinv_16
+Used module:     \sky130_fd_sc_hd__inv_16
+Used module:     \sky130_fd_sc_hd__clkinv_8
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__dfxtp_2
+Used module:     \sky130_fd_sc_hd__dfxtp_4
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__and2_0
+Used module:     \sky130_fd_sc_hd__or2_0
+Used module:     \sky130_fd_sc_hd__a22o_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__nor4b_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__a31o_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__o2bb2ai_1
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__a21o_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__clkinv_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__a21boi_0
+Used module:     \sky130_fd_sc_hd__a211oi_1
+Used module:     \sky130_fd_sc_hd__a41oi_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__xor2_1
+Used module:     \sky130_fd_sc_hd__mux2i_1
+Used module:     \sky130_fd_sc_hd__a311oi_1
+Used module:     \sky130_fd_sc_hd__xnor2_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__maj3_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__a211o_1
+Used module:     \sky130_fd_sc_hd__a211oi_2
+Used module:     \sky130_fd_sc_hd__a2111oi_0
+Used module:     \sky130_fd_sc_hd__and4_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__o21ai_2
+Used module:     \sky130_fd_sc_hd__a32oi_1
+Used module:     \sky130_fd_sc_hd__a221oi_1
+Used module:     \sky130_fd_sc_hd__a41o_1
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__nor2_2
+Used module:     \sky130_fd_sc_hd__or3_4
+Used module:     \sky130_fd_sc_hd__nor3_2
+Used module:     \sky130_fd_sc_hd__nor4bb_1
+Used module:     \sky130_fd_sc_hd__or4_1
+Used module:     \sky130_fd_sc_hd__o2111a_1
+Used module:     \sky130_fd_sc_hd__o221a_1
+Used module:     \sky130_fd_sc_hd__a222oi_1
+Used module:     \sky130_fd_sc_hd__o221ai_1
+Used module:     \sky130_fd_sc_hd__xnor3_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__a221o_1
+Used module:     \sky130_fd_sc_hd__a2bb2oi_1
+Used module:     \sky130_fd_sc_hd__mux2_1
+Used module:     \sky130_fd_sc_hd__or3b_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__or2_2
+Used module:     \sky130_fd_sc_hd__nor2_4
+Used module:     \sky130_fd_sc_hd__and3_4
+Used module:     \sky130_fd_sc_hd__and3b_1
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__nand3_4
+Used module:     \sky130_fd_sc_hd__or2_1
+Used module:     \sky130_fd_sc_hd__nor4_2
+Used module:     \sky130_fd_sc_hd__a21bo_1
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__nand3b_1
+Used module:     \sky130_fd_sc_hd__nor3b_2
+Used module:     \sky130_fd_sc_hd__xnor2_2
+Used module:     \sky130_fd_sc_hd__or2_4
+Used module:     \sky130_fd_sc_hd__nand2_2
+Used module:     \sky130_fd_sc_hd__and2_4
+Used module:     \sky130_fd_sc_hd__o311ai_0
+Used module:     \sky130_fd_sc_hd__inv_4
+Removed 0 unused modules.
+
+11.2. Executing PROC pass (convert processes to netlists).
+
+11.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+11.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+11.2.4. Executing PROC_INIT pass (extract init attributes).
+
+11.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+11.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sky130_fd_sc_hd__dfxtp_4.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1062$980'.
+Creating decoders for process `\sky130_fd_sc_hd__dfxtp_2.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1047$978'.
+Creating decoders for process `\sky130_fd_sc_hd__dfxtp_1.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1032$976'.
+
+11.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+11.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sky130_fd_sc_hd__dfxtp_4.\IQ' using process `\sky130_fd_sc_hd__dfxtp_4.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1062$980'.
+  created $dff cell `$procdff$1210' with positive edge clock.
+Creating register for signal `\sky130_fd_sc_hd__dfxtp_2.\IQ' using process `\sky130_fd_sc_hd__dfxtp_2.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1047$978'.
+  created $dff cell `$procdff$1211' with positive edge clock.
+Creating register for signal `\sky130_fd_sc_hd__dfxtp_1.\IQ' using process `\sky130_fd_sc_hd__dfxtp_1.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1032$976'.
+  created $dff cell `$procdff$1212' with positive edge clock.
+
+11.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `sky130_fd_sc_hd__dfxtp_4.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1062$980'.
+Removing empty process `sky130_fd_sc_hd__dfxtp_2.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1047$978'.
+Removing empty process `sky130_fd_sc_hd__dfxtp_1.$proc$/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/cells.v:1032$976'.
+Cleaned up 0 empty switches.
+
+11.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+Optimizing module sky130_fd_sc_hd__xor2_1.
+Optimizing module sky130_fd_sc_hd__xnor3_1.
+Optimizing module sky130_fd_sc_hd__xnor2_2.
+Optimizing module sky130_fd_sc_hd__xnor2_1.
+Optimizing module sky130_fd_sc_hd__or4_1.
+Optimizing module sky130_fd_sc_hd__or3b_1.
+Optimizing module sky130_fd_sc_hd__or3_4.
+Optimizing module sky130_fd_sc_hd__or3_1.
+Optimizing module sky130_fd_sc_hd__or2_4.
+Optimizing module sky130_fd_sc_hd__or2_2.
+Optimizing module sky130_fd_sc_hd__or2_1.
+Optimizing module sky130_fd_sc_hd__or2_0.
+Optimizing module sky130_fd_sc_hd__o31ai_1.
+Optimizing module sky130_fd_sc_hd__o311ai_0.
+Optimizing module sky130_fd_sc_hd__o2bb2ai_1.
+Optimizing module sky130_fd_sc_hd__o22ai_1.
+Optimizing module sky130_fd_sc_hd__o221ai_1.
+Optimizing module sky130_fd_sc_hd__o221a_1.
+Optimizing module sky130_fd_sc_hd__o21bai_1.
+Optimizing module sky130_fd_sc_hd__o21ai_2.
+Optimizing module sky130_fd_sc_hd__o21ai_1.
+Optimizing module sky130_fd_sc_hd__o21ai_0.
+Optimizing module sky130_fd_sc_hd__o21a_1.
+Optimizing module sky130_fd_sc_hd__o211ai_1.
+Optimizing module sky130_fd_sc_hd__o2111a_1.
+Optimizing module sky130_fd_sc_hd__nor4bb_1.
+Optimizing module sky130_fd_sc_hd__nor4b_1.
+Optimizing module sky130_fd_sc_hd__nor4_2.
+Optimizing module sky130_fd_sc_hd__nor4_1.
+Optimizing module sky130_fd_sc_hd__nor3b_2.
+Optimizing module sky130_fd_sc_hd__nor3_2.
+Optimizing module sky130_fd_sc_hd__nor3_1.
+Optimizing module sky130_fd_sc_hd__nor2b_1.
+Optimizing module sky130_fd_sc_hd__nor2_4.
+Optimizing module sky130_fd_sc_hd__nor2_2.
+Optimizing module sky130_fd_sc_hd__nor2_1.
+Optimizing module sky130_fd_sc_hd__nand4_1.
+Optimizing module sky130_fd_sc_hd__nand3b_1.
+Optimizing module sky130_fd_sc_hd__nand3_4.
+Optimizing module sky130_fd_sc_hd__nand3_1.
+Optimizing module sky130_fd_sc_hd__nand2b_1.
+Optimizing module sky130_fd_sc_hd__nand2_2.
+Optimizing module sky130_fd_sc_hd__nand2_1.
+Optimizing module sky130_fd_sc_hd__mux2i_1.
+Optimizing module sky130_fd_sc_hd__mux2_1.
+Optimizing module sky130_fd_sc_hd__maj3_1.
+Optimizing module sky130_fd_sc_hd__inv_8.
+Optimizing module sky130_fd_sc_hd__inv_6.
+Optimizing module sky130_fd_sc_hd__inv_4.
+Optimizing module sky130_fd_sc_hd__inv_16.
+Optimizing module sky130_fd_sc_hd__inv_12.
+Optimizing module sky130_fd_sc_hd__dlygate4sd3_1.
+Optimizing module sky130_fd_sc_hd__dfxtp_4.
+Optimizing module sky130_fd_sc_hd__dfxtp_2.
+Optimizing module sky130_fd_sc_hd__dfxtp_1.
+Optimizing module sky130_fd_sc_hd__conb_1.
+Optimizing module sky130_fd_sc_hd__clkinvlp_4.
+Optimizing module sky130_fd_sc_hd__clkinv_8.
+Optimizing module sky130_fd_sc_hd__clkinv_4.
+Optimizing module sky130_fd_sc_hd__clkinv_2.
+Optimizing module sky130_fd_sc_hd__clkinv_16.
+Optimizing module sky130_fd_sc_hd__clkinv_1.
+Optimizing module sky130_fd_sc_hd__clkbuf_8.
+Optimizing module sky130_fd_sc_hd__clkbuf_4.
+Optimizing module sky130_fd_sc_hd__clkbuf_16.
+Optimizing module sky130_fd_sc_hd__bufinv_16.
+Optimizing module sky130_fd_sc_hd__buf_8.
+Optimizing module sky130_fd_sc_hd__buf_6.
+Optimizing module sky130_fd_sc_hd__buf_4.
+Optimizing module sky130_fd_sc_hd__buf_16.
+Optimizing module sky130_fd_sc_hd__buf_12.
+Optimizing module sky130_fd_sc_hd__and4_1.
+Optimizing module sky130_fd_sc_hd__and3b_1.
+Optimizing module sky130_fd_sc_hd__and3_4.
+Optimizing module sky130_fd_sc_hd__and3_1.
+Optimizing module sky130_fd_sc_hd__and2_4.
+Optimizing module sky130_fd_sc_hd__and2_0.
+Optimizing module sky130_fd_sc_hd__a41oi_1.
+Optimizing module sky130_fd_sc_hd__a41o_1.
+Optimizing module sky130_fd_sc_hd__a32oi_1.
+Optimizing module sky130_fd_sc_hd__a31oi_1.
+Optimizing module sky130_fd_sc_hd__a31o_1.
+Optimizing module sky130_fd_sc_hd__a311oi_1.
+Optimizing module sky130_fd_sc_hd__a2bb2oi_1.
+Optimizing module sky130_fd_sc_hd__a22oi_1.
+Optimizing module sky130_fd_sc_hd__a22o_1.
+Optimizing module sky130_fd_sc_hd__a222oi_1.
+Optimizing module sky130_fd_sc_hd__a221oi_1.
+Optimizing module sky130_fd_sc_hd__a221o_1.
+Optimizing module sky130_fd_sc_hd__a21oi_2.
+Optimizing module sky130_fd_sc_hd__a21oi_1.
+Optimizing module sky130_fd_sc_hd__a21o_1.
+Optimizing module sky130_fd_sc_hd__a21boi_0.
+Optimizing module sky130_fd_sc_hd__a21bo_1.
+Optimizing module sky130_fd_sc_hd__a211oi_2.
+Optimizing module sky130_fd_sc_hd__a211oi_1.
+Optimizing module sky130_fd_sc_hd__a211o_1.
+Optimizing module sky130_fd_sc_hd__a2111oi_0.
+
+11.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module sky130_fd_sc_hd__xor2_1.
+Deleting now unused module sky130_fd_sc_hd__xnor3_1.
+Deleting now unused module sky130_fd_sc_hd__xnor2_2.
+Deleting now unused module sky130_fd_sc_hd__xnor2_1.
+Deleting now unused module sky130_fd_sc_hd__or4_1.
+Deleting now unused module sky130_fd_sc_hd__or3b_1.
+Deleting now unused module sky130_fd_sc_hd__or3_4.
+Deleting now unused module sky130_fd_sc_hd__or3_1.
+Deleting now unused module sky130_fd_sc_hd__or2_4.
+Deleting now unused module sky130_fd_sc_hd__or2_2.
+Deleting now unused module sky130_fd_sc_hd__or2_1.
+Deleting now unused module sky130_fd_sc_hd__or2_0.
+Deleting now unused module sky130_fd_sc_hd__o31ai_1.
+Deleting now unused module sky130_fd_sc_hd__o311ai_0.
+Deleting now unused module sky130_fd_sc_hd__o2bb2ai_1.
+Deleting now unused module sky130_fd_sc_hd__o22ai_1.
+Deleting now unused module sky130_fd_sc_hd__o221ai_1.
+Deleting now unused module sky130_fd_sc_hd__o221a_1.
+Deleting now unused module sky130_fd_sc_hd__o21bai_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_2.
+Deleting now unused module sky130_fd_sc_hd__o21ai_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_0.
+Deleting now unused module sky130_fd_sc_hd__o21a_1.
+Deleting now unused module sky130_fd_sc_hd__o211ai_1.
+Deleting now unused module sky130_fd_sc_hd__o2111a_1.
+Deleting now unused module sky130_fd_sc_hd__nor4bb_1.
+Deleting now unused module sky130_fd_sc_hd__nor4b_1.
+Deleting now unused module sky130_fd_sc_hd__nor4_2.
+Deleting now unused module sky130_fd_sc_hd__nor4_1.
+Deleting now unused module sky130_fd_sc_hd__nor3b_2.
+Deleting now unused module sky130_fd_sc_hd__nor3_2.
+Deleting now unused module sky130_fd_sc_hd__nor3_1.
+Deleting now unused module sky130_fd_sc_hd__nor2b_1.
+Deleting now unused module sky130_fd_sc_hd__nor2_4.
+Deleting now unused module sky130_fd_sc_hd__nor2_2.
+Deleting now unused module sky130_fd_sc_hd__nor2_1.
+Deleting now unused module sky130_fd_sc_hd__nand4_1.
+Deleting now unused module sky130_fd_sc_hd__nand3b_1.
+Deleting now unused module sky130_fd_sc_hd__nand3_4.
+Deleting now unused module sky130_fd_sc_hd__nand3_1.
+Deleting now unused module sky130_fd_sc_hd__nand2b_1.
+Deleting now unused module sky130_fd_sc_hd__nand2_2.
+Deleting now unused module sky130_fd_sc_hd__nand2_1.
+Deleting now unused module sky130_fd_sc_hd__mux2i_1.
+Deleting now unused module sky130_fd_sc_hd__mux2_1.
+Deleting now unused module sky130_fd_sc_hd__maj3_1.
+Deleting now unused module sky130_fd_sc_hd__inv_8.
+Deleting now unused module sky130_fd_sc_hd__inv_6.
+Deleting now unused module sky130_fd_sc_hd__inv_4.
+Deleting now unused module sky130_fd_sc_hd__inv_16.
+Deleting now unused module sky130_fd_sc_hd__inv_12.
+Deleting now unused module sky130_fd_sc_hd__dlygate4sd3_1.
+Deleting now unused module sky130_fd_sc_hd__dfxtp_4.
+Deleting now unused module sky130_fd_sc_hd__dfxtp_2.
+Deleting now unused module sky130_fd_sc_hd__dfxtp_1.
+Deleting now unused module sky130_fd_sc_hd__conb_1.
+Deleting now unused module sky130_fd_sc_hd__clkinvlp_4.
+Deleting now unused module sky130_fd_sc_hd__clkinv_8.
+Deleting now unused module sky130_fd_sc_hd__clkinv_4.
+Deleting now unused module sky130_fd_sc_hd__clkinv_2.
+Deleting now unused module sky130_fd_sc_hd__clkinv_16.
+Deleting now unused module sky130_fd_sc_hd__clkinv_1.
+Deleting now unused module sky130_fd_sc_hd__clkbuf_8.
+Deleting now unused module sky130_fd_sc_hd__clkbuf_4.
+Deleting now unused module sky130_fd_sc_hd__clkbuf_16.
+Deleting now unused module sky130_fd_sc_hd__bufinv_16.
+Deleting now unused module sky130_fd_sc_hd__buf_8.
+Deleting now unused module sky130_fd_sc_hd__buf_6.
+Deleting now unused module sky130_fd_sc_hd__buf_4.
+Deleting now unused module sky130_fd_sc_hd__buf_16.
+Deleting now unused module sky130_fd_sc_hd__buf_12.
+Deleting now unused module sky130_fd_sc_hd__and4_1.
+Deleting now unused module sky130_fd_sc_hd__and3b_1.
+Deleting now unused module sky130_fd_sc_hd__and3_4.
+Deleting now unused module sky130_fd_sc_hd__and3_1.
+Deleting now unused module sky130_fd_sc_hd__and2_4.
+Deleting now unused module sky130_fd_sc_hd__and2_0.
+Deleting now unused module sky130_fd_sc_hd__a41oi_1.
+Deleting now unused module sky130_fd_sc_hd__a41o_1.
+Deleting now unused module sky130_fd_sc_hd__a32oi_1.
+Deleting now unused module sky130_fd_sc_hd__a31oi_1.
+Deleting now unused module sky130_fd_sc_hd__a31o_1.
+Deleting now unused module sky130_fd_sc_hd__a311oi_1.
+Deleting now unused module sky130_fd_sc_hd__a2bb2oi_1.
+Deleting now unused module sky130_fd_sc_hd__a22oi_1.
+Deleting now unused module sky130_fd_sc_hd__a22o_1.
+Deleting now unused module sky130_fd_sc_hd__a222oi_1.
+Deleting now unused module sky130_fd_sc_hd__a221oi_1.
+Deleting now unused module sky130_fd_sc_hd__a221o_1.
+Deleting now unused module sky130_fd_sc_hd__a21oi_2.
+Deleting now unused module sky130_fd_sc_hd__a21oi_1.
+Deleting now unused module sky130_fd_sc_hd__a21o_1.
+Deleting now unused module sky130_fd_sc_hd__a21boi_0.
+Deleting now unused module sky130_fd_sc_hd__a21bo_1.
+Deleting now unused module sky130_fd_sc_hd__a211oi_2.
+Deleting now unused module sky130_fd_sc_hd__a211oi_1.
+Deleting now unused module sky130_fd_sc_hd__a211o_1.
+Deleting now unused module sky130_fd_sc_hd__a2111oi_0.
+<suppressed ~4183 debug messages>
+
+11.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+<suppressed ~431 debug messages>
+
+11.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 680 unused cells and 23941 unused wires.
+<suppressed ~1405 debug messages>
+
+11.6. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+
+11.7. Executing OPT pass (performing simple optimizations).
+
+11.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+11.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+<suppressed ~15801 debug messages>
+Removed a total of 5267 cells.
+
+11.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+11.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+11.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+Removed 0 unused cells and 5269 unused wires.
+<suppressed ~25 debug messages>
+
+11.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+11.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \wasmetal_startup_sram..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \wasmetal_startup_sram.
+Performed a total of 0 changes.
+
+11.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+11.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+11.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+11.7.14. Finished OPT passes. (There is nothing left to do.)
+
+11.8. Executing WREDUCE pass (reducing word size of cells).
+
+11.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+11.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+11.11. Executing OPT pass (performing simple optimizations).
+
+11.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module wasmetal_startup_sram.
+
+11.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\wasmetal_startup_sram'.
+Removed a total of 0 cells.
+
+11.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \wasmetal_startup_sram..
+
+11.11.4. Finished fast OPT passes.
+
+11.12. Printing statistics.
+
+=== wasmetal_startup_sram ===
+
+   Number of wires:              22604
+   Number of wire bits:          23534
+   Number of public wires:       22604
+   Number of public wire bits:   23534
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              10363
+     $and                         3521
+     $dff                          620
+     $not                         3203
+     $or                          3019
+
+11.13. Executing CHECK pass (checking for obvious problems).
+Checking module wasmetal_startup_sram...
+Found and reported 0 problems.
+Renaming module \wasmetal_startup_sram to \gate.
+
+12. Executing EQUIV_MAKE pass (creating equiv checking module).

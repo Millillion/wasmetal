@@ -1,0 +1,4 @@
+help repair_timing
+help report_design_area
+help report_floating_nets
+help check_power_grid

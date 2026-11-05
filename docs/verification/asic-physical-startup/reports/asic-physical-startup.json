@@ -1,0 +1,3600 @@
+{
+  "status": "passed",
+  "scope": "startup controller, test master and SRAM adapter after physical optimization; no CPU or SRAM array",
+  "backend": "sky130hd-post-physical-functional",
+  "inputs": {
+    ".cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9",
+    ".cache/sky130hd/config.mk": "1ca10588eab55845dbac6af01a6721fcb88071c7de4b1223024b5e7438f0fe5c",
+    ".cache/sky130hd/ORFS_LICENSE": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    ".cache/sky130hd/SKYWATER_LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "tools/asic_cells.lock.json": "4640e724ca783bd19751debbbd9d76822f9c893c92afd40476cf7ddd9372c79d",
+    "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+    "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "tools/check_asic_startup.py": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f",
+    "tools/asic_cells.py": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/run_xc7_system.py": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+    ".cache/tools/usr/bin/yosys-abc": "001a99fb8648794076dd238e42f3bd8c5112a4b8bd89660883325a7e0d006043",
+    ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+    "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+    "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "tools/check_standalone.py": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+    "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "tools/check_loadable.py": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "tools/build_identity.py": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df",
+    "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "tools/check_xc7_system.py": "b47d55507d6569f8b6a35b4b866c5f6d0c8bc3b58228b63103595d707046260c",
+    "tools/asic_physical.lock.json": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+    "tools/check_asic_physical_startup.py": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+    "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+    "tools/asic_physical_tools.py": "75c3632ecf96d1d869535acca60664a3a72c835a7ea1986c8f3b0b0765a50eb8",
+    "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+    "tools/loadable_ci.py": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "tools/asic_clock_tree.py": "10a32571868dd058ec91dc067dfcc1293f5e29e0a2f96ecb8d7c1d228ff54d88",
+    "tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "tools/check_asic_cell_models.py": "d69a1f594229f16be71184191a1c50dd6f5cf4e59855088fbb5faa859e6d6246",
+    "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "reports/asic-startup.json": "cc9c68bb4a80722c07ef3615a7f307af3a66a0a109653a05e94d8963f3bc44f1",
+    "build/asic-startup/131072-3-11/mapped.json": "772a60445dad5c19fca3ab477deae7e31f0bb74a880a2e13cf7e715336650af5",
+    "build/asic-startup/131072-3-11/mapped.v": "c2e50fc4336f72f4036113ac77025b8eb590b09afc7d97e9787f71c91fcc7f03",
+    "build/asic-startup/131072-3-11/cells.v": "94391be6039d7995d9b331c8e1def223044ffdfcfffcf29e2045481d427a1ab3",
+    "tools/asic_physical_cell_models.lock.json": "860c6a2a4bc1b736c135aca54cbb6a0708342835f1cef2c110b63c2dbbdd272a",
+    "tools/asic-startup-floorplan.tcl": "16960236f724697e9da1c1d2488576e02594ebc9b6b29450f757939ec33a96ef",
+    "tools/asic-startup-clock-tree.tcl": "7f0c93d94d248dfc6c46170717bfd106a7cf564658d6b6cd8d7b98a1c0092381",
+    "tools/asic-startup-global-route.tcl": "fdb457ac82c961a874e10a257a0f6fbd54fda881ff05ad1b4fbb6b767d870431",
+    "build/asic-startup/131072-3-11/native/obj/Vwasmetal_startup_sram": "86e14861c073b1a67c370e172be3168cc49e7bf62eedcd50a341cc41d98a08a9",
+    "build/asic-startup/131072-3-11/obj/Vwasmetal_startup_sram": "e026f58072f05abb6013b299babba2acedc800bfe7de5b1a9d4e49a24f1712e2",
+    "build/asic-startup/131072-3-11/rtl-observations.log": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "build/asic-startup/131072-3-11/standard_cells-observations.log": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    ".cache/sky130hd-physical/lef/sky130_fd_sc_hd.tlef": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e",
+    ".cache/sky130hd-physical/make_tracks.tcl": "b4b280f0d5f3d52007e2531d2abd74d7f4aa600ceb9fffdf3041c781fe82ad8c",
+    ".cache/sky130hd-physical/setRC.tcl": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a",
+    ".cache/sky130hd-physical/tapcell.tcl": "7f25277b66bcbc7d7cb9f0984d4df759f3f8d7cf59badbb07ce742a265507fcf",
+    ".cache/sky130hd-physical/fastroute.tcl": "a84110f70e0ff1540f4cfed6730d56b3011c6c06a6c897a4bd600522bb175dd3",
+    ".cache/sky130hd-physical/pdn.tcl": "d2244586d860af05157a2555a49602a5dfff178f636a797a7c892e8d395b74a8",
+    ".cache/sky130hd-physical/lef/sky130_fd_sc_hd_merged.lef": "44180aaa0068b1fcb0789f128b090304c01ad48f511d3f7afa66c90b3e176ec5",
+    "build/asic-physical-startup/baseline.v": "c2e50fc4336f72f4036113ac77025b8eb590b09afc7d97e9787f71c91fcc7f03",
+    "build/asic-physical-startup/baseline-from-json.v": "fedf8684ef1a38721bcaaa6031d717839b946a7f7d32601ff7edcf6ca10b0c2f",
+    "build/asic-physical-startup/reference-serialized.json": "2029a7966e714409fb22ff3c4f19a289de21903835019b3a819b8583cf8f8295",
+    "build/asic-physical-startup/reference-simulated.json": "bdf9974a0ccad5b2ab4110eb1afc30ca45b5254407aa56ab1a2de2ea37235080",
+    "build/asic-physical-startup/cells.lib": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    "build/asic-physical-startup/global-routed.v": "6dbd7c4f895f9935f62d487a06e24fbccb5db2c5136a6d4347d0ffa2713af1f4",
+    "build/asic-physical-startup/global-routed.odb": "d97565c79f190ca882923645f49cb318be3767639a604bee8593932d219787c5",
+    "build/asic-physical-startup/global-routed.def": "95e5a528257b35d4bec05f3e52b972bf174301cd08a80f3c58e9f66f019ee665",
+    "build/asic-physical-startup/global-routed.sdc": "a2862e7f6887a15056c2b30fae74c8f33f8973a50686781a7e9ec8d6f54b7868",
+    "build/asic-physical-startup/functional/raw.json": "1e279b3cc88147b32a34c39b0511f663f3a290f4258f6ad7d7a2d7840933776a",
+    "build/asic-physical-startup/functional/mapped.json": "659fef89220ebca2ca57ed3dd8d83b2d36217a281f275c38321fd6a0d76c4537",
+    "build/asic-physical-startup/functional/mapped.v": "7bf7811c8c1834ef94a5de2a62fa33aceace8391d308485b8abf1fa4f5c07118",
+    "build/asic-physical-startup/functional/cells.v": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+    "build/asic-physical-startup/functional/equivalence-cells.v": "4aad4d64bb3dab74ef8d823485166c65a8f66ec1f43346cd1685c6455d61a2f8",
+    "build/asic-physical-startup/functional/reference.json": "d761f8326b89a4a7b11175d0b1875181556d57e268d6f5611a25030bdae21b43",
+    "build/asic-physical-startup/functional/vendor.vlt": "1e46667b6d8e2adbadbebb08034eb017929f3ac2d38d2a0132e10ce3d25b0386"
+  },
+  "tools": {
+    "status": "passed",
+    "lock_sha256": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+    "version": "26Q2-1164-g08f67ee5ec",
+    "inputs": {
+      "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+      "tools/run_spec.py": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+      "tools/program_upload.py": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+      "tools/run_xc7_system.py": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+      "tools/check_standalone.py": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+      "tools/check_timing.py": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+      "tools/ecp5_loadable_ram.py": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+      "tools/wasm_image.py": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+      "tools/check_loadable.py": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+      "tools/build_identity.py": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df",
+      "tools/cad.py": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+      "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+      "tools/check_asic_startup.py": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f",
+      "tools/check_xc7_system.py": "b47d55507d6569f8b6a35b4b866c5f6d0c8bc3b58228b63103595d707046260c",
+      "tools/asic_physical.lock.json": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+      "tools/check_asic_physical_startup.py": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+      "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+      "tools/ecp5_standalone_ram.py": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+      "tools/asic_physical_tools.py": "75c3632ecf96d1d869535acca60664a3a72c835a7ea1986c8f3b0b0765a50eb8",
+      "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+      "tools/loadable_ci.py": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+      "tools/asic_clock_tree.py": "10a32571868dd058ec91dc067dfcc1293f5e29e0a2f96ecb8d7c1d228ff54d88",
+      "tools/spec_shards.py": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+      "tools/check_asic_cell_models.py": "d69a1f594229f16be71184191a1c50dd6f5cf4e59855088fbb5faa859e6d6246",
+      "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+      "tools/asic_cells.py": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+      "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+      "tools/standalone_support.py": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb"
+    },
+    "executable_sha256": "fcd7dcfc37d329bd43a7ede75805319a2e70e6879da11d42b4fd1c2e50e645c3",
+    "loaded_libraries": {
+      "/lib/x86_64-linux-gnu/libGL.so.1": "67f471213576d225d38347a0b6d2a08a231980685301ff6461bd74d3994e5027",
+      "/lib/x86_64-linux-gnu/libGLX.so.0": "16fc8a37eea9210dc83c57eeff5aedc10ab4c6673f2f97e8bb6ee103df657b40",
+      "/lib/x86_64-linux-gnu/libGLdispatch.so.0": "ca01a91104c8887b3d8e59499b58cbb8f604cc285666b50d9ec888eb0c915182",
+      "/lib/x86_64-linux-gnu/libOpenGL.so.0": "9a0a6024499300f918ef1b42d581427cdb20bbc17a7d8239a4b7434833a98d4a",
+      "/lib/x86_64-linux-gnu/libQt5Core.so.5": "f3a46b3517fdcd82d70b9a2c01ba707499860e2eab328bb98445d8afce59ca37",
+      "/lib/x86_64-linux-gnu/libQt5Gui.so.5": "75b66a3edcbc7f3013b4180b76919b49c22ce652372eba45ead8aac9121625e0",
+      "/lib/x86_64-linux-gnu/libQt5Widgets.so.5": "8e03815f581781fc8b0ef931335493f8f2fcb48ee855f0be2258bbfbd06e62ee",
+      "/lib/x86_64-linux-gnu/libX11.so.6": "edd2ddf6e00a81c40b8645f7dbb6d6603c6a0a78d583bdbe7491d8a84de6e3b6",
+      "/lib/x86_64-linux-gnu/libXau.so.6": "8040da3f8516c1acfe39f04ff022480cdb273705ba5e7a4ca70bbdb1527cd67a",
+      "/lib/x86_64-linux-gnu/libXdmcp.so.6": "667d97d6da16016400ab10de9f83ef4ab209ceb6adf68ff9650225ec13e723b0",
+      "/lib/x86_64-linux-gnu/libbrotlicommon.so.1": "f8cd338ec62f719333abd5cba29a6e0bdb4597dfdffed000ffb868b47e02f2e9",
+      "/lib/x86_64-linux-gnu/libbrotlidec.so.1": "d5060475e7259904af3600d01e809710305b296441815bcaa540119a66530a70",
+      "/lib/x86_64-linux-gnu/libbsd.so.0": "e86cd4f0019f42c2ba5e60602e0edc8694d2948377d98c3654d0f6bddb5254bb",
+      "/lib/x86_64-linux-gnu/libbz2.so.1.0": "cc08c9f50a8009ffd6391e0116a100369b11ca9238fa52392c019e6645b122a1",
+      "/lib/x86_64-linux-gnu/libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "/lib/x86_64-linux-gnu/libdouble-conversion.so.3": "d1c9583dc7c1fce6f0a0701dd4356448425e45afe15c0946c23edeaf93d9397c",
+      "/lib/x86_64-linux-gnu/libexpat.so.1": "286682ecbc5e59a638963b1a4e6351e65eb32fcf4bdcb9cb7569b6a61fe06a8d",
+      "/lib/x86_64-linux-gnu/libfreetype.so.6": "992dac80abe3a3854f3eb2668da4207c029664ceca5f122ddb46e2a8169e9499",
+      "/lib/x86_64-linux-gnu/libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+      "/lib/x86_64-linux-gnu/libglib-2.0.so.0": "448d9d271e77a7f6c4d057336df40c34b02c794f551caf8fa03b5122f25e601b",
+      "/lib/x86_64-linux-gnu/libgomp.so.1": "135f3c8f006d2fe5e68e51281c7974cb991a03de3bfb3593d68d174dfcf854d1",
+      "/lib/x86_64-linux-gnu/libgraphite2.so.3": "fcfaf843b25b58b88319ced52f826fc8213a661f3693c916f88641eddffe05b8",
+      "/lib/x86_64-linux-gnu/libharfbuzz.so.0": "4562cfcfd18935324ba3ac74a944898b867ab87a56e925ab3e351ba773f1513e",
+      "/lib/x86_64-linux-gnu/libicudata.so.74": "ddbb3718b8bd9cbd780e5ab08b4503c30a6c4fa0706ebe5d074ed6b596c1714e",
+      "/lib/x86_64-linux-gnu/libicui18n.so.74": "3550b194eb2cf2e6f798f033eb9ca279d498c21296b4a18790ce158d2023e47b",
+      "/lib/x86_64-linux-gnu/libicuuc.so.74": "7560aadde38e5f4237a47a1ddd5891f9b36768a77a60faae30beee003ac01901",
+      "/lib/x86_64-linux-gnu/libm.so.6": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0",
+      "/lib/x86_64-linux-gnu/libmd.so.0": "423e18586b6ea740f4465afd64f7a9a4cb7264ed979c8e7256f9085af5345fef",
+      "/lib/x86_64-linux-gnu/libmd4c.so.0": "d5f418d0ea9aec6b41efbb924580a1fb61e9113bcae36d5ad3f322269822d1b3",
+      "/lib/x86_64-linux-gnu/libpcre2-16.so.0": "526bbf0d9467d22451d04bfdb585cd7b84a22c9978dace5501704125ec2972f9",
+      "/lib/x86_64-linux-gnu/libpcre2-8.so.0": "6075a70c30fd7216b9214ae50f2def0ce835092b034088ed9bd64c6a376c740f",
+      "/lib/x86_64-linux-gnu/libpng16.so.16": "89c0c6569a8c00480d451401ad4c0a74942e62dc57f229a970592fdc5adb29e8",
+      "/lib/x86_64-linux-gnu/libpython3.12.so.1.0": "1021f236227334ded6d1bbbc4bb6f5d933f793d8397c969896cfbdf03ce96223",
+      "/lib/x86_64-linux-gnu/libreadline.so.8": "0a079f958147699f7bb5bf228406a5d878dc2387fe9cdc5cce6f3e35e20380fc",
+      "/lib/x86_64-linux-gnu/libstdc++.so.6": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+      "/lib/x86_64-linux-gnu/libtcl8.6.so": "2d072235d4a518cb02fd8c6a2dd052119545a9a4406cb69e8cdeef156571dec2",
+      "/lib/x86_64-linux-gnu/libtinfo.so.6": "e6089d7bb95eee5b545f3770dd69095b0bca47d26701cad145af429561d16306",
+      "/lib/x86_64-linux-gnu/libxcb.so.1": "7958a0136b121bdc4c708968569ad152a9ed208ab026e2537b1005dde64ca440",
+      "/lib/x86_64-linux-gnu/libyaml-cpp.so.0.8": "55749fdb0a78969cf15c67c326f9a506e67cace47aa8520c2ae137b9e6189e3b",
+      "/lib/x86_64-linux-gnu/libzstd.so.1": "0a2128bc10841fb29e76d08d945864dfb0b6a66da5df6df5d8299197439e54bb",
+      "/lib64/ld-linux-x86-64.so.2": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libCbc.so.2": "df89a334ff3671f6a90d3e30bda5ad5ef82163b5c27b36f29e25ec5157600130",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libCbcSolver.so.2": "620649b484451e53c0afbe0873a3b901f1e37a1c4113c84894ff59807e0da2fe",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libCgl.so.0": "5453ecf27ee8d5ba6884ced396e47b64bb45d3d0d37db61f6f907bf88d3b7917",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libClp.so.1": "b35dc390a1e9babb4c51786081de56e74164a2bcdb7eb5ec8ce55b0ae224bad1",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libCoinUtils.so.2": "87639f673e7a6165f8a8180804e9dd4803930c5844f6a040a04bc5c5500053c5",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libOsi.so.0": "937f3bb05f756d59a8ed0daa58547b57ceedbdc36f807f6937503ad9d3b86dd3",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libOsiClp.so.1": "c32dcf93e72e4a96e54b438e26994b2b4648b0c4076f137fd7f4bf8f9f45a1d3",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_base.so.2505.0.0": "48f487b02ffe7c626543a50a669bfce835c4d2edbfdd4d1945913c94ddd3077f",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_city.so.2505.0.0": "013fae65d29dde15110038b03d42e32f063d8beeb9a91c1700bbf6b7b6373989",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_cord.so.2505.0.0": "4072f469fe562668a266487ad2bf800a08edeb4358338ff3fc20a1e58a4a26f1",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_cord_internal.so.2505.0.0": "c06637a59ea02112e41ca1baf8c3f14673cdafa87e03e3258307ca10b23e9c54",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_cordz_functions.so.2505.0.0": "d85deea8ad98ebb272d3550c9720cb55067f8ccae783e499456a7dd73b235b45",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_cordz_handle.so.2505.0.0": "262b282487b1d83b084648de6cf397e04a3f6c7949a5a1a7a6fa45e13656e231",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_cordz_info.so.2505.0.0": "f191862ce4f6585903a72d8a86fffbb2b614c50cc73f14e9f14554f115f71031",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_crc32c.so.2505.0.0": "b6764abf8c5429b74bfc80facd60e97448758851308f5ba301f60e44c45576c9",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_crc_cord_state.so.2505.0.0": "05c3e8e7aeabadf1f63772f7bae787ddb6eba54e9064410753a253b8971f8a03",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_crc_internal.so.2505.0.0": "2f8be6a039ddb8757a8753efdc709f3e6aa649f1d60ea83e7e367ba0e1152d34",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_debugging_internal.so.2505.0.0": "b3409a5f98b19c62da851c3a6f3d345ee280a9224a88af9e0103e75134c35693",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_decode_rust_punycode.so.2505.0.0": "0ae5d092356f535118a47168fc8761e05317214f6e0197b96f7923e1079a368d",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_demangle_internal.so.2505.0.0": "54639eebf19fbc89402e0e2b9d15d06d98cf430a326f62907ad074df2a3b8624",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_demangle_rust.so.2505.0.0": "01c1cdac903f8ef29d1de6bdbfb98e38cfe4c8cbb8bbc2fd62eab6f9de27e0b6",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_die_if_null.so.2505.0.0": "3b1fec7d30a7eeced76b8b7f66d830ffc2b4afeeba2c62cbb92b7e69c2219af2",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_examine_stack.so.2505.0.0": "7958bb581238ba4dda155358b97726953bf1c238b54446c479ab74e82311214d",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_exponential_biased.so.2505.0.0": "150f53436e95f48c6dd18ed339d9eb95bd563c84c917cad946e97cd1d236f612",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_commandlineflag.so.2505.0.0": "13de1397ff63694feac09b4a40142722b00a54c0e617dbca57525b28cbd2ebbe",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_commandlineflag_internal.so.2505.0.0": "dc042fc72cfb93e38e6836836d967c0d4e0d2b556aa79b56631a0743c4d6458d",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_config.so.2505.0.0": "eb0b30c740b65868d841013c21b1a76304b6162e8c20b1c489a573dfa8e2ef91",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_internal.so.2505.0.0": "2c027891ddc9b911f2ae4587c01357851c0cf4b37b922f403513f676ba26aee3",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_marshalling.so.2505.0.0": "c4eaf7a35ee17ea0a4cd03cb98ec8e535e1c8f990ef9a92f4ffcbcb78a7395d4",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_parse.so.2505.0.0": "b17bd94e03558a27b3d0833440400dffed34ac578bbb18b4ffb726138bfcaaa7",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_private_handle_accessor.so.2505.0.0": "ef40ca912a004c79127c83c918346a6aa07ce8a923bdfdf4d3f4537e66b8e4a0",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_program_name.so.2505.0.0": "522f053a16ea3550561989876cc4ec2fdc21483386dd15f15f412017134df3e6",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_reflection.so.2505.0.0": "6b35734de14fb8b073dbcad807d041ff0749e5270ed997e56e56e3bc339e5782",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_usage.so.2505.0.0": "a8d6cfccadb5d99a25a4fcb5d4aef9157128083fdafa9140f38e90e0315e781a",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_flags_usage_internal.so.2505.0.0": "73854d12cf27c632addcca5a984c0773110ba0470dfb09bd1302dd774ebc023e",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_hash.so.2505.0.0": "c25b00d80633e43e7b58cd9f49b5222a5046c23c2fc79eca61482e6f9fa15447",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_hashtablez_sampler.so.2505.0.0": "b7d0da4f11e983c87429bebda5d82876ab29ecdd5debbdd3fafb6e6e616dc940",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_int128.so.2505.0.0": "6a058e701fafcce649369253680571d292dc2cb2dadcb77f6628b78a5c9c4696",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_kernel_timeout_internal.so.2505.0.0": "316346be883e76bb7f7061c977f8252a192ec2923ecaca4cb1815adbf09a541e",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_leak_check.so.2505.0.0": "f97d1997bb4b311e3b0e69697f137cf42f58191b39d9bdd4a4bb6dfe9ccade0c",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_globals.so.2505.0.0": "2e694f04c756e819a3fe7245c9141ac743b6ee5bbee551a2db20a66344846568",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_initialize.so.2505.0.0": "921497b001b6026cfc7c8d69688153a6e5b7d39af7ece0b77b96b096fee9cb3c",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_check_op.so.2505.0.0": "3acd4283a484ee1ef93714343fc92964cb84dcb30244ac20334eaa52745bd943",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_conditions.so.2505.0.0": "b9d28e31a54c194c9201d700131b4d066196ddcdd9ee1da8ae56bb5272d292ff",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_fnmatch.so.2505.0.0": "6e9fe90f555ef223c33bb532ae5a0757cf9e941949deca4bdedfab98d2c2664a",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_format.so.2505.0.0": "68cbe1e11becbfd2b53caac2d4a71599076475a8f8fa843ea5a1c58a9f222ca4",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_globals.so.2505.0.0": "0eee4c7ee11f1ed83174b76990532f8a8d3ffe7de40d908b1b9936878471f4b7",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_log_sink_set.so.2505.0.0": "c7589bf23c519c40c2212a44752a00fae19cdaabd9cf4a12342ceb50cc3d2c1c",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_message.so.2505.0.0": "3736ecb895fdee1e07b019942fdd6e1fb853a1ae7a85fea8f156d4f63efd040a",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_nullguard.so.2505.0.0": "ba5fb17e92e9304dbae815e521f8241d0922456ac8e18eb70c4f29f0712aca62",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_proto.so.2505.0.0": "a7676f2946f04f8a765ce8f6b0861eb11cf8dfcab41603daf5305e4aa49c5e7d",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_internal_structured_proto.so.2505.0.0": "9d56650c0f07d1ce5c0348027344b57242303b165913166d2eb17a2b598f87a6",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_log_sink.so.2505.0.0": "bf567b626a741107486c9fc385582493526d84aa417656af20bfa69ec4a8fe0e",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_low_level_hash.so.2505.0.0": "c25a93ceb64715c9a35e97b51ec0e6ad28094ba0a88125390896b429a83db256",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_malloc_internal.so.2505.0.0": "805345ca7d2b3afc6e72b135838f358b8f3fe51ec81c1f1dec6b2ee923b6be26",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_distributions.so.2505.0.0": "535d36abe30a6b4d2c7cafbf091705c87825f2af3fce7e2d1d9306b2873c24a7",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_internal_entropy_pool.so.2505.0.0": "7b19b5b9c81ddd69b27c0a79a27562296557c1df2d443e9dad368a7e2072d42d",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_internal_platform.so.2505.0.0": "a8fd6c4600885593255576d395c04343e9dbd3584ff698de9b54829f04232a6e",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_internal_randen.so.2505.0.0": "73d81dfb70d81a406f95fc228909960242c6d56556ecc213cecf78ee9b2a5e21",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_internal_randen_hwaes.so.2505.0.0": "d15b5acef69255c116d44e3b3bfa57b0af4c3b3c5aa72599dfffdd14d288a88b",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_internal_randen_hwaes_impl.so.2505.0.0": "5230fe9fd09311e8854b55f2852b1b350f636daf72009052c309c3013191dc38",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_internal_randen_slow.so.2505.0.0": "e3b77ab6aaa0e3e14b348bf26194dde71236b4f95d341be81d8e45d3418d3ae5",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_internal_seed_material.so.2505.0.0": "ffdc82783f23e6478f1502ad8462bb631845d870bd1d83008f87425b648be596",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_random_seed_gen_exception.so.2505.0.0": "70e1ba875d0fa986249df4522d2f6b6e8ee9386f5b3127bb448082c634935d85",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_raw_hash_set.so.2505.0.0": "3399e505a0da724b2be679d224ff2ee583e5e5018418e05be4b7eab8eae36367",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_raw_logging_internal.so.2505.0.0": "b5003f60ca45715310f66472207bf1d2d590fea12628c7436eb452c16548256c",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_spinlock_wait.so.2505.0.0": "e70392a9cc94cfc7f69db548ea3f39d3576058a1ddbb5f67a530b5ee682c3954",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_stacktrace.so.2505.0.0": "7c43f96897e07a50100991e31cdbebe37408d835131d7a00f5b77d96723ef962",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_status.so.2505.0.0": "f2c81701ee38620330c21b4c20b1740ac9fc2b07d212625d35b0c99d8703e39c",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_statusor.so.2505.0.0": "9627f038368843375a577ce7143b22a81fd55a3c8cc22594d3a3e6c03391d553",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_str_format_internal.so.2505.0.0": "f1a8370b0fdffb962e7c9953823e7cd27516b6d7b42afe05359a4f7e31acb7aa",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_strerror.so.2505.0.0": "3766e7b3d7645d5ad32e3a45bc536db2dc8d3fe8163e88156ae9c5790aa13fba",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_strings.so.2505.0.0": "af63948978d5057496e8af33e8698d7b6e2d57a60c644742c5a4af08778ef973",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_strings_internal.so.2505.0.0": "613948a04c18b5fc29e9a41c0d30af66b10250745bb0372fc47ceda3c97be71c",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_symbolize.so.2505.0.0": "1148e84ac8bc43068962caccf7e8ccd09548a1aee63d6a41fd3187a97fec775d",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_synchronization.so.2505.0.0": "4ea1e0762769837e142e05b12127094ec38f966cf9227a68a52cdeb437db7629",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_throw_delegate.so.2505.0.0": "e8ef815c536fa33487cb0d801b3d70836a6cf8543ccdf9a9152a5f91d805c922",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_time.so.2505.0.0": "91b6e680adea27c7ed36702a6adc46937a79737f680609dbc170739412580a12",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_time_zone.so.2505.0.0": "fefc2e6637940aeda59081107eab0e264e75d640bcaaf7b9aa3e93847178b185",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_tracing_internal.so.2505.0.0": "ec96a9730555f208ce3ee831eaa4a280757024aa0b6aff574ab0561ddd23ad41",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_utf8_for_code_point.so.2505.0.0": "4678d503cb06905064317d90aeb413b258e0d39361bbb3ffa14bda97cfeba638",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libabsl_vlog_config_internal.so.2505.0.0": "630189e18b608da7d33fb09e6583fdee7caae5c355159f46a242adf7b10e2dc3",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libbz2.so.1": "078d5f11dcafaecee25eaf2d6850e6d6d9873d00aeb530eb91c9e759335b7a15",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libhighs.so.1": "915b07ad69cfff3d73f98d8ed341df1f3a1c5a045c30a9bc7b208ab826b99a88",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libortools.so.9": "55a9db4bf2622471b4dd75040b3b37c63afac8796241e59172819e776eb5f48d",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libprotobuf.so.31.1.0": "724e837e8a68f6c6b415ac27da5cd679e026ead96ef7843a7167a876ee6869dc",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libre2.so.11": "4b366f079657c5e595dd844b77e4e3c49d750c8505da37f5120f84bfca73f879",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libscip.so.9.2": "12d955894d1ff2a3d43827a768a098a933a0416ad179b9a4842a2fdfea16e289",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libutf8_validity.so.31.1.0": "34541ab14ee6e6a17443fb54e394620b5775ba4339a7192db14cd6dd531ffe9e",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/openroad-26Q2-1164/opt/or-tools/lib/libz.so.1": "ee7a921ffdf3600568632dd04c75fdd969b0c6b9c24d54c25890172a6535ed47",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/qtcharts-5.15.13-1/usr/lib/x86_64-linux-gnu/libQt5Charts.so.5": "8f30d41dfe0f7541409b5e7be761eed38d79b412b718765e23eebbe68d14166f",
+      "/tmp/wasmetal-xc7-core/.cache/asic-tools/tclreadline-2.3.8-2build2/usr/lib/x86_64-linux-gnu/libtclreadline-2.3.8.so": "b1ed1fa34b7712e5c14666f75c667984905ab08f15ef30220171690a719bc2b5"
+    },
+    "package_trees": {
+      "openroad": {
+        "files": 11614,
+        "sha256": "41eeb7623122bf131bc18c202592170dd59ddf526dd71b8b80cdc566ba467722"
+      },
+      "libqt5charts5": {
+        "files": 5,
+        "sha256": "ed77896f84ed719fba5c08961b4c3407850767cfaf1bfc994f5b7b79c24bb93e"
+      },
+      "tcl-tclreadline": {
+        "files": 13,
+        "sha256": "d7ded7cce5920e295c4bf543bfd3086ae73c1378458d4ac911fc1cb2f5d391d9"
+      }
+    },
+    "platform_files_verified": 7,
+    "system_packages_installed": false,
+    "host_runtime_note": "Other OpenROAD runtime dependencies must exist on the host; every resolved shared library is fingerprinted."
+  },
+  "ram_bytes": 131072,
+  "read_latency": 3,
+  "response_timeout": 11,
+  "clock_period_ns": 100,
+  "clock_period_is_experimental_constraint": true,
+  "normalization": {
+    "physical_taps_removed": 1070,
+    "removed_cell_connections_empty": true,
+    "functional_cells": 4183,
+    "surviving_cell_connections_unchanged": true,
+    "top_ports_unchanged": true
+  },
+  "clock_tree": {
+    "status": "passed",
+    "flip_flops": 620,
+    "state_instance_names_unchanged": true,
+    "all_clock_sources_original_primary_clock": true,
+    "allowed_clock_cells": [
+      "sky130_fd_sc_hd__clkbuf_16",
+      "sky130_fd_sc_hd__clkbuf_4",
+      "sky130_fd_sc_hd__clkbuf_8"
+    ],
+    "minimum_buffer_depth": 2,
+    "maximum_buffer_depth": 3,
+    "paths": {
+      "_6048_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6049_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6050_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6051_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6052_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6053_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6054_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6055_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6056_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6057_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6058_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6059_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6060_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6061_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6062_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6063_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6064_": [
+        "clkbuf_leaf_26_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6065_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6066_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6067_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6068_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6069_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6070_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6071_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6072_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6073_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6074_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6075_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6076_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6077_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6078_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6079_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6080_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6081_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6082_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6083_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6084_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6085_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6086_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6087_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6088_": [
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6089_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6090_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6091_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6092_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6093_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6094_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6095_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6096_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6097_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6098_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6099_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6100_": [
+        "clkbuf_leaf_14_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6101_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6102_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6103_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6104_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6105_": [
+        "clkbuf_leaf_14_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6106_": [
+        "clkbuf_leaf_14_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6107_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6108_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6109_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6110_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6111_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6112_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6113_": [
+        "clkbuf_leaf_26_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6114_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6115_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6116_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6117_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6118_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6119_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6120_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6121_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6122_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6123_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6124_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6125_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6126_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6127_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6128_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6129_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6130_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6131_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6132_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6133_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6134_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6135_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6136_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6137_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6138_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6139_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6140_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6141_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6142_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6143_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6144_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6145_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6146_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6147_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6148_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6149_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6150_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6151_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6152_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6153_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6154_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6155_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6156_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6157_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6158_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6159_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6160_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6161_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6162_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6163_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6164_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6165_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6166_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6167_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6168_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6169_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6170_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6171_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6172_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6173_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6174_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6175_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6176_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6177_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6178_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6179_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6180_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6181_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6182_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6183_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6184_": [
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6185_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6186_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6187_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6188_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6189_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6190_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6191_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6192_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6193_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6194_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6195_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6196_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6197_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6198_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6199_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6200_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6201_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6202_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6203_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6204_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6205_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6206_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6207_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6208_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6209_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6210_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6211_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6212_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6213_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6214_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6215_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6216_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6217_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6218_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6219_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6220_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6221_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6222_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6223_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6224_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6225_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6226_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6227_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6228_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6229_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6230_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6231_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6232_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6233_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6234_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6235_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6236_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6237_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6238_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6239_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6240_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6241_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6242_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6243_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6244_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6245_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6246_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6247_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6248_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6249_": [
+        "clkbuf_leaf_43_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6250_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6251_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6252_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6253_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6254_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6255_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6256_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6257_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6258_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6259_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6260_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6261_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6262_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6263_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6264_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6265_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6266_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6267_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6268_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6269_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6270_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6271_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6272_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6273_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6274_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6275_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6276_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6277_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6278_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6279_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6280_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6281_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6282_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6283_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6284_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6285_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6286_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6287_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6288_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6289_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6290_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6291_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6292_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6293_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6294_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6295_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6296_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6297_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6298_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6299_": [
+        "clkbuf_leaf_43_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6300_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6301_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6302_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6303_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6304_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6305_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6306_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6307_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6308_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6309_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6310_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6311_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6312_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6313_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6314_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6315_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6316_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6317_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6318_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6319_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6320_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6321_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6322_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6323_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6324_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6325_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6326_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6327_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6328_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6329_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6330_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6331_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6332_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6333_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6334_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6335_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6336_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6337_": [
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6338_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6339_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6340_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6341_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6342_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6343_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6344_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6345_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6346_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6347_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6348_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6349_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6350_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6351_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6352_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6353_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6354_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6355_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6356_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6357_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6358_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6359_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6360_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6361_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6362_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6363_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6364_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6365_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6366_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6367_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6368_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6369_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6370_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6371_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6372_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6373_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6374_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6375_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6376_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6377_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6378_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6379_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6380_": [
+        "clkbuf_leaf_69_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6381_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6382_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6383_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6384_": [
+        "clkbuf_leaf_5_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6385_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6386_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6387_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6388_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6389_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6390_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6391_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6392_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6393_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6394_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6395_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6396_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6397_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6398_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6399_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6400_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6401_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6402_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6403_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6404_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6405_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6406_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6407_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6408_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6409_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6410_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6411_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6412_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6413_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6414_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6415_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6416_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6417_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6418_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6419_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6420_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6421_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6422_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6423_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6424_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6425_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6426_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6427_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6428_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6429_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6430_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6431_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6432_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6433_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6434_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6435_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6436_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6437_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6438_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6439_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6440_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6441_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6442_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6443_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6444_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6445_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6446_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6447_": [
+        "clkbuf_leaf_68_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6448_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6449_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6450_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6451_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6452_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6453_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6454_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6455_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6456_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6457_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6458_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6459_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6460_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6461_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6462_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6463_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6464_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6465_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6466_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6467_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6468_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6469_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6470_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6471_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6472_": [
+        "clkbuf_leaf_4_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6473_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6474_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6475_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6476_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6477_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6478_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6479_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6480_": [
+        "clkbuf_leaf_4_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6481_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6482_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6483_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6484_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6485_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6486_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6487_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6488_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6489_": [
+        "clkbuf_leaf_5_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6490_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6491_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6492_": [
+        "clkbuf_leaf_69_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6493_": [
+        "clkbuf_leaf_4_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6494_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6495_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6496_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6497_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6498_": [
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6499_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6500_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6501_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6502_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6503_": [
+        "clkbuf_leaf_53_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6504_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6505_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6506_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6507_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6508_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6509_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6510_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6511_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6512_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6513_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6514_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6515_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6516_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6517_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6518_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6519_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6520_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6521_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6522_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6523_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6524_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6525_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6526_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6527_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6528_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6529_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6530_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6531_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6532_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6533_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6534_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6535_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6536_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6537_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6538_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6539_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6540_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6541_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6542_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6543_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6544_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6545_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6546_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6547_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6548_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6549_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6550_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6551_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6552_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6553_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6554_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6555_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6556_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6557_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6558_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6559_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6560_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6561_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6562_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6563_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6564_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6565_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6566_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6567_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6568_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6569_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6570_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6571_": [
+        "clkbuf_leaf_53_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6572_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6573_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6574_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6575_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6576_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6577_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6578_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6579_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6580_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6581_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6582_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6583_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6584_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6585_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6586_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6587_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6588_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6589_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6590_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6591_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6592_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6593_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6594_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6595_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6596_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6597_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6598_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6599_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6600_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6601_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6602_": [
+        "clkbuf_leaf_68_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6603_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6604_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6605_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6606_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6607_": [
+        "clkbuf_leaf_68_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6608_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6609_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6610_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6611_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6612_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6613_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6614_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6615_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6616_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6617_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6618_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6619_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6620_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6621_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6622_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6623_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6624_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6625_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6626_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6627_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6628_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6629_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6630_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6631_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6632_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6633_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6634_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6635_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6636_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6637_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6638_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6639_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6640_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6641_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6642_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6643_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6644_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6645_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6646_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6647_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6648_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6649_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6650_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6651_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6652_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6653_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6654_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6655_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6656_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6657_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6658_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6659_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6660_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6661_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6662_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6663_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6664_": [
+        "clkbuf_leaf_5_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6665_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6666_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6667_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ]
+    }
+  },
+  "standard_cells": {
+    "sky130_fd_sc_hd__clkinv_1": 16,
+    "sky130_fd_sc_hd__inv_4": 1,
+    "sky130_fd_sc_hd__nand2_1": 548,
+    "sky130_fd_sc_hd__nor2_4": 4,
+    "sky130_fd_sc_hd__nand2_2": 2,
+    "sky130_fd_sc_hd__inv_8": 9,
+    "sky130_fd_sc_hd__o21ai_0": 244,
+    "sky130_fd_sc_hd__o311ai_0": 1,
+    "sky130_fd_sc_hd__a21oi_1": 808,
+    "sky130_fd_sc_hd__nor2_1": 270,
+    "sky130_fd_sc_hd__o21bai_1": 2,
+    "sky130_fd_sc_hd__and2_4": 1,
+    "sky130_fd_sc_hd__or2_4": 1,
+    "sky130_fd_sc_hd__or2_0": 9,
+    "sky130_fd_sc_hd__or3_1": 8,
+    "sky130_fd_sc_hd__xnor2_1": 218,
+    "sky130_fd_sc_hd__a31oi_1": 18,
+    "sky130_fd_sc_hd__nand2b_1": 4,
+    "sky130_fd_sc_hd__nor3b_2": 3,
+    "sky130_fd_sc_hd__or3b_1": 4,
+    "sky130_fd_sc_hd__xnor2_2": 2,
+    "sky130_fd_sc_hd__nor2b_1": 7,
+    "sky130_fd_sc_hd__a21o_1": 6,
+    "sky130_fd_sc_hd__and3b_1": 4,
+    "sky130_fd_sc_hd__nand3b_1": 3,
+    "sky130_fd_sc_hd__nor3_1": 38,
+    "sky130_fd_sc_hd__nand3_1": 420,
+    "sky130_fd_sc_hd__nand4_1": 47,
+    "sky130_fd_sc_hd__nor3_2": 3,
+    "sky130_fd_sc_hd__nor4_1": 28,
+    "sky130_fd_sc_hd__a21oi_2": 1,
+    "sky130_fd_sc_hd__a21bo_1": 1,
+    "sky130_fd_sc_hd__a21boi_0": 4,
+    "sky130_fd_sc_hd__nor4_2": 1,
+    "sky130_fd_sc_hd__mux2i_1": 94,
+    "sky130_fd_sc_hd__and2_0": 5,
+    "sky130_fd_sc_hd__or2_1": 1,
+    "sky130_fd_sc_hd__and3_4": 2,
+    "sky130_fd_sc_hd__nand3_4": 1,
+    "sky130_fd_sc_hd__o31ai_1": 1,
+    "sky130_fd_sc_hd__o211ai_1": 7,
+    "sky130_fd_sc_hd__or2_2": 1,
+    "sky130_fd_sc_hd__a22o_1": 6,
+    "sky130_fd_sc_hd__xor2_1": 41,
+    "sky130_fd_sc_hd__a41oi_1": 2,
+    "sky130_fd_sc_hd__mux2_1": 1,
+    "sky130_fd_sc_hd__a2bb2oi_1": 2,
+    "sky130_fd_sc_hd__o2bb2ai_1": 4,
+    "sky130_fd_sc_hd__xnor3_1": 5,
+    "sky130_fd_sc_hd__a211o_1": 2,
+    "sky130_fd_sc_hd__o22ai_1": 2,
+    "sky130_fd_sc_hd__a222oi_1": 2,
+    "sky130_fd_sc_hd__a2111oi_0": 5,
+    "sky130_fd_sc_hd__o221ai_1": 2,
+    "sky130_fd_sc_hd__a221o_1": 1,
+    "sky130_fd_sc_hd__or4_1": 5,
+    "sky130_fd_sc_hd__o221a_1": 1,
+    "sky130_fd_sc_hd__o2111a_1": 1,
+    "sky130_fd_sc_hd__and4_1": 5,
+    "sky130_fd_sc_hd__a211oi_1": 4,
+    "sky130_fd_sc_hd__o21a_1": 3,
+    "sky130_fd_sc_hd__nor4bb_1": 1,
+    "sky130_fd_sc_hd__or3_4": 1,
+    "sky130_fd_sc_hd__nor2_2": 1,
+    "sky130_fd_sc_hd__a41o_1": 2,
+    "sky130_fd_sc_hd__a221oi_1": 1,
+    "sky130_fd_sc_hd__a32oi_1": 1,
+    "sky130_fd_sc_hd__o21ai_2": 1,
+    "sky130_fd_sc_hd__o21ai_1": 2,
+    "sky130_fd_sc_hd__a311oi_1": 2,
+    "sky130_fd_sc_hd__and3_1": 131,
+    "sky130_fd_sc_hd__a211oi_2": 1,
+    "sky130_fd_sc_hd__maj3_1": 4,
+    "sky130_fd_sc_hd__a31o_1": 6,
+    "sky130_fd_sc_hd__a22oi_1": 2,
+    "sky130_fd_sc_hd__nor4b_1": 1,
+    "sky130_fd_sc_hd__dfxtp_1": 615,
+    "sky130_fd_sc_hd__dfxtp_4": 3,
+    "sky130_fd_sc_hd__dfxtp_2": 2,
+    "sky130_fd_sc_hd__clkbuf_16": 86,
+    "sky130_fd_sc_hd__clkinv_16": 3,
+    "sky130_fd_sc_hd__clkinv_4": 17,
+    "sky130_fd_sc_hd__clkinvlp_4": 4,
+    "sky130_fd_sc_hd__clkinv_8": 1,
+    "sky130_fd_sc_hd__clkbuf_4": 10,
+    "sky130_fd_sc_hd__bufinv_16": 9,
+    "sky130_fd_sc_hd__clkbuf_8": 17,
+    "sky130_fd_sc_hd__inv_12": 2,
+    "sky130_fd_sc_hd__inv_6": 4,
+    "sky130_fd_sc_hd__inv_16": 1,
+    "sky130_fd_sc_hd__clkinv_2": 3,
+    "sky130_fd_sc_hd__dlygate4sd3_1": 184,
+    "sky130_fd_sc_hd__buf_12": 11,
+    "sky130_fd_sc_hd__buf_16": 25,
+    "sky130_fd_sc_hd__buf_8": 2,
+    "sky130_fd_sc_hd__buf_6": 17,
+    "sky130_fd_sc_hd__buf_4": 5,
+    "sky130_fd_sc_hd__conb_1": 63
+  },
+  "proofs": {
+    "inductive_equivalence": true,
+    "induction_steps": 1,
+    "state_points": 620,
+    "comparison_point_model_sha256": "5f6c0827c5a2bf3fbd9ecf499d1d2b55882148a49c0ed367edb45024ad194a7c",
+    "reset_base_cycles": 12,
+    "induction_log_sha256": "dd5b2c78880628ba63db0c0d213d8a18f6b644100a654ebce212afb08641f9f9",
+    "reset_point_log_sha256": "a65ad0d28ec296d75a11a74846e9481bcafb28aac00fa1fcd4968b2e7e544839",
+    "reset_pin_log_sha256": "ae992da2bed695cf8421ae5ab70a8950f10639adf05d427a0778d6efc66c3dbb"
+  },
+  "reference_report_sha256": "cc9c68bb4a80722c07ef3615a7f307af3a66a0a109653a05e94d8963f3bc44f1",
+  "cell_report_sha256": "e1232def69e7b91eda53ba45611726a05b42526e8788e216bf3efc5f3e4d3b1c",
+  "netlist_sha256": "659fef89220ebca2ca57ed3dd8d83b2d36217a281f275c38321fd6a0d76c4537",
+  "functional_models_sha256": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+  "binary_sha256": "45d54bd88af3dcef9b0bb42c2a8a735f326d5939187780a6b0df2d5da187175b",
+  "observations": {
+    "status": "passed",
+    "cycles": 50513199,
+    "macro_commands": 9185180,
+    "test_commands": 9183235,
+    "cpu_commands": 1945,
+    "cpu_responses": 2125,
+    "cpu_faults": 180,
+    "successful_boots": 13,
+    "failed_boots": 2,
+    "resets": 18,
+    "resets_with_pending_reads": 0,
+    "old_reads_after_reset": 0,
+    "held_valid_cycles": 4310,
+    "trace": 15639969748589277340
+  },
+  "observations_log_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+  "negative_controls": [
+    {
+      "name": "rewired-reference-cell",
+      "diagnostic": "canonical cell-pin incidence differs"
+    },
+    {
+      "name": "connected-physical-tap",
+      "diagnostic": "cannot discard a connected physical cell"
+    },
+    {
+      "name": "deleted-functional-cell",
+      "diagnostic": "normalization changed functional-cell inventory"
+    },
+    {
+      "name": "rewired-functional-input",
+      "diagnostic": "normalization changed cell-pin incidence"
+    },
+    {
+      "name": "wrong-clock-1",
+      "diagnostic": "flip-flop clock reaches an input other than clk"
+    },
+    {
+      "name": "wrong-clock-2",
+      "diagnostic": "flip-flop clock reaches an input other than clk"
+    },
+    {
+      "name": "wrong-clock-4",
+      "diagnostic": "flip-flop clock reaches an input other than clk"
+    },
+    {
+      "name": "inverted-clock-buffer",
+      "diagnostic": "clock path contains an unapproved or inverting cell"
+    },
+    {
+      "name": "clock-buffer-cycle",
+      "diagnostic": "clock tree contains a cycle"
+    },
+    {
+      "name": "duplicate-clock-driver",
+      "diagnostic": "undriven or multiply driven clock-tree signal"
+    },
+    {
+      "name": "missing-flop-clock",
+      "diagnostic": "missing or nonscalar flip-flop clock"
+    },
+    {
+      "name": "wide-flop-clock",
+      "diagnostic": "missing or nonscalar flip-flop clock"
+    },
+    {
+      "name": "changed-state-instance",
+      "diagnostic": "physical optimization changed state-instance inventory"
+    },
+    {
+      "name": "corrupt-sram-read",
+      "log_sha256": "6330e87c9f8d614e9c9fb9a8411d584aa131cdd2f66aa679898764d2c3b47115"
+    },
+    {
+      "name": "wrong-physical-tie-formal",
+      "rejected": true,
+      "log_sha256": "8bdfc567d047509899be14ccf66d748cc7fc005c35d57a45039c3a43ddb4871a"
+    }
+  ],
+  "negative_controls_rejected": 15,
+  "elapsed_seconds": 751.068610830931,
+  "physical_hardware_tested": false,
+  "detailed_routing_included": false,
+  "physical_timing_accepted": false,
+  "limitations": [
+    "Binary functionality with zero cell delays; no SDF, analog or power-pin simulation.",
+    "Global routing supplies coarse paths and estimated parasitics; no completed detailed route, extracted timing or DRC/LVS signoff.",
+    "Only the typical 1.8 V, 25 C library is used; no process-corner closure, SRAM macro, pads or manufacturing-test implementation."
+  ]
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_startup.py", line 74, in proofs
+    _, induction = yosys(script, directory, 'equivalence')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_startup.py", line 37, in yosys
+    result = execute([str(YOSYS), '-Q', '-T', '-s', str(path)], logfile,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_startup.py", line 30, in execute
+    raise ValueError(f'ASIC verification command failed ({result}); see {logfile}')
+ValueError: ASIC verification command failed (-11); see /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/equivalence.log

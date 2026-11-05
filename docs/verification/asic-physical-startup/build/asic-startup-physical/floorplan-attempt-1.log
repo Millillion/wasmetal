@@ -1,0 +1,13 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 2 thread(s).
+[INFO ODB-0227] LEF file: /tmp/wasmetal-xc7-core/.cache/sky130hd-physical/lef/sky130_fd_sc_hd.tlef, created 13 layers, 25 vias
+[INFO ODB-0227] LEF file: /tmp/wasmetal-xc7-core/.cache/sky130hd-physical/lef/sky130_fd_sc_hd_merged.lef, created 441 library cells
+Error: floorplan.tcl, 9 invalid command name "remove_from_collection"
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/lastmjs/development/wasmetal/.cache/asic-tools/openroad-26Q2-1164/usr/bin/openroad', '-no_init', '-no_settings', '-exit', '-threads', '2', 'build/asic-startup-physical/floorplan.tcl']' returned non-zero exit status 1.

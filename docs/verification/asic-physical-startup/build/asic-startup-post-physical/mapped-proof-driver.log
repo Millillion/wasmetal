@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_startup.py", line 37, in yosys
+    result = execute([str(YOSYS), '-Q', '-T', '-s', str(path)], logfile,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_asic_startup.py", line 26, in execute
+    result = process.wait(timeout=timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/tmp/wasmetal-xc7-core/.cache/tools/usr/bin/yosys', '-Q', '-T', '-s', '/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/mapped-equivalence.ys']' timed out after 600 seconds

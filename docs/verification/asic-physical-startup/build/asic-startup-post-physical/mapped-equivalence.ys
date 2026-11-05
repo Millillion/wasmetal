@@ -1,0 +1,20 @@
+read_verilog /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/equivalence-cells.v /tmp/wasmetal-xc7-core/build/asic-startup/131072-3-11/proof-circuit.v
+prep -top wasmetal_startup_sram -flatten
+opt
+splitnets
+rename wasmetal_startup_sram gold
+design -stash gold
+read_verilog /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/equivalence-cells.v /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/functional.v
+prep -top wasmetal_startup_sram -flatten
+opt
+splitnets
+rename wasmetal_startup_sram gate
+design -stash gate
+design -copy-from gold -as gold gold
+design -copy-from gate -as gate gate
+equiv_make gold gate equiv
+hierarchy -top equiv
+write_rtlil /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/mapped-equiv.il
+equiv_simple
+equiv_induct -undef -seq 12
+equiv_status -assert

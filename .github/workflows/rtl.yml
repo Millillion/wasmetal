@@ -305,7 +305,7 @@ jobs:
           retention-days: 30
 
   asic-startup:
-    name: Startup RTL against SKY130HD standard cells
+    name: Startup RTL against standard cells and physical clock trees
     runs-on: ubuntu-24.04
     timeout-minutes: 120
     steps:
@@ -314,12 +314,20 @@ jobs:
           persist-credentials: false
       - name: Install pinned simulation and proof tools
         run: python3 tools/bootstrap.py
+      - name: Install disposable-runner OpenROAD runtime prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libbz2-1.0 libgcc-s1 libgomp1 libopengl0 libpython3.12t64 libqt5core5t64 libqt5gui5t64 libqt5widgets5t64 libreadline8t64 libstdc++6 libtcl8.6 libyaml-cpp0.8 zlib1g
       - name: Map and verify every startup configuration and fault control
         run: python3 tools/check_asic_startup.py
       - name: Compare the actual mapped cell definitions with upstream Verilog
         run: python3 tools/check_asic_cell_models.py --asic-report reports/asic-startup.json
       - name: Reject incomplete or altered cell source inventories
         run: python3 tests/asic_cell_source_test.py
+      - name: Verify startup logic after placement, clock trees and global routing
+        run: python3 tools/check_asic_physical_startup.py
+      - name: Reject incomplete or altered physical-cell source inventories
+        run: python3 tests/asic_cell_source_test.py --cell-lock tools/asic_physical_cell_models.lock.json
       - name: Preserve mapped circuits, proofs and observations
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -328,6 +336,8 @@ jobs:
           path: |
             reports/asic-startup.json
             reports/asic-cell-models.json
+            reports/asic-physical-startup.json
+            reports/asic-physical-startup-cells.json
             build/asic-startup/**/*.json
             build/asic-startup/**/*.log
             build/asic-startup/**/*.v
@@ -340,6 +350,20 @@ jobs:
             build/asic-cell-models/*.v
             build/asic-cell-models/*.sv
             build/asic-cell-models/*.ys
+            build/asic-physical-startup/**/*.json
+            build/asic-physical-startup/**/*.log
+            build/asic-physical-startup/**/*.v
+            build/asic-physical-startup/**/*.vlt
+            build/asic-physical-startup/**/*.ys
+            build/asic-physical-startup/**/*.il
+            build/asic-physical-startup/**/*.def
+            build/asic-physical-startup/**/*.sdc
+            build/asic-physical-startup/**/*.odb
+            build/asic-physical-startup/**/*.lib
+            build/asic-physical-startup-cells/*.log
+            build/asic-physical-startup-cells/*.v
+            build/asic-physical-startup-cells/*.sv
+            build/asic-physical-startup-cells/*.ys
           if-no-files-found: warn
           retention-days: 30
 

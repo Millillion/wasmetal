@@ -1,0 +1,12 @@
+help repair_tie_fanout
+help place_pins
+help repair_design
+help set_dont_use
+help set_clock_latency
+help report_checks
+help report_check_types
+help check_setup
+help filler_placement
+help global_route
+help check_placement
+help write_spef

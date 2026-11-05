@@ -1,0 +1,3 @@
+read_rtlil /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/state-equiv.il
+equiv_induct -undef -seq 1
+equiv_status -assert

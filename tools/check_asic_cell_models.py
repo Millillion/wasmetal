@@ -17,10 +17,11 @@ from prepare_standalone import ROOT, digest
 LOCK = ROOT / 'tools/asic_cell_models.lock.json'
 CACHE = ROOT / '.cache/sky130hd-vendor'
 BASE = ROOT / 'build/asic-cell-models'
+FLIP_FLOPS = tuple('sky130_fd_sc_hd__dfxtp_' + str(drive) for drive in (1, 2, 4))
 
 
-def upstream():
-    lock = json.loads(LOCK.read_text())
+def upstream(lock_path=None):
+    lock = json.loads((lock_path or LOCK).read_text())
     require(lock['schema_version'] == 1 and re.fullmatch('[0-9a-f]{40}', lock['revision']),
             'unpinned upstream cell models')
     names = [record['path'] for record in lock['files']]
@@ -101,6 +102,16 @@ def mapped_models(path, types):
     return models, paths
 
 
+def netlist_models(netlist, source, types):
+    data = json.loads(netlist.read_text())
+    require(TOP in data['modules'], 'startup circuit top is missing')
+    selected = {c['type'] for c in data['modules'][TOP]['cells'].values()}
+    bodies = module_bodies(source.read_text())
+    require(selected == set(bodies) == set(types),
+            'single-netlist cell, model and locked-source inventories must match exactly')
+    return bodies, [netlist, source]
+
+
 def bench(types, library, directory):
     sources, chunks, vectors = [], ['`timescale 1ns/1ps\n'], 0
     require(types == sorted(set(types)), 'cell model inventory must be unique and sorted')
@@ -118,7 +129,7 @@ def bench(types, library, directory):
         sequential = [c['type'] for c in module['cells'].values()
                       if 'dff' in c['type'].lower() or 'latch' in c['type'].lower()]
         head = f'module cell_check_{index}(output reg done);\n'
-        if kind == 'sky130_fd_sc_hd__dfxtp_1':
+        if kind in FLIP_FLOPS:
             require(sequential == ['$_DFF_P_'], 'unexpected Liberty flip-flop model')
             chunks.append(head + f'''reg d=0,clk=0;wire vendor_q,derived_q;reg expected;integer seed,prior,following;
 {kind} vendor(.D(d),.CLK(clk),.Q(vendor_q));
@@ -160,10 +171,12 @@ endmodule
 end
 endmodule
 ''')
-    require('sky130_fd_sc_hd__dfxtp_1' in types, 'missing sequential-cell coverage')
+    flip_flops = [kind for kind in types if kind in FLIP_FLOPS]
+    require(flip_flops, 'missing sequential-cell coverage')
     chunks.append(f'module testbench;wire [{len(types)-1}:0] done;\n')
     chunks.extend(f'cell_check_{n} check_{n}(.done(done[{n}]));\n' for n in range(len(types)))
-    marker = f'PASS {len(types)} cell types; {vectors} combinational vectors; 32 binary DFF transitions; 64 seed/hold checks'
+    marker = (f'PASS {len(types)} cell types; {vectors} combinational vectors; '
+              f'{32 * len(flip_flops)} binary DFF transitions; {64 * len(flip_flops)} seed/hold checks')
     chunks.append(f'initial begin wait(&done);#1;$display("{marker}");$finish;end\n' +
                   'initial begin #10000;$fatal(1,"vendor comparison timeout");end\nendmodule\n')
     (directory / 'testbench.sv').write_text(''.join(chunks))
@@ -187,19 +200,30 @@ def simulation(source, label, vendor, marker, failure=None):
 
 
 def main():
+    global BASE
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--asic-report', type=Path)
+    parser.add_argument('--netlist', type=Path)
+    parser.add_argument('--cell-models', type=Path)
+    parser.add_argument('--cell-lock', type=Path, default=LOCK)
+    parser.add_argument('--label', default='asic-cell-models')
     args = parser.parse_args()
+    if bool(args.netlist) != bool(args.cell_models) or (args.asic_report and args.netlist):
+        parser.error('use either --asic-report or the pair --netlist and --cell-models')
+    if not re.fullmatch('[a-z0-9][a-z0-9-]{0,63}', args.label):
+        parser.error('--label must be a short lowercase artifact name')
+    BASE = ROOT / 'build' / args.label
+    lock_path = args.cell_lock.resolve()
     started = time.monotonic()
     BASE.mkdir(parents=True, exist_ok=True)
-    output = ROOT / 'reports/asic-cell-models.json'
+    output = ROOT / 'reports' / (args.label + '.json')
     output.parent.mkdir(exist_ok=True)
     output.unlink(missing_ok=True)
-    lock = upstream()
+    lock = upstream(lock_path)
     library_files = inputs()
     library, filtering = filter_library(library_files, BASE / 'filtered')
     types = lock['cell_types']
-    paths = [LOCK, ROOT / 'tools/asic_cells.lock.json', Path(__file__).resolve(), ROOT / 'tools/asic_cells.py',
+    paths = [lock_path, ROOT / 'tools/asic_cells.lock.json', Path(__file__).resolve(), ROOT / 'tools/asic_cells.py',
              ROOT / 'tools/prepare_standalone.py', ROOT / 'tools/check_memory_startup.py',
              ROOT / 'tools/upstream.lock.json', *library_files.values(),
              library, BASE / 'filtered/filter.json',
@@ -209,6 +233,9 @@ def main():
     actual_models = {}
     if args.asic_report:
         actual_models, actual_paths = mapped_models(args.asic_report, types)
+        paths.extend(actual_paths)
+    elif args.netlist:
+        actual_models, actual_paths = netlist_models(args.netlist.resolve(), args.cell_models.resolve(), types)
         paths.extend(actual_paths)
     bound = {str(path.relative_to(ROOT)): digest(path) for path in paths}
     script = f'read_liberty -ignore_miss_func -ignore_miss_dir -ignore_miss_data_latch {library}\n'
@@ -237,12 +264,20 @@ def main():
     controls = []
     original = source.read_text()
     for label, old, new, failure in [
-        ('wrong-tie-high', "assign HI = 1'h1;", "assign HI = 1'h0;", 'sky130_fd_sc_hd__conb_1 binary truth table mismatch'),
-        ('wrong-clock-edge', 'always @(posedge CLK)', 'always @(negedge CLK)', 'DFF')]:
+        ('wrong-tie-high', "assign HI = 1'h1;", "assign HI = 1'h0;", 'sky130_fd_sc_hd__conb_1 binary truth table mismatch')]:
         require(original.count(old) == 1, 'ambiguous standard-cell mutation: ' + label)
         mutant = BASE / (label + '.v')
         mutant.write_text(original.replace(old, new))
         controls.append({'name': label, **simulation(mutant, label, vendor, marker, failure)})
+    flip_flops = [kind for kind in types if kind in FLIP_FLOPS]
+    bodies = module_bodies(original, 'derived__')
+    for kind in flip_flops:
+        label = 'wrong-clock-edge' + ('' if kind.endswith('_1') else '-' + kind.rsplit('_', 1)[1])
+        body = bodies['derived__' + kind]
+        require(body.count('always @(posedge CLK)') == 1, 'ambiguous flip-flop mutation: ' + kind)
+        mutant = BASE / (label + '.v')
+        mutant.write_text(original.replace(body, body.replace('always @(posedge CLK)', 'always @(negedge CLK)'), 1))
+        controls.append({'name': label, 'cell_type': kind, **simulation(mutant, label, vendor, marker, 'DFF')})
     match = re.search(r'(module derived__sky130_fd_sc_hd__and2_0\b.*?endmodule)', original, re.S)
     require(match is not None, 'missing AND-cell fault target')
     body, count = re.subn(r'(assign X\s*=\s*)([^;]+)(;)', r'\1~(\2)\3', match.group(), count=1)
@@ -254,12 +289,15 @@ def main():
     for name, sha in bound.items():
         require(digest(ROOT / name) == sha, 'cell-model verification input changed: ' + name)
     result = {'status': 'passed', 'scope': 'binary functional cell behavior only', 'cell_types': types,
-              'cell_type_count': len(types), 'combinational_vectors': vectors, 'flip_flop_transitions': 32,
-              'flip_flop_seed_and_hold_checks': 64, 'upstream_repository': lock['repository'],
+              'cell_type_count': len(types), 'combinational_vectors': vectors,
+              'flip_flop_types': flip_flops, 'flip_flop_transitions': 32 * len(flip_flops),
+              'flip_flop_seed_and_hold_checks': 64 * len(flip_flops), 'upstream_repository': lock['repository'],
               'upstream_revision': lock['revision'], 'inputs': bound, 'positive': positive,
               'library_filter': filtering,
               'testbench_sha256': digest(BASE / 'testbench.sv'), 'negative_controls': controls,
               'negative_controls_rejected': len(controls), 'mapped_types_checked': sorted(actual_models),
+              'model_source_mode': ('startup-configurations' if args.asic_report else
+                                    'single-netlist' if args.netlist else 'fresh-library'),
               'elapsed_seconds': time.monotonic() - started,
               'limitations': ['No timing, analog, power-pin or unknown-clock/data equivalence is claimed.',
                   'The flip-flop is seeded by a clock edge; no power-on state is assumed.',

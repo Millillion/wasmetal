@@ -1,0 +1,21 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/asic-physical-startup/reference-serialized.ys' --
+
+1. Executing Liberty frontend: /tmp/wasmetal-xc7-core/build/asic-physical-startup/cells.lib
+Imported 392 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /tmp/wasmetal-xc7-core/build/asic-physical-startup/baseline-from-json.v
+Parsing Verilog input from `/tmp/wasmetal-xc7-core/build/asic-physical-startup/baseline-from-json.v' to AST representation.
+Generating RTLIL representation for module `\wasmetal_startup_sram'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+
+3.2. Analyzing design hierarchy..
+Top module:  \wasmetal_startup_sram
+Removed 0 unused modules.
+
+4. Executing JSON backend.

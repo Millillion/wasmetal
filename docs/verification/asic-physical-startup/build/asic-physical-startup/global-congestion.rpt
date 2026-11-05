@@ -1,0 +1,16 @@
+violation type: Vertical congestion
+	srcs: net:_0664_ net:_0665_ net:_0683_ net:_0696_ net:_0821_ net:_0924_ net:_0976_ net:adapter.rdata\[81\] net:adapter.rdata\[82\] net:adapter.rdata\[83\] net:cpu_wdata[0] net:cpu_wdata[43] net:cpu_wdata[45] net:net108 net:clknet_0_clk
+	comment: capacity:15 usage:16 overflow:1
+	bbox = (151.8000, 110.4000) - (158.7000, 117.3000) on Layer -
+violation type: Vertical congestion
+	srcs: net:_1145_ net:_1830_ net:_1989_ net:adapter.rdata\[114\] net:adapter.rdata\[67\] net:adapter.rdata\[92\] net:adapter.rdata\[94\] net:startup.expected_data\[84\] net:startup.observed_data\[0\] net:net97 net:net108 net:clknet_0_clk net:clknet_3_4__leaf_clk
+	comment: capacity:13 usage:14 overflow:1
+	bbox = (207.0000, 82.8000) - (213.9000, 89.7000) on Layer -
+violation type: Vertical congestion
+	srcs: net:_0656_ net:_0657_ net:_0672_ net:_0696_ net:_0902_ net:_0976_ net:adapter.rdata\[81\] net:adapter.rdata\[82\] net:adapter.rdata\[83\] net:adapter.rdata\[87\] net:cpu_wdata[0] net:cpu_wdata[45] net:net97 net:net113 net:clknet_0_clk
+	comment: capacity:15 usage:16 overflow:1
+	bbox = (151.8000, 124.2000) - (158.7000, 131.1000) on Layer -
+violation type: Vertical congestion
+	srcs: net:_0656_ net:_0672_ net:_0683_ net:_0684_ net:_0696_ net:_0821_ net:_0976_ net:adapter.rdata\[81\] net:adapter.rdata\[82\] net:adapter.rdata\[83\] net:cpu_wdata[0] net:cpu_wdata[45] net:net97 net:net108 net:clknet_0_clk
+	comment: capacity:15 usage:16 overflow:1
+	bbox = (151.8000, 117.3000) - (158.7000, 124.2000) on Layer -

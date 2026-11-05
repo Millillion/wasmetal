@@ -1,0 +1,2 @@
+read_json /tmp/wasmetal-xc7-core/build/asic-physical-startup/functional/wrong-constant/mapped.json
+write_verilog -noattr -noexpr -nodec /tmp/wasmetal-xc7-core/build/asic-physical-startup/functional/wrong-constant/proof-circuit.v

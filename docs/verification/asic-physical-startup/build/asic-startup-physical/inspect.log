@@ -1,0 +1,58 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 2 thread(s).
+VERSION 26Q2-1164-g08f67ee5ec
+initialize_floorplan [-utilization util] [-aspect_ratio ratio]
+   [-core_space space | {bottom top left right}]
+   [-die_area {lx ly ux uy | x1 y1 x2 y2 ...}]
+   [-core_area {lx ly ux uy | x1 y1 x2 y2 ...}] [-additional_sites site_names]
+   [-site site_name] [-row_parity NONE|ODD|EVEN] [-flip_sites site_names]
+   [-gap space] 
+global_placement [-skip_initial_place] [-force_center_initial_place]
+   [-skip_nesterov_place] [-timing_driven] [-routability_driven]
+   [-disable_timing_driven] [-disable_routability_driven] [-incremental]
+   [-skip_io] [-bin_grid_count grid_count] [-density target_density]
+   [-init_density_penalty init_density_penalty]
+   [-init_wirelength_coef init_wirelength_coef] [-min_phi_coef min_phi_coef]
+   [-max_phi_coef max_phi_coef] [-reference_hpwl reference_hpwl]
+   [-overflow overflow] [-initial_place_max_iter initial_place_max_iter]
+   [-initial_place_max_fanout initial_place_max_fanout] [-routability_use_grt]
+   [-routability_target_rc_metric routability_target_rc_metric]
+   [-routability_check_overflow routability_check_overflow]
+   [-routability_snapshot_overflow routability_snapshot_overflow]
+   [-routability_max_density routability_max_density]
+   [-routability_inflation_ratio_coef routability_inflation_ratio_coef]
+   [-routability_max_inflation_ratio routability_max_inflation_ratio]
+   [-routability_rc_coefficients routability_rc_coefficients]
+   [-keep_resize_below_overflow keep_resize_below_overflow]
+   [-timing_driven_net_reweight_overflow timing_driven_net_reweight_overflow]
+   [-timing_driven_net_weight_max timing_driven_net_weight_max]
+   [-timing_driven_nets_percentage timing_driven_nets_percentage]
+   [-pad_left pad_left] [-pad_right pad_right] [-disable_revert_if_diverge]
+   [-disable_pin_density_adjust] [-enable_routing_congestion] 
+
+clock_tree_synthesis [-wire_unit unit] [-buf_list buflist] [-root_buf buf]
+   [-clk_nets nets] [-tree_buf buf] [-distance_between_buffers]
+   [-branching_point_buffers_distance] [-clustering_exponent]
+   [-clustering_unbalance_ratio] [-sink_clustering_size]
+   [-sink_clustering_max_diameter] [-macro_clustering_size]
+   [-macro_clustering_max_diameter] [-sink_clustering_enable] [-balance_levels]
+   [-sink_clustering_levels levels] [-num_static_layers]
+   [-sink_clustering_buffer] [-obstruction_aware] [-no_obstruction_aware]
+   [-apply_ndr strategy] [-sink_buffer_max_cap_derate] [-dont_use_dummy_load]
+   [-delay_buffer_derate] [-library] [-repair_clock_nets] [-no_insertion_delay] 
+
+detailed_route [-output_maze filename] [-output_drc filename]
+   [-output_guide_coverage filename] [-drc_report_iter_step step]
+   [-db_process_node name] [-disable_via_gen] [-droute_end_iter iter]
+   [-via_in_pin_bottom_layer layer] [-via_in_pin_top_layer layer]
+   [-via_access_layer layer] [-or_seed seed] [-or_k k]
+   [-bottom_routing_layer layer] [-top_routing_layer layer] [-verbose level]
+   [-distributed] [-remote_host rhost] [-remote_port rport] [-shared_volume vol]
+   [-cloud_size sz] [-clean_patches] [-no_pin_access] [-min_access_points count]
+   [-save_guide_updates] [-repair_pdn_vias layer] [-single_step_dr] 
+
+estimate_parasitics -placement|-global_routing [-spef_file filename] 
+write_verilog [-sort] [-include_pwr_gnd] [-remove_cells cells] filename 

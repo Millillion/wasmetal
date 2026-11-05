@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Reject incomplete or altered upstream standard-cell source inventories."""
 from copy import deepcopy
+import argparse
 import json
 from pathlib import Path
 import sys
@@ -39,7 +40,9 @@ class CellSources(unittest.TestCase):
 
     def test_unbound_cell_type(self):
         data = deepcopy(self.lock)
-        data['cell_types'] = sorted(data['cell_types'] + ['sky130_fd_sc_hd__dfxtp_2'])
+        unbound = 'sky130_fd_sc_hd__dfxtp_8'
+        self.assertNotIn(unbound, data['cell_types'])
+        data['cell_types'] = sorted(data['cell_types'] + [unbound])
         with self.assertRaisesRegex(ValueError, 'source/license inventory'):
             self.validate(data)
 
@@ -70,4 +73,9 @@ class CellSources(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('--cell-lock', type=Path)
+    arguments, remaining = parser.parse_known_args()
+    if arguments.cell_lock:
+        models.LOCK = arguments.cell_lock.resolve()
+    unittest.main(argv=[sys.argv[0], *remaining])

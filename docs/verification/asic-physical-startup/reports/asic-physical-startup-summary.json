@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "scope": "startup controller, test master and SRAM adapter after physical optimization; no CPU or SRAM array",
+  "functional_backend": "sky130hd-post-physical-functional",
+  "cycles": 50513199,
+  "functional_cells": 4183,
+  "cell_types": 98,
+  "flip_flops": 620,
+  "clock_buffer_depth": [
+    2,
+    3
+  ],
+  "physical_taps_removed_from_functional_model": 1070,
+  "state_and_output_equivalence_points": 1267,
+  "induction_steps": 1,
+  "independent_reset_base_cycles": 12,
+  "circuit_fault_controls_rejected": 15,
+  "cell_model_faults_rejected": 5,
+  "combinational_cell_vectors": 1035,
+  "flip_flop_transitions": 96,
+  "flip_flop_seed_and_hold_checks": 192,
+  "source_inventory_fixtures": 14,
+  "bound_inputs_rechecked": 185,
+  "prototype_and_repeatable_flow_observations_match": true,
+  "detailed_routing_included_in_functional_pass": false,
+  "physical_timing_accepted": false,
+  "physical_hardware_tested": false,
+  "initial_detailed_routing_trial": {
+    "status": "timed-out",
+    "limit_seconds": 1200,
+    "completed_iteration_violations": [
+      6132,
+      3724,
+      3689
+    ],
+    "accepted_routing_result": false,
+    "final_routed_database_available": false
+  },
+  "retained_incomplete_proof_trials": [
+    "RTL FSM-encoding comparison crashed Yosys during equiv_make.",
+    "The comparison of every shared internal wire exceeded its 600-second limit."
+  ],
+  "proof_resolution": "Compare the encoded circuits at every state Q and output port, prove one-step induction and a separate reset base, and independently audit all clock paths.",
+  "reference_serialization": "JSON re-emission changes wire aliases. Exact canonical cell-pin incidence is required; a deliberately rewired reference is rejected.",
+  "report_sha256": "5a4d249dbeebd1ef99f07bc420b33e6ce932fa7244a8a083bc26b6f9526f8235",
+  "cell_report_sha256": "e1232def69e7b91eda53ba45611726a05b42526e8788e216bf3efc5f3e4d3b1c"
+}

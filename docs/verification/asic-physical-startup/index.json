@@ -1,0 +1,2550 @@
+[
+  {
+    "original_path": ".cache/sky130hd/ORFS_LICENSE",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd/ORFS_LICENSE",
+    "original_sha256": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    "archive_sha256": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd/SKYWATER_LICENSE",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd/SKYWATER_LICENSE",
+    "original_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "archive_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd/config.mk",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd/config.mk",
+    "original_sha256": "1ca10588eab55845dbac6af01a6721fcb88071c7de4b1223024b5e7438f0fe5c",
+    "archive_sha256": "1ca10588eab55845dbac6af01a6721fcb88071c7de4b1223024b5e7438f0fe5c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib.gz",
+    "original_sha256": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9",
+    "archive_sha256": "73654ab447dea072a6f044c6a258a5587b0af3aa94fdc7c8b296b6646ee07eea",
+    "compressed": true
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/fastroute.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-physical/fastroute.tcl",
+    "original_sha256": "a84110f70e0ff1540f4cfed6730d56b3011c6c06a6c897a4bd600522bb175dd3",
+    "archive_sha256": "a84110f70e0ff1540f4cfed6730d56b3011c6c06a6c897a4bd600522bb175dd3",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/lef/sky130_fd_sc_hd.tlef",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-physical/lef/sky130_fd_sc_hd.tlef",
+    "original_sha256": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e",
+    "archive_sha256": "8e99b4e8b016db0713029ebcae6b2cc2aedd9c2c49682e2f23521dd0b1a2085e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/lef/sky130_fd_sc_hd_merged.lef",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-physical/lef/sky130_fd_sc_hd_merged.lef.gz",
+    "original_sha256": "44180aaa0068b1fcb0789f128b090304c01ad48f511d3f7afa66c90b3e176ec5",
+    "archive_sha256": "ef196a0e2e30a46e6c46fa202c3558f43cde4672a9dee64f7abc7ddad375d70e",
+    "compressed": true
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/make_tracks.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-physical/make_tracks.tcl",
+    "original_sha256": "b4b280f0d5f3d52007e2531d2abd74d7f4aa600ceb9fffdf3041c781fe82ad8c",
+    "archive_sha256": "b4b280f0d5f3d52007e2531d2abd74d7f4aa600ceb9fffdf3041c781fe82ad8c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/pdn.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-physical/pdn.tcl",
+    "original_sha256": "d2244586d860af05157a2555a49602a5dfff178f636a797a7c892e8d395b74a8",
+    "archive_sha256": "d2244586d860af05157a2555a49602a5dfff178f636a797a7c892e8d395b74a8",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/setRC.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-physical/setRC.tcl",
+    "original_sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a",
+    "archive_sha256": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-physical/tapcell.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-physical/tapcell.tcl",
+    "original_sha256": "7f25277b66bcbc7d7cb9f0984d4df759f3f8d7cf59badbb07ce742a265507fcf",
+    "archive_sha256": "7f25277b66bcbc7d7cb9f0984d4df759f3f8d7cf59badbb07ce742a265507fcf",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/LICENSE",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/LICENSE",
+    "original_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "archive_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a2111oi/sky130_fd_sc_hd__a2111oi_0.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a2111oi/sky130_fd_sc_hd__a2111oi_0.functional.v",
+    "original_sha256": "320b853392fc649e6d782c2e270adf816743f517f6919a942d2ecc35f4627639",
+    "archive_sha256": "320b853392fc649e6d782c2e270adf816743f517f6919a942d2ecc35f4627639",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a211o/sky130_fd_sc_hd__a211o_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a211o/sky130_fd_sc_hd__a211o_1.functional.v",
+    "original_sha256": "5cf9f1646b18f995d0e1c2314d869fcc2c9c38cfbbde800255910d55c38b950d",
+    "archive_sha256": "5cf9f1646b18f995d0e1c2314d869fcc2c9c38cfbbde800255910d55c38b950d",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a211oi/sky130_fd_sc_hd__a211oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a211oi/sky130_fd_sc_hd__a211oi_1.functional.v",
+    "original_sha256": "4dc2f332cb63fc924b0ad0e11bd4c74a075d5b2e54b1683498641c1b3a3a8756",
+    "archive_sha256": "4dc2f332cb63fc924b0ad0e11bd4c74a075d5b2e54b1683498641c1b3a3a8756",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a211oi/sky130_fd_sc_hd__a211oi_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a211oi/sky130_fd_sc_hd__a211oi_2.functional.v",
+    "original_sha256": "ee38ac50151d70d99d0b47e55dc2de6cfe95b6cfee3e95c6ee83b6df578d461f",
+    "archive_sha256": "ee38ac50151d70d99d0b47e55dc2de6cfe95b6cfee3e95c6ee83b6df578d461f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21bo/sky130_fd_sc_hd__a21bo_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a21bo/sky130_fd_sc_hd__a21bo_1.functional.v",
+    "original_sha256": "a2ed5eee61b4c181dd404c3980c5ce9bc6bc75f0c02f8d115e977bb67ab1e235",
+    "archive_sha256": "a2ed5eee61b4c181dd404c3980c5ce9bc6bc75f0c02f8d115e977bb67ab1e235",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21boi/sky130_fd_sc_hd__a21boi_0.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a21boi/sky130_fd_sc_hd__a21boi_0.functional.v",
+    "original_sha256": "815594c7f9a411c9f10b5bb8ffba4b348c4a764c2b2dbf2993f092a305e56251",
+    "archive_sha256": "815594c7f9a411c9f10b5bb8ffba4b348c4a764c2b2dbf2993f092a305e56251",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21o/sky130_fd_sc_hd__a21o_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a21o/sky130_fd_sc_hd__a21o_1.functional.v",
+    "original_sha256": "13dac9b6ba4ce2bca73acf63d881147d650ecb79a064c5729add2ba8515f7b3b",
+    "archive_sha256": "13dac9b6ba4ce2bca73acf63d881147d650ecb79a064c5729add2ba8515f7b3b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21oi/sky130_fd_sc_hd__a21oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a21oi/sky130_fd_sc_hd__a21oi_1.functional.v",
+    "original_sha256": "f34b276bb1f21cde68166ccf6b733676987e9f6daac11ea5af870b9373fcd247",
+    "archive_sha256": "f34b276bb1f21cde68166ccf6b733676987e9f6daac11ea5af870b9373fcd247",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a21oi/sky130_fd_sc_hd__a21oi_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a21oi/sky130_fd_sc_hd__a21oi_2.functional.v",
+    "original_sha256": "4469263951bf0e50e5200dcd6bbd9013518dd8c0652457c692a2dd290bdf45d1",
+    "archive_sha256": "4469263951bf0e50e5200dcd6bbd9013518dd8c0652457c692a2dd290bdf45d1",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a221o/sky130_fd_sc_hd__a221o_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a221o/sky130_fd_sc_hd__a221o_1.functional.v",
+    "original_sha256": "b0f7470e5520d072f8df85ec0cbedad3c2cf9f70fdc5e2321d0508e63f9c602f",
+    "archive_sha256": "b0f7470e5520d072f8df85ec0cbedad3c2cf9f70fdc5e2321d0508e63f9c602f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a221oi/sky130_fd_sc_hd__a221oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a221oi/sky130_fd_sc_hd__a221oi_1.functional.v",
+    "original_sha256": "39cae4928be1ea5ecfd953ef2d127b284e4e9ce832e780bf6a6dff5fc1b87f69",
+    "archive_sha256": "39cae4928be1ea5ecfd953ef2d127b284e4e9ce832e780bf6a6dff5fc1b87f69",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a222oi/sky130_fd_sc_hd__a222oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a222oi/sky130_fd_sc_hd__a222oi_1.functional.v",
+    "original_sha256": "9f97481dc6e72e4b9b174259f3f0bd895df93174c1281b66372bd7599b6b16ae",
+    "archive_sha256": "9f97481dc6e72e4b9b174259f3f0bd895df93174c1281b66372bd7599b6b16ae",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a22o/sky130_fd_sc_hd__a22o_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a22o/sky130_fd_sc_hd__a22o_1.functional.v",
+    "original_sha256": "fb96f155e374d9dde2f81f6ae95a3796a916f8f41ca930acb58762813c405d43",
+    "archive_sha256": "fb96f155e374d9dde2f81f6ae95a3796a916f8f41ca930acb58762813c405d43",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a22oi/sky130_fd_sc_hd__a22oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a22oi/sky130_fd_sc_hd__a22oi_1.functional.v",
+    "original_sha256": "f9e9a85417a1ec4af9f3159369432f0629592a56869d4e9f54b05722d92d993a",
+    "archive_sha256": "f9e9a85417a1ec4af9f3159369432f0629592a56869d4e9f54b05722d92d993a",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a2bb2oi/sky130_fd_sc_hd__a2bb2oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a2bb2oi/sky130_fd_sc_hd__a2bb2oi_1.functional.v",
+    "original_sha256": "75985139ba6393d184da0f8e4c550ac2856ace0bb00b30979a93ac3e9bebe5c5",
+    "archive_sha256": "75985139ba6393d184da0f8e4c550ac2856ace0bb00b30979a93ac3e9bebe5c5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a311oi/sky130_fd_sc_hd__a311oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a311oi/sky130_fd_sc_hd__a311oi_1.functional.v",
+    "original_sha256": "791e3a40cc117d67d10b8f6264a6e2f2c72b1ef478f8195ebd6d8b989b1add8e",
+    "archive_sha256": "791e3a40cc117d67d10b8f6264a6e2f2c72b1ef478f8195ebd6d8b989b1add8e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a31o/sky130_fd_sc_hd__a31o_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a31o/sky130_fd_sc_hd__a31o_1.functional.v",
+    "original_sha256": "4827d020e33715f9332d59c8660eba9e278706d45f95f28a5041105db02a8994",
+    "archive_sha256": "4827d020e33715f9332d59c8660eba9e278706d45f95f28a5041105db02a8994",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a31oi/sky130_fd_sc_hd__a31oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a31oi/sky130_fd_sc_hd__a31oi_1.functional.v",
+    "original_sha256": "d239ad05c711f654b9e24560a1af081498f5178def9d6af7e490615228fcbdef",
+    "archive_sha256": "d239ad05c711f654b9e24560a1af081498f5178def9d6af7e490615228fcbdef",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a32oi/sky130_fd_sc_hd__a32oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a32oi/sky130_fd_sc_hd__a32oi_1.functional.v",
+    "original_sha256": "01ae96666f4c7ebcbc245abeed3a626a891893200c4eb9c0def19ba02832b5f5",
+    "archive_sha256": "01ae96666f4c7ebcbc245abeed3a626a891893200c4eb9c0def19ba02832b5f5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a41o/sky130_fd_sc_hd__a41o_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a41o/sky130_fd_sc_hd__a41o_1.functional.v",
+    "original_sha256": "b4e2c61b78edb1178714f021bf3a63f1359a04a5198d5814b9dda45b25da6231",
+    "archive_sha256": "b4e2c61b78edb1178714f021bf3a63f1359a04a5198d5814b9dda45b25da6231",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/a41oi/sky130_fd_sc_hd__a41oi_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/a41oi/sky130_fd_sc_hd__a41oi_1.functional.v",
+    "original_sha256": "5817f85af6984c93d9ae57edc3fa1a4d2d6cd25e8424b7e93a3abe9dfb945194",
+    "archive_sha256": "5817f85af6984c93d9ae57edc3fa1a4d2d6cd25e8424b7e93a3abe9dfb945194",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and2/sky130_fd_sc_hd__and2_0.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/and2/sky130_fd_sc_hd__and2_0.functional.v",
+    "original_sha256": "fdd4b40abcab6674b6463bab70c912392d079d2dd82dc8a69e18b50d181e703b",
+    "archive_sha256": "fdd4b40abcab6674b6463bab70c912392d079d2dd82dc8a69e18b50d181e703b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and2/sky130_fd_sc_hd__and2_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/and2/sky130_fd_sc_hd__and2_4.functional.v",
+    "original_sha256": "867b9073c96d672e37c2325ba40a404e29367a487ff3d4945158a27803d773e5",
+    "archive_sha256": "867b9073c96d672e37c2325ba40a404e29367a487ff3d4945158a27803d773e5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and3/sky130_fd_sc_hd__and3_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/and3/sky130_fd_sc_hd__and3_1.functional.v",
+    "original_sha256": "64c2205cc628ed241ca91a368b12cb13bb4ce435b4ba89efc3deaee2170d4d47",
+    "archive_sha256": "64c2205cc628ed241ca91a368b12cb13bb4ce435b4ba89efc3deaee2170d4d47",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and3/sky130_fd_sc_hd__and3_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/and3/sky130_fd_sc_hd__and3_4.functional.v",
+    "original_sha256": "0bd0f9a9c4c11d2fc05762ddb66f3b0907928c95ff761febf9f0488298f8f111",
+    "archive_sha256": "0bd0f9a9c4c11d2fc05762ddb66f3b0907928c95ff761febf9f0488298f8f111",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and3b/sky130_fd_sc_hd__and3b_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/and3b/sky130_fd_sc_hd__and3b_1.functional.v",
+    "original_sha256": "42d828fc158c9fd00adac58f294d3f74355cc98f845e8762e29d0aa0a2638b32",
+    "archive_sha256": "42d828fc158c9fd00adac58f294d3f74355cc98f845e8762e29d0aa0a2638b32",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/and4/sky130_fd_sc_hd__and4_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/and4/sky130_fd_sc_hd__and4_1.functional.v",
+    "original_sha256": "363e2e9d23c40c43e68efceb3040d7fdd03bf67cacade07906d8cfc99f4f49c5",
+    "archive_sha256": "363e2e9d23c40c43e68efceb3040d7fdd03bf67cacade07906d8cfc99f4f49c5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_12.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_12.functional.v",
+    "original_sha256": "471ba08394f18b3b4399e5c2bc3cc45b783643f227c0a24376e45ae4e47e2521",
+    "archive_sha256": "471ba08394f18b3b4399e5c2bc3cc45b783643f227c0a24376e45ae4e47e2521",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_16.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_16.functional.v",
+    "original_sha256": "7431835bfcf88a6452b449a96cef98b1256bc73e49dd4f875d16e304e4b54ea7",
+    "archive_sha256": "7431835bfcf88a6452b449a96cef98b1256bc73e49dd4f875d16e304e4b54ea7",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_4.functional.v",
+    "original_sha256": "7f5381971bd0ebb0af200e5fb38c5b94fa9951954cc7a83e7229067fe38c9147",
+    "archive_sha256": "7f5381971bd0ebb0af200e5fb38c5b94fa9951954cc7a83e7229067fe38c9147",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_6.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_6.functional.v",
+    "original_sha256": "2ad7e06093a756116cdff2b16ad641d6129ae5a890c79ad9a3a4b62b8bea09ba",
+    "archive_sha256": "2ad7e06093a756116cdff2b16ad641d6129ae5a890c79ad9a3a4b62b8bea09ba",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_8.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/buf/sky130_fd_sc_hd__buf_8.functional.v",
+    "original_sha256": "423d1afacc367734ddc8ea6ac2c67ecf0c3c285b7ecd296413f725372887eb33",
+    "archive_sha256": "423d1afacc367734ddc8ea6ac2c67ecf0c3c285b7ecd296413f725372887eb33",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/bufinv/sky130_fd_sc_hd__bufinv_16.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/bufinv/sky130_fd_sc_hd__bufinv_16.functional.v",
+    "original_sha256": "72226c4647f142f01f04cc1f3fd629fd313fa35bf8da79d2d954823183861beb",
+    "archive_sha256": "72226c4647f142f01f04cc1f3fd629fd313fa35bf8da79d2d954823183861beb",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkbuf/sky130_fd_sc_hd__clkbuf_16.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkbuf/sky130_fd_sc_hd__clkbuf_16.functional.v",
+    "original_sha256": "4ff05efaaa47e482f5be40f96b257adcae8b4a94fd03a282a939fd1ac82febfd",
+    "archive_sha256": "4ff05efaaa47e482f5be40f96b257adcae8b4a94fd03a282a939fd1ac82febfd",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkbuf/sky130_fd_sc_hd__clkbuf_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkbuf/sky130_fd_sc_hd__clkbuf_4.functional.v",
+    "original_sha256": "2ef95bd8a8a674ba20b9bb3ba0d0489909fc767d793c7e486d5fef904dc5a1c6",
+    "archive_sha256": "2ef95bd8a8a674ba20b9bb3ba0d0489909fc767d793c7e486d5fef904dc5a1c6",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkbuf/sky130_fd_sc_hd__clkbuf_8.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkbuf/sky130_fd_sc_hd__clkbuf_8.functional.v",
+    "original_sha256": "9d63159afb5361cf571237d1f6feab0ad80cab8630532622e85a191da7afde4e",
+    "archive_sha256": "9d63159afb5361cf571237d1f6feab0ad80cab8630532622e85a191da7afde4e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_1.functional.v",
+    "original_sha256": "738ec0a19f8a7551c08d71e69240e902be421f9a297453ce56e5901cd8a65257",
+    "archive_sha256": "738ec0a19f8a7551c08d71e69240e902be421f9a297453ce56e5901cd8a65257",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_16.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_16.functional.v",
+    "original_sha256": "3b63c9ae1e59240cd38c34bf1588dda204f119165aa3af8f16243689472c87eb",
+    "archive_sha256": "3b63c9ae1e59240cd38c34bf1588dda204f119165aa3af8f16243689472c87eb",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_2.functional.v",
+    "original_sha256": "df26cfc1bc2c6908d303a015463f4d947f9eca3afcce78f334345b1c24245551",
+    "archive_sha256": "df26cfc1bc2c6908d303a015463f4d947f9eca3afcce78f334345b1c24245551",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_4.functional.v",
+    "original_sha256": "8dd61c8c8f7bbcec7d171f31ac02a6240739f013fcf5271e99df27ef8006142a",
+    "archive_sha256": "8dd61c8c8f7bbcec7d171f31ac02a6240739f013fcf5271e99df27ef8006142a",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_8.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkinv/sky130_fd_sc_hd__clkinv_8.functional.v",
+    "original_sha256": "99ccc099ed85684999b91ccf9afcf7d8fea42ba30936212599d56363ae57013e",
+    "archive_sha256": "99ccc099ed85684999b91ccf9afcf7d8fea42ba30936212599d56363ae57013e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/clkinvlp/sky130_fd_sc_hd__clkinvlp_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/clkinvlp/sky130_fd_sc_hd__clkinvlp_4.functional.v",
+    "original_sha256": "797b2bb55b2356d1dd316805f3c6b0e6d42e0884b4dad2dd2a496f6c2e5390d7",
+    "archive_sha256": "797b2bb55b2356d1dd316805f3c6b0e6d42e0884b4dad2dd2a496f6c2e5390d7",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/conb/sky130_fd_sc_hd__conb_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/conb/sky130_fd_sc_hd__conb_1.functional.v",
+    "original_sha256": "a993ca390726e493cdb6ee9217a5d1d4c30c8673486b0eea85ad158301ccf883",
+    "archive_sha256": "a993ca390726e493cdb6ee9217a5d1d4c30c8673486b0eea85ad158301ccf883",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_1.functional.v",
+    "original_sha256": "5b6275fa3191193912221bd40ebb559d5f4e5c412764d918843ce1b462f5d743",
+    "archive_sha256": "5b6275fa3191193912221bd40ebb559d5f4e5c412764d918843ce1b462f5d743",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_2.functional.v",
+    "original_sha256": "098a02c9864c7b39620d4fe1e2177e47ba18ee3aaa60450fed62b658577c26cb",
+    "archive_sha256": "098a02c9864c7b39620d4fe1e2177e47ba18ee3aaa60450fed62b658577c26cb",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/dfxtp/sky130_fd_sc_hd__dfxtp_4.functional.v",
+    "original_sha256": "c0e0f34cfd5ee759fe98b9cdc41fd36a8be060ad25e1a62320ddab5977090478",
+    "archive_sha256": "c0e0f34cfd5ee759fe98b9cdc41fd36a8be060ad25e1a62320ddab5977090478",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/dlygate4sd3/sky130_fd_sc_hd__dlygate4sd3_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/dlygate4sd3/sky130_fd_sc_hd__dlygate4sd3_1.functional.v",
+    "original_sha256": "eea32d53f874fc212fccb855a7928f473859a47096ffd558075a16da10999f62",
+    "archive_sha256": "eea32d53f874fc212fccb855a7928f473859a47096ffd558075a16da10999f62",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_12.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_12.functional.v",
+    "original_sha256": "ff6d01a87e61e04f1971e8c8e73c535e8ba6693b462d5052aba52ff0f449913d",
+    "archive_sha256": "ff6d01a87e61e04f1971e8c8e73c535e8ba6693b462d5052aba52ff0f449913d",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_16.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_16.functional.v",
+    "original_sha256": "08bbe91bc051711361e607573c7c09d79a38550754ae14bb6811abe1a1520e56",
+    "archive_sha256": "08bbe91bc051711361e607573c7c09d79a38550754ae14bb6811abe1a1520e56",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_4.functional.v",
+    "original_sha256": "f6dbeb3402074765afe7a2997a740aaf3345005db22fb0b595b0fb3a8a2e6fbe",
+    "archive_sha256": "f6dbeb3402074765afe7a2997a740aaf3345005db22fb0b595b0fb3a8a2e6fbe",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_6.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_6.functional.v",
+    "original_sha256": "46795106766a367960f8cbf93fed7ef961dca3764d095590ef4238b8f90d6bf5",
+    "archive_sha256": "46795106766a367960f8cbf93fed7ef961dca3764d095590ef4238b8f90d6bf5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_8.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/inv/sky130_fd_sc_hd__inv_8.functional.v",
+    "original_sha256": "2bc5f8b75b097fd3cbc8628d48b44144cb5eee1dae8b237d95bb7b01882d181f",
+    "archive_sha256": "2bc5f8b75b097fd3cbc8628d48b44144cb5eee1dae8b237d95bb7b01882d181f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/maj3/sky130_fd_sc_hd__maj3_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/maj3/sky130_fd_sc_hd__maj3_1.functional.v",
+    "original_sha256": "42beed5d9751d26b6fb46f40009fe368134871ee04e455a016661bcf630e0073",
+    "archive_sha256": "42beed5d9751d26b6fb46f40009fe368134871ee04e455a016661bcf630e0073",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/mux2/sky130_fd_sc_hd__mux2_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/mux2/sky130_fd_sc_hd__mux2_1.functional.v",
+    "original_sha256": "4a29a9d7f3819f722510d67fc2722c28c8fd7c5a0e3180a4503acdf32b3d537b",
+    "archive_sha256": "4a29a9d7f3819f722510d67fc2722c28c8fd7c5a0e3180a4503acdf32b3d537b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/mux2i/sky130_fd_sc_hd__mux2i_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/mux2i/sky130_fd_sc_hd__mux2i_1.functional.v",
+    "original_sha256": "c944a808956cb8869b01ea3719ddbee873799f233ff91129a4b3eaa83c783736",
+    "archive_sha256": "c944a808956cb8869b01ea3719ddbee873799f233ff91129a4b3eaa83c783736",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand2/sky130_fd_sc_hd__nand2_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nand2/sky130_fd_sc_hd__nand2_1.functional.v",
+    "original_sha256": "7e4a8911889bf309c67d8889c3d4911f7676415a794bddc15ec2154f736e62a6",
+    "archive_sha256": "7e4a8911889bf309c67d8889c3d4911f7676415a794bddc15ec2154f736e62a6",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand2/sky130_fd_sc_hd__nand2_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nand2/sky130_fd_sc_hd__nand2_2.functional.v",
+    "original_sha256": "59666a3c9547b6cecfa733819505e87f8f9bedab99f84c1e4dffec1a3e765bc5",
+    "archive_sha256": "59666a3c9547b6cecfa733819505e87f8f9bedab99f84c1e4dffec1a3e765bc5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand2b/sky130_fd_sc_hd__nand2b_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nand2b/sky130_fd_sc_hd__nand2b_1.functional.v",
+    "original_sha256": "0b392aa2605f51858aff5942ac2cb0043ec7fcab305de93f6262eb1201a96cc6",
+    "archive_sha256": "0b392aa2605f51858aff5942ac2cb0043ec7fcab305de93f6262eb1201a96cc6",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand3/sky130_fd_sc_hd__nand3_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nand3/sky130_fd_sc_hd__nand3_1.functional.v",
+    "original_sha256": "6a60e7bca5e4f26014536cfef9f14358fdee960357c2161916911ff7faa471eb",
+    "archive_sha256": "6a60e7bca5e4f26014536cfef9f14358fdee960357c2161916911ff7faa471eb",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand3/sky130_fd_sc_hd__nand3_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nand3/sky130_fd_sc_hd__nand3_4.functional.v",
+    "original_sha256": "484fedc35c75066e5fdfc8c754a1c23973600e2725e740fdda5367200bdbf574",
+    "archive_sha256": "484fedc35c75066e5fdfc8c754a1c23973600e2725e740fdda5367200bdbf574",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand3b/sky130_fd_sc_hd__nand3b_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nand3b/sky130_fd_sc_hd__nand3b_1.functional.v",
+    "original_sha256": "7d758f99ef48c19e395897b234d5d1d2e511ccfa5ea132ecde9487430992896e",
+    "archive_sha256": "7d758f99ef48c19e395897b234d5d1d2e511ccfa5ea132ecde9487430992896e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nand4/sky130_fd_sc_hd__nand4_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nand4/sky130_fd_sc_hd__nand4_1.functional.v",
+    "original_sha256": "45b91acde26122c58b4ad7b8f954a1d2b2b2cb27d3ee5d55b38285f4a199dcef",
+    "archive_sha256": "45b91acde26122c58b4ad7b8f954a1d2b2b2cb27d3ee5d55b38285f4a199dcef",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_1.functional.v",
+    "original_sha256": "3344ced4fd5ce8f38e84374497d73c42c7fbe76758f93cbebcdc59d9fad6ecab",
+    "archive_sha256": "3344ced4fd5ce8f38e84374497d73c42c7fbe76758f93cbebcdc59d9fad6ecab",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_2.functional.v",
+    "original_sha256": "5675ba3db99b537dd83ea8cc73f9a92223a50a4df51597117c2f0aad15b9cfe7",
+    "archive_sha256": "5675ba3db99b537dd83ea8cc73f9a92223a50a4df51597117c2f0aad15b9cfe7",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor2/sky130_fd_sc_hd__nor2_4.functional.v",
+    "original_sha256": "78df2a2a452e1f44cacd20d148ff3820ad097a7e86f055484f975e6bc2af8981",
+    "archive_sha256": "78df2a2a452e1f44cacd20d148ff3820ad097a7e86f055484f975e6bc2af8981",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor2b/sky130_fd_sc_hd__nor2b_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor2b/sky130_fd_sc_hd__nor2b_1.functional.v",
+    "original_sha256": "9ec0b4db57ec212e282121c33d0df4c4b138a72e7ac5ddf68ae0c875d4b459ba",
+    "archive_sha256": "9ec0b4db57ec212e282121c33d0df4c4b138a72e7ac5ddf68ae0c875d4b459ba",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor3/sky130_fd_sc_hd__nor3_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor3/sky130_fd_sc_hd__nor3_1.functional.v",
+    "original_sha256": "02f40df3efcc2ee1c322f9c4711605f9f7cf2fa863bf51851ad99c82773ae70b",
+    "archive_sha256": "02f40df3efcc2ee1c322f9c4711605f9f7cf2fa863bf51851ad99c82773ae70b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor3/sky130_fd_sc_hd__nor3_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor3/sky130_fd_sc_hd__nor3_2.functional.v",
+    "original_sha256": "d20f324006995bb521c6613563839f94fa36f4ba37b726186f36d86d551946f2",
+    "archive_sha256": "d20f324006995bb521c6613563839f94fa36f4ba37b726186f36d86d551946f2",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor3b/sky130_fd_sc_hd__nor3b_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor3b/sky130_fd_sc_hd__nor3b_2.functional.v",
+    "original_sha256": "630ed5455779eaa12da066bb302d488f76e363db24465bae9ddc61a6513e700d",
+    "archive_sha256": "630ed5455779eaa12da066bb302d488f76e363db24465bae9ddc61a6513e700d",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor4/sky130_fd_sc_hd__nor4_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor4/sky130_fd_sc_hd__nor4_1.functional.v",
+    "original_sha256": "46b0548b642cd9e5199d339f10e5e8c419bc8d1d7b211b01fb0911f2f5df2ad9",
+    "archive_sha256": "46b0548b642cd9e5199d339f10e5e8c419bc8d1d7b211b01fb0911f2f5df2ad9",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor4/sky130_fd_sc_hd__nor4_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor4/sky130_fd_sc_hd__nor4_2.functional.v",
+    "original_sha256": "7da355f06024a7430c78306fb80eefa68b677798d8ce63c3c04a1f3e736a53e7",
+    "archive_sha256": "7da355f06024a7430c78306fb80eefa68b677798d8ce63c3c04a1f3e736a53e7",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor4b/sky130_fd_sc_hd__nor4b_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor4b/sky130_fd_sc_hd__nor4b_1.functional.v",
+    "original_sha256": "540d2f497af46726f3cea1b902552c099051fadc58fca40d591e62e1202c3b05",
+    "archive_sha256": "540d2f497af46726f3cea1b902552c099051fadc58fca40d591e62e1202c3b05",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/nor4bb/sky130_fd_sc_hd__nor4bb_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/nor4bb/sky130_fd_sc_hd__nor4bb_1.functional.v",
+    "original_sha256": "9177b1ef3d6e399911a46293180265f319b32fcd600e5fe1cc0ec17ff5aebb6e",
+    "archive_sha256": "9177b1ef3d6e399911a46293180265f319b32fcd600e5fe1cc0ec17ff5aebb6e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o2111a/sky130_fd_sc_hd__o2111a_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o2111a/sky130_fd_sc_hd__o2111a_1.functional.v",
+    "original_sha256": "17ba5c78163e2c6074c01f2926d1076e02d5aa08789bbc813c16089480b47318",
+    "archive_sha256": "17ba5c78163e2c6074c01f2926d1076e02d5aa08789bbc813c16089480b47318",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o211ai/sky130_fd_sc_hd__o211ai_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o211ai/sky130_fd_sc_hd__o211ai_1.functional.v",
+    "original_sha256": "b1fb53cee0980f6b244d38d7e711c49cb96e481b7077902e82a079bf51f9afaf",
+    "archive_sha256": "b1fb53cee0980f6b244d38d7e711c49cb96e481b7077902e82a079bf51f9afaf",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21a/sky130_fd_sc_hd__o21a_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o21a/sky130_fd_sc_hd__o21a_1.functional.v",
+    "original_sha256": "4bd563abbf4cd1dc8cf9d1b734a237cec73655960690753954f23bd9b97ad32f",
+    "archive_sha256": "4bd563abbf4cd1dc8cf9d1b734a237cec73655960690753954f23bd9b97ad32f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_0.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_0.functional.v",
+    "original_sha256": "eaa5ca6b5416fb7c27c0efc9883054cb0611f522d9f93eb4d69d77e15cb8974c",
+    "archive_sha256": "eaa5ca6b5416fb7c27c0efc9883054cb0611f522d9f93eb4d69d77e15cb8974c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_1.functional.v",
+    "original_sha256": "e36c6ec6c690c4dcb80274676bd23ff65205f5420245113e796b8cf40c9cd4e0",
+    "archive_sha256": "e36c6ec6c690c4dcb80274676bd23ff65205f5420245113e796b8cf40c9cd4e0",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o21ai/sky130_fd_sc_hd__o21ai_2.functional.v",
+    "original_sha256": "edee3aa0d8bb638a6fff56db59a45eaf1a889998491be7b3d6aaffd7c8ffdc1b",
+    "archive_sha256": "edee3aa0d8bb638a6fff56db59a45eaf1a889998491be7b3d6aaffd7c8ffdc1b",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o21bai/sky130_fd_sc_hd__o21bai_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o21bai/sky130_fd_sc_hd__o21bai_1.functional.v",
+    "original_sha256": "98f94020da723559af0efd153b8afa037f1996dfda5264a127fb998a79e4181c",
+    "archive_sha256": "98f94020da723559af0efd153b8afa037f1996dfda5264a127fb998a79e4181c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o221a/sky130_fd_sc_hd__o221a_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o221a/sky130_fd_sc_hd__o221a_1.functional.v",
+    "original_sha256": "f4cf528ffe70d82fcf6fc73e466c8f4d69cc7d2abebd384f4919ebe106c3233e",
+    "archive_sha256": "f4cf528ffe70d82fcf6fc73e466c8f4d69cc7d2abebd384f4919ebe106c3233e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o221ai/sky130_fd_sc_hd__o221ai_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o221ai/sky130_fd_sc_hd__o221ai_1.functional.v",
+    "original_sha256": "6a684eeb73c114ce2b83948622a0e264b4df80b89c7540c83e2e295ae8e9789c",
+    "archive_sha256": "6a684eeb73c114ce2b83948622a0e264b4df80b89c7540c83e2e295ae8e9789c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o22ai/sky130_fd_sc_hd__o22ai_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o22ai/sky130_fd_sc_hd__o22ai_1.functional.v",
+    "original_sha256": "3ac296f4b99da054227f33abff728fed96a122f93fd31470a554e62f6ecc902e",
+    "archive_sha256": "3ac296f4b99da054227f33abff728fed96a122f93fd31470a554e62f6ecc902e",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o2bb2ai/sky130_fd_sc_hd__o2bb2ai_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o2bb2ai/sky130_fd_sc_hd__o2bb2ai_1.functional.v",
+    "original_sha256": "b50caed6270b7e1c12ae4224dd0be52c443f47cba02877167da381ee9873a03a",
+    "archive_sha256": "b50caed6270b7e1c12ae4224dd0be52c443f47cba02877167da381ee9873a03a",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o311ai/sky130_fd_sc_hd__o311ai_0.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o311ai/sky130_fd_sc_hd__o311ai_0.functional.v",
+    "original_sha256": "55de60070e42435e524d5e957a23fb77ebb07ddeace662e1c07e75a786c2c997",
+    "archive_sha256": "55de60070e42435e524d5e957a23fb77ebb07ddeace662e1c07e75a786c2c997",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/o31ai/sky130_fd_sc_hd__o31ai_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/o31ai/sky130_fd_sc_hd__o31ai_1.functional.v",
+    "original_sha256": "5c029bdc2a9a2072153ca1c0446fe55818128e8990cefe0bc5d5ac379904e513",
+    "archive_sha256": "5c029bdc2a9a2072153ca1c0446fe55818128e8990cefe0bc5d5ac379904e513",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_0.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_0.functional.v",
+    "original_sha256": "00acd1f4cf585fd0e53261fc58f2b30182601c9bbc7f45ee714872b54d8464e5",
+    "archive_sha256": "00acd1f4cf585fd0e53261fc58f2b30182601c9bbc7f45ee714872b54d8464e5",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_1.functional.v",
+    "original_sha256": "0f94dd2834ee8588eb6eafdd776b3ec39a641e080027be781f649f491546e841",
+    "archive_sha256": "0f94dd2834ee8588eb6eafdd776b3ec39a641e080027be781f649f491546e841",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_2.functional.v",
+    "original_sha256": "16614b753426208cd7bc6b2fe275f661ba3ee74c6796f64b29544a26a8717616",
+    "archive_sha256": "16614b753426208cd7bc6b2fe275f661ba3ee74c6796f64b29544a26a8717616",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or2/sky130_fd_sc_hd__or2_4.functional.v",
+    "original_sha256": "cc9050b95fd5e3ca57334e75fac724b06b17a60dbcc58ddc42d485987e9f2572",
+    "archive_sha256": "cc9050b95fd5e3ca57334e75fac724b06b17a60dbcc58ddc42d485987e9f2572",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or3/sky130_fd_sc_hd__or3_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or3/sky130_fd_sc_hd__or3_1.functional.v",
+    "original_sha256": "af45b83eb4d2f81cb8fc5c925db290fc4992e66f41f5e7f817146592569b82cc",
+    "archive_sha256": "af45b83eb4d2f81cb8fc5c925db290fc4992e66f41f5e7f817146592569b82cc",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or3/sky130_fd_sc_hd__or3_4.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or3/sky130_fd_sc_hd__or3_4.functional.v",
+    "original_sha256": "2012b3cd5b4e16b02d542a622092f1fdc8d19d3fdec63024eda3cbb2c27cc72c",
+    "archive_sha256": "2012b3cd5b4e16b02d542a622092f1fdc8d19d3fdec63024eda3cbb2c27cc72c",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or3b/sky130_fd_sc_hd__or3b_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or3b/sky130_fd_sc_hd__or3b_1.functional.v",
+    "original_sha256": "637dfc23562139ebbf330aa9ab540e9469110c1639254856e23dd7a974086fca",
+    "archive_sha256": "637dfc23562139ebbf330aa9ab540e9469110c1639254856e23dd7a974086fca",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/or4/sky130_fd_sc_hd__or4_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/or4/sky130_fd_sc_hd__or4_1.functional.v",
+    "original_sha256": "29aab6ec23e24c1691e2b187d6631839c967e4949f1ba471776e1bea1abd0046",
+    "archive_sha256": "29aab6ec23e24c1691e2b187d6631839c967e4949f1ba471776e1bea1abd0046",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/xnor2/sky130_fd_sc_hd__xnor2_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/xnor2/sky130_fd_sc_hd__xnor2_1.functional.v",
+    "original_sha256": "99de1d2b05b97a677c1eda1514d47de790cca8f551b4e560b1553509b87ca01f",
+    "archive_sha256": "99de1d2b05b97a677c1eda1514d47de790cca8f551b4e560b1553509b87ca01f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/xnor2/sky130_fd_sc_hd__xnor2_2.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/xnor2/sky130_fd_sc_hd__xnor2_2.functional.v",
+    "original_sha256": "5ada11393bc157b2fe7a200f1ac679e9ffc8ea4c69f8c462e348428d0ae94043",
+    "archive_sha256": "5ada11393bc157b2fe7a200f1ac679e9ffc8ea4c69f8c462e348428d0ae94043",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/xnor3/sky130_fd_sc_hd__xnor3_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/xnor3/sky130_fd_sc_hd__xnor3_1.functional.v",
+    "original_sha256": "0450967a002860f0a73f19ff7d3091b4834205bb03be9e2ae18d52724a79150f",
+    "archive_sha256": "0450967a002860f0a73f19ff7d3091b4834205bb03be9e2ae18d52724a79150f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/cells/xor2/sky130_fd_sc_hd__xor2_1.functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/cells/xor2/sky130_fd_sc_hd__xor2_1.functional.v",
+    "original_sha256": "cff9c09973f5d52b945be949509d7471d307a4c5526e87d4bca44046e58155bf",
+    "archive_sha256": "cff9c09973f5d52b945be949509d7471d307a4c5526e87d4bca44046e58155bf",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/models/udp_dff_p/sky130_fd_sc_hd__udp_dff_p.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/models/udp_dff_p/sky130_fd_sc_hd__udp_dff_p.v",
+    "original_sha256": "04bf0d9bfe21e9f32e3d117f3924816bd5444a8db77e52730e8ace4ef4d3b76f",
+    "archive_sha256": "04bf0d9bfe21e9f32e3d117f3924816bd5444a8db77e52730e8ace4ef4d3b76f",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/models/udp_mux_2to1/sky130_fd_sc_hd__udp_mux_2to1.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/models/udp_mux_2to1/sky130_fd_sc_hd__udp_mux_2to1.v",
+    "original_sha256": "4134f20855b0d1e3a5e5569d652b505d67e37b060f012eec2a5fefa0541603db",
+    "archive_sha256": "4134f20855b0d1e3a5e5569d652b505d67e37b060f012eec2a5fefa0541603db",
+    "compressed": false
+  },
+  {
+    "original_path": ".cache/sky130hd-vendor/models/udp_mux_2to1_n/sky130_fd_sc_hd__udp_mux_2to1_n.v",
+    "archive_path": "docs/verification/asic-physical-startup/upstream/sky130hd-vendor/models/udp_mux_2to1_n/sky130_fd_sc_hd__udp_mux_2to1_n.v",
+    "original_sha256": "ede25fb32763c543075febb2876f1fa54cd4a35b7a0c4388facf9960d1515c11",
+    "archive_sha256": "ede25fb32763c543075febb2876f1fa54cd4a35b7a0c4388facf9960d1515c11",
+    "compressed": false
+  },
+  {
+    "original_path": ".github/workflows/rtl.yml",
+    "archive_path": "docs/verification/asic-physical-startup/.github/workflows/rtl.yml",
+    "original_sha256": "1e850b48b6ebf59e8aac71f18100c893446d8c4f6688e996ffe8e3db09eee8f9",
+    "archive_sha256": "1e850b48b6ebf59e8aac71f18100c893446d8c4f6688e996ffe8e3db09eee8f9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/archive_asic_physical.py",
+    "archive_path": "docs/verification/asic-physical-startup/build/archive_asic_physical.py",
+    "original_sha256": "3af402ef0974dc447a80abbd11b40365c3dd1dc1424fa38c493717f5c0c9c8f5",
+    "archive_sha256": "3af402ef0974dc447a80abbd11b40365c3dd1dc1424fa38c493717f5c0c9c8f5",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-cell-models-regression-fixtures.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-cell-models-regression-fixtures.log",
+    "original_sha256": "a6cb0728948845635de1de2d20e8f5a408449e5fdad3d5d27fcb6080be33ad9f",
+    "archive_sha256": "a6cb0728948845635de1de2d20e8f5a408449e5fdad3d5d27fcb6080be33ad9f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-cells-fixtures.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-cells-fixtures.log",
+    "original_sha256": "59556b5f857b8d4802f69e174582a57e7e47b1139565260c8c81d0d8175f3fb3",
+    "archive_sha256": "59556b5f857b8d4802f69e174582a57e7e47b1139565260c8c81d0d8175f3fb3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/asic-startup-clock-tree.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/asic-startup-clock-tree.log",
+    "original_sha256": "2f28639f8591e9d77ef7df22cf3bb2afe4e221c87f37b9bea530fd87e5112408",
+    "archive_sha256": "2f28639f8591e9d77ef7df22cf3bb2afe4e221c87f37b9bea530fd87e5112408",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/asic-startup-floorplan.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/asic-startup-floorplan.log.gz",
+    "original_sha256": "9ee8f4606f38dbd40b7d583c98e14b2f0667d09c14a62fd27132fa61afadcf4f",
+    "archive_sha256": "afaa581f065b57d14e4d1a2310685d7228abc1843d371a927c6ec8ce1135a4e9",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/asic-startup-global-route.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/asic-startup-global-route.log",
+    "original_sha256": "149e4298dbb719159e90fd5812b08b80e197ed664581d3d85213fe2946265796",
+    "archive_sha256": "149e4298dbb719159e90fd5812b08b80e197ed664581d3d85213fe2946265796",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/baseline-from-json.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/baseline-from-json.v.gz",
+    "original_sha256": "fedf8684ef1a38721bcaaa6031d717839b946a7f7d32601ff7edcf6ca10b0c2f",
+    "archive_sha256": "e810f0dc9c368b692c960e152c772e8fb71f49880c3cd064c4f1dafe01f744d8",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/baseline.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/baseline.v.gz",
+    "original_sha256": "c2e50fc4336f72f4036113ac77025b8eb590b09afc7d97e9787f71c91fcc7f03",
+    "archive_sha256": "6b607d7d3358d1f905cdc57680ff7fed92dcd09af452f70af1ba9eb3c7553a4d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/cells.lib",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/cells.lib.gz",
+    "original_sha256": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    "archive_sha256": "05056a49b604e2359fdb95ec8a322b3add40126efdf9272d8e288f02fb59e69c",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/clocked.def",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/clocked.def.gz",
+    "original_sha256": "fb6f1af6fe891cf91158efdf75f6428a3c73d433f527c152c7811cf1c26acff3",
+    "archive_sha256": "4a24a89cbb83b1a7d7eadd7201c2e24ab73616ae7b1ca0c25cea9a3fdef4125f",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/clocked.odb",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/clocked.odb.gz",
+    "original_sha256": "f88dbea7e57edcd030fc4240520d729db034f8783a945043319a44ffd30e742f",
+    "archive_sha256": "284c51f796791becea2882e75ec4c82d42e89b3f253a348393d541e49d2a686b",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/clocked.sdc",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/clocked.sdc.gz",
+    "original_sha256": "fe667d81603a66dbda4ed1893c39ee50dc4d13aa94a2302e344231e40498a4d4",
+    "archive_sha256": "b7e035adb61dbef703baf926c96d1dac2a8fb8fe49c4455e68695bee1fdf2be4",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/clocked.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/clocked.v.gz",
+    "original_sha256": "2d6dd3c1cc32ac676e202b39750e9cbe577d4ce2c4d3b63ef27e8f0f4b3df751",
+    "archive_sha256": "0128a6d035f5d769e3d63a6fb5309c427569d199fe2234a77996cf943204c8a4",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/constraints.sdc",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/constraints.sdc.gz",
+    "original_sha256": "9c0bec402579fe31dad995a89fefcfd144e4887fb115f035fe2d72bbd45731c5",
+    "archive_sha256": "fe343c718c811d890c89d0ee24ba1269e88d8b052493c285beb5cb8ba9a47209",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/acyclic.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/acyclic.log",
+    "original_sha256": "15e698382fd5da5d324b1a938bd0f4e1b49567324a5319e1670c2106474cbb57",
+    "archive_sha256": "15e698382fd5da5d324b1a938bd0f4e1b49567324a5319e1670c2106474cbb57",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/acyclic.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/acyclic.ys",
+    "original_sha256": "8b4b42cba1fe3cfc60ae5456b656af03fea90087c741414b893f25948d63497c",
+    "archive_sha256": "8b4b42cba1fe3cfc60ae5456b656af03fea90087c741414b893f25948d63497c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/build.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/build.log",
+    "original_sha256": "a476b901c8267e7f4ceb1a419f478f03363d7c2c732e5c0c4f854b70621ddf2e",
+    "archive_sha256": "a476b901c8267e7f4ceb1a419f478f03363d7c2c732e5c0c4f854b70621ddf2e",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/cells.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/cells.log",
+    "original_sha256": "958fba50c09a2755152a846620e645b67d5dae6ea27ba857ed0d80b4a4ffbe3a",
+    "archive_sha256": "958fba50c09a2755152a846620e645b67d5dae6ea27ba857ed0d80b4a4ffbe3a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/cells.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/cells.v",
+    "original_sha256": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+    "archive_sha256": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/cells.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/cells.ys",
+    "original_sha256": "26e6801adf802dd4f5aefa78890517b81381b309338da5ca92dc530623db74d9",
+    "archive_sha256": "26e6801adf802dd4f5aefa78890517b81381b309338da5ca92dc530623db74d9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/clock-audit.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/clock-audit.json",
+    "original_sha256": "9fed677bbbb77ffc7c6769721835234a5d8aac46441afef9fc798cf0ade66685",
+    "archive_sha256": "9fed677bbbb77ffc7c6769721835234a5d8aac46441afef9fc798cf0ade66685",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/corrupt-read.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/corrupt-read.log",
+    "original_sha256": "6330e87c9f8d614e9c9fb9a8411d584aa131cdd2f66aa679898764d2c3b47115",
+    "archive_sha256": "6330e87c9f8d614e9c9fb9a8411d584aa131cdd2f66aa679898764d2c3b47115",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/equiv.il",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/equiv.il.gz",
+    "original_sha256": "5f6c0827c5a2bf3fbd9ecf499d1d2b55882148a49c0ed367edb45024ad194a7c",
+    "archive_sha256": "ac7bef0051678ddcc75e9b94babfd8e1df0c7173bbd98b1e73bb674dee5738cc",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/equivalence-cells.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/equivalence-cells.log",
+    "original_sha256": "250ba1a88703261965a74142fe061644e5fa1e476393353b3925ddbb7fe10ece",
+    "archive_sha256": "250ba1a88703261965a74142fe061644e5fa1e476393353b3925ddbb7fe10ece",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/equivalence-cells.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/equivalence-cells.v",
+    "original_sha256": "4aad4d64bb3dab74ef8d823485166c65a8f66ec1f43346cd1685c6455d61a2f8",
+    "archive_sha256": "4aad4d64bb3dab74ef8d823485166c65a8f66ec1f43346cd1685c6455d61a2f8",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/equivalence-cells.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/equivalence-cells.ys",
+    "original_sha256": "1dac4200734f8294c0c6c1bd0f77395e8b4fa37797f271e9041fe6d219a7cb8b",
+    "archive_sha256": "1dac4200734f8294c0c6c1bd0f77395e8b4fa37797f271e9041fe6d219a7cb8b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/equivalence.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/equivalence.log.gz",
+    "original_sha256": "dd5b2c78880628ba63db0c0d213d8a18f6b644100a654ebce212afb08641f9f9",
+    "archive_sha256": "371e288acb26f08261855788d0efb1492d1bfcfe74f4b708bce51b443f00cae7",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/equivalence.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/equivalence.ys",
+    "original_sha256": "5efe3aa9081da1bfbd7aad5b989b5828902f1f591de27f9a4aa16ab17a1bb8a7",
+    "archive_sha256": "5efe3aa9081da1bfbd7aad5b989b5828902f1f591de27f9a4aa16ab17a1bb8a7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/mapped.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/mapped.json.gz",
+    "original_sha256": "659fef89220ebca2ca57ed3dd8d83b2d36217a281f275c38321fd6a0d76c4537",
+    "archive_sha256": "b681e5acbcf4a80f66b4ebb652b8ab62a8961b98e6cf237f75664599d76f07eb",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/mapped.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/mapped.v.gz",
+    "original_sha256": "7bf7811c8c1834ef94a5de2a62fa33aceace8391d308485b8abf1fa4f5c07118",
+    "archive_sha256": "f2692aea1b1773f74857f10c3a72dd2c4ae3eb7c5666c8ac8763e01d760c059d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/normalize.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/normalize.log",
+    "original_sha256": "a1e00c48408d1b3a2dadac452aefd6b647c348a337e93b7b0529ac87cc1cf1c5",
+    "archive_sha256": "a1e00c48408d1b3a2dadac452aefd6b647c348a337e93b7b0529ac87cc1cf1c5",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/normalize.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/normalize.ys",
+    "original_sha256": "d97a16075f3b851ae7439606b47672e7784cd7821d05f69a1f30eee9667b33a6",
+    "archive_sha256": "d97a16075f3b851ae7439606b47672e7784cd7821d05f69a1f30eee9667b33a6",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/observations.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/observations.log",
+    "original_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "archive_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/raw.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/raw.json.gz",
+    "original_sha256": "1e279b3cc88147b32a34c39b0511f663f3a290f4258f6ad7d7a2d7840933776a",
+    "archive_sha256": "5c53a74794475665cbca4332efe7ae788c59adea3592ae97cc5e7d3ac7a431c7",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/reference-import.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/reference-import.log",
+    "original_sha256": "d252ecf1ebe90c443a9c9103f125bd6e9063f93a944ca1c65090fca50fdd4ec7",
+    "archive_sha256": "d252ecf1ebe90c443a9c9103f125bd6e9063f93a944ca1c65090fca50fdd4ec7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/reference-import.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/reference-import.ys",
+    "original_sha256": "a1450b4c41b02a64707c6705f5ca20f24ad8ab0e298d5a21777770eb20b67de4",
+    "archive_sha256": "a1450b4c41b02a64707c6705f5ca20f24ad8ab0e298d5a21777770eb20b67de4",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/reference.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/reference.json.gz",
+    "original_sha256": "d761f8326b89a4a7b11175d0b1875181556d57e268d6f5611a25030bdae21b43",
+    "archive_sha256": "ce2514e45c928043a35dbe412b75fcc033b1d8848e01b9d9e4907d2eea063e7d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/reset-pins.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/reset-pins.log",
+    "original_sha256": "ae992da2bed695cf8421ae5ab70a8950f10639adf05d427a0778d6efc66c3dbb",
+    "archive_sha256": "ae992da2bed695cf8421ae5ab70a8950f10639adf05d427a0778d6efc66c3dbb",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/reset-pins.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/reset-pins.ys",
+    "original_sha256": "2980ae0478fda50887cdd0e0be6d24bb57dc56d7972967fd1af53a771f8cbd80",
+    "archive_sha256": "2980ae0478fda50887cdd0e0be6d24bb57dc56d7972967fd1af53a771f8cbd80",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/reset-points.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/reset-points.log.gz",
+    "original_sha256": "a65ad0d28ec296d75a11a74846e9481bcafb28aac00fa1fcd4968b2e7e544839",
+    "archive_sha256": "5d54de0beb23e70b4eed260d917bc5260325e09ca7549bfbf6f7ea6aa936ee9e",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/reset-points.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/reset-points.ys",
+    "original_sha256": "c3605976799bc940e39c6eee796f8a3531b50c729e6f082693a64047c2788973",
+    "archive_sha256": "c3605976799bc940e39c6eee796f8a3531b50c729e6f082693a64047c2788973",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/vendor.vlt",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/vendor.vlt",
+    "original_sha256": "1e46667b6d8e2adbadbebb08034eb017929f3ac2d38d2a0132e10ce3d25b0386",
+    "archive_sha256": "1e46667b6d8e2adbadbebb08034eb017929f3ac2d38d2a0132e10ce3d25b0386",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/wrong-constant/cells.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/wrong-constant/cells.v",
+    "original_sha256": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+    "archive_sha256": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/wrong-constant/emit.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/wrong-constant/emit.log",
+    "original_sha256": "d4fe64b9ee783dd5958daa6788f20c9de66d521fcb206e476d232864b072b5c2",
+    "archive_sha256": "d4fe64b9ee783dd5958daa6788f20c9de66d521fcb206e476d232864b072b5c2",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/wrong-constant/emit.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/wrong-constant/emit.ys",
+    "original_sha256": "f555106f4afdb38ce41470e63f9d19cd9598b2817a6175b2484a3314c623740f",
+    "archive_sha256": "f555106f4afdb38ce41470e63f9d19cd9598b2817a6175b2484a3314c623740f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/wrong-constant/mapped.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/wrong-constant/mapped.json.gz",
+    "original_sha256": "604d18723804464e212aba8bf5270ac84afaa2754f60b8a3ad46f4214b3b7731",
+    "archive_sha256": "a763aa754692b5f248c567f90bb94764dd58e9b526a061205ea71396afcd9f7a",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/wrong-constant/proof-circuit.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/wrong-constant/proof-circuit.v.gz",
+    "original_sha256": "f899b8c8d02641c256d41ccc0966cd846f2b6ad3dce90a11c9aa428fe98404d0",
+    "archive_sha256": "bf2b7898827e50c1a14479f833895c6738967d850aa6545721b129929bba53c8",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/wrong-constant/reset-pins.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/wrong-constant/reset-pins.log",
+    "original_sha256": "8bdfc567d047509899be14ccf66d748cc7fc005c35d57a45039c3a43ddb4871a",
+    "archive_sha256": "8bdfc567d047509899be14ccf66d748cc7fc005c35d57a45039c3a43ddb4871a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/functional/wrong-constant/reset-pins.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/functional/wrong-constant/reset-pins.ys",
+    "original_sha256": "d67782474921f4ca49329b52a3b83e84f86a8a5189ba5ab50974f51722d9c254",
+    "archive_sha256": "d67782474921f4ca49329b52a3b83e84f86a8a5189ba5ab50974f51722d9c254",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-congestion.rpt",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/global-congestion.rpt",
+    "original_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "archive_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-routed.def",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/global-routed.def.gz",
+    "original_sha256": "95e5a528257b35d4bec05f3e52b972bf174301cd08a80f3c58e9f66f019ee665",
+    "archive_sha256": "3c2a6a11167e84d80d4f9b0330132957212bf3c1ed9b3c3ac2d339556aa5c053",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-routed.odb",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/global-routed.odb.gz",
+    "original_sha256": "d97565c79f190ca882923645f49cb318be3767639a604bee8593932d219787c5",
+    "archive_sha256": "88d90da5c04cd12d4dea6cb3f75ba4086f8a5b8136e8be2a6d52536d373ea0b9",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-routed.sdc",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/global-routed.sdc.gz",
+    "original_sha256": "a2862e7f6887a15056c2b30fae74c8f33f8973a50686781a7e9ec8d6f54b7868",
+    "archive_sha256": "bb2844a2bdf1b63a42555fd32c83fb6366f1e5f1569fbde8344bd8537b5d725d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/global-routed.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/global-routed.v.gz",
+    "original_sha256": "6dbd7c4f895f9935f62d487a06e24fbccb5db2c5136a6d4347d0ffa2713af1f4",
+    "archive_sha256": "f129e1aca9fe1faecb05fe92c38a7177ad275850d7cee46541026817f9d49692",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/incremental-congestion.rpt",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/incremental-congestion.rpt",
+    "original_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "archive_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/independent-cells.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/independent-cells.log",
+    "original_sha256": "c871b7d668f507842f2b1fb14332007f9452004c4176c2c5b0e9cb84bd8fdc01",
+    "archive_sha256": "c871b7d668f507842f2b1fb14332007f9452004c4176c2c5b0e9cb84bd8fdc01",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/initial-serialization-check/asic-physical-startup-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/initial-serialization-check/asic-physical-startup-driver.log",
+    "original_sha256": "12129efb91eb4d9c8fc22477f89ed740ed6c787c739053fa0143cd4c9ba6d7ec",
+    "archive_sha256": "12129efb91eb4d9c8fc22477f89ed740ed6c787c739053fa0143cd4c9ba6d7ec",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/initial-serialization-check/baseline.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/initial-serialization-check/baseline.v.gz",
+    "original_sha256": "fedf8684ef1a38721bcaaa6031d717839b946a7f7d32601ff7edcf6ca10b0c2f",
+    "archive_sha256": "e810f0dc9c368b692c960e152c772e8fb71f49880c3cd064c4f1dafe01f744d8",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/initial-serialization-check/check_asic_physical_startup.py",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/initial-serialization-check/check_asic_physical_startup.py",
+    "original_sha256": "c9adff29ae359cf55892dea2525ac5a8c17ce9e64b36b5f26463f0d32bb26da4",
+    "archive_sha256": "c9adff29ae359cf55892dea2525ac5a8c17ce9e64b36b5f26463f0d32bb26da4",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/initial-serialization-check/reference-serialize.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/initial-serialization-check/reference-serialize.log",
+    "original_sha256": "13756ea2b2beef27e77abaec27965b31c52eddfaa89468b4930861ac512f471a",
+    "archive_sha256": "13756ea2b2beef27e77abaec27965b31c52eddfaa89468b4930861ac512f471a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/initial-serialization-check/reference-serialize.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/initial-serialization-check/reference-serialize.ys",
+    "original_sha256": "8bac282b80a2980f8d7b0871e07b87c62afb27072d11e2c709ac34297b1778c9",
+    "archive_sha256": "8bac282b80a2980f8d7b0871e07b87c62afb27072d11e2c709ac34297b1778c9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/notices/IVERILOG_COPYRIGHT",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/notices/IVERILOG_COPYRIGHT",
+    "original_sha256": "08a7c438f641b5dca0e234b1a18063796ee3ef8e5d902d72dc9ec799b8c17525",
+    "archive_sha256": "08a7c438f641b5dca0e234b1a18063796ee3ef8e5d902d72dc9ec799b8c17525",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/notices/VERILATOR_COPYRIGHT",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/notices/VERILATOR_COPYRIGHT",
+    "original_sha256": "87dfb7c7cf9880193f02a6200f28b32158b268daf549c7bf21488088413684a7",
+    "archive_sha256": "87dfb7c7cf9880193f02a6200f28b32158b268daf549c7bf21488088413684a7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/notices/YOSYS_COPYRIGHT",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/notices/YOSYS_COPYRIGHT",
+    "original_sha256": "c84b7de4e8193fb1e1dc247990d2ef3cec6c1ce82a64458a3280f7cfca856fff",
+    "archive_sha256": "c84b7de4e8193fb1e1dc247990d2ef3cec6c1ce82a64458a3280f7cfca856fff",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/placed.def",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/placed.def.gz",
+    "original_sha256": "01c7deab5cea56827f4b29a09024d8a5083a77e69c945e6775842687e2c03284",
+    "archive_sha256": "be20568b7309fec71a464e5e51d2c43e8b01884c507d40636b7f364fe4923a0b",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/placed.odb",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/placed.odb.gz",
+    "original_sha256": "2f9d51ecbeb2ece34e70360625155f308096ca4512bfd0f912beeb40708c7b37",
+    "archive_sha256": "f78ceb0723f54a31e4ad221f92ea4cbf10e36ce5d8cf4a190ffb63d7ce6149f8",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/placed.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/placed.v.gz",
+    "original_sha256": "6c7b36fceaa1566b6c3c6c0843733ccd0a37c4d1d745afcae2edb19fce56553b",
+    "archive_sha256": "2a544a2d7b79bad2a5a3256983dfe49d5192fa11361c71c88c4418bb3a31064d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/progress.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/progress.json",
+    "original_sha256": "fe8da5f14d05c510f6132273faa136a58dceef4378f2e296cdf3391f5f943ec1",
+    "archive_sha256": "fe8da5f14d05c510f6132273faa136a58dceef4378f2e296cdf3391f5f943ec1",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-serialize.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-serialize.log",
+    "original_sha256": "13756ea2b2beef27e77abaec27965b31c52eddfaa89468b4930861ac512f471a",
+    "archive_sha256": "13756ea2b2beef27e77abaec27965b31c52eddfaa89468b4930861ac512f471a",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-serialize.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-serialize.ys",
+    "original_sha256": "8205425011b108eaa41fe1863a888609e511e6635c62e0cd668dce2f29372240",
+    "archive_sha256": "8205425011b108eaa41fe1863a888609e511e6635c62e0cd668dce2f29372240",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-serialized.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-serialized.json.gz",
+    "original_sha256": "2029a7966e714409fb22ff3c4f19a289de21903835019b3a819b8583cf8f8295",
+    "archive_sha256": "35c70b0e550e122faf0b954cc1c8cf0032330c4be5d20d29acb672e7532472a1",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-serialized.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-serialized.log",
+    "original_sha256": "6ea7099484194d3b2e653fcdc405891ed90409738c9d88b362f0db0eb256030e",
+    "archive_sha256": "6ea7099484194d3b2e653fcdc405891ed90409738c9d88b362f0db0eb256030e",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-serialized.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-serialized.ys",
+    "original_sha256": "26fd1978e5465f45b07777ca22bc78368f563066d7eb8ce04ada0b656f9a4b9e",
+    "archive_sha256": "26fd1978e5465f45b07777ca22bc78368f563066d7eb8ce04ada0b656f9a4b9e",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-simulated.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-simulated.json.gz",
+    "original_sha256": "bdf9974a0ccad5b2ab4110eb1afc30ca45b5254407aa56ab1a2de2ea37235080",
+    "archive_sha256": "d3265f7d5cadcfb4435ab1bc78f165ea4b8bc9dec6f1d406d035014db52fe8b9",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-simulated.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-simulated.log",
+    "original_sha256": "bdb479790d53600a7cdc61ab45eb0a61834cb98eba577c2a611fd1ca2c4c627b",
+    "archive_sha256": "bdb479790d53600a7cdc61ab45eb0a61834cb98eba577c2a611fd1ca2c4c627b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/reference-simulated.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/reference-simulated.ys",
+    "original_sha256": "3f912d30d5816f12df14ad14e05a4645c0402802b3771a3f9bc6b1095afab988",
+    "archive_sha256": "3f912d30d5816f12df14ad14e05a4645c0402802b3771a3f9bc6b1095afab988",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup/route.guide",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup/route.guide.gz",
+    "original_sha256": "d185aac48dc864e8902e449c6d22627ce5d78bcc030598bf29616f7c65cdbcb4",
+    "archive_sha256": "0c67aa1b34479d2c7c29cfaff0dad498fb6d99a6e469c88e752fdfa04bd359a4",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/derived.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/derived.v",
+    "original_sha256": "64a41046ba17288659bcdad82c3fb1590f33fcfa48804e863dff4c5d31f4d002",
+    "archive_sha256": "64a41046ba17288659bcdad82c3fb1590f33fcfa48804e863dff4c5d31f4d002",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/filtered/cells.lib",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/filtered/cells.lib.gz",
+    "original_sha256": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    "archive_sha256": "05056a49b604e2359fdb95ec8a322b3add40126efdf9272d8e288f02fb59e69c",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/filtered/filter.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/filtered/filter.json",
+    "original_sha256": "225ab3765762d2da427357eb890940a2ba17d7e3c64bff14cc4a1fb39a4e2c93",
+    "archive_sha256": "225ab3765762d2da427357eb890940a2ba17d7e3c64bff14cc4a1fb39a4e2c93",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/library.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/library.json.gz",
+    "original_sha256": "70ef13bf04d77ae5364fd7a63502dcf6f85876b74fa1afc0ec89ee78c7287436",
+    "archive_sha256": "95e70abde312ceb084676a0647c6a9a587522f03566993b7ecb83e356cc6d67e",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/models.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/models.log",
+    "original_sha256": "6275ea6d2b1d897319aa2dd7f5fcdcbc129bee33d984e5f15f0b7c08f72acf9d",
+    "archive_sha256": "6275ea6d2b1d897319aa2dd7f5fcdcbc129bee33d984e5f15f0b7c08f72acf9d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/models.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/models.ys",
+    "original_sha256": "0d8b9593faa51f593ec412bc879b83b21df69fec05068cfdb56c0a97747dd79e",
+    "archive_sha256": "0d8b9593faa51f593ec412bc879b83b21df69fec05068cfdb56c0a97747dd79e",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/positive-compile.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/positive-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/positive.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/positive.log",
+    "original_sha256": "24a1add241d07d47384feb390df32c6a874f80f4760cf934b196323f93940d44",
+    "archive_sha256": "24a1add241d07d47384feb390df32c6a874f80f4760cf934b196323f93940d44",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/positive.vvp",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/positive.vvp.gz",
+    "original_sha256": "394f41cfd8e0cfd8b79716bb1ee04a9e03b068dda42cf3568abb0a13253f4186",
+    "archive_sha256": "82cc8bcf8955411ad545b44fdd404345633ac580f89b1e3c859b16b2d7a914ce",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/testbench.sv",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/testbench.sv",
+    "original_sha256": "91049ed89dd5bbb71dcfc219b513ea8bcb0e54d1297a9c52c1e1c8955e9ebf4f",
+    "archive_sha256": "91049ed89dd5bbb71dcfc219b513ea8bcb0e54d1297a9c52c1e1c8955e9ebf4f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-and-output-compile.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-and-output-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-and-output.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-and-output.log",
+    "original_sha256": "7f8430bfe8ac025af13513a3489299ef00ca3e079962e633a3bcc4e9526982b9",
+    "archive_sha256": "7f8430bfe8ac025af13513a3489299ef00ca3e079962e633a3bcc4e9526982b9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-and-output.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-and-output.v",
+    "original_sha256": "9bb990a8d8cd84ab714c632bc87c35dc28bba9939b133169bb173f563591e492",
+    "archive_sha256": "9bb990a8d8cd84ab714c632bc87c35dc28bba9939b133169bb173f563591e492",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-and-output.vvp",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-and-output.vvp.gz",
+    "original_sha256": "86d1d6c8694c4a46d12318e09068f27f3257ce14bd74de478f58991fdcef5e74",
+    "archive_sha256": "5fcd2b8018bdbbf077e7fdde4f5e98dbd358dd5e1e2ff83fd562accfffe7a405",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-2-compile.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-2-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-2.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-2.log",
+    "original_sha256": "c2839b907e85bce2ba6b1fcb98059dfec2e2373f56243b55fdcb3888f0785650",
+    "archive_sha256": "c2839b907e85bce2ba6b1fcb98059dfec2e2373f56243b55fdcb3888f0785650",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-2.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-2.v",
+    "original_sha256": "00676338010b63a5ea7bfa74039f675391a5260db54935ddbe362937885703e7",
+    "archive_sha256": "00676338010b63a5ea7bfa74039f675391a5260db54935ddbe362937885703e7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-2.vvp",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-2.vvp.gz",
+    "original_sha256": "334a70719bd27a453cfefb60f4d03e60f73bcf147ae6c028bb2d0c51b5df8b1b",
+    "archive_sha256": "9df7ffb40e3308fb18bf634b39a17e144199a9a0df1968730ea0a6b1ba976619",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-4-compile.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-4-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-4.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-4.log",
+    "original_sha256": "9e18a03d76a0173d184696a5e147672e74898f9d02f037c9384f9098a3c6e706",
+    "archive_sha256": "9e18a03d76a0173d184696a5e147672e74898f9d02f037c9384f9098a3c6e706",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-4.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-4.v",
+    "original_sha256": "7cf8e0d7a2204d92257b07a636bf0ccf7ac38927c57f88e714635fbd242a3fa6",
+    "archive_sha256": "7cf8e0d7a2204d92257b07a636bf0ccf7ac38927c57f88e714635fbd242a3fa6",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-4.vvp",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-4.vvp.gz",
+    "original_sha256": "489c67dd86a2c1548aa10c0f4cfaa5f66cdaa7233d6bfa58755272b94dc818c1",
+    "archive_sha256": "c708b529ca9a663f2281dfbc0bbc1e58827ae41b175591230ef773566e85f568",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge-compile.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge.log",
+    "original_sha256": "dc6e63c656fa467c3f5fe306b2fc5f9d518f7f4fe8e1bf42a343b9509910fd60",
+    "archive_sha256": "dc6e63c656fa467c3f5fe306b2fc5f9d518f7f4fe8e1bf42a343b9509910fd60",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge.v",
+    "original_sha256": "5255f9fa2196136b79caa05cd97f82bf45dc454ad8ac9bc8b781c06cce4ad0c0",
+    "archive_sha256": "5255f9fa2196136b79caa05cd97f82bf45dc454ad8ac9bc8b781c06cce4ad0c0",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-clock-edge.vvp",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-clock-edge.vvp.gz",
+    "original_sha256": "e041f1015fe969d939595ceecf92bb3671f0470fda44be50c9f4142410c3f6a8",
+    "archive_sha256": "9acc8a25d8319cb2b8dda44cec824522a082e69e36e2ddf43f33602dcbfa58d4",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-tie-high-compile.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-tie-high-compile.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-tie-high.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-tie-high.log",
+    "original_sha256": "99e6786f2a9259ecfab5fda9f8454b10019fa70427add0aa4d70a57ebeab43bf",
+    "archive_sha256": "99e6786f2a9259ecfab5fda9f8454b10019fa70427add0aa4d70a57ebeab43bf",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-tie-high.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-tie-high.v",
+    "original_sha256": "d5768ba04527766b39050f4d9c4b1231514f52b76a8f32896e71e68ad88dcb27",
+    "archive_sha256": "d5768ba04527766b39050f4d9c4b1231514f52b76a8f32896e71e68ad88dcb27",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-startup-cells/wrong-tie-high.vvp",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-cells/wrong-tie-high.vvp.gz",
+    "original_sha256": "7f44c9f9c90a0b453441b9085c539ccb9000c278e93378f3e7160b5eb37dbd54",
+    "archive_sha256": "b568d9bcd4b3c5958a2f6812182de6a64b66e6bd0ccc6592a3278c1d93778970",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-physical-startup-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-startup-driver.log",
+    "original_sha256": "1dbe10d71ba406262b3b7b0df921b2537ea3f0142686d7cc30a108ed316eb824",
+    "archive_sha256": "1dbe10d71ba406262b3b7b0df921b2537ea3f0142686d7cc30a108ed316eb824",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-physical-workflow-lint.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-physical-workflow-lint.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup/131072-3-11/cells.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup/131072-3-11/cells.v",
+    "original_sha256": "94391be6039d7995d9b331c8e1def223044ffdfcfffcf29e2045481d427a1ab3",
+    "archive_sha256": "94391be6039d7995d9b331c8e1def223044ffdfcfffcf29e2045481d427a1ab3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup/131072-3-11/mapped.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup/131072-3-11/mapped.json.gz",
+    "original_sha256": "772a60445dad5c19fca3ab477deae7e31f0bb74a880a2e13cf7e715336650af5",
+    "archive_sha256": "22cea4077351a2431665e24c2e4ecabb09291fea85b5c09a0a99d79562a3d037",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup/131072-3-11/mapped.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup/131072-3-11/mapped.v.gz",
+    "original_sha256": "c2e50fc4336f72f4036113ac77025b8eb590b09afc7d97e9787f71c91fcc7f03",
+    "archive_sha256": "6b607d7d3358d1f905cdc57680ff7fed92dcd09af452f70af1ba9eb3c7553a4d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup/131072-3-11/rtl-observations.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup/131072-3-11/rtl-observations.log",
+    "original_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "archive_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup/131072-3-11/standard_cells-observations.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup/131072-3-11/standard_cells-observations.log",
+    "original_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "archive_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/cells.lib",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/cells.lib.gz",
+    "original_sha256": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    "archive_sha256": "05056a49b604e2359fdb95ec8a322b3add40126efdf9272d8e288f02fb59e69c",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/cells.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/cells.v",
+    "original_sha256": "94391be6039d7995d9b331c8e1def223044ffdfcfffcf29e2045481d427a1ab3",
+    "archive_sha256": "94391be6039d7995d9b331c8e1def223044ffdfcfffcf29e2045481d427a1ab3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/clock-tree.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/clock-tree.log",
+    "original_sha256": "2f28639f8591e9d77ef7df22cf3bb2afe4e221c87f37b9bea530fd87e5112408",
+    "archive_sha256": "2f28639f8591e9d77ef7df22cf3bb2afe4e221c87f37b9bea530fd87e5112408",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/clock-tree.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/clock-tree.tcl",
+    "original_sha256": "9532c490c0671b0c624a77c7fa4e8f3475b998fb130aede54e6e952ed3bfc860",
+    "archive_sha256": "9532c490c0671b0c624a77c7fa4e8f3475b998fb130aede54e6e952ed3bfc860",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/clocked.def",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/clocked.def.gz",
+    "original_sha256": "fb6f1af6fe891cf91158efdf75f6428a3c73d433f527c152c7811cf1c26acff3",
+    "archive_sha256": "4a24a89cbb83b1a7d7eadd7201c2e24ab73616ae7b1ca0c25cea9a3fdef4125f",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/clocked.odb",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/clocked.odb.gz",
+    "original_sha256": "f88dbea7e57edcd030fc4240520d729db034f8783a945043319a44ffd30e742f",
+    "archive_sha256": "284c51f796791becea2882e75ec4c82d42e89b3f253a348393d541e49d2a686b",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/clocked.sdc",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/clocked.sdc.gz",
+    "original_sha256": "a3405f2afb17e4bceab85159d7765d20853c5121eec6f6e4114dba88e4939937",
+    "archive_sha256": "5e30ad09887635a6d88579ff60cb17ec4ebb19194679833d64922abbf3640188",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/clocked.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/clocked.v.gz",
+    "original_sha256": "2d6dd3c1cc32ac676e202b39750e9cbe577d4ce2c4d3b63ef27e8f0f4b3df751",
+    "archive_sha256": "0128a6d035f5d769e3d63a6fb5309c427569d199fe2234a77996cf943204c8a4",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/constraints.sdc",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/constraints.sdc.gz",
+    "original_sha256": "6ffe3d97b7c0e62709877c73b15cba7532c1602ff4988ffb0e0cb22178afe89c",
+    "archive_sha256": "cf6f040188328f3036054a64fb3972f56312313804387b90f0d78114b4bf37cb",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/floorplan-attempt-1.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/floorplan-attempt-1.log",
+    "original_sha256": "73496e58d1fcbf0cdccf33a0b55e82d1945e112219e308c04de15a652677a545",
+    "archive_sha256": "73496e58d1fcbf0cdccf33a0b55e82d1945e112219e308c04de15a652677a545",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/floorplan-attempt-1.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/floorplan-attempt-1.tcl",
+    "original_sha256": "4bd569bdb728859b31f8f104e3cefd10743a177cde294f4e737968c27e20c0cb",
+    "archive_sha256": "4bd569bdb728859b31f8f104e3cefd10743a177cde294f4e737968c27e20c0cb",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/floorplan-attempt-2.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/floorplan-attempt-2.log",
+    "original_sha256": "56759d9392b0163afb55e05b6b81d8e69e916463ef4cfa3c44e9b21a75c09ba2",
+    "archive_sha256": "56759d9392b0163afb55e05b6b81d8e69e916463ef4cfa3c44e9b21a75c09ba2",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/floorplan-attempt-2.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/floorplan-attempt-2.tcl",
+    "original_sha256": "ba7dff6f16bd5aa6492220ef4da385f7ea5b186807abd08cdfcabcb2619b3e31",
+    "archive_sha256": "ba7dff6f16bd5aa6492220ef4da385f7ea5b186807abd08cdfcabcb2619b3e31",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/floorplan.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/floorplan.log.gz",
+    "original_sha256": "9ee8f4606f38dbd40b7d583c98e14b2f0667d09c14a62fd27132fa61afadcf4f",
+    "archive_sha256": "afaa581f065b57d14e4d1a2310685d7228abc1843d371a927c6ec8ce1135a4e9",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/floorplan.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/floorplan.tcl",
+    "original_sha256": "6a6611ebf788bc33fbe809bf5bab94ffa83d914bd4368ebf2d76e6db1852adab",
+    "archive_sha256": "6a6611ebf788bc33fbe809bf5bab94ffa83d914bd4368ebf2d76e6db1852adab",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/global-congestion.rpt",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/global-congestion.rpt",
+    "original_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "archive_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/global-routed.odb",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/global-routed.odb.gz",
+    "original_sha256": "d97565c79f190ca882923645f49cb318be3767639a604bee8593932d219787c5",
+    "archive_sha256": "88d90da5c04cd12d4dea6cb3f75ba4086f8a5b8136e8be2a6d52536d373ea0b9",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/global-routed.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/global-routed.v.gz",
+    "original_sha256": "6dbd7c4f895f9935f62d487a06e24fbccb5db2c5136a6d4347d0ffa2713af1f4",
+    "archive_sha256": "f129e1aca9fe1faecb05fe92c38a7177ad275850d7cee46541026817f9d49692",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/help-repair.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/help-repair.log",
+    "original_sha256": "4777b05ef9c2c11068619dacb5750405c54ab1db3909c356ea3c726d2ede1eb1",
+    "archive_sha256": "4777b05ef9c2c11068619dacb5750405c54ab1db3909c356ea3c726d2ede1eb1",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/help-repair.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/help-repair.tcl",
+    "original_sha256": "c66692b3f819e9d647e49215c5e7eadaa415f805322c1c942f765d36be02f75d",
+    "archive_sha256": "c66692b3f819e9d647e49215c5e7eadaa415f805322c1c942f765d36be02f75d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/help.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/help.log",
+    "original_sha256": "0f6fdcca81f082c8a8b1adb1c5ad57e4e4ef1c47a950e6f6a268db910b6bc80e",
+    "archive_sha256": "0f6fdcca81f082c8a8b1adb1c5ad57e4e4ef1c47a950e6f6a268db910b6bc80e",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/help.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/help.tcl",
+    "original_sha256": "0ee8d3e2a17c0cbf8e83813c4f09383aab42c7a26717a366fabe1c96c80f072b",
+    "archive_sha256": "0ee8d3e2a17c0cbf8e83813c4f09383aab42c7a26717a366fabe1c96c80f072b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/incremental-congestion.rpt",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/incremental-congestion.rpt",
+    "original_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "archive_sha256": "83de3e5b7c007f31959260bb5056299e3734db7c9fac1aecfb792d95e202003c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/input-snapshot.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/input-snapshot.json",
+    "original_sha256": "e63cfcba99e2f52eeb76d0bf89b43cda9757762490e86d6a10f464fc17416c91",
+    "archive_sha256": "e63cfcba99e2f52eeb76d0bf89b43cda9757762490e86d6a10f464fc17416c91",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/inspect.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/inspect.log",
+    "original_sha256": "d74e210ce2b75862a923f59ea51b39a6aabd99e4979912423ed930a721e5c205",
+    "archive_sha256": "d74e210ce2b75862a923f59ea51b39a6aabd99e4979912423ed930a721e5c205",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/inspect.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/inspect.tcl",
+    "original_sha256": "40ac9513ff5d7c0f090d80f284b291a800c414a11d4f850605ac97f4db510ab9",
+    "archive_sha256": "40ac9513ff5d7c0f090d80f284b291a800c414a11d4f850605ac97f4db510ab9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/mapped.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/mapped.json.gz",
+    "original_sha256": "772a60445dad5c19fca3ab477deae7e31f0bb74a880a2e13cf7e715336650af5",
+    "archive_sha256": "22cea4077351a2431665e24c2e4ecabb09291fea85b5c09a0a99d79562a3d037",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/mapped.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/mapped.v.gz",
+    "original_sha256": "c2e50fc4336f72f4036113ac77025b8eb590b09afc7d97e9787f71c91fcc7f03",
+    "archive_sha256": "6b607d7d3358d1f905cdc57680ff7fed92dcd09af452f70af1ba9eb3c7553a4d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/placed.def",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/placed.def.gz",
+    "original_sha256": "01c7deab5cea56827f4b29a09024d8a5083a77e69c945e6775842687e2c03284",
+    "archive_sha256": "be20568b7309fec71a464e5e51d2c43e8b01884c507d40636b7f364fe4923a0b",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/placed.odb",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/placed.odb.gz",
+    "original_sha256": "2f9d51ecbeb2ece34e70360625155f308096ca4512bfd0f912beeb40708c7b37",
+    "archive_sha256": "f78ceb0723f54a31e4ad221f92ea4cbf10e36ce5d8cf4a190ffb63d7ce6149f8",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/placed.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/placed.v.gz",
+    "original_sha256": "6c7b36fceaa1566b6c3c6c0843733ccd0a37c4d1d745afcae2edb19fce56553b",
+    "archive_sha256": "2a544a2d7b79bad2a5a3256983dfe49d5192fa11361c71c88c4418bb3a31064d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/route-attempt-1.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/route-attempt-1.log",
+    "original_sha256": "01e88b87e7b060155f4609154ae495bc48a32db6d409233027e475caea341af4",
+    "archive_sha256": "01e88b87e7b060155f4609154ae495bc48a32db6d409233027e475caea341af4",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/route-attempt-1.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/route-attempt-1.tcl",
+    "original_sha256": "fdcda2c70493bf6471aef4fbde0fcaee9c256ff8bd2596617c2b04dab3e8f2ff",
+    "archive_sha256": "fdcda2c70493bf6471aef4fbde0fcaee9c256ff8bd2596617c2b04dab3e8f2ff",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/route-attempt-2.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/route-attempt-2.log",
+    "original_sha256": "cb1e6246d9190b8720eb41efdbfab4c4d892cbba7a73c9ff5fe7904a79a763dc",
+    "archive_sha256": "cb1e6246d9190b8720eb41efdbfab4c4d892cbba7a73c9ff5fe7904a79a763dc",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/route-attempt-2.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/route-attempt-2.tcl",
+    "original_sha256": "734304dfb7aa6b3ed815b6a49d854aaaa062b1a67aecd20cb9371b71d0a340db",
+    "archive_sha256": "734304dfb7aa6b3ed815b6a49d854aaaa062b1a67aecd20cb9371b71d0a340db",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/route.guide",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/route.guide.gz",
+    "original_sha256": "d185aac48dc864e8902e449c6d22627ce5d78bcc030598bf29616f7c65cdbcb4",
+    "archive_sha256": "0c67aa1b34479d2c7c29cfaff0dad498fb6d99a6e469c88e752fdfa04bd359a4",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-physical/route.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/route.log",
+    "original_sha256": "c00513c01a46c39e0229e603c6e0a45a4c7054c7fe3a33f232d6229b43a5344d",
+    "archive_sha256": "c00513c01a46c39e0229e603c6e0a45a4c7054c7fe3a33f232d6229b43a5344d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-physical/route.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-physical/route.tcl",
+    "original_sha256": "0da1b5c9514e22a941af87ca9b4cfa7ff3dce3b03a389460d0a32f66d413d679",
+    "archive_sha256": "0da1b5c9514e22a941af87ca9b4cfa7ff3dce3b03a389460d0a32f66d413d679",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/acyclic.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/acyclic.log",
+    "original_sha256": "786af5b9d2b375c3f30ae7dc192a66300b26245e3484b42daee43993d665e24c",
+    "archive_sha256": "786af5b9d2b375c3f30ae7dc192a66300b26245e3484b42daee43993d665e24c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/acyclic.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/acyclic.ys",
+    "original_sha256": "9f10a5bb1586a649ddcb9ef5be9adcc2477a67917d4cc86838196f01f7163baa",
+    "archive_sha256": "9f10a5bb1586a649ddcb9ef5be9adcc2477a67917d4cc86838196f01f7163baa",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/build.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/build.log",
+    "original_sha256": "93e3780203538c778498de103068ebe9153cfc3b87ed771963a9808466fc1b2f",
+    "archive_sha256": "93e3780203538c778498de103068ebe9153cfc3b87ed771963a9808466fc1b2f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/cells.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/cells.v",
+    "original_sha256": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+    "archive_sha256": "fa270d49de9eb52daecf7d4fa435c0e8067ea6f15a53fc638fda5fd92175c798",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/clock-audit.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/clock-audit.json",
+    "original_sha256": "f9ab29e1434d0d8b563bd259ee90951e2d5780ff98ddc683298f09c8d0f2376d",
+    "archive_sha256": "f9ab29e1434d0d8b563bd259ee90951e2d5780ff98ddc683298f09c8d0f2376d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/clock-check-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/clock-check-driver.log",
+    "original_sha256": "2c0e8613c2450ed49a556bee92b9e490df3f88cd42e8241567f82a32922727f4",
+    "archive_sha256": "2c0e8613c2450ed49a556bee92b9e490df3f88cd42e8241567f82a32922727f4",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/clock-check.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/clock-check.json",
+    "original_sha256": "29973d40f608e4d2c2b2dfa451129d47e9610e1538d275b4f780e32b7004e240",
+    "archive_sha256": "29973d40f608e4d2c2b2dfa451129d47e9610e1538d275b4f780e32b7004e240",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/equivalence-cells.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/equivalence-cells.v",
+    "original_sha256": "d272752b81f014737551814763bff0dfd27d697da5238c9fed4140142805b305",
+    "archive_sha256": "d272752b81f014737551814763bff0dfd27d697da5238c9fed4140142805b305",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/equivalence.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/equivalence.log",
+    "original_sha256": "7962e9e95315ffd5661a6f4a6f853e3098810c6bb70491b4e5db8e73e40ea5ba",
+    "archive_sha256": "7962e9e95315ffd5661a6f4a6f853e3098810c6bb70491b4e5db8e73e40ea5ba",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/equivalence.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/equivalence.ys",
+    "original_sha256": "36537038672ec4f14e85d398c6afea8f0b53eb08e3610c6fa74b1a7d7b2f070d",
+    "archive_sha256": "36537038672ec4f14e85d398c6afea8f0b53eb08e3610c6fa74b1a7d7b2f070d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/fsm.enc",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/fsm.enc",
+    "original_sha256": "45b713eba9472695f09333ade483271df6a0aac7557312b6f6be2b1ef4644ace",
+    "archive_sha256": "45b713eba9472695f09333ade483271df6a0aac7557312b6f6be2b1ef4644ace",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/functional.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/functional.json.gz",
+    "original_sha256": "05d11371b0657fa1c47bbbb80124cebfd4c9835b74fe4996b105aa1bc8b45dbc",
+    "archive_sha256": "2146c92bb2dc44ba2ab537563833076c7ed6f46454c1d9a1e7960c0ee8f8a273",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/functional.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/functional.v.gz",
+    "original_sha256": "7bf7811c8c1834ef94a5de2a62fa33aceace8391d308485b8abf1fa4f5c07118",
+    "archive_sha256": "f2692aea1b1773f74857f10c3a72dd2c4ae3eb7c5666c8ac8763e01d760c059d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/mapped-equiv.il",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/mapped-equiv.il.gz",
+    "original_sha256": "3c5c1729d9b93fa210028bf45d99337b5c2412427ae4b0cf17d3d8a21d2b58f5",
+    "archive_sha256": "31993632b6177bf0ae88f0968e6be31fa61d847ed7dd4b55e0e954933db3ec77",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/mapped-equivalence.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/mapped-equivalence.log.gz",
+    "original_sha256": "67f5b573cccbe68d32eb38d81903b031af449fa8f9044c08241869edd130f2ca",
+    "archive_sha256": "f877974062dc28b36946dbc3eb4dbec005b8e115d3f3ae398de602c442dbcb30",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/mapped-equivalence.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/mapped-equivalence.ys",
+    "original_sha256": "76835c60f610ef1232d40658fb1ca3fee0bc854e4652a1d5a1d577a6b9119139",
+    "archive_sha256": "76835c60f610ef1232d40658fb1ca3fee0bc854e4652a1d5a1d577a6b9119139",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/mapped-proof-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/mapped-proof-driver.log",
+    "original_sha256": "184572cd5cac52068ae9fb71a9b2618d1ccbbccfebfba418f04ccdafb057cc8d",
+    "archive_sha256": "184572cd5cac52068ae9fb71a9b2618d1ccbbccfebfba418f04ccdafb057cc8d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/mapped.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/mapped.v.gz",
+    "original_sha256": "7bf7811c8c1834ef94a5de2a62fa33aceace8391d308485b8abf1fa4f5c07118",
+    "archive_sha256": "f2692aea1b1773f74857f10c3a72dd2c4ae3eb7c5666c8ac8763e01d760c059d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/models.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/models.log",
+    "original_sha256": "dccb253a0dc679fec47dce604abeb0381c48304fccff57f923d6255f30f2fe34",
+    "archive_sha256": "dccb253a0dc679fec47dce604abeb0381c48304fccff57f923d6255f30f2fe34",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/models.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/models.ys",
+    "original_sha256": "3c6a0dbd5dcee712e6ab3b7a5700ac958028bc0d8425c956225498fd7cb9ab38",
+    "archive_sha256": "3c6a0dbd5dcee712e6ab3b7a5700ac958028bc0d8425c956225498fd7cb9ab38",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/normalization-audit.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/normalization-audit.json",
+    "original_sha256": "d86493aab7f73461b9f5465c587df21e64b33542f89476519ae3c0fee8d30e15",
+    "archive_sha256": "d86493aab7f73461b9f5465c587df21e64b33542f89476519ae3c0fee8d30e15",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/normalize.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/normalize.log",
+    "original_sha256": "b3c169ab96ee5bf363ecb61e93b04fe5c6645aac37fc6661f13bc61674b6679b",
+    "archive_sha256": "b3c169ab96ee5bf363ecb61e93b04fe5c6645aac37fc6661f13bc61674b6679b",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/normalize.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/normalize.ys",
+    "original_sha256": "166178a10d63135bfe6d42daf58d88a86ca05010c463aadfae41aeaecf8d3466",
+    "archive_sha256": "166178a10d63135bfe6d42daf58d88a86ca05010c463aadfae41aeaecf8d3466",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/observations.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/observations.log",
+    "original_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "archive_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/one-step-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/one-step-driver.log",
+    "original_sha256": "82405e202258b7ccd281bb9512f0dc50646c7a26094830e6a83f22f33fb11822",
+    "archive_sha256": "82405e202258b7ccd281bb9512f0dc50646c7a26094830e6a83f22f33fb11822",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/one-step-induction.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/one-step-induction.log",
+    "original_sha256": "4218e6c2a700be7a7c15dec565344cbc5f5034752555618e1d63e64f36373d4d",
+    "archive_sha256": "4218e6c2a700be7a7c15dec565344cbc5f5034752555618e1d63e64f36373d4d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/one-step-induction.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/one-step-induction.ys",
+    "original_sha256": "8b5df9203ea5d4d206398e9154359407336f7e153f2a207dfb0a483001b5ab17",
+    "archive_sha256": "8b5df9203ea5d4d206398e9154359407336f7e153f2a207dfb0a483001b5ab17",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/one-step-reset-base.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/one-step-reset-base.log.gz",
+    "original_sha256": "7f3d58d1964b8fc28097ede694bae5b19e28561b5b6aeba60787ece5395f5a38",
+    "archive_sha256": "300aa3f6f3a71b9610bad602ccf69c38ddcc04820d01cb46c43d6a9c095de896",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/one-step-reset-base.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/one-step-reset-base.ys",
+    "original_sha256": "eccce97e0f2f9d94470a6e228ff5a7bf0d2b29adfd600c629ae988ec622f2b5e",
+    "archive_sha256": "eccce97e0f2f9d94470a6e228ff5a7bf0d2b29adfd600c629ae988ec622f2b5e",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/one-step-reset-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/one-step-reset-driver.log",
+    "original_sha256": "9de3a0afe066c667f1512956bdfa27b7215274dd081c200c1cb1f4d790df2e5f",
+    "archive_sha256": "9de3a0afe066c667f1512956bdfa27b7215274dd081c200c1cb1f4d790df2e5f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/proof-circuit.v",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/proof-circuit.v.gz",
+    "original_sha256": "7bf7811c8c1834ef94a5de2a62fa33aceace8391d308485b8abf1fa4f5c07118",
+    "archive_sha256": "f2692aea1b1773f74857f10c3a72dd2c4ae3eb7c5666c8ac8763e01d760c059d",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/proof-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/proof-driver.log",
+    "original_sha256": "587b745186f803a16448248edfa01c4520ffd7b228d86dfda9d676dc59d12cb9",
+    "archive_sha256": "587b745186f803a16448248edfa01c4520ffd7b228d86dfda9d676dc59d12cb9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/proof-help.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/proof-help.log",
+    "original_sha256": "1f8b606f87727d8aba5be8b599ac4af8dd61daa0ccb1d4df70794dc14392bd25",
+    "archive_sha256": "1f8b606f87727d8aba5be8b599ac4af8dd61daa0ccb1d4df70794dc14392bd25",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/raw.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/raw.json.gz",
+    "original_sha256": "3a78931583a6a675a026fe06acaf804881162894449a318f1ec31d3413c4074b",
+    "archive_sha256": "ec2d8b94e9d4acf101b792830659616e02cb9898442fc9144e31bca9b716b379",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/reference-import.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/reference-import.log",
+    "original_sha256": "bb45c465af15d14685b861c9d24c0cbddba6e7620aea3a10b4ebc7f92faa11e1",
+    "archive_sha256": "bb45c465af15d14685b861c9d24c0cbddba6e7620aea3a10b4ebc7f92faa11e1",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/reference-import.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/reference-import.ys",
+    "original_sha256": "5b24b33cb12f4489db0be6e55dd220dd0f2b721097b52791d586f830be4695a3",
+    "archive_sha256": "5b24b33cb12f4489db0be6e55dd220dd0f2b721097b52791d586f830be4695a3",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/reference.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/reference.json.gz",
+    "original_sha256": "834fde382c3372c65fbc2125b2d45243b2ba3aa185691ca185aa34a3bcaf1265",
+    "archive_sha256": "78a24bd5866369f8157a69569f877d7df72dce176fe5e0692d261198bfc4ae2f",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/reset-pins.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/reset-pins.log",
+    "original_sha256": "cdfd287bfbdb9f73e2b27d786f06fd0a540666d58e682c962cd2b45f99064c26",
+    "archive_sha256": "cdfd287bfbdb9f73e2b27d786f06fd0a540666d58e682c962cd2b45f99064c26",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/reset-pins.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/reset-pins.ys",
+    "original_sha256": "8df479d788c0394b3337c6a99b84c25cbbee4ff64558ba6e0cbd8ec1535e6d0c",
+    "archive_sha256": "8df479d788c0394b3337c6a99b84c25cbbee4ff64558ba6e0cbd8ec1535e6d0c",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/rtl-attempt-equivalence.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/rtl-attempt-equivalence.log",
+    "original_sha256": "7962e9e95315ffd5661a6f4a6f853e3098810c6bb70491b4e5db8e73e40ea5ba",
+    "archive_sha256": "7962e9e95315ffd5661a6f4a6f853e3098810c6bb70491b4e5db8e73e40ea5ba",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/rtl-attempt-equivalence.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/rtl-attempt-equivalence.ys",
+    "original_sha256": "36537038672ec4f14e85d398c6afea8f0b53eb08e3610c6fa74b1a7d7b2f070d",
+    "archive_sha256": "36537038672ec4f14e85d398c6afea8f0b53eb08e3610c6fa74b1a7d7b2f070d",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/rtl-attempt-proof-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/rtl-attempt-proof-driver.log",
+    "original_sha256": "587b745186f803a16448248edfa01c4520ffd7b228d86dfda9d676dc59d12cb9",
+    "archive_sha256": "587b745186f803a16448248edfa01c4520ffd7b228d86dfda9d676dc59d12cb9",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/simulation-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/simulation-driver.log",
+    "original_sha256": "1cf893f10131b779213b2d2251f2a1494103373a68dd9a405dd7427fdcce2991",
+    "archive_sha256": "1cf893f10131b779213b2d2251f2a1494103373a68dd9a405dd7427fdcce2991",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/state-equiv.il",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/state-equiv.il.gz",
+    "original_sha256": "467de6a3513de8462b3ce2457fc6576b4d80914fecbb2620fdf0e0283cf99610",
+    "archive_sha256": "eba6c465992105b873a35628ce7ccc6bee3725adacadab4b9262aea24d41c4a6",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/state-equivalence.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/state-equivalence.log.gz",
+    "original_sha256": "c2a65db6b5281c20fdf546e7155bba4738f0a20cf712d99255f37c6376389e14",
+    "archive_sha256": "bfebe28d075b4c424a3fb49b2f6587bd5c290605f4cb965aa2195c26d6fac861",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/state-equivalence.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/state-equivalence.ys",
+    "original_sha256": "6d9117ca554a598275387956c78ab6ba44f839ed1515cbaffa2f797c967d9533",
+    "archive_sha256": "6d9117ca554a598275387956c78ab6ba44f839ed1515cbaffa2f797c967d9533",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/state-proof-driver.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/state-proof-driver.log",
+    "original_sha256": "d452783cdf6d41c9a7a101b942bdf46eebfb688da118af69b41d93c906c1aad0",
+    "archive_sha256": "d452783cdf6d41c9a7a101b942bdf46eebfb688da118af69b41d93c906c1aad0",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/state-reset-points.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/state-reset-points.log.gz",
+    "original_sha256": "c6d36cf5ef400abda670c940ba1ca6f75766e9fb237b00a82577287e438e988a",
+    "archive_sha256": "915feaaffe24df13b2510514550ac4058335a6b1bdaf61b352daba819afee93f",
+    "compressed": true
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/state-reset-points.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/state-reset-points.ys",
+    "original_sha256": "eccce97e0f2f9d94470a6e228ff5a7bf0d2b29adfd600c629ae988ec622f2b5e",
+    "archive_sha256": "eccce97e0f2f9d94470a6e228ff5a7bf0d2b29adfd600c629ae988ec622f2b5e",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/structural-audit.json",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/structural-audit.json",
+    "original_sha256": "c62d41512a2abe9dca9406505a0508a0064996267d9032923d9409ef8c6c720f",
+    "archive_sha256": "c62d41512a2abe9dca9406505a0508a0064996267d9032923d9409ef8c6c720f",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/union-models.log",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/union-models.log",
+    "original_sha256": "edb5bfb4b92119a0a518f68b70c418edcaaa47f78df1b5283e7a1de1249c1369",
+    "archive_sha256": "edb5bfb4b92119a0a518f68b70c418edcaaa47f78df1b5283e7a1de1249c1369",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/union-models.ys",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/union-models.ys",
+    "original_sha256": "71003ebeca57367de605ec4476b6e77c9a039f6cecce589c650b74a840531fc7",
+    "archive_sha256": "71003ebeca57367de605ec4476b6e77c9a039f6cecce589c650b74a840531fc7",
+    "compressed": false
+  },
+  {
+    "original_path": "build/asic-startup-post-physical/vendor.vlt",
+    "archive_path": "docs/verification/asic-physical-startup/build/asic-startup-post-physical/vendor.vlt",
+    "original_sha256": "d80ddb8819c1f4727fba70b51d45200944483424d5361e79db086ea6dd6344d2",
+    "archive_sha256": "d80ddb8819c1f4727fba70b51d45200944483424d5361e79db086ea6dd6344d2",
+    "compressed": false
+  },
+  {
+    "original_path": "build/run_post_physical_state_proof.py",
+    "archive_path": "docs/verification/asic-physical-startup/build/run_post_physical_state_proof.py",
+    "original_sha256": "f580fc22db621113eb6d1403ad00f5df62b4b9d37f8dd8d5d2fbbb64c293ac97",
+    "archive_sha256": "f580fc22db621113eb6d1403ad00f5df62b4b9d37f8dd8d5d2fbbb64c293ac97",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-physical-startup-cells.json",
+    "archive_path": "docs/verification/asic-physical-startup/reports/asic-physical-startup-cells.json",
+    "original_sha256": "e1232def69e7b91eda53ba45611726a05b42526e8788e216bf3efc5f3e4d3b1c",
+    "archive_sha256": "e1232def69e7b91eda53ba45611726a05b42526e8788e216bf3efc5f3e4d3b1c",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-physical-startup-summary.json",
+    "archive_path": "docs/verification/asic-physical-startup/reports/asic-physical-startup-summary.json",
+    "original_sha256": "3ebc0901758b49fc2368ec13d90655ef0e9661ae7beba232c1cbde0209344bb1",
+    "archive_sha256": "3ebc0901758b49fc2368ec13d90655ef0e9661ae7beba232c1cbde0209344bb1",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-physical-startup.json",
+    "archive_path": "docs/verification/asic-physical-startup/reports/asic-physical-startup.json",
+    "original_sha256": "5a4d249dbeebd1ef99f07bc420b33e6ce932fa7244a8a083bc26b6f9526f8235",
+    "archive_sha256": "5a4d249dbeebd1ef99f07bc420b33e6ce932fa7244a8a083bc26b6f9526f8235",
+    "compressed": false
+  },
+  {
+    "original_path": "reports/asic-startup.json",
+    "archive_path": "docs/verification/asic-physical-startup/reports/asic-startup.json",
+    "original_sha256": "cc9c68bb4a80722c07ef3615a7f307af3a66a0a109653a05e94d8963f3bc44f1",
+    "archive_sha256": "cc9c68bb4a80722c07ef3615a7f307af3a66a0a109653a05e94d8963f3bc44f1",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/asic/wasmetal_memory_bist.sv",
+    "archive_path": "docs/verification/asic-physical-startup/soc/asic/wasmetal_memory_bist.sv",
+    "original_sha256": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "archive_sha256": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/asic/wasmetal_memory_startup.sv",
+    "archive_path": "docs/verification/asic-physical-startup/soc/asic/wasmetal_memory_startup.sv",
+    "original_sha256": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "archive_sha256": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "compressed": false
+  },
+  {
+    "original_path": "soc/asic/wasmetal_sram_memory.sv",
+    "archive_path": "docs/verification/asic-physical-startup/soc/asic/wasmetal_sram_memory.sv",
+    "original_sha256": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "archive_sha256": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/asic/startup_sram.cpp",
+    "archive_path": "docs/verification/asic-physical-startup/tests/asic/startup_sram.cpp",
+    "original_sha256": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+    "archive_sha256": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/asic/wasmetal_startup_sram.sv",
+    "archive_path": "docs/verification/asic-physical-startup/tests/asic/wasmetal_startup_sram.sv",
+    "original_sha256": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+    "archive_sha256": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+    "compressed": false
+  },
+  {
+    "original_path": "tests/asic_cell_source_test.py",
+    "archive_path": "docs/verification/asic-physical-startup/tests/asic_cell_source_test.py",
+    "original_sha256": "89308278765e0245fc6780381880379729b3546535efb190e119cd3f0e6a5b5f",
+    "archive_sha256": "89308278765e0245fc6780381880379729b3546535efb190e119cd3f0e6a5b5f",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic-startup-clock-tree.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic-startup-clock-tree.tcl",
+    "original_sha256": "7f0c93d94d248dfc6c46170717bfd106a7cf564658d6b6cd8d7b98a1c0092381",
+    "archive_sha256": "7f0c93d94d248dfc6c46170717bfd106a7cf564658d6b6cd8d7b98a1c0092381",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic-startup-floorplan.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic-startup-floorplan.tcl",
+    "original_sha256": "16960236f724697e9da1c1d2488576e02594ebc9b6b29450f757939ec33a96ef",
+    "archive_sha256": "16960236f724697e9da1c1d2488576e02594ebc9b6b29450f757939ec33a96ef",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic-startup-global-route.tcl",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic-startup-global-route.tcl",
+    "original_sha256": "fdb457ac82c961a874e10a257a0f6fbd54fda881ff05ad1b4fbb6b767d870431",
+    "archive_sha256": "fdb457ac82c961a874e10a257a0f6fbd54fda881ff05ad1b4fbb6b767d870431",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_cells.lock.json",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic_cells.lock.json",
+    "original_sha256": "4640e724ca783bd19751debbbd9d76822f9c893c92afd40476cf7ddd9372c79d",
+    "archive_sha256": "4640e724ca783bd19751debbbd9d76822f9c893c92afd40476cf7ddd9372c79d",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_cells.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic_cells.py",
+    "original_sha256": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "archive_sha256": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_clock_tree.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic_clock_tree.py",
+    "original_sha256": "10a32571868dd058ec91dc067dfcc1293f5e29e0a2f96ecb8d7c1d228ff54d88",
+    "archive_sha256": "10a32571868dd058ec91dc067dfcc1293f5e29e0a2f96ecb8d7c1d228ff54d88",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_physical.lock.json",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic_physical.lock.json",
+    "original_sha256": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+    "archive_sha256": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_physical_cell_models.lock.json",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic_physical_cell_models.lock.json",
+    "original_sha256": "860c6a2a4bc1b736c135aca54cbb6a0708342835f1cef2c110b63c2dbbdd272a",
+    "archive_sha256": "860c6a2a4bc1b736c135aca54cbb6a0708342835f1cef2c110b63c2dbbdd272a",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/asic_physical_tools.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/asic_physical_tools.py",
+    "original_sha256": "75c3632ecf96d1d869535acca60664a3a72c835a7ea1986c8f3b0b0765a50eb8",
+    "archive_sha256": "75c3632ecf96d1d869535acca60664a3a72c835a7ea1986c8f3b0b0765a50eb8",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_board.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/build_board.py",
+    "original_sha256": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "archive_sha256": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_gate_sim.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/build_gate_sim.py",
+    "original_sha256": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+    "archive_sha256": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_identity.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/build_identity.py",
+    "original_sha256": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df",
+    "archive_sha256": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/build_standalone_gate_sim.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/build_standalone_gate_sim.py",
+    "original_sha256": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "archive_sha256": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/cad.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/cad.py",
+    "original_sha256": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "archive_sha256": "ff1e3bf023223a8f7174fa26eebf2b1e0bea51d3e3eec58065269c8f4629a4d3",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_asic_cell_models.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_asic_cell_models.py",
+    "original_sha256": "d69a1f594229f16be71184191a1c50dd6f5cf4e59855088fbb5faa859e6d6246",
+    "archive_sha256": "d69a1f594229f16be71184191a1c50dd6f5cf4e59855088fbb5faa859e6d6246",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_asic_physical_startup.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_asic_physical_startup.py",
+    "original_sha256": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+    "archive_sha256": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_asic_startup.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_asic_startup.py",
+    "original_sha256": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f",
+    "archive_sha256": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_loadable.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_loadable.py",
+    "original_sha256": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "archive_sha256": "cd10a8a704ef07c445eb4909315678a4daddef368eb6fea17708d536964f5ea2",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_memory_startup.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_memory_startup.py",
+    "original_sha256": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "archive_sha256": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_standalone.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_standalone.py",
+    "original_sha256": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "archive_sha256": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_timing.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_timing.py",
+    "original_sha256": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "archive_sha256": "adb6d8c92c37251474c1851457fc73460c92154fdcb6d7dd85a59e761181614b",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/check_xc7_system.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/check_xc7_system.py",
+    "original_sha256": "b47d55507d6569f8b6a35b4b866c5f6d0c8bc3b58228b63103595d707046260c",
+    "archive_sha256": "b47d55507d6569f8b6a35b4b866c5f6d0c8bc3b58228b63103595d707046260c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/ecp5_loadable_ram.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/ecp5_loadable_ram.py",
+    "original_sha256": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+    "archive_sha256": "e6ed0ea912ef8eea412968cd6531f711674c54a8956f7e96cf5c95a9b9015c32",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/ecp5_ram.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/ecp5_ram.py",
+    "original_sha256": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+    "archive_sha256": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/ecp5_standalone_ram.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/ecp5_standalone_ram.py",
+    "original_sha256": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+    "archive_sha256": "05299513c73c58c8ca2be9231e265788f2f0e83e4a932038abe3afb03fb30132",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/loadable_ci.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/loadable_ci.py",
+    "original_sha256": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "archive_sha256": "13b94c94dfac1a03eae105ee36d83d78008660a252e8408fc392beb871054c52",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/prepare_standalone.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/prepare_standalone.py",
+    "original_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "archive_sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/program_upload.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/program_upload.py",
+    "original_sha256": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "archive_sha256": "7841ae9c840f0dab3488afd2350ed4e619d6a8c69761751f0500dcc2cca9773c",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/run_spec.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/run_spec.py",
+    "original_sha256": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "archive_sha256": "684fa5e444ada68984e80499c7d2157c3176fef9f5ba0f1c490e6df69c297930",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/run_xc7_system.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/run_xc7_system.py",
+    "original_sha256": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "archive_sha256": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/spec_shards.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/spec_shards.py",
+    "original_sha256": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "archive_sha256": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/standalone_support.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/standalone_support.py",
+    "original_sha256": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "archive_sha256": "ddc0bd020a36964dafbe8c034c822007588b799c3547f45922e0d92f9d267bcb",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/upstream.lock.json",
+    "archive_path": "docs/verification/asic-physical-startup/tools/upstream.lock.json",
+    "original_sha256": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "archive_sha256": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    "compressed": false
+  },
+  {
+    "original_path": "tools/wasm_image.py",
+    "archive_path": "docs/verification/asic-physical-startup/tools/wasm_image.py",
+    "original_sha256": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "archive_sha256": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f",
+    "compressed": false
+  }
+]

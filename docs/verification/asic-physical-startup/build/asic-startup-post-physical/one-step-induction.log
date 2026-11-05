@@ -1,0 +1,18 @@
+
+-- Executing script file `/tmp/wasmetal-xc7-core/build/asic-startup-post-physical/one-step-induction.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /tmp/wasmetal-xc7-core/build/asic-startup-post-physical/state-equiv.il
+
+2. Executing EQUIV_INDUCT pass.
+Found 1267 unproven $equiv cells in module equiv:
+  Undef modelling: force def on 1240 initial reg values and 308 inputs.
+  Proving existence of base case for step 1. (837537 clauses over 323014 variables)
+  Proving induction step 1. (1711033 clauses over 658427 variables)
+  Proof for induction step holds. Entire workset of 1267 cells proven!
+Proved 1267 previously unproven $equiv cells.
+
+3. Executing EQUIV_STATUS pass.
+Found 1267 $equiv cells in equiv:
+  Of those cells 1267 are proven and 0 are unproven.
+  Equivalence successfully proven!
