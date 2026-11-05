@@ -3,8 +3,10 @@
 `soc/asic/wasmetal_sram_memory.sv` adapts the existing 128-bit physical memory
 transaction interface to a synchronous SRAM port. The default FPGA build uses
 block RAM; a separate full-CPU simulation connects this adapter to a behavioral
-SRAM. No foundry macro, PDK,
-standard-cell mapping or silicon timing is supplied by this component.
+SRAM. This generic adapter does not choose a memory technology. A separate
+[experimental SKY130 bank wrapper](SKY130-SRAM.md) now connects it to a pinned
+upstream OpenRAM behavioral model. Physical SRAM integration and timing remain
+further work.
 
 ## Macro contract
 

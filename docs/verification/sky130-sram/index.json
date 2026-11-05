@@ -1,0 +1,425 @@
+{
+  "status": "archived",
+  "artifacts": {
+    ".cache/sky130-sram/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    ".cache/sky130-sram/sky130_sram_2kbyte_1rw1r_32x512_8/sky130_sram_2kbyte_1rw1r_32x512_8.v": {
+      "bytes": 3161,
+      "sha256": "2712357fbc3d1ee3343c4bcb7d630de92ca87d869fb5d50d1d3cea967f288208"
+    },
+    ".github/workflows/rtl.yml": {
+      "bytes": 58388,
+      "sha256": "4acaf6ddea0c0b36df94d6d6e1c4974386df1888c21bcb597bea5dc0f0440b3b"
+    },
+    "LICENSE": {
+      "bytes": 1068,
+      "sha256": "a60f9a8516cdec9d5e710d4d5c337d5100627232d241a8d82e05162835637ffd"
+    },
+    "build/sky130-sram/icarus-131072-3-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/icarus-131072-3.log": {
+      "bytes": 191,
+      "sha256": "44fd0fdf50b9c6e5d15ca404c56ded65709adf5007f8bea56de11cfeb85b2ac0"
+    },
+    "build/sky130-sram/icarus-131072-3.vvp": {
+      "bytes": 799186,
+      "sha256": "d2edbffd5ab27a2a965bae444b03ca301ed12fa066967b68709100caad24e312"
+    },
+    "build/sky130-sram/icarus-16384-3-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/icarus-16384-3.log": {
+      "bytes": 195,
+      "sha256": "1b0ef13a0e00120148493d2674028ad35cc4b3f904d4a978cb68ecb72ec5763b"
+    },
+    "build/sky130-sram/icarus-16384-3.vvp": {
+      "bytes": 131768,
+      "sha256": "5e2afaa5803e926be95303577c6ca688a04781ca00ad52ca3daa201cbe235286"
+    },
+    "build/sky130-sram/icarus-24576-2-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/icarus-24576-2.log": {
+      "bytes": 187,
+      "sha256": "36dd6666a66708a51715aa14696c7b5d233ef128cd1c3f70efc08cc9d7d28338"
+    },
+    "build/sky130-sram/icarus-24576-2.vvp": {
+      "bytes": 179211,
+      "sha256": "5687f624f7c8808c4256548562bc7d90280d7c42bf2cefb1f2482cca1d808947"
+    },
+    "build/sky130-sram/icarus-8192-1-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/icarus-8192-1.log": {
+      "bytes": 194,
+      "sha256": "a544efd26e3c92f4328489c63f760363b273e986372d7ae9a69f4f7df9b238e9"
+    },
+    "build/sky130-sram/icarus-8192-1.vvp": {
+      "bytes": 84143,
+      "sha256": "9be1130d397cadbf37d1adb679bdefa0df8082939bfe08013b1bbaaa5b11bca5"
+    },
+    "build/sky130-sram/initial-tool-link-rejection.log": {
+      "bytes": 623,
+      "sha256": "4fc78835303eb11e153305610c5f99221647d62826e1c186df13b356925c3241"
+    },
+    "build/sky130-sram/lost-read-hold-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/lost-read-hold.log": {
+      "bytes": 218,
+      "sha256": "02fc0deb9bc067094e32739e350667b4265252b690c4fc35b13e6f0f2dc255c6"
+    },
+    "build/sky130-sram/lost-read-hold.sv": {
+      "bytes": 2730,
+      "sha256": "d13401d5b3d3521420c9cc065a2315bff73b47678a7bfd197302bc1bafe7fd76"
+    },
+    "build/sky130-sram/lost-read-hold.vvp": {
+      "bytes": 132127,
+      "sha256": "c1c94ee8e519b1e1125c50e630624db7a815535d4f9dac7b06b4ee35261f0b38"
+    },
+    "build/sky130-sram/progress.json": {
+      "bytes": 3447,
+      "sha256": "08856d403adeff679e3fe78bdac1523d7301ada31b938e1298fc77716d77b7ab"
+    },
+    "build/sky130-sram/read-beyond-capture-window-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/read-beyond-capture-window.log": {
+      "bytes": 218,
+      "sha256": "02fc0deb9bc067094e32739e350667b4265252b690c4fc35b13e6f0f2dc255c6"
+    },
+    "build/sky130-sram/read-beyond-capture-window.vvp": {
+      "bytes": 131782,
+      "sha256": "542d0fa1ca474a3a542bcddfec69d67a612b6449784e4ebc359ee3f9ae95c684"
+    },
+    "build/sky130-sram/tool-payloads.json": {
+      "bytes": 40621,
+      "sha256": "f7f1b57a229665bd2da6b6a5861698c882e3807bdaa3566cce49dc2535c773e7"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb.cpp": {
+      "bytes": 3608,
+      "sha256": "b4bd80e803e64144f9ad6db9cce9275f2bc52f6e9bdb55400e1fbc020f6b1de0"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb.h": {
+      "bytes": 3225,
+      "sha256": "102d424ad00baf69fd9a17ba75ef76d3e043f50bfc616dcfbe672e8dcff4ef12"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb.mk": {
+      "bytes": 1829,
+      "sha256": "40540fc8f9d4bcf06b452b50f3aff1626f56a40bbfd9b76ec497ccc991347323"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb__ALL.cpp": {
+      "bytes": 504,
+      "sha256": "810146761a46598bee00a3cc96b322fa03f20868f7bcff01b61a8975b6994bff"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb__ALL.d": {
+      "bytes": 1071,
+      "sha256": "f4cd05c961dbb76434dfb78b5ef13e6140eded04f7dc6adb8b8bed10f0be34d2"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb__Syms.cpp": {
+      "bytes": 1242,
+      "sha256": "5cce6ba6ba9cb252a37121a5a2e842882b860a13e2fa87151fe1151fe039f5a3"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb__Syms.h": {
+      "bytes": 1185,
+      "sha256": "d958392e1028fd1354ecfb9c6b1a02916195f6cdc76e41a7ae6e5cf1ce570414"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb___024root.h": {
+      "bytes": 14182,
+      "sha256": "bb55ef532dadde4a1b7c82959b42b593b4dc38b420aee744cb36528248173af8"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb___024root__DepSet_h5efa522d__0.cpp": {
+      "bytes": 261285,
+      "sha256": "53c03042c375205ae6bd60e4865c80f0427736af11839e7649cabecca6f7c6ee"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb___024root__DepSet_h5efa522d__0__Slow.cpp": {
+      "bytes": 959,
+      "sha256": "1eb4f1c341946c7141d13df4863214b2cf5cd75f82f6edd25b7352f6fe768107"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb___024root__DepSet_h68b61743__0.cpp": {
+      "bytes": 106585,
+      "sha256": "58f55af2dcc5e1d6b8a48d1e15fff26d43e6f9388b3328ddadb31f6dd8e0badc"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb___024root__DepSet_h68b61743__0__Slow.cpp": {
+      "bytes": 27699,
+      "sha256": "9ed89504b38ba8373b0a1b8270e356554337ae1ef00101774472cb39a9ed3fda"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb___024root__Slow.cpp": {
+      "bytes": 798,
+      "sha256": "20778b409e31a361c68fd53c71802a7eda403efaf5cc7d3758922b443301ea5f"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb__main.cpp": {
+      "bytes": 991,
+      "sha256": "a7344a5f0208c81d390b336da489652e1e49dd3e0816859b4140d21f48d62991"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb__pch.h": {
+      "bytes": 739,
+      "sha256": "9d8debbc8fd372aa89d46b3f2fcbf51df5d175818ed8f0de9f502f18c2f95145"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb__ver.d": {
+      "bytes": 1879,
+      "sha256": "696066fa70fc281a2aaf443b44e61e09314bc0cf77a62f6d7b95a8aab0abcc72"
+    },
+    "build/sky130-sram/verilator-16384-3/Vsky130_sram_tb_classes.mk": {
+      "bytes": 1754,
+      "sha256": "a812fb9173c0adaf018296dadec3500759086326bd216d339400b048223f17c7"
+    },
+    "build/sky130-sram/verilator-16384-3/verilated.d": {
+      "bytes": 938,
+      "sha256": "5cf6ed990e20e9d9b851e8ebec22af0d6b9134667f16bcd49ceee82a6226504b"
+    },
+    "build/sky130-sram/verilator-16384-3/verilated_threads.d": {
+      "bytes": 613,
+      "sha256": "7bc0d12fa7c1ce8fb8d135d31be3f8e02bed17f78915fda8aec2c29e97488889"
+    },
+    "build/sky130-sram/verilator-16384-3/verilated_timing.d": {
+      "bytes": 610,
+      "sha256": "bd190411b9ba15a4357801cb857aaf77ac83f5c48f02a4c8d1b87dc7f572ed9a"
+    },
+    "build/sky130-sram/verilator-16384-3-build.log": {
+      "bytes": 3302,
+      "sha256": "2f21943f2e6014f4b02a3edca7b25e2a1c3186e606e4cc8f89496ddbf8e06362"
+    },
+    "build/sky130-sram/verilator-16384-3.log": {
+      "bytes": 177,
+      "sha256": "40e5c65d33e1443d7e5a7e167d430139f5e0072d2a7a4c24ef854d64580c4189"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb.cpp": {
+      "bytes": 3608,
+      "sha256": "b4bd80e803e64144f9ad6db9cce9275f2bc52f6e9bdb55400e1fbc020f6b1de0"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb.h": {
+      "bytes": 3225,
+      "sha256": "102d424ad00baf69fd9a17ba75ef76d3e043f50bfc616dcfbe672e8dcff4ef12"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb.mk": {
+      "bytes": 1829,
+      "sha256": "40540fc8f9d4bcf06b452b50f3aff1626f56a40bbfd9b76ec497ccc991347323"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb__ALL.cpp": {
+      "bytes": 504,
+      "sha256": "810146761a46598bee00a3cc96b322fa03f20868f7bcff01b61a8975b6994bff"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb__ALL.d": {
+      "bytes": 1071,
+      "sha256": "f4cd05c961dbb76434dfb78b5ef13e6140eded04f7dc6adb8b8bed10f0be34d2"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb__Syms.cpp": {
+      "bytes": 1242,
+      "sha256": "5cce6ba6ba9cb252a37121a5a2e842882b860a13e2fa87151fe1151fe039f5a3"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb__Syms.h": {
+      "bytes": 1185,
+      "sha256": "d958392e1028fd1354ecfb9c6b1a02916195f6cdc76e41a7ae6e5cf1ce570414"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb___024root.h": {
+      "bytes": 8549,
+      "sha256": "faf496dc278b48f929ba3f1f1a55b2717afe26ad46ad77ab18c7eaeed25e5deb"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb___024root__DepSet_h5efa522d__0.cpp": {
+      "bytes": 259320,
+      "sha256": "164560dda5bc3005e3b1e462e7a4784dbfb525e1bc26e255d5dca0c5da5d6a2c"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb___024root__DepSet_h5efa522d__0__Slow.cpp": {
+      "bytes": 959,
+      "sha256": "1eb4f1c341946c7141d13df4863214b2cf5cd75f82f6edd25b7352f6fe768107"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb___024root__DepSet_h68b61743__0.cpp": {
+      "bytes": 64853,
+      "sha256": "c350d9da60389e45d1b58e676a2198ed12cb015ed70ed11caf4be0acc467369d"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb___024root__DepSet_h68b61743__0__Slow.cpp": {
+      "bytes": 19586,
+      "sha256": "6b686f10c90708e6582a0e120101ca1f25bf237b2f366b6647036e2f087bc40f"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb___024root__Slow.cpp": {
+      "bytes": 798,
+      "sha256": "20778b409e31a361c68fd53c71802a7eda403efaf5cc7d3758922b443301ea5f"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb__main.cpp": {
+      "bytes": 991,
+      "sha256": "a7344a5f0208c81d390b336da489652e1e49dd3e0816859b4140d21f48d62991"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb__pch.h": {
+      "bytes": 739,
+      "sha256": "9d8debbc8fd372aa89d46b3f2fcbf51df5d175818ed8f0de9f502f18c2f95145"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb__ver.d": {
+      "bytes": 1864,
+      "sha256": "006d559103abdb17336d00a6de6ffd08c771bd0c1668d1b2fd535d88f579383a"
+    },
+    "build/sky130-sram/verilator-8192-1/Vsky130_sram_tb_classes.mk": {
+      "bytes": 1754,
+      "sha256": "a812fb9173c0adaf018296dadec3500759086326bd216d339400b048223f17c7"
+    },
+    "build/sky130-sram/verilator-8192-1/verilated.d": {
+      "bytes": 938,
+      "sha256": "5cf6ed990e20e9d9b851e8ebec22af0d6b9134667f16bcd49ceee82a6226504b"
+    },
+    "build/sky130-sram/verilator-8192-1/verilated_threads.d": {
+      "bytes": 613,
+      "sha256": "7bc0d12fa7c1ce8fb8d135d31be3f8e02bed17f78915fda8aec2c29e97488889"
+    },
+    "build/sky130-sram/verilator-8192-1/verilated_timing.d": {
+      "bytes": 610,
+      "sha256": "bd190411b9ba15a4357801cb857aaf77ac83f5c48f02a4c8d1b87dc7f572ed9a"
+    },
+    "build/sky130-sram/verilator-8192-1-build.log": {
+      "bytes": 3300,
+      "sha256": "3a69b5c41021466576be5745e2f7344cb2e2e00f414e1569347c1612f008a40f"
+    },
+    "build/sky130-sram/verilator-8192-1.log": {
+      "bytes": 176,
+      "sha256": "d7f56a763747b8050c2021b63e935df81b225864a7d3b52d5b8917128cf5780a"
+    },
+    "build/sky130-sram/wrong-bank-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/wrong-bank.log": {
+      "bytes": 218,
+      "sha256": "9129a23cf6f6b92c873c04713ce186780c06ed4648022946277c5f1d9fadc653"
+    },
+    "build/sky130-sram/wrong-bank.sv": {
+      "bytes": 2744,
+      "sha256": "3b087761c5776ece2cec56bd342a7a8f705e77050b9de3f54bbdb216106111a5"
+    },
+    "build/sky130-sram/wrong-bank.vvp": {
+      "bytes": 131765,
+      "sha256": "1359974355e0907d73f4c496430e5927613c73dcd62ffeaddf40d648b63c93e8"
+    },
+    "build/sky130-sram/wrong-byte-lanes-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/wrong-byte-lanes.log": {
+      "bytes": 218,
+      "sha256": "2cb103860678b4d9c58f6477e3ccb681903cf610facb5b314ecff45aa58b82f5"
+    },
+    "build/sky130-sram/wrong-byte-lanes.sv": {
+      "bytes": 2751,
+      "sha256": "0a40955ee5075772102178f43548d3dc2c864f5d2c8c5a29649bca5bc4683391"
+    },
+    "build/sky130-sram/wrong-byte-lanes.vvp": {
+      "bytes": 131771,
+      "sha256": "e9b039fc76983a7331361a672e9cead8732940fb55faf6d0f50a06457207bab1"
+    },
+    "build/sky130-sram/wrong-macro-clock-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/wrong-macro-clock.log": {
+      "bytes": 218,
+      "sha256": "02fc0deb9bc067094e32739e350667b4265252b690c4fc35b13e6f0f2dc255c6"
+    },
+    "build/sky130-sram/wrong-macro-clock.sv": {
+      "bytes": 2748,
+      "sha256": "64b068703af0268072f70cc46ffd282e42a532403937d6776b737cc1839d6c88"
+    },
+    "build/sky130-sram/wrong-macro-clock.vvp": {
+      "bytes": 132924,
+      "sha256": "9ebcc8d6e3c648d6ff34a6bcca009eea3ca02ab1897794057024388d979d2adb"
+    },
+    "build/sky130-sram/wrong-read-hold-edge-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "build/sky130-sram/wrong-read-hold-edge.log": {
+      "bytes": 218,
+      "sha256": "02fc0deb9bc067094e32739e350667b4265252b690c4fc35b13e6f0f2dc255c6"
+    },
+    "build/sky130-sram/wrong-read-hold-edge.sv": {
+      "bytes": 2746,
+      "sha256": "0c9c1affe7349e1096226007cd8c95f1ac443ed81c2a2dff7d471abec5dd2834"
+    },
+    "build/sky130-sram/wrong-read-hold-edge.vvp": {
+      "bytes": 131775,
+      "sha256": "378928b445a57bfce1e5f17e27ce8c1452234c8eadf46e230e6a1cfd17fb281f"
+    },
+    "build/sky130-sram-workflow-lint.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs/SKY130-SRAM.md": {
+      "bytes": 4507,
+      "sha256": "bf9ed553ee707458c2e3c78d59e11108db2b8618b0d6922d3f66be6834fa1267"
+    },
+    "reports/sky130-sram.json": {
+      "bytes": 40848,
+      "sha256": "43dff31588377a4fbdc73cd7d3c41d0b115fac9165e4d861a1b0468bc1e658e4"
+    },
+    "soc/asic/wasmetal_sky130_sram.sv": {
+      "bytes": 2747,
+      "sha256": "436d1808409e63eb93fe1acae72924eb0a7862bb0e6387b3a019962c486598a4"
+    },
+    "soc/asic/wasmetal_sram_memory.sv": {
+      "bytes": 5092,
+      "sha256": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2"
+    },
+    "tests/memory/sky130_sram.sv": {
+      "bytes": 4412,
+      "sha256": "8c92be0b2780e4b6a76f3b11b9b537ae55ed1c81c5496beff39844dd1e4fe4a4"
+    },
+    "tools/asic_cells.py": {
+      "bytes": 8926,
+      "sha256": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0"
+    },
+    "tools/bootstrap.py": {
+      "bytes": 2889,
+      "sha256": "492afd5f9add5337eac9a1d849b45aa824c52aa5734e4048c2926e31c0fa5045"
+    },
+    "tools/build_identity.py": {
+      "bytes": 2917,
+      "sha256": "fbdcc6c5c519be8f40b53155b33ed13b4a8fa0e6eab40eab1596685602f286df"
+    },
+    "tools/check_sky130_sram.py": {
+      "bytes": 12998,
+      "sha256": "eca9a99fee094942dfa5a1b07e5b85ada6761d2aec6da6c73865c99d8771fe24"
+    },
+    "tools/check_spec_conversion.py": {
+      "bytes": 14255,
+      "sha256": "52b843f7e5c64876396d2a6acdb71dcac155f97fd74e439ee4145403a1a2f20c"
+    },
+    "tools/prepare_standalone.py": {
+      "bytes": 13991,
+      "sha256": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c"
+    },
+    "tools/run_spec.py": {
+      "bytes": 44036,
+      "sha256": "d95397191a72fc6b490532b752f34121ff9d83318fe8918d88fd465bccc6fb56"
+    },
+    "tools/sky130_sram.lock.json": {
+      "bytes": 675,
+      "sha256": "33f5f8f979fd9bb40653321ec00bb578dedc487bae8ce8c51386150769d248c2"
+    },
+    "tools/spec_inputs.py": {
+      "bytes": 6376,
+      "sha256": "01a44cdb0f7082dfc92cc521b16a400e651e94ba3445881dea8bda47af6f1084"
+    },
+    "tools/spec_shards.py": {
+      "bytes": 5944,
+      "sha256": "db7da048fea1693dffdb5e8733fdeec45aa20fa40e22469ef63e3b034e057dec"
+    },
+    "tools/upstream.lock.json": {
+      "bytes": 827,
+      "sha256": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+    },
+    "tools/wasm_image.py": {
+      "bytes": 14140,
+      "sha256": "5720d07e9baf93ca2688a03f7b5111d7ea8ebf84a6afe441bb7f54a723e2444f"
+    }
+  },
+  "source_inputs_rechecked": 263,
+  "binary_tool_packages_included": false,
+  "generated_verilator_executables_included": false,
+  "physical_hardware_tested": false
+}

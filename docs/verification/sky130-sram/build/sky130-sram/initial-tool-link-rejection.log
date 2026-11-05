@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/tmp/wasmetal-xc7-core/tools/check_sky130_sram.py", line 247, in <module>
+    main()
+  File "/tmp/wasmetal-xc7-core/tools/check_sky130_sram.py", line 205, in main
+    tool_record, tool_paths = tools_identity()
+                              ^^^^^^^^^^^^^^^^
+  File "/tmp/wasmetal-xc7-core/tools/check_sky130_sram.py", line 99, in tools_identity
+    require(link.is_symlink() and os.readlink(link) == '../../../bin/verilator_bin',
+  File "/tmp/wasmetal-xc7-core/tools/asic_cells.py", line 17, in require
+    raise ValueError(message)
+ValueError: unexpected Verilator bootstrap link

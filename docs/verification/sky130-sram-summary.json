@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "bank wrapper and real adapter with pinned upstream behavioral SRAM",
+  "simulator_runs": 6,
+  "capacities_bytes": [
+    8192,
+    16384,
+    24576,
+    131072
+  ],
+  "transactions": 563734,
+  "negative_controls": 6,
+  "report_sha256": "43dff31588377a4fbdc73cd7d3c41d0b115fac9165e4d861a1b0468bc1e658e4",
+  "archive_artifacts": 104,
+  "source_inputs_rechecked": 263,
+  "vendor_model_modified": false,
+  "physical_timing_accepted": false,
+  "complete_cpu_macro_integration": false
+}

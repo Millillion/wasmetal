@@ -520,7 +520,7 @@ The separate [synchronous SRAM adapter](docs/SRAM.md) now passes
 every byte mask, five capacity/latency configurations and 90 resets. Its
 [unbounded protocol proof](docs/verification/sram-proof.json) and
 [four-state checks](docs/verification/sram-four-state.json) also pass. It defines
-a concrete interface for a future macro wrapper; it is not connected to the
+a concrete interface for macro wrappers; it is not connected to the
 default FPGA memory path and does not supply a foundry SRAM or physical timing
 signoff. A separate complete-CPU simulation binds this adapter to a behavioral
 SRAM with nonzero initial contents. All 35 system cases pass at
@@ -528,6 +528,16 @@ SRAM with nonzero initial contents. All 35 system cases pass at
 [three-cycle](docs/verification/asic-sram-system-3.json) read latencies; deliberately
 corrupted reads fail the independent result check. This full-system SRAM test
 also runs in CI.
+
+The [experimental SKY130 SRAM bank wrapper](docs/SKY130-SRAM.md) now passes
+[six simulator runs and 563,734 transactions](docs/verification/sky130-sram-summary.json)
+against an unmodified, pinned OpenRAM behavioral model. Icarus and Verilator
+cover arrays from 8 to 128 KiB, including a three-bank configuration. Both
+simulators exhaust all 65,535 nonzero write masks at 8 and 16 KiB. Five broken
+wrappers and a deliberately late read are rejected. A dedicated CI job now
+repeats these checks. This verifies the adapter and macro interface; the full
+CPU is not connected to these macros, and their physical timing and layout
+remain unverified.
 
 A separate [destructive memory-test master](docs/MEMORY-SELF-TEST.md) now passes
 [55,137 campaigns per model](docs/verification/memory-bist-mapped.json) in RTL
