@@ -197,8 +197,14 @@ checks, compiles one portable simulator and packages its executable and all
 additional inputs. Sixteen workers restore that same package and run the
 complete ownership plan. `Complete Xilinx mapped corpus` requires every
 worker and exact command-by-command agreement with the native reference.
-Failures retain partial results and build diagnostics. This new CI pipeline
-has not completed on GitHub yet.
+Failures retain partial results and build diagnostics. The complete Xilinx
+and ECP5 corpus gates [passed at commit `4907fa2`](verification/ci-4907fa2-complete.json).
+Their downloaded, digest-verified reports agree on all 259 suites and every
+canonical command cycle. The [archive](verification/ci-4907fa2/index.json)
+retains the reports and gate logs. Those results precede the fresh-input
+runner described above; they do not establish that newer CI revision's result.
+The overall workflow still had unfinished or unsuccessful routing jobs at
+the recorded observation.
 
 The [deployment preflight](verification/xc7-core-ci-preflight.json) restores the
 package into another directory containing the required repository inputs and
@@ -206,8 +212,7 @@ pinned upstream tools/sources. The restored model verifies its identity,
 passes the actual command-partition/setup-replay fixture and repeats all eight
 smoke suites with identical observations. Packaging rejects the wrong FPGA
 family. Actionlint 1.7.12 reports no workflow findings. These are local
-deployment checks, separate from the completed local corpus and the pending
-complete CI result.
+deployment checks, separate from the completed local corpus and CI results.
 
 `check_spec_reconciliation.py` now accepts the same explicit
 `--mapped-backend mapped-xc7-functional` selection. It protects direct and

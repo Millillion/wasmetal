@@ -1,0 +1,484 @@
+﻿2026-11-04T20:44:46.7358706Z Current runner version: '2.338.2'
+2026-11-04T20:44:46.7385735Z ##[group]Runner Image Provisioner
+2026-11-04T20:44:46.7386597Z Hosted Compute Agent
+2026-11-04T20:44:46.7387776Z Version: 20261028.624
+2026-11-04T20:44:46.7388821Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-04T20:44:46.7389621Z Build Date: 2026-10-28T21:51:42Z
+2026-11-04T20:44:46.7390381Z Worker ID: {bb114dc2-83ab-435c-95fd-34619cbbd4ba}
+2026-11-04T20:44:46.7391117Z Region: eastus
+2026-11-04T20:44:46.7391760Z Cloud: Azure
+2026-11-04T20:44:46.7392304Z ##[endgroup]
+2026-11-04T20:44:46.7393913Z ##[group]Operating System
+2026-11-04T20:44:46.7394615Z Ubuntu
+2026-11-04T20:44:46.7395130Z 24.04.5
+2026-11-04T20:44:46.7395791Z LTS
+2026-11-04T20:44:46.7396309Z ##[endgroup]
+2026-11-04T20:44:46.7396902Z ##[group]Runner Image
+2026-11-04T20:44:46.7397656Z Image: ubuntu-24.04
+2026-11-04T20:44:46.7398881Z Version: 20261101.360.1
+2026-11-04T20:44:46.7400306Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-04T20:44:46.7401892Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-04T20:44:46.7402934Z ##[endgroup]
+2026-11-04T20:44:46.7404095Z ##[group]GITHUB_TOKEN Permissions
+2026-11-04T20:44:46.7406259Z Contents: read
+2026-11-04T20:44:46.7406959Z Metadata: read
+2026-11-04T20:44:46.7407596Z ##[endgroup]
+2026-11-04T20:44:46.7409997Z Secret source: Actions
+2026-11-04T20:44:46.7411072Z Cache mode: write
+2026-11-04T20:44:46.7412063Z Prepare workflow directory
+2026-11-04T20:44:46.7744079Z Prepare all required actions
+2026-11-04T20:44:46.7793945Z Getting action download info
+2026-11-04T20:44:47.0135794Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-04T20:44:47.1299622Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-04T20:44:47.3063478Z Complete job name: Complete programmable 7-series circuit
+2026-11-04T20:44:47.4053641Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-04T20:44:47.4054717Z with:
+2026-11-04T20:44:47.4055174Z   persist-credentials: false
+2026-11-04T20:44:47.4055701Z   repository: Millillion/wasmetal
+2026-11-04T20:44:47.4059844Z   token: ***
+2026-11-04T20:44:47.4060284Z   ssh-strict: true
+2026-11-04T20:44:47.4060713Z   ssh-user: git
+2026-11-04T20:44:47.4061128Z   clean: true
+2026-11-04T20:44:47.4061569Z   sparse-checkout-cone-mode: true
+2026-11-04T20:44:47.4062086Z   fetch-depth: 1
+2026-11-04T20:44:47.4062514Z   fetch-tags: false
+2026-11-04T20:44:47.4062951Z   show-progress: true
+2026-11-04T20:44:47.4063394Z   lfs: false
+2026-11-04T20:44:47.4063801Z   submodules: false
+2026-11-04T20:44:47.4064247Z   set-safe-directory: true
+2026-11-04T20:44:47.4064755Z   allow-unsafe-pr-checkout: false
+2026-11-04T20:44:47.4065532Z ##[endgroup]
+2026-11-04T20:44:47.6744817Z Syncing repository: Millillion/wasmetal
+2026-11-04T20:44:47.6747740Z ##[group]Getting Git version info
+2026-11-04T20:44:47.6749103Z Working directory is '/home/runner/work/wasmetal/wasmetal'
+2026-11-04T20:44:47.6750300Z [command]/usr/bin/git version
+2026-11-04T20:44:47.6810850Z git version 2.56.0
+2026-11-04T20:44:47.6838737Z ##[endgroup]
+2026-11-04T20:44:47.6855292Z Temporarily overriding HOME='/home/runner/work/_temp/f544d64f-3a70-4227-b667-5ceab4f1252c' before making global git config changes
+2026-11-04T20:44:47.6858887Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T20:44:47.6861429Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wasmetal/wasmetal
+2026-11-04T20:44:47.6914646Z Deleting the contents of '/home/runner/work/wasmetal/wasmetal'
+2026-11-04T20:44:47.6920117Z ##[group]Determining repository object format
+2026-11-04T20:44:47.6922590Z ##[endgroup]
+2026-11-04T20:44:47.6923431Z ##[group]Initializing the repository
+2026-11-04T20:44:47.6928389Z [command]/usr/bin/git init /home/runner/work/wasmetal/wasmetal
+2026-11-04T20:44:47.7072431Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-04T20:44:47.7074988Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-04T20:44:47.7079327Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-04T20:44:47.7082053Z hint: call:
+2026-11-04T20:44:47.7083421Z hint:
+2026-11-04T20:44:47.7085468Z hint: 	git config --global init.defaultBranch <name>
+2026-11-04T20:44:47.7092922Z hint:
+2026-11-04T20:44:47.7095021Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-04T20:44:47.7097504Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-04T20:44:47.7099921Z hint:
+2026-11-04T20:44:47.7101195Z hint: 	git branch -m <name>
+2026-11-04T20:44:47.7102597Z hint:
+2026-11-04T20:44:47.7104437Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-04T20:44:47.7107180Z Initialized empty Git repository in /home/runner/work/wasmetal/wasmetal/.git/
+2026-11-04T20:44:47.7111662Z [command]/usr/bin/git remote add origin https://github.com/Millillion/wasmetal
+2026-11-04T20:44:47.7180676Z ##[endgroup]
+2026-11-04T20:44:47.7181604Z ##[group]Disabling automatic garbage collection
+2026-11-04T20:44:47.7185850Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-04T20:44:47.7252392Z ##[endgroup]
+2026-11-04T20:44:47.7253982Z ##[group]Setting up auth
+2026-11-04T20:44:47.7255112Z Removing SSH command configuration
+2026-11-04T20:44:47.7256696Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T20:44:47.7307395Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T20:44:47.7771728Z Removing HTTP extra header
+2026-11-04T20:44:47.7780440Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T20:44:47.7843584Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T20:44:47.8129227Z Removing includeIf entries pointing to credentials config files
+2026-11-04T20:44:47.8135845Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T20:44:47.8181764Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T20:44:47.8458530Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-04T20:44:47.8519023Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path /home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:47.8570863Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:47.8619994Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:47.8669783Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:47.8707212Z ##[endgroup]
+2026-11-04T20:44:47.8708347Z ##[group]Fetching the repository
+2026-11-04T20:44:47.8716024Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4907fa26f3c80193ecbf9371cf8d89650199aef5:refs/remotes/origin/main
+2026-11-04T20:44:48.3240055Z From https://github.com/Millillion/wasmetal
+2026-11-04T20:44:48.3242807Z  * [new ref]         4907fa26f3c80193ecbf9371cf8d89650199aef5 -> origin/main
+2026-11-04T20:44:48.3250825Z [command]/usr/bin/git branch --list --remote origin/main
+2026-11-04T20:44:48.3286366Z   origin/main
+2026-11-04T20:44:48.3296750Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-11-04T20:44:48.3328771Z 4907fa26f3c80193ecbf9371cf8d89650199aef5
+2026-11-04T20:44:48.3335832Z ##[endgroup]
+2026-11-04T20:44:48.3337913Z ##[group]Determining the checkout info
+2026-11-04T20:44:48.3340665Z ##[endgroup]
+2026-11-04T20:44:48.3342265Z [command]/usr/bin/git sparse-checkout disable
+2026-11-04T20:44:48.3403001Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-04T20:44:48.3445609Z ##[group]Checking out the ref
+2026-11-04T20:44:48.3450818Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-04T20:44:48.5460161Z Switched to a new branch 'main'
+2026-11-04T20:44:48.5466491Z branch 'main' set up to track 'origin/main'.
+2026-11-04T20:44:48.5498821Z ##[endgroup]
+2026-11-04T20:44:48.5553116Z [command]/usr/bin/git log -1 --format=%H
+2026-11-04T20:44:48.5588834Z 4907fa26f3c80193ecbf9371cf8d89650199aef5
+2026-11-04T20:44:48.5600575Z ##[group]Removing auth
+2026-11-04T20:44:48.5602524Z Removing SSH command configuration
+2026-11-04T20:44:48.5604964Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T20:44:48.5655913Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T20:44:48.5920698Z Removing HTTP extra header
+2026-11-04T20:44:48.5927105Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T20:44:48.5975079Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T20:44:48.6230546Z Removing includeIf entries pointing to credentials config files
+2026-11-04T20:44:48.6235491Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T20:44:48.6284180Z includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path
+2026-11-04T20:44:48.6285762Z includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path
+2026-11-04T20:44:48.6287098Z includeif.gitdir:/github/workspace/.git.path
+2026-11-04T20:44:48.6288672Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-04T20:44:48.6296730Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path
+2026-11-04T20:44:48.6329731Z /home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6341621Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path /home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6387161Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path
+2026-11-04T20:44:48.6419452Z /home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6430723Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6481869Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-04T20:44:48.6523037Z /github/runner_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6532312Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6574508Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-04T20:44:48.6605962Z /github/runner_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6615260Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config
+2026-11-04T20:44:48.6657469Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T20:44:48.6895019Z Removing credentials config '/home/runner/work/_temp/git-credentials-c508e719-a97a-47b1-b872-9252544484c5.config'
+2026-11-04T20:44:48.6904566Z ##[endgroup]
+2026-11-04T20:44:48.7214981Z ##[group]Run python3 tools/bootstrap.py
+2026-11-04T20:44:48.7216088Z [36;1mpython3 tools/bootstrap.py[0m
+2026-11-04T20:44:48.7241025Z shell: /usr/bin/bash -e {0}
+2026-11-04T20:44:48.7241907Z ##[endgroup]
+2026-11-04T20:44:55.3329886Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T20:44:55.3914964Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 verilator amd64 5.020-1 [6941 kB]
+2026-11-04T20:44:55.4390592Z Fetched 6941 kB in 0s (58.4 MB/s)
+2026-11-04T20:44:56.8123308Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T20:44:56.8548761Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 yosys amd64 0.33-5build2 [3222 kB]
+2026-11-04T20:44:56.8842081Z Fetched 3222 kB in 0s (38.5 MB/s)
+2026-11-04T20:44:58.2298621Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T20:44:58.2787646Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 yosys-abc amd64 0.33-5build2 [5829 kB]
+2026-11-04T20:44:58.4070651Z Fetched 5829 kB in 0s (30.9 MB/s)
+2026-11-04T20:44:59.7566185Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-04T20:44:59.7992504Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 iverilog amd64 12.0-2build2 [2126 kB]
+2026-11-04T20:44:59.8347138Z Fetched 2126 kB in 0s (23.9 MB/s)
+2026-11-04T20:44:59.8634999Z Verified pinned test sources, wasm-tools, Verilator, Yosys and Icarus in .cache
+2026-11-04T20:44:59.8786372Z ##[group]Run make sim
+2026-11-04T20:44:59.8786671Z [36;1mmake sim[0m
+2026-11-04T20:44:59.8786932Z [36;1mpython3 tools/build_loadable_sim.py[0m
+2026-11-04T20:44:59.8787570Z [36;1mpython3 tools/check_loadable.py --binary build/loadable-sim/Vwasmetal_loadable --report reports/loadable-rtl.json[0m
+2026-11-04T20:44:59.8808994Z shell: /usr/bin/bash -e {0}
+2026-11-04T20:44:59.8809253Z ##[endgroup]
+2026-11-04T20:44:59.8953863Z python3 tools/generate_fpga_ports.py
+2026-11-04T20:44:59.9311628Z Generated 843 input bits and 532 output bits
+2026-11-04T20:44:59.9365282Z python3 tools/build_identity.py begin build/obj/Vwasmetal_core --profile native
+2026-11-04T20:44:59.9784547Z /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/bin/verilator -Wall -Wno-UNUSEDSIGNAL --unroll-count 512 --assert -DWASMETAL_ASSERTIONS --top-module wasmetal_core -Ithird_party/hardfloat/source -Ithird_party/hardfloat/source/RISCV --cc --exe --build -j 4 --Mdir build/obj -MAKEFLAGS 'OPT_FAST=-O3' -CFLAGS '-std=c++17 -O3 -Wall -Wextra -Werror' rtl/vendor.vlt rtl/wasmetal_alu.sv rtl/wasmetal_core.sv rtl/wasmetal_descriptors.sv rtl/wasmetal_divider.sv rtl/wasmetal_fp_arithmetic.sv rtl/wasmetal_fp_format.sv rtl/wasmetal_fp_round.sv rtl/wasmetal_fpu.sv rtl/wasmetal_popcount.sv rtl/wasmetal_simd_decode.sv rtl/wasmetal_simd_fp_decode.sv rtl/wasmetal_simd_int.sv rtl/wasmetal_simd_lanes.sv rtl/wasmetal_simd_serial.sv rtl/wasmetal_values.sv third_party/hardfloat/source/HardFloat_primitives.v third_party/hardfloat/source/HardFloat_rawFN.v third_party/hardfloat/source/addRecFN.v third_party/hardfloat/source/compareRecFN.v third_party/hardfloat/source/divSqrtRecFN_small.v third_party/hardfloat/source/fNToRecFN.v third_party/hardfloat/source/iNToRecFN.v third_party/hardfloat/source/isSigNaNRecFN.v third_party/hardfloat/source/mulAddRecFN.v third_party/hardfloat/source/mulRecFN.v third_party/hardfloat/source/recFNToFN.v third_party/hardfloat/source/recFNToIN.v third_party/hardfloat/source/recFNToRecFN.v third_party/hardfloat/source/RISCV/HardFloat_specialize.v /home/runner/work/wasmetal/wasmetal/sim/main.cpp
+2026-11-04T20:45:00.8654802Z make[1]: Entering directory '/home/runner/work/wasmetal/wasmetal/build/obj'
+2026-11-04T20:45:00.8696168Z g++  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -O3 -c -o main.o /home/runner/work/wasmetal/wasmetal/sim/main.cpp
+2026-11-04T20:45:00.8738744Z g++ -Os  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -c -o verilated.o /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/verilated.cpp
+2026-11-04T20:45:00.8745823Z g++ -Os  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -c -o verilated_threads.o /home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/verilated_threads.cpp
+2026-11-04T20:45:00.8751376Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -x c++-header Vwasmetal_core__pch.h -o Vwasmetal_core__pch.h.fast.gch
+2026-11-04T20:45:03.8567345Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -x c++-header Vwasmetal_core__pch.h -o Vwasmetal_core__pch.h.slow.gch
+2026-11-04T20:45:04.7869436Z echo "" > Vwasmetal_core__ALL.verilator_deplist.tmp
+2026-11-04T20:45:04.7902258Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.fast -c -o Vwasmetal_core.o Vwasmetal_core.cpp
+2026-11-04T20:45:05.0236273Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.fast -c -o Vwasmetal_core___024root__DepSet_h6b51bc87__0.o Vwasmetal_core___024root__DepSet_h6b51bc87__0.cpp
+2026-11-04T20:45:05.3062760Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.fast -c -o Vwasmetal_core___024root__DepSet_hb849931a__0.o Vwasmetal_core___024root__DepSet_hb849931a__0.cpp
+2026-11-04T20:45:06.5933267Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.fast -c -o Vwasmetal_core___024root__DepSet_hb849931a__1.o Vwasmetal_core___024root__DepSet_hb849931a__1.cpp
+2026-11-04T20:45:07.9925092Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.fast -c -o Vwasmetal_core___024root__DepSet_hb849931a__2.o Vwasmetal_core___024root__DepSet_hb849931a__2.cpp
+2026-11-04T20:45:08.3642924Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.fast -c -o Vwasmetal_core_wasmetal_descriptors__DepSet_hce0c6f85__0.o Vwasmetal_core_wasmetal_descriptors__DepSet_hce0c6f85__0.cpp
+2026-11-04T20:45:08.9152973Z g++ -O3  -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.fast -c -o Vwasmetal_core_wasmetal_descriptors__W41__DepSet_h1f30c1d7__0.o Vwasmetal_core_wasmetal_descriptors__W41__DepSet_h1f30c1d7__0.cpp
+2026-11-04T20:45:09.1992502Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core__ConstPool_0.o Vwasmetal_core__ConstPool_0.cpp
+2026-11-04T20:45:09.3954909Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core___024root__Slow.o Vwasmetal_core___024root__Slow.cpp
+2026-11-04T20:45:09.6133010Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core___024root__DepSet_h6b51bc87__0__Slow.o Vwasmetal_core___024root__DepSet_h6b51bc87__0__Slow.cpp
+2026-11-04T20:45:09.7061891Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core___024root__DepSet_hb849931a__0__Slow.o Vwasmetal_core___024root__DepSet_hb849931a__0__Slow.cpp
+2026-11-04T20:45:09.8022974Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core___024root__DepSet_hb849931a__1__Slow.o Vwasmetal_core___024root__DepSet_hb849931a__1__Slow.cpp
+2026-11-04T20:45:12.5332939Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core___024root__DepSet_hb849931a__2__Slow.o Vwasmetal_core___024root__DepSet_hb849931a__2__Slow.cpp
+2026-11-04T20:45:12.9086102Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core_wasmetal_descriptors__Slow.o Vwasmetal_core_wasmetal_descriptors__Slow.cpp
+2026-11-04T20:45:13.0782074Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core_wasmetal_descriptors__DepSet_h1b94441c__0__Slow.o Vwasmetal_core_wasmetal_descriptors__DepSet_h1b94441c__0__Slow.cpp
+2026-11-04T20:45:13.2123260Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core_wasmetal_descriptors__W41__Slow.o Vwasmetal_core_wasmetal_descriptors__W41__Slow.cpp
+2026-11-04T20:45:13.2552762Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core_wasmetal_descriptors__W41__DepSet_heca8edea__0__Slow.o Vwasmetal_core_wasmetal_descriptors__W41__DepSet_heca8edea__0__Slow.cpp
+2026-11-04T20:45:13.4292562Z g++   -I.  -MMD -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include -I/home/runner/work/wasmetal/wasmetal/.cache/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-overloaded-virtual -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable     -std=c++17 -O3 -Wall -Wextra -Werror   -include Vwasmetal_core__pch.h.slow -c -o Vwasmetal_core__Syms.o Vwasmetal_core__Syms.cpp
+2026-11-04T20:45:15.6355221Z Archive ar -rcs Vwasmetal_core__ALL.a Vwasmetal_core.o Vwasmetal_core___024root__DepSet_h6b51bc87__0.o Vwasmetal_core___024root__DepSet_hb849931a__0.o Vwasmetal_core___024root__DepSet_hb849931a__1.o Vwasmetal_core___024root__DepSet_hb849931a__2.o Vwasmetal_core_wasmetal_descriptors__DepSet_hce0c6f85__0.o Vwasmetal_core_wasmetal_descriptors__W41__DepSet_h1f30c1d7__0.o Vwasmetal_core__ConstPool_0.o Vwasmetal_core___024root__Slow.o Vwasmetal_core___024root__DepSet_h6b51bc87__0__Slow.o Vwasmetal_core___024root__DepSet_hb849931a__0__Slow.o Vwasmetal_core___024root__DepSet_hb849931a__1__Slow.o Vwasmetal_core___024root__DepSet_hb849931a__2__Slow.o Vwasmetal_core_wasmetal_descriptors__Slow.o Vwasmetal_core_wasmetal_descriptors__DepSet_h1b94441c__0__Slow.o Vwasmetal_core_wasmetal_descriptors__W41__Slow.o Vwasmetal_core_wasmetal_descriptors__W41__DepSet_heca8edea__0__Slow.o Vwasmetal_core__Syms.o
+2026-11-04T20:45:16.3986117Z g++     main.o verilated.o verilated_threads.o Vwasmetal_core__ALL.a    -pthread -lpthread -latomic   -o Vwasmetal_core
+2026-11-04T20:45:16.4735027Z rm Vwasmetal_core__ALL.verilator_deplist.tmp
+2026-11-04T20:45:16.4735785Z make[1]: Leaving directory '/home/runner/work/wasmetal/wasmetal/build/obj'
+2026-11-04T20:45:16.4826192Z python3 tools/build_identity.py finish build/obj/Vwasmetal_core
+2026-11-04T20:45:29.6526193Z /home/runner/work/wasmetal/wasmetal/build/loadable-sim/Vwasmetal_loadable
+2026-11-04T20:45:35.9298759Z PASS uploaded answer
+2026-11-04T20:45:41.6158944Z PASS uploaded selftest
+2026-11-04T20:45:47.2675255Z PASS uploaded arguments
+2026-11-04T20:45:52.9186455Z PASS uploaded memory64
+2026-11-04T20:45:58.5453330Z PASS uploaded unaligned-simd
+2026-11-04T20:46:04.1945094Z PASS uploaded subtype-cast
+2026-11-04T20:46:09.8309914Z PASS uploaded tail-reference
+2026-11-04T20:46:15.4744628Z PASS uploaded branches
+2026-11-04T20:46:21.1489214Z PASS uploaded sixteen-results
+2026-11-04T20:46:26.8046508Z PASS uploaded no-results
+2026-11-04T20:46:32.4852588Z PASS uploaded unreachable
+2026-11-04T20:46:38.1141345Z PASS uploaded divide-zero
+2026-11-04T20:46:43.7388211Z PASS uploaded memory-oob
+2026-11-04T20:46:49.3729213Z PASS uploaded memory64-wrap
+2026-11-04T20:46:54.9952575Z PASS uploaded table-oob
+2026-11-04T20:47:00.6351018Z PASS uploaded null-call
+2026-11-04T20:47:06.2819042Z PASS uploaded bad-cast
+2026-11-04T20:47:11.9299431Z PASS uploaded uncaught
+2026-11-04T20:47:17.7726517Z PASS uploaded heap-exhaustion
+2026-11-04T20:47:59.7985012Z PASS uploaded watchdog
+2026-11-04T20:48:05.4603697Z PASS uploaded program-address-boundaries
+2026-11-04T20:48:11.0822700Z PASS uploaded type-address-boundaries
+2026-11-04T20:48:16.7024574Z PASS uploaded type-boundary-rejection
+2026-11-04T20:48:22.3402356Z PASS uploaded boot-address-boundaries
+2026-11-04T20:48:27.9636636Z PASS uploaded segment-address-boundaries
+2026-11-04T20:49:13.9622428Z ##[group]Run python3 tools/check_xc7_memory_mapping.py
+2026-11-04T20:49:13.9622878Z [36;1mpython3 tools/check_xc7_memory_mapping.py[0m
+2026-11-04T20:49:13.9642930Z shell: /usr/bin/bash -e {0}
+2026-11-04T20:49:13.9643192Z ##[endgroup]
+2026-11-04T20:49:17.9265283Z PASS 9x2048: 8268 vectors/model; RAMB18E1 TDP; 0 negative controls
+2026-11-04T20:49:22.1671983Z PASS 18x2048: 8308 vectors/model; RAMB36E1 TDP; 0 negative controls
+2026-11-04T20:49:26.3996865Z PASS 36x1024: 4308 vectors/model; RAMB36E1 TDP; 0 negative controls
+2026-11-04T20:49:30.0976098Z PASS 36x512: 2260 vectors/model; RAMB18E1 SDP; 0 negative controls
+2026-11-04T20:49:38.9083863Z PASS 72x512: 2884 vectors/model; RAMB36E1 SDP; 6 negative controls
+2026-11-04T20:49:38.9635816Z ##[group]Run python3 tools/check_xc7_ram_models.py
+2026-11-04T20:49:38.9636244Z [36;1mpython3 tools/check_xc7_ram_models.py[0m
+2026-11-04T20:49:38.9656160Z shell: /usr/bin/bash -e {0}
+2026-11-04T20:49:38.9656419Z ##[endgroup]
+2026-11-04T20:49:46.1189069Z PASS fast RAM 9x2048: both simulators, vendor reference and X/Z data
+2026-11-04T20:50:11.3502516Z PASS fast RAM 18x2048: both simulators, vendor reference and X/Z data
+2026-11-04T20:50:36.0566161Z PASS fast RAM 36x1024: both simulators, vendor reference and X/Z data
+2026-11-04T20:50:42.7086202Z PASS fast RAM 36x512: both simulators, vendor reference and X/Z data
+2026-11-04T20:52:18.9244621Z PASS fast RAM 72x512: both simulators, vendor reference and X/Z data
+2026-11-04T20:52:18.9576140Z ##[group]Run python3 tools/estimate_xc7_system.py
+2026-11-04T20:52:18.9576558Z [36;1mpython3 tools/estimate_xc7_system.py[0m
+2026-11-04T20:52:18.9595906Z shell: /usr/bin/bash -e {0}
+2026-11-04T20:52:18.9596164Z ##[endgroup]
+2026-11-04T21:01:08.3254599Z {
+2026-11-04T21:01:08.3256979Z   "status": "synthesized_and_structurally_checked",
+2026-11-04T21:01:08.3257695Z   "logic_lut_primitives": 50964,
+2026-11-04T21:01:08.3258359Z   "flip_flops": 6951,
+2026-11-04T21:01:08.3258752Z   "ram36_equivalent": 96.0,
+2026-11-04T21:01:08.3259227Z   "distributed_ram_primitives": {
+2026-11-04T21:01:08.3259606Z     "RAM64M": 22
+2026-11-04T21:01:08.3259894Z   },
+2026-11-04T21:01:08.3260181Z   "cell_counts": {
+2026-11-04T21:01:08.3260553Z     "CARRY4": 2295,
+2026-11-04T21:01:08.3260863Z     "DSP48E1": 29,
+2026-11-04T21:01:08.3261195Z     "FDCE": 6,
+2026-11-04T21:01:08.3261496Z     "FDRE": 6677,
+2026-11-04T21:01:08.3261851Z     "FDRE_1": 192,
+2026-11-04T21:01:08.3262167Z     "FDSE": 76,
+2026-11-04T21:01:08.3262536Z     "INV": 1354,
+2026-11-04T21:01:08.3262883Z     "LUT1": 1001,
+2026-11-04T21:01:08.3263262Z     "LUT2": 13788,
+2026-11-04T21:01:08.3263643Z     "LUT3": 11017,
+2026-11-04T21:01:08.3263965Z     "LUT4": 5904,
+2026-11-04T21:01:08.3264205Z     "LUT5": 5102,
+2026-11-04T21:01:08.3264444Z     "LUT6": 14152,
+2026-11-04T21:01:08.3264683Z     "MUXF7": 5297,
+2026-11-04T21:01:08.3264920Z     "MUXF8": 1497,
+2026-11-04T21:01:08.3265161Z     "RAM64M": 22,
+2026-11-04T21:01:08.3265406Z     "RAMB18E1": 136,
+2026-11-04T21:01:08.3265669Z     "RAMB36E1": 28
+2026-11-04T21:01:08.3265905Z   }
+2026-11-04T21:01:08.3266118Z }
+2026-11-04T21:01:08.3474086Z ##[group]Run python3 tools/check_xc7_dsp.py
+2026-11-04T21:01:08.3474682Z [36;1mpython3 tools/check_xc7_dsp.py[0m
+2026-11-04T21:01:08.3502470Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:01:08.3502899Z ##[endgroup]
+2026-11-04T21:01:17.1794352Z PASS DSP ('CASCADE', 'DIRECT', 85): 17408 integer-oracle vectors in vendor, original Yosys and split-carry models
+2026-11-04T21:01:24.3253302Z PASS DSP ('DIRECT', 'CASCADE', 85): 17408 integer-oracle vectors in vendor, original Yosys and split-carry models
+2026-11-04T21:01:30.1214201Z PASS DSP ('DIRECT', 'DIRECT', 5): 17408 integer-oracle vectors in vendor, original Yosys and split-carry models
+2026-11-04T21:01:37.3706711Z PASS DSP ('DIRECT', 'DIRECT', 21): 17408 integer-oracle vectors in vendor, original Yosys and split-carry models
+2026-11-04T21:01:44.6169004Z PASS DSP ('DIRECT', 'DIRECT', 53): 17408 integer-oracle vectors in vendor, original Yosys and split-carry models
+2026-11-04T21:01:44.8782341Z ##[group]Run python3 tools/estimate_xc7_accelerated.py
+2026-11-04T21:01:44.8782768Z [36;1mpython3 tools/estimate_xc7_accelerated.py[0m
+2026-11-04T21:01:44.8802367Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:01:44.8802620Z ##[endgroup]
+2026-11-04T21:10:31.2245296Z PASS accelerated UART synthesis; original recipe and storage capacity preserved
+2026-11-04T21:10:31.2423567Z ##[group]Run python3 tools/check_xc7_luts.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
+2026-11-04T21:10:31.2424502Z [36;1mpython3 tools/check_xc7_luts.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json[0m
+2026-11-04T21:10:31.2444366Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:10:31.2444626Z ##[endgroup]
+2026-11-04T21:10:40.3074009Z PASS 1 known 8
+2026-11-04T21:10:40.3230947Z PASS 1 four-state 56
+2026-11-04T21:10:46.3217643Z PASS 2 known 48
+2026-11-04T21:10:46.3377508Z PASS 2 four-state 480
+2026-11-04T21:10:52.1627336Z PASS 3 known 744
+2026-11-04T21:10:52.2387333Z PASS 3 four-state 8128
+2026-11-04T21:10:58.0972906Z PASS 4 known 5712
+2026-11-04T21:10:58.7674734Z PASS 4 four-state 108288
+2026-11-04T21:11:04.9014221Z PASS 5 known 26048
+2026-11-04T21:11:11.5741728Z PASS 5 four-state 966656
+2026-11-04T21:11:18.8806794Z PASS 6 known 151104
+2026-11-04T21:12:43.2325638Z PASS 6 four-state 10727424
+2026-11-04T21:12:43.5766180Z PASS six LUT proofs and complete oracle regressions
+2026-11-04T21:12:43.5932197Z ##[group]Run python3 tools/check_xc7_carry.py
+2026-11-04T21:12:43.5932595Z [36;1mpython3 tools/check_xc7_carry.py[0m
+2026-11-04T21:12:43.5952277Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:12:43.5952542Z ##[endgroup]
+2026-11-04T21:12:43.8250808Z PASS yosys known 1024
+2026-11-04T21:12:56.1119256Z PASS vendor known 1024
+2026-11-04T21:13:13.4085679Z PASS yosys four-state 1048576
+2026-11-04T21:13:24.7052728Z PASS vendor four-state 1048576
+2026-11-04T21:13:24.7647487Z PASS carry checks; vendor/Yosys four-state differences explicitly retained
+2026-11-04T21:13:24.7783489Z ##[group]Run python3 tools/check_xc7_muxes.py
+2026-11-04T21:13:24.7783877Z [36;1mpython3 tools/check_xc7_muxes.py[0m
+2026-11-04T21:13:24.7803370Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:13:24.7803622Z ##[endgroup]
+2026-11-04T21:13:30.8241022Z PASS MUXF7 binary proof and all four-state combinations
+2026-11-04T21:13:36.6658598Z PASS MUXF8 binary proof and all four-state combinations
+2026-11-04T21:13:42.5422665Z PASS INV binary proof and all four-state combinations
+2026-11-04T21:13:42.6242440Z PASS three logic proofs and 11 negative controls
+2026-11-04T21:13:42.6381608Z ##[group]Run python3 tools/check_xc7_flops.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
+2026-11-04T21:13:42.6382612Z [36;1mpython3 tools/check_xc7_flops.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json[0m
+2026-11-04T21:13:42.6401944Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:13:42.6402204Z ##[endgroup]
+2026-11-04T21:13:46.2750937Z PASS FDRE yosys known-init-0 4416
+2026-11-04T21:13:46.2985061Z PASS FDRE vendor known-init-0 4416
+2026-11-04T21:13:52.0672536Z PASS FDRE yosys known-init-1 4416
+2026-11-04T21:13:52.0907091Z PASS FDRE vendor known-init-1 4416
+2026-11-04T21:13:57.8315753Z PASS FDRE yosys four-state-init-x 9216
+2026-11-04T21:13:57.8711668Z PASS FDRE vendor four-state-init-x 9216
+2026-11-04T21:13:57.9060456Z PASS FDRE_1 yosys known-init-0 4416
+2026-11-04T21:13:57.9295162Z PASS FDRE_1 vendor known-init-0 4416
+2026-11-04T21:14:03.6476390Z PASS FDRE_1 yosys known-init-1 4416
+2026-11-04T21:14:03.6710863Z PASS FDRE_1 vendor known-init-1 4416
+2026-11-04T21:14:09.4617054Z PASS FDRE_1 yosys four-state-init-x 9216
+2026-11-04T21:14:09.5012766Z PASS FDRE_1 vendor four-state-init-x 9216
+2026-11-04T21:14:09.5360388Z PASS FDSE yosys known-init-0 4416
+2026-11-04T21:14:09.5595404Z PASS FDSE vendor known-init-0 4416
+2026-11-04T21:14:15.3287460Z PASS FDSE yosys known-init-1 4416
+2026-11-04T21:14:15.3521153Z PASS FDSE vendor known-init-1 4416
+2026-11-04T21:14:21.0928127Z PASS FDSE yosys four-state-init-x 9216
+2026-11-04T21:14:21.1323856Z PASS FDSE vendor four-state-init-x 9216
+2026-11-04T21:14:21.1679412Z PASS FDCE yosys known-init-0 4416
+2026-11-04T21:14:21.1914293Z PASS FDCE vendor known-init-0 4416
+2026-11-04T21:14:26.9108564Z PASS FDCE yosys known-init-1 4416
+2026-11-04T21:14:26.9343193Z PASS FDCE vendor known-init-1 4416
+2026-11-04T21:14:32.7229445Z PASS FDCE yosys four-state-init-x 9216
+2026-11-04T21:14:32.7743296Z PASS FDCE yosys four-state-init-x-known-clear 6656
+2026-11-04T21:14:32.8140593Z PASS FDCE vendor four-state-init-x-known-clear 6656
+2026-11-04T21:14:33.2980570Z PASS all four used flip-flop kinds and 16 negative controls
+2026-11-04T21:14:33.3159921Z ##[group]Run python3 tools/check_xc7_lutram.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json
+2026-11-04T21:14:33.3160861Z [36;1mpython3 tools/check_xc7_lutram.py --netlist build/xc7-system/mapped.json --netlist build/xc7-accelerated/mapped.json[0m
+2026-11-04T21:14:33.3180559Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:14:33.3180808Z ##[endgroup]
+2026-11-04T21:14:44.2410599Z PASS distributed RAM zero 37184 observations per model
+2026-11-04T21:14:50.6555029Z PASS distributed RAM asymmetric 37184 observations per model
+2026-11-04T21:14:52.3871181Z PASS distributed RAM four-state 143744 observations per model
+2026-11-04T21:14:53.2079860Z PASS 260 RAM equivalence points and 20 negative controls
+2026-11-04T21:14:53.2262927Z ##[group]Run python3 tools/build_xc7_gate_sim.py --jobs 2 --estimate reports/xc7-accelerated-estimate.json --netlist build/xc7-accelerated/mapped.json --directory build/xc7-accelerated-gate-sim
+2026-11-04T21:14:53.2264319Z [36;1mpython3 tools/build_xc7_gate_sim.py --jobs 2 --estimate reports/xc7-accelerated-estimate.json --netlist build/xc7-accelerated/mapped.json --directory build/xc7-accelerated-gate-sim[0m
+2026-11-04T21:14:53.2265519Z [36;1mpython3 tools/accelerate_xc7_sim.py --simulator build/xc7-accelerated-gate-sim/obj/Vwasmetal_loadable --directory build/xc7-accelerated-gate-fast --jobs 2[0m
+2026-11-04T21:14:53.2285279Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:14:53.2285539Z ##[endgroup]
+2026-11-04T21:19:19.4645316Z /home/runner/work/wasmetal/wasmetal/build/xc7-accelerated-gate-sim/obj/Vwasmetal_loadable
+2026-11-04T21:21:30.7620381Z /home/runner/work/wasmetal/wasmetal/build/xc7-accelerated-gate-fast/obj/Vwasmetal_loadable
+2026-11-04T21:21:30.7759704Z ##[group]Run python3 tools/run_xc7_system.py --workers 4
+2026-11-04T21:21:30.7760144Z [36;1mpython3 tools/run_xc7_system.py --workers 4[0m
+2026-11-04T21:21:30.7779568Z shell: /usr/bin/bash -e {0}
+2026-11-04T21:21:30.7779824Z ##[endgroup]
+2026-11-04T21:21:31.1916420Z START partition 0
+2026-11-04T21:21:31.1920391Z START partition 1
+2026-11-04T21:21:31.1929847Z START partition 2
+2026-11-04T21:21:31.1958703Z START partition 3
+2026-11-04T22:26:13.4784375Z PASS partition 3
+2026-11-04T22:26:13.4808595Z START partition 4
+2026-11-04T22:27:06.9639083Z PASS partition 1
+2026-11-04T22:27:06.9688748Z START partition 5
+2026-11-04T22:27:33.4058983Z PASS partition 2
+2026-11-04T22:48:03.1425206Z PASS partition 0
+2026-11-04T23:01:45.5955762Z PASS partition 5
+2026-11-04T23:11:36.7211294Z PASS partition 4
+2026-11-04T23:11:37.9932272Z PASS complete Xilinx campaign; 35 cases and 15 comparison controls
+2026-11-04T23:11:38.0089508Z ##[group]Run if [ -f .cache/tools/usr/share/doc/yosys/copyright ]; then
+2026-11-04T23:11:38.0090090Z [36;1mif [ -f .cache/tools/usr/share/doc/yosys/copyright ]; then[0m
+2026-11-04T23:11:38.0090535Z [36;1m  mkdir -p build/xc7-licenses[0m
+2026-11-04T23:11:38.0091077Z [36;1m  cp .cache/tools/usr/share/doc/yosys/copyright build/xc7-licenses/YOSYS_COPYRIGHT[0m
+2026-11-04T23:11:38.0091506Z [36;1mfi[0m
+2026-11-04T23:11:38.0112355Z shell: /usr/bin/bash -e {0}
+2026-11-04T23:11:38.0112607Z ##[endgroup]
+2026-11-04T23:11:38.0248411Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-04T23:11:38.0248853Z with:
+2026-11-04T23:11:38.0249063Z   name: xilinx-system-verification
+2026-11-04T23:11:38.0253258Z   path: reports/xc7-system-estimate.json
+reports/xc7-accelerated-estimate.json
+reports/loadable-rtl.json
+reports/xc7-system-complete.json
+reports/xc7-system-shards/
+reports/xc7-memory-mapping.json
+reports/xc7-ram-models.json
+reports/xc7-dsp.json
+reports/xc7-luts.json
+reports/xc7-carry.json
+reports/xc7-muxes.json
+reports/xc7-flops.json
+reports/xc7-lutram.json
+build/xc7-memory-mapping/
+build/xc7-ram-models/
+build/xc7-dsp/
+build/xc7-lut-check/
+build/xc7-carry-check/
+build/xc7-muxes/
+build/xc7-flops/
+build/xc7-lutram/
+build/xc7-system/*.log
+build/xc7-system/*.ys
+build/xc7-system/mapping-overlay/
+build/xc7-accelerated/*.log
+build/xc7-accelerated/*.ys
+build/xc7-accelerated/mapping-overlay/
+build/xc7-accelerated-gate-sim/*.log
+build/xc7-accelerated-gate-sim/*.ys
+build/xc7-accelerated-gate-sim/*.v
+build/xc7-accelerated-gate-sim/*.vlt
+build/xc7-accelerated-gate-sim/obj/*.build.json
+build/xc7-accelerated-gate-fast/*.log
+build/xc7-accelerated-gate-fast/*.v
+build/xc7-accelerated-gate-fast/*.vlt
+build/xc7-accelerated-gate-fast/obj/*.build.json
+build/loadable-sim/build.log
+build/loadable-sim/*.build.json
+build/xc7-system-run/
+build/xc7-licenses/
+third_party/xilinx-unisim/
+
+2026-11-04T23:11:38.0257650Z   if-no-files-found: warn
+2026-11-04T23:11:38.0257880Z   retention-days: 30
+2026-11-04T23:11:38.0258725Z   compression-level: 6
+2026-11-04T23:11:38.0259184Z   overwrite: false
+2026-11-04T23:11:38.0259405Z   include-hidden-files: false
+2026-11-04T23:11:38.0259644Z   archive: true
+2026-11-04T23:11:38.0259838Z ##[endgroup]
+2026-11-04T23:11:38.9061723Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-04T23:11:38.9068499Z The least common ancestor is /home/runner/work/wasmetal/wasmetal. This will be the root directory of the artifact
+2026-11-04T23:11:38.9069133Z With the provided path, there will be 1930 files uploaded
+2026-11-04T23:11:38.9071824Z Artifact name is valid!
+2026-11-04T23:11:38.9072275Z Root directory input is valid!
+2026-11-04T23:11:39.1238845Z Uploading artifact: xilinx-system-verification.zip
+2026-11-04T23:11:39.1279825Z Beginning upload of artifact content to blob storage
+2026-11-04T23:11:40.5331370Z Uploaded bytes 8388608
+2026-11-04T23:11:41.7487901Z Uploaded bytes 16777216
+2026-11-04T23:11:43.9424928Z Uploaded bytes 25165824
+2026-11-04T23:11:43.9691785Z Uploaded bytes 25463355
+2026-11-04T23:11:43.9853101Z Finished uploading artifact content to blob storage!
+2026-11-04T23:11:43.9857516Z SHA256 digest of uploaded artifact is 1b3599f1609c20b5bff1dcb33ade25f446d34d80c28082fa17edff01e0cedbc0
+2026-11-04T23:11:43.9859819Z Finalizing artifact upload
+2026-11-04T23:11:44.4279992Z Artifact xilinx-system-verification successfully finalized. Artifact ID 13372765165
+2026-11-04T23:11:44.4281375Z Artifact xilinx-system-verification has been successfully uploaded! Final size is 25463355 bytes. Artifact ID is 13372765165
+2026-11-04T23:11:44.4287172Z Artifact download URL: https://github.com/Millillion/wasmetal/actions/runs/41906105408/artifacts/13372765165
+2026-11-04T23:11:44.4697196Z Post job cleanup.
+2026-11-04T23:11:44.5699254Z [command]/usr/bin/git version
+2026-11-04T23:11:44.5778891Z git version 2.56.0
+2026-11-04T23:11:44.5805113Z Temporarily overriding HOME='/home/runner/work/_temp/d44aea39-3f49-46d1-863d-5a8e55aabda4' before making global git config changes
+2026-11-04T23:11:44.5806699Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T23:11:44.5812328Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wasmetal/wasmetal
+2026-11-04T23:11:44.5859246Z Removing SSH command configuration
+2026-11-04T23:11:44.5867590Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T23:11:44.5911299Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T23:11:44.6200424Z Removing HTTP extra header
+2026-11-04T23:11:44.6207716Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T23:11:44.6249873Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T23:11:44.6534709Z Removing includeIf entries pointing to credentials config files
+2026-11-04T23:11:44.6544111Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T23:11:44.6593996Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T23:11:44.7289821Z Cleaning up orphan processes
+

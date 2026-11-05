@@ -180,10 +180,10 @@ UART bit passes all 35 cases. A [mapped upload at that unchanged timing](docs/ve
 also passes: 45,114,201 core clocks, exact UART/commit/result timing agreement,
 and the expected result of 42 in 53 execution cycles. All six comparison faults
 are rejected. Xilinx placement and timing remain unverified.
-CI is now configured to build the native reference and accelerated Xilinx
-circuit, run all 35 cases through a supervised four-worker campaign, and
-require the full comparison. The new complete CI job has not finished on
-GitHub yet; the published passing campaign is local evidence.
+CI builds the native reference and accelerated Xilinx circuit, runs all 35
+cases through a supervised campaign, and requires the full comparison.
+That [complete-system CI gate passed at commit `4907fa2`](docs/verification/ci-4907fa2-complete.json),
+including all fifteen comparison controls. Physical FPGA routing remains open.
 A separate [host-backed Xilinx core](docs/XILINX-CORE.md) now passes synthesis
 and structural checks at the official-suite capacities: 47,009 logic LUT
 primitives, 5,265 flip-flops, 29 DSPs and 49 equivalent 36-Kbit RAM blocks.
@@ -204,7 +204,12 @@ Xilinx core build, sixteen official-corpus workers and a complete-coverage
 gate. Its [local deployment checks](docs/verification/xc7-core-ci-preflight.json)
 restore the package in another directory and pass the same eight suites and
 the actual command-partition fixture. Five output-protection fixtures pass.
-The new full Xilinx CI pipeline has not finished yet.
+The [complete Xilinx and ECP5 corpus gates have now passed in CI](docs/verification/ci-4907fa2-complete.json)
+at commit `4907fa2`. Their downloaded reports were checked against GitHub's
+artifact digests and agree on every canonical command and cycle count.
+These reports precede the newer fresh-input runner. The overall workflow
+is not green: programmable FPGA routing was still running at the recorded
+observation, standalone routing was cancelled, and its dependent gate failed.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)

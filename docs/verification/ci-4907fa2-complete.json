@@ -1,0 +1,67 @@
+{
+  "status": "selected-gates-passed",
+  "repository": "Millillion/wasmetal",
+  "run_id": 41906105408,
+  "head_sha": "4907fa26f3c80193ecbf9371cf8d89650199aef5",
+  "observed_at_utc": "2026-11-05T01:44:55Z",
+  "gates": [
+    {
+      "name": "Complete programmable 7-series circuit",
+      "id": 126852962019,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41906105408/job/126852962019",
+      "conclusion": "success",
+      "completed_at": "2026-11-04T23:11:46Z"
+    },
+    {
+      "name": "Complete mapped corpus",
+      "id": 126974978152,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41906105408/job/126974978152",
+      "conclusion": "success",
+      "completed_at": "2026-11-05T00:57:16Z"
+    },
+    {
+      "name": "Complete Xilinx mapped corpus",
+      "id": 126978662821,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41906105408/job/126978662821",
+      "conclusion": "success",
+      "completed_at": "2026-11-05T01:06:22Z"
+    }
+  ],
+  "suite_files_per_core_model": 259,
+  "totals_per_core_model": {
+    "modules_instantiated": 2266,
+    "rtl_assertions_passed": 57711,
+    "loader_assertions_passed": 4677,
+    "rtl_cycles": 306351688,
+    "script_commands": 65353,
+    "rtl_actions_completed": 359,
+    "registrations": 80,
+    "embedding_assertions_passed": 254,
+    "module_definitions": 6
+  },
+  "ecp5_and_xilinx_observations_compared_locally": true,
+  "newer_fresh_input_runner_covered": false,
+  "whole_workflow_passed": false,
+  "other_job_states_at_observation": [
+    {
+      "name": "Programmable FPGA routing",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41906105408/job/126863288503"
+    },
+    {
+      "name": "Standalone FPGA routing",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41906105408/job/126863288527"
+    },
+    {
+      "name": "Standalone FPGA system",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41906105408/job/126953287482"
+    }
+  ],
+  "physical_hardware_tested": false,
+  "artifacts": 10
+}

@@ -153,8 +153,10 @@ workers. Its `xilinx-system-verification` artifact retains partition reports,
 the comparison, source/build identities and diagnostics even on failure. The
 job has a 360-minute budget, using GitHub's documented
 [job timeout setting](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idtimeout-minutes).
-This newly configured complete CI job has not yet finished on GitHub. The
-published completed system campaign remains the local run described above.
+The [complete CI job passed at commit `4907fa2`](verification/ci-4907fa2-complete.json),
+with all 35 cases and fifteen comparison controls. Its decoded gate log is
+preserved alongside the full-corpus CI reports. This complements the local
+campaign above; placement, timing and physical board testing remain open.
 
 Build receipts describe an untested executable at build time. Test results
 live in separate receipts; a successful run does not rewrite its build identity.

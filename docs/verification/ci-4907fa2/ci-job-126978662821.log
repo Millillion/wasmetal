@@ -1,0 +1,357 @@
+﻿2026-11-05T01:05:57.5490895Z Current runner version: '2.338.2'
+2026-11-05T01:05:57.5514834Z ##[group]Runner Image Provisioner
+2026-11-05T01:05:57.5515736Z Hosted Compute Agent
+2026-11-05T01:05:57.5516335Z Version: 20261021.618
+2026-11-05T01:05:57.5517130Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-05T01:05:57.5517876Z Build Date: 2026-10-21T00:45:21Z
+2026-11-05T01:05:57.5519459Z Worker ID: {e3049ad3-bf20-4b85-a611-65048e159cb8}
+2026-11-05T01:05:57.5520336Z Region: westus3
+2026-11-05T01:05:57.5520890Z Cloud: Azure
+2026-11-05T01:05:57.5521516Z ##[endgroup]
+2026-11-05T01:05:57.5523359Z ##[group]Operating System
+2026-11-05T01:05:57.5524097Z Ubuntu
+2026-11-05T01:05:57.5524660Z 24.04.5
+2026-11-05T01:05:57.5525191Z LTS
+2026-11-05T01:05:57.5525839Z ##[endgroup]
+2026-11-05T01:05:57.5526449Z ##[group]Runner Image
+2026-11-05T01:05:57.5527088Z Image: ubuntu-24.04
+2026-11-05T01:05:57.5527701Z Version: 20261025.353.1
+2026-11-05T01:05:57.5529446Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-05T01:05:57.5531124Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-11-05T01:05:57.5532154Z ##[endgroup]
+2026-11-05T01:05:57.5533266Z ##[group]GITHUB_TOKEN Permissions
+2026-11-05T01:05:57.5535471Z Contents: read
+2026-11-05T01:05:57.5536137Z Metadata: read
+2026-11-05T01:05:57.5536752Z ##[endgroup]
+2026-11-05T01:05:57.5539355Z Secret source: Actions
+2026-11-05T01:05:57.5540372Z Cache mode: write
+2026-11-05T01:05:57.5541164Z Prepare workflow directory
+2026-11-05T01:05:57.5937545Z Prepare all required actions
+2026-11-05T01:05:57.5986244Z Getting action download info
+2026-11-05T01:05:57.9490804Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-05T01:05:58.0525025Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+2026-11-05T01:05:58.6304139Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-05T01:05:58.8276232Z Complete job name: Complete Xilinx mapped corpus
+2026-11-05T01:05:58.9090534Z ##[group]Run test "$CORE_RESULT" = success && test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success
+2026-11-05T01:05:58.9092083Z [36;1mtest "$CORE_RESULT" = success && test "$BUILD_RESULT" = success && test "$MAPPED_RESULT" = success[0m
+2026-11-05T01:05:58.9116687Z shell: /usr/bin/bash -e {0}
+2026-11-05T01:05:58.9117595Z env:
+2026-11-05T01:05:58.9118054Z   CORE_RESULT: success
+2026-11-05T01:05:58.9118770Z   BUILD_RESULT: success
+2026-11-05T01:05:58.9119346Z   MAPPED_RESULT: success
+2026-11-05T01:05:58.9119867Z ##[endgroup]
+2026-11-05T01:05:58.9449421Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-05T01:05:58.9450336Z with:
+2026-11-05T01:05:58.9450816Z   persist-credentials: false
+2026-11-05T01:05:58.9451412Z   repository: Millillion/wasmetal
+2026-11-05T01:05:58.9455703Z   token: ***
+2026-11-05T01:05:58.9456197Z   ssh-strict: true
+2026-11-05T01:05:58.9456680Z   ssh-user: git
+2026-11-05T01:05:58.9457146Z   clean: true
+2026-11-05T01:05:58.9457630Z   sparse-checkout-cone-mode: true
+2026-11-05T01:05:58.9458203Z   fetch-depth: 1
+2026-11-05T01:05:58.9458862Z   fetch-tags: false
+2026-11-05T01:05:58.9459356Z   show-progress: true
+2026-11-05T01:05:58.9459848Z   lfs: false
+2026-11-05T01:05:58.9460304Z   submodules: false
+2026-11-05T01:05:58.9460801Z   set-safe-directory: true
+2026-11-05T01:05:58.9461350Z   allow-unsafe-pr-checkout: false
+2026-11-05T01:05:58.9461916Z ##[endgroup]
+2026-11-05T01:05:59.2551475Z Syncing repository: Millillion/wasmetal
+2026-11-05T01:05:59.2553439Z ##[group]Getting Git version info
+2026-11-05T01:05:59.2554945Z Working directory is '/home/runner/work/wasmetal/wasmetal'
+2026-11-05T01:05:59.2556650Z [command]/usr/bin/git version
+2026-11-05T01:05:59.2680224Z git version 2.56.0
+2026-11-05T01:05:59.2701293Z ##[endgroup]
+2026-11-05T01:05:59.2717585Z Temporarily overriding HOME='/home/runner/work/_temp/12d4fb17-2b56-4e34-830a-8fa305816381' before making global git config changes
+2026-11-05T01:05:59.2720377Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-05T01:05:59.2723085Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wasmetal/wasmetal
+2026-11-05T01:05:59.2780439Z Deleting the contents of '/home/runner/work/wasmetal/wasmetal'
+2026-11-05T01:05:59.2784963Z ##[group]Determining repository object format
+2026-11-05T01:05:59.2787276Z ##[endgroup]
+2026-11-05T01:05:59.2788693Z ##[group]Initializing the repository
+2026-11-05T01:05:59.2792522Z [command]/usr/bin/git init /home/runner/work/wasmetal/wasmetal
+2026-11-05T01:05:59.2937413Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-05T01:05:59.2939340Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-05T01:05:59.2940910Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-05T01:05:59.2942129Z hint: call:
+2026-11-05T01:05:59.2942783Z hint:
+2026-11-05T01:05:59.2943657Z hint: 	git config --global init.defaultBranch <name>
+2026-11-05T01:05:59.2944695Z hint:
+2026-11-05T01:05:59.2945688Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-05T01:05:59.2947213Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-05T01:05:59.2948626Z hint:
+2026-11-05T01:05:59.2949379Z hint: 	git branch -m <name>
+2026-11-05T01:05:59.2950205Z hint:
+2026-11-05T01:05:59.2951267Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-05T01:05:59.2952924Z Initialized empty Git repository in /home/runner/work/wasmetal/wasmetal/.git/
+2026-11-05T01:05:59.2965371Z [command]/usr/bin/git remote add origin https://github.com/Millillion/wasmetal
+2026-11-05T01:05:59.3018741Z ##[endgroup]
+2026-11-05T01:05:59.3019984Z ##[group]Disabling automatic garbage collection
+2026-11-05T01:05:59.3023951Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-05T01:05:59.3059358Z ##[endgroup]
+2026-11-05T01:05:59.3061095Z ##[group]Setting up auth
+2026-11-05T01:05:59.3062187Z Removing SSH command configuration
+2026-11-05T01:05:59.3065356Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-05T01:05:59.3198405Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-05T01:05:59.3550987Z Removing HTTP extra header
+2026-11-05T01:05:59.3558887Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-05T01:05:59.3607139Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-05T01:05:59.3844483Z Removing includeIf entries pointing to credentials config files
+2026-11-05T01:05:59.3852316Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-05T01:05:59.3896463Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-05T01:05:59.4140092Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-05T01:05:59.4187772Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path /home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:05:59.4230591Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:05:59.4274737Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:05:59.4326652Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:05:59.4365073Z ##[endgroup]
+2026-11-05T01:05:59.4366491Z ##[group]Fetching the repository
+2026-11-05T01:05:59.4374940Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4907fa26f3c80193ecbf9371cf8d89650199aef5:refs/remotes/origin/main
+2026-11-05T01:06:00.6757623Z From https://github.com/Millillion/wasmetal
+2026-11-05T01:06:00.6760159Z  * [new ref]         4907fa26f3c80193ecbf9371cf8d89650199aef5 -> origin/main
+2026-11-05T01:06:00.6768339Z [command]/usr/bin/git branch --list --remote origin/main
+2026-11-05T01:06:00.6804156Z   origin/main
+2026-11-05T01:06:00.6813508Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-11-05T01:06:00.6846266Z 4907fa26f3c80193ecbf9371cf8d89650199aef5
+2026-11-05T01:06:00.6853487Z ##[endgroup]
+2026-11-05T01:06:00.6854939Z ##[group]Determining the checkout info
+2026-11-05T01:06:00.6856292Z ##[endgroup]
+2026-11-05T01:06:00.6858776Z [command]/usr/bin/git sparse-checkout disable
+2026-11-05T01:06:00.6920387Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-05T01:06:00.6959925Z ##[group]Checking out the ref
+2026-11-05T01:06:00.6962818Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-05T01:06:00.8938324Z Switched to a new branch 'main'
+2026-11-05T01:06:00.8944244Z branch 'main' set up to track 'origin/main'.
+2026-11-05T01:06:00.8969857Z ##[endgroup]
+2026-11-05T01:06:00.9023574Z [command]/usr/bin/git log -1 --format=%H
+2026-11-05T01:06:00.9059823Z 4907fa26f3c80193ecbf9371cf8d89650199aef5
+2026-11-05T01:06:00.9071186Z ##[group]Removing auth
+2026-11-05T01:06:00.9072646Z Removing SSH command configuration
+2026-11-05T01:06:00.9075259Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-05T01:06:00.9120637Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-05T01:06:00.9362768Z Removing HTTP extra header
+2026-11-05T01:06:00.9366963Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-05T01:06:00.9410597Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-05T01:06:00.9653024Z Removing includeIf entries pointing to credentials config files
+2026-11-05T01:06:00.9657129Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-05T01:06:00.9702104Z includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path
+2026-11-05T01:06:00.9704706Z includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path
+2026-11-05T01:06:00.9707482Z includeif.gitdir:/github/workspace/.git.path
+2026-11-05T01:06:00.9709704Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-05T01:06:00.9714735Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path
+2026-11-05T01:06:00.9745835Z /home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:00.9759294Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git.path /home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:00.9802281Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path
+2026-11-05T01:06:00.9833842Z /home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:00.9846156Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/wasmetal/wasmetal/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:00.9895695Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-05T01:06:00.9928198Z /github/runner_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:00.9939829Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:00.9982671Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-05T01:06:01.0014623Z /github/runner_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:01.0024616Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config
+2026-11-05T01:06:01.0066015Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-05T01:06:01.0309389Z Removing credentials config '/home/runner/work/_temp/git-credentials-61272388-348d-4a4f-aede-4eb7a05e28e6.config'
+2026-11-05T01:06:01.0313897Z ##[endgroup]
+2026-11-05T01:06:01.0499034Z ##[group]Run python3 tools/bootstrap.py
+2026-11-05T01:06:01.0500475Z [36;1mpython3 tools/bootstrap.py[0m
+2026-11-05T01:06:01.0523243Z shell: /usr/bin/bash -e {0}
+2026-11-05T01:06:01.0524366Z ##[endgroup]
+2026-11-05T01:06:04.1504165Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-05T01:06:04.2633924Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 verilator amd64 5.020-1 [6941 kB]
+2026-11-05T01:06:04.7373862Z Fetched 6941 kB in 1s (11.6 MB/s)
+2026-11-05T01:06:06.0382608Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-05T01:06:06.1043708Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 yosys amd64 0.33-5build2 [3222 kB]
+2026-11-05T01:06:06.1607748Z Fetched 3222 kB in 0s (23.9 MB/s)
+2026-11-05T01:06:07.3993430Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-05T01:06:07.4657280Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 yosys-abc amd64 0.33-5build2 [5829 kB]
+2026-11-05T01:06:07.7982534Z Fetched 5829 kB in 0s (14.2 MB/s)
+2026-11-05T01:06:09.0483023Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-05T01:06:09.1144269Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 iverilog amd64 12.0-2build2 [2126 kB]
+2026-11-05T01:06:09.1744292Z Fetched 2126 kB in 0s (15.3 MB/s)
+2026-11-05T01:06:09.2065944Z Verified pinned test sources, wasm-tools, Verilator, Yosys and Icarus in .cache
+2026-11-05T01:06:09.2250031Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-05T01:06:09.2250528Z with:
+2026-11-05T01:06:09.2250762Z   name: verification-reports
+2026-11-05T01:06:09.2251014Z   path: reports/native
+2026-11-05T01:06:09.2251247Z   merge-multiple: false
+2026-11-05T01:06:09.2251481Z   repository: Millillion/wasmetal
+2026-11-05T01:06:09.2251726Z   run-id: 41906105408
+2026-11-05T01:06:09.2251944Z   skip-decompress: false
+2026-11-05T01:06:09.2252180Z   digest-mismatch: error
+2026-11-05T01:06:09.2252404Z ##[endgroup]
+2026-11-05T01:06:09.3687897Z Downloading single artifact
+2026-11-05T01:06:09.6157354Z Preparing to download the following artifacts:
+2026-11-05T01:06:09.6160675Z - verification-reports (ID: 13363647747, Size: 310031, Expected Digest: sha256:f216fba257626524f46aabe27c46d4a83c72142e3e0b39d2e58cf90487856487)
+2026-11-05T01:06:10.0814723Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-3ee806c4-729f-5d19-9a67-2dd789c02ef3/artifacts/b34bf1ca8319adbd437a37e7f1b9610fd13bbd9134796811b43f46a073d0f56e.zip
+2026-11-05T01:06:10.0817417Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/native
+2026-11-05T01:06:10.3168253Z (node:2454) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-05T01:06:10.3170377Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T01:06:10.5289658Z SHA256 digest of downloaded artifact is f216fba257626524f46aabe27c46d4a83c72142e3e0b39d2e58cf90487856487
+2026-11-05T01:06:10.5290249Z Artifact download completed successfully.
+2026-11-05T01:06:10.5290565Z Total of 1 artifact(s) downloaded
+2026-11-05T01:06:10.5294138Z Download artifact has finished successfully
+2026-11-05T01:06:10.5461070Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-05T01:06:10.5461510Z with:
+2026-11-05T01:06:10.5461737Z   name: xilinx-core-build-reports
+2026-11-05T01:06:10.5462032Z   path: build/ci-plan
+2026-11-05T01:06:10.5462265Z   merge-multiple: false
+2026-11-05T01:06:10.5462503Z   repository: Millillion/wasmetal
+2026-11-05T01:06:10.5462744Z   run-id: 41906105408
+2026-11-05T01:06:10.5462969Z   skip-decompress: false
+2026-11-05T01:06:10.5463204Z   digest-mismatch: error
+2026-11-05T01:06:10.5463423Z ##[endgroup]
+2026-11-05T01:06:10.6921209Z Downloading single artifact
+2026-11-05T01:06:10.9244734Z Preparing to download the following artifacts:
+2026-11-05T01:06:10.9245638Z - xilinx-core-build-reports (ID: 13365800752, Size: 22502679, Expected Digest: sha256:de0b34f75268a63ee0410a7532efb3d2826dffd3e18b67b41608cae56e52989f)
+2026-11-05T01:06:11.3956010Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-c6a8358d-8858-5586-9abf-9b30cb6a97a5/artifacts/b8906bb56ca39be7abe6048c885edbf639242ad77fc045f6277d535343823adb.zip
+2026-11-05T01:06:11.3957408Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/build/ci-plan
+2026-11-05T01:06:11.7092799Z (node:2469) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-05T01:06:11.7094529Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T01:06:13.7774787Z SHA256 digest of downloaded artifact is de0b34f75268a63ee0410a7532efb3d2826dffd3e18b67b41608cae56e52989f
+2026-11-05T01:06:13.7775807Z Artifact download completed successfully.
+2026-11-05T01:06:13.7776315Z Total of 1 artifact(s) downloaded
+2026-11-05T01:06:13.7783742Z Download artifact has finished successfully
+2026-11-05T01:06:13.8070047Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-05T01:06:13.8070491Z with:
+2026-11-05T01:06:13.8070711Z   pattern: xilinx-core-results-*
+2026-11-05T01:06:13.8070991Z   path: reports/shards
+2026-11-05T01:06:13.8071241Z   merge-multiple: false
+2026-11-05T01:06:13.8071535Z   repository: Millillion/wasmetal
+2026-11-05T01:06:13.8071792Z   run-id: 41906105408
+2026-11-05T01:06:13.8072018Z   skip-decompress: false
+2026-11-05T01:06:13.8072275Z   digest-mismatch: error
+2026-11-05T01:06:13.8072505Z ##[endgroup]
+2026-11-05T01:06:14.3603596Z Found 62 artifact(s)
+2026-11-05T01:06:14.3604276Z Filtering artifacts by pattern 'xilinx-core-results-*'
+2026-11-05T01:06:14.3628368Z Preparing to download the following artifacts:
+2026-11-05T01:06:14.3629989Z - xilinx-core-results-05 (ID: 13378463966, Size: 151836, Expected Digest: sha256:1c0dbca7f7ca0956847d80cf745f21e72fdd144366ea276aea617a3f92614798)
+2026-11-05T01:06:14.3631662Z - xilinx-core-results-12 (ID: 13377240162, Size: 295782, Expected Digest: sha256:d7fc1d9b6a02fac5acc7a2b48983e345af09f503f79e292ec22c6171ca9835cb)
+2026-11-05T01:06:14.3633109Z - xilinx-core-results-04 (ID: 13377177095, Size: 151864, Expected Digest: sha256:f2551869f5fe1b755445ed602d5014f466b221915d3662d569fd3ae1a0f67b32)
+2026-11-05T01:06:14.3634795Z - xilinx-core-results-00 (ID: 13376155981, Size: 151866, Expected Digest: sha256:4d9ae2a177e9275a3ea6d5daf4b6acba78df92bfe626d0854529462e8cadae75)
+2026-11-05T01:06:14.3636254Z - xilinx-core-results-07 (ID: 13375817772, Size: 151837, Expected Digest: sha256:111036d943129baba799a34516a40304114755f9248920b4540a1c1f21da93f8)
+2026-11-05T01:06:14.3637821Z - xilinx-core-results-09 (ID: 13375789369, Size: 151829, Expected Digest: sha256:6e427d6fd5dfbdaf0298959a0ee56d9f9fa23f60818b3de346fb025a32e089ec)
+2026-11-05T01:06:14.3639496Z - xilinx-core-results-08 (ID: 13375742481, Size: 151831, Expected Digest: sha256:5a88d97f8e4a040e77cbb6679c561d6e26236b9f72d9a679f00556b358c06e78)
+2026-11-05T01:06:14.3640688Z - xilinx-core-results-01 (ID: 13375538833, Size: 151864, Expected Digest: sha256:f22c8df8cca002b5a419c93bf113f9f4ad0768df6b010bc83609547553256541)
+2026-11-05T01:06:14.3641707Z - xilinx-core-results-15 (ID: 13375382531, Size: 249603, Expected Digest: sha256:c4e4d6f3ebeffe0ef55e30bfed9b7f07d63450b6b912a0492c9bd829c919b451)
+2026-11-05T01:06:14.3643094Z - xilinx-core-results-06 (ID: 13374528089, Size: 151828, Expected Digest: sha256:35d95e5984a6c6b18eb2b4e52f7824b241fbfd4424086f9a90e6aa55d0786f5f)
+2026-11-05T01:06:14.3644218Z - xilinx-core-results-03 (ID: 13373729074, Size: 151864, Expected Digest: sha256:2fe681a86cc79047b11aff29cab2dfac75e74c84c295f64753aec4987880a77a)
+2026-11-05T01:06:14.3645568Z - xilinx-core-results-11 (ID: 13371953571, Size: 152198, Expected Digest: sha256:36bdd77d5de1d13db9f612f2c5b7b185baf0a3bc9112cbdf679da2f84ae72ec5)
+2026-11-05T01:06:14.3647142Z - xilinx-core-results-13 (ID: 13371467370, Size: 216723, Expected Digest: sha256:27b8dcf33cb6d9f4bc6e926942ea57fdeaa2c6879499ffb66950bff76135a934)
+2026-11-05T01:06:14.3648138Z - xilinx-core-results-02 (ID: 13371294328, Size: 151865, Expected Digest: sha256:a1aa1168a8702f3ac078cb3798eee7ac2873597b229f6c74b2a6d434ace4ab59)
+2026-11-05T01:06:14.3649388Z - xilinx-core-results-10 (ID: 13370738533, Size: 152640, Expected Digest: sha256:2b7c5042a6e80869a0524b921feca9f128e51585d13bb7db115f1a5697c33130)
+2026-11-05T01:06:14.3650358Z - xilinx-core-results-14 (ID: 13368613801, Size: 152820, Expected Digest: sha256:7372b63f694efc31b5176beb8b9cff6bd5b040d92e33d510329299511e1c33f2)
+2026-11-05T01:06:14.8195621Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-b1af2020-cf14-5ac0-abcc-f29b6900983d/artifacts/9676c80033fe4fcc284e227d8fae77635d61de425ab6a762b8c148ad8ce191d8.zip
+2026-11-05T01:06:14.8197725Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-11
+2026-11-05T01:06:14.8203745Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-cebb2b03-212b-537b-a740-e869f83e7466/artifacts/9d3979f5d8757c3de9b20b0f349cc0a6ff8718d6c3b783bbed020ba53b1719fc.zip
+2026-11-05T01:06:14.8206597Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-04
+2026-11-05T01:06:14.8224041Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-623cf875-af2f-5942-938a-4e2bc1a2d079/artifacts/bfb8e045a3f856c10b25ff7a70e6e2ebaf19c36c1860ab82e422da63cb1af475.zip
+2026-11-05T01:06:14.8226546Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-01
+2026-11-05T01:06:14.8264707Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-af9c8a5e-426e-53fa-bb6f-48e883f0dc39/artifacts/758ba5526bf02950322f964ef51edbaf14341d769f9ee7ea075ee4482f7459e4.zip
+2026-11-05T01:06:14.8267384Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-14
+2026-11-05T01:06:14.8273047Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-43c85d5f-4aa5-5583-b592-c1e15a0729aa/artifacts/27a54cc1b6acc4c210b2b8f7561eff43febdaadf9c14af143e7b27d3ecfe9782.zip
+2026-11-05T01:06:14.8276058Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-12
+2026-11-05T01:06:14.8281742Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-70b2c4de-fd42-55ce-99f4-ccd750c2e77a/artifacts/1a9916d8dae22769ce245629b51e610be0cd47ebbf536f7d34b39e1f4aba9768.zip
+2026-11-05T01:06:14.8284720Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-09
+2026-11-05T01:06:14.8306944Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-d99ce73c-d4a5-5485-8716-0d62a52ac469/artifacts/bad971f6aa45dd6f41f3c76905f4d17c31263e4fae0eaab96254a880163edcbe.zip
+2026-11-05T01:06:14.8309700Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-13
+2026-11-05T01:06:14.8317217Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-2b090ff3-51f2-5176-a8ea-1313a58a6c7b/artifacts/029362bfb64976e197f2fbbc8f56c8f832ce5af52a60e22fa519c9f5c86c3bed.zip
+2026-11-05T01:06:14.8320500Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-08
+2026-11-05T01:06:14.8332616Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-98e972a6-e924-5c99-b93d-292a8bf3ddbf/artifacts/f1b6cdf10e44d93eb5ca9fb776e761f8516799e5ee0b88e43b13aaf8066fef94.zip
+2026-11-05T01:06:14.8335607Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-00
+2026-11-05T01:06:14.8372019Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-d137773c-92d5-53ed-b047-120286a713e5/artifacts/7ca722679087057070d85088d3f72993bdeaf704b0a1f31ac501d50ef075e04f.zip
+2026-11-05T01:06:14.8374769Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-06
+2026-11-05T01:06:14.8392731Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-48a765e3-2f5a-5d04-a823-ac33d9d09021/artifacts/6d2149efa79844dcdb751f727de18ad900ec2f94cc9554358dc6e6e1b1600c9f.zip
+2026-11-05T01:06:14.8395649Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-05
+2026-11-05T01:06:14.8420589Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-1a3896b2-f8c1-50b2-938d-70a841a87a96/artifacts/a7f927a1b6c421ce0d5f8574ecfb9d0a28ffea96e9f47a5437437ed57817dfee.zip
+2026-11-05T01:06:14.8423405Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-03
+2026-11-05T01:06:14.8448211Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-7aacaa64-e753-5341-a6c8-af9b2c5fe65a/artifacts/4b23c7cf744309bcc817c81d030c6fa26bbf6b608e3cd83319581f569f788189.zip
+2026-11-05T01:06:14.8451336Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-15
+2026-11-05T01:06:14.8512959Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-7f24883a-8ad9-56ac-8d86-352c4d5fd58b/artifacts/18a2507f991548573327f3052333ad196f9b6faf9b40cfd15d8071611778a920.zip
+2026-11-05T01:06:14.8516018Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-02
+2026-11-05T01:06:14.8529275Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-f8c79114-42dc-5984-87ba-74b7ed83fc37/artifacts/ab42a8e909bc9be7159f13ea1ba587a986e68fc7a852d1509958c300b2a3b9e1.zip
+2026-11-05T01:06:14.8532124Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-10
+2026-11-05T01:06:14.8750855Z Redirecting to blob download url: https://productionresultssa31.blob.core.windows.net/actions-results/4e40f5b4-4396-8025-87ef-c0685778d022/workflow-job-run-b80f7ae6-00dd-5d3a-ba0c-28852f982aac/artifacts/685bf5251086a36dd900db28e8b74d528d78a79fb44a9bbbb0c624e57935c9c5.zip
+2026-11-05T01:06:14.8752454Z Starting download of artifact to: /home/runner/work/wasmetal/wasmetal/reports/shards/xilinx-core-results-07
+2026-11-05T01:06:15.0392588Z (node:2496) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-05T01:06:15.0394398Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T01:06:15.2047721Z SHA256 digest of downloaded artifact is 36bdd77d5de1d13db9f612f2c5b7b185baf0a3bc9112cbdf679da2f84ae72ec5
+2026-11-05T01:06:15.2049059Z Artifact download completed successfully.
+2026-11-05T01:06:15.2099844Z SHA256 digest of downloaded artifact is f22c8df8cca002b5a419c93bf113f9f4ad0768df6b010bc83609547553256541
+2026-11-05T01:06:15.2100785Z Artifact download completed successfully.
+2026-11-05T01:06:15.2127168Z SHA256 digest of downloaded artifact is f2551869f5fe1b755445ed602d5014f466b221915d3662d569fd3ae1a0f67b32
+2026-11-05T01:06:15.2128836Z Artifact download completed successfully.
+2026-11-05T01:06:15.2130232Z SHA256 digest of downloaded artifact is 6e427d6fd5dfbdaf0298959a0ee56d9f9fa23f60818b3de346fb025a32e089ec
+2026-11-05T01:06:15.2131093Z Artifact download completed successfully.
+2026-11-05T01:06:15.2131733Z SHA256 digest of downloaded artifact is 5a88d97f8e4a040e77cbb6679c561d6e26236b9f72d9a679f00556b358c06e78
+2026-11-05T01:06:15.2132364Z Artifact download completed successfully.
+2026-11-05T01:06:15.2156665Z SHA256 digest of downloaded artifact is 35d95e5984a6c6b18eb2b4e52f7824b241fbfd4424086f9a90e6aa55d0786f5f
+2026-11-05T01:06:15.2157803Z Artifact download completed successfully.
+2026-11-05T01:06:15.2174611Z SHA256 digest of downloaded artifact is 4d9ae2a177e9275a3ea6d5daf4b6acba78df92bfe626d0854529462e8cadae75
+2026-11-05T01:06:15.2175689Z Artifact download completed successfully.
+2026-11-05T01:06:15.2186370Z SHA256 digest of downloaded artifact is 2fe681a86cc79047b11aff29cab2dfac75e74c84c295f64753aec4987880a77a
+2026-11-05T01:06:15.2187137Z Artifact download completed successfully.
+2026-11-05T01:06:15.2200340Z SHA256 digest of downloaded artifact is 2b7c5042a6e80869a0524b921feca9f128e51585d13bb7db115f1a5697c33130
+2026-11-05T01:06:15.2201462Z Artifact download completed successfully.
+2026-11-05T01:06:15.2205808Z SHA256 digest of downloaded artifact is a1aa1168a8702f3ac078cb3798eee7ac2873597b229f6c74b2a6d434ace4ab59
+2026-11-05T01:06:15.2206956Z Artifact download completed successfully.
+2026-11-05T01:06:15.2251728Z SHA256 digest of downloaded artifact is 7372b63f694efc31b5176beb8b9cff6bd5b040d92e33d510329299511e1c33f2
+2026-11-05T01:06:15.2252418Z Artifact download completed successfully.
+2026-11-05T01:06:15.2287552Z SHA256 digest of downloaded artifact is 1c0dbca7f7ca0956847d80cf745f21e72fdd144366ea276aea617a3f92614798
+2026-11-05T01:06:15.2288420Z Artifact download completed successfully.
+2026-11-05T01:06:15.2389091Z SHA256 digest of downloaded artifact is 111036d943129baba799a34516a40304114755f9248920b4540a1c1f21da93f8
+2026-11-05T01:06:15.2389922Z Artifact download completed successfully.
+2026-11-05T01:06:15.2817254Z SHA256 digest of downloaded artifact is 27b8dcf33cb6d9f4bc6e926942ea57fdeaa2c6879499ffb66950bff76135a934
+2026-11-05T01:06:15.2817940Z Artifact download completed successfully.
+2026-11-05T01:06:15.2868328Z SHA256 digest of downloaded artifact is c4e4d6f3ebeffe0ef55e30bfed9b7f07d63450b6b912a0492c9bd829c919b451
+2026-11-05T01:06:15.2869282Z Artifact download completed successfully.
+2026-11-05T01:06:15.2967053Z SHA256 digest of downloaded artifact is d7fc1d9b6a02fac5acc7a2b48983e345af09f503f79e292ec22c6171ca9835cb
+2026-11-05T01:06:15.2967745Z Artifact download completed successfully.
+2026-11-05T01:06:15.2968152Z Total of 16 artifact(s) downloaded
+2026-11-05T01:06:15.2972750Z Download artifact has finished successfully
+2026-11-05T01:06:15.3130011Z ##[group]Run python3 tools/spec_ci.py merge --reference reports/native/core-stalled.json --plan build/ci-plan/reports/xc7-core-plan.json --reports reports/shards --mapped-backend mapped-xc7-functional --output reports/xc7-core-complete.json
+2026-11-05T01:06:15.3131977Z [36;1mpython3 tools/spec_ci.py merge --reference reports/native/core-stalled.json --plan build/ci-plan/reports/xc7-core-plan.json --reports reports/shards --mapped-backend mapped-xc7-functional --output reports/xc7-core-complete.json[0m
+2026-11-05T01:06:15.3152823Z shell: /usr/bin/bash -e {0}
+2026-11-05T01:06:15.3153188Z ##[endgroup]
+2026-11-05T01:06:18.6723788Z {"command": "merge", "output": "reports/xc7-core-complete.json", "full_core_suite_passed": true}
+2026-11-05T01:06:18.6939645Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-05T01:06:18.6940243Z with:
+2026-11-05T01:06:18.6940557Z   name: xilinx-core-complete
+2026-11-05T01:06:18.6940929Z   path: reports/xc7-core-complete.json
+2026-11-05T01:06:18.6941319Z   if-no-files-found: warn
+2026-11-05T01:06:18.6941646Z   retention-days: 30
+2026-11-05T01:06:18.6941967Z   compression-level: 6
+2026-11-05T01:06:18.6942285Z   overwrite: false
+2026-11-05T01:06:18.6942596Z   include-hidden-files: false
+2026-11-05T01:06:18.6942955Z   archive: true
+2026-11-05T01:06:18.6943248Z ##[endgroup]
+2026-11-05T01:06:18.8409390Z With the provided path, there will be 1 file uploaded
+2026-11-05T01:06:18.8437607Z Artifact name is valid!
+2026-11-05T01:06:18.8440169Z Root directory input is valid!
+2026-11-05T01:06:19.2215137Z Uploading artifact: xilinx-core-complete.zip
+2026-11-05T01:06:19.2256292Z Beginning upload of artifact content to blob storage
+2026-11-05T01:06:19.6464055Z Uploaded bytes 166492
+2026-11-05T01:06:19.7061607Z Finished uploading artifact content to blob storage!
+2026-11-05T01:06:19.7063116Z SHA256 digest of uploaded artifact is d04d2c4bb291f530ffb897a46313b1df8f4ef0732ad00bd412607faa61ccd73d
+2026-11-05T01:06:19.7064261Z Finalizing artifact upload
+2026-11-05T01:06:20.2932524Z Artifact xilinx-core-complete successfully finalized. Artifact ID 13378479064
+2026-11-05T01:06:20.2934151Z Artifact xilinx-core-complete has been successfully uploaded! Final size is 166492 bytes. Artifact ID is 13378479064
+2026-11-05T01:06:20.2940187Z Artifact download URL: https://github.com/Millillion/wasmetal/actions/runs/41906105408/artifacts/13378479064
+2026-11-05T01:06:20.3152081Z Post job cleanup.
+2026-11-05T01:06:20.4048077Z [command]/usr/bin/git version
+2026-11-05T01:06:20.4094595Z git version 2.56.0
+2026-11-05T01:06:20.4141198Z Temporarily overriding HOME='/home/runner/work/_temp/c56d8b32-55ed-41b7-a6bd-201c28e036f8' before making global git config changes
+2026-11-05T01:06:20.4142800Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-05T01:06:20.4145528Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/wasmetal/wasmetal
+2026-11-05T01:06:20.4181182Z Removing SSH command configuration
+2026-11-05T01:06:20.4188046Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-05T01:06:20.4227715Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-05T01:06:20.4495654Z Removing HTTP extra header
+2026-11-05T01:06:20.4497085Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-05T01:06:20.4537276Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-05T01:06:20.4809614Z Removing includeIf entries pointing to credentials config files
+2026-11-05T01:06:20.4816467Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-05T01:06:20.4867565Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-05T01:06:20.5294666Z Cleaning up orphan processes
+
