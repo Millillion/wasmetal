@@ -72,7 +72,10 @@ A dedicated CI job repeats the matrix and preserves evidence on failure.
 ## Remaining integration
 
 The default FPGA memory and the complete CPU's existing SRAM simulations are
-unchanged. This campaign connects the real transaction adapter to the bank
+unchanged. The bank wrapper needs the foundry macro model, so the shared
+system source list used by those simulations excludes it; including it broke
+their warning-clean Verilator builds in CI at commit `b620e87`.
+This campaign connects the real transaction adapter to the bank
 wrapper; it does not run the Wasm CPU or official corpus against this macro.
 The CPU's other memories have different port and clock contracts, described
 in the [ASIC audit](ASIC.md), and still need suitable implementations.
