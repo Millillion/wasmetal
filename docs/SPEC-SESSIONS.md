@@ -88,4 +88,17 @@ frame.
   at startup and was stopped; the corpus run uses the 8 MiB
   [`session`](../soc/profiles/session.json) profile, with `corpus` reserved
   for the suites that need more.
-- The complete on-device corpus run is in progress.
+- **255 of the 259 pinned official suites [pass as complete on-device
+  sessions](verification/spec-sessions.json)** on the 8 MiB
+  [`session`](../soc/profiles/session.json) profile: 64,971 reported executions,
+  global reads and size queries, every one equal to the native response, in
+  281,838,796 device execution cycles and 1,342,398,470 system clocks
+  including uploads, startup clears and UART reporting. The other four
+  (`call`, `call_indirect`, `memory_grow`, `memory64/memory_grow64`) need
+  35-68 MiB of local RAM and are rejected by the profile before upload; see
+  below.
+- Fourteen of those suites also pass on the [mapped Genesys 2
+  circuit](GENESYS2.md#profiles).
+- This run used a simulator built just before the loader's length check was
+  rewritten without multipliers; that change is value-identical and the
+  loader's RTL, mapped, four-state and formal checks pass on the current RTL.

@@ -378,7 +378,7 @@ module RAMB36E1 #(
     localparam integer WIDTH=SDP ? 72 : (READ_WIDTH_B==0 ? 9 : READ_WIDTH_B);
     localparam integer LANES=WIDTH/9;
     localparam VALID_TDP=(RAM_MODE=="TDP" && READ_WIDTH_A==0 && WRITE_WIDTH_B==0 &&
-        WRITE_WIDTH_A==READ_WIDTH_B && (READ_WIDTH_B==18 || READ_WIDTH_B==36) &&
+        WRITE_WIDTH_A==READ_WIDTH_B && (READ_WIDTH_B==9 || READ_WIDTH_B==18 || READ_WIDTH_B==36) &&
         WRITE_MODE_A=="READ_FIRST" && WRITE_MODE_B=="READ_FIRST");
     localparam VALID_SDP=(SDP && READ_WIDTH_A==72 && READ_WIDTH_B==0 &&
         WRITE_WIDTH_A==0 && WRITE_WIDTH_B==72 &&

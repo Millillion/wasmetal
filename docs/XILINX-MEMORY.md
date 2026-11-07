@@ -90,7 +90,13 @@ before the system estimate and retains both sets of artifacts.
 ## Fast simulation models
 
 The experimental models in `tests/xc7/ram_primitives.sv` implement only the five
-configurations above. They preserve initialized data, nine-bit write masks,
+configurations above plus a sixth, a 9-bit by 4,096-word `RAMB36E1` in true
+dual-port mode. The [Genesys 2 profile](GENESYS2.md#profiles) maps its larger
+instruction and boot stores to that geometry; the models refused it until the
+[vendor comparison](verification/xc7-genesys2-memory-mapping.json) passed
+16,460 vectors per model against the unmodified `RAMB36E1` source and the
+[fast-model check](verification/xc7-genesys2-ram-models.json) passed it in both
+simulators with X/Z data. They preserve initialized data, nine-bit write masks,
 read enables, output resets and the supported port widths. Other configurations
 fail explicitly. They provide untimed RAM behavior for a later complete-system
 Verilator simulation; the original vendor sources remain the reference.
@@ -122,8 +128,8 @@ rejected rather than assigned an optimistic value.
 
 ## Scope
 
-This is component verification for the five memory geometries used by the
-exploratory system mapping. Read and write clock edges are separated by at
+This is component verification for the six memory geometries used by the
+exploratory system mappings. Read and write clock edges are separated by at
 least 10 ns in this test. It does not establish collision behavior, clock
 apertures, physical timing, DSP correctness or complete Xilinx CPU correctness.
 The Yosys library's empty block-RAM shells are excluded from simulation.

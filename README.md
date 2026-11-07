@@ -19,10 +19,19 @@ in simulation, with the same results and cycle counts as the ULX3S top. A
 sessions over a real serial port and needs no simulator. New [session images](docs/SPEC-SESSIONS.md) run a
 complete official script on the programmable system itself: the device replays
 the script's whole store and reports every execution, global read and size
-query over UART, each checked against the native runner. The first, `i32`,
-[passes all 378 reported executions](docs/verification/spec-session-i32.json).
-All 259 suites [pack into session images](docs/verification/spec-sessions-packed.json)
-with memories sized to their native peaks; the complete on-device corpus run is in progress. A
+query over UART, each checked against the native runner. **255 of the 259
+pinned official suites [pass as complete on-device sessions](docs/verification/spec-sessions.json)**
+in simulation of the programmable system: 64,971 reported executions, global
+reads and size queries, every one equal to the native response. The remaining
+four (`call`, `call_indirect`, `memory_grow`, `memory64/memory_grow64`) need
+35-68 MiB of local RAM, which the board will supply from DDR3; they have not
+yet run as sessions. All 259 [pack into session images](docs/verification/spec-sessions-packed.json)
+with memories sized to their native peaks. A
+[Genesys 2 block-RAM profile](docs/GENESYS2.md#profiles) fits 233 suites and
+[maps to 393.5 of 445 RAMB36s, 29 DSPs and 27% of the LUTs](docs/verification/xc7-genesys2-estimate.json);
+fourteen representative suites [pass as sessions on that mapped 7-series
+circuit](docs/verification/spec-sessions-xc7-genesys2.json), 7,101 frames
+exactly. A
 [compact upload format](docs/PROGRAM-UPLOAD.md#compact-uploads-version-2) sends
 only used rows and clears the rest in hardware; its RTL, mapped, four-state and
 unbounded safety checks pass. The 35 programmable, 29 standalone, nine board-clock

@@ -1,0 +1,1032 @@
+{
+  "status": "passed",
+  "inputs": {
+    "tools/check_xc7_dsp.py": "45a2b22fe7e1c633b0fa167e73c456dfe277f3b6d805c68ea0de7d27327aa069",
+    "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+    ".cache/tools/usr/share/yosys/xilinx/cells_sim.v": "10f8afc61bf708949ebf238294327dce95eaa68919bb0ab5938d40f24e39d15e",
+    "reports/xc7-system-estimate.json": "52af201e5b85ad069a1f02bcbdbe2fa196465654896ceea545c6947309f3b750",
+    "build/xc7-system/mapped.json": "7945db8bb72dd342ec66c19c61217fd0223ec9e16927ca9bc539659d36716ce3",
+    "tools/check_xc7_memory_mapping.py": "552b11bb94489dd908daf8a0b4ea47540517446b7d26c1a70986fab7bffa0308",
+    "tools/check_xc7_ram_models.py": "655bf74a899142760ba20abce69e8b5cc077fad203c18ffb74765b8f0de5dc54",
+    "tools/prepare_standalone.py": "88c3a835cd44d6bfef7400289c473dd8fa74fea625f7427f15cf6bb05f8de8d8",
+    "tools/xc7_dsp_model.py": "ffcf88f83148af7b143bf625b815bdf7118154629b536a6f9d4e288f7d9c3aff",
+    "third_party/xilinx-unisim/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+    "third_party/xilinx-unisim/DSP48E1.UPSTREAM.json": "077de48cd6c73b7224992960cdf62267b4cd041221dff8f3865ff902a37177a6",
+    "third_party/xilinx-unisim/UPSTREAM.json": "a2b685dbffe02b5f95cd453268a6f604195391fe54efb30c387baa0904736e2c",
+    "third_party/xilinx-unisim/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+    ".cache/tools/usr/bin/iverilog": "a6071e4b4a68feafca0c8ee0e6aa275eee9a43a108c62801cfd1eca6eab6d8a3",
+    ".cache/tools/usr/bin/vvp": "a10bd7d4a0850308ac8c2c98115b6a3084f9be978307610f2a521190c28f4023",
+    ".cache/tools/usr/bin/verilator": "4c6292ab82e57b7f34ab26dbae86ba9c494bacfb088b6ff34be93c553d1301b1",
+    ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c"
+  },
+  "checks": [
+    {
+      "a_input": "CASCADE",
+      "b_input": "DIRECT",
+      "opmode": 85,
+      "instances": 16,
+      "vectors_per_model": 17408,
+      "vendor": {
+        "inputs": {
+          "build/xc7-dsp/configuration-0/fixture.sv": "e7e73b6e31d83c37da6ef2bd7a783ecf34b0f89297915456b26264cb72fd269f",
+          "third_party/xilinx-unisim/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/vendor.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/fixture.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/DSP48E1.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-0/vendor.vvp": "c5610b83ed06d18f52a25045999389fb83a795ba3cb4f38b4c5dbbc2ae2c9114",
+          "build/xc7-dsp/configuration-0/vendor-compile.log": "1c9a253cf327bbaeef993181d299a714670727467c015f6654bc4d9b9c38c8c0",
+          "build/xc7-dsp/configuration-0/vendor.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "yosys": {
+        "inputs": {
+          "build/xc7-dsp/configuration-0/fixture.sv": "e7e73b6e31d83c37da6ef2bd7a783ecf34b0f89297915456b26264cb72fd269f",
+          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/yosys.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-0/yosys.vvp": "1a8ac65fb8ad33e0808ecb773ae76414c08afe895cb2cb904ccef16dfe8b8605",
+          "build/xc7-dsp/configuration-0/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-0/yosys.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-0/fixture.sv": "e7e73b6e31d83c37da6ef2bd7a783ecf34b0f89297915456b26264cb72fd269f",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/split-icarus.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-0/split-icarus.vvp": "37e7e22338f6a9506bf7871b810851f614494e95d6bb94cf30e7fe3aaf0a3450",
+          "build/xc7-dsp/configuration-0/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-0/split-icarus.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "verilator": {
+        "inputs": {
+          "build/xc7-dsp/configuration-0/fixture.sv": "e7e73b6e31d83c37da6ef2bd7a783ecf34b0f89297915456b26264cb72fd269f",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_dsp",
+          "--Mdir",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/verilator-obj",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "- /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-0/verilator-obj/Vxc7_dsp": "3edccb773e05533c2f315ff4ecb15e2baac87b6b9c7bddca6559a8769069a97d",
+          "build/xc7-dsp/configuration-0/verilator-compile.log": "be14f20f5b9f18786142b26318e02b36f3b31590573301f9279cdb918b1a525e",
+          "build/xc7-dsp/configuration-0/verilator.log": "d6a93ab8ad086b90922f207fc8ff945459968edf256ece92cae62c2547099de3"
+        }
+      }
+    },
+    {
+      "a_input": "DIRECT",
+      "b_input": "CASCADE",
+      "opmode": 85,
+      "instances": 1,
+      "vectors_per_model": 17408,
+      "vendor": {
+        "inputs": {
+          "build/xc7-dsp/configuration-1/fixture.sv": "1577d324d565702cace24e0f90762c0baffe479c5cde6fae7359ccfe6c0d6403",
+          "third_party/xilinx-unisim/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/vendor.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/fixture.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/DSP48E1.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-1/vendor.vvp": "e5a4bb59fbed49e4c063ae48fab444b1aee2d2369bbb6368373db3ec6dcfea8f",
+          "build/xc7-dsp/configuration-1/vendor-compile.log": "1c9a253cf327bbaeef993181d299a714670727467c015f6654bc4d9b9c38c8c0",
+          "build/xc7-dsp/configuration-1/vendor.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "yosys": {
+        "inputs": {
+          "build/xc7-dsp/configuration-1/fixture.sv": "1577d324d565702cace24e0f90762c0baffe479c5cde6fae7359ccfe6c0d6403",
+          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/yosys.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-1/yosys.vvp": "ff4064dbf10ed74a4fdec5aa6156d599de94adfd36d8c4afe8eebaa258643ae0",
+          "build/xc7-dsp/configuration-1/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-1/yosys.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-1/fixture.sv": "1577d324d565702cace24e0f90762c0baffe479c5cde6fae7359ccfe6c0d6403",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/split-icarus.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-1/split-icarus.vvp": "3e47deb2a38adf18efcc95d4f2bc4fb18dcead3ebfcb962e66716fb3e87e133d",
+          "build/xc7-dsp/configuration-1/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-1/split-icarus.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "verilator": {
+        "inputs": {
+          "build/xc7-dsp/configuration-1/fixture.sv": "1577d324d565702cace24e0f90762c0baffe479c5cde6fae7359ccfe6c0d6403",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_dsp",
+          "--Mdir",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/verilator-obj",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "- /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-1/verilator-obj/Vxc7_dsp": "e52b4fe8b52f8113503fc5330655e9fcdef84410a139ab4e27d2d88a1944e900",
+          "build/xc7-dsp/configuration-1/verilator-compile.log": "70d7d1f86889c60f8b7fcf1f48ae6b9f180b8cac21c8a33327fc9e9e95522fbd",
+          "build/xc7-dsp/configuration-1/verilator.log": "d6a93ab8ad086b90922f207fc8ff945459968edf256ece92cae62c2547099de3"
+        }
+      }
+    },
+    {
+      "a_input": "DIRECT",
+      "b_input": "DIRECT",
+      "opmode": 5,
+      "instances": 8,
+      "vectors_per_model": 17408,
+      "vendor": {
+        "inputs": {
+          "build/xc7-dsp/configuration-2/fixture.sv": "c3a98451b3ae2f8b44b34201a83ac0fdfaca7d214da9ea225c5467be3ff1bbf3",
+          "third_party/xilinx-unisim/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/vendor.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/fixture.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/DSP48E1.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-2/vendor.vvp": "edc3e231f30553f212e1eac0b0b3bb69fe8c85c15f02827031f3f46bc8258a5f",
+          "build/xc7-dsp/configuration-2/vendor-compile.log": "1c9a253cf327bbaeef993181d299a714670727467c015f6654bc4d9b9c38c8c0",
+          "build/xc7-dsp/configuration-2/vendor.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "yosys": {
+        "inputs": {
+          "build/xc7-dsp/configuration-2/fixture.sv": "c3a98451b3ae2f8b44b34201a83ac0fdfaca7d214da9ea225c5467be3ff1bbf3",
+          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/yosys.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-2/yosys.vvp": "3ce0a40ecc1d9901385c1a993e2d801e1ceb7d85c7d9986e577530eb6cb00ebf",
+          "build/xc7-dsp/configuration-2/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-2/yosys.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-2/fixture.sv": "c3a98451b3ae2f8b44b34201a83ac0fdfaca7d214da9ea225c5467be3ff1bbf3",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/split-icarus.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-2/split-icarus.vvp": "13928a3e2cbf0a59886f52f681bfa07c02461c1e30d082b37f7c54e34c285b03",
+          "build/xc7-dsp/configuration-2/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-2/split-icarus.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "verilator": {
+        "inputs": {
+          "build/xc7-dsp/configuration-2/fixture.sv": "c3a98451b3ae2f8b44b34201a83ac0fdfaca7d214da9ea225c5467be3ff1bbf3",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_dsp",
+          "--Mdir",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/verilator-obj",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "- /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-2/verilator-obj/Vxc7_dsp": "62d179e9373d46480b23650041fc7696423b67abad58a9e77ec2cdb5be2fcae2",
+          "build/xc7-dsp/configuration-2/verilator-compile.log": "ad3e912cd0a1f38cc4f623ad169e5808a02f30efbefe6cf4dbe048dc1ec23c98",
+          "build/xc7-dsp/configuration-2/verilator.log": "d6a93ab8ad086b90922f207fc8ff945459968edf256ece92cae62c2547099de3"
+        }
+      }
+    },
+    {
+      "a_input": "DIRECT",
+      "b_input": "DIRECT",
+      "opmode": 21,
+      "instances": 1,
+      "vectors_per_model": 17408,
+      "vendor": {
+        "inputs": {
+          "build/xc7-dsp/configuration-3/fixture.sv": "448699ca5f01c935c9a05a1fec8fb2d5160f7b0487aea7ecd501be11f4c7c5db",
+          "third_party/xilinx-unisim/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-3/vectors.txt": "787260f2f1582f95c907b7feb76f366c6aeb77d473fe1c2afe07d8ca11ae7982"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/vendor.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/fixture.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/DSP48E1.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-3/vendor.vvp": "a4b74ad7b43e6bb16daa6ea4c836d94bfdd7ebf6b3f74cf2dd786f6b92e11e45",
+          "build/xc7-dsp/configuration-3/vendor-compile.log": "1c9a253cf327bbaeef993181d299a714670727467c015f6654bc4d9b9c38c8c0",
+          "build/xc7-dsp/configuration-3/vendor.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "yosys": {
+        "inputs": {
+          "build/xc7-dsp/configuration-3/fixture.sv": "448699ca5f01c935c9a05a1fec8fb2d5160f7b0487aea7ecd501be11f4c7c5db",
+          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-3/vectors.txt": "787260f2f1582f95c907b7feb76f366c6aeb77d473fe1c2afe07d8ca11ae7982"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/yosys.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-3/yosys.vvp": "7e167ef00b41b10129442b7cbd745adf22dd1ef7ab1176be8c41934490b64354",
+          "build/xc7-dsp/configuration-3/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-3/yosys.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-3/fixture.sv": "448699ca5f01c935c9a05a1fec8fb2d5160f7b0487aea7ecd501be11f4c7c5db",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-3/vectors.txt": "787260f2f1582f95c907b7feb76f366c6aeb77d473fe1c2afe07d8ca11ae7982"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/split-icarus.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-3/split-icarus.vvp": "3305cba5da8210204bf6eab67e32d2cb27c496091fd390ecb2dcb249d630c7a0",
+          "build/xc7-dsp/configuration-3/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-3/split-icarus.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "verilator": {
+        "inputs": {
+          "build/xc7-dsp/configuration-3/fixture.sv": "448699ca5f01c935c9a05a1fec8fb2d5160f7b0487aea7ecd501be11f4c7c5db",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-3/vectors.txt": "787260f2f1582f95c907b7feb76f366c6aeb77d473fe1c2afe07d8ca11ae7982"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_dsp",
+          "--Mdir",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/verilator-obj",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-3/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "- /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-3/verilator-obj/Vxc7_dsp": "b44deadd4f7d4cdbf7c4492bd49226935b314643ac9304b96189adad7f6b7360",
+          "build/xc7-dsp/configuration-3/verilator-compile.log": "dc4ca6c42e1dda32ec7774cec6377cfa4280be5b2ce7215a91999533bd43aed9",
+          "build/xc7-dsp/configuration-3/verilator.log": "d6a93ab8ad086b90922f207fc8ff945459968edf256ece92cae62c2547099de3"
+        }
+      }
+    },
+    {
+      "a_input": "DIRECT",
+      "b_input": "DIRECT",
+      "opmode": 53,
+      "instances": 3,
+      "vectors_per_model": 17408,
+      "vendor": {
+        "inputs": {
+          "build/xc7-dsp/configuration-4/fixture.sv": "7e072f125f36d7dd99540ca93c60011e4f151cb155240a24a5dac901c5429eeb",
+          "third_party/xilinx-unisim/DSP48E1.v": "a98661443ef3a3b41a64d1d26d20326ebc4f229a84e96192c02759e6b9f8b7b5",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-4/vectors.txt": "c8ab68a94130af7779e12664d89c91e39d2314164b0c9f3997b20453fd86c8b4"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/vendor.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/fixture.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/DSP48E1.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-4/vendor.vvp": "33604c0cfad438199502e3894060c7c2f84a2504e5b08de2999036d21790f357",
+          "build/xc7-dsp/configuration-4/vendor-compile.log": "1c9a253cf327bbaeef993181d299a714670727467c015f6654bc4d9b9c38c8c0",
+          "build/xc7-dsp/configuration-4/vendor.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "yosys": {
+        "inputs": {
+          "build/xc7-dsp/configuration-4/fixture.sv": "7e072f125f36d7dd99540ca93c60011e4f151cb155240a24a5dac901c5429eeb",
+          "build/xc7-dsp/yosys-dsp.v": "7c2217435804571e6263cb45f8e89f8cb539b1b1b095e616f5c39a87b2ef804b",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-4/vectors.txt": "c8ab68a94130af7779e12664d89c91e39d2314164b0c9f3997b20453fd86c8b4"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/yosys.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-4/yosys.vvp": "81126df47460d361ccabe282c4ac64279234e25f3df352d03a42e1301040bd2a",
+          "build/xc7-dsp/configuration-4/yosys-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-4/yosys.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "split_icarus": {
+        "inputs": {
+          "build/xc7-dsp/configuration-4/fixture.sv": "7e072f125f36d7dd99540ca93c60011e4f151cb155240a24a5dac901c5429eeb",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-4/vectors.txt": "c8ab68a94130af7779e12664d89c91e39d2314164b0c9f3997b20453fd86c8b4"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+          "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+          "-g2012",
+          "-s",
+          "xc7_dsp",
+          "-s",
+          "glbl",
+          "-o",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/split-icarus.vvp",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: $finish called at 522440000 (1ps)"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-4/split-icarus.vvp": "17018107b0bd3cb088315c319d95271feb58637e8a13ae8e91d14092aa1da218",
+          "build/xc7-dsp/configuration-4/split-icarus-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "build/xc7-dsp/configuration-4/split-icarus.log": "fcd3e1a96dc5f8c1448372d1ca373cc2a26fe2ce062017682368ae5b10c7c763"
+        }
+      },
+      "verilator": {
+        "inputs": {
+          "build/xc7-dsp/configuration-4/fixture.sv": "7e072f125f36d7dd99540ca93c60011e4f151cb155240a24a5dac901c5429eeb",
+          "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+          "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+          "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+          "build/xc7-dsp/configuration-4/vectors.txt": "c8ab68a94130af7779e12664d89c91e39d2314164b0c9f3997b20453fd86c8b4"
+        },
+        "command": [
+          "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/verilator",
+          "--binary",
+          "--timing",
+          "--assert",
+          "-j",
+          "2",
+          "-Wno-fatal",
+          "--top-module",
+          "xc7_dsp",
+          "--Mdir",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/verilator-obj",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-4/fixture.sv",
+          "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+          "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+          "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+        ],
+        "returncode": 0,
+        "expected_failure": null,
+        "observations": [
+          "PASS XC7_DSP vectors=17408",
+          "- /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:41: Verilog $finish"
+        ],
+        "artifacts": {
+          "build/xc7-dsp/configuration-4/verilator-obj/Vxc7_dsp": "8df994cf940d7c3b9cf378e038d0737d8d63b7aa2434bf006b5c2bd3968171dd",
+          "build/xc7-dsp/configuration-4/verilator-compile.log": "da560c1f80b3a8715312e0161efcdbe23baa47943af283d93c1bbea2c182d9d9",
+          "build/xc7-dsp/configuration-4/verilator.log": "d6a93ab8ad086b90922f207fc8ff945459968edf256ece92cae62c2547099de3"
+        }
+      }
+    }
+  ],
+  "compiler": {
+    "path": "/usr/bin/x86_64-linux-gnu-g++-13",
+    "sha256": "1353e9bdd29a7295c7226bf6c63abccce056d8cac31f112e5cdbecc3f28c2769",
+    "version": "x86_64-linux-gnu-g++-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+  },
+  "instances_covered": 29,
+  "vectors_per_model": 87040,
+  "negative_controls": [
+    {
+      "inputs": {
+        "build/xc7-dsp/configuration-0/wrong-a-cascade.sv": "b010592cd42fd60809b86d50acd23ad1d7cf965dd66be48988afe659ca1ffc14",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+        "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
+      },
+      "command": [
+        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+        "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_dsp",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/wrong-a-cascade.vvp",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/wrong-a-cascade.sv",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+        "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+        "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+      ],
+      "returncode": 1,
+      "expected_failure": "DSP_DATA_MISMATCH",
+      "observations": [
+        "FATAL: /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:15: DSP_DATA_MISMATCH vector=0 phase=before clock p=ffffffffffff expected=ffffffffffff ac=2a000000 expected_ac=3fffffff bc=00000 expected_bc=00000 pc=ffffffffffff",
+        "       Time: 210000  Scope: xc7_dsp.check"
+      ],
+      "artifacts": {
+        "build/xc7-dsp/configuration-0/wrong-a-cascade.vvp": "65ea5792bb8cb8a7d1ec9cb42cfeb02230d185b7b8985ad37b73aea520f4d148",
+        "build/xc7-dsp/configuration-0/wrong-a-cascade-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build/xc7-dsp/configuration-0/wrong-a-cascade.log": "6770d9b66030c9cd4313a99f42a612405dbebf0ac391891b9c01790027c1c57e"
+      }
+    },
+    {
+      "inputs": {
+        "build/xc7-dsp/configuration-0/unshifted-cascade.sv": "ae0fd2ebe308ad9c6ff60c30c4374b00475c14fcc37cc84f0f834259975c2e32",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+        "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "build/xc7-dsp/configuration-0/vectors.txt": "952c56770e17e069b134e3bee15879f5ba578f35368a01ad5f4e03f7531eba4e"
+      },
+      "command": [
+        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+        "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_dsp",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/unshifted-cascade.vvp",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-0/unshifted-cascade.sv",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+        "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+        "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+      ],
+      "returncode": 1,
+      "expected_failure": "DSP_DATA_MISMATCH",
+      "observations": [
+        "FATAL: /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:15: DSP_DATA_MISMATCH vector=1 phase=before clock p=fffffffffffe expected=ffffffffffff ac=3fffffff expected_ac=3fffffff bc=00000 expected_bc=00000 pc=fffffffffffe",
+        "       Time: 240000  Scope: xc7_dsp.check"
+      ],
+      "artifacts": {
+        "build/xc7-dsp/configuration-0/unshifted-cascade.vvp": "2a89a6cd90154e56f252d6bbe96b2d6476f5b5c2dcd62f3b8e3e0908f8e46b1a",
+        "build/xc7-dsp/configuration-0/unshifted-cascade-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build/xc7-dsp/configuration-0/unshifted-cascade.log": "bd3110a9555ac142b8d29dbf357890fd4db19ed9d723b00fce7151cdd81e1bba"
+      }
+    },
+    {
+      "inputs": {
+        "build/xc7-dsp/configuration-1/wrong-b-cascade.sv": "b010592cd42fd60809b86d50acd23ad1d7cf965dd66be48988afe659ca1ffc14",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+        "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "build/xc7-dsp/configuration-1/vectors.txt": "cc9cc033de1ab4d49cddce7ac12d652baef1457028b883226254edde323a98ee"
+      },
+      "command": [
+        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+        "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_dsp",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/wrong-b-cascade.vvp",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-1/wrong-b-cascade.sv",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+        "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+        "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+      ],
+      "returncode": 1,
+      "expected_failure": "DSP_DATA_MISMATCH",
+      "observations": [
+        "FATAL: /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:15: DSP_DATA_MISMATCH vector=0 phase=before clock p=ffffffffffff expected=ffffffffffff ac=2a000000 expected_ac=2a000000 bc=00000 expected_bc=3ffff pc=ffffffffffff",
+        "       Time: 210000  Scope: xc7_dsp.check"
+      ],
+      "artifacts": {
+        "build/xc7-dsp/configuration-1/wrong-b-cascade.vvp": "feaac96b00b1b88a311d2cdfdfba1c5ca65860251ed4ba807683425289ce0856",
+        "build/xc7-dsp/configuration-1/wrong-b-cascade-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build/xc7-dsp/configuration-1/wrong-b-cascade.log": "0dd1dcb01060118d1c29293bb68c0229ab0b8e8b135738f3fcce843075b6d0b9"
+      }
+    },
+    {
+      "inputs": {
+        "build/xc7-dsp/configuration-2/wrong-carry.sv": "363dfc6c31a103756ed1e79f44ffa28a48a0cb7a1c389ebdcee6c1a2c35f2b3f",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+        "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+      },
+      "command": [
+        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+        "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_dsp",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/wrong-carry.vvp",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/wrong-carry.sv",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+        "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+        "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+      ],
+      "returncode": 1,
+      "expected_failure": "DSP_DATA_MISMATCH",
+      "observations": [
+        "FATAL: /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:15: DSP_DATA_MISMATCH vector=0 phase=before clock p=000000000001 expected=000000000000 ac=2a000000 expected_ac=2a000000 bc=00000 expected_bc=00000 pc=000000000001",
+        "       Time: 210000  Scope: xc7_dsp.check"
+      ],
+      "artifacts": {
+        "build/xc7-dsp/configuration-2/wrong-carry.vvp": "f84b04b0ce4fa003e41752a27240a14053cfee1e9da7bb536f36fefbd6d921bb",
+        "build/xc7-dsp/configuration-2/wrong-carry-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build/xc7-dsp/configuration-2/wrong-carry.log": "679254d7d91650222fbbdbe69dea9cde68e600b532b1dbdc72bbeb383ccd9ca1"
+      }
+    },
+    {
+      "inputs": {
+        "build/xc7-dsp/configuration-2/flipped-product.sv": "172d38fa29b335195ae1f597eff105ca86940bac38ed0aa38e2294bbc27d3ee6",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+        "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+      },
+      "command": [
+        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+        "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_dsp",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/flipped-product.vvp",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/flipped-product.sv",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+        "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+        "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+      ],
+      "returncode": 1,
+      "expected_failure": "DSP_DATA_MISMATCH",
+      "observations": [
+        "FATAL: /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:15: DSP_DATA_MISMATCH vector=0 phase=before clock p=000000000001 expected=000000000000 ac=2a000000 expected_ac=2a000000 bc=00000 expected_bc=00000 pc=000000000000",
+        "       Time: 210000  Scope: xc7_dsp.check"
+      ],
+      "artifacts": {
+        "build/xc7-dsp/configuration-2/flipped-product.vvp": "9bad8d6f0e8b571c31b0ec67503ff3e0628394efa0acfa809a53b4a08927cbe6",
+        "build/xc7-dsp/configuration-2/flipped-product-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build/xc7-dsp/configuration-2/flipped-product.log": "22636f0bfc85554b0320cf610cbaba78dadc122550b6a674a30a10429003379c"
+      }
+    },
+    {
+      "inputs": {
+        "build/xc7-dsp/configuration-2/lost-cascade-output.sv": "dd26616c18a12590afa5efd6154da58f1f61b61a32c78eaa976ee39a1ab4aa79",
+        "build/xc7-dsp/yosys-dsp-split.v": "5a9c2dc92654a27eb8982dc95f6869ade2e2f51aeb530be4be5e0c640ee080ef",
+        "tests/xc7/dsp.sv": "d0a5b3fb337600ad4a7da354c1cb9d9fc4aa3cd1c542b92bfb555ef4b4374141",
+        "third_party/xilinx-unisim/glbl.v": "de59a57e3e0091f1b9162d9914dce24c469820a0c5b5a41d1d202d93fae0abdd",
+        "build/xc7-dsp/configuration-2/vectors.txt": "92eb016585848962be78d392e88fe943ce3c65b001d11c3af7a93efa77ded661"
+      },
+      "command": [
+        "/home/lastmjs/development/wasmetal/.cache/tools/usr/bin/iverilog",
+        "-B/home/lastmjs/development/wasmetal/.cache/tools/usr/lib/x86_64-linux-gnu/ivl",
+        "-g2012",
+        "-s",
+        "xc7_dsp",
+        "-s",
+        "glbl",
+        "-o",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/lost-cascade-output.vvp",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/configuration-2/lost-cascade-output.sv",
+        "/home/lastmjs/development/wasmetal/build/xc7-dsp/yosys-dsp-split.v",
+        "/home/lastmjs/development/wasmetal/tests/xc7/dsp.sv",
+        "/home/lastmjs/development/wasmetal/third_party/xilinx-unisim/glbl.v"
+      ],
+      "returncode": 1,
+      "expected_failure": "DSP_DATA_MISMATCH",
+      "observations": [
+        "FATAL: /home/lastmjs/development/wasmetal/tests/xc7/dsp.sv:15: DSP_DATA_MISMATCH vector=90 phase=before clock p=000000000001 expected=000000000001 ac=2a000001 expected_ac=2a000001 bc=00001 expected_bc=00001 pc=000000000000",
+        "       Time: 2910000  Scope: xc7_dsp.check"
+      ],
+      "artifacts": {
+        "build/xc7-dsp/configuration-2/lost-cascade-output.vvp": "eef2a5c8c7c6396990838a05cb21b3bf64eb978223f7bcac0f3cc28b5c716b61",
+        "build/xc7-dsp/configuration-2/lost-cascade-output-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build/xc7-dsp/configuration-2/lost-cascade-output.log": "262dfe6b6a1e0a0440b2f84c49af515f3470342fc0148a21eba4d61d3928a962"
+      }
+    }
+  ],
+  "negative_controls_rejected": 6,
+  "inventory_negative_controls": [
+    {
+      "name": "registered-input",
+      "diagnostic": "unreviewed DSP parameters: $auto$share.cc:667:make_supercell$107711.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceA.last.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceB[0].mul"
+    },
+    {
+      "name": "nonzero-carry",
+      "diagnostic": "unreviewed DSP control: $auto$share.cc:667:make_supercell$107711.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceA.last.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceB[0].mul.CARRYIN"
+    },
+    {
+      "name": "variable-opmode",
+      "diagnostic": "unreviewed variable DSP operation: $auto$share.cc:667:make_supercell$107711.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceA.last.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceB[0].mul"
+    },
+    {
+      "name": "unsupported-opmode",
+      "diagnostic": "unreviewed DSP arithmetic mode: $auto$share.cc:667:make_supercell$107711.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceA.last.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceB[0].mul"
+    },
+    {
+      "name": "unsupported-a-source",
+      "diagnostic": "unreviewed DSP arithmetic mode: $auto$share.cc:667:make_supercell$107711.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceA.last.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceB[0].mul"
+    },
+    {
+      "name": "extra-parameter",
+      "diagnostic": "unreviewed DSP parameters: $auto$share.cc:667:make_supercell$107711.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceA.last.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceB[0].mul"
+    },
+    {
+      "name": "missing-dsp",
+      "diagnostic": "DSP inventory changed; review complete configuration coverage"
+    },
+    {
+      "name": "unverified-output",
+      "diagnostic": "unverified DSP output is consumed: $auto$share.cc:667:make_supercell$107711.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceA.last.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.genblk1.sliceB[0].mul.CARRYOUT"
+    }
+  ],
+  "inventory_controls_rejected": 8,
+  "scope": "Used unregistered multiplier/cascade configurations and all consumed output types; independent signed-integer oracle",
+  "limitations": [
+    "Known input data only; no four-state equivalence claim.",
+    "No registered DSP modes, physical timing or silicon validation."
+  ],
+  "physical_hardware_tested": false,
+  "elapsed_seconds": 58.04339176800568
+}

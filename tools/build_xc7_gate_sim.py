@@ -9,7 +9,7 @@ import re
 import subprocess
 
 from build_gate_sim import compilation
-from check_xc7_dsp import audit as audit_dsp
+from check_xc7_dsp import audit as audit_dsp, expected_groups
 from prepare_standalone import ROOT, digest, load_profile
 from program_upload import profile_tag
 from xc7_memory_mapping import audit_address_pins
@@ -52,7 +52,7 @@ def main():
     design=json.loads(netlist.read_text());module=design['modules'][top]
     if audit_address_pins(module)!=reference['ram_address_pin_audit']:
         raise ValueError('RAM address audit differs')
-    audit_dsp(module)
+    audit_dsp(module,expected_groups(reference))
     kinds=collections.Counter(c['type'] for c in module['cells'].values())
     supported={'CARRY4','DSP48E1','FDCE','FDRE','FDRE_1','FDSE','INV','MUXF7','MUXF8',
                'RAM64M','RAMB18E1','RAMB36E1',*['LUT'+str(n) for n in range(1,7)]}

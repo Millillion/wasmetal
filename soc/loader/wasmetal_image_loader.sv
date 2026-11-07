@@ -60,6 +60,13 @@ module wasmetal_image_loader #(
         else first_section=5;
     endfunction
     wire [159:0] limit_vector={limits[4],limits[3],limits[2],limits[1],limits[0]};
+    // Row count times a small constant row size, as shifts and adds: the
+    // length check must not infer DSP multipliers.
+    function automatic [31:0] scaled(input [31:0] rows,input [31:0] size);
+        scaled=0;
+        for(integer bit_index=0;bit_index<8;bit_index=bit_index+1)
+            if(size[bit_index]) scaled=scaled+(rows<<bit_index);
+    endfunction
     assign word_valid=write_pending && !reset && !abort_load;
     assign tx_valid=state==REPLY && !reset && !abort_load;
 
@@ -196,9 +203,9 @@ module wasmetal_image_loader #(
                             if(counts_next[31:0]>INSTRUCTION_DEPTH || counts_next[63:32]>FUNCTION_DEPTH ||
                                counts_next[95:64]>TYPE_DEPTH || counts_next[127:96]>6*REGIONS_PER_KIND ||
                                counts_next[159:128]>BOOT_DEPTH ||
-                               declared_bytes!=20+36*counts_next[31:0]+20*counts_next[63:32]+
-                                   ((TYPE_DEPTH+7)/8)*counts_next[95:64]+8*counts_next[127:96]+
-                                   29*counts_next[159:128]) begin
+                               declared_bytes!=20+scaled(counts_next[31:0],36)+scaled(counts_next[63:32],20)+
+                                   scaled(counts_next[95:64],(TYPE_DEPTH+7)/8)+scaled(counts_next[127:96],8)+
+                                   scaled(counts_next[159:128],29)) begin
                                 image_valid<=0;checksum_verified<=0;magic_index<=0;reply(4,0);
                             end else begin
                                 state<=PAYLOAD;cursor<=0;byte_index<=0;section<=0;

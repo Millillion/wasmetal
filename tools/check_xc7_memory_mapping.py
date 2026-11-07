@@ -20,7 +20,7 @@ TOOLS = ROOT / '.cache/tools/usr'
 BENCH = ROOT / 'tests/memory/xc7_mapping.sv'
 CASES = [(9, 2048, 'RAMB18E1', 'TDP'), (18, 2048, 'RAMB36E1', 'TDP'),
          (36, 1024, 'RAMB36E1', 'TDP'), (36, 512, 'RAMB18E1', 'SDP'),
-         (72, 512, 'RAMB36E1', 'SDP')]
+         (72, 512, 'RAMB36E1', 'SDP'), (9, 4096, 'RAMB36E1', 'TDP')]
 
 
 def run(command, log, timeout=180):

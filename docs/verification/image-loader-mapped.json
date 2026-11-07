@@ -21,7 +21,7 @@
           "replies": 295,
           "commits": 83,
           "resets": 24,
-          "binary_sha256": "0150f3eb166d9ee7dba6415554eae0031ecd7e27a248d43e0ac8138961043d7f",
+          "binary_sha256": "a2d6ec0db65c1e1398d5c055edf2d8d87816d69dd1333b76fff1c7aa7c331200",
           "negative_controls_rejected": [
             "reply",
             "store word"
@@ -35,7 +35,7 @@
           "replies": 295,
           "commits": 83,
           "resets": 24,
-          "binary_sha256": "06deddac9ed3175415a3d3f55979612b4bf1237572892bdf2f217241c3a1d431",
+          "binary_sha256": "3f7374366a2029cf8d9c585197f650bb029fe57b1e9008f9dbf693367869c042",
           "negative_controls_rejected": [
             "reply",
             "store word"
@@ -46,7 +46,7 @@
         "backend": "standalone-mapped-ecp5-functional",
         "top": "wasmetal_image_loader",
         "inputs": {
-          "build/image-loader/small/loader.json": "187b3d2a76fc25a8c67057a4522ab6f835834dbe14b8b1dd3c079c78163a8fbd",
+          "build/image-loader/small/loader.json": "c97e7013f522b4415c00b25714c50e9c632f92e2b69a90ad468bc9a6acf8ec22",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -55,8 +55,8 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tests/memory/image_loader.cpp": "8c218fc347fcc8a533ceff3f6f53849605ec6d1b85b1ba0fe3f37152eae7c890",
-          "build/image-loader/small/loader.manifest.json": "eae3671904de6df8798f779bc9471320083f1b0b4dd5f104f221336289b31a54",
-          "soc/loader/wasmetal_image_loader.sv": "2ea45cab6d8b937329625c210538b649df71e50ca5c88bd9e0ae124bf701d2d1",
+          "build/image-loader/small/loader.manifest.json": "878bc8f71abf0e00bb35748f0ed94f67652962f3bf60788a306f8dc981dc5452",
+          "soc/loader/wasmetal_image_loader.sv": "24d2a6c9a13f14a6551a55c465f76d97eef0608202ce0f81c5a5545ad57a4d98",
           "tools/check_image_loader.py": "6c2e064fcfe8b320aba4038840eded3b4d053ea77177c5ca963a79c1f5fba909",
           "tools/program_upload.py": "3b858faaeca4fa04b5284f6ff2ff01225d3c39b17e98717941c75990a1ec97cc",
           "tools/standalone_support.py": "4de6e5f9753be79cae016b89bfcc8b652146433d4404c7048c5fe102ef314a50",
@@ -64,12 +64,12 @@
           "tools/prepare_standalone.py": "88c3a835cd44d6bfef7400289c473dd8fa74fea625f7427f15cf6bb05f8de8d8",
           "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/image-loader/small/mapped/circuit.v": "206780573457122d9beb6049a6f62347825ea1ca933bb1d7795989fe79b4d711",
+          "build/image-loader/small/mapped/circuit.v": "2fbcefca88211984b8bb7a5de9e64ee1883ffbd63ab37c878b622046aa48028f",
           "build/image-loader/small/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/image-loader/small/mapped/lut-proof/report.json": "84f45ea126c37e5ea3347f421a8dab29c0be76f58578f3f413ad02984d4845cd"
+          "build/image-loader/small/mapped/lut-proof/report.json": "900d0af28cf794d28fd3f725a8e186843d75b3494a67c9d20176a03d555ea4d9"
         },
-        "binary_sha256": "06deddac9ed3175415a3d3f55979612b4bf1237572892bdf2f217241c3a1d431",
-        "netlist_sha256": "187b3d2a76fc25a8c67057a4522ab6f835834dbe14b8b1dd3c079c78163a8fbd",
+        "binary_sha256": "3f7374366a2029cf8d9c585197f650bb029fe57b1e9008f9dbf693367869c042",
+        "netlist_sha256": "c97e7013f522b4415c00b25714c50e9c632f92e2b69a90ad468bc9a6acf8ec22",
         "ram_modes": {},
         "compilation": {
           "fast_sim": true,
@@ -101,7 +101,7 @@
           "replies": 295,
           "commits": 83,
           "resets": 24,
-          "binary_sha256": "cc6bacb6833da9c34273b42e77e226526ee09f55aec8a458423fb05cf6fb1528",
+          "binary_sha256": "08f6ab040a2546bb8f32cbe846ccbfe7a7db1e72b647df6a5a43459ea245132b",
           "negative_controls_rejected": [
             "reply",
             "store word"
@@ -120,7 +120,7 @@
           "replies": 295,
           "commits": 83,
           "resets": 24,
-          "binary_sha256": "b0cd99a14ed0edc642b152584e06d47f54a5771111e4169afb7625129778f79b",
+          "binary_sha256": "a485c715785d90b84782559c907084f2e22a2e7e0fe50689ffa5dcb26c8b9b26",
           "negative_controls_rejected": [
             "reply",
             "store word"
@@ -136,7 +136,7 @@
         "backend": "standalone-mapped-ecp5-functional",
         "top": "wasmetal_image_loader",
         "inputs": {
-          "build/image-loader/production/loader.json": "ff0ec602eb1835a9fb9fe4ac1578f6a5c0ed2e06d76da808c1ee4d09599a8985",
+          "build/image-loader/production/loader.json": "332e1f4a0ab2403b811ec1feab9a76e92e13d1d5d2e4beed444f5791ea3d53d2",
           "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
           "tools/build_gate_sim.py": "db0e63aaebcd5f8673c5192135226e59f16fe75a12448edd3121955bdfd17ac2",
           "tools/ecp5_ram.py": "97664337f71f3a9bc2c802a844b8a392379c9b3b51031caf895d68e357426af3",
@@ -145,8 +145,8 @@
           "tools/check_ecp5_luts.py": "280c54cd90cea4c49becfd38a6fc1dd4a38335a43e828bb767008ae3b54f212e",
           ".cache/tools/usr/share/yosys/ecp5/cells_sim.v": "23c1d1d35b5bd9ba5a07e17cf7d5c07fe7b6840e1deb6c2f746c3f430b4cec54",
           "tests/memory/image_loader.cpp": "8c218fc347fcc8a533ceff3f6f53849605ec6d1b85b1ba0fe3f37152eae7c890",
-          "build/image-loader/production/loader.manifest.json": "dd9baf20bc81cfc620a3ca7b726eac2f0b7bc8e72d3443bd6f44b981598d0fd1",
-          "soc/loader/wasmetal_image_loader.sv": "2ea45cab6d8b937329625c210538b649df71e50ca5c88bd9e0ae124bf701d2d1",
+          "build/image-loader/production/loader.manifest.json": "7f3752f8d24ed16825e09b174860980bee03c23c8cb4d19177dc8a2178e572bd",
+          "soc/loader/wasmetal_image_loader.sv": "24d2a6c9a13f14a6551a55c465f76d97eef0608202ce0f81c5a5545ad57a4d98",
           "tools/check_image_loader.py": "6c2e064fcfe8b320aba4038840eded3b4d053ea77177c5ca963a79c1f5fba909",
           "tools/program_upload.py": "3b858faaeca4fa04b5284f6ff2ff01225d3c39b17e98717941c75990a1ec97cc",
           "tools/standalone_support.py": "4de6e5f9753be79cae016b89bfcc8b652146433d4404c7048c5fe102ef314a50",
@@ -154,12 +154,12 @@
           "tools/prepare_standalone.py": "88c3a835cd44d6bfef7400289c473dd8fa74fea625f7427f15cf6bb05f8de8d8",
           "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
           "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
-          "build/image-loader/production/mapped/circuit.v": "e287e3199b033feef9100d4301e9f1f9c5d564df20c45ab4a88835f5b03e65b9",
+          "build/image-loader/production/mapped/circuit.v": "f35621dc57bef873d68b32f3b61b6af3a6870003b5f2f254602f90a28fe077f0",
           "build/image-loader/production/mapped/cells.v": "28d289971e00af5dc525b9cac21b5c3a558c2fea08148cdd4176f5730d59df27",
-          "build/image-loader/production/mapped/lut-proof/report.json": "345b354537d842964994e5b30ffa9190cf6a40564c716561dfb37f99fc56be5f"
+          "build/image-loader/production/mapped/lut-proof/report.json": "d5f6ac6220ebdc0cba11693e3ea5736c3c3b271595ed92fb99972d73c58914b8"
         },
-        "binary_sha256": "b0cd99a14ed0edc642b152584e06d47f54a5771111e4169afb7625129778f79b",
-        "netlist_sha256": "ff0ec602eb1835a9fb9fe4ac1578f6a5c0ed2e06d76da808c1ee4d09599a8985",
+        "binary_sha256": "a485c715785d90b84782559c907084f2e22a2e7e0fe50689ffa5dcb26c8b9b26",
+        "netlist_sha256": "332e1f4a0ab2403b811ec1feab9a76e92e13d1d5d2e4beed444f5791ea3d53d2",
         "ram_modes": {},
         "compilation": {
           "fast_sim": true,
@@ -174,7 +174,7 @@
     }
   },
   "inputs": {
-    "soc/loader/wasmetal_image_loader.sv": "2ea45cab6d8b937329625c210538b649df71e50ca5c88bd9e0ae124bf701d2d1",
+    "soc/loader/wasmetal_image_loader.sv": "24d2a6c9a13f14a6551a55c465f76d97eef0608202ce0f81c5a5545ad57a4d98",
     "tests/memory/image_loader.cpp": "8c218fc347fcc8a533ceff3f6f53849605ec6d1b85b1ba0fe3f37152eae7c890",
     "tools/check_image_loader.py": "6c2e064fcfe8b320aba4038840eded3b4d053ea77177c5ca963a79c1f5fba909",
     "tools/program_upload.py": "3b858faaeca4fa04b5284f6ff2ff01225d3c39b17e98717941c75990a1ec97cc",

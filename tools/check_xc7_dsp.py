@@ -24,6 +24,17 @@ LIBRARY = TOOLS/'share/yosys/xilinx/cells_sim.v'
 GROUPS = {('DIRECT','DIRECT',5):9, ('CASCADE','DIRECT',85):16,
           ('DIRECT','DIRECT',21):1, ('DIRECT','CASCADE',85):1, ('DIRECT','DIRECT',53):2}
 CORE_GROUPS = {**GROUPS,('DIRECT','DIRECT',5):10,('DIRECT','DIRECT',53):1}
+# The Genesys 2 profile's wider heap addresses map one multiply-add into a DSP
+# (mode 53) instead of fabric; both modes are already reviewed and tested.
+PROFILE_GROUPS = {'genesys2': {**GROUPS,('DIRECT','DIRECT',5):8,('DIRECT','DIRECT',53):3}}
+
+
+def expected_groups(reference):
+    """The reviewed DSP inventory for this synthesis report's top and profile."""
+    if reference['top']=='wasmetal_core':return CORE_GROUPS
+    for name,groups in PROFILE_GROUPS.items():
+        if reference.get('profile')==json.loads((ROOT/'soc/profiles'/(name+'.json')).read_text()):return groups
+    return GROUPS
 REGISTERS = ['ACASCREG','ADREG','ALUMODEREG','AREG','BCASCREG','BREG','CARRYINREG',
              'CARRYINSELREG','CREG','DREG','INMODEREG','MREG','OPMODEREG','PREG']
 
@@ -191,7 +202,7 @@ def main():
         if digest(ROOT/name)!=h:raise ValueError('stale synthesis input: '+name)
     module=json.loads(netlist.read_text())['modules'][reference['top']]
     if reference['top'] not in ('wasmetal_core','wasmetal_loadable'):raise ValueError('unreviewed DSP top')
-    expected=CORE_GROUPS if reference['top']=='wasmetal_core' else GROUPS
+    expected=expected_groups(reference)
     groups=audit(module,expected);inventory_negative=inventory_controls(module,expected)
     compiler=Path(shutil.which('g++')).resolve()
     compiler_identity={'path':str(compiler),'sha256':digest(compiler),

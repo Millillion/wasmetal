@@ -260,13 +260,13 @@ def main():
     if len(negatives) != 14:
         raise ValueError('missing fast RAM negative controls')
     report.write_text(json.dumps({'status': 'passed', 'inputs': inputs, 'tools': tool_identities,
-        'scope': 'Experimental untimed models for five RAM configurations; known vectors in Icarus and Verilator plus native/vendor/fast four-state data and initialization checks',
+        'scope': 'Experimental untimed models for six RAM configurations; known vectors in Icarus and Verilator plus native/vendor/fast four-state data and initialization checks',
         'reference_report_sha256': digest(reference_path), 'checks': checks, 'negative_controls': negatives,
         'negative_controls_rejected': len(negatives),
         'known_vectors_per_model': sum(c['known_vectors'] for c in checks),
         'four_state_vectors_per_model': sum(s['vectors_per_model'] for c in checks for s in c['four_state']),
         'whole_cpu_mapping_verified': False, 'physical_hardware_tested': False,
-        'limitations': ['Only the five explicitly accepted configurations are supported.',
+        'limitations': ['Only the six explicitly accepted configurations are supported.',
             'No aperture, metastability, electrical timing or general collision semantics are modeled.',
             'Unknown control/address signals are outside this regression. WRITE_FIRST collisions fail closed.'],
         'elapsed_seconds': time.monotonic()-started}, indent=2)+'\n')

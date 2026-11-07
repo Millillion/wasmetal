@@ -1,0 +1,6506 @@
+{
+  "status": "complete",
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 65536
+    },
+    "instruction_depth": 32768,
+    "function_depth": 2048,
+    "type_depth": 256,
+    "boot_depth": 16384,
+    "regions_per_kind": 256,
+    "ram_bytes": 8388608,
+    "memory_pages": 1024,
+    "table_slots": 65536,
+    "max_results": 64,
+    "watchdog_cycles": 300000000
+  },
+  "simulator": {
+    "backend": "loadable-rtl",
+    "inputs": {
+      "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
+      "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
+      "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
+      "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
+      "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
+      "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+      "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+      "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
+      "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+      "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
+      "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
+      "rtl/wasmetal_simd_fp_decode.sv": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
+      "rtl/wasmetal_simd_int.sv": "d64aaee7e053fae5b24e59d8e0e819c5eb065060ae6f9d426ea83404a703cf71",
+      "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
+      "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
+      "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
+      "third_party/hardfloat/source/HardFloat_primitives.v": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+      "third_party/hardfloat/source/HardFloat_rawFN.v": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+      "third_party/hardfloat/source/addRecFN.v": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+      "third_party/hardfloat/source/compareRecFN.v": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+      "third_party/hardfloat/source/divSqrtRecFN_small.v": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+      "third_party/hardfloat/source/fNToRecFN.v": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+      "third_party/hardfloat/source/iNToRecFN.v": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+      "third_party/hardfloat/source/isSigNaNRecFN.v": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+      "third_party/hardfloat/source/mulAddRecFN.v": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+      "third_party/hardfloat/source/mulRecFN.v": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+      "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+      "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+      "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+      "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+      "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+      "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+      "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+      "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+      "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+      "soc/loader/wasmetal_image_loader.sv": "2ea45cab6d8b937329625c210538b649df71e50ca5c88bd9e0ae124bf701d2d1",
+      "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+      "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+      "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+      "soc/loader/wasmetal_loadable_genesys2.sv": "91ae55395127fd768cd1080c5e0aa280ab70dcaba97c09b94d9c7997d6f8ddcb",
+      "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+      "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+      "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+      "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+      "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+      "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+      "soc/wasmetal_standalone.sv": "77494ff7ee07cefebf583cc0a822c23eb700e65b23f6cf24212672fa3bbff551",
+      "soc/wasmetal_standalone_ulx3s.sv": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
+      "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+      "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+      "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+      "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+      "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+      "tests/standalone/loadable.cpp": "81454296fca4af7ab3b2de6e90fa83083d6eba36657c2e9dc2ca5b8e0ff95ad2",
+      "tools/build_loadable_sim.py": "eb35582faa124f7fc9e746422fce066e451d53f9c46f0acfd16e9874cf29a0d0",
+      "build/profile-session/standalone_parameters.svh": "d88d84f6dea9451e79ac913185ecb1011ef43b7a2681bf2c860f42727b4c009b",
+      "tools/build_standalone_sim.py": "e01f744b4803511bdc47d2f926807aab1dedbab22d6c5a001c21a1db48e43af9",
+      "tools/prepare_standalone.py": "88c3a835cd44d6bfef7400289c473dd8fa74fea625f7427f15cf6bb05f8de8d8",
+      "tools/standalone_support.py": "4de6e5f9753be79cae016b89bfcc8b652146433d4404c7048c5fe102ef314a50",
+      "tools/program_upload.py": "3b858faaeca4fa04b5284f6ff2ff01225d3c39b17e98717941c75990a1ec97cc",
+      "soc/profiles/session.json": "9637de22ebbf8d6997c60499789ee660e932437608a85cc6ec21db3ff6f99892",
+      "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec"
+    },
+    "profile": {
+      "core": {
+        "VALUE_DEPTH": 8192,
+        "CONTROL_DEPTH": 2048,
+        "CALL_DEPTH": 512,
+        "MEMORY_COUNT": 256,
+        "HEAP_SLOTS": 65536
+      },
+      "instruction_depth": 32768,
+      "function_depth": 2048,
+      "type_depth": 256,
+      "boot_depth": 16384,
+      "regions_per_kind": 256,
+      "ram_bytes": 8388608,
+      "memory_pages": 1024,
+      "table_slots": 65536,
+      "max_results": 64,
+      "watchdog_cycles": 300000000
+    },
+    "profile_tag": "61fee159c9a085408aed31789b11d4df",
+    "uart_ticks": 4,
+    "clock_scale": 1,
+    "upload_timeout": 4096,
+    "binary_sha256": "6eea5aca827143a383bebb771c1af811cf2bde3298ca7efa589bdd8bae7a9cb2"
+  },
+  "suite_count": 259,
+  "summary": {
+    "exceeds-profile": 4,
+    "passed": 255
+  },
+  "suites": {
+    "address": {
+      "suite": "address",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 255,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 3529,
+        "script_commands": 260
+      },
+      "status": "passed",
+      "reports": 267,
+      "mismatches": [],
+      "counts": {
+        "code": 289,
+        "functions": 99,
+        "types": 256,
+        "regions": 1536,
+        "boot": 553
+      },
+      "allocated_ram_bytes": 1376746,
+      "device_execution_cycles": 4393,
+      "clocks": 4030335,
+      "packet_sha256": "481daff59d2194a312e0adfae5c07dab553cbeea25d0957978537f8ea46af0df",
+      "elapsed_seconds": 324.3425387860043
+    },
+    "align": {
+      "suite": "align",
+      "native_counts": {
+        "modules_instantiated": 25,
+        "loader_assertions_passed": 92,
+        "rtl_assertions_passed": 48,
+        "rtl_cycles": 3914,
+        "script_commands": 165
+      },
+      "status": "passed",
+      "reports": 52,
+      "mismatches": [],
+      "counts": {
+        "code": 691,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 172
+      },
+      "allocated_ram_bytes": 1245568,
+      "device_execution_cycles": 4328,
+      "clocks": 3875037,
+      "packet_sha256": "de11ab6a9584693d6b6e0ae524cb8ddb9f5a46b81a237e3743945e6018add610",
+      "elapsed_seconds": 307.86887363297865
+    },
+    "annotations": {
+      "suite": "annotations",
+      "native_counts": {
+        "modules_instantiated": 10,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 128,
+        "script_commands": 74
+      },
+      "status": "passed",
+      "reports": 17,
+      "mismatches": [],
+      "counts": {
+        "code": 36,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 39
+      },
+      "allocated_ram_bytes": 1180260,
+      "device_execution_cycles": 118,
+      "clocks": 2707871,
+      "packet_sha256": "55813c52872d7be7700f3c13722173613f4cab303c0e1234687c1487e0fdb9e2",
+      "elapsed_seconds": 224.7409579779487
+    },
+    "binary": {
+      "suite": "binary",
+      "native_counts": {
+        "modules_instantiated": 20,
+        "loader_assertions_passed": 109,
+        "rtl_cycles": 80,
+        "script_commands": 129
+      },
+      "status": "passed",
+      "reports": 7,
+      "mismatches": [],
+      "counts": {
+        "code": 35,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 26
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 74,
+      "clocks": 2676954,
+      "packet_sha256": "ea63dc0d29342d8e67de51f69bcfa9c0200e5c269bdc8b1ba38b18a795824326",
+      "elapsed_seconds": 220.48504721804056
+    },
+    "binary-leb128": {
+      "suite": "binary-leb128",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "loader_assertions_passed": 58,
+        "rtl_cycles": 252,
+        "script_commands": 91
+      },
+      "status": "passed",
+      "reports": 30,
+      "mismatches": [],
+      "counts": {
+        "code": 63,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "allocated_ram_bytes": 1638912,
+      "device_execution_cycles": 231,
+      "clocks": 2808788,
+      "packet_sha256": "4b6fe8edd81e3073a60b4f25b2b6e81b4627fd7fea412f1b7cf47f98b553be00",
+      "elapsed_seconds": 193.37954450002871
+    },
+    "block": {
+      "suite": "block",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 52,
+        "loader_assertions_passed": 170,
+        "rtl_cycles": 1947,
+        "script_commands": 223
+      },
+      "status": "passed",
+      "reports": 60,
+      "mismatches": [],
+      "counts": {
+        "code": 620,
+        "functions": 69,
+        "types": 256,
+        "regions": 1536,
+        "boot": 75
+      },
+      "allocated_ram_bytes": 1245616,
+      "device_execution_cycles": 1932,
+      "clocks": 3693436,
+      "packet_sha256": "b7f98f1841ae44db0a74887d74f9d5bcf2e5c8dc7f9c2e62bec8970d75691fb6",
+      "elapsed_seconds": 291.92984672705643
+    },
+    "br": {
+      "suite": "br",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 76,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 1665,
+        "script_commands": 97
+      },
+      "status": "passed",
+      "reports": 84,
+      "mismatches": [],
+      "counts": {
+        "code": 588,
+        "functions": 88,
+        "types": 256,
+        "regions": 1536,
+        "boot": 115
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 1593,
+      "clocks": 3734101,
+      "packet_sha256": "dc1317b194263427c024474cd531f115dc8e5762b9649b963b54c689ef6f6715",
+      "elapsed_seconds": 299.1163668249501
+    },
+    "br_if": {
+      "suite": "br_if",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 88,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 2301,
+        "script_commands": 119
+      },
+      "status": "passed",
+      "reports": 96,
+      "mismatches": [],
+      "counts": {
+        "code": 596,
+        "functions": 77,
+        "types": 256,
+        "regions": 1536,
+        "boot": 171
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 2229,
+      "clocks": 3811653,
+      "packet_sha256": "0818f195400469f6c951b4730ec737d5f1d51d2867ef9e6f2357db1ee9078858",
+      "elapsed_seconds": 333.06085782300215
+    },
+    "br_on_non_null": {
+      "suite": "br_on_non_null",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 8,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 354,
+        "script_commands": 12
+      },
+      "status": "passed",
+      "reports": 14,
+      "mismatches": [],
+      "counts": {
+        "code": 110,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 29
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 341,
+      "clocks": 2816287,
+      "packet_sha256": "2338e69758e9063e1f20134585d1485eb9c11a64cf3ba327ca814fe48b24775f",
+      "elapsed_seconds": 206.53083526308183
+    },
+    "br_on_null": {
+      "suite": "br_on_null",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 6,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 274,
+        "script_commands": 10
+      },
+      "status": "passed",
+      "reports": 12,
+      "mismatches": [],
+      "counts": {
+        "code": 86,
+        "functions": 27,
+        "types": 256,
+        "regions": 1536,
+        "boot": 27
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 263,
+      "clocks": 2773119,
+      "packet_sha256": "12e16b5fc0c2bb393089662fc174f5875b3f6db39229a0ebbf2d570dbc4d1d6a",
+      "elapsed_seconds": 188.39192511094734
+    },
+    "br_table": {
+      "suite": "br_table",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 161,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 4665,
+        "script_commands": 186
+      },
+      "status": "passed",
+      "reports": 172,
+      "mismatches": [],
+      "counts": {
+        "code": 17085,
+        "functions": 94,
+        "types": 256,
+        "regions": 1536,
+        "boot": 314
+      },
+      "allocated_ram_bytes": 1180112,
+      "device_execution_cycles": 4564,
+      "clocks": 27827000,
+      "packet_sha256": "b9c05e54e922aa64ab5811a2f8e5112087e3b3b917d52195c2dc19b9499fc9d5",
+      "elapsed_seconds": 2293.6769987880252
+    },
+    "bulk-memory/bulk": {
+      "suite": "bulk-memory/bulk",
+      "native_counts": {
+        "modules_instantiated": 13,
+        "rtl_actions_completed": 38,
+        "rtl_assertions_passed": 66,
+        "rtl_cycles": 10250,
+        "script_commands": 117
+      },
+      "status": "passed",
+      "reports": 129,
+      "mismatches": [],
+      "counts": {
+        "code": 138,
+        "functions": 58,
+        "types": 256,
+        "regions": 1536,
+        "boot": 488
+      },
+      "allocated_ram_bytes": 1442752,
+      "device_execution_cycles": 31465,
+      "clocks": 3545244,
+      "packet_sha256": "6e4aa5925a3f7010ea7f87b83a9c49255d52ea56b50044e9cd47541349ba34bb",
+      "elapsed_seconds": 263.738967022975
+    },
+    "bulk-memory/memory_copy": {
+      "suite": "bulk-memory/memory_copy",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "rtl_actions_completed": 15,
+        "rtl_assertions_passed": 4338,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8781317,
+        "script_commands": 4450
+      },
+      "status": "passed",
+      "reports": 4411,
+      "mismatches": [],
+      "counts": {
+        "code": 1192,
+        "functions": 94,
+        "types": 256,
+        "regions": 1536,
+        "boot": 9387
+      },
+      "allocated_ram_bytes": 3277792,
+      "device_execution_cycles": 10412096,
+      "clocks": 31338229,
+      "packet_sha256": "80afecb0a3cc205a82928e11f8cd6eaf93798ef1ac116595f9b74b6c502bd1ce",
+      "elapsed_seconds": 2472.0946032829816
+    },
+    "bulk-memory/memory_fill": {
+      "suite": "bulk-memory/memory_fill",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8659595,
+        "script_commands": 100
+      },
+      "status": "passed",
+      "reports": 29,
+      "mismatches": [],
+      "counts": {
+        "code": 327,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 100
+      },
+      "allocated_ram_bytes": 1835392,
+      "device_execution_cycles": 10007262,
+      "clocks": 13224035,
+      "packet_sha256": "8d745be653a746695242044a08a174999ee1ccf0515fdabc43502d880da0b997",
+      "elapsed_seconds": 1105.4074964920292
+    },
+    "bulk-memory/memory_init": {
+      "suite": "bulk-memory/memory_init",
+      "native_counts": {
+        "modules_instantiated": 29,
+        "rtl_actions_completed": 12,
+        "rtl_assertions_passed": 142,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 2767,
+        "script_commands": 250
+      },
+      "status": "passed",
+      "reports": 176,
+      "mismatches": [],
+      "counts": {
+        "code": 358,
+        "functions": 59,
+        "types": 256,
+        "regions": 1536,
+        "boot": 518
+      },
+      "allocated_ram_bytes": 3015680,
+      "device_execution_cycles": 3394,
+      "clocks": 3950892,
+      "packet_sha256": "6e6cbcf2ef2c0e349d1dc05b2ae84690384efa26be008d83b4b9eaa76acb084e",
+      "elapsed_seconds": 331.94201704498846
+    },
+    "bulk-memory/table-sub": {
+      "suite": "bulk-memory/table-sub",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 3
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 24,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 16
+      },
+      "allocated_ram_bytes": 1114816,
+      "device_execution_cycles": 44,
+      "clocks": 2639064,
+      "packet_sha256": "be5bced296e2bad7ffcc0fab3612070c786613807a89ab5ce037b5cc3ad68a46",
+      "elapsed_seconds": 197.8030213570455
+    },
+    "bulk-memory/table_copy": {
+      "suite": "bulk-memory/table_copy",
+      "native_counts": {
+        "modules_instantiated": 52,
+        "registrations": 1,
+        "rtl_actions_completed": 26,
+        "rtl_assertions_passed": 1649,
+        "rtl_cycles": 34984,
+        "script_commands": 1728
+      },
+      "status": "passed",
+      "reports": 2924,
+      "mismatches": [],
+      "counts": {
+        "code": 3623,
+        "functions": 1718,
+        "types": 256,
+        "regions": 1536,
+        "boot": 6510
+      },
+      "allocated_ram_bytes": 1177456,
+      "device_execution_cycles": 42519,
+      "clocks": 19741018,
+      "packet_sha256": "f2efe23a4b8cf6564ca791a4a99dc9d73965cb22d353f3f6c6982f1953cd6034",
+      "elapsed_seconds": 1648.4700786540052
+    },
+    "bulk-memory/table_fill": {
+      "suite": "bulk-memory/table_fill",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 589,
+        "script_commands": 45
+      },
+      "status": "passed",
+      "reports": 39,
+      "mismatches": [],
+      "counts": {
+        "code": 28,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "allocated_ram_bytes": 1114656,
+      "device_execution_cycles": 729,
+      "clocks": 2788691,
+      "packet_sha256": "5f464ebb588093dafc3738b773aa4628be896f6943058a46ec56b528ad5a9912",
+      "elapsed_seconds": 263.0676853780169
+    },
+    "bulk-memory/table_init": {
+      "suite": "bulk-memory/table_init",
+      "native_counts": {
+        "modules_instantiated": 41,
+        "registrations": 1,
+        "rtl_actions_completed": 18,
+        "rtl_assertions_passed": 665,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 16291,
+        "script_commands": 792
+      },
+      "status": "passed",
+      "reports": 1488,
+      "mismatches": [],
+      "counts": {
+        "code": 2573,
+        "functions": 1191,
+        "types": 256,
+        "regions": 1536,
+        "boot": 3386
+      },
+      "allocated_ram_bytes": 1162624,
+      "device_execution_cycles": 19349,
+      "clocks": 12716599,
+      "packet_sha256": "4e004b3ae9914fb643a8c044ee664be41e97848fc1a5f7a2c17309ae7eb68212",
+      "elapsed_seconds": 1077.9121686659055
+    },
+    "call": {
+      "suite": "call",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 72,
+        "loader_assertions_passed": 18,
+        "rtl_cycles": 665249,
+        "script_commands": 91
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "call_indirect": {
+      "suite": "call_indirect",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 134,
+        "loader_assertions_passed": 35,
+        "rtl_cycles": 2999965,
+        "script_commands": 172
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "call_ref": {
+      "suite": "call_ref",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 27,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 727090,
+        "script_commands": 35
+      },
+      "status": "passed",
+      "reports": 45,
+      "mismatches": [],
+      "counts": {
+        "code": 159,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "allocated_ram_bytes": 1114720,
+      "device_execution_cycles": 839169,
+      "clocks": 3851220,
+      "packet_sha256": "b8a762810e4436661a87f11488e733d81e13f4dc24597345b5b12d4d5b586134",
+      "elapsed_seconds": 280.7462510110345
+    },
+    "comments": {
+      "suite": "comments",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 3,
+        "rtl_cycles": 90,
+        "script_commands": 8
+      },
+      "status": "passed",
+      "reports": 7,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 16
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 83,
+      "clocks": 2650194,
+      "packet_sha256": "03424b962fd5a1b1066cf3f5ed3382a2b5e6a3cf30ab6b5b9115ce305d931010",
+      "elapsed_seconds": 180.14097831503022
+    },
+    "const": {
+      "suite": "const",
+      "native_counts": {
+        "modules_instantiated": 402,
+        "loader_assertions_passed": 76,
+        "rtl_assertions_passed": 300,
+        "rtl_cycles": 3648,
+        "script_commands": 778
+      },
+      "status": "passed",
+      "reports": 304,
+      "mismatches": [],
+      "counts": {
+        "code": 921,
+        "functions": 413,
+        "types": 256,
+        "regions": 1536,
+        "boot": 313
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3344,
+      "clocks": 4990627,
+      "packet_sha256": "1a4d8fabb4ac30dead55ad51a04f638b2cbb61297280547d3c0a43df03bbe2da",
+      "elapsed_seconds": 380.37934325798415
+    },
+    "conversions": {
+      "suite": "conversions",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 593,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 8396,
+        "script_commands": 619
+      },
+      "status": "passed",
+      "reports": 597,
+      "mismatches": [],
+      "counts": {
+        "code": 114,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1199
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 7866,
+      "clocks": 4914651,
+      "packet_sha256": "1989efac693ba05a86eb583332af30e96b1c25d0f8c8ffb07953a021905f0ed4",
+      "elapsed_seconds": 365.408398060943
+    },
+    "custom": {
+      "suite": "custom",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 48,
+        "script_commands": 11
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2629671,
+      "packet_sha256": "e404403129e707004688fc19ba790d74746b162b6932d7f119d6025bdc404156",
+      "elapsed_seconds": 182.07475686294492
+    },
+    "data": {
+      "suite": "data",
+      "native_counts": {
+        "modules_instantiated": 32,
+        "embedding_assertions_passed": 14,
+        "loader_assertions_passed": 20,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 1,
+        "rtl_cycles": 1101,
+        "script_commands": 68
+      },
+      "status": "passed",
+      "reports": 184,
+      "mismatches": [],
+      "counts": {
+        "code": 199,
+        "functions": 95,
+        "types": 256,
+        "regions": 1536,
+        "boot": 411
+      },
+      "allocated_ram_bytes": 2688305,
+      "device_execution_cycles": 1079,
+      "clocks": 3651831,
+      "packet_sha256": "af60220f7b23b94bf7fbb99dfeb2d5dc32248a1d42b61f3874edc15a3e6fab0f",
+      "elapsed_seconds": 253.51546127104666
+    },
+    "elem": {
+      "suite": "elem",
+      "native_counts": {
+        "modules_instantiated": 77,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 26,
+        "embedding_assertions_passed": 12,
+        "registrations": 3,
+        "rtl_actions_completed": 1,
+        "rtl_cycles": 4764,
+        "script_commands": 154
+      },
+      "status": "passed",
+      "reports": 515,
+      "mismatches": [],
+      "counts": {
+        "code": 871,
+        "functions": 455,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1115
+      },
+      "allocated_ram_bytes": 1153808,
+      "device_execution_cycles": 4607,
+      "clocks": 6154786,
+      "packet_sha256": "645c19f6f63ea7ec95653f33d891a119e56e6dfd90bdf05a6cbe6efe6c559aac",
+      "elapsed_seconds": 415.3122847540071
+    },
+    "endianness": {
+      "suite": "endianness",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 7748,
+        "script_commands": 69
+      },
+      "status": "passed",
+      "reports": 72,
+      "mismatches": [],
+      "counts": {
+        "code": 194,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 150
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 9456,
+      "clocks": 3161927,
+      "packet_sha256": "8428cab29b5fc76aae25df2cdc5bed0644b73fc4d9a79583f5bec77b492c6738",
+      "elapsed_seconds": 214.92471772502176
+    },
+    "exceptions/cast": {
+      "suite": "exceptions/cast",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 202,
+        "script_commands": 5
+      },
+      "status": "passed",
+      "reports": 9,
+      "mismatches": [],
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 20
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 205,
+      "clocks": 2677097,
+      "packet_sha256": "4a5ba5b9ca3c6aadef175a152d60dcfaf94280ab96c7344ee0916832c01d407a",
+      "elapsed_seconds": 177.9635216969764
+    },
+    "exceptions/tag": {
+      "suite": "exceptions/tag",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "registrations": 2,
+        "loader_assertions_passed": 2,
+        "embedding_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 10
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2624395,
+      "packet_sha256": "d748ad85639e2a0390fbb365e843ccaec4426a58c1b51f2b67163ba6e7b9ae9a",
+      "elapsed_seconds": 174.24769718002062
+    },
+    "exceptions/throw": {
+      "suite": "exceptions/throw",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 207,
+        "script_commands": 13
+      },
+      "status": "passed",
+      "reports": 13,
+      "mismatches": [],
+      "counts": {
+        "code": 62,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 28
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 237,
+      "clocks": 2723682,
+      "packet_sha256": "abc9dcd7a4dfebcdaf400ca63c69ce75886db0c418f9abc881d1f4663952ba4d",
+      "elapsed_seconds": 182.647238100064
+    },
+    "exceptions/throw_ref": {
+      "suite": "exceptions/throw_ref",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 499,
+        "script_commands": 15
+      },
+      "status": "passed",
+      "reports": 16,
+      "mismatches": [],
+      "counts": {
+        "code": 132,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 34
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 490,
+      "clocks": 2833941,
+      "packet_sha256": "ee71e59e793b3c574ea6819258912ac798c7aa9e59edc1e742a5ecf5e2423ee9",
+      "elapsed_seconds": 189.82946443301626
+    },
+    "exceptions/try_table": {
+      "suite": "exceptions/try_table",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "registrations": 1,
+        "rtl_assertions_passed": 49,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 1618,
+        "script_commands": 67
+      },
+      "status": "passed",
+      "reports": 57,
+      "mismatches": [],
+      "counts": {
+        "code": 431,
+        "functions": 57,
+        "types": 256,
+        "regions": 1536,
+        "boot": 107
+      },
+      "allocated_ram_bytes": 1114544,
+      "device_execution_cycles": 1826,
+      "clocks": 3449251,
+      "packet_sha256": "88dfe86dcaaade0c6916d20346c0f3f0a357f232f58c97ef2525ac1b0578aeef",
+      "elapsed_seconds": 227.21793520799838
+    },
+    "exports": {
+      "suite": "exports",
+      "native_counts": {
+        "modules_instantiated": 56,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 32,
+        "rtl_cycles": 264,
+        "script_commands": 97
+      },
+      "status": "passed",
+      "reports": 24,
+      "mismatches": [],
+      "counts": {
+        "code": 56,
+        "functions": 36,
+        "types": 256,
+        "regions": 1536,
+        "boot": 77
+      },
+      "allocated_ram_bytes": 1114672,
+      "device_execution_cycles": 243,
+      "clocks": 2803868,
+      "packet_sha256": "ddb4815dfe08d040a92066cd582a267bb40e6a9917d08df7459889756a98c980",
+      "elapsed_seconds": 178.69485435797833
+    },
+    "f32": {
+      "suite": "f32",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2500,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 50751,
+        "script_commands": 2514
+      },
+      "status": "passed",
+      "reports": 2504,
+      "mismatches": [],
+      "counts": {
+        "code": 54,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7413
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 48247,
+      "clocks": 14552052,
+      "packet_sha256": "fa3114f2252072984881e0a436f18c7c318d74701565a97c354ab3aa37f5f1e2",
+      "elapsed_seconds": 1125.8385824019788
+    },
+    "f32_bitwise": {
+      "suite": "f32_bitwise",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 360,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 6096,
+        "script_commands": 364
+      },
+      "status": "passed",
+      "reports": 364,
+      "mismatches": [],
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1057
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 5732,
+      "clocks": 4323498,
+      "packet_sha256": "c9eb8ea792f5aea0fd1e03b5a490f17488613f7095a81de34f359a9766a8617d",
+      "elapsed_seconds": 309.9959709319519
+    },
+    "f32_cmp": {
+      "suite": "f32_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2400,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 40848,
+        "script_commands": 2407
+      },
+      "status": "passed",
+      "reports": 2404,
+      "mismatches": [],
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7213
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 38444,
+      "clocks": 14156046,
+      "packet_sha256": "36e67c2b351ddd850c73bda75f7a73cceb8fd6dae9fa20c86b6ea1740281cdc8",
+      "elapsed_seconds": 1151.637038341025
+    },
+    "f64": {
+      "suite": "f64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2500,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 50752,
+        "script_commands": 2514
+      },
+      "status": "passed",
+      "reports": 2504,
+      "mismatches": [],
+      "counts": {
+        "code": 54,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7413
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 48248,
+      "clocks": 14552053,
+      "packet_sha256": "82bd2aedac7e1456776b87d8ae176b948ad2d0533fd597cb01d059aad228f39e",
+      "elapsed_seconds": 1149.9396817070665
+    },
+    "f64_bitwise": {
+      "suite": "f64_bitwise",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 360,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 6096,
+        "script_commands": 364
+      },
+      "status": "passed",
+      "reports": 364,
+      "mismatches": [],
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1057
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 5732,
+      "clocks": 4323498,
+      "packet_sha256": "771a451b39113aa2cf565269eac3a7fc07fdcc4a8d51b76785c487634ead83ff",
+      "elapsed_seconds": 323.8860599780455
+    },
+    "f64_cmp": {
+      "suite": "f64_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2400,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 40848,
+        "script_commands": 2407
+      },
+      "status": "passed",
+      "reports": 2404,
+      "mismatches": [],
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7213
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 38444,
+      "clocks": 14156046,
+      "packet_sha256": "1c43a477a902e9e94d7137dea32fec13f0d011a047e06f173f09f815bc01a3cb",
+      "elapsed_seconds": 1021.7831020309823
+    },
+    "fac": {
+      "suite": "fac",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 7,
+        "rtl_cycles": 16230,
+        "script_commands": 8
+      },
+      "status": "passed",
+      "reports": 11,
+      "mismatches": [],
+      "counts": {
+        "code": 143,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 27
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 16220,
+      "clocks": 2858244,
+      "packet_sha256": "0b92cd4deb0f4ab80dc4f83864628dd3f8b6e2312a359eed7fd91870333db412",
+      "elapsed_seconds": 193.22557569097262
+    },
+    "float_exprs": {
+      "suite": "float_exprs",
+      "native_counts": {
+        "modules_instantiated": 98,
+        "rtl_assertions_passed": 819,
+        "rtl_actions_completed": 10,
+        "rtl_cycles": 92454,
+        "script_commands": 927
+      },
+      "status": "passed",
+      "reports": 841,
+      "mismatches": [],
+      "counts": {
+        "code": 2164,
+        "functions": 291,
+        "types": 256,
+        "regions": 1536,
+        "boot": 2721
+      },
+      "allocated_ram_bytes": 1510928,
+      "device_execution_cycles": 97109,
+      "clocks": 10284904,
+      "packet_sha256": "2bcbfffaa04b844acab036f1d6753eb5761834b55cbfb0c590e912272c495381",
+      "elapsed_seconds": 693.130009234068
+    },
+    "float_literals": {
+      "suite": "float_literals",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 99,
+        "loader_assertions_passed": 78,
+        "rtl_cycles": 1392,
+        "script_commands": 179
+      },
+      "status": "passed",
+      "reports": 103,
+      "mismatches": [],
+      "counts": {
+        "code": 291,
+        "functions": 110,
+        "types": 256,
+        "regions": 1536,
+        "boot": 112
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 1289,
+      "clocks": 3347847,
+      "packet_sha256": "afac7301a430e781da5b902153d8f8c3f2d96ba8e1807bf4ca68f3c8786fffdd",
+      "elapsed_seconds": 226.72959032293875
+    },
+    "float_memory": {
+      "suite": "float_memory",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 60,
+        "rtl_actions_completed": 24,
+        "rtl_cycles": 1380,
+        "script_commands": 90
+      },
+      "status": "passed",
+      "reports": 100,
+      "mismatches": [],
+      "counts": {
+        "code": 135,
+        "functions": 47,
+        "types": 256,
+        "regions": 1536,
+        "boot": 133
+      },
+      "allocated_ram_bytes": 1507800,
+      "device_execution_cycles": 1730,
+      "clocks": 3077685,
+      "packet_sha256": "120bd84523f1383c3f0df0b9e04d36601788a0229b9d06e9c39c80d9f1b20096",
+      "elapsed_seconds": 204.4710970929591
+    },
+    "float_misc": {
+      "suite": "float_misc",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 470,
+        "rtl_cycles": 17498,
+        "script_commands": 471
+      },
+      "status": "passed",
+      "reports": 474,
+      "mismatches": [],
+      "counts": {
+        "code": 113,
+        "functions": 39,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1288
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 17024,
+      "clocks": 4891609,
+      "packet_sha256": "b6ba446dc850e63cf13bc1f9ac4222e1a39ceb2c7880498156962888672dfa54",
+      "elapsed_seconds": 339.1061875059968
+    },
+    "forward": {
+      "suite": "forward",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 1864,
+        "script_commands": 5
+      },
+      "status": "passed",
+      "reports": 8,
+      "mismatches": [],
+      "counts": {
+        "code": 39,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 1856,
+      "clocks": 2675458,
+      "packet_sha256": "afd642a704b61676afe876bd3f1d88d67017dde5e765374d9bb5cf3ec007b728",
+      "elapsed_seconds": 178.84310119599104
+    },
+    "func": {
+      "suite": "func",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 96,
+        "loader_assertions_passed": 75,
+        "rtl_cycles": 1984,
+        "script_commands": 175
+      },
+      "status": "passed",
+      "reports": 109,
+      "mismatches": [],
+      "counts": {
+        "code": 445,
+        "functions": 136,
+        "types": 256,
+        "regions": 1536,
+        "boot": 213
+      },
+      "allocated_ram_bytes": 1114720,
+      "device_execution_cycles": 1901,
+      "clocks": 3754758,
+      "packet_sha256": "a68c0c06b14a171612d02f80c4f137c0fb77ecf0c2c69d4a4c2ccf74e6c903a6",
+      "elapsed_seconds": 247.81120853708126
+    },
+    "func_ptrs": {
+      "suite": "func_ptrs",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 25,
+        "rtl_actions_completed": 1,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 685,
+        "script_commands": 36
+      },
+      "status": "passed",
+      "reports": 43,
+      "mismatches": [],
+      "counts": {
+        "code": 75,
+        "functions": 38,
+        "types": 256,
+        "regions": 1536,
+        "boot": 99
+      },
+      "allocated_ram_bytes": 1114784,
+      "device_execution_cycles": 731,
+      "clocks": 2878656,
+      "packet_sha256": "53b97e3c4a7a880d8f18d89a22dfa8d312a632b558140836d6f24effe9a91f1a",
+      "elapsed_seconds": 186.10504249797668
+    },
+    "gc/array": {
+      "suite": "gc/array",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "loader_assertions_passed": 6,
+        "rtl_assertions_passed": 41,
+        "rtl_cycles": 1509,
+        "script_commands": 54
+      },
+      "status": "passed",
+      "reports": 50,
+      "mismatches": [],
+      "counts": {
+        "code": 212,
+        "functions": 55,
+        "types": 256,
+        "regions": 1536,
+        "boot": 99
+      },
+      "allocated_ram_bytes": 1114592,
+      "device_execution_cycles": 2253,
+      "clocks": 3141473,
+      "packet_sha256": "2ab8f5bb40cb8d16506f7b0c04af6fa36ab0b95bc1c629ad1cbe90c65d04746b",
+      "elapsed_seconds": 196.09432554605883
+    },
+    "gc/array_copy": {
+      "suite": "gc/array_copy",
+      "native_counts": {
+        "loader_assertions_passed": 4,
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 38,
+        "rtl_cycles": 1110,
+        "script_commands": 44
+      },
+      "status": "passed",
+      "reports": 46,
+      "mismatches": [],
+      "counts": {
+        "code": 105,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 110
+      },
+      "allocated_ram_bytes": 1114576,
+      "device_execution_cycles": 2113,
+      "clocks": 2927399,
+      "packet_sha256": "04360c3ffff933fa558a083f112e59acbd55335006eaad0e563f90c50ac546c1",
+      "elapsed_seconds": 191.26672902493738
+    },
+    "gc/array_fill": {
+      "suite": "gc/array_fill",
+      "native_counts": {
+        "loader_assertions_passed": 3,
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "rtl_cycles": 619,
+        "script_commands": 30
+      },
+      "status": "passed",
+      "reports": 32,
+      "mismatches": [],
+      "counts": {
+        "code": 38,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 82
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 1011,
+      "clocks": 2775107,
+      "packet_sha256": "04cee5dbf35e573af5958d1e6b4b8be0cbb96e4e7e52a92f0480b28b6b01d1ba",
+      "elapsed_seconds": 178.9882632859517
+    },
+    "gc/array_init_data": {
+      "suite": "gc/array_init_data",
+      "native_counts": {
+        "loader_assertions_passed": 2,
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 43,
+        "rtl_cycles": 960,
+        "script_commands": 48
+      },
+      "status": "passed",
+      "reports": 50,
+      "mismatches": [],
+      "counts": {
+        "code": 150,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 131
+      },
+      "allocated_ram_bytes": 1114672,
+      "device_execution_cycles": 1438,
+      "clocks": 3024282,
+      "packet_sha256": "4745935ad0ac2361bd3c79241318e503c635530bd85a6020feadbd151ea7c185",
+      "elapsed_seconds": 196.52354578499217
+    },
+    "gc/array_init_elem": {
+      "suite": "gc/array_init_elem",
+      "native_counts": {
+        "loader_assertions_passed": 3,
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 30,
+        "rtl_cycles": 958,
+        "script_commands": 36
+      },
+      "status": "passed",
+      "reports": 51,
+      "mismatches": [],
+      "counts": {
+        "code": 143,
+        "functions": 48,
+        "types": 256,
+        "regions": 1536,
+        "boot": 132
+      },
+      "allocated_ram_bytes": 1114784,
+      "device_execution_cycles": 1403,
+      "clocks": 3029511,
+      "packet_sha256": "ad8cceb3edf610e174ef35edf66f1c49680e41fa1bdceaa1b32ef48867ed380a",
+      "elapsed_seconds": 193.29231970396359
+    },
+    "gc/array_new_data": {
+      "suite": "gc/array_new_data",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 24,
+        "rtl_cycles": 436,
+        "script_commands": 30
+      },
+      "status": "passed",
+      "reports": 28,
+      "mismatches": [],
+      "counts": {
+        "code": 109,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 76
+      },
+      "allocated_ram_bytes": 1114672,
+      "device_execution_cycles": 578,
+      "clocks": 2877075,
+      "packet_sha256": "a268dd258f155a6d4b10bbb57aa4d610d57141e40972efe49c51cc8a4c5b6a18",
+      "elapsed_seconds": 186.11370653705671
+    },
+    "gc/array_new_elem": {
+      "suite": "gc/array_new_elem",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 19,
+        "rtl_cycles": 695,
+        "script_commands": 24
+      },
+      "status": "passed",
+      "reports": 40,
+      "mismatches": [],
+      "counts": {
+        "code": 130,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 104
+      },
+      "allocated_ram_bytes": 1114800,
+      "device_execution_cycles": 891,
+      "clocks": 2969418,
+      "packet_sha256": "e57bdea74af3a6cdcd73b8bdcbfdf26700f52ce1c3c7882ae0a367996e6bc38d",
+      "elapsed_seconds": 192.03182649298105
+    },
+    "gc/binary-gc": {
+      "suite": "gc/binary-gc",
+      "native_counts": {
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2621837,
+      "packet_sha256": "5060cac8854ef9650d2025682886dbb2929d2054d056b7d00a67f90ffe7dd7a8",
+      "elapsed_seconds": 165.12701211404055
+    },
+    "gc/br_on_cast": {
+      "suite": "gc/br_on_cast",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1384,
+        "script_commands": 37
+      },
+      "status": "passed",
+      "reports": 33,
+      "mismatches": [],
+      "counts": {
+        "code": 368,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "allocated_ram_bytes": 1114992,
+      "device_execution_cycles": 1904,
+      "clocks": 3268289,
+      "packet_sha256": "c081a7e4ec614d3603aee985477cf64cb0c0fcd69e8b6f5a87b6b8269dae9d17",
+      "elapsed_seconds": 215.78667264897376
+    },
+    "gc/br_on_cast_fail": {
+      "suite": "gc/br_on_cast_fail",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1458,
+        "script_commands": 37
+      },
+      "status": "passed",
+      "reports": 33,
+      "mismatches": [],
+      "counts": {
+        "code": 382,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "allocated_ram_bytes": 1114992,
+      "device_execution_cycles": 2028,
+      "clocks": 3287239,
+      "packet_sha256": "66ade6c63856a1a067bef7b1450ba000b18deabde35ee44833828d12a3e63d00",
+      "elapsed_seconds": 215.69461823196616
+    },
+    "gc/extern": {
+      "suite": "gc/extern",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 16,
+        "rtl_cycles": 411,
+        "script_commands": 18
+      },
+      "status": "passed",
+      "reports": 24,
+      "mismatches": [],
+      "counts": {
+        "code": 58,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 55
+      },
+      "allocated_ram_bytes": 1114704,
+      "device_execution_cycles": 473,
+      "clocks": 2774175,
+      "packet_sha256": "13485825b7dc988fa6154a3e7cd0e16500dc706f79bb604e76f3afaaeced694a",
+      "elapsed_seconds": 184.57393021904863
+    },
+    "gc/i31": {
+      "suite": "gc/i31",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "rtl_assertions_passed": 57,
+        "rtl_actions_completed": 8,
+        "registrations": 1,
+        "rtl_cycles": 1484,
+        "script_commands": 73
+      },
+      "status": "passed",
+      "reports": 92,
+      "mismatches": [],
+      "counts": {
+        "code": 174,
+        "functions": 55,
+        "types": 256,
+        "regions": 1536,
+        "boot": 203
+      },
+      "allocated_ram_bytes": 1114992,
+      "device_execution_cycles": 1740,
+      "clocks": 3225343,
+      "packet_sha256": "b66cb8c4770579099e0f44f7a3413b3e9f9405f4dc61db1b6baafbb4c13fd318",
+      "elapsed_seconds": 213.81701994198374
+    },
+    "gc/ref_cast": {
+      "suite": "gc/ref_cast",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 40,
+        "rtl_cycles": 1393,
+        "script_commands": 45
+      },
+      "status": "passed",
+      "reports": 48,
+      "mismatches": [],
+      "counts": {
+        "code": 280,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "allocated_ram_bytes": 1114992,
+      "device_execution_cycles": 2118,
+      "clocks": 3157257,
+      "packet_sha256": "7ce040f878ad01acf2591677ca5f9e847812fd1e181e463cd85b7e8fd50a7f12",
+      "elapsed_seconds": 210.19604507891927
+    },
+    "gc/ref_eq": {
+      "suite": "gc/ref_eq",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 81,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1915,
+        "script_commands": 89
+      },
+      "status": "passed",
+      "reports": 86,
+      "mismatches": [],
+      "counts": {
+        "code": 54,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 258
+      },
+      "allocated_ram_bytes": 1114816,
+      "device_execution_cycles": 2685,
+      "clocks": 3078380,
+      "packet_sha256": "f1926311a39860036bd9b58ff23d33b5f0515c58ed2211e966df618a73a88871",
+      "elapsed_seconds": 201.70044129504822
+    },
+    "gc/ref_test": {
+      "suite": "gc/ref_test",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 2907,
+        "script_commands": 71
+      },
+      "status": "passed",
+      "reports": 74,
+      "mismatches": [],
+      "counts": {
+        "code": 560,
+        "functions": 27,
+        "types": 256,
+        "regions": 1536,
+        "boot": 156
+      },
+      "allocated_ram_bytes": 1115312,
+      "device_execution_cycles": 4006,
+      "clocks": 3688957,
+      "packet_sha256": "4f5f3997dde9dc9a315ffc26e7f5db60020dd0b64b936e95a1af050e2a68ff70",
+      "elapsed_seconds": 239.9489048300311
+    },
+    "gc/struct": {
+      "suite": "gc/struct",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "loader_assertions_passed": 5,
+        "rtl_assertions_passed": 19,
+        "rtl_cycles": 665,
+        "script_commands": 30
+      },
+      "status": "passed",
+      "reports": 27,
+      "mismatches": [],
+      "counts": {
+        "code": 154,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 44
+      },
+      "allocated_ram_bytes": 1114560,
+      "device_execution_cycles": 1065,
+      "clocks": 2953114,
+      "packet_sha256": "88f4756cb04b01ef731875e9e2934d61ab8d5196aac65eb21c205b17e1264bd7",
+      "elapsed_seconds": 193.45519057789352
+    },
+    "gc/type-subtyping": {
+      "suite": "gc/type-subtyping",
+      "native_counts": {
+        "modules_instantiated": 46,
+        "loader_assertions_passed": 37,
+        "rtl_assertions_passed": 29,
+        "registrations": 11,
+        "embedding_assertions_passed": 8,
+        "rtl_cycles": 1148,
+        "script_commands": 131
+      },
+      "status": "passed",
+      "reports": 74,
+      "mismatches": [],
+      "counts": {
+        "code": 366,
+        "functions": 126,
+        "types": 256,
+        "regions": 1536,
+        "boot": 142
+      },
+      "allocated_ram_bytes": 1115168,
+      "device_execution_cycles": 1225,
+      "clocks": 3568524,
+      "packet_sha256": "df57e60c2f2ccb405995b32267290e3ec4333ae6faa22aa622863daed5fd4abb",
+      "elapsed_seconds": 245.72624863893725
+    },
+    "global": {
+      "suite": "global",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 67,
+        "loader_assertions_passed": 47,
+        "registrations": 1,
+        "rtl_cycles": 1681,
+        "script_commands": 124
+      },
+      "status": "passed",
+      "reports": 114,
+      "mismatches": [],
+      "counts": {
+        "code": 325,
+        "functions": 106,
+        "types": 256,
+        "regions": 1536,
+        "boot": 185
+      },
+      "allocated_ram_bytes": 1639492,
+      "device_execution_cycles": 2023,
+      "clocks": 3491813,
+      "packet_sha256": "b778c8272b6350e0b09fb07d30f697393c1c9be77d4eefaca1276b9fdb9dc4ec",
+      "elapsed_seconds": 233.59931577299722
+    },
+    "i32": {
+      "suite": "i32",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 374,
+        "loader_assertions_passed": 85,
+        "rtl_cycles": 7936,
+        "script_commands": 460
+      },
+      "status": "passed",
+      "reports": 378,
+      "mismatches": [],
+      "counts": {
+        "code": 133,
+        "functions": 42,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1094
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 7568,
+      "clocks": 4557151,
+      "packet_sha256": "6049c28877c65a1ad0a92fa7549b226388df7b6f449236d5481ab7b15dafcdf8",
+      "elapsed_seconds": 308.65676411497407
+    },
+    "i64": {
+      "suite": "i64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 384,
+        "loader_assertions_passed": 31,
+        "rtl_cycles": 10060,
+        "script_commands": 416
+      },
+      "status": "passed",
+      "reports": 388,
+      "mismatches": [],
+      "counts": {
+        "code": 136,
+        "functions": 43,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1114
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 9682,
+      "clocks": 4603109,
+      "packet_sha256": "e13dcdf46372b48154e00ec8df60ad608965965623ded7626ced826d9d1d205a",
+      "elapsed_seconds": 320.97703194106
+    },
+    "id": {
+      "suite": "id",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 48,
+        "script_commands": 7
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 75,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2726554,
+      "packet_sha256": "3badddac31fc9aa87e8223474f36aad69edd309059485f19a92fbe2d2d2968a8",
+      "elapsed_seconds": 172.3990198330721
+    },
+    "if": {
+      "suite": "if",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 124,
+        "loader_assertions_passed": 116,
+        "rtl_cycles": 5507,
+        "script_commands": 241
+      },
+      "status": "passed",
+      "reports": 132,
+      "mismatches": [],
+      "counts": {
+        "code": 831,
+        "functions": 67,
+        "types": 256,
+        "regions": 1536,
+        "boot": 306
+      },
+      "allocated_ram_bytes": 1245616,
+      "device_execution_cycles": 5448,
+      "clocks": 4369984,
+      "packet_sha256": "b2b3006f4a87b4e881f0dc8bbfc14e3211a859451ef993284cf464192efb311a",
+      "elapsed_seconds": 289.824974133051
+    },
+    "imports": {
+      "suite": "imports",
+      "native_counts": {
+        "modules_instantiated": 68,
+        "registrations": 6,
+        "rtl_assertions_passed": 34,
+        "loader_assertions_passed": 17,
+        "embedding_assertions_passed": 93,
+        "rtl_cycles": 857,
+        "script_commands": 218
+      },
+      "status": "passed",
+      "reports": 131,
+      "mismatches": [],
+      "counts": {
+        "code": 139,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 199
+      },
+      "allocated_ram_bytes": 1443009,
+      "device_execution_cycles": 931,
+      "clocks": 3218403,
+      "packet_sha256": "4ca3f6d4cf81ce119d2120456716b78404234508c8448de101c0556b43931a91",
+      "elapsed_seconds": 212.4702436689986
+    },
+    "inline-module": {
+      "suite": "inline-module",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 17,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 14
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2627472,
+      "packet_sha256": "74cb0f76df2d413aa43bb8a07115372ae8b3607bd79509691f0f85c6c40f0c69",
+      "elapsed_seconds": 168.87248176697176
+    },
+    "instance": {
+      "suite": "instance",
+      "native_counts": {
+        "module_definitions": 2,
+        "modules_instantiated": 6,
+        "registrations": 3,
+        "rtl_assertions_passed": 12,
+        "rtl_cycles": 421,
+        "script_commands": 23
+      },
+      "status": "passed",
+      "reports": 37,
+      "mismatches": [],
+      "counts": {
+        "code": 129,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 61
+      },
+      "allocated_ram_bytes": 1311680,
+      "device_execution_cycles": 486,
+      "clocks": 2906551,
+      "packet_sha256": "e837e66fe4882c417a24fe1bceb67595dfe1b36dacc4a3e68e7aa8a01eb97013",
+      "elapsed_seconds": 179.61880316096358
+    },
+    "int_exprs": {
+      "suite": "int_exprs",
+      "native_counts": {
+        "modules_instantiated": 19,
+        "rtl_assertions_passed": 89,
+        "rtl_cycles": 4424,
+        "script_commands": 108
+      },
+      "status": "passed",
+      "reports": 93,
+      "mismatches": [],
+      "counts": {
+        "code": 319,
+        "functions": 75,
+        "types": 256,
+        "regions": 1536,
+        "boot": 195
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 4345,
+      "clocks": 3435961,
+      "packet_sha256": "25dc439a68346835930ac31021bbca436815e607674df34153faad2d31aeb79f",
+      "elapsed_seconds": 227.96639344003052
+    },
+    "int_literals": {
+      "suite": "int_literals",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 30,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 416,
+        "script_commands": 51
+      },
+      "status": "passed",
+      "reports": 34,
+      "mismatches": [],
+      "counts": {
+        "code": 101,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 43
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 382,
+      "clocks": 2846249,
+      "packet_sha256": "ffc3d3981ce8301ac9a404c8a76f3a4ba8e1470bf41980d8eb2e84dfacd51bb9",
+      "elapsed_seconds": 190.4828312409809
+    },
+    "labels": {
+      "suite": "labels",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1390,
+        "script_commands": 29
+      },
+      "status": "passed",
+      "reports": 29,
+      "mismatches": [],
+      "counts": {
+        "code": 430,
+        "functions": 29,
+        "types": 256,
+        "regions": 1536,
+        "boot": 48
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 1361,
+      "clocks": 3309887,
+      "packet_sha256": "7578c888069893cc42dbe4b7fb21da11921c045a067a0525558884a3ecd08ec1",
+      "elapsed_seconds": 222.06515785201918
+    },
+    "left-to-right": {
+      "suite": "left-to-right",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 95,
+        "rtl_cycles": 17794,
+        "script_commands": 96
+      },
+      "status": "passed",
+      "reports": 109,
+      "mismatches": [],
+      "counts": {
+        "code": 866,
+        "functions": 150,
+        "types": 256,
+        "regions": 1536,
+        "boot": 137
+      },
+      "allocated_ram_bytes": 1180288,
+      "device_execution_cycles": 26621,
+      "clocks": 4276101,
+      "packet_sha256": "a62cddfeaa09be3f513df2a0e35bef22ad12e3cc2b41b19ec763c77e82a0f2e8",
+      "elapsed_seconds": 268.06449129094835
+    },
+    "linking": {
+      "suite": "linking",
+      "native_counts": {
+        "modules_instantiated": 21,
+        "registrations": 9,
+        "rtl_assertions_passed": 83,
+        "embedding_assertions_passed": 50,
+        "rtl_cycles": 2069,
+        "script_commands": 163
+      },
+      "status": "passed",
+      "reports": 182,
+      "mismatches": [],
+      "counts": {
+        "code": 198,
+        "functions": 99,
+        "types": 256,
+        "regions": 1536,
+        "boot": 353
+      },
+      "allocated_ram_bytes": 1639845,
+      "device_execution_cycles": 2247,
+      "clocks": 3572660,
+      "packet_sha256": "d6407e3c7472f61c11adee5c2f4f89226173f00fbdf2774e282b1c4fc3be4f9d",
+      "elapsed_seconds": 233.04791135690175
+    },
+    "load": {
+      "suite": "load",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "loader_assertions_passed": 59,
+        "rtl_cycles": 905,
+        "script_commands": 97
+      },
+      "status": "passed",
+      "reports": 45,
+      "mismatches": [],
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 1109,
+      "clocks": 3099958,
+      "packet_sha256": "1bc1e88fac30f82a92926263280e961264b7b851789f5bbcc533a83ac3c2a1ff",
+      "elapsed_seconds": 203.19968115200754
+    },
+    "local_get": {
+      "suite": "local_get",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 19,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 476,
+        "script_commands": 36
+      },
+      "status": "passed",
+      "reports": 23,
+      "mismatches": [],
+      "counts": {
+        "code": 151,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 55
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 454,
+      "clocks": 2918586,
+      "packet_sha256": "f777ab4e0311b5155bd215f7f139f6e5876c292588278d5b630f27c00c1329f5",
+      "elapsed_seconds": 186.01588395703584
+    },
+    "local_init": {
+      "suite": "local_init",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 124,
+        "script_commands": 10
+      },
+      "status": "passed",
+      "reports": 8,
+      "mismatches": [],
+      "counts": {
+        "code": 35,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 116,
+      "clocks": 2669612,
+      "packet_sha256": "59e11b8a4a4ae0a835df254dc66f507c7c8e9abe2e5ec38858c31d8302a8f6b3",
+      "elapsed_seconds": 166.3064587219851
+    },
+    "local_set": {
+      "suite": "local_set",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 19,
+        "loader_assertions_passed": 33,
+        "rtl_cycles": 459,
+        "script_commands": 53
+      },
+      "status": "passed",
+      "reports": 23,
+      "mismatches": [],
+      "counts": {
+        "code": 151,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 55
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 454,
+      "clocks": 2897195,
+      "packet_sha256": "a3f50fa0e24ad83b06ceaf67127a7b1f802f7c91ddbb78161c3a90ae6556e541",
+      "elapsed_seconds": 189.98129362904
+    },
+    "local_tee": {
+      "suite": "local_tee",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 55,
+        "loader_assertions_passed": 42,
+        "rtl_cycles": 1497,
+        "script_commands": 98
+      },
+      "status": "passed",
+      "reports": 63,
+      "mismatches": [],
+      "counts": {
+        "code": 431,
+        "functions": 71,
+        "types": 256,
+        "regions": 1536,
+        "boot": 141
+      },
+      "allocated_ram_bytes": 3801520,
+      "device_execution_cycles": 1503,
+      "clocks": 3506433,
+      "packet_sha256": "9f8455fd7b989f26208f6bbdba1989e0967340250f5390e530cb9d73428cf2ed",
+      "elapsed_seconds": 233.36752278206404
+    },
+    "loop": {
+      "suite": "loop",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 78,
+        "loader_assertions_passed": 42,
+        "rtl_cycles": 28506,
+        "script_commands": 121
+      },
+      "status": "passed",
+      "reports": 86,
+      "mismatches": [],
+      "counts": {
+        "code": 797,
+        "functions": 71,
+        "types": 256,
+        "regions": 1536,
+        "boot": 145
+      },
+      "allocated_ram_bytes": 1245616,
+      "device_execution_cycles": 28465,
+      "clocks": 4094507,
+      "packet_sha256": "9a55d082778f22bf747420eb38ff8e3c9f7d8007cb73966bd8a63fb7c50f1f90",
+      "elapsed_seconds": 280.9767049889779
+    },
+    "memory": {
+      "suite": "memory",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "module_definitions": 1,
+        "rtl_assertions_passed": 53,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 1328,
+        "script_commands": 90
+      },
+      "status": "passed",
+      "reports": 70,
+      "mismatches": [],
+      "counts": {
+        "code": 161,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 152
+      },
+      "allocated_ram_bytes": 1442272,
+      "device_execution_cycles": 1780,
+      "clocks": 3104087,
+      "packet_sha256": "4da940a882eeff69ce113f97722dce769b361a77eac4547b3794d1fafd20c1da",
+      "elapsed_seconds": 207.4676487930119
+    },
+    "memory64/address64": {
+      "suite": "memory64/address64",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 238,
+        "rtl_cycles": 3410,
+        "script_commands": 242
+      },
+      "status": "passed",
+      "reports": 250,
+      "mismatches": [],
+      "counts": {
+        "code": 289,
+        "functions": 99,
+        "types": 256,
+        "regions": 1536,
+        "boot": 519
+      },
+      "allocated_ram_bytes": 1376746,
+      "device_execution_cycles": 4274,
+      "clocks": 3979777,
+      "packet_sha256": "586cd3fa1fcf4852c571a4de90522d32df26b09aec5fb23c23e05bcb6fde47c8",
+      "elapsed_seconds": 251.73902288998943
+    },
+    "memory64/align64": {
+      "suite": "memory64/align64",
+      "native_counts": {
+        "modules_instantiated": 26,
+        "loader_assertions_passed": 83,
+        "rtl_assertions_passed": 48,
+        "rtl_cycles": 3914,
+        "script_commands": 157
+      },
+      "status": "passed",
+      "reports": 52,
+      "mismatches": [],
+      "counts": {
+        "code": 695,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 173
+      },
+      "allocated_ram_bytes": 1311104,
+      "device_execution_cycles": 4328,
+      "clocks": 3882751,
+      "packet_sha256": "0f555ddaab1a7af2fd2b957eae542149f5fafec78b1391cbfaddfbef82132051",
+      "elapsed_seconds": 259.28057300299406
+    },
+    "memory64/binary_leb128_64": {
+      "suite": "memory64/binary_leb128_64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 14
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2629551,
+      "packet_sha256": "b7ae5f1e8f1c16110af1dda223a0f747500e5d97c4774e5f57cacea58e0efd3b",
+      "elapsed_seconds": 171.40547330700792
+    },
+    "memory64/bulk64": {
+      "suite": "memory64/bulk64",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_actions_completed": 20,
+        "rtl_assertions_passed": 45,
+        "rtl_cycles": 9345,
+        "script_commands": 70
+      },
+      "status": "passed",
+      "reports": 73,
+      "mismatches": [],
+      "counts": {
+        "code": 57,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 203
+      },
+      "allocated_ram_bytes": 1442224,
+      "device_execution_cycles": 30351,
+      "clocks": 3019145,
+      "packet_sha256": "71f1c073becb3a6b931cd02997f349779cfdcab721bcb962fdb1b513dcf615f8",
+      "elapsed_seconds": 195.78055160795338
+    },
+    "memory64/call_indirect64": {
+      "suite": "memory64/call_indirect64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 1,
+        "rtl_cycles": 97,
+        "script_commands": 2
+      },
+      "status": "passed",
+      "reports": 8,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 95,
+      "clocks": 2658899,
+      "packet_sha256": "3065221a90b25ceb366125742c02f6925d740ec3667acd25fff1536c3cdf1cbc",
+      "elapsed_seconds": 165.0957144970307
+    },
+    "memory64/endianness64": {
+      "suite": "memory64/endianness64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 7748,
+        "script_commands": 69
+      },
+      "status": "passed",
+      "reports": 72,
+      "mismatches": [],
+      "counts": {
+        "code": 194,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 150
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 9456,
+      "clocks": 3161927,
+      "packet_sha256": "4e2063ffa9c7eedb4371bc15291d9f2ab60253936a516a41b86b369121db7a2b",
+      "elapsed_seconds": 201.3080453760922
+    },
+    "memory64/float_memory64": {
+      "suite": "memory64/float_memory64",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 60,
+        "rtl_actions_completed": 24,
+        "rtl_cycles": 1380,
+        "script_commands": 90
+      },
+      "status": "passed",
+      "reports": 100,
+      "mismatches": [],
+      "counts": {
+        "code": 135,
+        "functions": 47,
+        "types": 256,
+        "regions": 1536,
+        "boot": 133
+      },
+      "allocated_ram_bytes": 1507800,
+      "device_execution_cycles": 1730,
+      "clocks": 3077685,
+      "packet_sha256": "249f0c548ca1a99c297a991ea372802720d97d5d775a835c9558009a5679f3c8",
+      "elapsed_seconds": 198.02878697705455
+    },
+    "memory64/load64": {
+      "suite": "memory64/load64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "loader_assertions_passed": 60,
+        "rtl_cycles": 905,
+        "script_commands": 98
+      },
+      "status": "passed",
+      "reports": 45,
+      "mismatches": [],
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 1109,
+      "clocks": 3101237,
+      "packet_sha256": "63d8404ba63f8482bc65ef86dd935836809b3990f56e56de31bcb7ab6f5dae98",
+      "elapsed_seconds": 192.686655072961
+    },
+    "memory64/memory64": {
+      "suite": "memory64/memory64",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "module_definitions": 1,
+        "rtl_assertions_passed": 45,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 1172,
+        "script_commands": 69
+      },
+      "status": "passed",
+      "reports": 59,
+      "mismatches": [],
+      "counts": {
+        "code": 152,
+        "functions": 31,
+        "types": 256,
+        "regions": 1536,
+        "boot": 128
+      },
+      "allocated_ram_bytes": 1311140,
+      "device_execution_cycles": 1595,
+      "clocks": 3046967,
+      "packet_sha256": "ecf7a8be484f0453e6199c166a3d5567760f89d657d71e90b54b25aa4ef1f2a2",
+      "elapsed_seconds": 187.00303550390527
+    },
+    "memory64/memory64-imports": {
+      "suite": "memory64/memory64-imports",
+      "native_counts": {
+        "modules_instantiated": 40,
+        "registrations": 8,
+        "embedding_assertions_passed": 30,
+        "rtl_cycles": 48,
+        "script_commands": 78
+      },
+      "status": "passed",
+      "reports": 64,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 83
+      },
+      "allocated_ram_bytes": 1639744,
+      "device_execution_cycles": 44,
+      "clocks": 2781695,
+      "packet_sha256": "7640dfa6f576682871a14d820a6772c8db9001f01babebb89348558156be8f21",
+      "elapsed_seconds": 171.74640960106626
+    },
+    "memory64/memory_copy64": {
+      "suite": "memory64/memory_copy64",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "rtl_actions_completed": 15,
+        "rtl_assertions_passed": 4338,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8781317,
+        "script_commands": 4450
+      },
+      "status": "passed",
+      "reports": 4411,
+      "mismatches": [],
+      "counts": {
+        "code": 1192,
+        "functions": 94,
+        "types": 256,
+        "regions": 1536,
+        "boot": 9387
+      },
+      "allocated_ram_bytes": 3277792,
+      "device_execution_cycles": 10412096,
+      "clocks": 31339508,
+      "packet_sha256": "d2fcfad60ba402a2d63107203ece98855bdbdc68656b45d63869f8e96c2d10ef",
+      "elapsed_seconds": 2102.843442852027
+    },
+    "memory64/memory_fill64": {
+      "suite": "memory64/memory_fill64",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8659595,
+        "script_commands": 100
+      },
+      "status": "passed",
+      "reports": 29,
+      "mismatches": [],
+      "counts": {
+        "code": 327,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 100
+      },
+      "allocated_ram_bytes": 1835392,
+      "device_execution_cycles": 10007262,
+      "clocks": 13224035,
+      "packet_sha256": "f9ba74e19452e296b2e4c9016003efeb4502ca4265ce2d4e162e07f30f10820b",
+      "elapsed_seconds": 923.7684666189598
+    },
+    "memory64/memory_grow64": {
+      "suite": "memory64/memory_grow64",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 49,
+        "rtl_cycles": 16122499,
+        "script_commands": 54
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "memory64/memory_init64": {
+      "suite": "memory64/memory_init64",
+      "native_counts": {
+        "modules_instantiated": 29,
+        "rtl_actions_completed": 12,
+        "rtl_assertions_passed": 142,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 2767,
+        "script_commands": 250
+      },
+      "status": "passed",
+      "reports": 176,
+      "mismatches": [],
+      "counts": {
+        "code": 358,
+        "functions": 59,
+        "types": 256,
+        "regions": 1536,
+        "boot": 518
+      },
+      "allocated_ram_bytes": 3015680,
+      "device_execution_cycles": 3394,
+      "clocks": 3950892,
+      "packet_sha256": "22ebc3858afb24b58cea19cbda424eec1dc7a55eb97bd9cbc3373bab7afac66c",
+      "elapsed_seconds": 252.90766192798037
+    },
+    "memory64/memory_redundancy64": {
+      "suite": "memory64/memory_redundancy64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_actions_completed": 3,
+        "rtl_cycles": 321,
+        "script_commands": 8
+      },
+      "status": "passed",
+      "reports": 11,
+      "mismatches": [],
+      "counts": {
+        "code": 78,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 433,
+      "clocks": 2737755,
+      "packet_sha256": "1064e471158312fc5780d965ff8680919acd434b19b961c23021294184c82d7f",
+      "elapsed_seconds": 180.71100451797247
+    },
+    "memory64/memory_trap64": {
+      "suite": "memory64/memory_trap64",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 170,
+        "rtl_cycles": 1656,
+        "script_commands": 172
+      },
+      "status": "passed",
+      "reports": 178,
+      "mismatches": [],
+      "counts": {
+        "code": 115,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 439
+      },
+      "allocated_ram_bytes": 1245592,
+      "device_execution_cycles": 1667,
+      "clocks": 3412914,
+      "packet_sha256": "e411bdc76410afb0f041cb24a2904c379e9a6afc20738c4793c2b59aafb70b0c",
+      "elapsed_seconds": 226.85895871196408
+    },
+    "memory64/table64": {
+      "suite": "memory64/table64",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "module_definitions": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 14
+      },
+      "status": "passed",
+      "reports": 5,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 26
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 44,
+      "clocks": 2638236,
+      "packet_sha256": "f3255c4855882aa51122106c13a3559171a454f2faba2e7f35d0027205441213",
+      "elapsed_seconds": 174.80672610993497
+    },
+    "memory64/table_copy64": {
+      "suite": "memory64/table_copy64",
+      "native_counts": {
+        "modules_instantiated": 52,
+        "registrations": 1,
+        "rtl_actions_completed": 26,
+        "rtl_assertions_passed": 1649,
+        "rtl_cycles": 34984,
+        "script_commands": 1728
+      },
+      "status": "passed",
+      "reports": 2924,
+      "mismatches": [],
+      "counts": {
+        "code": 3623,
+        "functions": 1718,
+        "types": 256,
+        "regions": 1536,
+        "boot": 6510
+      },
+      "allocated_ram_bytes": 1177456,
+      "device_execution_cycles": 42519,
+      "clocks": 19741018,
+      "packet_sha256": "5fe957593dd3645af74930c258230f8294e7c018a7beee17c5c8c15eac20b759",
+      "elapsed_seconds": 1381.1892617020058
+    },
+    "memory64/table_copy_mixed": {
+      "suite": "memory64/table_copy_mixed",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 48,
+        "script_commands": 4
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 35,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 15
+      },
+      "allocated_ram_bytes": 1115456,
+      "device_execution_cycles": 44,
+      "clocks": 2656131,
+      "packet_sha256": "c1294955f8f73fe958a069f57c2f78402792bdfae8d939be38959de617697672",
+      "elapsed_seconds": 169.92551268392708
+    },
+    "memory64/table_fill64": {
+      "suite": "memory64/table_fill64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 70,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 1130,
+        "script_commands": 80
+      },
+      "status": "passed",
+      "reports": 74,
+      "mismatches": [],
+      "counts": {
+        "code": 36,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 191
+      },
+      "allocated_ram_bytes": 1114816,
+      "device_execution_cycles": 1414,
+      "clocks": 2947553,
+      "packet_sha256": "1dd10183f59e265fe19795fa1bc9c357df8e1eafa72e42e26335f76230a1a6ae",
+      "elapsed_seconds": 192.49025298503693
+    },
+    "memory64/table_get64": {
+      "suite": "memory64/table_get64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 9,
+        "rtl_cycles": 228,
+        "script_commands": 11
+      },
+      "status": "passed",
+      "reports": 17,
+      "mismatches": [],
+      "counts": {
+        "code": 38,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "allocated_ram_bytes": 1114592,
+      "device_execution_cycles": 257,
+      "clocks": 2711886,
+      "packet_sha256": "d16452c3d912cf5ce9320a1a99ce1fb5211588cfd69921c39616f141d097f45e",
+      "elapsed_seconds": 174.1942643939983
+    },
+    "memory64/table_grow64": {
+      "suite": "memory64/table_grow64",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 25,
+        "rtl_cycles": 382,
+        "script_commands": 27
+      },
+      "status": "passed",
+      "reports": 29,
+      "mismatches": [],
+      "counts": {
+        "code": 34,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 68
+      },
+      "allocated_ram_bytes": 1114592,
+      "device_execution_cycles": 437,
+      "clocks": 2751023,
+      "packet_sha256": "f71ff772d27f7b7db76f48db6eea14eeb4808b4ee5173f836dfd326af2d9ef7f",
+      "elapsed_seconds": 175.2799263909692
+    },
+    "memory64/table_init64": {
+      "suite": "memory64/table_init64",
+      "native_counts": {
+        "modules_instantiated": 44,
+        "registrations": 1,
+        "rtl_actions_completed": 21,
+        "rtl_assertions_passed": 755,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 18610,
+        "script_commands": 888
+      },
+      "status": "passed",
+      "reports": 1647,
+      "mismatches": [],
+      "counts": {
+        "code": 2773,
+        "functions": 1272,
+        "types": 256,
+        "regions": 1536,
+        "boot": 3737
+      },
+      "allocated_ram_bytes": 1167808,
+      "device_execution_cycles": 22318,
+      "clocks": 13651740,
+      "packet_sha256": "8ac97493e3bfa9a81480cc7a79ead36e13515f630d5e96728d6ad0a0ba3fa1e0",
+      "elapsed_seconds": 915.8630383929703
+    },
+    "memory64/table_set64": {
+      "suite": "memory64/table_set64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 18,
+        "rtl_cycles": 317,
+        "script_commands": 19
+      },
+      "status": "passed",
+      "reports": 25,
+      "mismatches": [],
+      "counts": {
+        "code": 43,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "allocated_ram_bytes": 1114560,
+      "device_execution_cycles": 370,
+      "clocks": 2761578,
+      "packet_sha256": "db01c7de5a0cc227da1ae8dc1a729500310cdf6af142765cf69cdd1b9768efd6",
+      "elapsed_seconds": 182.18163198698312
+    },
+    "memory64/table_size64": {
+      "suite": "memory64/table_size64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 36,
+        "rtl_cycles": 591,
+        "script_commands": 37
+      },
+      "status": "passed",
+      "reports": 40,
+      "mismatches": [],
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "allocated_ram_bytes": 1114832,
+      "device_execution_cycles": 652,
+      "clocks": 2771469,
+      "packet_sha256": "f52076dbf0f65fb8d1ef5f4dc92d79dd70be744d02e195b53c589780bf7f35e1",
+      "elapsed_seconds": 180.82395071699284
+    },
+    "memory_grow": {
+      "suite": "memory_grow",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 89,
+        "registrations": 2,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 16123343,
+        "script_commands": 109
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "memory_redundancy": {
+      "suite": "memory_redundancy",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_actions_completed": 3,
+        "rtl_cycles": 321,
+        "script_commands": 8
+      },
+      "status": "passed",
+      "reports": 11,
+      "mismatches": [],
+      "counts": {
+        "code": 78,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 433,
+      "clocks": 2737755,
+      "packet_sha256": "bb502d47e89d9f91fdb64fe7e952c3fca94fa72647927f117c7fd4c8d7e5431e",
+      "elapsed_seconds": 180.4640413549496
+    },
+    "memory_size": {
+      "suite": "memory_size",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 36,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 512,
+        "script_commands": 42
+      },
+      "status": "passed",
+      "reports": 40,
+      "mismatches": [],
+      "counts": {
+        "code": 39,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "allocated_ram_bytes": 2490752,
+      "device_execution_cycles": 488,
+      "clocks": 2765684,
+      "packet_sha256": "3d5050f90d1cf94323071b166c21be5a1df33f203ba8689915b1cfca1b7ee644",
+      "elapsed_seconds": 172.86439768597484
+    },
+    "memory_trap": {
+      "suite": "memory_trap",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 180,
+        "rtl_cycles": 1781,
+        "script_commands": 182
+      },
+      "status": "passed",
+      "reports": 188,
+      "mismatches": [],
+      "counts": {
+        "code": 115,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 464
+      },
+      "allocated_ram_bytes": 1245592,
+      "device_execution_cycles": 1812,
+      "clocks": 3450450,
+      "packet_sha256": "23ff4308552931a25db386b51f931f063b3749314968773abfe43b4515af4b1b",
+      "elapsed_seconds": 217.66261929401662
+    },
+    "multi-memory/address0": {
+      "suite": "multi-memory/address0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 91,
+        "rtl_cycles": 1289,
+        "script_commands": 92
+      },
+      "status": "passed",
+      "reports": 97,
+      "mismatches": [],
+      "counts": {
+        "code": 112,
+        "functions": 42,
+        "types": 256,
+        "regions": 1536,
+        "boot": 204
+      },
+      "allocated_ram_bytes": 1180058,
+      "device_execution_cycles": 1580,
+      "clocks": 3119713,
+      "packet_sha256": "61b6b05e8ea660b09e1618f7475d5d78a68f325ff7a66d5982c35f52bbda4592",
+      "elapsed_seconds": 195.92571737605613
+    },
+    "multi-memory/address1": {
+      "suite": "multi-memory/address1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 126,
+        "rtl_cycles": 1774,
+        "script_commands": 127
+      },
+      "status": "passed",
+      "reports": 132,
+      "mismatches": [],
+      "counts": {
+        "code": 150,
+        "functions": 54,
+        "types": 256,
+        "regions": 1536,
+        "boot": 277
+      },
+      "allocated_ram_bytes": 1180058,
+      "device_execution_cycles": 2229,
+      "clocks": 3311242,
+      "packet_sha256": "dfd861263721ca6bad77990dc3ff0c63811c348ce2935265a7c950697148eab8",
+      "elapsed_seconds": 217.54400520096533
+    },
+    "multi-memory/align0": {
+      "suite": "multi-memory/align0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 258,
+        "script_commands": 5
+      },
+      "status": "passed",
+      "reports": 8,
+      "mismatches": [],
+      "counts": {
+        "code": 63,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 24
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 290,
+      "clocks": 2711118,
+      "packet_sha256": "ca0daf487f97fec7347defb4317e4a54312e3185524f2da2e269165da8d5bda5",
+      "elapsed_seconds": 165.25808852096088
+    },
+    "multi-memory/binary0": {
+      "suite": "multi-memory/binary0",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 84,
+        "script_commands": 7
+      },
+      "status": "passed",
+      "reports": 10,
+      "mismatches": [],
+      "counts": {
+        "code": 21,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 33
+      },
+      "allocated_ram_bytes": 2294144,
+      "device_execution_cycles": 77,
+      "clocks": 2663934,
+      "packet_sha256": "2dd7ccd08c43538f9cb47834ceaa285acd786649aef7434c14bc06a5470b53f8",
+      "elapsed_seconds": 166.38581927504856
+    },
+    "multi-memory/data0": {
+      "suite": "multi-memory/data0",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "rtl_cycles": 436,
+        "script_commands": 7
+      },
+      "status": "passed",
+      "reports": 73,
+      "mismatches": [],
+      "counts": {
+        "code": 79,
+        "functions": 43,
+        "types": 256,
+        "regions": 1536,
+        "boot": 160
+      },
+      "allocated_ram_bytes": 1508017,
+      "device_execution_cycles": 420,
+      "clocks": 3000410,
+      "packet_sha256": "74349d9194ac98578396385a34524df98952385b45e0f9f131932fd86a86bbc8",
+      "elapsed_seconds": 193.4493239519652
+    },
+    "multi-memory/data1": {
+      "suite": "multi-memory/data1",
+      "native_counts": {
+        "embedding_assertions_passed": 14,
+        "rtl_cycles": 217,
+        "script_commands": 14
+      },
+      "status": "passed",
+      "reports": 40,
+      "mismatches": [],
+      "counts": {
+        "code": 43,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 108
+      },
+      "allocated_ram_bytes": 4063793,
+      "device_execution_cycles": 204,
+      "clocks": 2830662,
+      "packet_sha256": "5b591f10c88c8ff99276a981114136b6be93b5762c04291790810ea2d63a1a27",
+      "elapsed_seconds": 188.19919756497256
+    },
+    "multi-memory/data_drop0": {
+      "suite": "multi-memory/data_drop0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 6,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 200,
+        "script_commands": 11
+      },
+      "status": "passed",
+      "reports": 16,
+      "mismatches": [],
+      "counts": {
+        "code": 31,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 40
+      },
+      "allocated_ram_bytes": 1180049,
+      "device_execution_cycles": 205,
+      "clocks": 2689356,
+      "packet_sha256": "020059d58bac3c2ebef25d860e6875093f5f4374a23b85e43cc4d45f498d8231",
+      "elapsed_seconds": 183.0716972950613
+    },
+    "multi-memory/exports0": {
+      "suite": "multi-memory/exports0",
+      "native_counts": {
+        "modules_instantiated": 8,
+        "rtl_cycles": 48,
+        "script_commands": 8
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 32
+      },
+      "allocated_ram_bytes": 1704320,
+      "device_execution_cycles": 44,
+      "clocks": 2643905,
+      "packet_sha256": "59d5e95b2c11b156cc4ddc54163d568735d099cd5cdb002f54422fda5d9113c5",
+      "elapsed_seconds": 165.02922059502453
+    },
+    "multi-memory/float_exprs0": {
+      "suite": "multi-memory/float_exprs0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 591,
+        "script_commands": 14
+      },
+      "status": "passed",
+      "reports": 17,
+      "mismatches": [],
+      "counts": {
+        "code": 41,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 47
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 679,
+      "clocks": 2717773,
+      "packet_sha256": "566d14c467a4eaa3a9450ee7ab01d2d918cd9784736d4851b627cdb4491a7816",
+      "elapsed_seconds": 171.99270844797138
+    },
+    "multi-memory/float_exprs1": {
+      "suite": "multi-memory/float_exprs1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 22884,
+        "script_commands": 3
+      },
+      "status": "passed",
+      "reports": 8,
+      "mismatches": [],
+      "counts": {
+        "code": 68,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 159
+      },
+      "allocated_ram_bytes": 1181056,
+      "device_execution_cycles": 25437,
+      "clocks": 2902612,
+      "packet_sha256": "586c008ce664828f2905fe4761a9328ef5b4195f538e3602a32ec518665e52b6",
+      "elapsed_seconds": 183.67278500599787
+    },
+    "multi-memory/float_memory0": {
+      "suite": "multi-memory/float_memory0",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 20,
+        "rtl_actions_completed": 8,
+        "rtl_cycles": 492,
+        "script_commands": 30
+      },
+      "status": "passed",
+      "reports": 36,
+      "mismatches": [],
+      "counts": {
+        "code": 55,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 59
+      },
+      "allocated_ram_bytes": 1245592,
+      "device_execution_cycles": 606,
+      "clocks": 2784169,
+      "packet_sha256": "52b9cdde85c73e9fe012c9b109efba50be7e80d658dab55fee5f996f5d171d1b",
+      "elapsed_seconds": 174.94416715600528
+    },
+    "multi-memory/imports0": {
+      "suite": "multi-memory/imports0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 6,
+        "rtl_cycles": 84,
+        "script_commands": 8
+      },
+      "status": "passed",
+      "reports": 7,
+      "mismatches": [],
+      "counts": {
+        "code": 32,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "allocated_ram_bytes": 1377008,
+      "device_execution_cycles": 77,
+      "clocks": 2674932,
+      "packet_sha256": "22f0194b6e3931004d9cece2861903503c6fd76a8febff4d67177dd460f7d218",
+      "elapsed_seconds": 164.29537802399136
+    },
+    "multi-memory/imports1": {
+      "suite": "multi-memory/imports1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 112,
+        "script_commands": 5
+      },
+      "status": "passed",
+      "reports": 14,
+      "mismatches": [],
+      "counts": {
+        "code": 20,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 30
+      },
+      "allocated_ram_bytes": 1114497,
+      "device_execution_cycles": 119,
+      "clocks": 2664076,
+      "packet_sha256": "21051a14f38c1575c605f45bb2c5a590c071b63fe6801bc702c75541cd672fba",
+      "elapsed_seconds": 165.79086786299013
+    },
+    "multi-memory/imports2": {
+      "suite": "multi-memory/imports2",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "embedding_assertions_passed": 6,
+        "rtl_cycles": 176,
+        "script_commands": 20
+      },
+      "status": "passed",
+      "reports": 32,
+      "mismatches": [],
+      "counts": {
+        "code": 25,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 58
+      },
+      "allocated_ram_bytes": 1376657,
+      "device_execution_cycles": 194,
+      "clocks": 2728281,
+      "packet_sha256": "15b53f3c95677c005bdb7be4b862c04c9c6dd71e279639177256d7d8e6e0f5c6",
+      "elapsed_seconds": 173.94122705503833
+    },
+    "multi-memory/imports3": {
+      "suite": "multi-memory/imports3",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 8,
+        "rtl_cycles": 84,
+        "script_commands": 10
+      },
+      "status": "passed",
+      "reports": 17,
+      "mismatches": [],
+      "counts": {
+        "code": 32,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 33
+      },
+      "allocated_ram_bytes": 1377008,
+      "device_execution_cycles": 77,
+      "clocks": 2699642,
+      "packet_sha256": "a3441ec3842a8f70ae73ab6ced28383469291520cf710a960d0973a02d22cfe2",
+      "elapsed_seconds": 168.94763810303994
+    },
+    "multi-memory/imports4": {
+      "suite": "multi-memory/imports4",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "registrations": 3,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 158,
+        "script_commands": 16
+      },
+      "status": "passed",
+      "reports": 18,
+      "mismatches": [],
+      "counts": {
+        "code": 26,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "allocated_ram_bytes": 1638784,
+      "device_execution_cycles": 146,
+      "clocks": 2694240,
+      "packet_sha256": "f8035644f06d7e156700a8c987382c28053c6d9c054d3525db33021dd4bc122f",
+      "elapsed_seconds": 165.6893236860633
+    },
+    "multi-memory/linking0": {
+      "suite": "multi-memory/linking0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 2,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 177,
+        "script_commands": 6
+      },
+      "status": "passed",
+      "reports": 20,
+      "mismatches": [],
+      "counts": {
+        "code": 40,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 49
+      },
+      "allocated_ram_bytes": 1180273,
+      "device_execution_cycles": 174,
+      "clocks": 2732028,
+      "packet_sha256": "feddd15c6aac4984c52464ce7e3d64bf34fe355646b1daeb9c5abec0f0b38966",
+      "elapsed_seconds": 166.44344904401805
+    },
+    "multi-memory/linking1": {
+      "suite": "multi-memory/linking1",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "registrations": 1,
+        "rtl_assertions_passed": 7,
+        "embedding_assertions_passed": 2,
+        "rtl_cycles": 225,
+        "script_commands": 14
+      },
+      "status": "passed",
+      "reports": 28,
+      "mismatches": [],
+      "counts": {
+        "code": 36,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "allocated_ram_bytes": 1245649,
+      "device_execution_cycles": 243,
+      "clocks": 2751129,
+      "packet_sha256": "cfbd0c0e2dd03986da1017ce3935a9cb9620ade4704e03964f4bc3094bbb705a",
+      "elapsed_seconds": 168.39374634309206
+    },
+    "multi-memory/linking2": {
+      "suite": "multi-memory/linking2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 172,
+        "script_commands": 11
+      },
+      "status": "passed",
+      "reports": 15,
+      "mismatches": [],
+      "counts": {
+        "code": 23,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 38
+      },
+      "allocated_ram_bytes": 1442186,
+      "device_execution_cycles": 159,
+      "clocks": 2680438,
+      "packet_sha256": "899b5e3bdac257f078fd7c0de5fcb45188dbfbaf538f4a85c1b021c58d6891ec",
+      "elapsed_seconds": 167.05228092893958
+    },
+    "multi-memory/linking3": {
+      "suite": "multi-memory/linking3",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 2,
+        "embedding_assertions_passed": 4,
+        "rtl_assertions_passed": 6,
+        "rtl_cycles": 249,
+        "script_commands": 14
+      },
+      "status": "passed",
+      "reports": 30,
+      "mismatches": [],
+      "counts": {
+        "code": 45,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 66
+      },
+      "allocated_ram_bytes": 1507829,
+      "device_execution_cycles": 261,
+      "clocks": 2773642,
+      "packet_sha256": "61e18432ea1d0604548943f1152b1103a2679de7c1f06b59fcfc90431de8372a",
+      "elapsed_seconds": 169.4294898940716
+    },
+    "multi-memory/load0": {
+      "suite": "multi-memory/load0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 102,
+        "script_commands": 3
+      },
+      "status": "passed",
+      "reports": 10,
+      "mismatches": [],
+      "counts": {
+        "code": 25,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 29
+      },
+      "allocated_ram_bytes": 1245585,
+      "device_execution_cycles": 104,
+      "clocks": 2667120,
+      "packet_sha256": "ab020e4eb8b4c0b5f5d03af5baa2cab83eab60452e72c0850778be6b7eaccc88",
+      "elapsed_seconds": 162.91109985497314
+    },
+    "multi-memory/load1": {
+      "suite": "multi-memory/load1",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 15,
+        "rtl_cycles": 297,
+        "script_commands": 18
+      },
+      "status": "passed",
+      "reports": 24,
+      "mismatches": [],
+      "counts": {
+        "code": 28,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 56
+      },
+      "allocated_ram_bytes": 1442197,
+      "device_execution_cycles": 351,
+      "clocks": 2721895,
+      "packet_sha256": "91c411df2f2472bec7a49551811d5d01a085046c1a0b58722c3fea34c1e3f006",
+      "elapsed_seconds": 169.53638005198445
+    },
+    "multi-memory/load2": {
+      "suite": "multi-memory/load2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "rtl_cycles": 905,
+        "script_commands": 38
+      },
+      "status": "passed",
+      "reports": 45,
+      "mismatches": [],
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 67
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 1109,
+      "clocks": 3103437,
+      "packet_sha256": "2018c22dc9da0504d6b7b0fa3d4655a819bcb646bccae509b253126bf5844c3b",
+      "elapsed_seconds": 193.62786014005542
+    },
+    "multi-memory/memory-multi": {
+      "suite": "multi-memory/memory-multi",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 154,
+        "script_commands": 6
+      },
+      "status": "passed",
+      "reports": 8,
+      "mismatches": [],
+      "counts": {
+        "code": 43,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "allocated_ram_bytes": 1376656,
+      "device_execution_cycles": 196,
+      "clocks": 2683484,
+      "packet_sha256": "e9033f6f22c0f41dfdd8a1f6801ec7a27bd87ab74fdb388ea4b193156abecffe",
+      "elapsed_seconds": 167.4789335950045
+    },
+    "multi-memory/memory_copy0": {
+      "suite": "multi-memory/memory_copy0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 7,
+        "rtl_assertions_passed": 21,
+        "rtl_cycles": 627,
+        "script_commands": 29
+      },
+      "status": "passed",
+      "reports": 40,
+      "mismatches": [],
+      "counts": {
+        "code": 31,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 111
+      },
+      "allocated_ram_bytes": 1376692,
+      "device_execution_cycles": 1045,
+      "clocks": 2807556,
+      "packet_sha256": "4996934ecc3781bd77753f0669ca8aae9aea2d06d639cf7f9f6106a073c4edee",
+      "elapsed_seconds": 172.2381940470077
+    },
+    "multi-memory/memory_copy1": {
+      "suite": "multi-memory/memory_copy1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 392,
+        "script_commands": 14
+      },
+      "status": "passed",
+      "reports": 25,
+      "mismatches": [],
+      "counts": {
+        "code": 31,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 77
+      },
+      "allocated_ram_bytes": 1376692,
+      "device_execution_cycles": 738,
+      "clocks": 2749772,
+      "packet_sha256": "b1fa0e340a5653854c0409e24c3946a96973b42d4c6e1dbc662f19032c68e3a1",
+      "elapsed_seconds": 170.16992403799668
+    },
+    "multi-memory/memory_fill0": {
+      "suite": "multi-memory/memory_fill0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 8469,
+        "script_commands": 16
+      },
+      "status": "passed",
+      "reports": 19,
+      "mismatches": [],
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 58
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 28991,
+      "clocks": 2734087,
+      "packet_sha256": "deff5a6ddfe4519219f6038e8ee510a151468587bf6b18f1da4be7916367c028",
+      "elapsed_seconds": 170.88188693101984
+    },
+    "multi-memory/memory_grow": {
+      "suite": "multi-memory/memory_grow",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 1,
+        "rtl_assertions_passed": 47,
+        "rtl_cycles": 638,
+        "script_commands": 51
+      },
+      "status": "passed",
+      "reports": 53,
+      "mismatches": [],
+      "counts": {
+        "code": 45,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 81
+      },
+      "allocated_ram_bytes": 3670400,
+      "device_execution_cycles": 587,
+      "clocks": 2820253,
+      "packet_sha256": "ec632593033dd67d096e673a92de148f4ec4b8ef5ee252dc2bc149c73a36e897",
+      "elapsed_seconds": 176.02868444193155
+    },
+    "multi-memory/memory_init0": {
+      "suite": "multi-memory/memory_init0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 230,
+        "script_commands": 13
+      },
+      "status": "passed",
+      "reports": 16,
+      "mismatches": [],
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 57
+      },
+      "allocated_ram_bytes": 1180036,
+      "device_execution_cycles": 266,
+      "clocks": 2699699,
+      "packet_sha256": "527bd1a438e3e01af0b9d41fb74cdfcf1c4b5f13dec9961d8ef6ffaefca2b1a3",
+      "elapsed_seconds": 165.93076432903763
+    },
+    "multi-memory/memory_size0": {
+      "suite": "multi-memory/memory_size0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 7,
+        "rtl_cycles": 138,
+        "script_commands": 8
+      },
+      "status": "passed",
+      "reports": 11,
+      "mismatches": [],
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 28
+      },
+      "allocated_ram_bytes": 1442176,
+      "device_execution_cycles": 130,
+      "clocks": 2657951,
+      "packet_sha256": "6d4b996615705af5a24785ff67f27a4deaf75616136360347cd61977174d3db2",
+      "elapsed_seconds": 163.25227656797506
+    },
+    "multi-memory/memory_size1": {
+      "suite": "multi-memory/memory_size1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 14,
+        "rtl_cycles": 224,
+        "script_commands": 15
+      },
+      "status": "passed",
+      "reports": 18,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 36
+      },
+      "allocated_ram_bytes": 1507712,
+      "device_execution_cycles": 210,
+      "clocks": 2685983,
+      "packet_sha256": "c106ecdbd7ae4cdc67345a6d207ca6e4b5bcddbceba3077f038ab59844fbfca7",
+      "elapsed_seconds": 166.8835196190048
+    },
+    "multi-memory/memory_size2": {
+      "suite": "multi-memory/memory_size2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "rtl_cycles": 300,
+        "script_commands": 21
+      },
+      "status": "passed",
+      "reports": 24,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 43
+      },
+      "allocated_ram_bytes": 1245568,
+      "device_execution_cycles": 282,
+      "clocks": 2700654,
+      "packet_sha256": "18243c4c5d139a5956520fa275754a77efae76ef1279ff1b66117348545a7e22",
+      "elapsed_seconds": 168.12555237696506
+    },
+    "multi-memory/memory_size3": {
+      "suite": "multi-memory/memory_size3",
+      "native_counts": {
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2621837,
+      "packet_sha256": "5060cac8854ef9650d2025682886dbb2929d2054d056b7d00a67f90ffe7dd7a8",
+      "elapsed_seconds": 162.6288437480107
+    },
+    "multi-memory/memory_size_import": {
+      "suite": "multi-memory/memory_size_import",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 96,
+        "script_commands": 7
+      },
+      "status": "passed",
+      "reports": 10,
+      "mismatches": [],
+      "counts": {
+        "code": 23,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "allocated_ram_bytes": 1704320,
+      "device_execution_cycles": 88,
+      "clocks": 2657286,
+      "packet_sha256": "e63801ee716fe144d17b20481046c3e4d3c2507803e4fe9a14a437cb4290fc39",
+      "elapsed_seconds": 162.93843229406048
+    },
+    "multi-memory/memory_trap0": {
+      "suite": "multi-memory/memory_trap0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 13,
+        "rtl_cycles": 388,
+        "script_commands": 14
+      },
+      "status": "passed",
+      "reports": 17,
+      "mismatches": [],
+      "counts": {
+        "code": 33,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 48
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 392,
+      "clocks": 2705210,
+      "packet_sha256": "6a522b2e540d9df21182df188932702eeae49f6f592ec6d82898aea09964ffde",
+      "elapsed_seconds": 167.29320050391834
+    },
+    "multi-memory/memory_trap1": {
+      "suite": "multi-memory/memory_trap1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 167,
+        "rtl_cycles": 1441,
+        "script_commands": 168
+      },
+      "status": "passed",
+      "reports": 175,
+      "mismatches": [],
+      "counts": {
+        "code": 97,
+        "functions": 36,
+        "types": 256,
+        "regions": 1536,
+        "boot": 433
+      },
+      "allocated_ram_bytes": 1180056,
+      "device_execution_cycles": 1464,
+      "clocks": 3374285,
+      "packet_sha256": "199fa38921397f4798cbb524fb0d3ab4e61ad0ee36928eb9eb2e7b9c393759c2",
+      "elapsed_seconds": 213.4115835649427
+    },
+    "multi-memory/start0": {
+      "suite": "multi-memory/start0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 6,
+        "rtl_actions_completed": 2,
+        "rtl_cycles": 271,
+        "script_commands": 9
+      },
+      "status": "passed",
+      "reports": 15,
+      "mismatches": [],
+      "counts": {
+        "code": 36,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 30
+      },
+      "allocated_ram_bytes": 1245569,
+      "device_execution_cycles": 340,
+      "clocks": 2689581,
+      "packet_sha256": "7a07d44520a0de797f633fa1d3892b7f81c83e3db54a1920ae686a94d754676c",
+      "elapsed_seconds": 167.79103901598137
+    },
+    "multi-memory/store0": {
+      "suite": "multi-memory/store0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 2,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 108,
+        "script_commands": 5
+      },
+      "status": "passed",
+      "reports": 8,
+      "mismatches": [],
+      "counts": {
+        "code": 29,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 25
+      },
+      "allocated_ram_bytes": 1245568,
+      "device_execution_cycles": 122,
+      "clocks": 2665588,
+      "packet_sha256": "0f560caf5a0f6a4b074c56736880c2f1f64fe35f4b7d4e9e92d07924938f3e60",
+      "elapsed_seconds": 163.92488838499412
+    },
+    "multi-memory/store1": {
+      "suite": "multi-memory/store1",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 2,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 168,
+        "script_commands": 13
+      },
+      "status": "passed",
+      "reports": 14,
+      "mismatches": [],
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 37
+      },
+      "allocated_ram_bytes": 1245568,
+      "device_execution_cycles": 200,
+      "clocks": 2709398,
+      "packet_sha256": "480cf167fc134d78c880794e0d0c76ed47b384d92f64228134a7a05826bc7081",
+      "elapsed_seconds": 166.14737874094862
+    },
+    "multi-memory/store2": {
+      "suite": "multi-memory/store2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 20,
+        "rtl_actions_completed": 2,
+        "rtl_cycles": 626,
+        "script_commands": 25
+      },
+      "status": "passed",
+      "reports": 31,
+      "mismatches": [],
+      "counts": {
+        "code": 61,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 68
+      },
+      "allocated_ram_bytes": 1442197,
+      "device_execution_cycles": 770,
+      "clocks": 2792211,
+      "packet_sha256": "688c91cc394fb4cf4ef6bb9a702ea75bb1a887a0dc41f8576cc2b7eb02076b39",
+      "elapsed_seconds": 174.43041915504728
+    },
+    "multi-memory/traps0": {
+      "suite": "multi-memory/traps0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 14,
+        "rtl_cycles": 146,
+        "script_commands": 15
+      },
+      "status": "passed",
+      "reports": 18,
+      "mismatches": [],
+      "counts": {
+        "code": 71,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 44
+      },
+      "allocated_ram_bytes": 1311104,
+      "device_execution_cycles": 142,
+      "clocks": 2758720,
+      "packet_sha256": "c4c9245bc90d15fc9d1e9f91e3af45279dc491e3241fe7f936f9434a46a54ccf",
+      "elapsed_seconds": 173.26080006698612
+    },
+    "names": {
+      "suite": "names",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 482,
+        "rtl_cycles": 5850,
+        "script_commands": 486
+      },
+      "status": "passed",
+      "reports": 486,
+      "mismatches": [],
+      "counts": {
+        "code": 982,
+        "functions": 493,
+        "types": 256,
+        "regions": 1536,
+        "boot": 497
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 5365,
+      "clocks": 5593711,
+      "packet_sha256": "b7371241fd72608428d540fc540a6bf5731da5c6c620b7d3dde855a2d1ee9b2d",
+      "elapsed_seconds": 369.69904857396614
+    },
+    "nop": {
+      "suite": "nop",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 83,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 2029,
+        "script_commands": 88
+      },
+      "status": "passed",
+      "reports": 91,
+      "mismatches": [],
+      "counts": {
+        "code": 553,
+        "functions": 97,
+        "types": 256,
+        "regions": 1536,
+        "boot": 183
+      },
+      "allocated_ram_bytes": 2097584,
+      "device_execution_cycles": 2042,
+      "clocks": 3773875,
+      "packet_sha256": "6bdf0748393ca5c3e529418997761501348620a69c3fc90f7d16be5d706c9e55",
+      "elapsed_seconds": 241.675898162066
+    },
+    "obsolete-keywords": {
+      "suite": "obsolete-keywords",
+      "native_counts": {
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 48,
+        "script_commands": 11
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2621837,
+      "packet_sha256": "5060cac8854ef9650d2025682886dbb2929d2054d056b7d00a67f90ffe7dd7a8",
+      "elapsed_seconds": 170.70540765405167
+    },
+    "ref": {
+      "suite": "ref",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 48,
+        "script_commands": 13
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 16,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2625354,
+      "packet_sha256": "1840805087895121c642f0fea50ac5a81b9481bb35271ead0e456375255899e4",
+      "elapsed_seconds": 167.67423922906164
+    },
+    "ref_as_non_null": {
+      "suite": "ref_as_non_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 154,
+        "script_commands": 7
+      },
+      "status": "passed",
+      "reports": 9,
+      "mismatches": [],
+      "counts": {
+        "code": 52,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 20
+      },
+      "allocated_ram_bytes": 1114512,
+      "device_execution_cycles": 147,
+      "clocks": 2704904,
+      "packet_sha256": "cdbba048e8f172ebff436f76f2ff5c07340b718c9486cc350aab6522981b4814",
+      "elapsed_seconds": 174.21236682496965
+    },
+    "ref_func": {
+      "suite": "ref_func",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "rtl_actions_completed": 2,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 514,
+        "script_commands": 17
+      },
+      "status": "passed",
+      "reports": 34,
+      "mismatches": [],
+      "counts": {
+        "code": 116,
+        "functions": 51,
+        "types": 256,
+        "regions": 1536,
+        "boot": 75
+      },
+      "allocated_ram_bytes": 1114784,
+      "device_execution_cycles": 564,
+      "clocks": 2911676,
+      "packet_sha256": "fafb040c36e89b6e4fd61964cbce6cd202c29ba3120487582b01a91103100303",
+      "elapsed_seconds": 185.11692715995014
+    },
+    "ref_is_null": {
+      "suite": "ref_is_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 16,
+        "rtl_actions_completed": 2,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 556,
+        "script_commands": 22
+      },
+      "status": "passed",
+      "reports": 28,
+      "mismatches": [],
+      "counts": {
+        "code": 74,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 62
+      },
+      "allocated_ram_bytes": 1114624,
+      "device_execution_cycles": 612,
+      "clocks": 2818806,
+      "packet_sha256": "80bfa702b30ca26a8f7f11d7d1adc492a5ce744beeec1a8ac35081f3671af79a",
+      "elapsed_seconds": 184.303408502019
+    },
+    "ref_null": {
+      "suite": "ref_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 32,
+        "rtl_cycles": 735,
+        "script_commands": 34
+      },
+      "status": "passed",
+      "reports": 59,
+      "mismatches": [],
+      "counts": {
+        "code": 89,
+        "functions": 48,
+        "types": 256,
+        "regions": 1536,
+        "boot": 91
+      },
+      "allocated_ram_bytes": 1114864,
+      "device_execution_cycles": 811,
+      "clocks": 2931959,
+      "packet_sha256": "586b4c0116e4b1f06b93fd2cd51f335813f4ad0a35cc362163e6b9b8301ca36e",
+      "elapsed_seconds": 180.62606265605427
+    },
+    "relaxed-simd/i16x8_relaxed_q15mulr_s": {
+      "suite": "relaxed-simd/i16x8_relaxed_q15mulr_s",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 156,
+        "script_commands": 3
+      },
+      "status": "passed",
+      "reports": 6,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 19
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 150,
+      "clocks": 2651616,
+      "packet_sha256": "f6f83b4162352d335917d93ee1679b3a432e90f4a887351a7a048c19783b0eb0",
+      "elapsed_seconds": 165.43603197101038
+    },
+    "relaxed-simd/i32x4_relaxed_trunc": {
+      "suite": "relaxed-simd/i32x4_relaxed_trunc",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2643580,
+      "packet_sha256": "1b59eaab9dd5bede0afbea559f44fd9f8e2c079e85d6c5e07b37388e2cb05688",
+      "elapsed_seconds": 167.29521981801372
+    },
+    "relaxed-simd/i8x16_relaxed_swizzle": {
+      "suite": "relaxed-simd/i8x16_relaxed_swizzle",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 297,
+        "script_commands": 6
+      },
+      "status": "passed",
+      "reports": 9,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 28
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 288,
+      "clocks": 2666034,
+      "packet_sha256": "007ee972bf1ca8541b8979445df88284f830142e75e85ffbb5927d3fe4b7c586",
+      "elapsed_seconds": 169.70452427503187
+    },
+    "relaxed-simd/relaxed_dot_product": {
+      "suite": "relaxed-simd/relaxed_dot_product",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 593,
+        "script_commands": 12
+      },
+      "status": "passed",
+      "reports": 15,
+      "mismatches": [],
+      "counts": {
+        "code": 42,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 51
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 578,
+      "clocks": 2725161,
+      "packet_sha256": "d63abd21ff2fc8599d6ebf30c71778103e4745a545c0ea1b77c697f059ffb9cd",
+      "elapsed_seconds": 168.5923315640539
+    },
+    "relaxed-simd/relaxed_laneselect": {
+      "suite": "relaxed-simd/relaxed_laneselect",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 653,
+        "script_commands": 12
+      },
+      "status": "passed",
+      "reports": 15,
+      "mismatches": [],
+      "counts": {
+        "code": 75,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 57
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 638,
+      "clocks": 2781603,
+      "packet_sha256": "8fd4472ef1997976780008d919be53c60738936ab33e31729168c4319ceb0a3d",
+      "elapsed_seconds": 172.8851485030027
+    },
+    "relaxed-simd/relaxed_madd_nmadd": {
+      "suite": "relaxed-simd/relaxed_madd_nmadd",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 18,
+        "rtl_cycles": 854,
+        "script_commands": 20
+      },
+      "status": "passed",
+      "reports": 22,
+      "mismatches": [],
+      "counts": {
+        "code": 85,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 85
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 832,
+      "clocks": 2838447,
+      "packet_sha256": "97e9b828f1aa8dd4d38422267250d475a9ceb42ecfeb01e6a63ee39c0ed898ab",
+      "elapsed_seconds": 176.4963547399966
+    },
+    "relaxed-simd/relaxed_min_max": {
+      "suite": "relaxed-simd/relaxed_min_max",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 24,
+        "rtl_cycles": 924,
+        "script_commands": 25
+      },
+      "status": "passed",
+      "reports": 28,
+      "mismatches": [],
+      "counts": {
+        "code": 63,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 85
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 896,
+      "clocks": 2813778,
+      "packet_sha256": "94c3675e56e94f559048cff09087480df863b10fe723e625eaade7055c11df0a",
+      "elapsed_seconds": 179.65780054405332
+    },
+    "return": {
+      "suite": "return",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 63,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 981,
+        "script_commands": 84
+      },
+      "status": "passed",
+      "reports": 71,
+      "mismatches": [],
+      "counts": {
+        "code": 364,
+        "functions": 75,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 921,
+      "clocks": 3367353,
+      "packet_sha256": "22ba900e715838fa6159a8c05ffada2c2777daec750e096cdaaa17b6fbb96f47",
+      "elapsed_seconds": 200.15012074809056
+    },
+    "return_call": {
+      "suite": "return_call",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 34,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 90027776,
+        "script_commands": 51
+      },
+      "status": "passed",
+      "reports": 38,
+      "mismatches": [],
+      "counts": {
+        "code": 148,
+        "functions": 48,
+        "types": 256,
+        "regions": 1536,
+        "boot": 74
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 90027738,
+      "clocks": 93006668,
+      "packet_sha256": "8ca359b7a4d196c90bfecb7476c38b1c93118c6bda3cce1e4a8ea8da421a6ee5",
+      "elapsed_seconds": 8705.164532314986
+    },
+    "return_call_indirect": {
+      "suite": "return_call_indirect",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 50,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 14945921,
+        "script_commands": 83
+      },
+      "status": "passed",
+      "reports": 89,
+      "mismatches": [],
+      "counts": {
+        "code": 307,
+        "functions": 91,
+        "types": 256,
+        "regions": 1536,
+        "boot": 207
+      },
+      "allocated_ram_bytes": 1115296,
+      "device_execution_cycles": 18504114,
+      "clocks": 21965961,
+      "packet_sha256": "8cfa8a71ccd56dfe583632abbd41560174fa1baf4ce09c31045ac7f78a0fcbb3",
+      "elapsed_seconds": 1574.25088515901
+    },
+    "return_call_ref": {
+      "suite": "return_call_ref",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 105032683,
+        "script_commands": 53
+      },
+      "status": "passed",
+      "reports": 77,
+      "mismatches": [],
+      "counts": {
+        "code": 261,
+        "functions": 92,
+        "types": 256,
+        "regions": 1536,
+        "boot": 155
+      },
+      "allocated_ram_bytes": 1115104,
+      "device_execution_cycles": 130040105,
+      "clocks": 133358827,
+      "packet_sha256": "98dc03c399abbe4e6a542c36fd09603d17d6ddbe0d5a7b7c9bfdaa9b19773418",
+      "elapsed_seconds": 10731.926101032994
+    },
+    "select": {
+      "suite": "select",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 124,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 2852,
+        "script_commands": 157
+      },
+      "status": "passed",
+      "reports": 136,
+      "mismatches": [],
+      "counts": {
+        "code": 448,
+        "functions": 82,
+        "types": 256,
+        "regions": 1536,
+        "boot": 386
+      },
+      "allocated_ram_bytes": 1376752,
+      "device_execution_cycles": 2802,
+      "clocks": 3912105,
+      "packet_sha256": "5f2a9cf2953ffb83c7d794cfb1686685d3af4fb8d971bc7cb5d00b48f95f1129",
+      "elapsed_seconds": 238.7095459450502
+    },
+    "simd/simd_address": {
+      "suite": "simd/simd_address",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 42,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 702,
+        "script_commands": 49
+      },
+      "status": "passed",
+      "reports": 50,
+      "mismatches": [],
+      "counts": {
+        "code": 82,
+        "functions": 27,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "allocated_ram_bytes": 1311136,
+      "device_execution_cycles": 978,
+      "clocks": 2893165,
+      "packet_sha256": "c9602a7fe079441782801ec02b93303397d46fe157ba8beb368a9790c3cb71be",
+      "elapsed_seconds": 177.4057106220862
+    },
+    "simd/simd_align": {
+      "suite": "simd/simd_align",
+      "native_counts": {
+        "modules_instantiated": 46,
+        "loader_assertions_passed": 46,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 200,
+        "script_commands": 100
+      },
+      "status": "passed",
+      "reports": 12,
+      "mismatches": [],
+      "counts": {
+        "code": 222,
+        "functions": 61,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "allocated_ram_bytes": 4129152,
+      "device_execution_cycles": 257,
+      "clocks": 3041892,
+      "packet_sha256": "458fcbc56cdecbcc25db379e3e121d2db9a82569fdf89aa1179805f61ecd36f5",
+      "elapsed_seconds": 188.23448174796067
+    },
+    "simd/simd_bit_shift": {
+      "suite": "simd/simd_bit_shift",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 211,
+        "loader_assertions_passed": 39,
+        "rtl_cycles": 7731,
+        "script_commands": 252
+      },
+      "status": "passed",
+      "reports": 215,
+      "mismatches": [],
+      "counts": {
+        "code": 375,
+        "functions": 59,
+        "types": 256,
+        "regions": 1536,
+        "boot": 587
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 7660,
+      "clocks": 4108422,
+      "packet_sha256": "88193f164fb04273a192f741945f025c9b71825738ec4f4dd0a77a7661337d2c",
+      "elapsed_seconds": 275.3988458160311
+    },
+    "simd/simd_bitwise": {
+      "suite": "simd/simd_bitwise",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 139,
+        "loader_assertions_passed": 28,
+        "rtl_cycles": 5922,
+        "script_commands": 169
+      },
+      "status": "passed",
+      "reports": 143,
+      "mismatches": [],
+      "counts": {
+        "code": 328,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 411
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 6363,
+      "clocks": 3728637,
+      "packet_sha256": "33849f7266febf04be2af808ddf9f8181b26ea4320d7a63b1a08af5d5463883f",
+      "elapsed_seconds": 256.94813826098107
+    },
+    "simd/simd_boolean": {
+      "suite": "simd/simd_boolean",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 259,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 11506,
+        "script_commands": 277
+      },
+      "status": "passed",
+      "reports": 263,
+      "mismatches": [],
+      "counts": {
+        "code": 468,
+        "functions": 88,
+        "types": 256,
+        "regions": 1536,
+        "boot": 664
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 11243,
+      "clocks": 4436807,
+      "packet_sha256": "7c2fa9df63191f5cab477e5b4a8ba258fe29e683724fcea02aaa1a1653ac8287",
+      "elapsed_seconds": 300.63234577002004
+    },
+    "simd/simd_const": {
+      "suite": "simd/simd_const",
+      "native_counts": {
+        "modules_instantiated": 312,
+        "loader_assertions_passed": 181,
+        "rtl_assertions_passed": 265,
+        "rtl_cycles": 3609,
+        "script_commands": 758
+      },
+      "status": "passed",
+      "reports": 278,
+      "mismatches": [],
+      "counts": {
+        "code": 1012,
+        "functions": 400,
+        "types": 256,
+        "regions": 1536,
+        "boot": 309
+      },
+      "allocated_ram_bytes": 1376784,
+      "device_execution_cycles": 3385,
+      "clocks": 5076927,
+      "packet_sha256": "de8a21b212c1808af2e68e0bea38f139e4e22652454db8a979438e0a0e1d53ef",
+      "elapsed_seconds": 348.5037970050471
+    },
+    "simd/simd_conversions": {
+      "suite": "simd/simd_conversions",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 232,
+        "loader_assertions_passed": 48,
+        "rtl_cycles": 6523,
+        "script_commands": 282
+      },
+      "status": "passed",
+      "reports": 236,
+      "mismatches": [],
+      "counts": {
+        "code": 144,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 600
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 6287,
+      "clocks": 3818617,
+      "packet_sha256": "c425e7554876161bae2a11e32981feeb4188556730bc2797c0e0e31fb6c9aaf1",
+      "elapsed_seconds": 262.87194446497597
+    },
+    "simd/simd_f32x4": {
+      "suite": "simd/simd_f32x4",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 772,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 18576,
+        "script_commands": 790
+      },
+      "status": "passed",
+      "reports": 776,
+      "mismatches": [],
+      "counts": {
+        "code": 115,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 2284
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 17800,
+      "clocks": 6435010,
+      "packet_sha256": "41f72f0c5327a435557a05f115d9b045cb90f43fda02dc8c129bff6de800c291",
+      "elapsed_seconds": 458.0386908740038
+    },
+    "simd/simd_f32x4_arith": {
+      "suite": "simd/simd_f32x4_arith",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 1803,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 89693,
+        "script_commands": 1822
+      },
+      "status": "passed",
+      "reports": 1807,
+      "mismatches": [],
+      "counts": {
+        "code": 134,
+        "functions": 36,
+        "types": 256,
+        "regions": 1536,
+        "boot": 5336
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 87886,
+      "clocks": 11397059,
+      "packet_sha256": "0f7cc5b775fad10dcc4dd5038d32a922401a651a344128e70fe581363d9b2f41",
+      "elapsed_seconds": 853.0789893850451
+    },
+    "simd/simd_f32x4_cmp": {
+      "suite": "simd/simd_f32x4_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 2581,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 62796,
+        "script_commands": 2607
+      },
+      "status": "passed",
+      "reports": 2585,
+      "mismatches": [],
+      "counts": {
+        "code": 304,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7731
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 60756,
+      "clocks": 15378247,
+      "packet_sha256": "d10df3a65685d68e2b1ae077bdb8ca67a0e25ea15d4198cff2da56b70cbf840c",
+      "elapsed_seconds": 1172.794644032023
+    },
+    "simd/simd_f32x4_pmin_pmax": {
+      "suite": "simd/simd_f32x4_pmin_pmax",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 3872,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 92976,
+        "script_commands": 3887
+      },
+      "status": "passed",
+      "reports": 3876,
+      "mismatches": [],
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 11629
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 89100,
+      "clocks": 21179236,
+      "packet_sha256": "8fca473e4900d6a8e5d7e9f19a22df98ae9c47da6d1bcb9bcd2de36611bc9aaf",
+      "elapsed_seconds": 1588.2978075990686
+    },
+    "simd/simd_f32x4_rounding": {
+      "suite": "simd/simd_f32x4_rounding",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 176,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 3920,
+        "script_commands": 201
+      },
+      "status": "passed",
+      "reports": 180,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 365
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3740,
+      "clocks": 3282460,
+      "packet_sha256": "c8ad650edc3e50e45bd0411b49a23b3faa009837ac644947e7a15be066de79df",
+      "elapsed_seconds": 228.9438403060194
+    },
+    "simd/simd_f64x2": {
+      "suite": "simd/simd_f64x2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 793,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 15890,
+        "script_commands": 803
+      },
+      "status": "passed",
+      "reports": 797,
+      "mismatches": [],
+      "counts": {
+        "code": 182,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 2321
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 15093,
+      "clocks": 6615417,
+      "packet_sha256": "87e2cfc493794b672efe95ecd5f861e9f7a150a6c5e129f0870d9139a8a2878b",
+      "elapsed_seconds": 467.28955126192886
+    },
+    "simd/simd_f64x2_arith": {
+      "suite": "simd/simd_f64x2_arith",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 1806,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 59291,
+        "script_commands": 1825
+      },
+      "status": "passed",
+      "reports": 1810,
+      "mismatches": [],
+      "counts": {
+        "code": 147,
+        "functions": 39,
+        "types": 256,
+        "regions": 1536,
+        "boot": 5339
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 57481,
+      "clocks": 11402030,
+      "packet_sha256": "d90d5e7048c81b5f77c325c1d9ec12ce8353033fd10138d6c2a745dd08fcbd5a",
+      "elapsed_seconds": 875.3221853730502
+    },
+    "simd/simd_f64x2_cmp": {
+      "suite": "simd/simd_f64x2_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 2659,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 53864,
+        "script_commands": 2685
+      },
+      "status": "passed",
+      "reports": 2663,
+      "mismatches": [],
+      "counts": {
+        "code": 304,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7965
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 51746,
+      "clocks": 15751567,
+      "packet_sha256": "1292a776f38b43fd5966487c43f705df308adb0b0772bcfd5a5092fd06e01a09",
+      "elapsed_seconds": 1176.208420068957
+    },
+    "simd/simd_f64x2_pmin_pmax": {
+      "suite": "simd/simd_f64x2_pmin_pmax",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 3872,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 77488,
+        "script_commands": 3887
+      },
+      "status": "passed",
+      "reports": 3876,
+      "mismatches": [],
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 11629
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 73612,
+      "clocks": 21179234,
+      "packet_sha256": "25e6cf93a56dce87ad69ca76d8ace7f42dfe2783caba6d710a403bf42f7a25ed",
+      "elapsed_seconds": 1736.6289303669473
+    },
+    "simd/simd_f64x2_rounding": {
+      "suite": "simd/simd_f64x2_rounding",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 176,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 3216,
+        "script_commands": 201
+      },
+      "status": "passed",
+      "reports": 180,
+      "mismatches": [],
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 365
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3036,
+      "clocks": 3282460,
+      "packet_sha256": "8db95d86cb06f532d01ce5099b9229285b642af81218b712f1b9b9cbedf38d7b",
+      "elapsed_seconds": 228.01179563696496
+    },
+    "simd/simd_i16x8_arith": {
+      "suite": "simd/simd_i16x8_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 181,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6132,
+        "script_commands": 194
+      },
+      "status": "passed",
+      "reports": 185,
+      "mismatches": [],
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 545
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 5947,
+      "clocks": 3566892,
+      "packet_sha256": "31c8531734a7195412a1d335d18778c2d0e7917fa90e432306bb41f866cc487c",
+      "elapsed_seconds": 254.42631947109476
+    },
+    "simd/simd_i16x8_arith2": {
+      "suite": "simd/simd_i16x8_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 151,
+        "loader_assertions_passed": 19,
+        "rtl_cycles": 5723,
+        "script_commands": 172
+      },
+      "status": "passed",
+      "reports": 155,
+      "mismatches": [],
+      "counts": {
+        "code": 325,
+        "functions": 74,
+        "types": 256,
+        "regions": 1536,
+        "boot": 439
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 5568,
+      "clocks": 3816395,
+      "packet_sha256": "52838d1289297c895a54f18eb360deda25780088ea981e2c82e534ce6206655d",
+      "elapsed_seconds": 270.41933118505403
+    },
+    "simd/simd_i16x8_cmp": {
+      "suite": "simd/simd_i16x8_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 433,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 15519,
+        "script_commands": 465
+      },
+      "status": "passed",
+      "reports": 437,
+      "mismatches": [],
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1287
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 15627,
+      "clocks": 5119456,
+      "packet_sha256": "47fe4e983e033e156d72a8ccf7ff39f2c1af6a17b85168254e8b9bb1f43f9843",
+      "elapsed_seconds": 494.37126980896574
+    },
+    "simd/simd_i16x8_extadd_pairwise_i8x16": {
+      "suite": "simd/simd_i16x8_extadd_pairwise_i8x16",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 16,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 544,
+        "script_commands": 21
+      },
+      "status": "passed",
+      "reports": 20,
+      "mismatches": [],
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 45
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 524,
+      "clocks": 2691433,
+      "packet_sha256": "7a509c43bf685e9d80e0483e5e5997cccec928bb272ae747b8f24a448dec24a9",
+      "elapsed_seconds": 242.00866886705626
+    },
+    "simd/simd_i16x8_extmul_i8x16": {
+      "suite": "simd/simd_i16x8_extmul_i8x16",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "passed",
+      "reports": 108,
+      "mismatches": [],
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 325
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3372,
+      "clocks": 3147712,
+      "packet_sha256": "45d6b4ac7ec6be334d4bc10e63537526eb0d43fbe31f37a17278259ad4c7c75f",
+      "elapsed_seconds": 269.7534369160421
+    },
+    "simd/simd_i16x8_q15mulr_sat_s": {
+      "suite": "simd/simd_i16x8_q15mulr_sat_s",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 906,
+        "script_commands": 30
+      },
+      "status": "passed",
+      "reports": 30,
+      "mismatches": [],
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 91
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 876,
+      "clocks": 2754271,
+      "packet_sha256": "7e1c757b013eff42e390e16b91c4e0db6b6944c28a0681c8596e8a828530eaf0",
+      "elapsed_seconds": 226.70215022505727
+    },
+    "simd/simd_i16x8_sat_arith": {
+      "suite": "simd/simd_i16x8_sat_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 204,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 6940,
+        "script_commands": 222
+      },
+      "status": "passed",
+      "reports": 208,
+      "mismatches": [],
+      "counts": {
+        "code": 75,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 629
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 6732,
+      "clocks": 3702711,
+      "packet_sha256": "d049f05c7a5aad04225254433bfceccb290619feb7591deaaa732db7d34145ab",
+      "elapsed_seconds": 300.05096715595573
+    },
+    "simd/simd_i32x4_arith": {
+      "suite": "simd/simd_i32x4_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 181,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6132,
+        "script_commands": 194
+      },
+      "status": "passed",
+      "reports": 185,
+      "mismatches": [],
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 545
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 5947,
+      "clocks": 3566892,
+      "packet_sha256": "d4f4150f87e4db0c5d9c80239d1b060d12f3afaa9935f103b952afa988df54c8",
+      "elapsed_seconds": 284.0672752179671
+    },
+    "simd/simd_i32x4_arith2": {
+      "suite": "simd/simd_i32x4_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 121,
+        "loader_assertions_passed": 26,
+        "rtl_cycles": 4506,
+        "script_commands": 149
+      },
+      "status": "passed",
+      "reports": 125,
+      "mismatches": [],
+      "counts": {
+        "code": 241,
+        "functions": 58,
+        "types": 256,
+        "regions": 1536,
+        "boot": 346
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 4381,
+      "clocks": 3535247,
+      "packet_sha256": "5b871fc43d016fab9b2dfedf2c3b6fbf56f24545c80c3f143952f3d4bc8c8504",
+      "elapsed_seconds": 279.6683094459586
+    },
+    "simd/simd_i32x4_cmp": {
+      "suite": "simd/simd_i32x4_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 433,
+        "loader_assertions_passed": 40,
+        "rtl_cycles": 15519,
+        "script_commands": 475
+      },
+      "status": "passed",
+      "reports": 437,
+      "mismatches": [],
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1287
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 15627,
+      "clocks": 5119456,
+      "packet_sha256": "2eac90e129c1c4d430b13e402fcc489dae934b4e1e2033f5e0e1a7f71c82e2a2",
+      "elapsed_seconds": 427.91875665599946
+    },
+    "simd/simd_i32x4_dot_i16x8": {
+      "suite": "simd/simd_i32x4_dot_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 28,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 972,
+        "script_commands": 32
+      },
+      "status": "passed",
+      "reports": 32,
+      "mismatches": [],
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 97
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 940,
+      "clocks": 2763855,
+      "packet_sha256": "8e5e30596967f1bb99185a3456fa6a240745c5783d1dd0d4e429892125993f56",
+      "elapsed_seconds": 218.79393020202406
+    },
+    "simd/simd_i32x4_extadd_pairwise_i16x8": {
+      "suite": "simd/simd_i32x4_extadd_pairwise_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 16,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 544,
+        "script_commands": 21
+      },
+      "status": "passed",
+      "reports": 20,
+      "mismatches": [],
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 45
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 524,
+      "clocks": 2691433,
+      "packet_sha256": "7396bd58e88cb51cf6b9ce25395436d0da42e570214c1220faacb8fad16e031d",
+      "elapsed_seconds": 184.73397937905975
+    },
+    "simd/simd_i32x4_extmul_i16x8": {
+      "suite": "simd/simd_i32x4_extmul_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "passed",
+      "reports": 108,
+      "mismatches": [],
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 325
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3372,
+      "clocks": 3147712,
+      "packet_sha256": "6f2b961bd3ff0c94e0e48d6a7ad41d29f49b5b39be3241e49ef81262a6a7cd5a",
+      "elapsed_seconds": 272.1531546449987
+    },
+    "simd/simd_i32x4_trunc_sat_f32x4": {
+      "suite": "simd/simd_i32x4_trunc_sat_f32x4",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 2292,
+        "script_commands": 107
+      },
+      "status": "passed",
+      "reports": 106,
+      "mismatches": [],
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 217
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 2186,
+      "clocks": 3003608,
+      "packet_sha256": "e8c362d1dd294187d22d49f5cc15cf495b519ef5a9c2886bfc49d0242e78018f",
+      "elapsed_seconds": 322.75826486502774
+    },
+    "simd/simd_i32x4_trunc_sat_f64x2": {
+      "suite": "simd/simd_i32x4_trunc_sat_f64x2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 1884,
+        "script_commands": 107
+      },
+      "status": "passed",
+      "reports": 106,
+      "mismatches": [],
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 217
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 1778,
+      "clocks": 3003608,
+      "packet_sha256": "e711aa2121f66e7c216c3b38105a5f1d9b529e5d6a6f77e8411723f96d702992",
+      "elapsed_seconds": 255.61598714394495
+    },
+    "simd/simd_i64x2_arith": {
+      "suite": "simd/simd_i64x2_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 187,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6330,
+        "script_commands": 200
+      },
+      "status": "passed",
+      "reports": 191,
+      "mismatches": [],
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 563
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 6139,
+      "clocks": 3595644,
+      "packet_sha256": "9f50b51885681310ba22ef1d609ba47d2ba09c4f757f84d56710d9a595615e91",
+      "elapsed_seconds": 310.12780704605393
+    },
+    "simd/simd_i64x2_arith2": {
+      "suite": "simd/simd_i64x2_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 21,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 718,
+        "script_commands": 25
+      },
+      "status": "passed",
+      "reports": 25,
+      "mismatches": [],
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 54
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 693,
+      "clocks": 2716274,
+      "packet_sha256": "444f55388b75ac999dc8b81b3d43f0501fcb6bd7dc0d17a3920ce07e36d61b0e",
+      "elapsed_seconds": 196.7659590659896
+    },
+    "simd/simd_i64x2_cmp": {
+      "suite": "simd/simd_i64x2_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 10,
+        "rtl_cycles": 3414,
+        "script_commands": 113
+      },
+      "status": "passed",
+      "reports": 106,
+      "mismatches": [],
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 319
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3308,
+      "clocks": 3151238,
+      "packet_sha256": "6b9475c8fceab23f90eae5f0d5a028768e9077eb4ca46707b2aa93ba0b45ba52",
+      "elapsed_seconds": 284.1516828420572
+    },
+    "simd/simd_i64x2_extmul_i32x4": {
+      "suite": "simd/simd_i64x2_extmul_i32x4",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "passed",
+      "reports": 108,
+      "mismatches": [],
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 325
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3372,
+      "clocks": 3147712,
+      "packet_sha256": "59b0354aeb89bc6c4790993805be6e4b569cbd46276b603b854ff5cff176f944",
+      "elapsed_seconds": 281.0804841739591
+    },
+    "simd/simd_i8x16_arith": {
+      "suite": "simd/simd_i8x16_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 121,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 4091,
+        "script_commands": 131
+      },
+      "status": "passed",
+      "reports": 125,
+      "mismatches": [],
+      "counts": {
+        "code": 48,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 363
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 3966,
+      "clocks": 3243570,
+      "packet_sha256": "d870c960d37781121bd6843ccc7bb2fb4ccea39c7146b05d0ddeab3d7b88b52f",
+      "elapsed_seconds": 301.2064392711036
+    },
+    "simd/simd_i8x16_arith2": {
+      "suite": "simd/simd_i8x16_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 184,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 7013,
+        "script_commands": 211
+      },
+      "status": "passed",
+      "reports": 188,
+      "mismatches": [],
+      "counts": {
+        "code": 393,
+        "functions": 89,
+        "types": 256,
+        "regions": 1536,
+        "boot": 514
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 6825,
+      "clocks": 4056721,
+      "packet_sha256": "f1fad167fde1c541d45c82c589f4046f803361e2d3a9319df08d7847e02926d2",
+      "elapsed_seconds": 400.07696900097653
+    },
+    "simd/simd_i8x16_cmp": {
+      "suite": "simd/simd_i8x16_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 413,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 14859,
+        "script_commands": 445
+      },
+      "status": "passed",
+      "reports": 417,
+      "mismatches": [],
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1227
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 14987,
+      "clocks": 5023616,
+      "packet_sha256": "0f17d8df2eb9a4dd923cbb7ec0333379541e90ed0f9f1fc6c9dfc2c43ed947e3",
+      "elapsed_seconds": 459.9110787289683
+    },
+    "simd/simd_i8x16_sat_arith": {
+      "suite": "simd/simd_i8x16_sat_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 188,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 6412,
+        "script_commands": 214
+      },
+      "status": "passed",
+      "reports": 192,
+      "mismatches": [],
+      "counts": {
+        "code": 75,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 581
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 6220,
+      "clocks": 3626039,
+      "packet_sha256": "bbc7ba76a5b8aaa1fc8299a4adb1e9f84c98edf4d6d4a43b8554ba9293422bde",
+      "elapsed_seconds": 302.5848894470837
+    },
+    "simd/simd_int_to_int_extend": {
+      "suite": "simd/simd_int_to_int_extend",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 228,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 7116,
+        "script_commands": 253
+      },
+      "status": "passed",
+      "reports": 232,
+      "mismatches": [],
+      "counts": {
+        "code": 51,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 469
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 6884,
+      "clocks": 3512153,
+      "packet_sha256": "b0ccb8d562aa44c37f8f34d4c884b4247691280076fd82139dc44a86eff3da9c",
+      "elapsed_seconds": 341.0658923650626
+    },
+    "simd/simd_lane": {
+      "suite": "simd/simd_lane",
+      "native_counts": {
+        "modules_instantiated": 12,
+        "rtl_assertions_passed": 274,
+        "loader_assertions_passed": 189,
+        "rtl_cycles": 9844,
+        "script_commands": 475
+      },
+      "status": "passed",
+      "reports": 280,
+      "mismatches": [],
+      "counts": {
+        "code": 465,
+        "functions": 106,
+        "types": 256,
+        "regions": 1536,
+        "boot": 740
+      },
+      "allocated_ram_bytes": 1180064,
+      "device_execution_cycles": 9654,
+      "clocks": 4580991,
+      "packet_sha256": "3fc81fa1feb58e1c4dee352a5d3cd66faea055bdb5a243f4593d0e42fd34a1be",
+      "elapsed_seconds": 482.5484362099087
+    },
+    "simd/simd_linking": {
+      "suite": "simd/simd_linking",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_cycles": 72,
+        "script_commands": 3
+      },
+      "status": "passed",
+      "reports": 6,
+      "mismatches": [],
+      "counts": {
+        "code": 19,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 17
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 66,
+      "clocks": 2636451,
+      "packet_sha256": "9b0b3144d4f10988262c556a42f64edab8ca9ed4ff1551c5580fd8d17ef5fbc2",
+      "elapsed_seconds": 233.29649455298204
+    },
+    "simd/simd_load": {
+      "suite": "simd/simd_load",
+      "native_counts": {
+        "modules_instantiated": 14,
+        "rtl_assertions_passed": 17,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 813,
+        "script_commands": 39
+      },
+      "status": "passed",
+      "reports": 61,
+      "mismatches": [],
+      "counts": {
+        "code": 134,
+        "functions": 46,
+        "types": 256,
+        "regions": 1536,
+        "boot": 154
+      },
+      "allocated_ram_bytes": 2032388,
+      "device_execution_cycles": 901,
+      "clocks": 3062008,
+      "packet_sha256": "2f2e367da9a8a50ef6a6c03aff0d41d30997b7602d64597d9ba9e54e66167afc",
+      "elapsed_seconds": 274.3863160639303
+    },
+    "simd/simd_load16_lane": {
+      "suite": "simd/simd_load16_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 32,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 604,
+        "script_commands": 36
+      },
+      "status": "passed",
+      "reports": 38,
+      "mismatches": [],
+      "counts": {
+        "code": 145,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 107
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 727,
+      "clocks": 2991386,
+      "packet_sha256": "0e6212c9021fc34e649d2464844c6c10c802746b95e0ce5c1870922c7c432143",
+      "elapsed_seconds": 250.6729064619867
+    },
+    "simd/simd_load32_lane": {
+      "suite": "simd/simd_load32_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 400,
+        "script_commands": 24
+      },
+      "status": "passed",
+      "reports": 26,
+      "mismatches": [],
+      "counts": {
+        "code": 97,
+        "functions": 32,
+        "types": 256,
+        "regions": 1536,
+        "boot": 75
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 475,
+      "clocks": 2859894,
+      "packet_sha256": "5f97982d24ca662225419a4b3200a6538ea9076095cdc6c3ea2be2d1106a06f3",
+      "elapsed_seconds": 214.2705638119951
+    },
+    "simd/simd_load64_lane": {
+      "suite": "simd/simd_load64_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 264,
+        "script_commands": 16
+      },
+      "status": "passed",
+      "reports": 18,
+      "mismatches": [],
+      "counts": {
+        "code": 65,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 53
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 307,
+      "clocks": 2771460,
+      "packet_sha256": "36f252d5dcf32e9fbe8401e9a91a0e263ba810e668831bb1ddd96f2a732586aa",
+      "elapsed_seconds": 232.60184112400748
+    },
+    "simd/simd_load8_lane": {
+      "suite": "simd/simd_load8_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 48,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 876,
+        "script_commands": 52
+      },
+      "status": "passed",
+      "reports": 54,
+      "mismatches": [],
+      "counts": {
+        "code": 209,
+        "functions": 60,
+        "types": 256,
+        "regions": 1536,
+        "boot": 147
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 1063,
+      "clocks": 3163618,
+      "packet_sha256": "3127887334349a71ef131ccd15e1b249d4050e38cc00cdbb7fb8388f8304e943",
+      "elapsed_seconds": 246.60858422203455
+    },
+    "simd/simd_load_extend": {
+      "suite": "simd/simd_load_extend",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 84,
+        "loader_assertions_passed": 18,
+        "rtl_cycles": 1452,
+        "script_commands": 104
+      },
+      "status": "passed",
+      "reports": 94,
+      "mismatches": [],
+      "counts": {
+        "code": 267,
+        "functions": 80,
+        "types": 256,
+        "regions": 1536,
+        "boot": 178
+      },
+      "allocated_ram_bytes": 1245642,
+      "device_execution_cycles": 1813,
+      "clocks": 3344912,
+      "packet_sha256": "48f91d26915cf27368e2238022d1f1c33b386cb49c0a756570529c223fe7dd78",
+      "elapsed_seconds": 262.85338121501263
+    },
+    "simd/simd_load_splat": {
+      "suite": "simd/simd_load_splat",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 112,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 1644,
+        "script_commands": 126
+      },
+      "status": "passed",
+      "reports": 122,
+      "mismatches": [],
+      "counts": {
+        "code": 173,
+        "functions": 54,
+        "types": 256,
+        "regions": 1536,
+        "boot": 242
+      },
+      "allocated_ram_bytes": 1245611,
+      "device_execution_cycles": 1997,
+      "clocks": 3286636,
+      "packet_sha256": "72d08d87a7fafe1ba79c4c11a315530e0ba9f1ff4d4c819cb7e63f5c2e5866eb",
+      "elapsed_seconds": 247.97064920107368
+    },
+    "simd/simd_load_zero": {
+      "suite": "simd/simd_load_zero",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 27,
+        "loader_assertions_passed": 10,
+        "rtl_cycles": 525,
+        "script_commands": 39
+      },
+      "status": "passed",
+      "reports": 37,
+      "mismatches": [],
+      "counts": {
+        "code": 100,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 80
+      },
+      "allocated_ram_bytes": 1245642,
+      "device_execution_cycles": 626,
+      "clocks": 2886789,
+      "packet_sha256": "9bb597acd8cd842cc95e99302b6be28d6c816030b4aad6489ed84fe67fc60212",
+      "elapsed_seconds": 222.9069779079873
+    },
+    "simd/simd_memory-multi": {
+      "suite": "simd/simd_memory-multi",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 100,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 15
+      },
+      "allocated_ram_bytes": 1245568,
+      "device_execution_cycles": 44,
+      "clocks": 2747269,
+      "packet_sha256": "8950d7461d1aff3df6ec2d18a6e4d49f9b435c1ceb2958a2a956783efcabb960",
+      "elapsed_seconds": 240.89907315198798
+    },
+    "simd/simd_select": {
+      "suite": "simd/simd_select",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 6,
+        "rtl_cycles": 156,
+        "script_commands": 7
+      },
+      "status": "passed",
+      "reports": 10,
+      "mismatches": [],
+      "counts": {
+        "code": 20,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 37
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 146,
+      "clocks": 2666798,
+      "packet_sha256": "e6a8729426416180d3b2c72e5dd0685433aef241bb6d02f2855beb6cffa39095",
+      "elapsed_seconds": 223.14861269900575
+    },
+    "simd/simd_splat": {
+      "suite": "simd/simd_splat",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 158,
+        "loader_assertions_passed": 23,
+        "rtl_cycles": 6778,
+        "script_commands": 185
+      },
+      "status": "passed",
+      "reports": 163,
+      "mismatches": [],
+      "counts": {
+        "code": 358,
+        "functions": 74,
+        "types": 256,
+        "regions": 1536,
+        "boot": 365
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 6685,
+      "clocks": 3805947,
+      "packet_sha256": "7718f8044a65628b53845b072a8dbd6a9b9e0d3ddaeb55aefedf2b300f9b7c03",
+      "elapsed_seconds": 302.3076634770259
+    },
+    "simd/simd_store": {
+      "suite": "simd/simd_store",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 17,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 410,
+        "script_commands": 28
+      },
+      "status": "passed",
+      "reports": 21,
+      "mismatches": [],
+      "counts": {
+        "code": 127,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 32
+      },
+      "allocated_ram_bytes": 1245568,
+      "device_execution_cycles": 523,
+      "clocks": 2836294,
+      "packet_sha256": "abb11aecd6a7270f7f1c263413267e48de998ad4f97cc9c49dbe03c94b16b258",
+      "elapsed_seconds": 227.21100020001177
+    },
+    "simd/simd_store16_lane": {
+      "suite": "simd/simd_store16_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 32,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1180,
+        "script_commands": 36
+      },
+      "status": "passed",
+      "reports": 37,
+      "mismatches": [],
+      "counts": {
+        "code": 369,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 104
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 1895,
+      "clocks": 3309821,
+      "packet_sha256": "2a2d6963a4e743077a449c34b8a1ddc5d438dfc164021402c21bc322ca7cb6ef",
+      "elapsed_seconds": 259.16145882895216
+    },
+    "simd/simd_store32_lane": {
+      "suite": "simd/simd_store32_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 760,
+        "script_commands": 24
+      },
+      "status": "passed",
+      "reports": 25,
+      "mismatches": [],
+      "counts": {
+        "code": 237,
+        "functions": 32,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 1195,
+      "clocks": 3057117,
+      "packet_sha256": "d649f01a4e9d48c32546050a8f4bf85a366490c6ef9c3d7b21722db6e1506032",
+      "elapsed_seconds": 232.38665561401285
+    },
+    "simd/simd_store64_lane": {
+      "suite": "simd/simd_store64_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 480,
+        "script_commands": 16
+      },
+      "status": "passed",
+      "reports": 17,
+      "mismatches": [],
+      "counts": {
+        "code": 149,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 50
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 727,
+      "clocks": 2887871,
+      "packet_sha256": "7314226aa8cba9525ba9efcd4343a7e66ea2bf7e2f78ba6473cfc40b66b101c1",
+      "elapsed_seconds": 223.54943233297672
+    },
+    "simd/simd_store8_lane": {
+      "suite": "simd/simd_store8_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 48,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1740,
+        "script_commands": 52
+      },
+      "status": "passed",
+      "reports": 53,
+      "mismatches": [],
+      "counts": {
+        "code": 545,
+        "functions": 60,
+        "types": 256,
+        "regions": 1536,
+        "boot": 144
+      },
+      "allocated_ram_bytes": 1180048,
+      "device_execution_cycles": 2911,
+      "clocks": 3643741,
+      "packet_sha256": "2e1f6878d03c81acdc8101532c4fc3141eb746869352db7361fbf0289582685d",
+      "elapsed_seconds": 296.62311772000976
+    },
+    "skip-stack-guard-page": {
+      "suite": "skip-stack-guard-page",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 10,
+        "rtl_cycles": 108596,
+        "script_commands": 11
+      },
+      "status": "passed",
+      "reports": 14,
+      "mismatches": [],
+      "counts": {
+        "code": 6365,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 34
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 108592,
+      "clocks": 11900214,
+      "packet_sha256": "95b70385b475f4b352075bdbdd61893798a93617edcb54f1f10d9ed28944ff97",
+      "elapsed_seconds": 950.9525061809691
+    },
+    "stack": {
+      "suite": "stack",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 2614,
+        "script_commands": 7
+      },
+      "status": "passed",
+      "reports": 10,
+      "mismatches": [],
+      "counts": {
+        "code": 380,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 24
+      },
+      "allocated_ram_bytes": 1114528,
+      "device_execution_cycles": 2694,
+      "clocks": 3180715,
+      "packet_sha256": "5f886a12a1460110fae629eb518581c01a288c403633a2c21852667e23c87267",
+      "elapsed_seconds": 263.27485274593346
+    },
+    "start": {
+      "suite": "start",
+      "native_counts": {
+        "loader_assertions_passed": 4,
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 6,
+        "rtl_actions_completed": 4,
+        "embedding_assertions_passed": 1,
+        "rtl_cycles": 455,
+        "script_commands": 20
+      },
+      "status": "passed",
+      "reports": 24,
+      "mismatches": [],
+      "counts": {
+        "code": 57,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "allocated_ram_bytes": 1245585,
+      "device_execution_cycles": 573,
+      "clocks": 2744631,
+      "packet_sha256": "62fee14a08810fd0f69900ae4783444d97dc3896ea9404fe5a32021f4645c80f",
+      "elapsed_seconds": 250.61420093395282
+    },
+    "store": {
+      "suite": "store",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 58,
+        "rtl_cycles": 234,
+        "script_commands": 68
+      },
+      "status": "passed",
+      "reports": 13,
+      "mismatches": [],
+      "counts": {
+        "code": 79,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 275,
+      "clocks": 2738618,
+      "packet_sha256": "f3bdd5c3f70e854167c44c7afecb2d409059b900f6a6cbc58baf3fd47eae9201",
+      "elapsed_seconds": 198.31043650000356
+    },
+    "switch": {
+      "suite": "switch",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 1358,
+        "script_commands": 28
+      },
+      "status": "passed",
+      "reports": 30,
+      "mismatches": [],
+      "counts": {
+        "code": 149,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 1328,
+      "clocks": 2915364,
+      "packet_sha256": "2ee46a52708c3e6c0beac9a6085b3c2dd850753357dc48fa37b3c9986377b1ac",
+      "elapsed_seconds": 237.9083277900936
+    },
+    "table": {
+      "suite": "table",
+      "native_counts": {
+        "modules_instantiated": 17,
+        "module_definitions": 1,
+        "loader_assertions_passed": 22,
+        "registrations": 1,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 221,
+        "script_commands": 46
+      },
+      "status": "passed",
+      "reports": 18,
+      "mismatches": [],
+      "counts": {
+        "code": 48,
+        "functions": 26,
+        "types": 256,
+        "regions": 1536,
+        "boot": 89
+      },
+      "allocated_ram_bytes": 1115424,
+      "device_execution_cycles": 239,
+      "clocks": 2789302,
+      "packet_sha256": "4cd21070207fb4801adf8a3ad5f36132f3beb51899b13386342d03c146c5ab5b",
+      "elapsed_seconds": 204.49720829701982
+    },
+    "table_get": {
+      "suite": "table_get",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 5,
+        "rtl_cycles": 228,
+        "script_commands": 16
+      },
+      "status": "passed",
+      "reports": 17,
+      "mismatches": [],
+      "counts": {
+        "code": 38,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "allocated_ram_bytes": 1114592,
+      "device_execution_cycles": 257,
+      "clocks": 2711886,
+      "packet_sha256": "f1ba95bbcebed77355d52e1e1bf4771f408f50641e8f422bfed44cc0e0eb4f80",
+      "elapsed_seconds": 211.549029813963
+    },
+    "table_grow": {
+      "suite": "table_grow",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 43,
+        "registrations": 2,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 3566,
+        "script_commands": 61
+      },
+      "status": "passed",
+      "reports": 51,
+      "mismatches": [],
+      "counts": {
+        "code": 95,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 116
+      },
+      "allocated_ram_bytes": 1128256,
+      "device_execution_cycles": 7876,
+      "clocks": 2940369,
+      "packet_sha256": "339fa7512db00fbb78c0d7049be13df649e1b9db7e56515262162d8e7f85157e",
+      "elapsed_seconds": 221.78163820505142
+    },
+    "table_set": {
+      "suite": "table_set",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 18,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 317,
+        "script_commands": 26
+      },
+      "status": "passed",
+      "reports": 25,
+      "mismatches": [],
+      "counts": {
+        "code": 43,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "allocated_ram_bytes": 1114560,
+      "device_execution_cycles": 370,
+      "clocks": 2761578,
+      "packet_sha256": "584e8fae24951e48a3890d07dee14053d6131d4f74f18fee87bfbc6798ddb1b0",
+      "elapsed_seconds": 208.36905667197425
+    },
+    "table_size": {
+      "suite": "table_size",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 36,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 591,
+        "script_commands": 39
+      },
+      "status": "passed",
+      "reports": 40,
+      "mismatches": [],
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "allocated_ram_bytes": 1114832,
+      "device_execution_cycles": 652,
+      "clocks": 2771469,
+      "packet_sha256": "01e53df5edd4ebe8dde72fd132b16f4ef4ea3dbd0b75a767d5cb8a0d1a2ed9dd",
+      "elapsed_seconds": 236.53300103603397
+    },
+    "token": {
+      "suite": "token",
+      "native_counts": {
+        "loader_assertions_passed": 26,
+        "modules_instantiated": 35,
+        "rtl_cycles": 108,
+        "script_commands": 61
+      },
+      "status": "passed",
+      "reports": 12,
+      "mismatches": [],
+      "counts": {
+        "code": 84,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 63
+      },
+      "allocated_ram_bytes": 1180349,
+      "device_execution_cycles": 99,
+      "clocks": 2808102,
+      "packet_sha256": "545b1ec5a79281e6c09a04d3943534b3585a8a5c696d2c4ede3df2cf37f713ca",
+      "elapsed_seconds": 217.11265112494584
+    },
+    "traps": {
+      "suite": "traps",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 32,
+        "rtl_cycles": 310,
+        "script_commands": 36
+      },
+      "status": "passed",
+      "reports": 36,
+      "mismatches": [],
+      "counts": {
+        "code": 143,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 88
+      },
+      "allocated_ram_bytes": 1180032,
+      "device_execution_cycles": 306,
+      "clocks": 2940474,
+      "packet_sha256": "c60bf4a6ec09d01929eba0a8a862d3453d6fb47819b39575db64235eb0ec7aa5",
+      "elapsed_seconds": 231.57663853396662
+    },
+    "type": {
+      "suite": "type",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 3
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2635906,
+      "packet_sha256": "ceb7f47384536a9f9d14aea7a4a6f9794f509a25aaaa8f451b6a2735ee318942",
+      "elapsed_seconds": 191.69680811697617
+    },
+    "type-canon": {
+      "suite": "type-canon",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2632069,
+      "packet_sha256": "df68b80ec9fe25ab3dd7d3170ae5056be73963e010aff40213485146062a7e1c",
+      "elapsed_seconds": 228.11639137298334
+    },
+    "type-equivalence": {
+      "suite": "type-equivalence",
+      "native_counts": {
+        "modules_instantiated": 21,
+        "loader_assertions_passed": 1,
+        "rtl_assertions_passed": 4,
+        "registrations": 6,
+        "rtl_cycles": 653,
+        "script_commands": 32
+      },
+      "status": "passed",
+      "reports": 27,
+      "mismatches": [],
+      "counts": {
+        "code": 200,
+        "functions": 66,
+        "types": 256,
+        "regions": 1536,
+        "boot": 66
+      },
+      "allocated_ram_bytes": 1114848,
+      "device_execution_cycles": 754,
+      "clocks": 3068796,
+      "packet_sha256": "79787968c94f5ebcc8d96a8bde06a729a2c225060a035fe45a497a4ce3be8d64",
+      "elapsed_seconds": 231.48197661002632
+    },
+    "type-rec": {
+      "suite": "type-rec",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "loader_assertions_passed": 10,
+        "registrations": 1,
+        "embedding_assertions_passed": 2,
+        "rtl_assertions_passed": 3,
+        "rtl_cycles": 218,
+        "script_commands": 27
+      },
+      "status": "passed",
+      "reports": 21,
+      "mismatches": [],
+      "counts": {
+        "code": 55,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 47
+      },
+      "allocated_ram_bytes": 1114672,
+      "device_execution_cycles": 218,
+      "clocks": 2777980,
+      "packet_sha256": "dd45e0aa037a87f0f9b92d534136100f1f03186c523badc126deda9ae74b02c0",
+      "elapsed_seconds": 229.1462098719785
+    },
+    "unreachable": {
+      "suite": "unreachable",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 63,
+        "rtl_cycles": 653,
+        "script_commands": 64
+      },
+      "status": "passed",
+      "reports": 71,
+      "mismatches": [],
+      "counts": {
+        "code": 314,
+        "functions": 74,
+        "types": 256,
+        "regions": 1536,
+        "boot": 106
+      },
+      "allocated_ram_bytes": 1180080,
+      "device_execution_cycles": 641,
+      "clocks": 3267752,
+      "packet_sha256": "b65dab8d907e4eed7366351fb1920fd617935d83584f3538fd9181c7e4893106",
+      "elapsed_seconds": 283.16601001203526
+    },
+    "unreached-invalid": {
+      "suite": "unreached-invalid",
+      "native_counts": {
+        "loader_assertions_passed": 121,
+        "rtl_cycles": 48,
+        "script_commands": 121
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2621837,
+      "packet_sha256": "5060cac8854ef9650d2025682886dbb2929d2054d056b7d00a67f90ffe7dd7a8",
+      "elapsed_seconds": 208.27003727899864
+    },
+    "unreached-valid": {
+      "suite": "unreached-valid",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 10,
+        "rtl_cycles": 106,
+        "script_commands": 13
+      },
+      "status": "passed",
+      "reports": 14,
+      "mismatches": [],
+      "counts": {
+        "code": 102,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 27
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 102,
+      "clocks": 2786598,
+      "packet_sha256": "e5abd38f2aa1f8f86863b05ad170ba80b3bfeb55907074b87645bee7025c8dcc",
+      "elapsed_seconds": 211.7627033670433
+    },
+    "unwind": {
+      "suite": "unwind",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 49,
+        "rtl_cycles": 1026,
+        "script_commands": 50
+      },
+      "status": "passed",
+      "reports": 53,
+      "mismatches": [],
+      "counts": {
+        "code": 401,
+        "functions": 60,
+        "types": 256,
+        "regions": 1536,
+        "boot": 62
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 984,
+      "clocks": 3331584,
+      "packet_sha256": "d54f7effc7a6daa0431595920848f110c28968ca634160b28233ae3a2bc37ebf",
+      "elapsed_seconds": 292.65205123706255
+    },
+    "utf8-custom-section-id": {
+      "suite": "utf8-custom-section-id",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2621837,
+      "packet_sha256": "5060cac8854ef9650d2025682886dbb2929d2054d056b7d00a67f90ffe7dd7a8",
+      "elapsed_seconds": 194.28195050999057
+    },
+    "utf8-import-field": {
+      "suite": "utf8-import-field",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2621837,
+      "packet_sha256": "5060cac8854ef9650d2025682886dbb2929d2054d056b7d00a67f90ffe7dd7a8",
+      "elapsed_seconds": 205.05806308309548
+    },
+    "utf8-import-module": {
+      "suite": "utf8-import-module",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2621837,
+      "packet_sha256": "5060cac8854ef9650d2025682886dbb2929d2054d056b7d00a67f90ffe7dd7a8",
+      "elapsed_seconds": 205.5909427748993
+    },
+    "utf8-invalid-encoding": {
+      "suite": "utf8-invalid-encoding",
+      "native_counts": {
+        "loader_assertions_passed": 180,
+        "modules_instantiated": 3,
+        "rtl_cycles": 48,
+        "script_commands": 183
+      },
+      "status": "passed",
+      "reports": 4,
+      "mismatches": [],
+      "counts": {
+        "code": 18,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "allocated_ram_bytes": 1114496,
+      "device_execution_cycles": 44,
+      "clocks": 2628551,
+      "packet_sha256": "f1d08ed23b470221ad9c2b17ea1a9821f713b50d8c5d1c8b6813c3dfaf42832f",
+      "elapsed_seconds": 184.9742357810028
+    }
+  },
+  "physical_hardware_tested": false
+}

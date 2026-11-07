@@ -46,8 +46,23 @@ sizes the stores for Genesys 2 block RAM: 1 MiB local RAM, 4,096
 instructions, 8,192 boot records and 128 regions per kind. Measured with
 peak-sized memories, 233 of the 259 official suites fit it; 17 of the rest
 need more than 1 MiB of RAM and wait for DDR3. Build with
-`WASMETAL_PROFILE=soc/profiles/genesys2.json`. A resource estimate for this
-profile has not been made yet.
+`WASMETAL_PROFILE=soc/profiles/genesys2.json`.
+
+The [7-series estimate](verification/xc7-genesys2-estimate.json) for this
+profile, using the repository's checked Yosys mapping flow, needs 54,563 logic
+LUTs (27% of XC7K325T), 7,510 flip-flops, 29 DSP48E1s and 393.5 RAMB36
+equivalents (88% of 445). Block RAM is the binding resource; Vivado's own
+packing may differ. Its mapping uses one new block-RAM geometry, a 9-bit by
+4,096-word `RAMB36E1`, which now passes the [vendor-model comparison](XILINX-MEMORY.md#fast-simulation-models).
+
+Fourteen representative official suites (integer, floating-point,
+conversions, control flow, memory, globals, typed references, GC structs and
+arrays, SIMD and exception handling)
+[run as complete sessions on the mapped circuit](verification/spec-sessions-xc7-genesys2.json):
+the synthesized 7-series netlist, simulated with the repository's checked
+primitive models and an accelerated UART. All 7,101 reported frames equal the
+native responses. This is untimed functional simulation of Yosys's mapping,
+not Vivado's netlist or a board.
 
 ## Building with Vivado
 
