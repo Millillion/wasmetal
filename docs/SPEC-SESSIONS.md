@@ -55,6 +55,25 @@ every suite needs without device simulation.
 simulation-sized profile with the native corpus's core capacities; a board
 profile must fit its memories.
 
+## Running sessions on a board
+
+`spec_session.py` saves each suite's compact upload (`session.wmu`) and the
+frames the device must report (`expected.json`) under
+`build/spec-sessions/<profile>/<suite>/`. On the board machine, with the
+matching bitstream loaded:
+
+```sh
+python3 tools/board_sessions.py --device /dev/serial/by-id/your-board \
+  --sessions build/spec-sessions/genesys2 --report reports/board-sessions.json
+```
+
+It uploads each session, reads every frame until the end frame and requires
+each to equal its expectation, writing results as suites complete. It needs
+no simulator. Its [test](../tests/board_sessions_test.py) drives a fake board
+on a pseudo-terminal: a passing session, a wrong value, a missing frame, an
+error frame, a corrupted frame followed by a valid one, and a missing end
+frame.
+
 ## Results so far
 
 - The [packing measurement](verification/spec-sessions-packed.json) prepares

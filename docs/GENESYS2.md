@@ -34,7 +34,20 @@ python3 tools/check_loadable.py --board --binary build/loadable-genesys2-sim/Vwa
 
 The harness drives the differential clock, reset button and UART pins with
 256 board clocks per CPU clock and real serial timing. It runs the same two
-board-clock uploads as the ULX3S board check.
+board-clock uploads as the ULX3S board check. [Both pass](verification/loadable-genesys2-rtl.json)
+with the ULX3S results and cycle counts: `answer` returns 42 in 53 execution
+cycles and `selftest` all twelve values in 2,005.
+
+## Profiles
+
+The bitstream above uses the default ULX3S-sized profile. For official-suite
+sessions on the board, [`soc/profiles/genesys2.json`](../soc/profiles/genesys2.json)
+sizes the stores for Genesys 2 block RAM: 1 MiB local RAM, 4,096
+instructions, 8,192 boot records and 128 regions per kind. Measured with
+peak-sized memories, 233 of the 259 official suites fit it; 17 of the rest
+need more than 1 MiB of RAM and wait for DDR3. Build with
+`WASMETAL_PROFILE=soc/profiles/genesys2.json`. A resource estimate for this
+profile has not been made yet.
 
 ## Building with Vivado
 

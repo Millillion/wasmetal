@@ -58,6 +58,9 @@ public:
     uint64_t clocks=0,first_result=0;
     unsigned period_permille=1000;
     uint64_t deadline_clocks=12000000ULL*CLOCK_SCALE;
+    // A compact upload's commit reply follows the loader clearing every
+    // omitted store row, one per clock; allow the profile's total rows.
+    uint64_t fill_clocks=0;
     bool record_result=false;
     uint64_t fractional_time=0;
     size_t reply_cursor=0;
@@ -134,7 +137,7 @@ public:
         require(!finished(),"failed upload completed execution");
     }
     void reply(uint64_t nonce,unsigned expected,uint32_t checksum=0) {
-        const uint64_t deadline=clocks+UPLOAD_TIMEOUT+25*10*BIT_TICKS+4096*CLOCK_SCALE;
+        const uint64_t deadline=clocks+UPLOAD_TIMEOUT+25*10*BIT_TICKS+4096*CLOCK_SCALE+fill_clocks*CLOCK_SCALE;
         for(;clocks<deadline;tick()) {
             while(receiver.bytes.size()-reply_cursor>=20) {
                 size_t at=reply_cursor++;const auto&b=receiver.bytes;
@@ -199,6 +202,7 @@ int main(int argc,char**argv) {
             if(flag=="--period-permille" && n+1<argc){test->period_permille=unsigned(std::stoul(argv[++n]));continue;}
             // A session image runs a whole script; allow its longer execution.
             if(flag=="--deadline-clocks" && n+1<argc){test->deadline_clocks=std::stoull(argv[++n]);continue;}
+            if(flag=="--fill-clocks" && n+1<argc){test->fill_clocks=std::stoull(argv[++n]);continue;}
             require(n+1<argc,"missing upload file");std::string path=argv[++n];uint64_t offset=0;
             require(flag=="--upload" || flag=="--bad-crc" || flag=="--bad-profile" || flag=="--partial" ||
                 flag=="--timeout" || flag=="--break" || flag=="--interrupt","unknown loadable driver option");

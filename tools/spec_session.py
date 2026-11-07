@@ -175,7 +175,12 @@ def run_suite(source, binary, deadline, native_only=False):
     path.write_bytes(packet.bytes())
     expected = [{'record': row['boot_record'], **expected_frame(*lines[row['trace_line']])}
                 for row in summary['reports']]
-    run = subprocess.run([str(binary), '--deadline-clocks', str(deadline), '--upload', str(path)],
+    # A board campaign needs only the packet and these expectations.
+    (directory/'expected.json').write_text(json.dumps(expected) + '\n')
+    rows = (profile['instruction_depth'] + profile['function_depth'] + profile['type_depth'] +
+            6 * profile['regions_per_kind'] + profile['boot_depth'])
+    run = subprocess.run([str(binary), '--deadline-clocks', str(deadline), '--fill-clocks', str(rows),
+                          '--upload', str(path)],
                          capture_output=True, text=True, timeout=24*3600)
     if run.returncode:
         return {**result, 'status': 'simulator-error', 'error': run.stderr[-2000:]}

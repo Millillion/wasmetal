@@ -13,8 +13,10 @@ Completed work lives on `main`. Temporary development branches are integrated in
 verified 781.25 kHz CPU clock (200 MHz / 256) and 9,600-baud UART, with
 Digilent-derived pin constraints and a Vivado build and acceptance script.
 Neither the Vivado flow nor a board has been run. Both board-clock uploads
-passed through the Genesys 2 pins in simulation on the preceding RTL; a rerun
-on the current RTL is pending. New [session images](docs/SPEC-SESSIONS.md) run a
+[pass through the Genesys 2 pins](docs/verification/loadable-genesys2-rtl.json)
+in simulation, with the same results and cycle counts as the ULX3S top. A
+[board session runner](tools/board_sessions.py) replays prepared official
+sessions over a real serial port and needs no simulator. New [session images](docs/SPEC-SESSIONS.md) run a
 complete official script on the programmable system itself: the device replays
 the script's whole store and reports every execution, global read and size
 query over UART, each checked against the native runner. The first, `i32`,

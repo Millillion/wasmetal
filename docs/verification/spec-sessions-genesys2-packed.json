@@ -1,0 +1,5431 @@
+{
+  "status": "complete",
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 8192
+    },
+    "instruction_depth": 4096,
+    "function_depth": 512,
+    "type_depth": 128,
+    "boot_depth": 8192,
+    "regions_per_kind": 128,
+    "ram_bytes": 1048576,
+    "memory_pages": 1024,
+    "table_slots": 65536,
+    "max_results": 16,
+    "watchdog_cycles": 300000000
+  },
+  "simulator": null,
+  "suite_count": 259,
+  "summary": {
+    "exceeds-profile": 26,
+    "packed": 233
+  },
+  "suites": {
+    "address": {
+      "suite": "address",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 255,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 3529,
+        "script_commands": 260
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459242,
+      "counts": {
+        "code": 289,
+        "functions": 99,
+        "types": 128,
+        "regions": 768,
+        "boot": 553
+      },
+      "memory_bytes": 327680,
+      "reports": 267,
+      "elapsed_seconds": 0.286921935970895
+    },
+    "align": {
+      "suite": "align",
+      "native_counts": {
+        "modules_instantiated": 25,
+        "loader_assertions_passed": 92,
+        "rtl_assertions_passed": 48,
+        "rtl_cycles": 3914,
+        "script_commands": 165
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328064,
+      "counts": {
+        "code": 691,
+        "functions": 40,
+        "types": 128,
+        "regions": 768,
+        "boot": 172
+      },
+      "memory_bytes": 196608,
+      "reports": 52,
+      "elapsed_seconds": 1.0313053260324523
+    },
+    "annotations": {
+      "suite": "annotations",
+      "native_counts": {
+        "modules_instantiated": 10,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 128,
+        "script_commands": 74
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262756,
+      "counts": {
+        "code": 36,
+        "functions": 21,
+        "types": 128,
+        "regions": 768,
+        "boot": 39
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.5059373810654506
+    },
+    "binary": {
+      "suite": "binary",
+      "native_counts": {
+        "modules_instantiated": 20,
+        "loader_assertions_passed": 109,
+        "rtl_cycles": 80,
+        "script_commands": 129
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 35,
+        "functions": 21,
+        "types": 128,
+        "regions": 768,
+        "boot": 26
+      },
+      "memory_bytes": 131072,
+      "reports": 7,
+      "elapsed_seconds": 0.90164141706191
+    },
+    "binary-leb128": {
+      "suite": "binary-leb128",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "loader_assertions_passed": 58,
+        "rtl_cycles": 252,
+        "script_commands": 91
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 721408,
+      "counts": {
+        "code": 63,
+        "functions": 33,
+        "types": 128,
+        "regions": 768,
+        "boot": 69
+      },
+      "memory_bytes": 589824,
+      "reports": 30,
+      "elapsed_seconds": 0.6893340880051255
+    },
+    "block": {
+      "suite": "block",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 52,
+        "loader_assertions_passed": 170,
+        "rtl_cycles": 1947,
+        "script_commands": 223
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328112,
+      "counts": {
+        "code": 620,
+        "functions": 69,
+        "types": 128,
+        "regions": 768,
+        "boot": 75
+      },
+      "memory_bytes": 196608,
+      "reports": 60,
+      "elapsed_seconds": 1.5328633909812197
+    },
+    "br": {
+      "suite": "br",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 76,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 1665,
+        "script_commands": 97
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 588,
+        "functions": 88,
+        "types": 128,
+        "regions": 768,
+        "boot": 115
+      },
+      "memory_bytes": 131072,
+      "reports": 84,
+      "elapsed_seconds": 0.2914570519933477
+    },
+    "br_if": {
+      "suite": "br_if",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 88,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 2301,
+        "script_commands": 119
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 596,
+        "functions": 77,
+        "types": 128,
+        "regions": 768,
+        "boot": 171
+      },
+      "memory_bytes": 131072,
+      "reports": 96,
+      "elapsed_seconds": 0.38744347204919904
+    },
+    "br_on_non_null": {
+      "suite": "br_on_non_null",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 8,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 354,
+        "script_commands": 12
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 110,
+        "functions": 30,
+        "types": 128,
+        "regions": 768,
+        "boot": 29
+      },
+      "memory_bytes": 65536,
+      "reports": 14,
+      "elapsed_seconds": 0.07055428600870073
+    },
+    "br_on_null": {
+      "suite": "br_on_null",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 6,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 274,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 86,
+        "functions": 27,
+        "types": 128,
+        "regions": 768,
+        "boot": 27
+      },
+      "memory_bytes": 65536,
+      "reports": 12,
+      "elapsed_seconds": 0.06400449597276747
+    },
+    "br_table": {
+      "suite": "br_table",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 161,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 4665,
+        "script_commands": 186
+      },
+      "status": "exceeds-profile",
+      "reason": "instruction image exceeds profile or repeats an address"
+    },
+    "bulk-memory/bulk": {
+      "suite": "bulk-memory/bulk",
+      "native_counts": {
+        "modules_instantiated": 13,
+        "rtl_actions_completed": 38,
+        "rtl_assertions_passed": 66,
+        "rtl_cycles": 10250,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 525248,
+      "counts": {
+        "code": 138,
+        "functions": 58,
+        "types": 128,
+        "regions": 768,
+        "boot": 488
+      },
+      "memory_bytes": 393216,
+      "reports": 129,
+      "elapsed_seconds": 0.39820692397188395
+    },
+    "bulk-memory/memory_copy": {
+      "suite": "bulk-memory/memory_copy",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "rtl_actions_completed": 15,
+        "rtl_assertions_passed": 4338,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8781317,
+        "script_commands": 4450
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "bulk-memory/memory_fill": {
+      "suite": "bulk-memory/memory_fill",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8659595,
+        "script_commands": 100
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 917888,
+      "counts": {
+        "code": 327,
+        "functions": 33,
+        "types": 128,
+        "regions": 768,
+        "boot": 100
+      },
+      "memory_bytes": 786432,
+      "reports": 29,
+      "elapsed_seconds": 129.022317443043
+    },
+    "bulk-memory/memory_init": {
+      "suite": "bulk-memory/memory_init",
+      "native_counts": {
+        "modules_instantiated": 29,
+        "rtl_actions_completed": 12,
+        "rtl_assertions_passed": 142,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 2767,
+        "script_commands": 250
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "bulk-memory/table-sub": {
+      "suite": "bulk-memory/table-sub",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197312,
+      "counts": {
+        "code": 24,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 16
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.04308258998207748
+    },
+    "bulk-memory/table_copy": {
+      "suite": "bulk-memory/table_copy",
+      "native_counts": {
+        "modules_instantiated": 52,
+        "registrations": 1,
+        "rtl_actions_completed": 26,
+        "rtl_assertions_passed": 1649,
+        "rtl_cycles": 34984,
+        "script_commands": 1728
+      },
+      "status": "exceeds-profile",
+      "reason": "local memory region index/size exceeds profile"
+    },
+    "bulk-memory/table_fill": {
+      "suite": "bulk-memory/table_fill",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 589,
+        "script_commands": 45
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197152,
+      "counts": {
+        "code": 28,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 102
+      },
+      "memory_bytes": 65536,
+      "reports": 39,
+      "elapsed_seconds": 0.1299190310528502
+    },
+    "bulk-memory/table_init": {
+      "suite": "bulk-memory/table_init",
+      "native_counts": {
+        "modules_instantiated": 41,
+        "registrations": 1,
+        "rtl_actions_completed": 18,
+        "rtl_assertions_passed": 665,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 16291,
+        "script_commands": 792
+      },
+      "status": "exceeds-profile",
+      "reason": "local memory region index/size exceeds profile"
+    },
+    "call": {
+      "suite": "call",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 72,
+        "loader_assertions_passed": 18,
+        "rtl_cycles": 665249,
+        "script_commands": 91
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "call_indirect": {
+      "suite": "call_indirect",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 134,
+        "loader_assertions_passed": 35,
+        "rtl_cycles": 2999965,
+        "script_commands": 172
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "call_ref": {
+      "suite": "call_ref",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 27,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 727090,
+        "script_commands": 35
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197216,
+      "counts": {
+        "code": 159,
+        "functions": 40,
+        "types": 128,
+        "regions": 768,
+        "boot": 102
+      },
+      "memory_bytes": 65536,
+      "reports": 45,
+      "elapsed_seconds": 11.163326709065586
+    },
+    "comments": {
+      "suite": "comments",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 3,
+        "rtl_cycles": 90,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 27,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 16
+      },
+      "memory_bytes": 65536,
+      "reports": 7,
+      "elapsed_seconds": 0.07020984392147511
+    },
+    "const": {
+      "suite": "const",
+      "native_counts": {
+        "modules_instantiated": 402,
+        "loader_assertions_passed": 76,
+        "rtl_assertions_passed": 300,
+        "rtl_cycles": 3648,
+        "script_commands": 778
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 921,
+        "functions": 413,
+        "types": 128,
+        "regions": 768,
+        "boot": 313
+      },
+      "memory_bytes": 65536,
+      "reports": 304,
+      "elapsed_seconds": 3.9818634699331596
+    },
+    "conversions": {
+      "suite": "conversions",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 593,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 8396,
+        "script_commands": 619
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 114,
+        "functions": 44,
+        "types": 128,
+        "regions": 768,
+        "boot": 1199
+      },
+      "memory_bytes": 65536,
+      "reports": 597,
+      "elapsed_seconds": 0.626863898942247
+    },
+    "custom": {
+      "suite": "custom",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 48,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.09728135005570948
+    },
+    "data": {
+      "suite": "data",
+      "native_counts": {
+        "modules_instantiated": 32,
+        "embedding_assertions_passed": 14,
+        "loader_assertions_passed": 20,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 1,
+        "rtl_cycles": 1101,
+        "script_commands": 68
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "elem": {
+      "suite": "elem",
+      "native_counts": {
+        "modules_instantiated": 77,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 26,
+        "embedding_assertions_passed": 12,
+        "registrations": 3,
+        "rtl_actions_completed": 1,
+        "rtl_cycles": 4764,
+        "script_commands": 154
+      },
+      "status": "exceeds-profile",
+      "reason": "local memory region index/size exceeds profile"
+    },
+    "endianness": {
+      "suite": "endianness",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 7748,
+        "script_commands": 69
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 194,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 150
+      },
+      "memory_bytes": 131072,
+      "reports": 72,
+      "elapsed_seconds": 0.19651617296040058
+    },
+    "exceptions/cast": {
+      "suite": "exceptions/cast",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 202,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 20
+      },
+      "memory_bytes": 65536,
+      "reports": 9,
+      "elapsed_seconds": 0.03548992599826306
+    },
+    "exceptions/tag": {
+      "suite": "exceptions/tag",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "registrations": 2,
+        "loader_assertions_passed": 2,
+        "embedding_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.07525414193514735
+    },
+    "exceptions/throw": {
+      "suite": "exceptions/throw",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 207,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 62,
+        "functions": 19,
+        "types": 128,
+        "regions": 768,
+        "boot": 28
+      },
+      "memory_bytes": 65536,
+      "reports": 13,
+      "elapsed_seconds": 0.05941370397340506
+    },
+    "exceptions/throw_ref": {
+      "suite": "exceptions/throw_ref",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 499,
+        "script_commands": 15
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 132,
+        "functions": 18,
+        "types": 128,
+        "regions": 768,
+        "boot": 34
+      },
+      "memory_bytes": 65536,
+      "reports": 16,
+      "elapsed_seconds": 0.05936608009506017
+    },
+    "exceptions/try_table": {
+      "suite": "exceptions/try_table",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "registrations": 1,
+        "rtl_assertions_passed": 49,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 1618,
+        "script_commands": 67
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197040,
+      "counts": {
+        "code": 431,
+        "functions": 57,
+        "types": 128,
+        "regions": 768,
+        "boot": 107
+      },
+      "memory_bytes": 65536,
+      "reports": 57,
+      "elapsed_seconds": 0.2215804400620982
+    },
+    "exports": {
+      "suite": "exports",
+      "native_counts": {
+        "modules_instantiated": 56,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 32,
+        "rtl_cycles": 264,
+        "script_commands": 97
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197168,
+      "counts": {
+        "code": 56,
+        "functions": 36,
+        "types": 128,
+        "regions": 768,
+        "boot": 77
+      },
+      "memory_bytes": 65536,
+      "reports": 24,
+      "elapsed_seconds": 0.6759614089969546
+    },
+    "f32": {
+      "suite": "f32",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2500,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 50751,
+        "script_commands": 2514
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 54,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 7413
+      },
+      "memory_bytes": 65536,
+      "reports": 2504,
+      "elapsed_seconds": 2.054958853055723
+    },
+    "f32_bitwise": {
+      "suite": "f32_bitwise",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 360,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 6096,
+        "script_commands": 364
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 1057
+      },
+      "memory_bytes": 65536,
+      "reports": 364,
+      "elapsed_seconds": 0.317399675026536
+    },
+    "f32_cmp": {
+      "suite": "f32_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2400,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 40848,
+        "script_commands": 2407
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 7213
+      },
+      "memory_bytes": 65536,
+      "reports": 2404,
+      "elapsed_seconds": 1.7676532269688323
+    },
+    "f64": {
+      "suite": "f64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2500,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 50752,
+        "script_commands": 2514
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 54,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 7413
+      },
+      "memory_bytes": 65536,
+      "reports": 2504,
+      "elapsed_seconds": 1.9923594309948385
+    },
+    "f64_bitwise": {
+      "suite": "f64_bitwise",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 360,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 6096,
+        "script_commands": 364
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 1057
+      },
+      "memory_bytes": 65536,
+      "reports": 364,
+      "elapsed_seconds": 0.2956287689739838
+    },
+    "f64_cmp": {
+      "suite": "f64_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2400,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 40848,
+        "script_commands": 2407
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 7213
+      },
+      "memory_bytes": 65536,
+      "reports": 2404,
+      "elapsed_seconds": 1.6936046219198033
+    },
+    "fac": {
+      "suite": "fac",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 7,
+        "rtl_cycles": 16230,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 143,
+        "functions": 19,
+        "types": 128,
+        "regions": 768,
+        "boot": 27
+      },
+      "memory_bytes": 65536,
+      "reports": 11,
+      "elapsed_seconds": 0.27765184501186013
+    },
+    "float_exprs": {
+      "suite": "float_exprs",
+      "native_counts": {
+        "modules_instantiated": 98,
+        "rtl_assertions_passed": 819,
+        "rtl_actions_completed": 10,
+        "rtl_cycles": 92454,
+        "script_commands": 927
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 593424,
+      "counts": {
+        "code": 2164,
+        "functions": 291,
+        "types": 128,
+        "regions": 768,
+        "boot": 2721
+      },
+      "memory_bytes": 458752,
+      "reports": 841,
+      "elapsed_seconds": 2.7566241819877177
+    },
+    "float_literals": {
+      "suite": "float_literals",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 99,
+        "loader_assertions_passed": 78,
+        "rtl_cycles": 1392,
+        "script_commands": 179
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 291,
+        "functions": 110,
+        "types": 128,
+        "regions": 768,
+        "boot": 112
+      },
+      "memory_bytes": 65536,
+      "reports": 103,
+      "elapsed_seconds": 0.5339935390511528
+    },
+    "float_memory": {
+      "suite": "float_memory",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 60,
+        "rtl_actions_completed": 24,
+        "rtl_cycles": 1380,
+        "script_commands": 90
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 590296,
+      "counts": {
+        "code": 135,
+        "functions": 47,
+        "types": 128,
+        "regions": 768,
+        "boot": 133
+      },
+      "memory_bytes": 458752,
+      "reports": 100,
+      "elapsed_seconds": 0.1206567770568654
+    },
+    "float_misc": {
+      "suite": "float_misc",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 470,
+        "rtl_cycles": 17498,
+        "script_commands": 471
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 113,
+        "functions": 39,
+        "types": 128,
+        "regions": 768,
+        "boot": 1288
+      },
+      "memory_bytes": 65536,
+      "reports": 474,
+      "elapsed_seconds": 0.5234064389951527
+    },
+    "forward": {
+      "suite": "forward",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 1864,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 39,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 21
+      },
+      "memory_bytes": 65536,
+      "reports": 8,
+      "elapsed_seconds": 0.05714552500285208
+    },
+    "func": {
+      "suite": "func",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 96,
+        "loader_assertions_passed": 75,
+        "rtl_cycles": 1984,
+        "script_commands": 175
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197216,
+      "counts": {
+        "code": 445,
+        "functions": 136,
+        "types": 128,
+        "regions": 768,
+        "boot": 213
+      },
+      "memory_bytes": 65536,
+      "reports": 109,
+      "elapsed_seconds": 0.6573937509674579
+    },
+    "func_ptrs": {
+      "suite": "func_ptrs",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 25,
+        "rtl_actions_completed": 1,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 685,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197280,
+      "counts": {
+        "code": 75,
+        "functions": 38,
+        "types": 128,
+        "regions": 768,
+        "boot": 99
+      },
+      "memory_bytes": 65536,
+      "reports": 43,
+      "elapsed_seconds": 0.10332731995731592
+    },
+    "gc/array": {
+      "suite": "gc/array",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "loader_assertions_passed": 6,
+        "rtl_assertions_passed": 41,
+        "rtl_cycles": 1509,
+        "script_commands": 54
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197088,
+      "counts": {
+        "code": 212,
+        "functions": 55,
+        "types": 128,
+        "regions": 768,
+        "boot": 99
+      },
+      "memory_bytes": 65536,
+      "reports": 50,
+      "elapsed_seconds": 0.1573656479595229
+    },
+    "gc/array_copy": {
+      "suite": "gc/array_copy",
+      "native_counts": {
+        "loader_assertions_passed": 4,
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 38,
+        "rtl_cycles": 1110,
+        "script_commands": 44
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197072,
+      "counts": {
+        "code": 105,
+        "functions": 24,
+        "types": 128,
+        "regions": 768,
+        "boot": 110
+      },
+      "memory_bytes": 65536,
+      "reports": 46,
+      "elapsed_seconds": 0.10439070395659655
+    },
+    "gc/array_fill": {
+      "suite": "gc/array_fill",
+      "native_counts": {
+        "loader_assertions_passed": 3,
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "rtl_cycles": 619,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 38,
+        "functions": 16,
+        "types": 128,
+        "regions": 768,
+        "boot": 82
+      },
+      "memory_bytes": 65536,
+      "reports": 32,
+      "elapsed_seconds": 0.0706955319037661
+    },
+    "gc/array_init_data": {
+      "suite": "gc/array_init_data",
+      "native_counts": {
+        "loader_assertions_passed": 2,
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 43,
+        "rtl_cycles": 960,
+        "script_commands": 48
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197168,
+      "counts": {
+        "code": 150,
+        "functions": 33,
+        "types": 128,
+        "regions": 768,
+        "boot": 131
+      },
+      "memory_bytes": 65536,
+      "reports": 50,
+      "elapsed_seconds": 0.09348157502245158
+    },
+    "gc/array_init_elem": {
+      "suite": "gc/array_init_elem",
+      "native_counts": {
+        "loader_assertions_passed": 3,
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 30,
+        "rtl_cycles": 958,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197280,
+      "counts": {
+        "code": 143,
+        "functions": 48,
+        "types": 128,
+        "regions": 768,
+        "boot": 132
+      },
+      "memory_bytes": 65536,
+      "reports": 51,
+      "elapsed_seconds": 0.10439569805748761
+    },
+    "gc/array_new_data": {
+      "suite": "gc/array_new_data",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 24,
+        "rtl_cycles": 436,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197168,
+      "counts": {
+        "code": 109,
+        "functions": 28,
+        "types": 128,
+        "regions": 768,
+        "boot": 76
+      },
+      "memory_bytes": 65536,
+      "reports": 28,
+      "elapsed_seconds": 0.08515434595756233
+    },
+    "gc/array_new_elem": {
+      "suite": "gc/array_new_elem",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 19,
+        "rtl_cycles": 695,
+        "script_commands": 24
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197296,
+      "counts": {
+        "code": 130,
+        "functions": 41,
+        "types": 128,
+        "regions": 768,
+        "boot": 104
+      },
+      "memory_bytes": 65536,
+      "reports": 40,
+      "elapsed_seconds": 0.09210193296894431
+    },
+    "gc/binary-gc": {
+      "suite": "gc/binary-gc",
+      "native_counts": {
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.02435477706603706
+    },
+    "gc/br_on_cast": {
+      "suite": "gc/br_on_cast",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1384,
+        "script_commands": 37
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197488,
+      "counts": {
+        "code": 368,
+        "functions": 25,
+        "types": 128,
+        "regions": 768,
+        "boot": 72
+      },
+      "memory_bytes": 65536,
+      "reports": 33,
+      "elapsed_seconds": 0.13636576500721276
+    },
+    "gc/br_on_cast_fail": {
+      "suite": "gc/br_on_cast_fail",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1458,
+        "script_commands": 37
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197488,
+      "counts": {
+        "code": 382,
+        "functions": 25,
+        "types": 128,
+        "regions": 768,
+        "boot": 72
+      },
+      "memory_bytes": 65536,
+      "reports": 33,
+      "elapsed_seconds": 0.13396067405119538
+    },
+    "gc/extern": {
+      "suite": "gc/extern",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 16,
+        "rtl_cycles": 411,
+        "script_commands": 18
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197200,
+      "counts": {
+        "code": 58,
+        "functions": 20,
+        "types": 128,
+        "regions": 768,
+        "boot": 55
+      },
+      "memory_bytes": 65536,
+      "reports": 24,
+      "elapsed_seconds": 0.04027223295997828
+    },
+    "gc/i31": {
+      "suite": "gc/i31",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "rtl_assertions_passed": 57,
+        "rtl_actions_completed": 8,
+        "registrations": 1,
+        "rtl_cycles": 1484,
+        "script_commands": 73
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197488,
+      "counts": {
+        "code": 174,
+        "functions": 55,
+        "types": 128,
+        "regions": 768,
+        "boot": 203
+      },
+      "memory_bytes": 65536,
+      "reports": 92,
+      "elapsed_seconds": 0.14160094899125397
+    },
+    "gc/ref_cast": {
+      "suite": "gc/ref_cast",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 40,
+        "rtl_cycles": 1393,
+        "script_commands": 45
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197488,
+      "counts": {
+        "code": 280,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 102
+      },
+      "memory_bytes": 65536,
+      "reports": 48,
+      "elapsed_seconds": 0.08529884391464293
+    },
+    "gc/ref_eq": {
+      "suite": "gc/ref_eq",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 81,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1915,
+        "script_commands": 89
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197312,
+      "counts": {
+        "code": 54,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 258
+      },
+      "memory_bytes": 65536,
+      "reports": 86,
+      "elapsed_seconds": 0.14009535999502987
+    },
+    "gc/ref_test": {
+      "suite": "gc/ref_test",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 2907,
+        "script_commands": 71
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197808,
+      "counts": {
+        "code": 560,
+        "functions": 27,
+        "types": 128,
+        "regions": 768,
+        "boot": 156
+      },
+      "memory_bytes": 65536,
+      "reports": 74,
+      "elapsed_seconds": 0.14269142504781485
+    },
+    "gc/struct": {
+      "suite": "gc/struct",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "loader_assertions_passed": 5,
+        "rtl_assertions_passed": 19,
+        "rtl_cycles": 665,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197056,
+      "counts": {
+        "code": 154,
+        "functions": 44,
+        "types": 128,
+        "regions": 768,
+        "boot": 44
+      },
+      "memory_bytes": 65536,
+      "reports": 27,
+      "elapsed_seconds": 0.12268423999194056
+    },
+    "gc/type-subtyping": {
+      "suite": "gc/type-subtyping",
+      "native_counts": {
+        "modules_instantiated": 46,
+        "loader_assertions_passed": 37,
+        "rtl_assertions_passed": 29,
+        "registrations": 11,
+        "embedding_assertions_passed": 8,
+        "rtl_cycles": 1148,
+        "script_commands": 131
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197664,
+      "counts": {
+        "code": 366,
+        "functions": 126,
+        "types": 128,
+        "regions": 768,
+        "boot": 142
+      },
+      "memory_bytes": 65536,
+      "reports": 74,
+      "elapsed_seconds": 0.6926222339970991
+    },
+    "global": {
+      "suite": "global",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 67,
+        "loader_assertions_passed": 47,
+        "registrations": 1,
+        "rtl_cycles": 1681,
+        "script_commands": 124
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 721988,
+      "counts": {
+        "code": 325,
+        "functions": 106,
+        "types": 128,
+        "regions": 768,
+        "boot": 185
+      },
+      "memory_bytes": 589824,
+      "reports": 114,
+      "elapsed_seconds": 0.46500254794955254
+    },
+    "i32": {
+      "suite": "i32",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 374,
+        "loader_assertions_passed": 85,
+        "rtl_cycles": 7936,
+        "script_commands": 460
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 133,
+        "functions": 42,
+        "types": 128,
+        "regions": 768,
+        "boot": 1094
+      },
+      "memory_bytes": 65536,
+      "reports": 378,
+      "elapsed_seconds": 0.9515975579852238
+    },
+    "i64": {
+      "suite": "i64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 384,
+        "loader_assertions_passed": 31,
+        "rtl_cycles": 10060,
+        "script_commands": 416
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 136,
+        "functions": 43,
+        "types": 128,
+        "regions": 768,
+        "boot": 1114
+      },
+      "memory_bytes": 65536,
+      "reports": 388,
+      "elapsed_seconds": 0.5919221920194104
+    },
+    "id": {
+      "suite": "id",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 48,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 75,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.05964190699160099
+    },
+    "if": {
+      "suite": "if",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 124,
+        "loader_assertions_passed": 116,
+        "rtl_cycles": 5507,
+        "script_commands": 241
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328112,
+      "counts": {
+        "code": 831,
+        "functions": 67,
+        "types": 128,
+        "regions": 768,
+        "boot": 306
+      },
+      "memory_bytes": 196608,
+      "reports": 132,
+      "elapsed_seconds": 0.9171252180822194
+    },
+    "imports": {
+      "suite": "imports",
+      "native_counts": {
+        "modules_instantiated": 68,
+        "registrations": 6,
+        "rtl_assertions_passed": 34,
+        "loader_assertions_passed": 17,
+        "embedding_assertions_passed": 93,
+        "rtl_cycles": 857,
+        "script_commands": 218
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 525505,
+      "counts": {
+        "code": 139,
+        "functions": 52,
+        "types": 128,
+        "regions": 768,
+        "boot": 199
+      },
+      "memory_bytes": 393216,
+      "reports": 131,
+      "elapsed_seconds": 1.5700549370376393
+    },
+    "inline-module": {
+      "suite": "inline-module",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 17,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 14
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.027671143994666636
+    },
+    "instance": {
+      "suite": "instance",
+      "native_counts": {
+        "module_definitions": 2,
+        "modules_instantiated": 6,
+        "registrations": 3,
+        "rtl_assertions_passed": 12,
+        "rtl_cycles": 421,
+        "script_commands": 23
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 394176,
+      "counts": {
+        "code": 129,
+        "functions": 35,
+        "types": 128,
+        "regions": 768,
+        "boot": 61
+      },
+      "memory_bytes": 262144,
+      "reports": 37,
+      "elapsed_seconds": 0.09061604202724993
+    },
+    "int_exprs": {
+      "suite": "int_exprs",
+      "native_counts": {
+        "modules_instantiated": 19,
+        "rtl_assertions_passed": 89,
+        "rtl_cycles": 4424,
+        "script_commands": 108
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 319,
+        "functions": 75,
+        "types": 128,
+        "regions": 768,
+        "boot": 195
+      },
+      "memory_bytes": 65536,
+      "reports": 93,
+      "elapsed_seconds": 0.32916619104798883
+    },
+    "int_literals": {
+      "suite": "int_literals",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 30,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 416,
+        "script_commands": 51
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 101,
+        "functions": 41,
+        "types": 128,
+        "regions": 768,
+        "boot": 43
+      },
+      "memory_bytes": 65536,
+      "reports": 34,
+      "elapsed_seconds": 0.18716791504994035
+    },
+    "labels": {
+      "suite": "labels",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1390,
+        "script_commands": 29
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 430,
+        "functions": 29,
+        "types": 128,
+        "regions": 768,
+        "boot": 48
+      },
+      "memory_bytes": 65536,
+      "reports": 29,
+      "elapsed_seconds": 0.10610503901261836
+    },
+    "left-to-right": {
+      "suite": "left-to-right",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 95,
+        "rtl_cycles": 17794,
+        "script_commands": 96
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262784,
+      "counts": {
+        "code": 866,
+        "functions": 150,
+        "types": 128,
+        "regions": 768,
+        "boot": 137
+      },
+      "memory_bytes": 131072,
+      "reports": 109,
+      "elapsed_seconds": 0.42071314598433673
+    },
+    "linking": {
+      "suite": "linking",
+      "native_counts": {
+        "modules_instantiated": 21,
+        "registrations": 9,
+        "rtl_assertions_passed": 83,
+        "embedding_assertions_passed": 50,
+        "rtl_cycles": 2069,
+        "script_commands": 163
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 722341,
+      "counts": {
+        "code": 198,
+        "functions": 99,
+        "types": 128,
+        "regions": 768,
+        "boot": 353
+      },
+      "memory_bytes": 589824,
+      "reports": 182,
+      "elapsed_seconds": 0.6829272659961134
+    },
+    "load": {
+      "suite": "load",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "loader_assertions_passed": 59,
+        "rtl_cycles": 905,
+        "script_commands": 97
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 128,
+        "regions": 768,
+        "boot": 64
+      },
+      "memory_bytes": 131072,
+      "reports": 45,
+      "elapsed_seconds": 0.4848177039530128
+    },
+    "local_get": {
+      "suite": "local_get",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 19,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 476,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 151,
+        "functions": 30,
+        "types": 128,
+        "regions": 768,
+        "boot": 55
+      },
+      "memory_bytes": 65536,
+      "reports": 23,
+      "elapsed_seconds": 0.1703252400038764
+    },
+    "local_init": {
+      "suite": "local_init",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 124,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 35,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 21
+      },
+      "memory_bytes": 65536,
+      "reports": 8,
+      "elapsed_seconds": 0.07674156606663018
+    },
+    "local_set": {
+      "suite": "local_set",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 19,
+        "loader_assertions_passed": 33,
+        "rtl_cycles": 459,
+        "script_commands": 53
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 151,
+        "functions": 30,
+        "types": 128,
+        "regions": 768,
+        "boot": 55
+      },
+      "memory_bytes": 65536,
+      "reports": 23,
+      "elapsed_seconds": 0.31003353209234774
+    },
+    "local_tee": {
+      "suite": "local_tee",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 55,
+        "loader_assertions_passed": 42,
+        "rtl_cycles": 1497,
+        "script_commands": 98
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "loop": {
+      "suite": "loop",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 78,
+        "loader_assertions_passed": 42,
+        "rtl_cycles": 28506,
+        "script_commands": 121
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328112,
+      "counts": {
+        "code": 797,
+        "functions": 71,
+        "types": 128,
+        "regions": 768,
+        "boot": 145
+      },
+      "memory_bytes": 196608,
+      "reports": 86,
+      "elapsed_seconds": 0.8574082870036364
+    },
+    "memory": {
+      "suite": "memory",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "module_definitions": 1,
+        "rtl_assertions_passed": 53,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 1328,
+        "script_commands": 90
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 524768,
+      "counts": {
+        "code": 161,
+        "functions": 35,
+        "types": 128,
+        "regions": 768,
+        "boot": 152
+      },
+      "memory_bytes": 393216,
+      "reports": 70,
+      "elapsed_seconds": 0.31566988001577556
+    },
+    "memory64/address64": {
+      "suite": "memory64/address64",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 238,
+        "rtl_cycles": 3410,
+        "script_commands": 242
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459242,
+      "counts": {
+        "code": 289,
+        "functions": 99,
+        "types": 128,
+        "regions": 768,
+        "boot": 519
+      },
+      "memory_bytes": 327680,
+      "reports": 250,
+      "elapsed_seconds": 0.21362993097864091
+    },
+    "memory64/align64": {
+      "suite": "memory64/align64",
+      "native_counts": {
+        "modules_instantiated": 26,
+        "loader_assertions_passed": 83,
+        "rtl_assertions_passed": 48,
+        "rtl_cycles": 3914,
+        "script_commands": 157
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 393600,
+      "counts": {
+        "code": 695,
+        "functions": 41,
+        "types": 128,
+        "regions": 768,
+        "boot": 173
+      },
+      "memory_bytes": 262144,
+      "reports": 52,
+      "elapsed_seconds": 0.8823054899694398
+    },
+    "memory64/binary_leb128_64": {
+      "suite": "memory64/binary_leb128_64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 14
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.03408897097688168
+    },
+    "memory64/bulk64": {
+      "suite": "memory64/bulk64",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_actions_completed": 20,
+        "rtl_assertions_passed": 45,
+        "rtl_cycles": 9345,
+        "script_commands": 70
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 524720,
+      "counts": {
+        "code": 57,
+        "functions": 23,
+        "types": 128,
+        "regions": 768,
+        "boot": 203
+      },
+      "memory_bytes": 393216,
+      "reports": 73,
+      "elapsed_seconds": 0.2420626759994775
+    },
+    "memory64/call_indirect64": {
+      "suite": "memory64/call_indirect64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 1,
+        "rtl_cycles": 97,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 27,
+        "functions": 16,
+        "types": 128,
+        "regions": 768,
+        "boot": 21
+      },
+      "memory_bytes": 65536,
+      "reports": 8,
+      "elapsed_seconds": 0.028204114991240203
+    },
+    "memory64/endianness64": {
+      "suite": "memory64/endianness64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 7748,
+        "script_commands": 69
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 194,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 150
+      },
+      "memory_bytes": 131072,
+      "reports": 72,
+      "elapsed_seconds": 0.19581941503565758
+    },
+    "memory64/float_memory64": {
+      "suite": "memory64/float_memory64",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 60,
+        "rtl_actions_completed": 24,
+        "rtl_cycles": 1380,
+        "script_commands": 90
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 590296,
+      "counts": {
+        "code": 135,
+        "functions": 47,
+        "types": 128,
+        "regions": 768,
+        "boot": 133
+      },
+      "memory_bytes": 458752,
+      "reports": 100,
+      "elapsed_seconds": 0.13528977904934436
+    },
+    "memory64/load64": {
+      "suite": "memory64/load64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "loader_assertions_passed": 60,
+        "rtl_cycles": 905,
+        "script_commands": 98
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 128,
+        "regions": 768,
+        "boot": 64
+      },
+      "memory_bytes": 131072,
+      "reports": 45,
+      "elapsed_seconds": 0.5467672660015523
+    },
+    "memory64/memory64": {
+      "suite": "memory64/memory64",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "module_definitions": 1,
+        "rtl_assertions_passed": 45,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 1172,
+        "script_commands": 69
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 393636,
+      "counts": {
+        "code": 152,
+        "functions": 31,
+        "types": 128,
+        "regions": 768,
+        "boot": 128
+      },
+      "memory_bytes": 262144,
+      "reports": 59,
+      "elapsed_seconds": 0.23867879901081324
+    },
+    "memory64/memory64-imports": {
+      "suite": "memory64/memory64-imports",
+      "native_counts": {
+        "modules_instantiated": 40,
+        "registrations": 8,
+        "embedding_assertions_passed": 30,
+        "rtl_cycles": 48,
+        "script_commands": 78
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 722240,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 83
+      },
+      "memory_bytes": 589824,
+      "reports": 64,
+      "elapsed_seconds": 0.5866958260303363
+    },
+    "memory64/memory_copy64": {
+      "suite": "memory64/memory_copy64",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "rtl_actions_completed": 15,
+        "rtl_assertions_passed": 4338,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8781317,
+        "script_commands": 4450
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "memory64/memory_fill64": {
+      "suite": "memory64/memory_fill64",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8659595,
+        "script_commands": 100
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 917888,
+      "counts": {
+        "code": 327,
+        "functions": 33,
+        "types": 128,
+        "regions": 768,
+        "boot": 100
+      },
+      "memory_bytes": 786432,
+      "reports": 29,
+      "elapsed_seconds": 126.59658579505049
+    },
+    "memory64/memory_grow64": {
+      "suite": "memory64/memory_grow64",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 49,
+        "rtl_cycles": 16122499,
+        "script_commands": 54
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "memory64/memory_init64": {
+      "suite": "memory64/memory_init64",
+      "native_counts": {
+        "modules_instantiated": 29,
+        "rtl_actions_completed": 12,
+        "rtl_assertions_passed": 142,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 2767,
+        "script_commands": 250
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "memory64/memory_redundancy64": {
+      "suite": "memory64/memory_redundancy64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_actions_completed": 3,
+        "rtl_cycles": 321,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 78,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 21
+      },
+      "memory_bytes": 131072,
+      "reports": 11,
+      "elapsed_seconds": 0.03649279207456857
+    },
+    "memory64/memory_trap64": {
+      "suite": "memory64/memory_trap64",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 170,
+        "rtl_cycles": 1656,
+        "script_commands": 172
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328088,
+      "counts": {
+        "code": 115,
+        "functions": 40,
+        "types": 128,
+        "regions": 768,
+        "boot": 439
+      },
+      "memory_bytes": 196608,
+      "reports": 178,
+      "elapsed_seconds": 0.13467551907524467
+    },
+    "memory64/table64": {
+      "suite": "memory64/table64",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "module_definitions": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 26
+      },
+      "memory_bytes": 65536,
+      "reports": 5,
+      "elapsed_seconds": 0.12675319495610893
+    },
+    "memory64/table_copy64": {
+      "suite": "memory64/table_copy64",
+      "native_counts": {
+        "modules_instantiated": 52,
+        "registrations": 1,
+        "rtl_actions_completed": 26,
+        "rtl_assertions_passed": 1649,
+        "rtl_cycles": 34984,
+        "script_commands": 1728
+      },
+      "status": "exceeds-profile",
+      "reason": "local memory region index/size exceeds profile"
+    },
+    "memory64/table_copy_mixed": {
+      "suite": "memory64/table_copy_mixed",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 48,
+        "script_commands": 4
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197952,
+      "counts": {
+        "code": 35,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 15
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.052177883917465806
+    },
+    "memory64/table_fill64": {
+      "suite": "memory64/table_fill64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 70,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 1130,
+        "script_commands": 80
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197312,
+      "counts": {
+        "code": 36,
+        "functions": 16,
+        "types": 128,
+        "regions": 768,
+        "boot": 191
+      },
+      "memory_bytes": 65536,
+      "reports": 74,
+      "elapsed_seconds": 0.1482588469516486
+    },
+    "memory64/table_get64": {
+      "suite": "memory64/table_get64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 9,
+        "rtl_cycles": 228,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197088,
+      "counts": {
+        "code": 38,
+        "functions": 18,
+        "types": 128,
+        "regions": 768,
+        "boot": 41
+      },
+      "memory_bytes": 65536,
+      "reports": 17,
+      "elapsed_seconds": 0.034581455984152853
+    },
+    "memory64/table_grow64": {
+      "suite": "memory64/table_grow64",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 25,
+        "rtl_cycles": 382,
+        "script_commands": 27
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197088,
+      "counts": {
+        "code": 34,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 68
+      },
+      "memory_bytes": 65536,
+      "reports": 29,
+      "elapsed_seconds": 0.05057810596190393
+    },
+    "memory64/table_init64": {
+      "suite": "memory64/table_init64",
+      "native_counts": {
+        "modules_instantiated": 44,
+        "registrations": 1,
+        "rtl_actions_completed": 21,
+        "rtl_assertions_passed": 755,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 18610,
+        "script_commands": 888
+      },
+      "status": "exceeds-profile",
+      "reason": "local memory region index/size exceeds profile"
+    },
+    "memory64/table_set64": {
+      "suite": "memory64/table_set64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 18,
+        "rtl_cycles": 317,
+        "script_commands": 19
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197056,
+      "counts": {
+        "code": 43,
+        "functions": 20,
+        "types": 128,
+        "regions": 768,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 25,
+      "elapsed_seconds": 0.040827617049217224
+    },
+    "memory64/table_size64": {
+      "suite": "memory64/table_size64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 36,
+        "rtl_cycles": 591,
+        "script_commands": 37
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197328,
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 128,
+        "regions": 768,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 40,
+      "elapsed_seconds": 0.04927782795857638
+    },
+    "memory_grow": {
+      "suite": "memory_grow",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 89,
+        "registrations": 2,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 16123343,
+        "script_commands": 109
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "memory_redundancy": {
+      "suite": "memory_redundancy",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_actions_completed": 3,
+        "rtl_cycles": 321,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 78,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 21
+      },
+      "memory_bytes": 131072,
+      "reports": 11,
+      "elapsed_seconds": 0.035216524032875896
+    },
+    "memory_size": {
+      "suite": "memory_size",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 36,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 512,
+        "script_commands": 42
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "memory_trap": {
+      "suite": "memory_trap",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 180,
+        "rtl_cycles": 1781,
+        "script_commands": 182
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328088,
+      "counts": {
+        "code": 115,
+        "functions": 40,
+        "types": 128,
+        "regions": 768,
+        "boot": 464
+      },
+      "memory_bytes": 196608,
+      "reports": 188,
+      "elapsed_seconds": 0.13227293197996914
+    },
+    "multi-memory/address0": {
+      "suite": "multi-memory/address0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 91,
+        "rtl_cycles": 1289,
+        "script_commands": 92
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262554,
+      "counts": {
+        "code": 112,
+        "functions": 42,
+        "types": 128,
+        "regions": 768,
+        "boot": 204
+      },
+      "memory_bytes": 131072,
+      "reports": 97,
+      "elapsed_seconds": 0.08538496191613376
+    },
+    "multi-memory/address1": {
+      "suite": "multi-memory/address1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 126,
+        "rtl_cycles": 1774,
+        "script_commands": 127
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262554,
+      "counts": {
+        "code": 150,
+        "functions": 54,
+        "types": 128,
+        "regions": 768,
+        "boot": 277
+      },
+      "memory_bytes": 131072,
+      "reports": 132,
+      "elapsed_seconds": 0.10981376201380044
+    },
+    "multi-memory/align0": {
+      "suite": "multi-memory/align0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 258,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 63,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 24
+      },
+      "memory_bytes": 131072,
+      "reports": 8,
+      "elapsed_seconds": 0.03205829800572246
+    },
+    "multi-memory/binary0": {
+      "suite": "multi-memory/binary0",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 84,
+        "script_commands": 7
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "multi-memory/data0": {
+      "suite": "multi-memory/data0",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "rtl_cycles": 436,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 590513,
+      "counts": {
+        "code": 79,
+        "functions": 43,
+        "types": 128,
+        "regions": 768,
+        "boot": 160
+      },
+      "memory_bytes": 458752,
+      "reports": 73,
+      "elapsed_seconds": 0.0923392279073596
+    },
+    "multi-memory/data1": {
+      "suite": "multi-memory/data1",
+      "native_counts": {
+        "embedding_assertions_passed": 14,
+        "rtl_cycles": 217,
+        "script_commands": 14
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "multi-memory/data_drop0": {
+      "suite": "multi-memory/data_drop0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 6,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 200,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262545,
+      "counts": {
+        "code": 31,
+        "functions": 16,
+        "types": 128,
+        "regions": 768,
+        "boot": 40
+      },
+      "memory_bytes": 131072,
+      "reports": 16,
+      "elapsed_seconds": 0.03334253095090389
+    },
+    "multi-memory/exports0": {
+      "suite": "multi-memory/exports0",
+      "native_counts": {
+        "modules_instantiated": 8,
+        "rtl_cycles": 48,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 786816,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 32
+      },
+      "memory_bytes": 655360,
+      "reports": 4,
+      "elapsed_seconds": 0.0820125670870766
+    },
+    "multi-memory/float_exprs0": {
+      "suite": "multi-memory/float_exprs0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 591,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 41,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 47
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.04390350403264165
+    },
+    "multi-memory/float_exprs1": {
+      "suite": "multi-memory/float_exprs1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 22884,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 263552,
+      "counts": {
+        "code": 68,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 159
+      },
+      "memory_bytes": 131072,
+      "reports": 8,
+      "elapsed_seconds": 0.4312893550377339
+    },
+    "multi-memory/float_memory0": {
+      "suite": "multi-memory/float_memory0",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 20,
+        "rtl_actions_completed": 8,
+        "rtl_cycles": 492,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328088,
+      "counts": {
+        "code": 55,
+        "functions": 23,
+        "types": 128,
+        "regions": 768,
+        "boot": 59
+      },
+      "memory_bytes": 196608,
+      "reports": 36,
+      "elapsed_seconds": 0.06201286299619824
+    },
+    "multi-memory/imports0": {
+      "suite": "multi-memory/imports0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 6,
+        "rtl_cycles": 84,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459504,
+      "counts": {
+        "code": 32,
+        "functions": 21,
+        "types": 128,
+        "regions": 768,
+        "boot": 23
+      },
+      "memory_bytes": 327680,
+      "reports": 7,
+      "elapsed_seconds": 0.07493770692963153
+    },
+    "multi-memory/imports1": {
+      "suite": "multi-memory/imports1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 112,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196993,
+      "counts": {
+        "code": 20,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 30
+      },
+      "memory_bytes": 65536,
+      "reports": 14,
+      "elapsed_seconds": 0.030493652098812163
+    },
+    "multi-memory/imports2": {
+      "suite": "multi-memory/imports2",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "embedding_assertions_passed": 6,
+        "rtl_cycles": 176,
+        "script_commands": 20
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459153,
+      "counts": {
+        "code": 25,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 58
+      },
+      "memory_bytes": 327680,
+      "reports": 32,
+      "elapsed_seconds": 0.11679030698724091
+    },
+    "multi-memory/imports3": {
+      "suite": "multi-memory/imports3",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 8,
+        "rtl_cycles": 84,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459504,
+      "counts": {
+        "code": 32,
+        "functions": 21,
+        "types": 128,
+        "regions": 768,
+        "boot": 33
+      },
+      "memory_bytes": 327680,
+      "reports": 17,
+      "elapsed_seconds": 0.0939763089409098
+    },
+    "multi-memory/imports4": {
+      "suite": "multi-memory/imports4",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "registrations": 3,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 158,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 721280,
+      "counts": {
+        "code": 26,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 41
+      },
+      "memory_bytes": 589824,
+      "reports": 18,
+      "elapsed_seconds": 0.06503403605893254
+    },
+    "multi-memory/linking0": {
+      "suite": "multi-memory/linking0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 2,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 177,
+        "script_commands": 6
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262769,
+      "counts": {
+        "code": 40,
+        "functions": 23,
+        "types": 128,
+        "regions": 768,
+        "boot": 49
+      },
+      "memory_bytes": 131072,
+      "reports": 20,
+      "elapsed_seconds": 0.05044058198109269
+    },
+    "multi-memory/linking1": {
+      "suite": "multi-memory/linking1",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "registrations": 1,
+        "rtl_assertions_passed": 7,
+        "embedding_assertions_passed": 2,
+        "rtl_cycles": 225,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328145,
+      "counts": {
+        "code": 36,
+        "functions": 20,
+        "types": 128,
+        "regions": 768,
+        "boot": 64
+      },
+      "memory_bytes": 196608,
+      "reports": 28,
+      "elapsed_seconds": 0.08225189300719649
+    },
+    "multi-memory/linking2": {
+      "suite": "multi-memory/linking2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 172,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 524682,
+      "counts": {
+        "code": 23,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 38
+      },
+      "memory_bytes": 393216,
+      "reports": 15,
+      "elapsed_seconds": 0.04244355799164623
+    },
+    "multi-memory/linking3": {
+      "suite": "multi-memory/linking3",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 2,
+        "embedding_assertions_passed": 4,
+        "rtl_assertions_passed": 6,
+        "rtl_cycles": 249,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 590325,
+      "counts": {
+        "code": 45,
+        "functions": 25,
+        "types": 128,
+        "regions": 768,
+        "boot": 66
+      },
+      "memory_bytes": 458752,
+      "reports": 30,
+      "elapsed_seconds": 0.0828801819588989
+    },
+    "multi-memory/load0": {
+      "suite": "multi-memory/load0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 102,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328081,
+      "counts": {
+        "code": 25,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 29
+      },
+      "memory_bytes": 196608,
+      "reports": 10,
+      "elapsed_seconds": 0.031109572970308363
+    },
+    "multi-memory/load1": {
+      "suite": "multi-memory/load1",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 15,
+        "rtl_cycles": 297,
+        "script_commands": 18
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 524693,
+      "counts": {
+        "code": 28,
+        "functions": 16,
+        "types": 128,
+        "regions": 768,
+        "boot": 56
+      },
+      "memory_bytes": 393216,
+      "reports": 24,
+      "elapsed_seconds": 0.04717123100999743
+    },
+    "multi-memory/load2": {
+      "suite": "multi-memory/load2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "rtl_cycles": 905,
+        "script_commands": 38
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 128,
+        "regions": 768,
+        "boot": 67
+      },
+      "memory_bytes": 131072,
+      "reports": 45,
+      "elapsed_seconds": 0.060588957043364644
+    },
+    "multi-memory/memory-multi": {
+      "suite": "multi-memory/memory-multi",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 154,
+        "script_commands": 6
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459152,
+      "counts": {
+        "code": 43,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 23
+      },
+      "memory_bytes": 327680,
+      "reports": 8,
+      "elapsed_seconds": 0.039567244006320834
+    },
+    "multi-memory/memory_copy0": {
+      "suite": "multi-memory/memory_copy0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 7,
+        "rtl_assertions_passed": 21,
+        "rtl_cycles": 627,
+        "script_commands": 29
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459188,
+      "counts": {
+        "code": 31,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 111
+      },
+      "memory_bytes": 327680,
+      "reports": 40,
+      "elapsed_seconds": 0.0477909070905298
+    },
+    "multi-memory/memory_copy1": {
+      "suite": "multi-memory/memory_copy1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 392,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459188,
+      "counts": {
+        "code": 31,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 77
+      },
+      "memory_bytes": 327680,
+      "reports": 25,
+      "elapsed_seconds": 0.0395846440223977
+    },
+    "multi-memory/memory_fill0": {
+      "suite": "multi-memory/memory_fill0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 8469,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 58
+      },
+      "memory_bytes": 131072,
+      "reports": 19,
+      "elapsed_seconds": 0.16224579606205225
+    },
+    "multi-memory/memory_grow": {
+      "suite": "multi-memory/memory_grow",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 1,
+        "rtl_assertions_passed": 47,
+        "rtl_cycles": 638,
+        "script_commands": 51
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "multi-memory/memory_init0": {
+      "suite": "multi-memory/memory_init0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 230,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262532,
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 57
+      },
+      "memory_bytes": 131072,
+      "reports": 16,
+      "elapsed_seconds": 0.03398863994516432
+    },
+    "multi-memory/memory_size0": {
+      "suite": "multi-memory/memory_size0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 7,
+        "rtl_cycles": 138,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 524672,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 28
+      },
+      "memory_bytes": 393216,
+      "reports": 11,
+      "elapsed_seconds": 0.031170437927357852
+    },
+    "multi-memory/memory_size1": {
+      "suite": "multi-memory/memory_size1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 14,
+        "rtl_cycles": 224,
+        "script_commands": 15
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 590208,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 36
+      },
+      "memory_bytes": 458752,
+      "reports": 18,
+      "elapsed_seconds": 0.03535460098646581
+    },
+    "multi-memory/memory_size2": {
+      "suite": "multi-memory/memory_size2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "rtl_cycles": 300,
+        "script_commands": 21
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328064,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 43
+      },
+      "memory_bytes": 196608,
+      "reports": 24,
+      "elapsed_seconds": 0.03764777397736907
+    },
+    "multi-memory/memory_size3": {
+      "suite": "multi-memory/memory_size3",
+      "native_counts": {
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.03267733391840011
+    },
+    "multi-memory/memory_size_import": {
+      "suite": "multi-memory/memory_size_import",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 96,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 786816,
+      "counts": {
+        "code": 23,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 23
+      },
+      "memory_bytes": 655360,
+      "reports": 10,
+      "elapsed_seconds": 0.036044718930497766
+    },
+    "multi-memory/memory_trap0": {
+      "suite": "multi-memory/memory_trap0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 13,
+        "rtl_cycles": 388,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 33,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 48
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.0374336700187996
+    },
+    "multi-memory/memory_trap1": {
+      "suite": "multi-memory/memory_trap1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 167,
+        "rtl_cycles": 1441,
+        "script_commands": 168
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262552,
+      "counts": {
+        "code": 97,
+        "functions": 36,
+        "types": 128,
+        "regions": 768,
+        "boot": 433
+      },
+      "memory_bytes": 131072,
+      "reports": 175,
+      "elapsed_seconds": 0.12103911198209971
+    },
+    "multi-memory/start0": {
+      "suite": "multi-memory/start0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 6,
+        "rtl_actions_completed": 2,
+        "rtl_cycles": 271,
+        "script_commands": 9
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328065,
+      "counts": {
+        "code": 36,
+        "functions": 16,
+        "types": 128,
+        "regions": 768,
+        "boot": 30
+      },
+      "memory_bytes": 196608,
+      "reports": 15,
+      "elapsed_seconds": 0.03488774795550853
+    },
+    "multi-memory/store0": {
+      "suite": "multi-memory/store0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 2,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 108,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328064,
+      "counts": {
+        "code": 29,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 25
+      },
+      "memory_bytes": 196608,
+      "reports": 8,
+      "elapsed_seconds": 0.03120220999699086
+    },
+    "multi-memory/store1": {
+      "suite": "multi-memory/store1",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 2,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 168,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328064,
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 128,
+        "regions": 768,
+        "boot": 37
+      },
+      "memory_bytes": 196608,
+      "reports": 14,
+      "elapsed_seconds": 0.05423677805811167
+    },
+    "multi-memory/store2": {
+      "suite": "multi-memory/store2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 20,
+        "rtl_actions_completed": 2,
+        "rtl_cycles": 626,
+        "script_commands": 25
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 524693,
+      "counts": {
+        "code": 61,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 68
+      },
+      "memory_bytes": 393216,
+      "reports": 31,
+      "elapsed_seconds": 0.060009843902662396
+    },
+    "multi-memory/traps0": {
+      "suite": "multi-memory/traps0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 14,
+        "rtl_cycles": 146,
+        "script_commands": 15
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 393600,
+      "counts": {
+        "code": 71,
+        "functions": 25,
+        "types": 128,
+        "regions": 768,
+        "boot": 44
+      },
+      "memory_bytes": 262144,
+      "reports": 18,
+      "elapsed_seconds": 0.037575950962491333
+    },
+    "names": {
+      "suite": "names",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 482,
+        "rtl_cycles": 5850,
+        "script_commands": 486
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 982,
+        "functions": 493,
+        "types": 128,
+        "regions": 768,
+        "boot": 497
+      },
+      "memory_bytes": 65536,
+      "reports": 486,
+      "elapsed_seconds": 0.35886691394262016
+    },
+    "nop": {
+      "suite": "nop",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 83,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 2029,
+        "script_commands": 88
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "obsolete-keywords": {
+      "suite": "obsolete-keywords",
+      "native_counts": {
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 48,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.08290848997421563
+    },
+    "ref": {
+      "suite": "ref",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 48,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 16,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.11988344497513026
+    },
+    "ref_as_non_null": {
+      "suite": "ref_as_non_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 154,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197008,
+      "counts": {
+        "code": 52,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 20
+      },
+      "memory_bytes": 65536,
+      "reports": 9,
+      "elapsed_seconds": 0.04904741095378995
+    },
+    "ref_func": {
+      "suite": "ref_func",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "rtl_actions_completed": 2,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 514,
+        "script_commands": 17
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197280,
+      "counts": {
+        "code": 116,
+        "functions": 51,
+        "types": 128,
+        "regions": 768,
+        "boot": 75
+      },
+      "memory_bytes": 65536,
+      "reports": 34,
+      "elapsed_seconds": 0.08887506101746112
+    },
+    "ref_is_null": {
+      "suite": "ref_is_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 16,
+        "rtl_actions_completed": 2,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 556,
+        "script_commands": 22
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197120,
+      "counts": {
+        "code": 74,
+        "functions": 28,
+        "types": 128,
+        "regions": 768,
+        "boot": 62
+      },
+      "memory_bytes": 65536,
+      "reports": 28,
+      "elapsed_seconds": 0.07614180899690837
+    },
+    "ref_null": {
+      "suite": "ref_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 32,
+        "rtl_cycles": 735,
+        "script_commands": 34
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197360,
+      "counts": {
+        "code": 89,
+        "functions": 48,
+        "types": 128,
+        "regions": 768,
+        "boot": 91
+      },
+      "memory_bytes": 65536,
+      "reports": 59,
+      "elapsed_seconds": 0.06766478903591633
+    },
+    "relaxed-simd/i16x8_relaxed_q15mulr_s": {
+      "suite": "relaxed-simd/i16x8_relaxed_q15mulr_s",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 156,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 27,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 19
+      },
+      "memory_bytes": 65536,
+      "reports": 6,
+      "elapsed_seconds": 0.030709484941326082
+    },
+    "relaxed-simd/i32x4_relaxed_trunc": {
+      "suite": "relaxed-simd/i32x4_relaxed_trunc",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.02761606697458774
+    },
+    "relaxed-simd/i8x16_relaxed_swizzle": {
+      "suite": "relaxed-simd/i8x16_relaxed_swizzle",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 297,
+        "script_commands": 6
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 27,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 28
+      },
+      "memory_bytes": 65536,
+      "reports": 9,
+      "elapsed_seconds": 0.034754547057673335
+    },
+    "relaxed-simd/relaxed_dot_product": {
+      "suite": "relaxed-simd/relaxed_dot_product",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 593,
+        "script_commands": 12
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 42,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 51
+      },
+      "memory_bytes": 65536,
+      "reports": 15,
+      "elapsed_seconds": 0.04633696295786649
+    },
+    "relaxed-simd/relaxed_laneselect": {
+      "suite": "relaxed-simd/relaxed_laneselect",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 653,
+        "script_commands": 12
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 75,
+        "functions": 19,
+        "types": 128,
+        "regions": 768,
+        "boot": 57
+      },
+      "memory_bytes": 65536,
+      "reports": 15,
+      "elapsed_seconds": 0.051229357020929456
+    },
+    "relaxed-simd/relaxed_madd_nmadd": {
+      "suite": "relaxed-simd/relaxed_madd_nmadd",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 18,
+        "rtl_cycles": 854,
+        "script_commands": 20
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 85,
+        "functions": 20,
+        "types": 128,
+        "regions": 768,
+        "boot": 85
+      },
+      "memory_bytes": 65536,
+      "reports": 22,
+      "elapsed_seconds": 0.06736952404025942
+    },
+    "relaxed-simd/relaxed_min_max": {
+      "suite": "relaxed-simd/relaxed_min_max",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 24,
+        "rtl_cycles": 924,
+        "script_commands": 25
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 63,
+        "functions": 19,
+        "types": 128,
+        "regions": 768,
+        "boot": 85
+      },
+      "memory_bytes": 65536,
+      "reports": 28,
+      "elapsed_seconds": 0.06488238298334181
+    },
+    "return": {
+      "suite": "return",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 63,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 981,
+        "script_commands": 84
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 364,
+        "functions": 75,
+        "types": 128,
+        "regions": 768,
+        "boot": 102
+      },
+      "memory_bytes": 131072,
+      "reports": 71,
+      "elapsed_seconds": 0.24580997694283724
+    },
+    "return_call": {
+      "suite": "return_call",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 34,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 90027776,
+        "script_commands": 51
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 148,
+        "functions": 48,
+        "types": 128,
+        "regions": 768,
+        "boot": 74
+      },
+      "memory_bytes": 65536,
+      "reports": 38,
+      "elapsed_seconds": 1014.8694532639347
+    },
+    "return_call_indirect": {
+      "suite": "return_call_indirect",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 50,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 14945921,
+        "script_commands": 83
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197792,
+      "counts": {
+        "code": 307,
+        "functions": 91,
+        "types": 128,
+        "regions": 768,
+        "boot": 207
+      },
+      "memory_bytes": 65536,
+      "reports": 89,
+      "elapsed_seconds": 234.45582517702132
+    },
+    "return_call_ref": {
+      "suite": "return_call_ref",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 105032683,
+        "script_commands": 53
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197600,
+      "counts": {
+        "code": 261,
+        "functions": 92,
+        "types": 128,
+        "regions": 768,
+        "boot": 155
+      },
+      "memory_bytes": 65536,
+      "reports": 77,
+      "elapsed_seconds": 1177.8628626030404
+    },
+    "select": {
+      "suite": "select",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 124,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 2852,
+        "script_commands": 157
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459248,
+      "counts": {
+        "code": 448,
+        "functions": 82,
+        "types": 128,
+        "regions": 768,
+        "boot": 386
+      },
+      "memory_bytes": 327680,
+      "reports": 136,
+      "elapsed_seconds": 0.39509024505969137
+    },
+    "simd/simd_address": {
+      "suite": "simd/simd_address",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 42,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 702,
+        "script_commands": 49
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 393632,
+      "counts": {
+        "code": 82,
+        "functions": 27,
+        "types": 128,
+        "regions": 768,
+        "boot": 102
+      },
+      "memory_bytes": 262144,
+      "reports": 50,
+      "elapsed_seconds": 0.1129264310002327
+    },
+    "simd/simd_align": {
+      "suite": "simd/simd_align",
+      "native_counts": {
+        "modules_instantiated": 46,
+        "loader_assertions_passed": 46,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 200,
+        "script_commands": 100
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "simd/simd_bit_shift": {
+      "suite": "simd/simd_bit_shift",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 211,
+        "loader_assertions_passed": 39,
+        "rtl_cycles": 7731,
+        "script_commands": 252
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 375,
+        "functions": 59,
+        "types": 128,
+        "regions": 768,
+        "boot": 587
+      },
+      "memory_bytes": 131072,
+      "reports": 215,
+      "elapsed_seconds": 0.5395557240117341
+    },
+    "simd/simd_bitwise": {
+      "suite": "simd/simd_bitwise",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 139,
+        "loader_assertions_passed": 28,
+        "rtl_cycles": 5922,
+        "script_commands": 169
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 328,
+        "functions": 30,
+        "types": 128,
+        "regions": 768,
+        "boot": 411
+      },
+      "memory_bytes": 131072,
+      "reports": 143,
+      "elapsed_seconds": 0.43145598703995347
+    },
+    "simd/simd_boolean": {
+      "suite": "simd/simd_boolean",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 259,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 11506,
+        "script_commands": 277
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 468,
+        "functions": 88,
+        "types": 128,
+        "regions": 768,
+        "boot": 664
+      },
+      "memory_bytes": 131072,
+      "reports": 263,
+      "elapsed_seconds": 0.48976065509486943
+    },
+    "simd/simd_const": {
+      "suite": "simd/simd_const",
+      "native_counts": {
+        "modules_instantiated": 312,
+        "loader_assertions_passed": 181,
+        "rtl_assertions_passed": 265,
+        "rtl_cycles": 3609,
+        "script_commands": 758
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 459280,
+      "counts": {
+        "code": 1012,
+        "functions": 400,
+        "types": 128,
+        "regions": 768,
+        "boot": 309
+      },
+      "memory_bytes": 327680,
+      "reports": 278,
+      "elapsed_seconds": 3.7791116390144452
+    },
+    "simd/simd_conversions": {
+      "suite": "simd/simd_conversions",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 232,
+        "loader_assertions_passed": 48,
+        "rtl_cycles": 6523,
+        "script_commands": 282
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 144,
+        "functions": 40,
+        "types": 128,
+        "regions": 768,
+        "boot": 600
+      },
+      "memory_bytes": 65536,
+      "reports": 236,
+      "elapsed_seconds": 0.603131543030031
+    },
+    "simd/simd_f32x4": {
+      "suite": "simd/simd_f32x4",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 772,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 18576,
+        "script_commands": 790
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 115,
+        "functions": 35,
+        "types": 128,
+        "regions": 768,
+        "boot": 2284
+      },
+      "memory_bytes": 65536,
+      "reports": 776,
+      "elapsed_seconds": 0.8658437309786677
+    },
+    "simd/simd_f32x4_arith": {
+      "suite": "simd/simd_f32x4_arith",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 1803,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 89693,
+        "script_commands": 1822
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 134,
+        "functions": 36,
+        "types": 128,
+        "regions": 768,
+        "boot": 5336
+      },
+      "memory_bytes": 65536,
+      "reports": 1807,
+      "elapsed_seconds": 2.666599471005611
+    },
+    "simd/simd_f32x4_cmp": {
+      "suite": "simd/simd_f32x4_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 2581,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 62796,
+        "script_commands": 2607
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 304,
+        "functions": 30,
+        "types": 128,
+        "regions": 768,
+        "boot": 7731
+      },
+      "memory_bytes": 131072,
+      "reports": 2585,
+      "elapsed_seconds": 2.722414752934128
+    },
+    "simd/simd_f32x4_pmin_pmax": {
+      "suite": "simd/simd_f32x4_pmin_pmax",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 3872,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 92976,
+        "script_commands": 3887
+      },
+      "status": "exceeds-profile",
+      "reason": "boot image exceeds profile"
+    },
+    "simd/simd_f32x4_rounding": {
+      "suite": "simd/simd_f32x4_rounding",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 176,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 3920,
+        "script_commands": 201
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 365
+      },
+      "memory_bytes": 65536,
+      "reports": 180,
+      "elapsed_seconds": 0.3294450379908085
+    },
+    "simd/simd_f64x2": {
+      "suite": "simd/simd_f64x2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 793,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 15890,
+        "script_commands": 803
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 182,
+        "functions": 52,
+        "types": 128,
+        "regions": 768,
+        "boot": 2321
+      },
+      "memory_bytes": 65536,
+      "reports": 797,
+      "elapsed_seconds": 0.7639536099741235
+    },
+    "simd/simd_f64x2_arith": {
+      "suite": "simd/simd_f64x2_arith",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 1806,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 59291,
+        "script_commands": 1825
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 147,
+        "functions": 39,
+        "types": 128,
+        "regions": 768,
+        "boot": 5339
+      },
+      "memory_bytes": 65536,
+      "reports": 1810,
+      "elapsed_seconds": 2.1661066099768505
+    },
+    "simd/simd_f64x2_cmp": {
+      "suite": "simd/simd_f64x2_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 2659,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 53864,
+        "script_commands": 2685
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 304,
+        "functions": 30,
+        "types": 128,
+        "regions": 768,
+        "boot": 7965
+      },
+      "memory_bytes": 131072,
+      "reports": 2663,
+      "elapsed_seconds": 2.436780738993548
+    },
+    "simd/simd_f64x2_pmin_pmax": {
+      "suite": "simd/simd_f64x2_pmin_pmax",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 3872,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 77488,
+        "script_commands": 3887
+      },
+      "status": "exceeds-profile",
+      "reason": "boot image exceeds profile"
+    },
+    "simd/simd_f64x2_rounding": {
+      "suite": "simd/simd_f64x2_rounding",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 176,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 3216,
+        "script_commands": 201
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 365
+      },
+      "memory_bytes": 65536,
+      "reports": 180,
+      "elapsed_seconds": 0.3188507789745927
+    },
+    "simd/simd_i16x8_arith": {
+      "suite": "simd/simd_i16x8_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 181,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6132,
+        "script_commands": 194
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 545
+      },
+      "memory_bytes": 65536,
+      "reports": 185,
+      "elapsed_seconds": 0.35291795595549047
+    },
+    "simd/simd_i16x8_arith2": {
+      "suite": "simd/simd_i16x8_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 151,
+        "loader_assertions_passed": 19,
+        "rtl_cycles": 5723,
+        "script_commands": 172
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 325,
+        "functions": 74,
+        "types": 128,
+        "regions": 768,
+        "boot": 439
+      },
+      "memory_bytes": 65536,
+      "reports": 155,
+      "elapsed_seconds": 0.3687806179514155
+    },
+    "simd/simd_i16x8_cmp": {
+      "suite": "simd/simd_i16x8_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 433,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 15519,
+        "script_commands": 465
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 1287
+      },
+      "memory_bytes": 131072,
+      "reports": 437,
+      "elapsed_seconds": 0.8219637309666723
+    },
+    "simd/simd_i16x8_extadd_pairwise_i8x16": {
+      "suite": "simd/simd_i16x8_extadd_pairwise_i8x16",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 16,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 544,
+        "script_commands": 21
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 45
+      },
+      "memory_bytes": 65536,
+      "reports": 20,
+      "elapsed_seconds": 0.08389166207052767
+    },
+    "simd/simd_i16x8_extmul_i8x16": {
+      "suite": "simd/simd_i16x8_extmul_i8x16",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 325
+      },
+      "memory_bytes": 65536,
+      "reports": 108,
+      "elapsed_seconds": 0.24132593104150146
+    },
+    "simd/simd_i16x8_q15mulr_sat_s": {
+      "suite": "simd/simd_i16x8_q15mulr_sat_s",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 906,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 91
+      },
+      "memory_bytes": 65536,
+      "reports": 30,
+      "elapsed_seconds": 0.07654142589308321
+    },
+    "simd/simd_i16x8_sat_arith": {
+      "suite": "simd/simd_i16x8_sat_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 204,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 6940,
+        "script_commands": 222
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 75,
+        "functions": 23,
+        "types": 128,
+        "regions": 768,
+        "boot": 629
+      },
+      "memory_bytes": 65536,
+      "reports": 208,
+      "elapsed_seconds": 0.3853926269803196
+    },
+    "simd/simd_i32x4_arith": {
+      "suite": "simd/simd_i32x4_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 181,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6132,
+        "script_commands": 194
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 545
+      },
+      "memory_bytes": 65536,
+      "reports": 185,
+      "elapsed_seconds": 0.315229695988819
+    },
+    "simd/simd_i32x4_arith2": {
+      "suite": "simd/simd_i32x4_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 121,
+        "loader_assertions_passed": 26,
+        "rtl_cycles": 4506,
+        "script_commands": 149
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 241,
+        "functions": 58,
+        "types": 128,
+        "regions": 768,
+        "boot": 346
+      },
+      "memory_bytes": 65536,
+      "reports": 125,
+      "elapsed_seconds": 0.4669269329169765
+    },
+    "simd/simd_i32x4_cmp": {
+      "suite": "simd/simd_i32x4_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 433,
+        "loader_assertions_passed": 40,
+        "rtl_cycles": 15519,
+        "script_commands": 475
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 1287
+      },
+      "memory_bytes": 131072,
+      "reports": 437,
+      "elapsed_seconds": 0.7968104730825871
+    },
+    "simd/simd_i32x4_dot_i16x8": {
+      "suite": "simd/simd_i32x4_dot_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 28,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 972,
+        "script_commands": 32
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 97
+      },
+      "memory_bytes": 65536,
+      "reports": 32,
+      "elapsed_seconds": 0.08286240906454623
+    },
+    "simd/simd_i32x4_extadd_pairwise_i16x8": {
+      "suite": "simd/simd_i32x4_extadd_pairwise_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 16,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 544,
+        "script_commands": 21
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 45
+      },
+      "memory_bytes": 65536,
+      "reports": 20,
+      "elapsed_seconds": 0.08505748596508056
+    },
+    "simd/simd_i32x4_extmul_i16x8": {
+      "suite": "simd/simd_i32x4_extmul_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 325
+      },
+      "memory_bytes": 65536,
+      "reports": 108,
+      "elapsed_seconds": 0.25922342005651444
+    },
+    "simd/simd_i32x4_trunc_sat_f32x4": {
+      "suite": "simd/simd_i32x4_trunc_sat_f32x4",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 2292,
+        "script_commands": 107
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 217
+      },
+      "memory_bytes": 65536,
+      "reports": 106,
+      "elapsed_seconds": 0.15506140794605017
+    },
+    "simd/simd_i32x4_trunc_sat_f64x2": {
+      "suite": "simd/simd_i32x4_trunc_sat_f64x2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 1884,
+        "script_commands": 107
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 217
+      },
+      "memory_bytes": 65536,
+      "reports": 106,
+      "elapsed_seconds": 0.14354684902355075
+    },
+    "simd/simd_i64x2_arith": {
+      "suite": "simd/simd_i64x2_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 187,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6330,
+        "script_commands": 200
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 563
+      },
+      "memory_bytes": 65536,
+      "reports": 191,
+      "elapsed_seconds": 0.33767625503242016
+    },
+    "simd/simd_i64x2_arith2": {
+      "suite": "simd/simd_i64x2_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 21,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 718,
+        "script_commands": 25
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 54
+      },
+      "memory_bytes": 65536,
+      "reports": 25,
+      "elapsed_seconds": 0.07054874894674867
+    },
+    "simd/simd_i64x2_cmp": {
+      "suite": "simd/simd_i64x2_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 10,
+        "rtl_cycles": 3414,
+        "script_commands": 113
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 128,
+        "regions": 768,
+        "boot": 319
+      },
+      "memory_bytes": 65536,
+      "reports": 106,
+      "elapsed_seconds": 0.21222707792185247
+    },
+    "simd/simd_i64x2_extmul_i32x4": {
+      "suite": "simd/simd_i64x2_extmul_i32x4",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 325
+      },
+      "memory_bytes": 65536,
+      "reports": 108,
+      "elapsed_seconds": 0.2466266849078238
+    },
+    "simd/simd_i8x16_arith": {
+      "suite": "simd/simd_i8x16_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 121,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 4091,
+        "script_commands": 131
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 48,
+        "functions": 18,
+        "types": 128,
+        "regions": 768,
+        "boot": 363
+      },
+      "memory_bytes": 65536,
+      "reports": 125,
+      "elapsed_seconds": 0.24364827293902636
+    },
+    "simd/simd_i8x16_arith2": {
+      "suite": "simd/simd_i8x16_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 184,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 7013,
+        "script_commands": 211
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 393,
+        "functions": 89,
+        "types": 128,
+        "regions": 768,
+        "boot": 514
+      },
+      "memory_bytes": 65536,
+      "reports": 188,
+      "elapsed_seconds": 0.453990699024871
+    },
+    "simd/simd_i8x16_cmp": {
+      "suite": "simd/simd_i8x16_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 413,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 14859,
+        "script_commands": 445
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 1227
+      },
+      "memory_bytes": 131072,
+      "reports": 417,
+      "elapsed_seconds": 0.7196802829857916
+    },
+    "simd/simd_i8x16_sat_arith": {
+      "suite": "simd/simd_i8x16_sat_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 188,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 6412,
+        "script_commands": 214
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 75,
+        "functions": 23,
+        "types": 128,
+        "regions": 768,
+        "boot": 581
+      },
+      "memory_bytes": 65536,
+      "reports": 192,
+      "elapsed_seconds": 0.4287718340056017
+    },
+    "simd/simd_int_to_int_extend": {
+      "suite": "simd/simd_int_to_int_extend",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 228,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 7116,
+        "script_commands": 253
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 51,
+        "functions": 23,
+        "types": 128,
+        "regions": 768,
+        "boot": 469
+      },
+      "memory_bytes": 65536,
+      "reports": 232,
+      "elapsed_seconds": 0.46638760599307716
+    },
+    "simd/simd_lane": {
+      "suite": "simd/simd_lane",
+      "native_counts": {
+        "modules_instantiated": 12,
+        "rtl_assertions_passed": 274,
+        "loader_assertions_passed": 189,
+        "rtl_cycles": 9844,
+        "script_commands": 475
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262560,
+      "counts": {
+        "code": 465,
+        "functions": 106,
+        "types": 128,
+        "regions": 768,
+        "boot": 740
+      },
+      "memory_bytes": 131072,
+      "reports": 280,
+      "elapsed_seconds": 1.8046024120412767
+    },
+    "simd/simd_linking": {
+      "suite": "simd/simd_linking",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_cycles": 72,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 19,
+        "functions": 13,
+        "types": 128,
+        "regions": 768,
+        "boot": 17
+      },
+      "memory_bytes": 65536,
+      "reports": 6,
+      "elapsed_seconds": 0.03715538198594004
+    },
+    "simd/simd_load": {
+      "suite": "simd/simd_load",
+      "native_counts": {
+        "modules_instantiated": 14,
+        "rtl_assertions_passed": 17,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 813,
+        "script_commands": 39
+      },
+      "status": "exceeds-profile",
+      "reason": "prepared module exceeds local RAM capacity"
+    },
+    "simd/simd_load16_lane": {
+      "suite": "simd/simd_load16_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 32,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 604,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 145,
+        "functions": 44,
+        "types": 128,
+        "regions": 768,
+        "boot": 107
+      },
+      "memory_bytes": 131072,
+      "reports": 38,
+      "elapsed_seconds": 0.08121689490508288
+    },
+    "simd/simd_load32_lane": {
+      "suite": "simd/simd_load32_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 400,
+        "script_commands": 24
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 97,
+        "functions": 32,
+        "types": 128,
+        "regions": 768,
+        "boot": 75
+      },
+      "memory_bytes": 131072,
+      "reports": 26,
+      "elapsed_seconds": 0.07737165805883706
+    },
+    "simd/simd_load64_lane": {
+      "suite": "simd/simd_load64_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 264,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 65,
+        "functions": 24,
+        "types": 128,
+        "regions": 768,
+        "boot": 53
+      },
+      "memory_bytes": 131072,
+      "reports": 18,
+      "elapsed_seconds": 0.06964552600402385
+    },
+    "simd/simd_load8_lane": {
+      "suite": "simd/simd_load8_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 48,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 876,
+        "script_commands": 52
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 209,
+        "functions": 60,
+        "types": 128,
+        "regions": 768,
+        "boot": 147
+      },
+      "memory_bytes": 131072,
+      "reports": 54,
+      "elapsed_seconds": 0.10697536694351584
+    },
+    "simd/simd_load_extend": {
+      "suite": "simd/simd_load_extend",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 84,
+        "loader_assertions_passed": 18,
+        "rtl_cycles": 1452,
+        "script_commands": 104
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328138,
+      "counts": {
+        "code": 267,
+        "functions": 80,
+        "types": 128,
+        "regions": 768,
+        "boot": 178
+      },
+      "memory_bytes": 196608,
+      "reports": 94,
+      "elapsed_seconds": 0.24229006899986416
+    },
+    "simd/simd_load_splat": {
+      "suite": "simd/simd_load_splat",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 112,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 1644,
+        "script_commands": 126
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328107,
+      "counts": {
+        "code": 173,
+        "functions": 54,
+        "types": 128,
+        "regions": 768,
+        "boot": 242
+      },
+      "memory_bytes": 196608,
+      "reports": 122,
+      "elapsed_seconds": 0.19621671410277486
+    },
+    "simd/simd_load_zero": {
+      "suite": "simd/simd_load_zero",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 27,
+        "loader_assertions_passed": 10,
+        "rtl_cycles": 525,
+        "script_commands": 39
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328138,
+      "counts": {
+        "code": 100,
+        "functions": 35,
+        "types": 128,
+        "regions": 768,
+        "boot": 80
+      },
+      "memory_bytes": 196608,
+      "reports": 37,
+      "elapsed_seconds": 0.1281951640266925
+    },
+    "simd/simd_memory-multi": {
+      "suite": "simd/simd_memory-multi",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328064,
+      "counts": {
+        "code": 100,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 15
+      },
+      "memory_bytes": 196608,
+      "reports": 4,
+      "elapsed_seconds": 0.030329585075378418
+    },
+    "simd/simd_select": {
+      "suite": "simd/simd_select",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 6,
+        "rtl_cycles": 156,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 20,
+        "functions": 12,
+        "types": 128,
+        "regions": 768,
+        "boot": 37
+      },
+      "memory_bytes": 65536,
+      "reports": 10,
+      "elapsed_seconds": 0.031836453010328114
+    },
+    "simd/simd_splat": {
+      "suite": "simd/simd_splat",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 158,
+        "loader_assertions_passed": 23,
+        "rtl_cycles": 6778,
+        "script_commands": 185
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 358,
+        "functions": 74,
+        "types": 128,
+        "regions": 768,
+        "boot": 365
+      },
+      "memory_bytes": 131072,
+      "reports": 163,
+      "elapsed_seconds": 0.44289868406485766
+    },
+    "simd/simd_store": {
+      "suite": "simd/simd_store",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 17,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 410,
+        "script_commands": 28
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328064,
+      "counts": {
+        "code": 127,
+        "functions": 28,
+        "types": 128,
+        "regions": 768,
+        "boot": 32
+      },
+      "memory_bytes": 196608,
+      "reports": 21,
+      "elapsed_seconds": 0.1294666239991784
+    },
+    "simd/simd_store16_lane": {
+      "suite": "simd/simd_store16_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 32,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1180,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 369,
+        "functions": 44,
+        "types": 128,
+        "regions": 768,
+        "boot": 104
+      },
+      "memory_bytes": 131072,
+      "reports": 37,
+      "elapsed_seconds": 0.0990126309916377
+    },
+    "simd/simd_store32_lane": {
+      "suite": "simd/simd_store32_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 760,
+        "script_commands": 24
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 237,
+        "functions": 32,
+        "types": 128,
+        "regions": 768,
+        "boot": 72
+      },
+      "memory_bytes": 131072,
+      "reports": 25,
+      "elapsed_seconds": 0.08264829393010587
+    },
+    "simd/simd_store64_lane": {
+      "suite": "simd/simd_store64_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 480,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 149,
+        "functions": 24,
+        "types": 128,
+        "regions": 768,
+        "boot": 50
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.07090882502961904
+    },
+    "simd/simd_store8_lane": {
+      "suite": "simd/simd_store8_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 48,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1740,
+        "script_commands": 52
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262544,
+      "counts": {
+        "code": 545,
+        "functions": 60,
+        "types": 128,
+        "regions": 768,
+        "boot": 144
+      },
+      "memory_bytes": 131072,
+      "reports": 53,
+      "elapsed_seconds": 0.12653395300731063
+    },
+    "skip-stack-guard-page": {
+      "suite": "skip-stack-guard-page",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 10,
+        "rtl_cycles": 108596,
+        "script_commands": 11
+      },
+      "status": "exceeds-profile",
+      "reason": "instruction image exceeds profile or repeats an address"
+    },
+    "stack": {
+      "suite": "stack",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 2614,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197024,
+      "counts": {
+        "code": 380,
+        "functions": 21,
+        "types": 128,
+        "regions": 768,
+        "boot": 24
+      },
+      "memory_bytes": 65536,
+      "reports": 10,
+      "elapsed_seconds": 0.09567166992928833
+    },
+    "start": {
+      "suite": "start",
+      "native_counts": {
+        "loader_assertions_passed": 4,
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 6,
+        "rtl_actions_completed": 4,
+        "embedding_assertions_passed": 1,
+        "rtl_cycles": 455,
+        "script_commands": 20
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 328081,
+      "counts": {
+        "code": 57,
+        "functions": 22,
+        "types": 128,
+        "regions": 768,
+        "boot": 41
+      },
+      "memory_bytes": 196608,
+      "reports": 24,
+      "elapsed_seconds": 0.10430953500326723
+    },
+    "store": {
+      "suite": "store",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 58,
+        "rtl_cycles": 234,
+        "script_commands": 68
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 79,
+        "functions": 20,
+        "types": 128,
+        "regions": 768,
+        "boot": 23
+      },
+      "memory_bytes": 131072,
+      "reports": 13,
+      "elapsed_seconds": 0.47380030003841966
+    },
+    "switch": {
+      "suite": "switch",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 1358,
+        "script_commands": 28
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 149,
+        "functions": 15,
+        "types": 128,
+        "regions": 768,
+        "boot": 64
+      },
+      "memory_bytes": 65536,
+      "reports": 30,
+      "elapsed_seconds": 0.07839953200891614
+    },
+    "table": {
+      "suite": "table",
+      "native_counts": {
+        "modules_instantiated": 17,
+        "module_definitions": 1,
+        "loader_assertions_passed": 22,
+        "registrations": 1,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 221,
+        "script_commands": 46
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197920,
+      "counts": {
+        "code": 48,
+        "functions": 26,
+        "types": 128,
+        "regions": 768,
+        "boot": 89
+      },
+      "memory_bytes": 65536,
+      "reports": 18,
+      "elapsed_seconds": 0.3389159240759909
+    },
+    "table_get": {
+      "suite": "table_get",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 5,
+        "rtl_cycles": 228,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197088,
+      "counts": {
+        "code": 38,
+        "functions": 18,
+        "types": 128,
+        "regions": 768,
+        "boot": 41
+      },
+      "memory_bytes": 65536,
+      "reports": 17,
+      "elapsed_seconds": 0.07901503203902394
+    },
+    "table_grow": {
+      "suite": "table_grow",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 43,
+        "registrations": 2,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 3566,
+        "script_commands": 61
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 210752,
+      "counts": {
+        "code": 95,
+        "functions": 28,
+        "types": 128,
+        "regions": 768,
+        "boot": 116
+      },
+      "memory_bytes": 65536,
+      "reports": 51,
+      "elapsed_seconds": 0.24453111609909683
+    },
+    "table_set": {
+      "suite": "table_set",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 18,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 317,
+        "script_commands": 26
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197056,
+      "counts": {
+        "code": 43,
+        "functions": 20,
+        "types": 128,
+        "regions": 768,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 25,
+      "elapsed_seconds": 0.10139676299877465
+    },
+    "table_size": {
+      "suite": "table_size",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 36,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 591,
+        "script_commands": 39
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197328,
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 128,
+        "regions": 768,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 40,
+      "elapsed_seconds": 0.06365569704212248
+    },
+    "token": {
+      "suite": "token",
+      "native_counts": {
+        "loader_assertions_passed": 26,
+        "modules_instantiated": 35,
+        "rtl_cycles": 108,
+        "script_commands": 61
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262845,
+      "counts": {
+        "code": 84,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 63
+      },
+      "memory_bytes": 131072,
+      "reports": 12,
+      "elapsed_seconds": 0.4711041370173916
+    },
+    "traps": {
+      "suite": "traps",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 32,
+        "rtl_cycles": 310,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262528,
+      "counts": {
+        "code": 143,
+        "functions": 41,
+        "types": 128,
+        "regions": 768,
+        "boot": 88
+      },
+      "memory_bytes": 131072,
+      "reports": 36,
+      "elapsed_seconds": 0.0782345519401133
+    },
+    "type": {
+      "suite": "type",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.03963273193221539
+    },
+    "type-canon": {
+      "suite": "type-canon",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.03761403600219637
+    },
+    "type-equivalence": {
+      "suite": "type-equivalence",
+      "native_counts": {
+        "modules_instantiated": 21,
+        "loader_assertions_passed": 1,
+        "rtl_assertions_passed": 4,
+        "registrations": 6,
+        "rtl_cycles": 653,
+        "script_commands": 32
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197344,
+      "counts": {
+        "code": 200,
+        "functions": 66,
+        "types": 128,
+        "regions": 768,
+        "boot": 66
+      },
+      "memory_bytes": 65536,
+      "reports": 27,
+      "elapsed_seconds": 0.23476591799408197
+    },
+    "type-rec": {
+      "suite": "type-rec",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "loader_assertions_passed": 10,
+        "registrations": 1,
+        "embedding_assertions_passed": 2,
+        "rtl_assertions_passed": 3,
+        "rtl_cycles": 218,
+        "script_commands": 27
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 197168,
+      "counts": {
+        "code": 55,
+        "functions": 34,
+        "types": 128,
+        "regions": 768,
+        "boot": 47
+      },
+      "memory_bytes": 65536,
+      "reports": 21,
+      "elapsed_seconds": 0.1967475290875882
+    },
+    "unreachable": {
+      "suite": "unreachable",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 63,
+        "rtl_cycles": 653,
+        "script_commands": 64
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 262576,
+      "counts": {
+        "code": 314,
+        "functions": 74,
+        "types": 128,
+        "regions": 768,
+        "boot": 106
+      },
+      "memory_bytes": 131072,
+      "reports": 71,
+      "elapsed_seconds": 0.06989478599280119
+    },
+    "unreached-invalid": {
+      "suite": "unreached-invalid",
+      "native_counts": {
+        "loader_assertions_passed": 121,
+        "rtl_cycles": 48,
+        "script_commands": 121
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 1.0844164559384808
+    },
+    "unreached-valid": {
+      "suite": "unreached-valid",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 10,
+        "rtl_cycles": 106,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 102,
+        "functions": 24,
+        "types": 128,
+        "regions": 768,
+        "boot": 27
+      },
+      "memory_bytes": 65536,
+      "reports": 14,
+      "elapsed_seconds": 0.056755736004561186
+    },
+    "unwind": {
+      "suite": "unwind",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 49,
+        "rtl_cycles": 1026,
+        "script_commands": 50
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 401,
+        "functions": 60,
+        "types": 128,
+        "regions": 768,
+        "boot": 62
+      },
+      "memory_bytes": 65536,
+      "reports": 53,
+      "elapsed_seconds": 0.07689275895245373
+    },
+    "utf8-custom-section-id": {
+      "suite": "utf8-custom-section-id",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 1.0720576740568504
+    },
+    "utf8-import-field": {
+      "suite": "utf8-import-field",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 1.0422775309998542
+    },
+    "utf8-import-module": {
+      "suite": "utf8-import-module",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 1.0486907720332965
+    },
+    "utf8-invalid-encoding": {
+      "suite": "utf8-invalid-encoding",
+      "native_counts": {
+        "loader_assertions_passed": 180,
+        "modules_instantiated": 3,
+        "rtl_cycles": 48,
+        "script_commands": 183
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 196992,
+      "counts": {
+        "code": 18,
+        "functions": 14,
+        "types": 128,
+        "regions": 768,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 1.1624075890285894
+    }
+  },
+  "physical_hardware_tested": false
+}
