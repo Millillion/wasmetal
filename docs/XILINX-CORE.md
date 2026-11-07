@@ -187,7 +187,7 @@ before/after checks, and another fresh conversion checked their identities
 before publication. The [archive](verification/fresh-native-corpus/index.json)
 preserves 7,999 source, generated and derived input files plus the full report
 and execution log. The complete sixteen-partition Xilinx rerun with these
-new input records is running; it has not passed yet.
+new input records [passed in CI at `b620e87`](verification/ci-b620e87-complete.json).
 
 ## CI deployment
 
@@ -202,9 +202,13 @@ and ECP5 corpus gates [passed at commit `4907fa2`](verification/ci-4907fa2-compl
 Their downloaded, digest-verified reports agree on all 259 suites and every
 canonical command cycle. The [archive](verification/ci-4907fa2/index.json)
 retains the reports and gate logs. Those results precede the fresh-input
-runner described above; they do not establish that newer CI revision's result.
-The overall workflow still had unfinished or unsuccessful routing jobs at
-the recorded observation.
+runner described above. Both gates [passed again at `b620e87`](verification/ci-b620e87-complete.json)
+with that runner: every suite retains digest-checked input records, verified
+before and after execution, and the downloaded shard reports re-merge locally
+to identical results. The mapped simulators, RTL build inputs and every
+canonical command cycle match the `4907fa2` archive. Neither workflow passed
+as a whole; at `b620e87`, complete-system simulation builds failed and both
+routing jobs were skipped.
 
 The [deployment preflight](verification/xc7-core-ci-preflight.json) restores the
 package into another directory containing the required repository inputs and

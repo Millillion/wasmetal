@@ -1,0 +1,142 @@
+{
+  "status": "selected-gates-passed",
+  "repository": "Millillion/wasmetal",
+  "run_id": 41952113363,
+  "head_sha": "b620e8712cb2b99e4540da7e739f7038fdf0c335",
+  "observed_at_utc": "2026-11-07T03:33:46Z",
+  "gates": [
+    {
+      "name": "Complete mapped corpus",
+      "id": 127100052563,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127100052563",
+      "conclusion": "success",
+      "completed_at": "2026-11-05T06:58:16Z"
+    },
+    {
+      "name": "Complete Xilinx mapped corpus",
+      "id": 127095863290,
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127095863290",
+      "conclusion": "success",
+      "completed_at": "2026-11-05T06:46:13Z"
+    }
+  ],
+  "whole_workflow_passed": false,
+  "other_job_states_at_observation": [
+    {
+      "name": "Complete CPU with behavioral ASIC SRAM",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127017975158"
+    },
+    {
+      "name": "Complete CPU with asynchronous AXI memory",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127017975249"
+    },
+    {
+      "name": "Complete programmable 7-series circuit",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127017975271"
+    },
+    {
+      "name": "Complete CPU memory startup (3-cycle SRAM)",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127017975336"
+    },
+    {
+      "name": "Standalone RTL and mapped system",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127017975546"
+    },
+    {
+      "name": "Complete systems with uninitialized storage",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127017975550"
+    },
+    {
+      "name": "Complete CPU memory startup (1-cycle SRAM)",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127017975834"
+    },
+    {
+      "name": "Standalone FPGA system",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127018461110"
+    },
+    {
+      "name": "Complete programmable circuit integration",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127018461494"
+    },
+    {
+      "name": "Programmable FPGA routing",
+      "status": "completed",
+      "conclusion": "skipped",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127018461993"
+    },
+    {
+      "name": "Standalone FPGA routing",
+      "status": "completed",
+      "conclusion": "skipped",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127018462121"
+    },
+    {
+      "name": "Compiler-generated Wasm on RTL and mapped system",
+      "status": "completed",
+      "conclusion": "skipped",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127018462376"
+    },
+    {
+      "name": "Programmable simulation build",
+      "status": "completed",
+      "conclusion": "skipped",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127018462696"
+    },
+    {
+      "name": "Programmable mapped circuit (${{ matrix.shard }})",
+      "status": "completed",
+      "conclusion": "skipped",
+      "html_url": "https://github.com/Millillion/wasmetal/actions/runs/41952113363/job/127018462931"
+    }
+  ],
+  "physical_hardware_tested": false,
+  "artifacts": 2,
+  "archive": "docs/verification/ci-b620e87/index.json",
+  "suite_files_per_core_model": 259,
+  "totals_per_core_model": {
+    "modules_instantiated": 2266,
+    "rtl_assertions_passed": 57711,
+    "loader_assertions_passed": 4677,
+    "rtl_cycles": 306351688,
+    "script_commands": 65353,
+    "rtl_actions_completed": 359,
+    "registrations": 80,
+    "embedding_assertions_passed": 254,
+    "module_definitions": 6
+  },
+  "newer_fresh_input_runner_covered": true,
+  "conversion_evidence_records_per_core_model": 276,
+  "evidence_verified_before_and_after_execution": true,
+  "ecp5_and_xilinx_observations_compared_locally": true,
+  "local_remerge": {
+    "tool": "tools/spec_ci.py merge",
+    "native_reference_sha256": "616cf304d195289ea1229453832ed56d5b326874ea3dcea4abc4da9cdda44da9",
+    "shard_reports_per_model": 16,
+    "reproduced_ci_outputs_exactly": true,
+    "note": "Rerun from downloaded shard, plan and native-reference artifacts; outputs match apart from local shard paths."
+  },
+  "matches_4907fa2_archive": {
+    "mapped_simulators": true,
+    "rtl_build_inputs": true,
+    "totals": true,
+    "command_cycles": true
+  }
+}

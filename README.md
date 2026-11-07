@@ -44,8 +44,11 @@ and cycle counts. Fifteen input-integrity tests pass; CI aggregation rejects
 The [complete native rerun now passes all 259 suites](docs/verification/fresh-native-corpus.json),
 with every observation and cycle count unchanged. Its 7,216 generated payloads
 were verified around execution and independently regenerated before publication.
-The complete Xilinx rerun with these stronger records is running; earlier
-mapped results retain their original runner identities.
+The complete Xilinx and ECP5 reruns with these stronger records
+[passed in CI at commit `b620e87`](docs/verification/ci-b620e87-complete.json):
+all 259 suites on each mapped core, with 276 input records verified before and
+after execution and every command cycle unchanged. Rerunning the CI merge
+locally from the downloaded shard reports reproduces both results exactly.
 The complete system also passes a new
 [four-state boot and upload campaign](docs/verification/loadable-four-state.json)
 at production capacities. All 1,492,992 bits in the five writable program stores
@@ -207,9 +210,11 @@ the actual command-partition fixture. Five output-protection fixtures pass.
 The [complete Xilinx and ECP5 corpus gates have now passed in CI](docs/verification/ci-4907fa2-complete.json)
 at commit `4907fa2`. Their downloaded reports were checked against GitHub's
 artifact digests and agree on every canonical command and cycle count.
-These reports precede the newer fresh-input runner. The overall workflow
-is not green: programmable FPGA routing was still running at the recorded
-observation, standalone routing was cancelled, and its dependent gate failed.
+Both gates [passed again at `b620e87`](docs/verification/ci-b620e87-complete.json)
+with the fresh-input runner, using the same mapped simulators. That workflow
+was not green either: the new SKY130 wrapper broke every complete-system
+simulation build, which also skipped both routing jobs. Commit `7ebd733`
+removes the wrapper from the default system sources.
 ULX3S 85F remains the implemented board target, with routing
 still incomplete; no board has been purchased or physically tested by this work.
 The latest archived [standalone routing attempt](docs/verification/ci-standalone-routing-41846026922.json)
