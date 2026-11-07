@@ -589,8 +589,10 @@ startup run. All UART bytes and CPU execution counts match, and every recorded
 wall-clock change matches the exact startup allowance: 2,949,121 or 3,604,481
 clocks per committed image. The CPU watchdog remains ten million clocks. A
 corrupted SRAM read blocks successful boot; 32 damaged comparison reports and
-three process-cleanup fixtures also pass their rejection/cleanup checks. CI now
-includes both complete-CPU startup configurations. These runs use RTL and a
+three process-cleanup fixtures also pass their rejection/cleanup checks. CI
+includes both complete-CPU startup configurations; they have not passed there
+yet, because the jobs omitted the native preparation build until `make sim`
+was added after `9a3ce2b`. These runs use RTL and a
 behavioral SRAM array; the default CPU/board image does not yet include this
 controller. Every shared reset repeats the destructive test.
 

@@ -442,8 +442,10 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - name: Install pinned simulation tools
-        run: python3 tools/bootstrap.py
+      - name: Install pinned simulation tools and build the software preparation frontend
+        run: |
+          python3 tools/bootstrap.py
+          make sim
       - name: Run all cases without startup on this CPU revision
         run: python3 tools/check_sram_system.py --latency ${{ matrix.latency }}
       - name: Run all cases after the full-capacity startup test
