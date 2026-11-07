@@ -1,12 +1,21 @@
 // SPDX-License-Identifier: MIT
 // Pins only: independent UART sender/receiver, reset, and completion indicators.
 #include "verilated.h"
-#ifdef WASMETAL_BOARD
+#if defined(WASMETAL_GENESYS2)
+#define WASMETAL_BOARD
+// Hold reset for the same four CPU clocks as the 32-tick ULX3S board model.
+#define RESET_TICKS 1024
+#include "Vwasmetal_loadable_genesys2.h"
+using Model=Vwasmetal_loadable_genesys2;
+#elif defined(WASMETAL_BOARD)
 #include "Vwasmetal_loadable_ulx3s.h"
 using Model=Vwasmetal_loadable_ulx3s;
 #else
 #include "Vwasmetal_loadable.h"
 using Model=Vwasmetal_loadable;
+#endif
+#ifndef RESET_TICKS
+#define RESET_TICKS 128
 #endif
 #include <cstdint>
 #include <fstream>
@@ -48,32 +57,42 @@ public:
     Receiver receiver;
     uint64_t clocks=0,first_result=0;
     unsigned period_permille=1000;
+    uint64_t deadline_clocks=12000000ULL*CLOCK_SCALE;
     bool record_result=false;
     uint64_t fractional_time=0;
     size_t reply_cursor=0;
     bool serial() {
-#ifdef WASMETAL_BOARD
+#if defined(WASMETAL_GENESYS2)
+        return dut.uart_rx_out;
+#elif defined(WASMETAL_BOARD)
         return dut.ftdi_rxd;
 #else
         return dut.tx;
 #endif
     }
     bool finished() {
-#ifdef WASMETAL_BOARD
+#if defined(WASMETAL_GENESYS2)
+        return !(dut.led&1);
+#elif defined(WASMETAL_BOARD)
         return !dut.led_busy;
 #else
         return dut.finished;
 #endif
     }
     void rx(bool value) {
-#ifdef WASMETAL_BOARD
+#if defined(WASMETAL_GENESYS2)
+        dut.uart_tx_in=value;
+#elif defined(WASMETAL_BOARD)
         dut.ftdi_txd=value;
 #else
         dut.rx=value;
 #endif
     }
     void tick(bool capture=true) {
-#ifdef WASMETAL_BOARD
+#if defined(WASMETAL_GENESYS2)
+        dut.sysclk_p=0;dut.sysclk_n=1;dut.eval();dut.sysclk_p=1;dut.sysclk_n=0;dut.eval();
+        dut.sysclk_p=0;dut.sysclk_n=1;dut.eval();
+#elif defined(WASMETAL_BOARD)
         dut.clk_25mhz=0;dut.eval();dut.clk_25mhz=1;dut.eval();dut.clk_25mhz=0;dut.eval();
 #else
         dut.clk=0;dut.eval();dut.clk=1;dut.eval();dut.clk=0;dut.eval();
@@ -83,13 +102,17 @@ public:
     }
     void reset() {
         rx(true);
-#ifdef WASMETAL_BOARD
+#if defined(WASMETAL_GENESYS2)
+        dut.cpu_resetn=0;
+#elif defined(WASMETAL_BOARD)
         dut.btn_n=0;
 #else
         dut.reset=1;
 #endif
-        for(unsigned n=0;n<128;n++)tick(false);
-#ifdef WASMETAL_BOARD
+        for(unsigned n=0;n<RESET_TICKS;n++)tick(false);
+#if defined(WASMETAL_GENESYS2)
+        dut.cpu_resetn=1;
+#elif defined(WASMETAL_BOARD)
         dut.btn_n=1;
 #else
         dut.reset=0;
@@ -150,7 +173,7 @@ public:
                 if(kind=="bad-crc")unloaded();
                 else {
                     record_result=true;
-                    const uint64_t deadline=clocks+12000000ULL*CLOCK_SCALE;
+                    const uint64_t deadline=clocks+deadline_clocks;
                     while(!finished() && clocks<deadline) {
                         if(kind=="interrupt" && clocks-commit_clock==offset){reset();interrupted=true;break;}
                         tick();
@@ -174,6 +197,8 @@ int main(int argc,char**argv) {
         for(int n=1;n<argc;n++) {
             std::string flag=argv[n];
             if(flag=="--period-permille" && n+1<argc){test->period_permille=unsigned(std::stoul(argv[++n]));continue;}
+            // A session image runs a whole script; allow its longer execution.
+            if(flag=="--deadline-clocks" && n+1<argc){test->deadline_clocks=std::stoull(argv[++n]);continue;}
             require(n+1<argc,"missing upload file");std::string path=argv[++n];uint64_t offset=0;
             require(flag=="--upload" || flag=="--bad-crc" || flag=="--bad-profile" || flag=="--partial" ||
                 flag=="--timeout" || flag=="--break" || flag=="--interrupt","unknown loadable driver option");

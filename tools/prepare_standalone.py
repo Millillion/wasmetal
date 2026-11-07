@@ -7,6 +7,7 @@ Its initialization commands are replayed by the hardware boot sequencer.
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 
@@ -24,8 +25,14 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def load_profile(path=ROOT / "soc/profile.json"):
-    p = json.loads(path.read_text())
+def profile_path():
+    """The selected capacity profile; WASMETAL_PROFILE overrides the default."""
+    selected = os.environ.get('WASMETAL_PROFILE')
+    return (ROOT / selected).resolve() if selected else ROOT / "soc/profile.json"
+
+
+def load_profile(path=None):
+    p = json.loads((path or profile_path()).read_text())
     expected = {"core", "instruction_depth", "function_depth", "type_depth",
                 "boot_depth", "regions_per_kind", "ram_bytes", "memory_pages",
                 "table_slots", "max_results", "watchdog_cycles"}
@@ -71,8 +78,12 @@ class Recorder(RTL):
         super().send(command)
 
 
-def pack_trace(trace, profile):
-    """Pack actual loader commands, with explicit physical regions and no pruning."""
+def pack_trace(trace, profile, session=False):
+    """Pack actual loader commands, with explicit physical regions and no pruning.
+
+    A session image reports every execution and global/size query, in order.
+    It then also returns, for each reporting boot record, its trace line.
+    """
     p = profile
     code, functions, relations, regions = {}, {}, set(), {}
     cursor = 0
@@ -126,7 +137,8 @@ def pack_trace(trace, profile):
                                data=int.from_bytes(chunk, 'little'), aux=len(chunk)))
 
     final_seen = False
-    for f in lines:
+    reports = []
+    for line_number, f in enumerate(lines):
         op = f[0]
         if final_seen:
             raise ValueError("commands after exported invocation")
@@ -162,6 +174,16 @@ def pack_trace(trace, profile):
             if not 0 <= int(f[1]) < p['core']['VALUE_DEPTH']:
                 raise ValueError("argument exceeds value capacity")
             boot.append(record(1, 1, int(f[1]), int(f[2], 16)))
+        elif op in ('R', 'Z') and session:
+            if op == 'Z':
+                raise ValueError("session images report every execution")
+            reports.append((len(boot), line_number))
+            boot.append(record(4, index=int(f[1]), aux=int(f[2])))
+        elif op in ('H', 'S') and session:
+            if op == 'H' and not 0 <= int(f[1]) < p['regions_per_kind']:
+                raise ValueError("global query exceeds profile")
+            reports.append((len(boot), line_number))
+            boot.append(record(5, 8 if op == 'H' else 6 + int(f[1]), int(f[-1])))
         elif op in ('R', 'Z'):
             boot.append(record(3 if op == 'Z' else 1, index=int(f[1]), aux=int(f[2])))
             final_seen = op == 'Z'
@@ -179,8 +201,8 @@ def pack_trace(trace, profile):
             boot.append(record(1, 5, int(f[1]), int(f[2])))
         elif op not in ('V', 'W', 'S', 'H', 'Q'):
             raise ValueError(f"unsupported image command: {op}")
-    if not final_seen or not code or not functions:
-        raise ValueError("image needs code, functions and one exported invocation")
+    if (final_seen == session) or not code or not functions or (session and not reports):
+        raise ValueError("image needs code, functions and one exported invocation or reported session")
     if set(code) != set(range(len(code))) or set(functions) != set(range(len(functions))):
         raise ValueError("image contains holes")
     for value in functions.values():
@@ -188,7 +210,7 @@ def pack_trace(trace, profile):
             raise ValueError("function entry lies outside instruction image")
     for value in boot:
         mode, kind = value >> 228, (value >> 224) & 15
-        if mode in (1, 3) and kind == 0:
+        if mode in (1, 3, 4) and kind == 0:
             index, argc = (value >> 192) & 0xffffffff, (value >> 128) & ((1 << 64) - 1)
             if index not in functions or argc != ((functions[index] >> 32) & 0xffffffff):
                 raise ValueError("invocation has invalid function or argument count")
@@ -207,9 +229,12 @@ def pack_trace(trace, profile):
     depths = {'code': p['instruction_depth'], 'functions': p['function_depth'],
               'types': p['type_depth'], 'regions': 6 * p['regions_per_kind'], 'boot': p['boot_depth']}
     roms = {name: values + [0] * (depths[name] - len(values)) for name, values in roms.items()}
-    return roms, {'counts': counts, 'allocated_ram_bytes': cursor,
-                  'regions': [{'kind': k, 'index': i, 'base': b, 'bytes': s}
-                              for (k, i), (b, s) in sorted(regions.items())]}
+    summary = {'counts': counts, 'allocated_ram_bytes': cursor,
+               'regions': [{'kind': k, 'index': i, 'base': b, 'bytes': s}
+                           for (k, i), (b, s) in sorted(regions.items())]}
+    if session:
+        summary['reports'] = [{'boot_record': b, 'trace_line': n} for b, n in reports]
+    return roms, summary
 
 
 def prepare(source, output, export='main', arguments=(), profile=None, simulator=None):

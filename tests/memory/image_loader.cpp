@@ -3,6 +3,7 @@
 #include "Vwasmetal_image_loader.h"
 #include "verilated.h"
 #include <array>
+#include <cstdlib>
 #include <cstdint>
 #include <fstream>
 #include <iostream>
@@ -55,22 +56,31 @@ public:
     unsigned expected_word=0;
     bool stalled=false;
     std::vector<uint8_t> expected,reply_bytes;
+    // Per-row oracle: the bytes each store row must receive, written once.
+    std::array<std::vector<std::vector<uint8_t>>,5> row_data;
+    std::array<std::vector<bool>,5> written;
+    void expect_full(const std::vector<uint8_t>& payload) {
+        unsigned offset=0;
+        for(unsigned s=0;s<5;s++) {
+            row_data[s].assign(rows[s],{});written[s].assign(rows[s],false);
+            for(unsigned i=0;i<rows[s];i++,offset+=widths[s])
+                row_data[s][i].assign(payload.begin()+offset,payload.begin()+offset+widths[s]);
+        }
+    }
     Test(){dut.clk=0;dut.rx_valid=0;dut.abort_load=0;reset();}
     void tick() {
         dut.tx_ready=stalled ? 0 : random()%4!=0;dut.eval();
         if(dut.word_valid) {
             require(!dut.image_valid,"image executable during a store write");
-            unsigned section=0,index=expected_word,offset=0;
-            while(section<5 && index>=rows[section]) {index-=rows[section];offset+=rows[section]*widths[section];section++;}
-            require(section<5 && dut.word_section==section && dut.word_index==index,"missing, duplicate or out of bounds image write");
-            offset+=index*widths[section];
-            require(offset+widths[section]<=expected.size(),"unexpected image write without payload");
+            unsigned section=dut.word_section,index=dut.word_index;
+            require(section<5 && index<rows[section] && !row_data[section].empty(),"out of bounds image write");
+            require(!written[section][index],"duplicate image write");
             for(unsigned n=0;n<widths[section];n++) {
                 uint8_t byte=uint8_t(dut.word_data[n/4]>>((n%4)*8));
                 if(corrupt_word && n==0)byte^=1;
-                require(byte==expected[offset+n],"image write differs from independent byte oracle");
+                require(byte==row_data[section][index][n],"image write differs from independent byte oracle");
             }
-            expected_word++;words++;
+            written[section][index]=true;expected_word++;words++;
         }
         if(dut.tx_valid && dut.tx_ready) {
             uint8_t byte=dut.tx_data;
@@ -91,10 +101,11 @@ public:
         std::vector<uint8_t> bytes{0x57,0x4d,0x4c,0x44,1};append(bytes,nonce,8);
         append(bytes,TAG_LOW,8);append(bytes,TAG_HIGH,8);
         append(bytes,payload_size(),4);
-        if(mutation==2)bytes[4]=2;
+        if(mutation==2)bytes[4]=3;
         if(mutation==3)bytes[13]^=1;
         if(mutation==4)bytes[29]^=1;
         expected.resize(payload_size());for(auto&byte:expected)byte=uint8_t(random());expected_word=0;
+        expect_full(expected);
         for(uint8_t byte:bytes)send(byte,random()%3);
         require(!dut.image_valid,"new header did not invalidate previous image");
         return bytes;
@@ -105,10 +116,45 @@ public:
         std::vector<uint8_t> expected_reply{0x57,0x4d,0x4c,0x52,1,uint8_t(status)};
         append(expected_reply,nonce,8);append(expected_reply,image_crc,4);
         append(expected_reply,crc16(std::vector<uint8_t>(expected_reply.begin()+4,expected_reply.end())),2);
+        if(reply_bytes!=expected_reply && std::getenv("LOADER_DEBUG")) {
+            std::cerr<<"expected status "<<status<<" got "<<unsigned(reply_bytes[5])<<" nonce "<<nonce<<"\n";
+        }
         require(reply_bytes==expected_reply,"loader reply differs from independent oracle");
         replies++;reply_bytes.clear();
         if(status==1){require(dut.image_valid,"complete image was not committed");commits++;}
         else require(!dut.image_valid,"invalid or incomplete image was committed");
+    }
+    // Version 2: five row counts, those rows, then zero rows written by the loader.
+    void compact(uint64_t nonce,std::array<unsigned,5> counts,int mutation=0,bool gaps=false) {
+        std::vector<uint8_t> payload;
+        for(unsigned s=0;s<5;s++)append(payload,counts[s],4);
+        for(unsigned s=0;s<5;s++) {
+            row_data[s].assign(rows[s],std::vector<uint8_t>(widths[s],0));written[s].assign(rows[s],false);
+            for(unsigned i=0;i<counts[s] && i<rows[s];i++)
+                for(auto&byte:row_data[s][i]){byte=uint8_t(random());payload.push_back(byte);}
+        }
+        uint32_t length=uint32_t(payload.size());
+        if(mutation==1)length++;
+        std::vector<uint8_t> bytes{0x57,0x4d,0x4c,0x44,2};append(bytes,nonce,8);
+        append(bytes,TAG_LOW,8);append(bytes,TAG_HIGH,8);append(bytes,length,4);
+        expected_word=0;for(uint8_t byte:bytes)send(byte,random()%3);
+        require(!dut.image_valid,"new header did not invalidate previous image");
+        reply(0,nonce);
+        bool oversized=false;for(unsigned s=0;s<5;s++)oversized|=counts[s]>rows[s];
+        if(mutation==1 || oversized) {
+            for(unsigned n=0;n<20;n++)send(payload[n]);
+            reply(4,nonce);require(expected_word==0,"rejected compact layout wrote a row");return;
+        }
+        std::vector<uint8_t> body(bytes.begin()+4,bytes.end());body.insert(body.end(),payload.begin(),payload.end());
+        uint32_t checksum=crc32(body);
+        for(uint8_t byte:payload)send(byte,gaps ? random()%8 : 0);
+        std::vector<uint8_t> trailer;append(trailer,mutation==2 ? checksum^1 : checksum,4);
+        stalled=true;for(uint8_t byte:trailer)send(byte);
+        unsigned total=0;for(unsigned count:rows)total+=count;
+        for(unsigned n=0;n<total+100;n++){tick();require(!dut.image_valid,"commit before acknowledgment was accepted");}
+        unsigned sent=0;for(unsigned s=0;s<5;s++)sent+=counts[s];
+        require(expected_word==(mutation==2 ? sent : total),"compact image did not write every row exactly once");
+        stalled=false;reply(mutation==2 ? 5 : 1,nonce,checksum);
     }
     void upload(uint64_t nonce,bool bad_crc=false,bool gaps=false) {
         auto bytes=header(nonce);reply(0,nonce);std::vector<uint8_t> body(bytes.begin()+4,bytes.end());
@@ -137,6 +183,7 @@ int main(int argc,char**argv) {
             uint64_t nonce=integer(packet,5,8);uint32_t checksum=uint32_t(integer(packet,unsigned(packet.size()-4),4));
             require(crc32(std::vector<uint8_t>(packet.begin()+4,packet.end()-4))==checksum,"Python and C++ CRC oracles disagree");
             t->expected.assign(packet.begin()+33,packet.end()-4);
+            t->expect_full(t->expected);
             for(unsigned n=0;n<33;n++)t->send(packet[n]);
             t->reply(0,nonce);
             for(size_t n=33;n<packet.size();n++)t->send(packet[n]);
@@ -145,6 +192,20 @@ int main(int argc,char**argv) {
             return 0;
         }
         for(uint64_t n=0;n<30;n++)t->upload(0x0123456789abcdefULL+n,n%7==0,n%3==0);
+        // Compact uploads: random, empty and full sections, gaps and bad CRCs.
+        for(uint64_t n=0;n<60;n++) {
+            std::array<unsigned,5> counts{};
+            for(unsigned s=0;s<5;s++)counts[s]=n%5==s ? rows[s] : n%4==0 ? 0 : t->random()%(rows[s]+1);
+            t->compact(0x5700000000000000ULL+n,counts,n%9==8 ? 2 : 0,n%2==1);
+        }
+        t->compact(0x5710000000000000ULL,{0,0,0,0,0});
+        t->compact(0x5720000000000000ULL,{rows[0],rows[1],rows[2],rows[3],rows[4]});
+        // Inconsistent declared length and counts beyond each store are rejected.
+        t->compact(0x5730000000000000ULL,{1,1,1,1,1},1);
+        for(unsigned s=0;s<5;s++) {
+            std::array<unsigned,5> counts{};counts[s]=rows[s]+1;
+            t->compact(0x5740000000000000ULL+s,counts);
+        }
         for(unsigned status=2;status<=4;status++){t->header(100+status,status);t->reply(status,100+status);}
         // Timeout in header, payload and each partial checksum length.
         t->send(0x57);t->send(0x4d);t->send(0x4c);t->send(0x44);t->reply(6,0);

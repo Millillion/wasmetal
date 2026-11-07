@@ -1,0 +1,19 @@
+{
+  "core": {
+    "VALUE_DEPTH": 8192,
+    "CONTROL_DEPTH": 2048,
+    "CALL_DEPTH": 512,
+    "MEMORY_COUNT": 256,
+    "HEAP_SLOTS": 4096
+  },
+  "instruction_depth": 1024,
+  "function_depth": 256,
+  "type_depth": 64,
+  "boot_depth": 4096,
+  "regions_per_kind": 32,
+  "ram_bytes": 1048576,
+  "memory_pages": 8,
+  "table_slots": 1024,
+  "max_results": 16,
+  "watchdog_cycles": 10000000
+}

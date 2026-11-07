@@ -22,7 +22,7 @@ module wasmetal_standalone #(
 );
     localparam integer CW=$clog2(INSTRUCTION_DEPTH), FW=$clog2(FUNCTION_DEPTH),
                        TW=$clog2(TYPE_DEPTH), BW=$clog2(BOOT_DEPTH),
-                       UW=$clog2(12+16*MAX_RESULTS);
+                       UW=$clog2(16+16*MAX_RESULTS);
     (* rom_style="block" *) logic [287:0] instructions [0:INSTRUCTION_DEPTH-1];
     (* rom_style="block" *) logic [159:0] functions [0:FUNCTION_DEPTH-1];
     logic [TYPE_DEPTH-1:0] types [0:TYPE_DEPTH-1];
@@ -53,21 +53,28 @@ module wasmetal_standalone #(
     wire [31:0] record_index=boot_record[223:192];
     wire [63:0] record_aux=boot_record[191:128];
     wire [127:0] record_data=boot_record[127:0];
-    typedef enum logic [3:0] {WAIT_CLEAR,HEADER,FETCH,ISSUE,DRAIN,RUN,ADVANCE,SEND,HALT} state_t;
+    typedef enum logic [3:0] {WAIT_CLEAR,HEADER,FETCH,ISSUE,DRAIN,RUN,ADVANCE,SEND,HALT,
+                              QUERY_WAIT,QUERY_MEMORY} state_t;
     state_t state;
-    logic final_seen, halted_core;
-    logic [7:0] status, reported_trap, count;
-    logic [31:0] run_cycles;
+    // Session images report every execution (mode 4) and query (mode 5) and
+    // continue. Their frames (kinds 2 and 3) also carry the boot-record index.
+    logic final_seen, session_seen, reporting, halted_core, value_from_query;
+    logic [7:0] status, reported_trap, count, frame_kind;
+    logic [31:0] run_cycles, report_index;
+    logic [127:0] query_value;
+    logic [2:0] query_wait;
     logic [UW-1:0] tx_index;
     logic [15:0] crc;
-    wire [UW-1:0] payload_end=UW'(9)+UW'(count)*UW'(16);
+    wire [UW-1:0] header_end=frame_kind==1 ? UW'(9) : UW'(13);
+    wire [UW-1:0] payload_end=header_end+UW'(count)*UW'(16);
     wire tx_ready;
     logic [7:0] tx_data;
     wire busy, done;
     wire [7:0] trap;
     wire [31:0] result_count, pc, function_index, type_actual, type_expected;
     wire [127:0] result_data;
-    wire [31:0] result_index=tx_index>=10 ? (32'(tx_index)-32'd10)>>4 : 32'b0;
+    wire [31:0] result_index=tx_index>header_end ? (32'(tx_index)-32'(header_end)-32'd1)>>4 : 32'b0;
+    wire [127:0] report_value=value_from_query ? query_value : result_data;
     wire mem_valid, mem_write, mem_ready, mem_fault, memory_initialized, memory_failed;
     wire [2:0] mem_kind;
     wire [31:0] mem_index;
@@ -75,8 +82,10 @@ module wasmetal_standalone #(
     wire [4:0] mem_bytes;
     wire [127:0] mem_wdata, mem_rdata;
     wire initializing=state==ISSUE && mode==2;
-    wire command_valid=state==ISSUE && (mode==1 || mode==3) && command<=5 &&
-        (!final_seen) && (mode!=3 || command==0);
+    wire querying=state==QUERY_MEMORY;
+    wire command_valid=state==ISSUE && !final_seen &&
+        (((mode==1 || mode==3) && command<=5 && (mode!=3 || command==0)) ||
+         (mode==4 && command==0) || (mode==5 && (command==6 || command==7)));
     wire core_reset=reset || !memory_initialized || halted_core;
     wire type_matches=type_actual<TYPE_DEPTH && type_expected<TYPE_DEPTH &&
                      types[type_actual[TW-1:0]][type_expected[TW-1:0]];
@@ -110,16 +119,17 @@ module wasmetal_standalone #(
         .type_actual(type_actual),.type_expected(type_expected),.type_matches(type_matches),
         .mem_valid(mem_valid),.mem_write(mem_write),.mem_kind(mem_kind),.mem_index(mem_index),
         .mem_address(mem_address),.mem_bytes(mem_bytes),.mem_wdata(mem_wdata),
-        .mem_ready(mem_ready && !initializing),.mem_fault(mem_fault),.mem_rdata(mem_rdata));
+        .mem_ready(mem_ready && !initializing && !querying),.mem_fault(mem_fault),.mem_rdata(mem_rdata));
 
     wasmetal_local_memory #(.RAM_BYTES(RAM_BYTES),.REGIONS_PER_KIND(REGIONS_PER_KIND),.LOADABLE(LOADABLE),
         .IMAGE_DIR(IMAGE_DIR)) memory(
         .clk(clk),.reset(reset || halted_core),.initialized(memory_initialized),
         .initialization_failed(memory_failed),
-        .valid(initializing || mem_valid),.write(initializing || mem_write),.initialize(initializing),
-        .kind(mem_kind),.index(mem_index),
-        .address(initializing ? {32'b0,record_index} : mem_address),
-        .bytes(initializing ? record_aux[4:0] : mem_bytes),
+        .valid(initializing || querying || mem_valid),.write(initializing || (mem_write && !querying)),
+        .initialize(initializing),
+        .kind(querying ? 3'd1 : mem_kind),.index(querying ? record_index : mem_index),
+        .address(initializing ? {32'b0,record_index} : querying ? 64'b0 : mem_address),
+        .bytes(initializing ? record_aux[4:0] : querying ? 5'd16 : mem_bytes),
         .wdata(initializing ? record_data : mem_wdata),
         .ready(mem_ready),.fault(mem_fault),.rdata(mem_rdata),
         .image_write_valid(image_write_valid && image_section==3),
@@ -150,29 +160,37 @@ module wasmetal_standalone #(
         case(tx_index)
             0: tx_data=8'h57;
             1: tx_data=8'h4d;
-            2: tx_data=1;
+            2: tx_data=frame_kind;
             3: tx_data=status;
             4: tx_data=reported_trap;
             5: tx_data=count;
             6,7,8,9: tx_data=run_cycles[(tx_index-6)*8+:8];
             default: begin
-                if(tx_index<=payload_end) tx_data=result_data[((tx_index-10)%16)*8+:8];
+                if(frame_kind!=1 && tx_index<=UW'(13)) tx_data=report_index[(tx_index-10)*8+:8];
+                else if(tx_index<=payload_end) tx_data=report_value[((tx_index-header_end-UW'(1))%16)*8+:8];
                 else if(tx_index==payload_end+UW'(1)) tx_data=crc[7:0];
                 else tx_data=crc[15:8];
             end
         endcase
     end
 
+    task automatic report(input [7:0] reason,input [7:0] code,input [7:0] values,input from_query);
+        begin
+            status<=reason; reported_trap<=code; count<=values; frame_kind<=2;
+            value_from_query<=from_query; report_index<=boot_index; tx_index<=0; crc<=16'hffff; state<=SEND;
+        end
+    endtask
     task automatic finish_error(input [7:0] reason,input [7:0] code);
         begin
-            status<=reason; reported_trap<=code; count<=0;
+            status<=reason; reported_trap<=code; count<=0; frame_kind<=1; value_from_query<=0;
             halted_core<=1; tx_index<=0; crc<=16'hffff; state<=SEND;
         end
     endtask
     always_ff @(posedge clk) begin
         if(reset) begin
             state<=WAIT_CLEAR; boot_index<=0; code_count<=0; function_count<=0; boot_count<=0;
-            final_seen<=0; halted_core<=0; status<=0; reported_trap<=0; count<=0;
+            final_seen<=0; session_seen<=0; reporting<=0; halted_core<=0; status<=0; reported_trap<=0;
+            count<=0; frame_kind<=1; value_from_query<=0; report_index<=0; query_value<=0; query_wait<=0;
             run_cycles<=0; tx_index<=0; crc<=16'hffff;
         end else case(state)
             WAIT_CLEAR: begin
@@ -194,17 +212,31 @@ module wasmetal_standalone #(
                 if(final_seen && mode!=0) finish_error(2,254);
                 else case(mode)
                     0: begin
-                        if(!final_seen || boot_record!=0 || boot_index+1!=boot_count ||
+                        if(final_seen==session_seen || boot_record!=0 || boot_index+1!=boot_count ||
                            result_count>MAX_RESULTS) finish_error(2,254);
-                        else begin count<=8'(result_count); state<=SEND; tx_index<=0; crc<=16'hffff; end
+                        else if(session_seen) begin
+                            report(0,0,0,0); frame_kind<=3; run_cycles<=0;
+                        end else begin count<=8'(result_count); state<=SEND; tx_index<=0; crc<=16'hffff; end
                     end
                     1,3: begin
-                        if(command>5 || (mode==3 && command!=0) || busy ||
+                        if(command>5 || (mode==3 && (command!=0 || session_seen)) || busy ||
                            (command==1 && record_index>=VALUE_DEPTH) ||
                            (command>=2 && record_index>=MEMORY_COUNT)) finish_error(2,254);
                         else if(command==0) begin
-                            final_seen<=mode==3; run_cycles<=1; state<=RUN;
+                            final_seen<=mode==3; reporting<=0; run_cycles<=1; state<=RUN;
                         end else state<=DRAIN;
+                    end
+                    4: begin
+                        if(command!=0 || busy) finish_error(2,254);
+                        else begin session_seen<=1; reporting<=1; run_cycles<=1; state<=RUN; end
+                    end
+                    5: begin
+                        if(busy || record_index>=MEMORY_COUNT || !(command==6 || command==7 || command==8))
+                            finish_error(2,254);
+                        else begin
+                            session_seen<=1; run_cycles<=0; query_wait<=0;
+                            state<=command==8 ? QUERY_MEMORY : QUERY_WAIT;
+                        end
                     end
                     2: begin
                         if(command!=0 || record_aux==0 || record_aux>16) finish_error(2,254);
@@ -216,9 +248,21 @@ module wasmetal_standalone #(
                 endcase
             end
             DRAIN: state<=ADVANCE;
+            // The core writes the size into value slot 0 and returns to idle.
+            QUERY_WAIT: begin
+                query_wait<=query_wait+1'b1;
+                if(query_wait==3'd4) report(0,0,1,0);
+            end
+            QUERY_MEMORY: if(mem_ready) begin
+                if(mem_fault) finish_error(2,254);
+                else begin query_value<=mem_rdata; report(0,0,1,1); end
+            end
             RUN: begin
                 if(done) begin
-                    if(trap!=0) finish_error(final_seen ? 8'd1 : 8'd4,trap);
+                    if(reporting) begin
+                        if(trap==0 && result_count>MAX_RESULTS) finish_error(2,254);
+                        else report(trap!=0 ? 8'd1 : 8'd0,trap,trap!=0 ? 8'd0 : 8'(result_count),0);
+                    end else if(trap!=0) finish_error(final_seen ? 8'd1 : 8'd4,trap);
                     else state<=ADVANCE;
                 end else if(run_cycles>=WATCHDOG_CYCLES) finish_error(3,0);
                 else run_cycles<=run_cycles+1'b1;
@@ -226,7 +270,7 @@ module wasmetal_standalone #(
             ADVANCE: begin boot_index<=boot_index+1'b1; state<=FETCH; end
             SEND: if(tx_ready) begin
                 if(tx_index>=2 && tx_index<=payload_end) crc<=crc_byte(crc,tx_data);
-                if(tx_index==payload_end+UW'(2)) state<=HALT;
+                if(tx_index==payload_end+UW'(2)) state<=frame_kind==2 ? ADVANCE : HALT;
                 else tx_index<=tx_index+1'b1;
             end
             HALT: begin end
@@ -238,7 +282,8 @@ module wasmetal_standalone #(
     always_ff @(posedge clk) if(!reset && !halted_core) begin
         if(initializing) assert(!busy);
         if(command_valid) assert(!busy);
-        if(state==SEND && status==0) assert(done && !busy && trap==0);
+        if(state==SEND && status==0 && frame_kind==1) assert(done && !busy && trap==0);
+        if(state==SEND && frame_kind!=1) assert(!busy);
     end
 `endif
 endmodule

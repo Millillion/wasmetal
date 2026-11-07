@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "comparison": "every case result, UART byte and cycle count equals the archived pre-session run; only timing, binary and manifest/packet hashes differ",
+  "reports": {
+    "loadable-rtl.json": {
+      "cases": 35,
+      "archived": "docs/verification/loadable-rtl.json",
+      "sha256": "2c29e0185bb5406b8f64609d18c42fcbee26570d7ee8058b22c8357a9480e6af"
+    },
+    "standalone.json": {
+      "cases": 29,
+      "archived": "docs/verification/standalone-rtl.json",
+      "sha256": "c2022715b612ca8abcdb59b55b6b560145005d7f8a6491993e65aa78e59337db"
+    },
+    "standalone-board.json": {
+      "cases": 9,
+      "archived": "docs/verification/standalone-board-rtl.json",
+      "sha256": "5b645471e0a5698ce1d4c94c964893ff63038d9ad47b70a1270a20d9cedae80c"
+    },
+    "benchmarks.json": {
+      "cases": 7,
+      "archived": "docs/verification/benchmarks.json",
+      "sha256": "c582f1888972df098b516ea0a1c5a851c64f6fc637be68a3f4a7febbc5c20f9e"
+    }
+  }
+}

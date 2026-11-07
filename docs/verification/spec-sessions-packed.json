@@ -1,0 +1,5690 @@
+{
+  "status": "complete",
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 1048576
+    },
+    "instruction_depth": 32768,
+    "function_depth": 2048,
+    "type_depth": 256,
+    "boot_depth": 16384,
+    "regions_per_kind": 256,
+    "ram_bytes": 134217728,
+    "memory_pages": 1024,
+    "table_slots": 65536,
+    "max_results": 64,
+    "watchdog_cycles": 300000000
+  },
+  "simulator": null,
+  "suite_count": 259,
+  "summary": {
+    "packed": 259
+  },
+  "suites": {
+    "address": {
+      "suite": "address",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 255,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 3529,
+        "script_commands": 260
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105386,
+      "counts": {
+        "code": 289,
+        "functions": 99,
+        "types": 256,
+        "regions": 1536,
+        "boot": 553
+      },
+      "memory_bytes": 327680,
+      "reports": 267,
+      "elapsed_seconds": 0.2075960679212585
+    },
+    "align": {
+      "suite": "align",
+      "native_counts": {
+        "modules_instantiated": 25,
+        "loader_assertions_passed": 92,
+        "rtl_assertions_passed": 48,
+        "rtl_cycles": 3914,
+        "script_commands": 165
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974208,
+      "counts": {
+        "code": 691,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 172
+      },
+      "memory_bytes": 196608,
+      "reports": 52,
+      "elapsed_seconds": 0.7788998830365017
+    },
+    "annotations": {
+      "suite": "annotations",
+      "native_counts": {
+        "modules_instantiated": 10,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 128,
+        "script_commands": 74
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908900,
+      "counts": {
+        "code": 36,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 39
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.38963310699909925
+    },
+    "binary": {
+      "suite": "binary",
+      "native_counts": {
+        "modules_instantiated": 20,
+        "loader_assertions_passed": 109,
+        "rtl_cycles": 80,
+        "script_commands": 129
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 35,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 26
+      },
+      "memory_bytes": 131072,
+      "reports": 7,
+      "elapsed_seconds": 0.6700408720644191
+    },
+    "binary-leb128": {
+      "suite": "binary-leb128",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "loader_assertions_passed": 58,
+        "rtl_cycles": 252,
+        "script_commands": 91
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17367552,
+      "counts": {
+        "code": 63,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "memory_bytes": 589824,
+      "reports": 30,
+      "elapsed_seconds": 0.5470876230392605
+    },
+    "block": {
+      "suite": "block",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 52,
+        "loader_assertions_passed": 170,
+        "rtl_cycles": 1947,
+        "script_commands": 223
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974256,
+      "counts": {
+        "code": 620,
+        "functions": 69,
+        "types": 256,
+        "regions": 1536,
+        "boot": 75
+      },
+      "memory_bytes": 196608,
+      "reports": 60,
+      "elapsed_seconds": 1.1464475269895047
+    },
+    "br": {
+      "suite": "br",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 76,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 1665,
+        "script_commands": 97
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 588,
+        "functions": 88,
+        "types": 256,
+        "regions": 1536,
+        "boot": 115
+      },
+      "memory_bytes": 131072,
+      "reports": 84,
+      "elapsed_seconds": 0.2206459129229188
+    },
+    "br_if": {
+      "suite": "br_if",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 88,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 2301,
+        "script_commands": 119
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 596,
+        "functions": 77,
+        "types": 256,
+        "regions": 1536,
+        "boot": 171
+      },
+      "memory_bytes": 131072,
+      "reports": 96,
+      "elapsed_seconds": 0.29880554298870265
+    },
+    "br_on_non_null": {
+      "suite": "br_on_non_null",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 8,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 354,
+        "script_commands": 12
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 110,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 29
+      },
+      "memory_bytes": 65536,
+      "reports": 14,
+      "elapsed_seconds": 0.050688801100477576
+    },
+    "br_on_null": {
+      "suite": "br_on_null",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 6,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 274,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 86,
+        "functions": 27,
+        "types": 256,
+        "regions": 1536,
+        "boot": 27
+      },
+      "memory_bytes": 65536,
+      "reports": 12,
+      "elapsed_seconds": 0.04688760207500309
+    },
+    "br_table": {
+      "suite": "br_table",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 161,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 4665,
+        "script_commands": 186
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908752,
+      "counts": {
+        "code": 17085,
+        "functions": 94,
+        "types": 256,
+        "regions": 1536,
+        "boot": 314
+      },
+      "memory_bytes": 131072,
+      "reports": 172,
+      "elapsed_seconds": 0.6307759430492297
+    },
+    "bulk-memory/bulk": {
+      "suite": "bulk-memory/bulk",
+      "native_counts": {
+        "modules_instantiated": 13,
+        "rtl_actions_completed": 38,
+        "rtl_assertions_passed": 66,
+        "rtl_cycles": 10250,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17171392,
+      "counts": {
+        "code": 138,
+        "functions": 58,
+        "types": 256,
+        "regions": 1536,
+        "boot": 488
+      },
+      "memory_bytes": 393216,
+      "reports": 129,
+      "elapsed_seconds": 0.32889981602784246
+    },
+    "bulk-memory/memory_copy": {
+      "suite": "bulk-memory/memory_copy",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "rtl_actions_completed": 15,
+        "rtl_assertions_passed": 4338,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8781317,
+        "script_commands": 4450
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 19006432,
+      "counts": {
+        "code": 1192,
+        "functions": 94,
+        "types": 256,
+        "regions": 1536,
+        "boot": 9387
+      },
+      "memory_bytes": 2228224,
+      "reports": 4411,
+      "elapsed_seconds": 85.4094043209916
+    },
+    "bulk-memory/memory_fill": {
+      "suite": "bulk-memory/memory_fill",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8659595,
+        "script_commands": 100
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17564032,
+      "counts": {
+        "code": 327,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 100
+      },
+      "memory_bytes": 786432,
+      "reports": 29,
+      "elapsed_seconds": 81.28675747197121
+    },
+    "bulk-memory/memory_init": {
+      "suite": "bulk-memory/memory_init",
+      "native_counts": {
+        "modules_instantiated": 29,
+        "rtl_actions_completed": 12,
+        "rtl_assertions_passed": 142,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 2767,
+        "script_commands": 250
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 18744320,
+      "counts": {
+        "code": 358,
+        "functions": 59,
+        "types": 256,
+        "regions": 1536,
+        "boot": 518
+      },
+      "memory_bytes": 1966080,
+      "reports": 176,
+      "elapsed_seconds": 0.7360587290022522
+    },
+    "bulk-memory/table-sub": {
+      "suite": "bulk-memory/table-sub",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843456,
+      "counts": {
+        "code": 24,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 16
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.03155584295745939
+    },
+    "bulk-memory/table_copy": {
+      "suite": "bulk-memory/table_copy",
+      "native_counts": {
+        "modules_instantiated": 52,
+        "registrations": 1,
+        "rtl_actions_completed": 26,
+        "rtl_assertions_passed": 1649,
+        "rtl_cycles": 34984,
+        "script_commands": 1728
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16906096,
+      "counts": {
+        "code": 3623,
+        "functions": 1718,
+        "types": 256,
+        "regions": 1536,
+        "boot": 6510
+      },
+      "memory_bytes": 65536,
+      "reports": 2924,
+      "elapsed_seconds": 1.7006585509516299
+    },
+    "bulk-memory/table_fill": {
+      "suite": "bulk-memory/table_fill",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 589,
+        "script_commands": 45
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843296,
+      "counts": {
+        "code": 28,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "memory_bytes": 65536,
+      "reports": 39,
+      "elapsed_seconds": 0.10708044108469039
+    },
+    "bulk-memory/table_init": {
+      "suite": "bulk-memory/table_init",
+      "native_counts": {
+        "modules_instantiated": 41,
+        "registrations": 1,
+        "rtl_actions_completed": 18,
+        "rtl_assertions_passed": 665,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 16291,
+        "script_commands": 792
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16891264,
+      "counts": {
+        "code": 2573,
+        "functions": 1191,
+        "types": 256,
+        "regions": 1536,
+        "boot": 3386
+      },
+      "memory_bytes": 65536,
+      "reports": 1488,
+      "elapsed_seconds": 1.345731673995033
+    },
+    "call": {
+      "suite": "call",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 72,
+        "loader_assertions_passed": 18,
+        "rtl_cycles": 665249,
+        "script_commands": 91
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 36962736,
+      "counts": {
+        "code": 466,
+        "functions": 92,
+        "types": 256,
+        "regions": 1536,
+        "boot": 121
+      },
+      "memory_bytes": 20185088,
+      "reports": 80,
+      "elapsed_seconds": 5.898321796907112
+    },
+    "call_indirect": {
+      "suite": "call_indirect",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 134,
+        "loader_assertions_passed": 35,
+        "rtl_cycles": 2999965,
+        "script_commands": 172
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 36964016,
+      "counts": {
+        "code": 685,
+        "functions": 157,
+        "types": 256,
+        "regions": 1536,
+        "boot": 414
+      },
+      "memory_bytes": 20185088,
+      "reports": 189,
+      "elapsed_seconds": 27.509780723950826
+    },
+    "call_ref": {
+      "suite": "call_ref",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 27,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 727090,
+        "script_commands": 35
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843360,
+      "counts": {
+        "code": 159,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "memory_bytes": 65536,
+      "reports": 45,
+      "elapsed_seconds": 6.225439439062029
+    },
+    "comments": {
+      "suite": "comments",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 3,
+        "rtl_cycles": 90,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 27,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 16
+      },
+      "memory_bytes": 65536,
+      "reports": 7,
+      "elapsed_seconds": 0.050184156047180295
+    },
+    "const": {
+      "suite": "const",
+      "native_counts": {
+        "modules_instantiated": 402,
+        "loader_assertions_passed": 76,
+        "rtl_assertions_passed": 300,
+        "rtl_cycles": 3648,
+        "script_commands": 778
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 921,
+        "functions": 413,
+        "types": 256,
+        "regions": 1536,
+        "boot": 313
+      },
+      "memory_bytes": 65536,
+      "reports": 304,
+      "elapsed_seconds": 3.515509130898863
+    },
+    "conversions": {
+      "suite": "conversions",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 593,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 8396,
+        "script_commands": 619
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 114,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1199
+      },
+      "memory_bytes": 65536,
+      "reports": 597,
+      "elapsed_seconds": 0.47859128995332867
+    },
+    "custom": {
+      "suite": "custom",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 48,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.06689222797285765
+    },
+    "data": {
+      "suite": "data",
+      "native_counts": {
+        "modules_instantiated": 32,
+        "embedding_assertions_passed": 14,
+        "loader_assertions_passed": 20,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 1,
+        "rtl_cycles": 1101,
+        "script_commands": 68
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 18416945,
+      "counts": {
+        "code": 199,
+        "functions": 95,
+        "types": 256,
+        "regions": 1536,
+        "boot": 411
+      },
+      "memory_bytes": 1638400,
+      "reports": 184,
+      "elapsed_seconds": 0.4320349380141124
+    },
+    "elem": {
+      "suite": "elem",
+      "native_counts": {
+        "modules_instantiated": 77,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 26,
+        "embedding_assertions_passed": 12,
+        "registrations": 3,
+        "rtl_actions_completed": 1,
+        "rtl_cycles": 4764,
+        "script_commands": 154
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16882448,
+      "counts": {
+        "code": 871,
+        "functions": 455,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1115
+      },
+      "memory_bytes": 65536,
+      "reports": 515,
+      "elapsed_seconds": 0.8296243449440226
+    },
+    "endianness": {
+      "suite": "endianness",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 7748,
+        "script_commands": 69
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 194,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 150
+      },
+      "memory_bytes": 131072,
+      "reports": 72,
+      "elapsed_seconds": 0.12772508000489324
+    },
+    "exceptions/cast": {
+      "suite": "exceptions/cast",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 202,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 20
+      },
+      "memory_bytes": 65536,
+      "reports": 9,
+      "elapsed_seconds": 0.02435818500816822
+    },
+    "exceptions/tag": {
+      "suite": "exceptions/tag",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "registrations": 2,
+        "loader_assertions_passed": 2,
+        "embedding_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.05964551994111389
+    },
+    "exceptions/throw": {
+      "suite": "exceptions/throw",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 207,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 62,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 28
+      },
+      "memory_bytes": 65536,
+      "reports": 13,
+      "elapsed_seconds": 0.04793603392317891
+    },
+    "exceptions/throw_ref": {
+      "suite": "exceptions/throw_ref",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 499,
+        "script_commands": 15
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 132,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 34
+      },
+      "memory_bytes": 65536,
+      "reports": 16,
+      "elapsed_seconds": 0.049530924996361136
+    },
+    "exceptions/try_table": {
+      "suite": "exceptions/try_table",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "registrations": 1,
+        "rtl_assertions_passed": 49,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 1618,
+        "script_commands": 67
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843184,
+      "counts": {
+        "code": 431,
+        "functions": 57,
+        "types": 256,
+        "regions": 1536,
+        "boot": 107
+      },
+      "memory_bytes": 65536,
+      "reports": 57,
+      "elapsed_seconds": 0.17168089398182929
+    },
+    "exports": {
+      "suite": "exports",
+      "native_counts": {
+        "modules_instantiated": 56,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 32,
+        "rtl_cycles": 264,
+        "script_commands": 97
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843312,
+      "counts": {
+        "code": 56,
+        "functions": 36,
+        "types": 256,
+        "regions": 1536,
+        "boot": 77
+      },
+      "memory_bytes": 65536,
+      "reports": 24,
+      "elapsed_seconds": 0.48161239293403924
+    },
+    "f32": {
+      "suite": "f32",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2500,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 50751,
+        "script_commands": 2514
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 54,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7413
+      },
+      "memory_bytes": 65536,
+      "reports": 2504,
+      "elapsed_seconds": 1.438348569907248
+    },
+    "f32_bitwise": {
+      "suite": "f32_bitwise",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 360,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 6096,
+        "script_commands": 364
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1057
+      },
+      "memory_bytes": 65536,
+      "reports": 364,
+      "elapsed_seconds": 0.2109856279566884
+    },
+    "f32_cmp": {
+      "suite": "f32_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2400,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 40848,
+        "script_commands": 2407
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7213
+      },
+      "memory_bytes": 65536,
+      "reports": 2404,
+      "elapsed_seconds": 1.2548920860281214
+    },
+    "f64": {
+      "suite": "f64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2500,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 50752,
+        "script_commands": 2514
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 54,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7413
+      },
+      "memory_bytes": 65536,
+      "reports": 2504,
+      "elapsed_seconds": 1.6245792879490182
+    },
+    "f64_bitwise": {
+      "suite": "f64_bitwise",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 360,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 6096,
+        "script_commands": 364
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1057
+      },
+      "memory_bytes": 65536,
+      "reports": 364,
+      "elapsed_seconds": 0.2512096599675715
+    },
+    "f64_cmp": {
+      "suite": "f64_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2400,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 40848,
+        "script_commands": 2407
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7213
+      },
+      "memory_bytes": 65536,
+      "reports": 2404,
+      "elapsed_seconds": 1.4692769580287859
+    },
+    "fac": {
+      "suite": "fac",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 7,
+        "rtl_cycles": 16230,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 143,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 27
+      },
+      "memory_bytes": 65536,
+      "reports": 11,
+      "elapsed_seconds": 0.20456228300463408
+    },
+    "float_exprs": {
+      "suite": "float_exprs",
+      "native_counts": {
+        "modules_instantiated": 98,
+        "rtl_assertions_passed": 819,
+        "rtl_actions_completed": 10,
+        "rtl_cycles": 92454,
+        "script_commands": 927
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17239568,
+      "counts": {
+        "code": 2164,
+        "functions": 291,
+        "types": 256,
+        "regions": 1536,
+        "boot": 2721
+      },
+      "memory_bytes": 458752,
+      "reports": 841,
+      "elapsed_seconds": 2.2939236959209666
+    },
+    "float_literals": {
+      "suite": "float_literals",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 99,
+        "loader_assertions_passed": 78,
+        "rtl_cycles": 1392,
+        "script_commands": 179
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 291,
+        "functions": 110,
+        "types": 256,
+        "regions": 1536,
+        "boot": 112
+      },
+      "memory_bytes": 65536,
+      "reports": 103,
+      "elapsed_seconds": 0.3796590269776061
+    },
+    "float_memory": {
+      "suite": "float_memory",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 60,
+        "rtl_actions_completed": 24,
+        "rtl_cycles": 1380,
+        "script_commands": 90
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17236440,
+      "counts": {
+        "code": 135,
+        "functions": 47,
+        "types": 256,
+        "regions": 1536,
+        "boot": 133
+      },
+      "memory_bytes": 458752,
+      "reports": 100,
+      "elapsed_seconds": 0.10458838997874409
+    },
+    "float_misc": {
+      "suite": "float_misc",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 470,
+        "rtl_cycles": 17498,
+        "script_commands": 471
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 113,
+        "functions": 39,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1288
+      },
+      "memory_bytes": 65536,
+      "reports": 474,
+      "elapsed_seconds": 0.41072704701218754
+    },
+    "forward": {
+      "suite": "forward",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 1864,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 39,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "memory_bytes": 65536,
+      "reports": 8,
+      "elapsed_seconds": 0.038787829922512174
+    },
+    "func": {
+      "suite": "func",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 96,
+        "loader_assertions_passed": 75,
+        "rtl_cycles": 1984,
+        "script_commands": 175
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843360,
+      "counts": {
+        "code": 445,
+        "functions": 136,
+        "types": 256,
+        "regions": 1536,
+        "boot": 213
+      },
+      "memory_bytes": 65536,
+      "reports": 109,
+      "elapsed_seconds": 0.5212005829671398
+    },
+    "func_ptrs": {
+      "suite": "func_ptrs",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 25,
+        "rtl_actions_completed": 1,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 685,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843424,
+      "counts": {
+        "code": 75,
+        "functions": 38,
+        "types": 256,
+        "regions": 1536,
+        "boot": 99
+      },
+      "memory_bytes": 65536,
+      "reports": 43,
+      "elapsed_seconds": 0.08589542203117162
+    },
+    "gc/array": {
+      "suite": "gc/array",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "loader_assertions_passed": 6,
+        "rtl_assertions_passed": 41,
+        "rtl_cycles": 1509,
+        "script_commands": 54
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843232,
+      "counts": {
+        "code": 212,
+        "functions": 55,
+        "types": 256,
+        "regions": 1536,
+        "boot": 99
+      },
+      "memory_bytes": 65536,
+      "reports": 50,
+      "elapsed_seconds": 0.14541166799608618
+    },
+    "gc/array_copy": {
+      "suite": "gc/array_copy",
+      "native_counts": {
+        "loader_assertions_passed": 4,
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 38,
+        "rtl_cycles": 1110,
+        "script_commands": 44
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843216,
+      "counts": {
+        "code": 105,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 110
+      },
+      "memory_bytes": 65536,
+      "reports": 46,
+      "elapsed_seconds": 0.09833758196327835
+    },
+    "gc/array_fill": {
+      "suite": "gc/array_fill",
+      "native_counts": {
+        "loader_assertions_passed": 3,
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "rtl_cycles": 619,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 38,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 82
+      },
+      "memory_bytes": 65536,
+      "reports": 32,
+      "elapsed_seconds": 0.05660699005238712
+    },
+    "gc/array_init_data": {
+      "suite": "gc/array_init_data",
+      "native_counts": {
+        "loader_assertions_passed": 2,
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 43,
+        "rtl_cycles": 960,
+        "script_commands": 48
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843312,
+      "counts": {
+        "code": 150,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 131
+      },
+      "memory_bytes": 65536,
+      "reports": 50,
+      "elapsed_seconds": 0.07516535802278668
+    },
+    "gc/array_init_elem": {
+      "suite": "gc/array_init_elem",
+      "native_counts": {
+        "loader_assertions_passed": 3,
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 30,
+        "rtl_cycles": 958,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843424,
+      "counts": {
+        "code": 143,
+        "functions": 48,
+        "types": 256,
+        "regions": 1536,
+        "boot": 132
+      },
+      "memory_bytes": 65536,
+      "reports": 51,
+      "elapsed_seconds": 0.08814034995157272
+    },
+    "gc/array_new_data": {
+      "suite": "gc/array_new_data",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 24,
+        "rtl_cycles": 436,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843312,
+      "counts": {
+        "code": 109,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 76
+      },
+      "memory_bytes": 65536,
+      "reports": 28,
+      "elapsed_seconds": 0.07046417100355029
+    },
+    "gc/array_new_elem": {
+      "suite": "gc/array_new_elem",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 19,
+        "rtl_cycles": 695,
+        "script_commands": 24
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843440,
+      "counts": {
+        "code": 130,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 104
+      },
+      "memory_bytes": 65536,
+      "reports": 40,
+      "elapsed_seconds": 0.0749448910355568
+    },
+    "gc/binary-gc": {
+      "suite": "gc/binary-gc",
+      "native_counts": {
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.01918290404137224
+    },
+    "gc/br_on_cast": {
+      "suite": "gc/br_on_cast",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1384,
+        "script_commands": 37
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843632,
+      "counts": {
+        "code": 368,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "memory_bytes": 65536,
+      "reports": 33,
+      "elapsed_seconds": 0.10625627299305052
+    },
+    "gc/br_on_cast_fail": {
+      "suite": "gc/br_on_cast_fail",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1458,
+        "script_commands": 37
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843632,
+      "counts": {
+        "code": 382,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "memory_bytes": 65536,
+      "reports": 33,
+      "elapsed_seconds": 0.12323115696199238
+    },
+    "gc/extern": {
+      "suite": "gc/extern",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 16,
+        "rtl_cycles": 411,
+        "script_commands": 18
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843344,
+      "counts": {
+        "code": 58,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 55
+      },
+      "memory_bytes": 65536,
+      "reports": 24,
+      "elapsed_seconds": 0.03622233297210187
+    },
+    "gc/i31": {
+      "suite": "gc/i31",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "rtl_assertions_passed": 57,
+        "rtl_actions_completed": 8,
+        "registrations": 1,
+        "rtl_cycles": 1484,
+        "script_commands": 73
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843632,
+      "counts": {
+        "code": 174,
+        "functions": 55,
+        "types": 256,
+        "regions": 1536,
+        "boot": 203
+      },
+      "memory_bytes": 65536,
+      "reports": 92,
+      "elapsed_seconds": 0.11243685998488218
+    },
+    "gc/ref_cast": {
+      "suite": "gc/ref_cast",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_actions_completed": 3,
+        "rtl_assertions_passed": 40,
+        "rtl_cycles": 1393,
+        "script_commands": 45
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843632,
+      "counts": {
+        "code": 280,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "memory_bytes": 65536,
+      "reports": 48,
+      "elapsed_seconds": 0.06407407799270004
+    },
+    "gc/ref_eq": {
+      "suite": "gc/ref_eq",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 81,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 1915,
+        "script_commands": 89
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843456,
+      "counts": {
+        "code": 54,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 258
+      },
+      "memory_bytes": 65536,
+      "reports": 86,
+      "elapsed_seconds": 0.12476357503328472
+    },
+    "gc/ref_test": {
+      "suite": "gc/ref_test",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 2907,
+        "script_commands": 71
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843952,
+      "counts": {
+        "code": 560,
+        "functions": 27,
+        "types": 256,
+        "regions": 1536,
+        "boot": 156
+      },
+      "memory_bytes": 65536,
+      "reports": 74,
+      "elapsed_seconds": 0.1097819049609825
+    },
+    "gc/struct": {
+      "suite": "gc/struct",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "loader_assertions_passed": 5,
+        "rtl_assertions_passed": 19,
+        "rtl_cycles": 665,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843200,
+      "counts": {
+        "code": 154,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 44
+      },
+      "memory_bytes": 65536,
+      "reports": 27,
+      "elapsed_seconds": 0.10747527901548892
+    },
+    "gc/type-subtyping": {
+      "suite": "gc/type-subtyping",
+      "native_counts": {
+        "modules_instantiated": 46,
+        "loader_assertions_passed": 37,
+        "rtl_assertions_passed": 29,
+        "registrations": 11,
+        "embedding_assertions_passed": 8,
+        "rtl_cycles": 1148,
+        "script_commands": 131
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843808,
+      "counts": {
+        "code": 366,
+        "functions": 126,
+        "types": 256,
+        "regions": 1536,
+        "boot": 142
+      },
+      "memory_bytes": 65536,
+      "reports": 74,
+      "elapsed_seconds": 0.5701764959376305
+    },
+    "global": {
+      "suite": "global",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 67,
+        "loader_assertions_passed": 47,
+        "registrations": 1,
+        "rtl_cycles": 1681,
+        "script_commands": 124
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17368132,
+      "counts": {
+        "code": 325,
+        "functions": 106,
+        "types": 256,
+        "regions": 1536,
+        "boot": 185
+      },
+      "memory_bytes": 589824,
+      "reports": 114,
+      "elapsed_seconds": 0.3913857579464093
+    },
+    "i32": {
+      "suite": "i32",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 374,
+        "loader_assertions_passed": 85,
+        "rtl_cycles": 7936,
+        "script_commands": 460
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 133,
+        "functions": 42,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1094
+      },
+      "memory_bytes": 65536,
+      "reports": 378,
+      "elapsed_seconds": 0.9009145869640633
+    },
+    "i64": {
+      "suite": "i64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 384,
+        "loader_assertions_passed": 31,
+        "rtl_cycles": 10060,
+        "script_commands": 416
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 136,
+        "functions": 43,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1114
+      },
+      "memory_bytes": 65536,
+      "reports": 388,
+      "elapsed_seconds": 0.5114502049982548
+    },
+    "id": {
+      "suite": "id",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 6,
+        "rtl_cycles": 48,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 75,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.06019221502356231
+    },
+    "if": {
+      "suite": "if",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 124,
+        "loader_assertions_passed": 116,
+        "rtl_cycles": 5507,
+        "script_commands": 241
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974256,
+      "counts": {
+        "code": 831,
+        "functions": 67,
+        "types": 256,
+        "regions": 1536,
+        "boot": 306
+      },
+      "memory_bytes": 196608,
+      "reports": 132,
+      "elapsed_seconds": 0.8669913560152054
+    },
+    "imports": {
+      "suite": "imports",
+      "native_counts": {
+        "modules_instantiated": 68,
+        "registrations": 6,
+        "rtl_assertions_passed": 34,
+        "loader_assertions_passed": 17,
+        "embedding_assertions_passed": 93,
+        "rtl_cycles": 857,
+        "script_commands": 218
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17171649,
+      "counts": {
+        "code": 139,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 199
+      },
+      "memory_bytes": 393216,
+      "reports": 131,
+      "elapsed_seconds": 1.0989885799353942
+    },
+    "inline-module": {
+      "suite": "inline-module",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 17,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 14
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.022341839037835598
+    },
+    "instance": {
+      "suite": "instance",
+      "native_counts": {
+        "module_definitions": 2,
+        "modules_instantiated": 6,
+        "registrations": 3,
+        "rtl_assertions_passed": 12,
+        "rtl_cycles": 421,
+        "script_commands": 23
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17040320,
+      "counts": {
+        "code": 129,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 61
+      },
+      "memory_bytes": 262144,
+      "reports": 37,
+      "elapsed_seconds": 0.06716440909076482
+    },
+    "int_exprs": {
+      "suite": "int_exprs",
+      "native_counts": {
+        "modules_instantiated": 19,
+        "rtl_assertions_passed": 89,
+        "rtl_cycles": 4424,
+        "script_commands": 108
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 319,
+        "functions": 75,
+        "types": 256,
+        "regions": 1536,
+        "boot": 195
+      },
+      "memory_bytes": 65536,
+      "reports": 93,
+      "elapsed_seconds": 0.24285377794876695
+    },
+    "int_literals": {
+      "suite": "int_literals",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 30,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 416,
+        "script_commands": 51
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 101,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 43
+      },
+      "memory_bytes": 65536,
+      "reports": 34,
+      "elapsed_seconds": 0.12096520909108222
+    },
+    "labels": {
+      "suite": "labels",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 25,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1390,
+        "script_commands": 29
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 430,
+        "functions": 29,
+        "types": 256,
+        "regions": 1536,
+        "boot": 48
+      },
+      "memory_bytes": 65536,
+      "reports": 29,
+      "elapsed_seconds": 0.07556597189977765
+    },
+    "left-to-right": {
+      "suite": "left-to-right",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 95,
+        "rtl_cycles": 17794,
+        "script_commands": 96
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908928,
+      "counts": {
+        "code": 866,
+        "functions": 150,
+        "types": 256,
+        "regions": 1536,
+        "boot": 137
+      },
+      "memory_bytes": 131072,
+      "reports": 109,
+      "elapsed_seconds": 0.35102266597095877
+    },
+    "linking": {
+      "suite": "linking",
+      "native_counts": {
+        "modules_instantiated": 21,
+        "registrations": 9,
+        "rtl_assertions_passed": 83,
+        "embedding_assertions_passed": 50,
+        "rtl_cycles": 2069,
+        "script_commands": 163
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17368485,
+      "counts": {
+        "code": 198,
+        "functions": 99,
+        "types": 256,
+        "regions": 1536,
+        "boot": 353
+      },
+      "memory_bytes": 589824,
+      "reports": 182,
+      "elapsed_seconds": 0.503198703052476
+    },
+    "load": {
+      "suite": "load",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "loader_assertions_passed": 59,
+        "rtl_cycles": 905,
+        "script_commands": 97
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "memory_bytes": 131072,
+      "reports": 45,
+      "elapsed_seconds": 0.41284746502060443
+    },
+    "local_get": {
+      "suite": "local_get",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 19,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 476,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 151,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 55
+      },
+      "memory_bytes": 65536,
+      "reports": 23,
+      "elapsed_seconds": 0.1406006970210001
+    },
+    "local_init": {
+      "suite": "local_init",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 124,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 35,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "memory_bytes": 65536,
+      "reports": 8,
+      "elapsed_seconds": 0.05729662103112787
+    },
+    "local_set": {
+      "suite": "local_set",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 19,
+        "loader_assertions_passed": 33,
+        "rtl_cycles": 459,
+        "script_commands": 53
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 151,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 55
+      },
+      "memory_bytes": 65536,
+      "reports": 23,
+      "elapsed_seconds": 0.25091135792899877
+    },
+    "local_tee": {
+      "suite": "local_tee",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 55,
+        "loader_assertions_passed": 42,
+        "rtl_cycles": 1497,
+        "script_commands": 98
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 19530160,
+      "counts": {
+        "code": 431,
+        "functions": 71,
+        "types": 256,
+        "regions": 1536,
+        "boot": 141
+      },
+      "memory_bytes": 2752512,
+      "reports": 63,
+      "elapsed_seconds": 0.3352527749957517
+    },
+    "loop": {
+      "suite": "loop",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 78,
+        "loader_assertions_passed": 42,
+        "rtl_cycles": 28506,
+        "script_commands": 121
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974256,
+      "counts": {
+        "code": 797,
+        "functions": 71,
+        "types": 256,
+        "regions": 1536,
+        "boot": 145
+      },
+      "memory_bytes": 196608,
+      "reports": 86,
+      "elapsed_seconds": 0.5903561799786985
+    },
+    "memory": {
+      "suite": "memory",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "module_definitions": 1,
+        "rtl_assertions_passed": 53,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 1328,
+        "script_commands": 90
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17170912,
+      "counts": {
+        "code": 161,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 152
+      },
+      "memory_bytes": 393216,
+      "reports": 70,
+      "elapsed_seconds": 0.24460098193958402
+    },
+    "memory64/address64": {
+      "suite": "memory64/address64",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 238,
+        "rtl_cycles": 3410,
+        "script_commands": 242
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105386,
+      "counts": {
+        "code": 289,
+        "functions": 99,
+        "types": 256,
+        "regions": 1536,
+        "boot": 519
+      },
+      "memory_bytes": 327680,
+      "reports": 250,
+      "elapsed_seconds": 0.18652069102972746
+    },
+    "memory64/align64": {
+      "suite": "memory64/align64",
+      "native_counts": {
+        "modules_instantiated": 26,
+        "loader_assertions_passed": 83,
+        "rtl_assertions_passed": 48,
+        "rtl_cycles": 3914,
+        "script_commands": 157
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17039744,
+      "counts": {
+        "code": 695,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 173
+      },
+      "memory_bytes": 262144,
+      "reports": 52,
+      "elapsed_seconds": 0.710911002010107
+    },
+    "memory64/binary_leb128_64": {
+      "suite": "memory64/binary_leb128_64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 14
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.030570924980565906
+    },
+    "memory64/bulk64": {
+      "suite": "memory64/bulk64",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_actions_completed": 20,
+        "rtl_assertions_passed": 45,
+        "rtl_cycles": 9345,
+        "script_commands": 70
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17170864,
+      "counts": {
+        "code": 57,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 203
+      },
+      "memory_bytes": 393216,
+      "reports": 73,
+      "elapsed_seconds": 0.22047218296211213
+    },
+    "memory64/call_indirect64": {
+      "suite": "memory64/call_indirect64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 1,
+        "rtl_cycles": 97,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 27,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "memory_bytes": 65536,
+      "reports": 8,
+      "elapsed_seconds": 0.021647481946274638
+    },
+    "memory64/endianness64": {
+      "suite": "memory64/endianness64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 68,
+        "rtl_cycles": 7748,
+        "script_commands": 69
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 194,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 150
+      },
+      "memory_bytes": 131072,
+      "reports": 72,
+      "elapsed_seconds": 0.16534080391284078
+    },
+    "memory64/float_memory64": {
+      "suite": "memory64/float_memory64",
+      "native_counts": {
+        "modules_instantiated": 6,
+        "rtl_assertions_passed": 60,
+        "rtl_actions_completed": 24,
+        "rtl_cycles": 1380,
+        "script_commands": 90
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17236440,
+      "counts": {
+        "code": 135,
+        "functions": 47,
+        "types": 256,
+        "regions": 1536,
+        "boot": 133
+      },
+      "memory_bytes": 458752,
+      "reports": 100,
+      "elapsed_seconds": 0.10956569598056376
+    },
+    "memory64/load64": {
+      "suite": "memory64/load64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "loader_assertions_passed": 60,
+        "rtl_cycles": 905,
+        "script_commands": 98
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "memory_bytes": 131072,
+      "reports": 45,
+      "elapsed_seconds": 0.39792106801178306
+    },
+    "memory64/memory64": {
+      "suite": "memory64/memory64",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "module_definitions": 1,
+        "rtl_assertions_passed": 45,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 1172,
+        "script_commands": 69
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17039780,
+      "counts": {
+        "code": 152,
+        "functions": 31,
+        "types": 256,
+        "regions": 1536,
+        "boot": 128
+      },
+      "memory_bytes": 262144,
+      "reports": 59,
+      "elapsed_seconds": 0.19695251202210784
+    },
+    "memory64/memory64-imports": {
+      "suite": "memory64/memory64-imports",
+      "native_counts": {
+        "modules_instantiated": 40,
+        "registrations": 8,
+        "embedding_assertions_passed": 30,
+        "rtl_cycles": 48,
+        "script_commands": 78
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17368384,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 83
+      },
+      "memory_bytes": 589824,
+      "reports": 64,
+      "elapsed_seconds": 0.4596906459191814
+    },
+    "memory64/memory_copy64": {
+      "suite": "memory64/memory_copy64",
+      "native_counts": {
+        "modules_instantiated": 33,
+        "rtl_actions_completed": 15,
+        "rtl_assertions_passed": 4338,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8781317,
+        "script_commands": 4450
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 19006432,
+      "counts": {
+        "code": 1192,
+        "functions": 94,
+        "types": 256,
+        "regions": 1536,
+        "boot": 9387
+      },
+      "memory_bytes": 2228224,
+      "reports": 4411,
+      "elapsed_seconds": 83.79204960900825
+    },
+    "memory64/memory_fill64": {
+      "suite": "memory64/memory_fill64",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 64,
+        "rtl_cycles": 8659595,
+        "script_commands": 100
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17564032,
+      "counts": {
+        "code": 327,
+        "functions": 33,
+        "types": 256,
+        "regions": 1536,
+        "boot": 100
+      },
+      "memory_bytes": 786432,
+      "reports": 29,
+      "elapsed_seconds": 80.45850047201384
+    },
+    "memory64/memory_grow64": {
+      "suite": "memory64/memory_grow64",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 49,
+        "rtl_cycles": 16122499,
+        "script_commands": 54
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 70975872,
+      "counts": {
+        "code": 75,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "memory_bytes": 54198272,
+      "reports": 53,
+      "elapsed_seconds": 141.32764883397613
+    },
+    "memory64/memory_init64": {
+      "suite": "memory64/memory_init64",
+      "native_counts": {
+        "modules_instantiated": 29,
+        "rtl_actions_completed": 12,
+        "rtl_assertions_passed": 142,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 2767,
+        "script_commands": 250
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 18744320,
+      "counts": {
+        "code": 358,
+        "functions": 59,
+        "types": 256,
+        "regions": 1536,
+        "boot": 518
+      },
+      "memory_bytes": 1966080,
+      "reports": 176,
+      "elapsed_seconds": 0.6720993299968541
+    },
+    "memory64/memory_redundancy64": {
+      "suite": "memory64/memory_redundancy64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_actions_completed": 3,
+        "rtl_cycles": 321,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 78,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "memory_bytes": 131072,
+      "reports": 11,
+      "elapsed_seconds": 0.028014556039124727
+    },
+    "memory64/memory_trap64": {
+      "suite": "memory64/memory_trap64",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 170,
+        "rtl_cycles": 1656,
+        "script_commands": 172
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974232,
+      "counts": {
+        "code": 115,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 439
+      },
+      "memory_bytes": 196608,
+      "reports": 178,
+      "elapsed_seconds": 0.1066758360248059
+    },
+    "memory64/table64": {
+      "suite": "memory64/table64",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "module_definitions": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 26
+      },
+      "memory_bytes": 65536,
+      "reports": 5,
+      "elapsed_seconds": 0.09673368802759796
+    },
+    "memory64/table_copy64": {
+      "suite": "memory64/table_copy64",
+      "native_counts": {
+        "modules_instantiated": 52,
+        "registrations": 1,
+        "rtl_actions_completed": 26,
+        "rtl_assertions_passed": 1649,
+        "rtl_cycles": 34984,
+        "script_commands": 1728
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16906096,
+      "counts": {
+        "code": 3623,
+        "functions": 1718,
+        "types": 256,
+        "regions": 1536,
+        "boot": 6510
+      },
+      "memory_bytes": 65536,
+      "reports": 2924,
+      "elapsed_seconds": 1.644540710025467
+    },
+    "memory64/table_copy_mixed": {
+      "suite": "memory64/table_copy_mixed",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 48,
+        "script_commands": 4
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16844096,
+      "counts": {
+        "code": 35,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 15
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.04214378597680479
+    },
+    "memory64/table_fill64": {
+      "suite": "memory64/table_fill64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 70,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 1130,
+        "script_commands": 80
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843456,
+      "counts": {
+        "code": 36,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 191
+      },
+      "memory_bytes": 65536,
+      "reports": 74,
+      "elapsed_seconds": 0.11553201801143587
+    },
+    "memory64/table_get64": {
+      "suite": "memory64/table_get64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 9,
+        "rtl_cycles": 228,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843232,
+      "counts": {
+        "code": 38,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "memory_bytes": 65536,
+      "reports": 17,
+      "elapsed_seconds": 0.036571221076883376
+    },
+    "memory64/table_grow64": {
+      "suite": "memory64/table_grow64",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 25,
+        "rtl_cycles": 382,
+        "script_commands": 27
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843232,
+      "counts": {
+        "code": 34,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 68
+      },
+      "memory_bytes": 65536,
+      "reports": 29,
+      "elapsed_seconds": 0.05323261593002826
+    },
+    "memory64/table_init64": {
+      "suite": "memory64/table_init64",
+      "native_counts": {
+        "modules_instantiated": 44,
+        "registrations": 1,
+        "rtl_actions_completed": 21,
+        "rtl_assertions_passed": 755,
+        "loader_assertions_passed": 67,
+        "rtl_cycles": 18610,
+        "script_commands": 888
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16896448,
+      "counts": {
+        "code": 2773,
+        "functions": 1272,
+        "types": 256,
+        "regions": 1536,
+        "boot": 3737
+      },
+      "memory_bytes": 65536,
+      "reports": 1647,
+      "elapsed_seconds": 1.5630418240325525
+    },
+    "memory64/table_set64": {
+      "suite": "memory64/table_set64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 18,
+        "rtl_cycles": 317,
+        "script_commands": 19
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843200,
+      "counts": {
+        "code": 43,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 25,
+      "elapsed_seconds": 0.030367324012331665
+    },
+    "memory64/table_size64": {
+      "suite": "memory64/table_size64",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 36,
+        "rtl_cycles": 591,
+        "script_commands": 37
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843472,
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 40,
+      "elapsed_seconds": 0.037375484011135995
+    },
+    "memory_grow": {
+      "suite": "memory_grow",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 89,
+        "registrations": 2,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 16123343,
+        "script_commands": 109
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 71303600,
+      "counts": {
+        "code": 315,
+        "functions": 67,
+        "types": 256,
+        "regions": 1536,
+        "boot": 160
+      },
+      "memory_bytes": 54525952,
+      "reports": 99,
+      "elapsed_seconds": 146.2063108329894
+    },
+    "memory_redundancy": {
+      "suite": "memory_redundancy",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_actions_completed": 3,
+        "rtl_cycles": 321,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 78,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 21
+      },
+      "memory_bytes": 131072,
+      "reports": 11,
+      "elapsed_seconds": 0.02621439506765455
+    },
+    "memory_size": {
+      "suite": "memory_size",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 36,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 512,
+        "script_commands": 42
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 18219392,
+      "counts": {
+        "code": 39,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "memory_bytes": 1441792,
+      "reports": 40,
+      "elapsed_seconds": 0.06567084707785398
+    },
+    "memory_trap": {
+      "suite": "memory_trap",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 180,
+        "rtl_cycles": 1781,
+        "script_commands": 182
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974232,
+      "counts": {
+        "code": 115,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 464
+      },
+      "memory_bytes": 196608,
+      "reports": 188,
+      "elapsed_seconds": 0.10696341295260936
+    },
+    "multi-memory/address0": {
+      "suite": "multi-memory/address0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 91,
+        "rtl_cycles": 1289,
+        "script_commands": 92
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908698,
+      "counts": {
+        "code": 112,
+        "functions": 42,
+        "types": 256,
+        "regions": 1536,
+        "boot": 204
+      },
+      "memory_bytes": 131072,
+      "reports": 97,
+      "elapsed_seconds": 0.06082797504495829
+    },
+    "multi-memory/address1": {
+      "suite": "multi-memory/address1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 126,
+        "rtl_cycles": 1774,
+        "script_commands": 127
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908698,
+      "counts": {
+        "code": 150,
+        "functions": 54,
+        "types": 256,
+        "regions": 1536,
+        "boot": 277
+      },
+      "memory_bytes": 131072,
+      "reports": 132,
+      "elapsed_seconds": 0.09414417599327862
+    },
+    "multi-memory/align0": {
+      "suite": "multi-memory/align0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 258,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 63,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 24
+      },
+      "memory_bytes": 131072,
+      "reports": 8,
+      "elapsed_seconds": 0.02351818699389696
+    },
+    "multi-memory/binary0": {
+      "suite": "multi-memory/binary0",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 84,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 18022784,
+      "counts": {
+        "code": 21,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 33
+      },
+      "memory_bytes": 1245184,
+      "reports": 10,
+      "elapsed_seconds": 0.052648358047008514
+    },
+    "multi-memory/data0": {
+      "suite": "multi-memory/data0",
+      "native_counts": {
+        "modules_instantiated": 7,
+        "rtl_cycles": 436,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17236657,
+      "counts": {
+        "code": 79,
+        "functions": 43,
+        "types": 256,
+        "regions": 1536,
+        "boot": 160
+      },
+      "memory_bytes": 458752,
+      "reports": 73,
+      "elapsed_seconds": 0.06747163296677172
+    },
+    "multi-memory/data1": {
+      "suite": "multi-memory/data1",
+      "native_counts": {
+        "embedding_assertions_passed": 14,
+        "rtl_cycles": 217,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 19792433,
+      "counts": {
+        "code": 43,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 108
+      },
+      "memory_bytes": 3014656,
+      "reports": 40,
+      "elapsed_seconds": 0.10567199101205915
+    },
+    "multi-memory/data_drop0": {
+      "suite": "multi-memory/data_drop0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 6,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 200,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908689,
+      "counts": {
+        "code": 31,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 40
+      },
+      "memory_bytes": 131072,
+      "reports": 16,
+      "elapsed_seconds": 0.02514002297539264
+    },
+    "multi-memory/exports0": {
+      "suite": "multi-memory/exports0",
+      "native_counts": {
+        "modules_instantiated": 8,
+        "rtl_cycles": 48,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17432960,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 32
+      },
+      "memory_bytes": 655360,
+      "reports": 4,
+      "elapsed_seconds": 0.06274644797667861
+    },
+    "multi-memory/float_exprs0": {
+      "suite": "multi-memory/float_exprs0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 591,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 41,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 47
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.03685923700686544
+    },
+    "multi-memory/float_exprs1": {
+      "suite": "multi-memory/float_exprs1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 22884,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16909696,
+      "counts": {
+        "code": 68,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 159
+      },
+      "memory_bytes": 131072,
+      "reports": 8,
+      "elapsed_seconds": 0.22227577702142298
+    },
+    "multi-memory/float_memory0": {
+      "suite": "multi-memory/float_memory0",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 20,
+        "rtl_actions_completed": 8,
+        "rtl_cycles": 492,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974232,
+      "counts": {
+        "code": 55,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 59
+      },
+      "memory_bytes": 196608,
+      "reports": 36,
+      "elapsed_seconds": 0.04592893400695175
+    },
+    "multi-memory/imports0": {
+      "suite": "multi-memory/imports0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 6,
+        "rtl_cycles": 84,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105648,
+      "counts": {
+        "code": 32,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "memory_bytes": 327680,
+      "reports": 7,
+      "elapsed_seconds": 0.05620660097338259
+    },
+    "multi-memory/imports1": {
+      "suite": "multi-memory/imports1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 112,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843137,
+      "counts": {
+        "code": 20,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 30
+      },
+      "memory_bytes": 65536,
+      "reports": 14,
+      "elapsed_seconds": 0.021876359009183943
+    },
+    "multi-memory/imports2": {
+      "suite": "multi-memory/imports2",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "embedding_assertions_passed": 6,
+        "rtl_cycles": 176,
+        "script_commands": 20
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105297,
+      "counts": {
+        "code": 25,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 58
+      },
+      "memory_bytes": 327680,
+      "reports": 32,
+      "elapsed_seconds": 0.08443624107167125
+    },
+    "multi-memory/imports3": {
+      "suite": "multi-memory/imports3",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 8,
+        "rtl_cycles": 84,
+        "script_commands": 10
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105648,
+      "counts": {
+        "code": 32,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 33
+      },
+      "memory_bytes": 327680,
+      "reports": 17,
+      "elapsed_seconds": 0.07310903409961611
+    },
+    "multi-memory/imports4": {
+      "suite": "multi-memory/imports4",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "registrations": 3,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 158,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17367424,
+      "counts": {
+        "code": 26,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "memory_bytes": 589824,
+      "reports": 18,
+      "elapsed_seconds": 0.05262713599950075
+    },
+    "multi-memory/linking0": {
+      "suite": "multi-memory/linking0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "registrations": 1,
+        "embedding_assertions_passed": 2,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 177,
+        "script_commands": 6
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908913,
+      "counts": {
+        "code": 40,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 49
+      },
+      "memory_bytes": 131072,
+      "reports": 20,
+      "elapsed_seconds": 0.039615373010747135
+    },
+    "multi-memory/linking1": {
+      "suite": "multi-memory/linking1",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "registrations": 1,
+        "rtl_assertions_passed": 7,
+        "embedding_assertions_passed": 2,
+        "rtl_cycles": 225,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974289,
+      "counts": {
+        "code": 36,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "memory_bytes": 196608,
+      "reports": 28,
+      "elapsed_seconds": 0.06072901701554656
+    },
+    "multi-memory/linking2": {
+      "suite": "multi-memory/linking2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 172,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17170826,
+      "counts": {
+        "code": 23,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 38
+      },
+      "memory_bytes": 393216,
+      "reports": 15,
+      "elapsed_seconds": 0.03023279400076717
+    },
+    "multi-memory/linking3": {
+      "suite": "multi-memory/linking3",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 2,
+        "embedding_assertions_passed": 4,
+        "rtl_assertions_passed": 6,
+        "rtl_cycles": 249,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17236469,
+      "counts": {
+        "code": 45,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 66
+      },
+      "memory_bytes": 458752,
+      "reports": 30,
+      "elapsed_seconds": 0.057228152989409864
+    },
+    "multi-memory/load0": {
+      "suite": "multi-memory/load0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 102,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974225,
+      "counts": {
+        "code": 25,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 29
+      },
+      "memory_bytes": 196608,
+      "reports": 10,
+      "elapsed_seconds": 0.022127046016976237
+    },
+    "multi-memory/load1": {
+      "suite": "multi-memory/load1",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 15,
+        "rtl_cycles": 297,
+        "script_commands": 18
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17170837,
+      "counts": {
+        "code": 28,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 56
+      },
+      "memory_bytes": 393216,
+      "reports": 24,
+      "elapsed_seconds": 0.04109522292856127
+    },
+    "multi-memory/load2": {
+      "suite": "multi-memory/load2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 37,
+        "rtl_cycles": 905,
+        "script_commands": 38
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 247,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 67
+      },
+      "memory_bytes": 131072,
+      "reports": 45,
+      "elapsed_seconds": 0.05043899593874812
+    },
+    "multi-memory/memory-multi": {
+      "suite": "multi-memory/memory-multi",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 154,
+        "script_commands": 6
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105296,
+      "counts": {
+        "code": 43,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "memory_bytes": 327680,
+      "reports": 8,
+      "elapsed_seconds": 0.03380909201223403
+    },
+    "multi-memory/memory_copy0": {
+      "suite": "multi-memory/memory_copy0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 7,
+        "rtl_assertions_passed": 21,
+        "rtl_cycles": 627,
+        "script_commands": 29
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105332,
+      "counts": {
+        "code": 31,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 111
+      },
+      "memory_bytes": 327680,
+      "reports": 40,
+      "elapsed_seconds": 0.03843323502223939
+    },
+    "multi-memory/memory_copy1": {
+      "suite": "multi-memory/memory_copy1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 5,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 392,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105332,
+      "counts": {
+        "code": 31,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 77
+      },
+      "memory_bytes": 327680,
+      "reports": 25,
+      "elapsed_seconds": 0.029359660926274955
+    },
+    "multi-memory/memory_fill0": {
+      "suite": "multi-memory/memory_fill0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 8469,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 58
+      },
+      "memory_bytes": 131072,
+      "reports": 19,
+      "elapsed_seconds": 0.1102027369197458
+    },
+    "multi-memory/memory_grow": {
+      "suite": "multi-memory/memory_grow",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 1,
+        "rtl_assertions_passed": 47,
+        "rtl_cycles": 638,
+        "script_commands": 51
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 19399040,
+      "counts": {
+        "code": 45,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 81
+      },
+      "memory_bytes": 2621440,
+      "reports": 53,
+      "elapsed_seconds": 0.05876055301632732
+    },
+    "multi-memory/memory_init0": {
+      "suite": "multi-memory/memory_init0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 230,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908676,
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 57
+      },
+      "memory_bytes": 131072,
+      "reports": 16,
+      "elapsed_seconds": 0.028920046985149384
+    },
+    "multi-memory/memory_size0": {
+      "suite": "multi-memory/memory_size0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 7,
+        "rtl_cycles": 138,
+        "script_commands": 8
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17170816,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 28
+      },
+      "memory_bytes": 393216,
+      "reports": 11,
+      "elapsed_seconds": 0.02518840308766812
+    },
+    "multi-memory/memory_size1": {
+      "suite": "multi-memory/memory_size1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 14,
+        "rtl_cycles": 224,
+        "script_commands": 15
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17236352,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 36
+      },
+      "memory_bytes": 458752,
+      "reports": 18,
+      "elapsed_seconds": 0.030978664057329297
+    },
+    "multi-memory/memory_size2": {
+      "suite": "multi-memory/memory_size2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "rtl_cycles": 300,
+        "script_commands": 21
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974208,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 43
+      },
+      "memory_bytes": 196608,
+      "reports": 24,
+      "elapsed_seconds": 0.037654630024917424
+    },
+    "multi-memory/memory_size3": {
+      "suite": "multi-memory/memory_size3",
+      "native_counts": {
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.029935052036307752
+    },
+    "multi-memory/memory_size_import": {
+      "suite": "multi-memory/memory_size_import",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 96,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17432960,
+      "counts": {
+        "code": 23,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "memory_bytes": 655360,
+      "reports": 10,
+      "elapsed_seconds": 0.03383772599045187
+    },
+    "multi-memory/memory_trap0": {
+      "suite": "multi-memory/memory_trap0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 13,
+        "rtl_cycles": 388,
+        "script_commands": 14
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 33,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 48
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.03335822408553213
+    },
+    "multi-memory/memory_trap1": {
+      "suite": "multi-memory/memory_trap1",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 167,
+        "rtl_cycles": 1441,
+        "script_commands": 168
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908696,
+      "counts": {
+        "code": 97,
+        "functions": 36,
+        "types": 256,
+        "regions": 1536,
+        "boot": 433
+      },
+      "memory_bytes": 131072,
+      "reports": 175,
+      "elapsed_seconds": 0.10148971492890269
+    },
+    "multi-memory/start0": {
+      "suite": "multi-memory/start0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 6,
+        "rtl_actions_completed": 2,
+        "rtl_cycles": 271,
+        "script_commands": 9
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974209,
+      "counts": {
+        "code": 36,
+        "functions": 16,
+        "types": 256,
+        "regions": 1536,
+        "boot": 30
+      },
+      "memory_bytes": 196608,
+      "reports": 15,
+      "elapsed_seconds": 0.02521819807589054
+    },
+    "multi-memory/store0": {
+      "suite": "multi-memory/store0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 2,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 108,
+        "script_commands": 5
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974208,
+      "counts": {
+        "code": 29,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 25
+      },
+      "memory_bytes": 196608,
+      "reports": 8,
+      "elapsed_seconds": 0.022749405936338007
+    },
+    "multi-memory/store1": {
+      "suite": "multi-memory/store1",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 2,
+        "rtl_actions_completed": 4,
+        "rtl_assertions_passed": 4,
+        "rtl_cycles": 168,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974208,
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 37
+      },
+      "memory_bytes": 196608,
+      "reports": 14,
+      "elapsed_seconds": 0.03869517706334591
+    },
+    "multi-memory/store2": {
+      "suite": "multi-memory/store2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_assertions_passed": 20,
+        "rtl_actions_completed": 2,
+        "rtl_cycles": 626,
+        "script_commands": 25
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17170837,
+      "counts": {
+        "code": 61,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 68
+      },
+      "memory_bytes": 393216,
+      "reports": 31,
+      "elapsed_seconds": 0.0468569080112502
+    },
+    "multi-memory/traps0": {
+      "suite": "multi-memory/traps0",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 14,
+        "rtl_cycles": 146,
+        "script_commands": 15
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17039744,
+      "counts": {
+        "code": 71,
+        "functions": 25,
+        "types": 256,
+        "regions": 1536,
+        "boot": 44
+      },
+      "memory_bytes": 262144,
+      "reports": 18,
+      "elapsed_seconds": 0.027770302025601268
+    },
+    "names": {
+      "suite": "names",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 482,
+        "rtl_cycles": 5850,
+        "script_commands": 486
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 982,
+        "functions": 493,
+        "types": 256,
+        "regions": 1536,
+        "boot": 497
+      },
+      "memory_bytes": 65536,
+      "reports": 486,
+      "elapsed_seconds": 0.274827666929923
+    },
+    "nop": {
+      "suite": "nop",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 83,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 2029,
+        "script_commands": 88
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17826224,
+      "counts": {
+        "code": 553,
+        "functions": 97,
+        "types": 256,
+        "regions": 1536,
+        "boot": 183
+      },
+      "memory_bytes": 1048576,
+      "reports": 91,
+      "elapsed_seconds": 0.10439406498335302
+    },
+    "obsolete-keywords": {
+      "suite": "obsolete-keywords",
+      "native_counts": {
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 48,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.057910994975827634
+    },
+    "ref": {
+      "suite": "ref",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 48,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 16,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.07888332800939679
+    },
+    "ref_as_non_null": {
+      "suite": "ref_as_non_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 4,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 154,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843152,
+      "counts": {
+        "code": 52,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 20
+      },
+      "memory_bytes": 65536,
+      "reports": 9,
+      "elapsed_seconds": 0.03669846791308373
+    },
+    "ref_func": {
+      "suite": "ref_func",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "registrations": 1,
+        "rtl_assertions_passed": 8,
+        "rtl_actions_completed": 2,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 514,
+        "script_commands": 17
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843424,
+      "counts": {
+        "code": 116,
+        "functions": 51,
+        "types": 256,
+        "regions": 1536,
+        "boot": 75
+      },
+      "memory_bytes": 65536,
+      "reports": 34,
+      "elapsed_seconds": 0.06543338194023818
+    },
+    "ref_is_null": {
+      "suite": "ref_is_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 16,
+        "rtl_actions_completed": 2,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 556,
+        "script_commands": 22
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843264,
+      "counts": {
+        "code": 74,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 62
+      },
+      "memory_bytes": 65536,
+      "reports": 28,
+      "elapsed_seconds": 0.053549909964203835
+    },
+    "ref_null": {
+      "suite": "ref_null",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 32,
+        "rtl_cycles": 735,
+        "script_commands": 34
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843504,
+      "counts": {
+        "code": 89,
+        "functions": 48,
+        "types": 256,
+        "regions": 1536,
+        "boot": 91
+      },
+      "memory_bytes": 65536,
+      "reports": 59,
+      "elapsed_seconds": 0.046314466977491975
+    },
+    "relaxed-simd/i16x8_relaxed_q15mulr_s": {
+      "suite": "relaxed-simd/i16x8_relaxed_q15mulr_s",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 2,
+        "rtl_cycles": 156,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 27,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 19
+      },
+      "memory_bytes": 65536,
+      "reports": 6,
+      "elapsed_seconds": 0.022626773919910192
+    },
+    "relaxed-simd/i32x4_relaxed_trunc": {
+      "suite": "relaxed-simd/i32x4_relaxed_trunc",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.022032557986676693
+    },
+    "relaxed-simd/i8x16_relaxed_swizzle": {
+      "suite": "relaxed-simd/i8x16_relaxed_swizzle",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 297,
+        "script_commands": 6
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 27,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 28
+      },
+      "memory_bytes": 65536,
+      "reports": 9,
+      "elapsed_seconds": 0.025303410016931593
+    },
+    "relaxed-simd/relaxed_dot_product": {
+      "suite": "relaxed-simd/relaxed_dot_product",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 593,
+        "script_commands": 12
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 42,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 51
+      },
+      "memory_bytes": 65536,
+      "reports": 15,
+      "elapsed_seconds": 0.03280078701209277
+    },
+    "relaxed-simd/relaxed_laneselect": {
+      "suite": "relaxed-simd/relaxed_laneselect",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 11,
+        "rtl_cycles": 653,
+        "script_commands": 12
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 75,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 57
+      },
+      "memory_bytes": 65536,
+      "reports": 15,
+      "elapsed_seconds": 0.03453320695552975
+    },
+    "relaxed-simd/relaxed_madd_nmadd": {
+      "suite": "relaxed-simd/relaxed_madd_nmadd",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 18,
+        "rtl_cycles": 854,
+        "script_commands": 20
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 85,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 85
+      },
+      "memory_bytes": 65536,
+      "reports": 22,
+      "elapsed_seconds": 0.045540557941421866
+    },
+    "relaxed-simd/relaxed_min_max": {
+      "suite": "relaxed-simd/relaxed_min_max",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 24,
+        "rtl_cycles": 924,
+        "script_commands": 25
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 63,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 85
+      },
+      "memory_bytes": 65536,
+      "reports": 28,
+      "elapsed_seconds": 0.05401027691550553
+    },
+    "return": {
+      "suite": "return",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 63,
+        "loader_assertions_passed": 20,
+        "rtl_cycles": 981,
+        "script_commands": 84
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 364,
+        "functions": 75,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "memory_bytes": 131072,
+      "reports": 71,
+      "elapsed_seconds": 0.18448067200370133
+    },
+    "return_call": {
+      "suite": "return_call",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 34,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 90027776,
+        "script_commands": 51
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 148,
+        "functions": 48,
+        "types": 256,
+        "regions": 1536,
+        "boot": 74
+      },
+      "memory_bytes": 65536,
+      "reports": 38,
+      "elapsed_seconds": 826.3391801849939
+    },
+    "return_call_indirect": {
+      "suite": "return_call_indirect",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 50,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 14945921,
+        "script_commands": 83
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843936,
+      "counts": {
+        "code": 307,
+        "functions": 91,
+        "types": 256,
+        "regions": 1536,
+        "boot": 207
+      },
+      "memory_bytes": 65536,
+      "reports": 89,
+      "elapsed_seconds": 142.9374828620348
+    },
+    "return_call_ref": {
+      "suite": "return_call_ref",
+      "native_counts": {
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 35,
+        "loader_assertions_passed": 13,
+        "rtl_cycles": 105032683,
+        "script_commands": 53
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843744,
+      "counts": {
+        "code": 261,
+        "functions": 92,
+        "types": 256,
+        "regions": 1536,
+        "boot": 155
+      },
+      "memory_bytes": 65536,
+      "reports": 77,
+      "elapsed_seconds": 922.5259484649869
+    },
+    "select": {
+      "suite": "select",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 124,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 2852,
+        "script_commands": 157
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105392,
+      "counts": {
+        "code": 448,
+        "functions": 82,
+        "types": 256,
+        "regions": 1536,
+        "boot": 386
+      },
+      "memory_bytes": 327680,
+      "reports": 136,
+      "elapsed_seconds": 0.3598857420729473
+    },
+    "simd/simd_address": {
+      "suite": "simd/simd_address",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 42,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 702,
+        "script_commands": 49
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17039776,
+      "counts": {
+        "code": 82,
+        "functions": 27,
+        "types": 256,
+        "regions": 1536,
+        "boot": 102
+      },
+      "memory_bytes": 262144,
+      "reports": 50,
+      "elapsed_seconds": 0.11605436098761857
+    },
+    "simd/simd_align": {
+      "suite": "simd/simd_align",
+      "native_counts": {
+        "modules_instantiated": 46,
+        "loader_assertions_passed": 46,
+        "rtl_assertions_passed": 8,
+        "rtl_cycles": 200,
+        "script_commands": 100
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 19857792,
+      "counts": {
+        "code": 222,
+        "functions": 61,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "memory_bytes": 3080192,
+      "reports": 12,
+      "elapsed_seconds": 0.667548792087473
+    },
+    "simd/simd_bit_shift": {
+      "suite": "simd/simd_bit_shift",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 211,
+        "loader_assertions_passed": 39,
+        "rtl_cycles": 7731,
+        "script_commands": 252
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 375,
+        "functions": 59,
+        "types": 256,
+        "regions": 1536,
+        "boot": 587
+      },
+      "memory_bytes": 131072,
+      "reports": 215,
+      "elapsed_seconds": 0.5269811430480331
+    },
+    "simd/simd_bitwise": {
+      "suite": "simd/simd_bitwise",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 139,
+        "loader_assertions_passed": 28,
+        "rtl_cycles": 5922,
+        "script_commands": 169
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 328,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 411
+      },
+      "memory_bytes": 131072,
+      "reports": 143,
+      "elapsed_seconds": 0.4305747849866748
+    },
+    "simd/simd_boolean": {
+      "suite": "simd/simd_boolean",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 259,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 11506,
+        "script_commands": 277
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 468,
+        "functions": 88,
+        "types": 256,
+        "regions": 1536,
+        "boot": 664
+      },
+      "memory_bytes": 131072,
+      "reports": 263,
+      "elapsed_seconds": 0.4677855269983411
+    },
+    "simd/simd_const": {
+      "suite": "simd/simd_const",
+      "native_counts": {
+        "modules_instantiated": 312,
+        "loader_assertions_passed": 181,
+        "rtl_assertions_passed": 265,
+        "rtl_cycles": 3609,
+        "script_commands": 758
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17105424,
+      "counts": {
+        "code": 1012,
+        "functions": 400,
+        "types": 256,
+        "regions": 1536,
+        "boot": 309
+      },
+      "memory_bytes": 327680,
+      "reports": 278,
+      "elapsed_seconds": 3.6256331640761346
+    },
+    "simd/simd_conversions": {
+      "suite": "simd/simd_conversions",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 232,
+        "loader_assertions_passed": 48,
+        "rtl_cycles": 6523,
+        "script_commands": 282
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 144,
+        "functions": 40,
+        "types": 256,
+        "regions": 1536,
+        "boot": 600
+      },
+      "memory_bytes": 65536,
+      "reports": 236,
+      "elapsed_seconds": 0.5662597949849442
+    },
+    "simd/simd_f32x4": {
+      "suite": "simd/simd_f32x4",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 772,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 18576,
+        "script_commands": 790
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 115,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 2284
+      },
+      "memory_bytes": 65536,
+      "reports": 776,
+      "elapsed_seconds": 0.8184730539796874
+    },
+    "simd/simd_f32x4_arith": {
+      "suite": "simd/simd_f32x4_arith",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 1803,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 89693,
+        "script_commands": 1822
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 134,
+        "functions": 36,
+        "types": 256,
+        "regions": 1536,
+        "boot": 5336
+      },
+      "memory_bytes": 65536,
+      "reports": 1807,
+      "elapsed_seconds": 2.568773333914578
+    },
+    "simd/simd_f32x4_cmp": {
+      "suite": "simd/simd_f32x4_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 2581,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 62796,
+        "script_commands": 2607
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 304,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7731
+      },
+      "memory_bytes": 131072,
+      "reports": 2585,
+      "elapsed_seconds": 2.460520818014629
+    },
+    "simd/simd_f32x4_pmin_pmax": {
+      "suite": "simd/simd_f32x4_pmin_pmax",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 3872,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 92976,
+        "script_commands": 3887
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 11629
+      },
+      "memory_bytes": 65536,
+      "reports": 3876,
+      "elapsed_seconds": 3.576158627984114
+    },
+    "simd/simd_f32x4_rounding": {
+      "suite": "simd/simd_f32x4_rounding",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 176,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 3920,
+        "script_commands": 201
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 365
+      },
+      "memory_bytes": 65536,
+      "reports": 180,
+      "elapsed_seconds": 0.3323207249632105
+    },
+    "simd/simd_f64x2": {
+      "suite": "simd/simd_f64x2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 793,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 15890,
+        "script_commands": 803
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 182,
+        "functions": 52,
+        "types": 256,
+        "regions": 1536,
+        "boot": 2321
+      },
+      "memory_bytes": 65536,
+      "reports": 797,
+      "elapsed_seconds": 0.7515536859864369
+    },
+    "simd/simd_f64x2_arith": {
+      "suite": "simd/simd_f64x2_arith",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 1806,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 59291,
+        "script_commands": 1825
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 147,
+        "functions": 39,
+        "types": 256,
+        "regions": 1536,
+        "boot": 5339
+      },
+      "memory_bytes": 65536,
+      "reports": 1810,
+      "elapsed_seconds": 1.9992114680353552
+    },
+    "simd/simd_f64x2_cmp": {
+      "suite": "simd/simd_f64x2_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 2659,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 53864,
+        "script_commands": 2685
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 304,
+        "functions": 30,
+        "types": 256,
+        "regions": 1536,
+        "boot": 7965
+      },
+      "memory_bytes": 131072,
+      "reports": 2663,
+      "elapsed_seconds": 2.318006902001798
+    },
+    "simd/simd_f64x2_pmin_pmax": {
+      "suite": "simd/simd_f64x2_pmin_pmax",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 3872,
+        "loader_assertions_passed": 14,
+        "rtl_cycles": 77488,
+        "script_commands": 3887
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 23,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 11629
+      },
+      "memory_bytes": 65536,
+      "reports": 3876,
+      "elapsed_seconds": 3.2175668029813096
+    },
+    "simd/simd_f64x2_rounding": {
+      "suite": "simd/simd_f64x2_rounding",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 176,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 3216,
+        "script_commands": 201
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 27,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 365
+      },
+      "memory_bytes": 65536,
+      "reports": 180,
+      "elapsed_seconds": 0.31732034299056977
+    },
+    "simd/simd_i16x8_arith": {
+      "suite": "simd/simd_i16x8_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 181,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6132,
+        "script_commands": 194
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 545
+      },
+      "memory_bytes": 65536,
+      "reports": 185,
+      "elapsed_seconds": 0.3262097999686375
+    },
+    "simd/simd_i16x8_arith2": {
+      "suite": "simd/simd_i16x8_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 151,
+        "loader_assertions_passed": 19,
+        "rtl_cycles": 5723,
+        "script_commands": 172
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 325,
+        "functions": 74,
+        "types": 256,
+        "regions": 1536,
+        "boot": 439
+      },
+      "memory_bytes": 65536,
+      "reports": 155,
+      "elapsed_seconds": 0.3653249340131879
+    },
+    "simd/simd_i16x8_cmp": {
+      "suite": "simd/simd_i16x8_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 433,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 15519,
+        "script_commands": 465
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1287
+      },
+      "memory_bytes": 131072,
+      "reports": 437,
+      "elapsed_seconds": 0.7415648869937286
+    },
+    "simd/simd_i16x8_extadd_pairwise_i8x16": {
+      "suite": "simd/simd_i16x8_extadd_pairwise_i8x16",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 16,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 544,
+        "script_commands": 21
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 45
+      },
+      "memory_bytes": 65536,
+      "reports": 20,
+      "elapsed_seconds": 0.06517767196055502
+    },
+    "simd/simd_i16x8_extmul_i8x16": {
+      "suite": "simd/simd_i16x8_extmul_i8x16",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 325
+      },
+      "memory_bytes": 65536,
+      "reports": 108,
+      "elapsed_seconds": 0.2238963859854266
+    },
+    "simd/simd_i16x8_q15mulr_sat_s": {
+      "suite": "simd/simd_i16x8_q15mulr_sat_s",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 906,
+        "script_commands": 30
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 91
+      },
+      "memory_bytes": 65536,
+      "reports": 30,
+      "elapsed_seconds": 0.08034547697752714
+    },
+    "simd/simd_i16x8_sat_arith": {
+      "suite": "simd/simd_i16x8_sat_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 204,
+        "loader_assertions_passed": 16,
+        "rtl_cycles": 6940,
+        "script_commands": 222
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 75,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 629
+      },
+      "memory_bytes": 65536,
+      "reports": 208,
+      "elapsed_seconds": 0.35993284499272704
+    },
+    "simd/simd_i32x4_arith": {
+      "suite": "simd/simd_i32x4_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 181,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6132,
+        "script_commands": 194
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 545
+      },
+      "memory_bytes": 65536,
+      "reports": 185,
+      "elapsed_seconds": 0.30852617195341736
+    },
+    "simd/simd_i32x4_arith2": {
+      "suite": "simd/simd_i32x4_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 121,
+        "loader_assertions_passed": 26,
+        "rtl_cycles": 4506,
+        "script_commands": 149
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 241,
+        "functions": 58,
+        "types": 256,
+        "regions": 1536,
+        "boot": 346
+      },
+      "memory_bytes": 65536,
+      "reports": 125,
+      "elapsed_seconds": 0.3092591220047325
+    },
+    "simd/simd_i32x4_cmp": {
+      "suite": "simd/simd_i32x4_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 433,
+        "loader_assertions_passed": 40,
+        "rtl_cycles": 15519,
+        "script_commands": 475
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1287
+      },
+      "memory_bytes": 131072,
+      "reports": 437,
+      "elapsed_seconds": 0.712291096104309
+    },
+    "simd/simd_i32x4_dot_i16x8": {
+      "suite": "simd/simd_i32x4_dot_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 28,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 972,
+        "script_commands": 32
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 19,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 97
+      },
+      "memory_bytes": 65536,
+      "reports": 32,
+      "elapsed_seconds": 0.06554220896214247
+    },
+    "simd/simd_i32x4_extadd_pairwise_i16x8": {
+      "suite": "simd/simd_i32x4_extadd_pairwise_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 16,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 544,
+        "script_commands": 21
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 45
+      },
+      "memory_bytes": 65536,
+      "reports": 20,
+      "elapsed_seconds": 0.05893167306203395
+    },
+    "simd/simd_i32x4_extmul_i16x8": {
+      "suite": "simd/simd_i32x4_extmul_i16x8",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 325
+      },
+      "memory_bytes": 65536,
+      "reports": 108,
+      "elapsed_seconds": 0.2145561050856486
+    },
+    "simd/simd_i32x4_trunc_sat_f32x4": {
+      "suite": "simd/simd_i32x4_trunc_sat_f32x4",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 2292,
+        "script_commands": 107
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 217
+      },
+      "memory_bytes": 65536,
+      "reports": 106,
+      "elapsed_seconds": 0.12294574303086847
+    },
+    "simd/simd_i32x4_trunc_sat_f64x2": {
+      "suite": "simd/simd_i32x4_trunc_sat_f64x2",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 4,
+        "rtl_cycles": 1884,
+        "script_commands": 107
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 21,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 217
+      },
+      "memory_bytes": 65536,
+      "reports": 106,
+      "elapsed_seconds": 0.1305260299704969
+    },
+    "simd/simd_i64x2_arith": {
+      "suite": "simd/simd_i64x2_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 187,
+        "loader_assertions_passed": 11,
+        "rtl_cycles": 6330,
+        "script_commands": 200
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 69,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 563
+      },
+      "memory_bytes": 65536,
+      "reports": 191,
+      "elapsed_seconds": 0.2883277249056846
+    },
+    "simd/simd_i64x2_arith2": {
+      "suite": "simd/simd_i64x2_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 21,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 718,
+        "script_commands": 25
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 25,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 54
+      },
+      "memory_bytes": 65536,
+      "reports": 25,
+      "elapsed_seconds": 0.06010462902486324
+    },
+    "simd/simd_i64x2_cmp": {
+      "suite": "simd/simd_i64x2_cmp",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 102,
+        "loader_assertions_passed": 10,
+        "rtl_cycles": 3414,
+        "script_commands": 113
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 39,
+        "functions": 17,
+        "types": 256,
+        "regions": 1536,
+        "boot": 319
+      },
+      "memory_bytes": 65536,
+      "reports": 106,
+      "elapsed_seconds": 0.1884095489513129
+    },
+    "simd/simd_i64x2_extmul_i32x4": {
+      "suite": "simd/simd_i64x2_extmul_i32x4",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 104,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 3480,
+        "script_commands": 117
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 31,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 325
+      },
+      "memory_bytes": 65536,
+      "reports": 108,
+      "elapsed_seconds": 0.22552740410901606
+    },
+    "simd/simd_i8x16_arith": {
+      "suite": "simd/simd_i8x16_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 121,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 4091,
+        "script_commands": 131
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 48,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 363
+      },
+      "memory_bytes": 65536,
+      "reports": 125,
+      "elapsed_seconds": 0.20470251399092376
+    },
+    "simd/simd_i8x16_arith2": {
+      "suite": "simd/simd_i8x16_arith2",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 184,
+        "loader_assertions_passed": 25,
+        "rtl_cycles": 7013,
+        "script_commands": 211
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 393,
+        "functions": 89,
+        "types": 256,
+        "regions": 1536,
+        "boot": 514
+      },
+      "memory_bytes": 65536,
+      "reports": 188,
+      "elapsed_seconds": 0.38000396091956645
+    },
+    "simd/simd_i8x16_cmp": {
+      "suite": "simd/simd_i8x16_cmp",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 413,
+        "loader_assertions_passed": 30,
+        "rtl_cycles": 14859,
+        "script_commands": 445
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 320,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 1227
+      },
+      "memory_bytes": 131072,
+      "reports": 417,
+      "elapsed_seconds": 0.6579140309477225
+    },
+    "simd/simd_i8x16_sat_arith": {
+      "suite": "simd/simd_i8x16_sat_arith",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 188,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 6412,
+        "script_commands": 214
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 75,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 581
+      },
+      "memory_bytes": 65536,
+      "reports": 192,
+      "elapsed_seconds": 0.38747160602360964
+    },
+    "simd/simd_int_to_int_extend": {
+      "suite": "simd/simd_int_to_int_extend",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 228,
+        "loader_assertions_passed": 24,
+        "rtl_cycles": 7116,
+        "script_commands": 253
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 51,
+        "functions": 23,
+        "types": 256,
+        "regions": 1536,
+        "boot": 469
+      },
+      "memory_bytes": 65536,
+      "reports": 232,
+      "elapsed_seconds": 0.37913103494793177
+    },
+    "simd/simd_lane": {
+      "suite": "simd/simd_lane",
+      "native_counts": {
+        "modules_instantiated": 12,
+        "rtl_assertions_passed": 274,
+        "loader_assertions_passed": 189,
+        "rtl_cycles": 9844,
+        "script_commands": 475
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908704,
+      "counts": {
+        "code": 465,
+        "functions": 106,
+        "types": 256,
+        "regions": 1536,
+        "boot": 740
+      },
+      "memory_bytes": 131072,
+      "reports": 280,
+      "elapsed_seconds": 1.4915460089687258
+    },
+    "simd/simd_linking": {
+      "suite": "simd/simd_linking",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "registrations": 1,
+        "rtl_cycles": 72,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 19,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 17
+      },
+      "memory_bytes": 65536,
+      "reports": 6,
+      "elapsed_seconds": 0.03176267200615257
+    },
+    "simd/simd_load": {
+      "suite": "simd/simd_load",
+      "native_counts": {
+        "modules_instantiated": 14,
+        "rtl_assertions_passed": 17,
+        "loader_assertions_passed": 8,
+        "rtl_cycles": 813,
+        "script_commands": 39
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 17761028,
+      "counts": {
+        "code": 134,
+        "functions": 46,
+        "types": 256,
+        "regions": 1536,
+        "boot": 154
+      },
+      "memory_bytes": 983040,
+      "reports": 61,
+      "elapsed_seconds": 0.20351471903268248
+    },
+    "simd/simd_load16_lane": {
+      "suite": "simd/simd_load16_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 32,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 604,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 145,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 107
+      },
+      "memory_bytes": 131072,
+      "reports": 38,
+      "elapsed_seconds": 0.08287081099115312
+    },
+    "simd/simd_load32_lane": {
+      "suite": "simd/simd_load32_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 400,
+        "script_commands": 24
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 97,
+        "functions": 32,
+        "types": 256,
+        "regions": 1536,
+        "boot": 75
+      },
+      "memory_bytes": 131072,
+      "reports": 26,
+      "elapsed_seconds": 0.07246397505514324
+    },
+    "simd/simd_load64_lane": {
+      "suite": "simd/simd_load64_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 264,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 65,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 53
+      },
+      "memory_bytes": 131072,
+      "reports": 18,
+      "elapsed_seconds": 0.05804786505177617
+    },
+    "simd/simd_load8_lane": {
+      "suite": "simd/simd_load8_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 48,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 876,
+        "script_commands": 52
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 209,
+        "functions": 60,
+        "types": 256,
+        "regions": 1536,
+        "boot": 147
+      },
+      "memory_bytes": 131072,
+      "reports": 54,
+      "elapsed_seconds": 0.09859594004228711
+    },
+    "simd/simd_load_extend": {
+      "suite": "simd/simd_load_extend",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 84,
+        "loader_assertions_passed": 18,
+        "rtl_cycles": 1452,
+        "script_commands": 104
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974282,
+      "counts": {
+        "code": 267,
+        "functions": 80,
+        "types": 256,
+        "regions": 1536,
+        "boot": 178
+      },
+      "memory_bytes": 196608,
+      "reports": 94,
+      "elapsed_seconds": 0.20947376498952508
+    },
+    "simd/simd_load_splat": {
+      "suite": "simd/simd_load_splat",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 112,
+        "loader_assertions_passed": 12,
+        "rtl_cycles": 1644,
+        "script_commands": 126
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974251,
+      "counts": {
+        "code": 173,
+        "functions": 54,
+        "types": 256,
+        "regions": 1536,
+        "boot": 242
+      },
+      "memory_bytes": 196608,
+      "reports": 122,
+      "elapsed_seconds": 0.1959629040211439
+    },
+    "simd/simd_load_zero": {
+      "suite": "simd/simd_load_zero",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 27,
+        "loader_assertions_passed": 10,
+        "rtl_cycles": 525,
+        "script_commands": 39
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974282,
+      "counts": {
+        "code": 100,
+        "functions": 35,
+        "types": 256,
+        "regions": 1536,
+        "boot": 80
+      },
+      "memory_bytes": 196608,
+      "reports": 37,
+      "elapsed_seconds": 0.1214071570429951
+    },
+    "simd/simd_memory-multi": {
+      "suite": "simd/simd_memory-multi",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_cycles": 48,
+        "script_commands": 1
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974208,
+      "counts": {
+        "code": 100,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 15
+      },
+      "memory_bytes": 196608,
+      "reports": 4,
+      "elapsed_seconds": 0.02814994298387319
+    },
+    "simd/simd_select": {
+      "suite": "simd/simd_select",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 6,
+        "rtl_cycles": 156,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 20,
+        "functions": 12,
+        "types": 256,
+        "regions": 1536,
+        "boot": 37
+      },
+      "memory_bytes": 65536,
+      "reports": 10,
+      "elapsed_seconds": 0.030778804095461965
+    },
+    "simd/simd_splat": {
+      "suite": "simd/simd_splat",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 158,
+        "loader_assertions_passed": 23,
+        "rtl_cycles": 6778,
+        "script_commands": 185
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 358,
+        "functions": 74,
+        "types": 256,
+        "regions": 1536,
+        "boot": 365
+      },
+      "memory_bytes": 131072,
+      "reports": 163,
+      "elapsed_seconds": 0.5586898269830272
+    },
+    "simd/simd_store": {
+      "suite": "simd/simd_store",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 17,
+        "loader_assertions_passed": 9,
+        "rtl_cycles": 410,
+        "script_commands": 28
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974208,
+      "counts": {
+        "code": 127,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 32
+      },
+      "memory_bytes": 196608,
+      "reports": 21,
+      "elapsed_seconds": 0.09918895293958485
+    },
+    "simd/simd_store16_lane": {
+      "suite": "simd/simd_store16_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 32,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1180,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 369,
+        "functions": 44,
+        "types": 256,
+        "regions": 1536,
+        "boot": 104
+      },
+      "memory_bytes": 131072,
+      "reports": 37,
+      "elapsed_seconds": 0.1662679099244997
+    },
+    "simd/simd_store32_lane": {
+      "suite": "simd/simd_store32_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 20,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 760,
+        "script_commands": 24
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 237,
+        "functions": 32,
+        "types": 256,
+        "regions": 1536,
+        "boot": 72
+      },
+      "memory_bytes": 131072,
+      "reports": 25,
+      "elapsed_seconds": 0.18988171906676143
+    },
+    "simd/simd_store64_lane": {
+      "suite": "simd/simd_store64_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 12,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 480,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 149,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 50
+      },
+      "memory_bytes": 131072,
+      "reports": 17,
+      "elapsed_seconds": 0.06829477101564407
+    },
+    "simd/simd_store8_lane": {
+      "suite": "simd/simd_store8_lane",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 48,
+        "loader_assertions_passed": 3,
+        "rtl_cycles": 1740,
+        "script_commands": 52
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908688,
+      "counts": {
+        "code": 545,
+        "functions": 60,
+        "types": 256,
+        "regions": 1536,
+        "boot": 144
+      },
+      "memory_bytes": 131072,
+      "reports": 53,
+      "elapsed_seconds": 0.10538397100754082
+    },
+    "skip-stack-guard-page": {
+      "suite": "skip-stack-guard-page",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 10,
+        "rtl_cycles": 108596,
+        "script_commands": 11
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 6365,
+        "functions": 13,
+        "types": 256,
+        "regions": 1536,
+        "boot": 34
+      },
+      "memory_bytes": 131072,
+      "reports": 14,
+      "elapsed_seconds": 2.041977129993029
+    },
+    "stack": {
+      "suite": "stack",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 2614,
+        "script_commands": 7
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843168,
+      "counts": {
+        "code": 380,
+        "functions": 21,
+        "types": 256,
+        "regions": 1536,
+        "boot": 24
+      },
+      "memory_bytes": 65536,
+      "reports": 10,
+      "elapsed_seconds": 0.08113291801419109
+    },
+    "start": {
+      "suite": "start",
+      "native_counts": {
+        "loader_assertions_passed": 4,
+        "modules_instantiated": 5,
+        "rtl_assertions_passed": 6,
+        "rtl_actions_completed": 4,
+        "embedding_assertions_passed": 1,
+        "rtl_cycles": 455,
+        "script_commands": 20
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16974225,
+      "counts": {
+        "code": 57,
+        "functions": 22,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "memory_bytes": 196608,
+      "reports": 24,
+      "elapsed_seconds": 0.07646427000872791
+    },
+    "store": {
+      "suite": "store",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 58,
+        "rtl_cycles": 234,
+        "script_commands": 68
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 79,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 23
+      },
+      "memory_bytes": 131072,
+      "reports": 13,
+      "elapsed_seconds": 0.3646172060398385
+    },
+    "switch": {
+      "suite": "switch",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 26,
+        "loader_assertions_passed": 1,
+        "rtl_cycles": 1358,
+        "script_commands": 28
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 149,
+        "functions": 15,
+        "types": 256,
+        "regions": 1536,
+        "boot": 64
+      },
+      "memory_bytes": 65536,
+      "reports": 30,
+      "elapsed_seconds": 0.060732713085599244
+    },
+    "table": {
+      "suite": "table",
+      "native_counts": {
+        "modules_instantiated": 17,
+        "module_definitions": 1,
+        "loader_assertions_passed": 22,
+        "registrations": 1,
+        "rtl_assertions_passed": 5,
+        "rtl_cycles": 221,
+        "script_commands": 46
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16844064,
+      "counts": {
+        "code": 48,
+        "functions": 26,
+        "types": 256,
+        "regions": 1536,
+        "boot": 89
+      },
+      "memory_bytes": 65536,
+      "reports": 18,
+      "elapsed_seconds": 0.2387660959502682
+    },
+    "table_get": {
+      "suite": "table_get",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_actions_completed": 1,
+        "rtl_assertions_passed": 9,
+        "loader_assertions_passed": 5,
+        "rtl_cycles": 228,
+        "script_commands": 16
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843232,
+      "counts": {
+        "code": 38,
+        "functions": 18,
+        "types": 256,
+        "regions": 1536,
+        "boot": 41
+      },
+      "memory_bytes": 65536,
+      "reports": 17,
+      "elapsed_seconds": 0.05861707602161914
+    },
+    "table_grow": {
+      "suite": "table_grow",
+      "native_counts": {
+        "modules_instantiated": 9,
+        "rtl_assertions_passed": 43,
+        "registrations": 2,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 3566,
+        "script_commands": 61
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16856896,
+      "counts": {
+        "code": 95,
+        "functions": 28,
+        "types": 256,
+        "regions": 1536,
+        "boot": 116
+      },
+      "memory_bytes": 65536,
+      "reports": 51,
+      "elapsed_seconds": 0.1855438860366121
+    },
+    "table_set": {
+      "suite": "table_set",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 18,
+        "loader_assertions_passed": 7,
+        "rtl_cycles": 317,
+        "script_commands": 26
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843200,
+      "counts": {
+        "code": 43,
+        "functions": 20,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 25,
+      "elapsed_seconds": 0.07149559305980802
+    },
+    "table_size": {
+      "suite": "table_size",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 36,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 591,
+        "script_commands": 39
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843472,
+      "counts": {
+        "code": 43,
+        "functions": 19,
+        "types": 256,
+        "regions": 1536,
+        "boot": 69
+      },
+      "memory_bytes": 65536,
+      "reports": 40,
+      "elapsed_seconds": 0.05192674999125302
+    },
+    "token": {
+      "suite": "token",
+      "native_counts": {
+        "loader_assertions_passed": 26,
+        "modules_instantiated": 35,
+        "rtl_cycles": 108,
+        "script_commands": 61
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908989,
+      "counts": {
+        "code": 84,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 63
+      },
+      "memory_bytes": 131072,
+      "reports": 12,
+      "elapsed_seconds": 0.3405858420301229
+    },
+    "traps": {
+      "suite": "traps",
+      "native_counts": {
+        "modules_instantiated": 4,
+        "rtl_assertions_passed": 32,
+        "rtl_cycles": 310,
+        "script_commands": 36
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908672,
+      "counts": {
+        "code": 143,
+        "functions": 41,
+        "types": 256,
+        "regions": 1536,
+        "boot": 88
+      },
+      "memory_bytes": 131072,
+      "reports": 36,
+      "elapsed_seconds": 0.06177594303153455
+    },
+    "type": {
+      "suite": "type",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "loader_assertions_passed": 2,
+        "rtl_cycles": 48,
+        "script_commands": 3
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.04464303096756339
+    },
+    "type-canon": {
+      "suite": "type-canon",
+      "native_counts": {
+        "modules_instantiated": 2,
+        "rtl_cycles": 48,
+        "script_commands": 2
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.02669671201147139
+    },
+    "type-equivalence": {
+      "suite": "type-equivalence",
+      "native_counts": {
+        "modules_instantiated": 21,
+        "loader_assertions_passed": 1,
+        "rtl_assertions_passed": 4,
+        "registrations": 6,
+        "rtl_cycles": 653,
+        "script_commands": 32
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843488,
+      "counts": {
+        "code": 200,
+        "functions": 66,
+        "types": 256,
+        "regions": 1536,
+        "boot": 66
+      },
+      "memory_bytes": 65536,
+      "reports": 27,
+      "elapsed_seconds": 0.17086633597500622
+    },
+    "type-rec": {
+      "suite": "type-rec",
+      "native_counts": {
+        "modules_instantiated": 11,
+        "loader_assertions_passed": 10,
+        "registrations": 1,
+        "embedding_assertions_passed": 2,
+        "rtl_assertions_passed": 3,
+        "rtl_cycles": 218,
+        "script_commands": 27
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843312,
+      "counts": {
+        "code": 55,
+        "functions": 34,
+        "types": 256,
+        "regions": 1536,
+        "boot": 47
+      },
+      "memory_bytes": 65536,
+      "reports": 21,
+      "elapsed_seconds": 0.15101077302824706
+    },
+    "unreachable": {
+      "suite": "unreachable",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 63,
+        "rtl_cycles": 653,
+        "script_commands": 64
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16908720,
+      "counts": {
+        "code": 314,
+        "functions": 74,
+        "types": 256,
+        "regions": 1536,
+        "boot": 106
+      },
+      "memory_bytes": 131072,
+      "reports": 71,
+      "elapsed_seconds": 0.0623293099924922
+    },
+    "unreached-invalid": {
+      "suite": "unreached-invalid",
+      "native_counts": {
+        "loader_assertions_passed": 121,
+        "rtl_cycles": 48,
+        "script_commands": 121
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.8397297650808468
+    },
+    "unreached-valid": {
+      "suite": "unreached-valid",
+      "native_counts": {
+        "modules_instantiated": 3,
+        "rtl_assertions_passed": 10,
+        "rtl_cycles": 106,
+        "script_commands": 13
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 102,
+        "functions": 24,
+        "types": 256,
+        "regions": 1536,
+        "boot": 27
+      },
+      "memory_bytes": 65536,
+      "reports": 14,
+      "elapsed_seconds": 0.044320403947494924
+    },
+    "unwind": {
+      "suite": "unwind",
+      "native_counts": {
+        "modules_instantiated": 1,
+        "rtl_assertions_passed": 49,
+        "rtl_cycles": 1026,
+        "script_commands": 50
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 401,
+        "functions": 60,
+        "types": 256,
+        "regions": 1536,
+        "boot": 62
+      },
+      "memory_bytes": 65536,
+      "reports": 53,
+      "elapsed_seconds": 0.06433490407653153
+    },
+    "utf8-custom-section-id": {
+      "suite": "utf8-custom-section-id",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.9354166960110888
+    },
+    "utf8-import-field": {
+      "suite": "utf8-import-field",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.9850933799752966
+    },
+    "utf8-import-module": {
+      "suite": "utf8-import-module",
+      "native_counts": {
+        "loader_assertions_passed": 176,
+        "rtl_cycles": 48,
+        "script_commands": 176
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 15,
+        "functions": 11,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.9622168779606
+    },
+    "utf8-invalid-encoding": {
+      "suite": "utf8-invalid-encoding",
+      "native_counts": {
+        "loader_assertions_passed": 180,
+        "modules_instantiated": 3,
+        "rtl_cycles": 48,
+        "script_commands": 183
+      },
+      "status": "packed",
+      "allocated_ram_bytes": 16843136,
+      "counts": {
+        "code": 18,
+        "functions": 14,
+        "types": 256,
+        "regions": 1536,
+        "boot": 13
+      },
+      "memory_bytes": 65536,
+      "reports": 4,
+      "elapsed_seconds": 0.8954090749612078
+    }
+  },
+  "physical_hardware_tested": false
+}

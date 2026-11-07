@@ -1,5 +1,6 @@
 """Shared standalone profile bindings and immutable image checks."""
 import json
+import os
 from pathlib import Path
 from prepare_standalone import ROOT, digest, load_profile
 
@@ -12,7 +13,8 @@ def parameters(profile):
 
 
 def generate_parameters():
-    path = ROOT/'build/standalone_parameters.svh'
+    selected = os.environ.get('WASMETAL_PROFILE')
+    path = ROOT/'build'/(f'profile-{Path(selected).stem}' if selected else '')/'standalone_parameters.svh'
     path.parent.mkdir(parents=True, exist_ok=True)
     text = '// Generated from soc/profile.json.\n' + ',\n'.join(
         f'.{name}({value})' for name, value in parameters(load_profile()).items()) + '\n'
@@ -25,8 +27,8 @@ def verify_image(directory):
     manifest = json.loads((directory/'manifest.json').read_text())
     if manifest['format'] != 'wasmetal-standalone-v1' or manifest['profile'] != load_profile():
         raise ValueError('prepared image has the wrong format or hardware profile')
-    required = {'code.hex','functions.hex','types.hex','regions.hex','boot.hex',
-                'program.wasm','initialization.txt'}
+    required = {'code.hex','functions.hex','types.hex','regions.hex','boot.hex','initialization.txt',
+                'script.json' if manifest.get('session') else 'program.wasm'}
     if set(manifest['files']) != required:
         raise ValueError('prepared image is incomplete')
     for name, value in manifest['files'].items():

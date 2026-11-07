@@ -56,7 +56,7 @@ def main():
     parser.add_argument('--report',type=Path);parser.add_argument('--no-recovery',action='store_true')
     args=parser.parse_args();binary=args.binary.resolve();identity=verify_simulator(binary)
     scale=identity['clock_scale'];bit_ticks=identity['uart_ticks']*scale
-    if args.board!=(scale==32):parser.error('--board must match the simulator clock configuration')
+    if args.board!=(scale in (32,256)):parser.error('--board must match the simulator clock configuration')
     source=Path(__file__).resolve();source_hash=digest(source);started=time.monotonic();results=[]
     inputs=[source,ROOT/'tools/check_standalone.py',ROOT/'tools/program_upload.py',ROOT/'tools/prepare_standalone.py',
         ROOT/'tools/standalone_support.py',ROOT/'tests/standalone/loadable.cpp']

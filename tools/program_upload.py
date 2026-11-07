@@ -45,21 +45,30 @@ class Upload:
         return self.header+self.payload+struct.pack('<I',self.checksum)
 
 
-def encode(directory,nonce=None):
+def encode(directory,nonce=None,compact=False):
+    """Version 1 sends every row; compact version 2 omits trailing zero rows,
+    which the loader clears itself after verifying the checksum."""
     directory=Path(directory);manifest=verify_image(directory);profile=manifest['profile']
-    payload=bytearray()
+    rows_by_section=[]
     for name,rows,width in sections(profile):
         lines=(directory/name).read_text().splitlines()
         if len(lines)!=rows:raise ValueError('wrong image row count: '+name)
+        values=[]
         for line in lines:
             if not re.fullmatch(r'[0-9a-fA-F]+',line):raise ValueError('invalid image word: '+name)
             value=int(line,16)
             if value>=1<<width:raise ValueError('image word exceeds hardware width: '+name)
-            payload.extend(value.to_bytes((width+7)//8,'little'))
+            values.append(value)
+        if compact:
+            while values and values[-1]==0:values.pop()
+        rows_by_section.append((values,width))
+    payload=bytearray(struct.pack('<5I',*(len(v) for v,_ in rows_by_section)) if compact else b'')
+    for values,width in rows_by_section:
+        for value in values:payload.extend(value.to_bytes((width+7)//8,'little'))
     if len(payload)>0xffffffff:raise ValueError('upload is too large')
     nonce=secrets.randbits(64) if nonce is None else nonce
     tag=profile_tag(profile)
-    body=struct.pack('<BQ16sI',1,nonce,tag,len(payload))
+    body=struct.pack('<BQ16sI',2 if compact else 1,nonce,tag,len(payload))
     return Upload(nonce,tag,MAGIC+body,bytes(payload),zlib.crc32(body+payload))
 
 

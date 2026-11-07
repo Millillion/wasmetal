@@ -1,0 +1,446 @@
+{
+  "status": "passed",
+  "backend": "standalone-board-rtl",
+  "binary_sha256": "9d0b8d10eb135c048a5fb09466123182c83b4634b17c2b72c5d3174582343dfb",
+  "profile": {
+    "core": {
+      "VALUE_DEPTH": 8192,
+      "CONTROL_DEPTH": 2048,
+      "CALL_DEPTH": 512,
+      "MEMORY_COUNT": 256,
+      "HEAP_SLOTS": 1024
+    },
+    "instruction_depth": 1024,
+    "function_depth": 128,
+    "type_depth": 64,
+    "boot_depth": 512,
+    "regions_per_kind": 16,
+    "ram_bytes": 131072,
+    "memory_pages": 1,
+    "table_slots": 128,
+    "max_results": 16,
+    "watchdog_cycles": 10000000
+  },
+  "test_source_sha256": "6116720fecc526d996cf9645de9046d734ac645c9eb6fe7430d01c05c75c072c",
+  "build_inputs": {
+    "rtl/vendor.vlt": "dc83c3d6914d8473e5c5e35dc261da68818ad85c43566fddfe7da3837b4b0c6d",
+    "rtl/wasmetal_alu.sv": "ff11a1ec5019f0c83611f004f53430311d1a55279e6db5b43c2cff9b9f3e4c43",
+    "rtl/wasmetal_core.sv": "d8f3f279cf50bd05ffbe46fb85fe3f04cac985271e67bf8d84f76698dde28e26",
+    "rtl/wasmetal_descriptors.sv": "06c76f218db3087f9648b5539046d96befcd6d7db4750a4703578ee295eeaad0",
+    "rtl/wasmetal_divider.sv": "a1b02c3fc8ee212eae6100ec659718c7b59e535d8249b96f456bcdba07fb52dc",
+    "rtl/wasmetal_fp_arithmetic.sv": "99df093f5d5778c7ab728d99b378aa281e6c361b20e13f27a1bf501810755574",
+    "rtl/wasmetal_fp_format.sv": "c6e8027e90d62faa29828b465de6558d42f607b5b9ff6ae2f87695184138821f",
+    "rtl/wasmetal_fp_round.sv": "0528ab0eda786dff45644f39889a57fa07eaaf4fd763cddee20369bd207a2951",
+    "rtl/wasmetal_fpu.sv": "c8069b7b39c2d5eb260f6004ab29bbbb546ee1567dd03c091d6a1ff3600f1759",
+    "rtl/wasmetal_popcount.sv": "4c8dae208b48bcd51cec83d487bad31c0d9a17a9e735a98a309e05fea96c7d25",
+    "rtl/wasmetal_simd_decode.sv": "7e136748d880788084b777a2ddc2ab9c8717fe6166abb684be1f66d617a3e8ac",
+    "rtl/wasmetal_simd_fp_decode.sv": "00628adce6427b599798fb8fe262c77b7fb3282683d41fe5980673eee7f81b18",
+    "rtl/wasmetal_simd_int.sv": "d64aaee7e053fae5b24e59d8e0e819c5eb065060ae6f9d426ea83404a703cf71",
+    "rtl/wasmetal_simd_lanes.sv": "afceadda2a29dc846d3833ab5cd782fb78fb76f4512c04045e9f423f418f80b3",
+    "rtl/wasmetal_simd_serial.sv": "dc4ffb3fcaae023634e60f70944bfad76f2be083a420c425f5a275863a55a249",
+    "rtl/wasmetal_values.sv": "62850b6272bc5c0f624dbd1c96e8a722c9ae22a16dfedb0b26950f53696308d3",
+    "third_party/hardfloat/source/HardFloat_primitives.v": "7f6ad7a89e63414a69223ba4076841377af2fcdd32f21318dbf00446f262cf66",
+    "third_party/hardfloat/source/HardFloat_rawFN.v": "353cad0b733c601f5c2449dc75f1ddefa34dc5c2466ac82540302303899fe355",
+    "third_party/hardfloat/source/addRecFN.v": "15fb5387ab0deff63670ed144189e9f263c61ffc909d06697974c49d11ba5dc3",
+    "third_party/hardfloat/source/compareRecFN.v": "b88d572db1cea8d5275aeb1db7dcdfabad74281fdc29378940fd4b20f7326d69",
+    "third_party/hardfloat/source/divSqrtRecFN_small.v": "f77b4b7890f61a71db3a93d0eb34412cdd17088f5ba003460e23a9789031b23c",
+    "third_party/hardfloat/source/fNToRecFN.v": "7aca940370a4ecf1b52774cec62e90252d090f20a4acd5f577cf88565266426c",
+    "third_party/hardfloat/source/iNToRecFN.v": "bb7a5cd239ebc2f95a7eb9047534f1e530f148f5d017dd664c3f252bccb25f1c",
+    "third_party/hardfloat/source/isSigNaNRecFN.v": "77e37250ec9c18c4484c23eda48bfcf7df8dec1a3d3b2c1a1e5804386a25de8b",
+    "third_party/hardfloat/source/mulAddRecFN.v": "268c38c2433e66337900a4ad67daf393ffa6f4aaa43552728bc786a83604008b",
+    "third_party/hardfloat/source/mulRecFN.v": "5a6a263dcde9f38f0fabef87ceb41e1bdff63c46d151c7c65e404467354bee43",
+    "third_party/hardfloat/source/recFNToFN.v": "62d42a8f004f00f9a688c5e45302ceff22148313b3602840e5d05a13e9391e96",
+    "third_party/hardfloat/source/recFNToIN.v": "881c05985ee57e1006988661236708c74269352957d94f65c88696c1a7928877",
+    "third_party/hardfloat/source/recFNToRecFN.v": "3ec9a39057e64d7fb42893c12f0e19b36af7226669ba53671d6abe19db0722fc",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.v": "de4442606d2c51bf30c0476d289fa7f955273c8bb58c1484f0e745b76bc8d316",
+    "fpga/wasmetal_uart.sv": "246de845e4478c03593fa6249ed8e0fd172b3e70aab32b1cefd1f8fd1e08c9e9",
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "soc/external/wasmetal_async_axi_memory.sv": "b2a088f2f44ac030a735cb04f4b2985812461cb83507a34bdbc5183008fa62a1",
+    "soc/external/wasmetal_axi_memory.sv": "041c8d0b3084fa5587820fd7219af30168d2df7c73ab3a15ba12ac0b0e9fd41b",
+    "soc/external/wasmetal_memory_cdc.sv": "a8222f73d8e8d00ffc6a4e3bb6eebc1564b23b22de0493dba6433f6803657d92",
+    "soc/loader/wasmetal_image_loader.sv": "2ea45cab6d8b937329625c210538b649df71e50ca5c88bd9e0ae124bf701d2d1",
+    "soc/loader/wasmetal_instruction_decode.sv": "da67c476e4f04743df892cb7a1ca8e6617ad846ae9ca723ed001020cf001dffd",
+    "soc/loader/wasmetal_instruction_encode.sv": "d144ea4ff33e2df8fc8c62b59f3f8a61e37d2f822875b3816e3b10ade18a1466",
+    "soc/loader/wasmetal_loadable.sv": "145485e68cdc76e90254a51863061232eb69dded135bdfed49e36e890e5e66b1",
+    "soc/loader/wasmetal_loadable_genesys2.sv": "91ae55395127fd768cd1080c5e0aa280ab70dcaba97c09b94d9c7997d6f8ddcb",
+    "soc/loader/wasmetal_loadable_ulx3s.sv": "5b057cf9d056691fec083b28cc0011b10780db463035849ad65ab9072c81e66a",
+    "soc/memory/wasmetal_bram.sv": "83c3b59eb1180af00f895b6dc239e496d75f4f95884956b579c4fb7174cbef55",
+    "soc/memory/wasmetal_memory_bridge.sv": "f819012b34ff6aa52842d9d1e67b6fc5a004c649cd5a8c937f5279d8cdc773b2",
+    "soc/memory/wasmetal_memory_lanes.sv": "5304142be0867bd7303d770147a446bcb42efccdde495be55bdd14097c766c73",
+    "soc/sdram/wasmetal_sdram_memory.sv": "7e79c40498bdaa0e73932ebca5c59d7e2603752b11cd0ff43831652289869109",
+    "soc/wasmetal_local_memory.sv": "894771115240f77e97bfbc442b9571a17f5403df84e6b006c5c8c910e8807d62",
+    "soc/wasmetal_standalone.sv": "77494ff7ee07cefebf583cc0a822c23eb700e65b23f6cf24212672fa3bbff551",
+    "soc/wasmetal_standalone_ulx3s.sv": "5673581000842c7d3d8cbbd66e6a197605b8a362cdc999a1f0a6a7dec080c0d1",
+    "third_party/hardfloat/source/8086-SSE/HardFloat_specialize.vi": "a6a6a3b7b86f7cc2e32e147dc9f6943422a611fd6da362f37e18950002a571c4",
+    "third_party/hardfloat/source/ARM-VFPv2/HardFloat_specialize.vi": "1710f1ec1a2c737fd490a723101e45dde6bf4735217996dba6e4be279c6c5ed9",
+    "third_party/hardfloat/source/HardFloat_consts.vi": "53d4c22ee61b9b81bc763330959327914d8e1952e15f3f66361d1a4e34e2802f",
+    "third_party/hardfloat/source/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "third_party/hardfloat/source/RISCV/HardFloat_specialize.vi": "c252f7e1638f63838f66e6f469bf86fdec0e4396f6b0be69172623a26519307c",
+    "tests/standalone/system.cpp": "487f409d94efa82f8fe1ec497f1671c585a4ba466d43eaf527019766d91b0e31",
+    "tools/build_standalone_sim.py": "e01f744b4803511bdc47d2f926807aab1dedbab22d6c5a001c21a1db48e43af9",
+    "soc/profile.json": "84ed2b3b349248bf7c9a4ac5364367fe0685ab88426aadad20369f9865b50e98",
+    "tools/prepare_standalone.py": "88c3a835cd44d6bfef7400289c473dd8fa74fea625f7427f15cf6bb05f8de8d8",
+    "tools/standalone_support.py": "4de6e5f9753be79cae016b89bfcc8b652146433d4404c7048c5fe102ef314a50",
+    "build/standalone_parameters.svh": "e3565ad574d71079a0da67d5ad71a250ec9e3af4bfa3de97fbcd00396d80a53f"
+  },
+  "cases": [
+    {
+      "name": "answer",
+      "source_sha256": "feecadb45ac8432c466b57153770a4b58c961e3560a0f605b0048f40680b6c5c",
+      "image_manifest_sha256": "36a972c5bcc5d16f5968d9d4bb31682164ec2fcdca11fc5622295dd15f578812",
+      "image_files": {
+        "code.hex": "a374c57f2fec5889bfb7f3a06319c8d7f452c80eafea79aafbdcef61421e4de4",
+        "functions.hex": "a64f86dc3c8b835ca15a9143254e1b788b8467a2b2e419bb52f3d35a08e5c767",
+        "types.hex": "2b3f5b9e729eb5362b70b12f9807caef17f60f511cc1965ece782fe172680e81",
+        "regions.hex": "b6777a280733531474c44c92df25c9a7c857c415d41c6edb01d57e19099898da",
+        "boot.hex": "9c481ebb88b8a6de0821bb2c46939bcddc0274e8ec2f74de8150d3114985964e",
+        "initialization.txt": "724fa89d2ce777ad8c6d2fe16641901300734763ecc10f1b36d54028f97f2b48",
+        "program.wasm": "b8522b92278318da522d639a04450f47f4b5621dc40964ee51c6319b4f5f1ea7"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 53,
+          "values": [
+            42
+          ],
+          "simulation_clocks": 1779120,
+          "uart": "574d01000001350000002a0000000000000000000000000000000d44",
+          "first_uart_clock": 1052496,
+          "reset_injected": false,
+          "reset_at": 0
+        },
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 53,
+          "values": [
+            42
+          ],
+          "simulation_clocks": 1779136,
+          "uart": "574d01000001350000002a0000000000000000000000000000000d44",
+          "first_uart_clock": 1052512,
+          "reset_injected": false,
+          "reset_at": 0
+        }
+      ]
+    },
+    {
+      "name": "selftest",
+      "source_sha256": "a1c18ab9e6d9fc02c644ace57cc042dfa2123b5d9e078886ad54c1f54b2f4daf",
+      "image_manifest_sha256": "db5bca3151d4387ace55983c77a1323d844ccc17eaabc962c6f26b3852310117",
+      "image_files": {
+        "code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+        "functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+        "types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e",
+        "regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+        "boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+        "initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+        "program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 2005,
+          "values": [
+            42,
+            42,
+            2,
+            39,
+            1081081856,
+            4613937818241073152,
+            456928224199368548342553000122122251,
+            42,
+            857870609,
+            42405,
+            20,
+            99
+          ],
+          "simulation_clocks": 6415120,
+          "uart": "574d0100000cd50700002a0000000000000000000000000000002a000000000000000000000000000000020000000000000000000000000000002700000000000000000000000000000000007040000000000000000000000000000000000000084000000000000000000b00160021002c00370042004d0058002a00000000000000000000000000000011112233000000000000000000000000a5a500000000000000000000000000001400000000000000000000000000000063000000000000000000000000000000015b",
+          "first_uart_clock": 1120944,
+          "reset_injected": false,
+          "reset_at": 0
+        },
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 2005,
+          "values": [
+            42,
+            42,
+            2,
+            39,
+            1081081856,
+            4613937818241073152,
+            456928224199368548342553000122122251,
+            42,
+            857870609,
+            42405,
+            20,
+            99
+          ],
+          "simulation_clocks": 6415136,
+          "uart": "574d0100000cd50700002a0000000000000000000000000000002a000000000000000000000000000000020000000000000000000000000000002700000000000000000000000000000000007040000000000000000000000000000000000000084000000000000000000b00160021002c00370042004d0058002a00000000000000000000000000000011112233000000000000000000000000a5a500000000000000000000000000001400000000000000000000000000000063000000000000000000000000000000015b",
+          "first_uart_clock": 1120960,
+          "reset_injected": false,
+          "reset_at": 0
+        }
+      ]
+    },
+    {
+      "name": "memory64",
+      "source_sha256": "ead322a60aa1a8d0e7b8adf8629cfd6049b616ce7083ef5a539762a1cdb99c45",
+      "image_manifest_sha256": "1b53e09d8ec368b6efb817db1c4c53c33ce94311ced04003a74d31924480d2cf",
+      "image_files": {
+        "code.hex": "c4b94be2c5045752f0f61798fd1dceea395dba11e19f356e50c6adda77569381",
+        "functions.hex": "1459e42d3a6ce135d535a37cbbb6368ebcda9c0c38d3318a5c34a27603cdbab0",
+        "types.hex": "c05ed5456fdbce02215582d64eb07ad0bbfacb6d5cf5583372f182acaf2edd7b",
+        "regions.hex": "426eb8658d68d26333983a57857216aa602cc1df46ac475a8e481de9171d0502",
+        "boot.hex": "22780a7df53c1e5246754a21b2d31759b4ee916fdb3b1acd253aa9a66ac282c9",
+        "initialization.txt": "f26db2bb1d78f7944e2495109dcf36c30658a76b851821b6643195b8060803db",
+        "program.wasm": "352dfe39c76b2ae2490963d7e363929e289265bf35e84a0e6f9b672d57aad076"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 41,
+          "values": [
+            0,
+            1234605616436508552,
+            18446744073709551615
+          ],
+          "simulation_clocks": 2607408,
+          "uart": "574d01000003290000000000000000000000000000000000000088776655443322110000000000000000ffffffffffffffff000000000000000013a1",
+          "first_uart_clock": 1050320,
+          "reset_injected": false,
+          "reset_at": 0
+        }
+      ]
+    },
+    {
+      "name": "sixteen-results",
+      "source_sha256": "57ad04fda6077d22b53d3b25c34c61b247f3aa18edd655306238a70c3e087318",
+      "image_manifest_sha256": "d60d9ddc055fd76a9950173fea722244cf752fb875bde6860b1220c54b987080",
+      "image_files": {
+        "code.hex": "fc67a68e0198703f1590f59ca7cfa7ffadb1bdcde65a4d4bd2c61de85f81c6f0",
+        "functions.hex": "77df63ea282e585db6c2faba4c23ad60b2c15230d3a8f8fd3dd9f6ff24fc28fb",
+        "types.hex": "c05ed5456fdbce02215582d64eb07ad0bbfacb6d5cf5583372f182acaf2edd7b",
+        "regions.hex": "4a501b461480ed2f016615fbcfe68776e4d4aa35b0e2860b38722dafd6c98590",
+        "boot.hex": "392446d2743b2b4885fcc72a08236a3e0572acb52b316821b712eb52fcff1b3b",
+        "initialization.txt": "2aea3fe31f04f0ee16cdd53fe608cd4dfc8edabedea9638e1127fa188ce0e7f6",
+        "program.wasm": "a36d9ca93d628bfe048aa68568220f5576995081910ac4981c6b159eed04d19f"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 56,
+          "values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "simulation_clocks": 8005776,
+          "uart": "574d0100001038000000000000000000000000000000000000000100000000000000000000000000000002000000000000000000000000000000030000000000000000000000000000000400000000000000000000000000000005000000000000000000000000000000060000000000000000000000000000000700000000000000000000000000000008000000000000000000000000000000090000000000000000000000000000000a0000000000000000000000000000000b0000000000000000000000000000000c0000000000000000000000000000000d0000000000000000000000000000000e0000000000000000000000000000000f000000000000000000000000000000d20d",
+          "first_uart_clock": 1050672,
+          "reset_injected": false,
+          "reset_at": 0
+        }
+      ]
+    },
+    {
+      "name": "memory-oob",
+      "source_sha256": "63146092d927ac4c48e1ac902c1e0c2ca85f79f4fa5b561a00d05961d668027a",
+      "image_manifest_sha256": "02b60c13b7561cfba7e27762a5ccfa7cf9778bdb0678d7dc428f92b1416ed64f",
+      "image_files": {
+        "code.hex": "f489c9f8ff04cb5c9c461180eec2f77a84238696c7905e1dedc1c0f8a4bfc1bc",
+        "functions.hex": "dbd33051f53334ab00f1a5ac007fb36d2e7d01aa6bf2813d0021cc48691a64a8",
+        "types.hex": "c05ed5456fdbce02215582d64eb07ad0bbfacb6d5cf5583372f182acaf2edd7b",
+        "regions.hex": "426eb8658d68d26333983a57857216aa602cc1df46ac475a8e481de9171d0502",
+        "boot.hex": "3233ccad37f9230f4c8ffd1d078cdd135359389ece1a39f91518eab5082066fc",
+        "initialization.txt": "30cdab1eee11d247728ff147bc2efe3db66b2da01f7c06930585b4ff049faf6e",
+        "program.wasm": "57a06638f2856bee4095cee85708c83cdbbfec0ef87c883beb72bc8c495c2fe4"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 1,
+          "trap": 4,
+          "cycles": 7,
+          "values": [],
+          "simulation_clocks": 1360528,
+          "uart": "574d01010400070000000099",
+          "first_uart_clock": 1049136,
+          "reset_injected": false,
+          "reset_at": 0
+        }
+      ]
+    },
+    {
+      "name": "reset-during-clear",
+      "source_sha256": "feecadb45ac8432c466b57153770a4b58c961e3560a0f605b0048f40680b6c5c",
+      "image_manifest_sha256": "36a972c5bcc5d16f5968d9d4bb31682164ec2fcdca11fc5622295dd15f578812",
+      "image_files": {
+        "code.hex": "a374c57f2fec5889bfb7f3a06319c8d7f452c80eafea79aafbdcef61421e4de4",
+        "functions.hex": "a64f86dc3c8b835ca15a9143254e1b788b8467a2b2e419bb52f3d35a08e5c767",
+        "types.hex": "2b3f5b9e729eb5362b70b12f9807caef17f60f511cc1965ece782fe172680e81",
+        "regions.hex": "b6777a280733531474c44c92df25c9a7c857c415d41c6edb01d57e19099898da",
+        "boot.hex": "9c481ebb88b8a6de0821bb2c46939bcddc0274e8ec2f74de8150d3114985964e",
+        "initialization.txt": "724fa89d2ce777ad8c6d2fe16641901300734763ecc10f1b36d54028f97f2b48",
+        "program.wasm": "b8522b92278318da522d639a04450f47f4b5621dc40964ee51c6319b4f5f1ea7"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 53,
+          "values": [
+            42
+          ],
+          "simulation_clocks": 1780848,
+          "uart": "574d01000001350000002a0000000000000000000000000000000d44",
+          "first_uart_clock": 1054224,
+          "reset_injected": true,
+          "reset_at": 1600
+        }
+      ]
+    },
+    {
+      "name": "reset-during-execution",
+      "source_sha256": "a1c18ab9e6d9fc02c644ace57cc042dfa2123b5d9e078886ad54c1f54b2f4daf",
+      "image_manifest_sha256": "db5bca3151d4387ace55983c77a1323d844ccc17eaabc962c6f26b3852310117",
+      "image_files": {
+        "code.hex": "ae17314ff4b22982cd7902b224bde77641d5106bed83c838e33a4ab3e1b0b8c3",
+        "functions.hex": "b7de465e4ca22e382da1a8d326db4f2a517fffac77b7cd147cdc67c65909521c",
+        "types.hex": "b22e0599eea17b5daa82d49533efd4d8ba349418e49249722c2b8df6c2a8ee4e",
+        "regions.hex": "3b8f859197f38eecb84764e857680f904195510d38b05b385bfe10b3ca640c55",
+        "boot.hex": "485f01c1d0cd619f0d82ede16271832e3c067beb2ca2e35b248e83360a27a332",
+        "initialization.txt": "db9c7947731f6d909aacea2c6a2bb174c4ef2e4dbd2ec51199937afcbf2c06af",
+        "program.wasm": "ffd1ef5c0fbf818f1ea50905a26af660843076e4203bce94030cc5c36417f310"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 2005,
+          "values": [
+            42,
+            42,
+            2,
+            39,
+            1081081856,
+            4613937818241073152,
+            456928224199368548342553000122122251,
+            42,
+            857870609,
+            42405,
+            20,
+            99
+          ],
+          "simulation_clocks": 7504016,
+          "uart": "574d0100000cd50700002a0000000000000000000000000000002a000000000000000000000000000000020000000000000000000000000000002700000000000000000000000000000000007040000000000000000000000000000000000000084000000000000000000b00160021002c00370042004d0058002a00000000000000000000000000000011112233000000000000000000000000a5a500000000000000000000000000001400000000000000000000000000000063000000000000000000000000000000015b",
+          "first_uart_clock": 2209840,
+          "reset_injected": true,
+          "reset_at": 1088752
+        }
+      ]
+    },
+    {
+      "name": "reset-during-uart",
+      "source_sha256": "feecadb45ac8432c466b57153770a4b58c961e3560a0f605b0048f40680b6c5c",
+      "image_manifest_sha256": "36a972c5bcc5d16f5968d9d4bb31682164ec2fcdca11fc5622295dd15f578812",
+      "image_files": {
+        "code.hex": "a374c57f2fec5889bfb7f3a06319c8d7f452c80eafea79aafbdcef61421e4de4",
+        "functions.hex": "a64f86dc3c8b835ca15a9143254e1b788b8467a2b2e419bb52f3d35a08e5c767",
+        "types.hex": "2b3f5b9e729eb5362b70b12f9807caef17f60f511cc1965ece782fe172680e81",
+        "regions.hex": "b6777a280733531474c44c92df25c9a7c857c415d41c6edb01d57e19099898da",
+        "boot.hex": "9c481ebb88b8a6de0821bb2c46939bcddc0274e8ec2f74de8150d3114985964e",
+        "initialization.txt": "724fa89d2ce777ad8c6d2fe16641901300734763ecc10f1b36d54028f97f2b48",
+        "program.wasm": "b8522b92278318da522d639a04450f47f4b5621dc40964ee51c6319b4f5f1ea7"
+      },
+      "reference_compared": true,
+      "intentional_corruption": null,
+      "frames": [
+        {
+          "status": 0,
+          "trap": 0,
+          "cycles": 53,
+          "values": [
+            42
+          ],
+          "simulation_clocks": 2922480,
+          "uart": "574d01000001350000002a0000000000000000000000000000000d44",
+          "first_uart_clock": 2195856,
+          "reset_injected": true,
+          "reset_at": 1143216
+        }
+      ]
+    },
+    {
+      "name": "bad-header",
+      "source_sha256": "feecadb45ac8432c466b57153770a4b58c961e3560a0f605b0048f40680b6c5c",
+      "image_manifest_sha256": "36a972c5bcc5d16f5968d9d4bb31682164ec2fcdca11fc5622295dd15f578812",
+      "image_files": {
+        "code.hex": "a374c57f2fec5889bfb7f3a06319c8d7f452c80eafea79aafbdcef61421e4de4",
+        "functions.hex": "a64f86dc3c8b835ca15a9143254e1b788b8467a2b2e419bb52f3d35a08e5c767",
+        "types.hex": "2b3f5b9e729eb5362b70b12f9807caef17f60f511cc1965ece782fe172680e81",
+        "regions.hex": "b6777a280733531474c44c92df25c9a7c857c415d41c6edb01d57e19099898da",
+        "boot.hex": "fdda0b5dccb897aba0de6fc1e38f8a2796423fc1de637d0144de98b9b332bb2f",
+        "initialization.txt": "724fa89d2ce777ad8c6d2fe16641901300734763ecc10f1b36d54028f97f2b48",
+        "program.wasm": "b8522b92278318da522d639a04450f47f4b5621dc40964ee51c6319b4f5f1ea7"
+      },
+      "reference_compared": false,
+      "intentional_corruption": "bad-header",
+      "frames": [
+        {
+          "status": 2,
+          "trap": 254,
+          "cycles": 0,
+          "values": [],
+          "simulation_clocks": 1360112,
+          "uart": "574d0102fe00000000001107",
+          "first_uart_clock": 1048720,
+          "reset_injected": false,
+          "reset_at": 0
+        }
+      ]
+    }
+  ],
+  "negative_controls": {
+    "unreached_reset_rejected": true,
+    "corrupt_uart_rejected": true,
+    "wrong_expected_result_rejected": true
+  },
+  "elapsed_seconds": 14.279891951940954,
+  "physical_hardware_tested": false
+}

@@ -67,7 +67,7 @@ response cannot be mistaken for the current attempt.
 | Header field | Bytes |
 | --- | ---: |
 | ASCII `WMLD` | 4 |
-| Protocol version, currently 1 | 1 |
+| Protocol version: 1 (full layout) or 2 (compact) | 1 |
 | Nonce | 8 |
 | Hardware profile tag | 16 |
 | Payload byte count | 4 |
@@ -92,6 +92,31 @@ The current total is **55,552 bytes**, or 1,824 store writes. Type rows are
 padded to whole bytes. A full layout prevents remnants of a previous larger
 program from surviving in an unused row. The encoder checks file fingerprints,
 row counts and word widths before producing a packet.
+
+### Compact uploads (version 2)
+
+Version 2 keeps the header and handshake but begins the payload with five
+little-endian 32-bit row counts (instructions, functions, types, regions,
+boot records), followed by only those leading rows of each section. The
+encoder drops each section's trailing zero rows. The loader rejects, with the
+`length` status, any count above its store depth or a declared payload length
+other than 20 bytes plus the counted rows. After the checksum verifies, the
+loader itself writes zeros to every omitted row, one row per clock, and only
+then sends `committed`. Every accepted upload therefore still writes every
+store row exactly once, so no remnant of a larger earlier program survives.
+`encode(image, compact=True)` produces version 2; version 1 is unchanged.
+
+For the official-corpus session images, compact uploads shrink a typical
+upload from the profile's full layout to the rows actually used: the median
+suite needs 85 instructions and 97 boot records.
+
+The [loader checks](../tools/check_image_loader.py) use a per-row oracle that
+requires each store row to be written exactly once with its payload bytes or
+zeros. They add 60 random compact uploads (empty, partial and full sections,
+receive gaps and bad checksums), an all-empty and an all-full upload, an
+inconsistent length and an oversized count in every section. The
+[safety proof](../tools/prove_image_loader.py) extends its inductive
+invariants to the count and fill phases.
 
 CRC-32/IEEE covers the version, nonce, profile, length and complete payload,
 excluding the four magic bytes. It uses reflected polynomial `0xedb88320`,

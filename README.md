@@ -8,6 +8,26 @@ Completed work lives on `main`. Temporary development branches are integrated in
 
 ## Current status
 
+**Toward running the whole official suite on a purchased FPGA.** A
+[Genesys 2 port](docs/GENESYS2.md) of the programmable system keeps the
+verified 781.25 kHz CPU clock (200 MHz / 256) and 9,600-baud UART, with
+Digilent-derived pin constraints and a Vivado build and acceptance script.
+Neither the Vivado flow nor a board has been run. Both board-clock uploads
+passed through the Genesys 2 pins in simulation on the preceding RTL; a rerun
+on the current RTL is pending. New [session images](docs/SPEC-SESSIONS.md) run a
+complete official script on the programmable system itself: the device replays
+the script's whole store and reports every execution, global read and size
+query over UART, each checked against the native runner. The first, `i32`,
+[passes all 378 reported executions](docs/verification/spec-session-i32.json).
+All 259 suites [pack into session images](docs/verification/spec-sessions-packed.json)
+with memories sized to their native peaks; the complete on-device corpus run is in progress. A
+[compact upload format](docs/PROGRAM-UPLOAD.md#compact-uploads-version-2) sends
+only used rows and clears the rest in hardware; its RTL, mapped, four-state and
+unbounded safety checks pass. The 35 programmable, 29 standalone, nine board-clock
+cases and seven benchmarks [reproduce their archived UART results and cycle
+counts exactly](docs/verification/session-sequencer-regression/summary.json)
+with the session-capable sequencer.
+
 The CPU now implements integral floating-point rounding directly in the IEEE
 encoding. All 259 official suites pass [without memory stalls](docs/verification/core-rounding-native-zero.json)
 and [with three wait states](docs/verification/core-3.0-current.json), with
@@ -589,10 +609,10 @@ startup run. All UART bytes and CPU execution counts match, and every recorded
 wall-clock change matches the exact startup allowance: 2,949,121 or 3,604,481
 clocks per committed image. The CPU watchdog remains ten million clocks. A
 corrupted SRAM read blocks successful boot; 32 damaged comparison reports and
-three process-cleanup fixtures also pass their rejection/cleanup checks. CI
-includes both complete-CPU startup configurations; they have not passed there
-yet, because the jobs omitted the native preparation build until `make sim`
-was added after `9a3ce2b`. These runs use RTL and a
+three process-cleanup fixtures also pass their rejection/cleanup checks. Both
+complete-CPU startup configurations [passed in CI](https://github.com/Millillion/wasmetal/actions/runs/42339423246)
+at commit `201bfa0`, the first run after the jobs gained their missing native
+preparation build (`make sim`). These runs use RTL and a
 behavioral SRAM array; the default CPU/board image does not yet include this
 controller. Every shared reset repeats the destructive test.
 
