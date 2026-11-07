@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME -file "/home/lastmjs/development/wasmetal/build/asic-route-closure-functional/cells.v"
+lint_off -rule DECLFILENAME -file "/home/lastmjs/development/wasmetal/build/asic-route-closure-functional/mapped.v"
+lint_off -rule PINMISSING -file "/home/lastmjs/development/wasmetal/build/asic-route-closure-functional/mapped.v"
+lint_off -rule UNOPTFLAT -file "/home/lastmjs/development/wasmetal/build/asic-route-closure-functional/mapped.v" -match "*Circular combinational logic: 'completed_operations'*"

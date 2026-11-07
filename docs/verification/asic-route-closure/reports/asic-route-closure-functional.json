@@ -1,0 +1,3423 @@
+{
+  "status": "passed",
+  "scope": "startup controller, test master and SRAM adapter after detailed routing and repair; no CPU or SRAM array",
+  "backend": "sky130hd-routed-functional",
+  "inputs": {
+    "build/asic-route-closure/antennas.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/asic-route-closure/baseline-electrical.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/asic-route-closure/closure.log": "8ffb602df0dc6e459925b3b41a056bf77c5249d27416bd5bc57d5e63cbd3ff5b",
+    "build/asic-route-closure/congestion.rpt": "260909ff568048e30683dbc6c5cab8210a091c81ff97cbd4d794131bd37ed8e4",
+    "build/asic-route-closure/drc.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/asic-route-closure/electrical.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/asic-route-closure/extracted.odb": "e5bc5c91830e540a70a926dc6f876b9624f66dcdcd5f4de2f8f31dc23393a690",
+    "build/asic-route-closure/global-antennas.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/asic-route-closure/global-electrical-after.rpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build/asic-route-closure/global-electrical-before.rpt": "d7bad96baf0049c46604c7209b3a6206bc06fb0a966d0c1e0559a5ab34f0eca8",
+    "build/asic-route-closure/guide-coverage.csv": "44ae181ed523f3b7dc29a3afa39a62e8f0391606409771d88e48350c1aa60f91",
+    "build/asic-route-closure/incremental-congestion.rpt": "260909ff568048e30683dbc6c5cab8210a091c81ff97cbd4d794131bd37ed8e4",
+    "build/asic-route-closure/incremental.guide": "d319396ec12794bb5c117269935b9b2f660df0360aad8797ad5e0d63cfffe3f2",
+    "build/asic-route-closure/initial.guide": "017932b4c2745a6b89ce27d14afc1b946667e0b1a1fb739fa9dd0a1cb9ab09d4",
+    "build/asic-route-closure/repaired-global.odb": "ccbea096048f7d959a9d6393c5d1e2a471d844b0905b5f414dd81361f5107fcf",
+    "build/asic-route-closure/repaired-global.sdc": "ccb4aae710458a0968777df52235cb23e7157c053e5e3bed2d164ec044c1f3fb",
+    "build/asic-route-closure/repaired-global.v": "176cbae9e4ec4c931c22f8f7ac597ecb152d92d21310534c75cc2f785af696a3",
+    "build/asic-route-closure/repaired.guide": "6acdbfc1d3c8aca84cc73bc09b5e93a3ce3101c7a660cd6726df58a1b7ba2a0d",
+    "build/asic-route-closure/routed.def": "fa4dfb2945cfd9f8325b38a1c26596fe12f71dad50f106fc10a18be2c03375f6",
+    "build/asic-route-closure/routed.odb": "8a30fc97e947fc3dda66eb3ed1dbf021f897f25ec54a916fd2da328d160068e7",
+    "build/asic-route-closure/routed.sdc": "30319269fe23cf53da7d2d54097981ba24e1d49945c135a1c85a3ccd2bc56db7",
+    "build/asic-route-closure/routed.spef": "33d00dead9c6edee1f6e88d177bece8110ea3efa2ae7b514aee4f5f0f66e509c",
+    "build/asic-route-closure/routed.v": "49bba462aed58be8a63f0ef593750e000e104b87a44d8ef9e1763eb869377cac",
+    "build/asic-route-closure/timing-paths.rpt": "1cfa3b72621d0c1485803a8a434913f0e78b145fcd688bb02fc3985a76118f43",
+    "build/asic-route-closure/status.json": "d6d24f8f70f82ef7ff5f21ebf3e4f32de9519bd2f93fe97acd9eff0685d67227",
+    "build/asic-routing-extraction/extracted.odb": "d6551976cbe2a9c5ade847e21c487b85de6026504a857b69bf924f835c7ab822",
+    "build/asic-routing-extraction/routed.spef": "6f2ec7343ba0ed87c83336e39d9e6278f6284809d046ed553321bb89234427b7",
+    "build/asic-routing-extraction/status.json": "7a7252cad097e474f5e1964ebfe45f6e1fb240029632208cc75f3c474bca748f",
+    "build/asic-routing-extended/routed.sdc": "29fe8051abfe116d4d83fcbe84321a139084dcbe4fdfc5e4aaf2a31353f9ecc4",
+    "build/asic-physical-startup/cells.lib": "0f81bd28a3036906e9f483ffa4fb50197299796e7f57ee1bde1fe7ab749303d7",
+    ".cache/sky130hd-physical/setRC.tcl": "6aeade350bf498177ea61506db8849a064a71848b05c18ad6a6e1fc5d62c962a",
+    ".cache/sky130hd-physical/fastroute.tcl": "a84110f70e0ff1540f4cfed6730d56b3011c6c06a6c897a4bd600522bb175dd3",
+    ".cache/sky130hd-extraction/rcx_patterns.rules": "d5bd9b1077ceac9929416abca272a6d52e51cd9a575453a31d129817bb286476",
+    "tools/asic-startup-route-closure.tcl": "15f897fb70439a8416da2ea0454bb04e6ba3cc5b387f974541587992cd63a4f9",
+    "tools/close_asic_startup_route.py": "5649d4b3729b56e215be4ea09fe0c653201ebfe3062c8d7cec56ba3356020312",
+    "tools/asic_physical.lock.json": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+    ".cache/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9",
+    ".cache/sky130hd/config.mk": "1ca10588eab55845dbac6af01a6721fcb88071c7de4b1223024b5e7438f0fe5c",
+    ".cache/sky130hd/ORFS_LICENSE": "fae0db7a4c00c3125f037e5818e8cd0c8aa5c67fff2e8c558312068e9f2d1592",
+    ".cache/sky130hd/SKYWATER_LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "tools/asic_cells.lock.json": "4640e724ca783bd19751debbbd9d76822f9c893c92afd40476cf7ddd9372c79d",
+    "soc/asic/wasmetal_memory_startup.sv": "ed174a4299f4d8b0d2c4f1254baa478d78df5602958ef8fb0dece255b677df91",
+    "tests/asic/wasmetal_startup_sram.sv": "c55ba65d89de8d047e31a77bc59813ed6dd21a5e6c43ed87b9b1599333155018",
+    "tests/asic/startup_sram.cpp": "facfb194e16f454e6b5b5d0de91ce9c048a997c4a0637dd1c8207071bd8d9ebd",
+    "soc/asic/wasmetal_memory_bist.sv": "f8fa2b19f084e87e98b10c60b1fe88aebd295520c0aa5e34312f2473cd6f26c4",
+    "soc/asic/wasmetal_sram_memory.sv": "a3986152552f8abfc64e58d082eda0a2db1565a4730eefb355b3cde30bc860c2",
+    "tools/check_asic_startup.py": "00417d56983425ca07038776a1dcc17cfa2638d68e72da11551298aeef75300f",
+    "tools/asic_cells.py": "143f190e01483e1b1654c911168bf675eccf3cfca11deae23f2fac8c6047a3c0",
+    "tools/check_memory_startup.py": "b910098e50dd01cb9170ec4953a41c3172376d1da17841f7b72005762d427408",
+    "tools/build_standalone_gate_sim.py": "1957cd00d2f0d0404f5ba6596f88c1fa82036c33d12ad5466562ad7470a4de22",
+    "tools/build_board.py": "0fd470b7164c1e909c28f17abdf674fcf74a5b70bfd18c14e6a974a6287d2081",
+    "tools/run_xc7_system.py": "cd43cd5f5971c3cb69a2581ea741189ac006eb9bf25ca606d1599e3238d2f876",
+    "tools/prepare_standalone.py": "7ba106c6114117fc0039399faaf42cd7ee3579581aeaba63a798cd85e1d0fe8c",
+    "tools/upstream.lock.json": "6aa1020c6edfdce5fa513506619258d328fb1c0605a08d4a4ae2eb7075ea13ec",
+    ".cache/tools/usr/bin/yosys": "88c0a12bb814a1a8716b1ae10b482e35d3005ed558e1f5f626b3dc983ea3abd0",
+    ".cache/tools/usr/bin/yosys-abc": "001a99fb8648794076dd238e42f3bd8c5112a4b8bd89660883325a7e0d006043",
+    ".cache/tools/usr/bin/verilator_bin": "25f33046f0055a6982c67cdc55081685a844abb50d044cfda087bd418db9be6c",
+    "reports/asic-startup.json": "cc9c68bb4a80722c07ef3615a7f307af3a66a0a109653a05e94d8963f3bc44f1",
+    "build/asic-physical-startup/baseline.v": "c2e50fc4336f72f4036113ac77025b8eb590b09afc7d97e9787f71c91fcc7f03",
+    "build/asic-startup/131072-3-11/mapped.json": "772a60445dad5c19fca3ab477deae7e31f0bb74a880a2e13cf7e715336650af5",
+    "tools/asic_repair_diode.lock.json": "cd53a46e9d380944057c601359438a7a3cbe63a475ca5fa391e77e9b3e53999f",
+    "tools/asic_physical_cell_models.lock.json": "860c6a2a4bc1b736c135aca54cbb6a0708342835f1cef2c110b63c2dbbdd272a",
+    "tools/check_asic_route_closure.py": "1363f046a2ce661824be6334bbe7d30f78136d40c3a0e5288ad7676e82773c41",
+    "tools/check_asic_physical_startup.py": "bbbddb5a368e60a1ad0cce659ad93ec8df6f16847955d4269547228e9eeaa3f8",
+    "tools/asic_clock_tree.py": "10a32571868dd058ec91dc067dfcc1293f5e29e0a2f96ecb8d7c1d228ff54d88",
+    "tools/check_asic_cell_models.py": "d69a1f594229f16be71184191a1c50dd6f5cf4e59855088fbb5faa859e6d6246"
+  },
+  "route_status_sha256": "d6d24f8f70f82ef7ff5f21ebf3e4f32de9519bd2f93fe97acd9eff0685d67227",
+  "ram_bytes": 131072,
+  "read_latency": 3,
+  "response_timeout": 11,
+  "clock_period_ns": 100,
+  "normalization": {
+    "physical_taps_removed": 1070,
+    "removed_cell_connections_empty": true,
+    "functional_cells": 4555,
+    "surviving_cell_connections_unchanged": true,
+    "top_ports_unchanged": true
+  },
+  "clock_tree": {
+    "status": "passed",
+    "flip_flops": 620,
+    "state_instance_names_unchanged": true,
+    "all_clock_sources_original_primary_clock": true,
+    "allowed_clock_cells": [
+      "sky130_fd_sc_hd__clkbuf_16",
+      "sky130_fd_sc_hd__clkbuf_4",
+      "sky130_fd_sc_hd__clkbuf_8"
+    ],
+    "minimum_buffer_depth": 2,
+    "maximum_buffer_depth": 3,
+    "paths": {
+      "_6048_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6049_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6050_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6051_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6052_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6053_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6054_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6055_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6056_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6057_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6058_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6059_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6060_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6061_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6062_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6063_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6064_": [
+        "clkbuf_leaf_26_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6065_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6066_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6067_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6068_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6069_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6070_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6071_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6072_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6073_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6074_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6075_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6076_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6077_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6078_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6079_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6080_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6081_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6082_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6083_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6084_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6085_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6086_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6087_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6088_": [
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6089_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6090_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6091_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6092_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6093_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6094_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6095_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6096_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6097_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6098_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6099_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6100_": [
+        "clkbuf_leaf_14_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6101_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6102_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6103_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6104_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6105_": [
+        "clkbuf_leaf_14_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6106_": [
+        "clkbuf_leaf_14_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6107_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6108_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6109_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6110_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6111_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6112_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6113_": [
+        "clkbuf_leaf_26_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6114_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6115_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6116_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6117_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6118_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6119_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6120_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6121_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6122_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6123_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6124_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6125_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6126_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6127_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6128_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6129_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6130_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6131_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6132_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6133_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6134_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6135_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6136_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6137_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6138_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6139_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6140_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6141_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6142_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6143_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6144_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6145_": [
+        "clkbuf_leaf_10_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6146_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6147_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6148_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6149_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6150_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6151_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6152_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6153_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6154_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6155_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6156_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6157_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6158_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6159_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6160_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6161_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6162_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6163_": [
+        "clkbuf_leaf_13_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6164_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6165_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6166_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6167_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6168_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6169_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6170_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6171_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6172_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6173_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6174_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6175_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6176_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6177_": [
+        "clkbuf_leaf_23_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6178_": [
+        "clkbuf_leaf_18_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6179_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6180_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6181_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6182_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6183_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6184_": [
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6185_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6186_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6187_": [
+        "clkbuf_leaf_19_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6188_": [
+        "clkbuf_leaf_17_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6189_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6190_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6191_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6192_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6193_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6194_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6195_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6196_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6197_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6198_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6199_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6200_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6201_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6202_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6203_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6204_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6205_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6206_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6207_": [
+        "clkbuf_leaf_2_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6208_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6209_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6210_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6211_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6212_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6213_": [
+        "clkbuf_leaf_12_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6214_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6215_": [
+        "clkbuf_leaf_11_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6216_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6217_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6218_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6219_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6220_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6221_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6222_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6223_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6224_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6225_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6226_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6227_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6228_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6229_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6230_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6231_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6232_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6233_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6234_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6235_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6236_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6237_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6238_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6239_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6240_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6241_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6242_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6243_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6244_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6245_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6246_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6247_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6248_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6249_": [
+        "clkbuf_leaf_43_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6250_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6251_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6252_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6253_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6254_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6255_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6256_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6257_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6258_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6259_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6260_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6261_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6262_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6263_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6264_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6265_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6266_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6267_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6268_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6269_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6270_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6271_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6272_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6273_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6274_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6275_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6276_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6277_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6278_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6279_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6280_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6281_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6282_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6283_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6284_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6285_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6286_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6287_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6288_": [
+        "clkbuf_leaf_36_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6289_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6290_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6291_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6292_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6293_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6294_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6295_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6296_": [
+        "clkbuf_leaf_42_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6297_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6298_": [
+        "clkbuf_leaf_52_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6299_": [
+        "clkbuf_leaf_43_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6300_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6301_": [
+        "clkbuf_leaf_35_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6302_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6303_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6304_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6305_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6306_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6307_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6308_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6309_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6310_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6311_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6312_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6313_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6314_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6315_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6316_": [
+        "clkbuf_leaf_31_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6317_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6318_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6319_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6320_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6321_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6322_": [
+        "clkbuf_leaf_44_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6323_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6324_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6325_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6326_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6327_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6328_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6329_": [
+        "clkbuf_leaf_40_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6330_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6331_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6332_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6333_": [
+        "clkbuf_leaf_45_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6334_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6335_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6336_": [
+        "clkbuf_leaf_39_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6337_": [
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6338_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6339_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6340_": [
+        "clkbuf_leaf_32_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6341_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6342_": [
+        "clkbuf_leaf_41_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6343_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6344_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6345_": [
+        "clkbuf_leaf_38_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6346_": [
+        "clkbuf_leaf_37_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6347_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6348_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6349_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6350_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6351_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6352_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6353_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6354_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6355_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6356_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6357_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6358_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6359_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6360_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6361_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6362_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6363_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6364_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6365_": [
+        "clkbuf_leaf_9_clk",
+        "clkbuf_3_2__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6366_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6367_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6368_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6369_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6370_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6371_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6372_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6373_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6374_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6375_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6376_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6377_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6378_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6379_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6380_": [
+        "clkbuf_leaf_69_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6381_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6382_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6383_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6384_": [
+        "clkbuf_leaf_5_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6385_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6386_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6387_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6388_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6389_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6390_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6391_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6392_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6393_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6394_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6395_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6396_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6397_": [
+        "clkbuf_leaf_75_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6398_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6399_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6400_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6401_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6402_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6403_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6404_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6405_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6406_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6407_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6408_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6409_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6410_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6411_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6412_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6413_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6414_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6415_": [
+        "clkbuf_leaf_71_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6416_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6417_": [
+        "clkbuf_leaf_70_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6418_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6419_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6420_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6421_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6422_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6423_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6424_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6425_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6426_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6427_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6428_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6429_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6430_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6431_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6432_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6433_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6434_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6435_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6436_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6437_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6438_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6439_": [
+        "clkbuf_leaf_66_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6440_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6441_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6442_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6443_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6444_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6445_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6446_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6447_": [
+        "clkbuf_leaf_68_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6448_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6449_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6450_": [
+        "clkbuf_leaf_65_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6451_": [
+        "clkbuf_leaf_25_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6452_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6453_": [
+        "clkbuf_leaf_48_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6454_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6455_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6456_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6457_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6458_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6459_": [
+        "clkbuf_leaf_67_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6460_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6461_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6462_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6463_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6464_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6465_": [
+        "clkbuf_leaf_47_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6466_": [
+        "clkbuf_leaf_46_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6467_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6468_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6469_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6470_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6471_": [
+        "clkbuf_leaf_76_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6472_": [
+        "clkbuf_leaf_4_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6473_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6474_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6475_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6476_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6477_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6478_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6479_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6480_": [
+        "clkbuf_leaf_4_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6481_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6482_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6483_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6484_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6485_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6486_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6487_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6488_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6489_": [
+        "clkbuf_leaf_5_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6490_": [
+        "clkbuf_leaf_73_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6491_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6492_": [
+        "clkbuf_leaf_69_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6493_": [
+        "clkbuf_leaf_4_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6494_": [
+        "clkbuf_leaf_72_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6495_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6496_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6497_": [
+        "clkbuf_leaf_74_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6498_": [
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6499_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6500_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6501_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6502_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6503_": [
+        "clkbuf_leaf_53_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6504_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6505_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6506_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6507_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6508_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6509_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6510_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6511_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6512_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6513_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6514_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6515_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6516_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6517_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6518_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6519_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6520_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6521_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6522_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6523_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6524_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6525_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6526_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6527_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6528_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6529_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6530_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6531_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6532_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6533_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6534_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6535_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6536_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6537_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6538_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6539_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6540_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6541_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6542_": [
+        "clkbuf_leaf_59_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6543_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6544_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6545_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6546_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6547_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6548_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6549_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6550_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6551_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6552_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6553_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6554_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6555_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6556_": [
+        "clkbuf_leaf_55_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6557_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6558_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6559_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6560_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6561_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6562_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6563_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6564_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6565_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6566_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6567_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6568_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6569_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6570_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6571_": [
+        "clkbuf_leaf_53_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6572_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6573_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6574_": [
+        "clkbuf_leaf_57_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6575_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6576_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6577_": [
+        "clkbuf_leaf_56_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6578_": [
+        "clkbuf_leaf_58_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6579_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6580_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6581_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6582_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6583_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6584_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6585_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6586_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6587_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6588_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6589_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6590_": [
+        "clkbuf_leaf_22_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6591_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6592_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6593_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6594_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6595_": [
+        "clkbuf_leaf_20_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6596_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6597_": [
+        "clkbuf_leaf_21_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6598_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6599_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6600_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6601_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6602_": [
+        "clkbuf_leaf_68_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6603_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6604_": [
+        "clkbuf_leaf_64_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6605_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6606_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6607_": [
+        "clkbuf_leaf_68_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6608_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6609_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6610_": [
+        "clkbuf_leaf_63_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6611_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6612_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6613_": [
+        "clkbuf_leaf_62_clk",
+        "clkbuf_3_4__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6614_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6615_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6616_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6617_": [
+        "clkbuf_leaf_51_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6618_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6619_": [
+        "clkbuf_leaf_60_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6620_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6621_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6622_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6623_": [
+        "clkbuf_leaf_54_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6624_": [
+        "clkbuf_leaf_50_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6625_": [
+        "clkbuf_leaf_61_clk",
+        "clkbuf_3_5__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6626_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6627_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6628_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6629_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6630_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6631_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6632_": [
+        "clkbuf_leaf_28_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6633_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6634_": [
+        "clkbuf_leaf_29_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6635_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6636_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6637_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6638_": [
+        "clkbuf_leaf_30_clk",
+        "clkbuf_3_6__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6639_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6640_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6641_": [
+        "clkbuf_leaf_33_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6642_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6643_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6644_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6645_": [
+        "clkbuf_leaf_34_clk",
+        "clkbuf_3_7__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6646_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6647_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6648_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6649_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6650_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6651_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6652_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6653_": [
+        "clkbuf_leaf_3_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6654_": [
+        "clkbuf_leaf_0_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6655_": [
+        "clkbuf_leaf_1_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6656_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6657_": [
+        "clkbuf_leaf_78_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6658_": [
+        "clkbuf_leaf_77_clk",
+        "clkbuf_3_0__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6659_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6660_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6661_": [
+        "clkbuf_leaf_24_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6662_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6663_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6664_": [
+        "clkbuf_leaf_5_clk",
+        "clkbuf_3_1__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6665_": [
+        "clkbuf_leaf_6_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6666_": [
+        "clkbuf_leaf_7_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ],
+      "_6667_": [
+        "clkbuf_leaf_8_clk",
+        "clkbuf_3_3__f_clk",
+        "clkbuf_0_clk"
+      ]
+    }
+  },
+  "standard_cells": {
+    "sky130_fd_sc_hd__diode_2": 247,
+    "sky130_fd_sc_hd__clkinv_1": 16,
+    "sky130_fd_sc_hd__inv_4": 1,
+    "sky130_fd_sc_hd__nand2_1": 548,
+    "sky130_fd_sc_hd__nor2_4": 4,
+    "sky130_fd_sc_hd__nand2_2": 2,
+    "sky130_fd_sc_hd__inv_8": 9,
+    "sky130_fd_sc_hd__o21ai_0": 242,
+    "sky130_fd_sc_hd__o311ai_0": 1,
+    "sky130_fd_sc_hd__a21oi_1": 805,
+    "sky130_fd_sc_hd__nor2_1": 270,
+    "sky130_fd_sc_hd__o21bai_1": 2,
+    "sky130_fd_sc_hd__and2_4": 1,
+    "sky130_fd_sc_hd__or2_4": 1,
+    "sky130_fd_sc_hd__or2_0": 9,
+    "sky130_fd_sc_hd__or3_1": 8,
+    "sky130_fd_sc_hd__xnor2_1": 218,
+    "sky130_fd_sc_hd__a31oi_1": 18,
+    "sky130_fd_sc_hd__nand2b_1": 4,
+    "sky130_fd_sc_hd__nor3b_2": 3,
+    "sky130_fd_sc_hd__or3b_1": 4,
+    "sky130_fd_sc_hd__xnor2_2": 2,
+    "sky130_fd_sc_hd__nor2b_1": 7,
+    "sky130_fd_sc_hd__a21o_1": 6,
+    "sky130_fd_sc_hd__and3b_1": 4,
+    "sky130_fd_sc_hd__nand3b_1": 3,
+    "sky130_fd_sc_hd__a21oi_2": 4,
+    "sky130_fd_sc_hd__nor3_1": 38,
+    "sky130_fd_sc_hd__nand3_1": 420,
+    "sky130_fd_sc_hd__nand4_1": 47,
+    "sky130_fd_sc_hd__nor3_2": 3,
+    "sky130_fd_sc_hd__nor4_1": 28,
+    "sky130_fd_sc_hd__a21bo_1": 1,
+    "sky130_fd_sc_hd__a21boi_0": 4,
+    "sky130_fd_sc_hd__nor4_2": 1,
+    "sky130_fd_sc_hd__mux2i_1": 94,
+    "sky130_fd_sc_hd__and2_0": 5,
+    "sky130_fd_sc_hd__or2_1": 1,
+    "sky130_fd_sc_hd__and3_4": 2,
+    "sky130_fd_sc_hd__nand3_4": 1,
+    "sky130_fd_sc_hd__o31ai_1": 1,
+    "sky130_fd_sc_hd__o211ai_1": 7,
+    "sky130_fd_sc_hd__or2_2": 1,
+    "sky130_fd_sc_hd__a22o_1": 6,
+    "sky130_fd_sc_hd__xor2_1": 41,
+    "sky130_fd_sc_hd__a41oi_1": 2,
+    "sky130_fd_sc_hd__mux2_1": 1,
+    "sky130_fd_sc_hd__a2bb2oi_1": 2,
+    "sky130_fd_sc_hd__o2bb2ai_1": 4,
+    "sky130_fd_sc_hd__xnor3_1": 5,
+    "sky130_fd_sc_hd__a211o_1": 2,
+    "sky130_fd_sc_hd__o22ai_1": 2,
+    "sky130_fd_sc_hd__a222oi_1": 2,
+    "sky130_fd_sc_hd__a2111oi_0": 5,
+    "sky130_fd_sc_hd__o221ai_1": 2,
+    "sky130_fd_sc_hd__a221o_1": 1,
+    "sky130_fd_sc_hd__or4_1": 5,
+    "sky130_fd_sc_hd__o221a_1": 1,
+    "sky130_fd_sc_hd__o2111a_1": 1,
+    "sky130_fd_sc_hd__and4_1": 5,
+    "sky130_fd_sc_hd__a211oi_1": 4,
+    "sky130_fd_sc_hd__o21a_1": 3,
+    "sky130_fd_sc_hd__nor4bb_1": 1,
+    "sky130_fd_sc_hd__or3_4": 1,
+    "sky130_fd_sc_hd__nor2_2": 1,
+    "sky130_fd_sc_hd__a41o_1": 2,
+    "sky130_fd_sc_hd__a221oi_1": 1,
+    "sky130_fd_sc_hd__a32oi_1": 1,
+    "sky130_fd_sc_hd__o21ai_2": 2,
+    "sky130_fd_sc_hd__o21ai_1": 3,
+    "sky130_fd_sc_hd__a311oi_1": 2,
+    "sky130_fd_sc_hd__and3_1": 131,
+    "sky130_fd_sc_hd__a211oi_2": 1,
+    "sky130_fd_sc_hd__maj3_1": 4,
+    "sky130_fd_sc_hd__a31o_1": 6,
+    "sky130_fd_sc_hd__a22oi_1": 2,
+    "sky130_fd_sc_hd__nor4b_1": 1,
+    "sky130_fd_sc_hd__dfxtp_1": 612,
+    "sky130_fd_sc_hd__dfxtp_4": 3,
+    "sky130_fd_sc_hd__dfxtp_2": 5,
+    "sky130_fd_sc_hd__clkbuf_16": 86,
+    "sky130_fd_sc_hd__clkinv_16": 3,
+    "sky130_fd_sc_hd__clkinv_4": 17,
+    "sky130_fd_sc_hd__clkinvlp_4": 4,
+    "sky130_fd_sc_hd__clkinv_8": 1,
+    "sky130_fd_sc_hd__clkbuf_4": 11,
+    "sky130_fd_sc_hd__bufinv_16": 9,
+    "sky130_fd_sc_hd__clkbuf_8": 17,
+    "sky130_fd_sc_hd__inv_12": 2,
+    "sky130_fd_sc_hd__inv_6": 4,
+    "sky130_fd_sc_hd__inv_16": 1,
+    "sky130_fd_sc_hd__clkinv_2": 3,
+    "sky130_fd_sc_hd__dlygate4sd3_1": 308,
+    "sky130_fd_sc_hd__buf_12": 11,
+    "sky130_fd_sc_hd__buf_16": 25,
+    "sky130_fd_sc_hd__buf_8": 2,
+    "sky130_fd_sc_hd__buf_6": 17,
+    "sky130_fd_sc_hd__buf_4": 5,
+    "sky130_fd_sc_hd__conb_1": 63
+  },
+  "diodes": 247,
+  "post_route_diodes": 24,
+  "non_diode_pin_incidence_unchanged_by_detailed_routing": true,
+  "proofs": {
+    "inductive_equivalence": true,
+    "induction_steps": 1,
+    "state_points": 620,
+    "comparison_point_model_sha256": "79a812e847e132c96414e6dca775f97cc1835e165b3bc2fafa247ea28413368c",
+    "reset_base_cycles": 12,
+    "induction_log_sha256": "2756c893660e7c4b31dd48267e141d8cc57a12966119c24023c644aae3dae4d6",
+    "reset_point_log_sha256": "601534dbadee934087aad414976ff5430d86330e43ccdb3443ee158001d42bc8",
+    "reset_pin_log_sha256": "d6cc689bf480a28e47eec2a8b3a04910ae261210aed6b39e324ca01a5aab520e"
+  },
+  "cell_report_sha256": "b96d518db182194d96bf957f26579cdc38c882752f6b4212438f639281ead71a",
+  "netlist_sha256": "7871e62f22fe413b124edadc406992ea4e52f8d1adbe12e6d4e9890ec030f698",
+  "functional_models_sha256": "134426f2b72afdfd87f48249e90e82c5c329b56f5696ae8a323a55a1e928946c",
+  "binary_sha256": "9a35b305d85fe35a4a83939034e016ea25372e7e2fcd16bb925589853d3e29a8",
+  "observations": {
+    "status": "passed",
+    "cycles": 50513199,
+    "macro_commands": 9185180,
+    "test_commands": 9183235,
+    "cpu_commands": 1945,
+    "cpu_responses": 2125,
+    "cpu_faults": 180,
+    "successful_boots": 13,
+    "failed_boots": 2,
+    "resets": 18,
+    "resets_with_pending_reads": 0,
+    "old_reads_after_reset": 0,
+    "held_valid_cycles": 4310,
+    "trace": 15639969748589277340
+  },
+  "observations_log_sha256": "551d46a76125372e6e3d36f72330a9be81375f9f3a4e0ee8c555c9546102db85",
+  "negative_controls": [
+    {
+      "name": "connected-physical-tap",
+      "diagnostic": "cannot discard a connected physical cell"
+    },
+    {
+      "name": "deleted-functional-cell",
+      "diagnostic": "normalization changed functional-cell inventory"
+    },
+    {
+      "name": "rewired-functional-input",
+      "diagnostic": "normalization changed cell-pin incidence"
+    },
+    {
+      "name": "rewired-flip-flop",
+      "diagnostic": "detailed routing changed non-diode pin incidence"
+    },
+    {
+      "name": "deleted-logic-cell",
+      "diagnostic": "detailed routing changed non-diode pin incidence"
+    },
+    {
+      "name": "diode-as-driver",
+      "diagnostic": "diode drives a net"
+    },
+    {
+      "name": "wrong-clock-1",
+      "diagnostic": "flip-flop clock reaches an input other than clk"
+    },
+    {
+      "name": "wrong-clock-2",
+      "diagnostic": "flip-flop clock reaches an input other than clk"
+    },
+    {
+      "name": "wrong-clock-4",
+      "diagnostic": "flip-flop clock reaches an input other than clk"
+    },
+    {
+      "name": "inverted-clock-buffer",
+      "diagnostic": "clock path contains an unapproved or inverting cell"
+    },
+    {
+      "name": "clock-buffer-cycle",
+      "diagnostic": "clock tree contains a cycle"
+    },
+    {
+      "name": "duplicate-clock-driver",
+      "diagnostic": "undriven or multiply driven clock-tree signal"
+    },
+    {
+      "name": "missing-flop-clock",
+      "diagnostic": "missing or nonscalar flip-flop clock"
+    },
+    {
+      "name": "wide-flop-clock",
+      "diagnostic": "missing or nonscalar flip-flop clock"
+    },
+    {
+      "name": "changed-state-instance",
+      "diagnostic": "physical optimization changed state-instance inventory"
+    },
+    {
+      "name": "diode-driven-output",
+      "diagnostic": "diode is not a purely passive digital input"
+    },
+    {
+      "name": "diode-internal-logic",
+      "diagnostic": "diode is not a purely passive digital input"
+    },
+    {
+      "name": "diode-extra-port",
+      "diagnostic": "diode is not a purely passive digital input"
+    },
+    {
+      "name": "corrupt-sram-read",
+      "log_sha256": "6330e87c9f8d614e9c9fb9a8411d584aa131cdd2f66aa679898764d2c3b47115"
+    },
+    {
+      "name": "wrong-routed-tie-formal",
+      "rejected": true,
+      "log_sha256": "27c1b3546d145f2ac288ca104be49449874cc19a7aad34ac6243aebd24c7150a"
+    }
+  ],
+  "negative_controls_rejected": 20,
+  "tool_lock_sha256": "cceb32c7c0c900675399eb13fc86a4be0642f1400147fc71a4d0ca047082a9e5",
+  "elapsed_seconds": 532.8979242059868,
+  "physical_hardware_tested": false,
+  "physical_timing_accepted": false,
+  "limitations": [
+    "Binary functionality with zero cell delays; no SDF, analog or power-pin simulation.",
+    "One typical 1.8 V, 25 C library; no multi-corner timing, DRC/LVS signoff, SRAM macro, pads or test logic."
+  ]
+}
